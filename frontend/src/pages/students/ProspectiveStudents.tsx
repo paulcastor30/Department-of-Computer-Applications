@@ -1,0 +1,6 @@
+import { Link } from "react-router-dom";
+import { PageHero } from "@/components/ui/hero-section";
+import { Section, SectionHeader } from "@/components/ui/section";
+import { ProcessSteps } from "@/components/ui/timeline";
+import { Button } from "@/components/ui/button";
+export default function ProspectiveStudents() { return (<><PageHero title="Prospective Students" subtitle="Begin your journey in computer applications." /><Section><SectionHeader title="Why Choose Us?" /><div className="grid gap-4 md:grid-cols-3">{["AACCUP Level III Accredited", "95% Employment Rate", "Industry Partnerships"].map((r, i) => <div key={i} className="card-elevated p-6 text-center font-medium">{r}</div>)}</div></Section><Section variant="muted"><SectionHeader title="Admission Process" /><ProcessSteps steps={[{ step: 1, title: "Apply Online", description: "Submit your application" }, { step: 2, title: "Take Entrance Exam", description: "Schedule and complete the exam" }, { step: 3, title: "Interview", description: "Meet with the admissions team" }, { step: 4, title: "Enroll", description: "Complete enrollment requirements" }]} /><div className="text-center mt-8"><Button className="btn-cta-primary" asChild><Link to="/admissions">Apply Now</Link></Button></div></Section></>); }

@@ -1,0 +1,363 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Department of Computer Applications - Academic Design System */
+/* Warm, welcoming, professional academic aesthetic */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core Academic Palette - Navy & Gold */
+    --background: 40 33% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Deep Academic Navy */
+    --primary: 222 47% 20%;
+    --primary-foreground: 40 33% 98%;
+
+    /* Secondary - Warm Gold */
+    --secondary: 45 93% 47%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Muted - Warm Gray */
+    --muted: 40 20% 94%;
+    --muted-foreground: 222 20% 40%;
+
+    /* Accent - Teal for Innovation */
+    --accent: 174 62% 38%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 222 47% 20%;
+
+    --radius: 0.75rem;
+
+    /* Extended Palette */
+    --navy-50: 222 47% 97%;
+    --navy-100: 222 47% 92%;
+    --navy-200: 222 47% 82%;
+    --navy-300: 222 47% 65%;
+    --navy-400: 222 47% 45%;
+    --navy-500: 222 47% 30%;
+    --navy-600: 222 47% 20%;
+    --navy-700: 222 47% 15%;
+    --navy-800: 222 47% 11%;
+    --navy-900: 222 47% 7%;
+
+    --gold-50: 45 93% 97%;
+    --gold-100: 45 93% 90%;
+    --gold-200: 45 93% 75%;
+    --gold-300: 45 93% 60%;
+    --gold-400: 45 93% 47%;
+    --gold-500: 40 93% 40%;
+    --gold-600: 35 93% 35%;
+
+    --teal-50: 174 62% 97%;
+    --teal-100: 174 62% 90%;
+    --teal-200: 174 62% 70%;
+    --teal-300: 174 62% 50%;
+    --teal-400: 174 62% 38%;
+    --teal-500: 174 62% 28%;
+
+    /* Success/Info */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 222 47% 11%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 15%) 0%, hsl(222 47% 25%) 50%, hsl(200 50% 30%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(45 93% 47%) 0%, hsl(35 93% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 33% 98%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(40 33% 98%) 0%, hsl(40 20% 95%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.08), 0 2px 4px -2px hsl(222 47% 11% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.08), 0 4px 6px -4px hsl(222 47% 11% / 0.04);
+    --shadow-xl: 0 20px 25px -5px hsl(222 47% 11% / 0.1), 0 8px 10px -6px hsl(222 47% 11% / 0.08);
+    --shadow-gold: 0 4px 14px 0 hsl(45 93% 47% / 0.25);
+    --shadow-card: 0 2px 8px 0 hsl(222 47% 11% / 0.06);
+
+    /* Sidebar */
+    --sidebar-background: 222 47% 15%;
+    --sidebar-foreground: 40 33% 98%;
+    --sidebar-primary: 45 93% 47%;
+    --sidebar-primary-foreground: 222 47% 11%;
+    --sidebar-accent: 222 47% 25%;
+    --sidebar-accent-foreground: 40 33% 98%;
+    --sidebar-border: 222 47% 25%;
+    --sidebar-ring: 45 93% 47%;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 40 33% 98%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 40 33% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 40 33% 98%;
+
+    --primary: 45 93% 55%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 222 47% 25%;
+    --secondary-foreground: 40 33% 98%;
+
+    --muted: 222 30% 18%;
+    --muted-foreground: 40 20% 70%;
+
+    --accent: 174 62% 45%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 30% 22%;
+    --input: 222 30% 22%;
+    --ring: 45 93% 55%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(222 47% 7%) 0%, hsl(222 47% 15%) 50%, hsl(200 50% 20%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    @apply font-bold tracking-tight;
+  }
+
+  .font-serif {
+    font-family: 'Merriweather', Georgia, serif;
+  }
+}
+
+@layer components {
+  /* Hero Variants */
+  .hero-primary {
+    background: var(--gradient-hero);
+    @apply text-white relative overflow-hidden;
+  }
+
+  .hero-primary::before {
+    content: '';
+    @apply absolute inset-0 opacity-10;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* CTA Button Variants */
+  .btn-cta-primary {
+    @apply bg-secondary text-secondary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-cta-primary:hover {
+    @apply scale-105;
+    filter: brightness(1.05);
+  }
+
+  .btn-cta-secondary {
+    @apply bg-white/10 backdrop-blur-sm text-white border border-white/30 font-semibold px-6 py-3 rounded-lg transition-all duration-200;
+  }
+
+  .btn-cta-secondary:hover {
+    @apply bg-white/20;
+  }
+
+  /* Card Variants */
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--shadow-lg);
+    @apply -translate-y-1;
+  }
+
+  .card-featured {
+    @apply bg-card rounded-xl border-2 border-secondary transition-all duration-300;
+    box-shadow: var(--shadow-gold);
+  }
+
+  /* Stat Tiles */
+  .stat-tile {
+    @apply bg-card rounded-xl p-6 border border-border text-center transition-all duration-300;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stat-tile:hover {
+    box-shadow: var(--shadow-md);
+    @apply border-secondary/50;
+  }
+
+  .stat-value {
+    @apply text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Section Styles */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .section-header {
+    @apply text-center max-w-3xl mx-auto mb-12;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground;
+  }
+
+  /* Evidence Block (Accreditation Ready) */
+  .evidence-block {
+    @apply bg-teal-50 border-l-4 border-accent rounded-r-lg p-4 my-4;
+  }
+
+  .evidence-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium bg-accent/10 text-accent;
+  }
+
+  /* Download Block */
+  .download-block {
+    @apply flex items-center gap-4 p-4 bg-muted rounded-lg border border-border hover:border-primary/30 transition-colors cursor-pointer;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    @apply relative pl-8 pb-8 border-l-2 border-border last:border-l-transparent last:pb-0;
+  }
+
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-secondary border-4 border-background;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumb-link {
+    @apply text-muted-foreground hover:text-primary transition-colors text-sm;
+  }
+
+  .breadcrumb-current {
+    @apply text-foreground font-medium text-sm;
+  }
+
+  /* Navigation Active State */
+  .nav-link-active {
+    @apply text-secondary font-semibold;
+  }
+
+  /* Table Styles */
+  .table-academic {
+    @apply w-full border-collapse;
+  }
+
+  .table-academic th {
+    @apply bg-primary text-primary-foreground px-4 py-3 text-left font-semibold text-sm uppercase tracking-wide;
+  }
+
+  .table-academic td {
+    @apply px-4 py-3 border-b border-border;
+  }
+
+  .table-academic tr:hover td {
+    @apply bg-muted/50;
+  }
+
+  /* Badge Variants */
+  .badge-status-active {
+    @apply bg-success/10 text-success border border-success/20;
+  }
+
+  .badge-status-completed {
+    @apply bg-primary/10 text-primary border border-primary/20;
+  }
+
+  .badge-status-pending {
+    @apply bg-warning/10 text-warning-foreground border border-warning/20;
+  }
+
+  /* Form Styles */
+  .form-label {
+    @apply block text-sm font-medium text-foreground mb-2;
+  }
+
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all;
+  }
+
+  /* Skip Link for Accessibility */
+  .skip-link {
+    @apply absolute left-0 top-0 bg-primary text-primary-foreground px-4 py-2 z-50 transform -translate-y-full focus:translate-y-0 transition-transform;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .bg-pattern-dots {
+    background-image: radial-gradient(hsl(var(--muted-foreground) / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
