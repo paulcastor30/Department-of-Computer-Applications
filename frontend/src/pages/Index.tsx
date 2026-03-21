@@ -173,50 +173,22 @@ export default function Index() {
               graduates who are ready to make an immediate impact in the technology sector.
             </p>
             <div className="space-y-4">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
-                  <Award className="h-6 w-6 text-secondary" />
+              {[
+                { icon: Award, title: "Accredited Excellence", desc: "AACCUP Level III accredited program with ongoing pursuit of CHED Center of Excellence status." },
+                { icon: Users, title: "Expert Faculty", desc: "Learn from experienced professionals with advanced degrees and active research portfolios." },
+                { icon: Briefcase, title: "Industry Connections", desc: "Strong partnerships with leading tech companies for internships, job placement, and curriculum advisory." },
+                { icon: FlaskConical, title: "Research Culture", desc: "Active research programs with opportunities for students to participate in funded projects." },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                    <item.icon className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-primary mb-1">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Accredited Excellence</h3>
-                  <p className="text-sm text-muted-foreground">
-                    AACCUP Level III accredited program with ongoing pursuit of CHED Center of Excellence status.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
-                  <Users className="h-6 w-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Expert Faculty</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Learn from experienced professionals with advanced degrees and active research portfolios.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
-                  <Briefcase className="h-6 w-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Industry Connections</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Strong partnerships with leading tech companies for internships, job placement, and curriculum advisory.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center shrink-0">
-                  <FlaskConical className="h-6 w-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-1">Research Culture</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Active research programs with opportunities for students to participate in funded projects.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="relative">
@@ -279,7 +251,7 @@ export default function Index() {
                     </div>
                     <div>
                       <span className="text-xs font-medium text-secondary">{event.type}</span>
-                      <h4 className="font-medium text-foreground">{event.title}</h4>
+                      <h4 className="font-medium text-primary">{event.title}</h4>
                       <p className="text-sm text-muted-foreground">{event.date}</p>
                     </div>
                   </div>
@@ -320,38 +292,21 @@ export default function Index() {
       {/* Quick Links */}
       <Section variant="muted" className="py-12">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Link to="/admissions" className="download-block group">
-            <GraduationCap className="h-6 w-6 text-primary" />
-            <div className="flex-1">
-              <span className="font-medium group-hover:text-primary transition-colors">Admissions</span>
-              <p className="text-sm text-muted-foreground">Apply to our programs</p>
-            </div>
-            <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-          </Link>
-          <Link to="/research" className="download-block group">
-            <FlaskConical className="h-6 w-6 text-primary" />
-            <div className="flex-1">
-              <span className="font-medium group-hover:text-primary transition-colors">Research</span>
-              <p className="text-sm text-muted-foreground">Explore our research</p>
-            </div>
-            <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-          </Link>
-          <Link to="/students/current" className="download-block group">
-            <FileText className="h-6 w-6 text-primary" />
-            <div className="flex-1">
-              <span className="font-medium group-hover:text-primary transition-colors">Student Resources</span>
-              <p className="text-sm text-muted-foreground">Forms and documents</p>
-            </div>
-            <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-          </Link>
-          <Link to="/about/contact" className="download-block group">
-            <Users className="h-6 w-6 text-primary" />
-            <div className="flex-1">
-              <span className="font-medium group-hover:text-primary transition-colors">Contact Us</span>
-              <p className="text-sm text-muted-foreground">Get in touch</p>
-            </div>
-            <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-          </Link>
+          {[
+            { to: "/admissions", icon: GraduationCap, title: "Admissions", desc: "Apply to our programs" },
+            { to: "/research", icon: FlaskConical, title: "Research", desc: "Explore our research" },
+            { to: "/students/current", icon: FileText, title: "Student Resources", desc: "Forms and documents" },
+            { to: "/about/contact", icon: Users, title: "Contact Us", desc: "Get in touch" },
+          ].map((item, i) => (
+            <Link key={i} to={item.to} className="download-block group">
+              <item.icon className="h-6 w-6 text-accent" />
+              <div className="flex-1">
+                <span className="font-medium text-primary group-hover:text-secondary transition-colors">{item.title}</span>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              </div>
+              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-secondary transition-colors" />
+            </Link>
+          ))}
         </div>
       </Section>
     </>

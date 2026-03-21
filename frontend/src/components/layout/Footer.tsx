@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+
+import Logo from "@/assets/ccs-logo.png";
+
 
 const quickLinks = [
   {
@@ -59,43 +62,44 @@ export function Footer() {
         <div className="grid gap-8 lg:grid-cols-5">
           {/* Brand & Contact */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center">
-                <GraduationCap className="h-7 w-7 text-secondary-foreground" />
-              </div>
-              <div>
-                <div className="font-bold text-lg">Computer Applications</div>
-                <div className="text-xs opacity-80">Department of Excellence</div>
-              </div>
-            </Link>
+          <Link to="/" className="flex items-center gap-3 mb-6">
+            <img
+              src={Logo}
+              alt="Computer Applications Logo"
+              className="h-20 w-20 object-contain"
+            />
+            <div>
+              <div className="font-bold text-lg text-white">Computer Applications</div>
+              <div className="text-xs opacity-80">Department of Excellence</div>
+            </div>
+          </Link>
+
             <div className="space-y-3 text-sm opacity-90">
-              <a href="mailto:dca@university.edu.ph" className="flex items-center gap-2 hover:text-secondary transition-colors">
+              <a href="mailto:ccs.ca@g.msuiit.edu.ph" className="flex items-center gap-2 hover:text-secondary transition-colors">
                 <Mail className="h-4 w-4" />
-                dca@university.edu.ph
+                ccs.ca@g.msuiit.edu.ph
               </a>
               <a href="tel:+63-2-1234-5678" className="flex items-center gap-2 hover:text-secondary transition-colors">
                 <Phone className="h-4 w-4" />
-                +63 (2) 1234-5678
+                (+63) 912-345-6789
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>College of Science Building, University Campus, Metro Manila, Philippines 1234</span>
+                <span>College of Computer Studies, Mindanao State University - Iligan Institute of Technology, Andres Bonifacio Avenue, Iligan City, 9200 Philippines</span>
               </div>
             </div>
             {/* Social Links */}
             <div className="flex gap-3 mt-6">
-              <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="Twitter" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" aria-label="YouTube" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                <Youtube className="h-5 w-5" />
-              </a>
+              {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  aria-label={Icon.displayName || "Social"}
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                >
+                  <Icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 

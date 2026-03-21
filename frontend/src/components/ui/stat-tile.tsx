@@ -13,7 +13,7 @@ interface StatTileProps {
 export function StatTile({ value, label, icon, trend, className }: StatTileProps) {
   return (
     <div className={cn("stat-tile", className)}>
-      {icon && <div className="text-secondary mb-3">{icon}</div>}
+      {icon && <div className="text-accent mb-3">{icon}</div>}
       <div className="stat-value">{value}</div>
       <div className="text-muted-foreground mt-2 font-medium">{label}</div>
       {trend && (

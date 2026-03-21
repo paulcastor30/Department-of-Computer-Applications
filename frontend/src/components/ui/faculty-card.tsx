@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Award, BookOpen, ExternalLink } from "lucide-react";
+import { Mail, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 
 interface FacultyMember {
   id: string;
@@ -31,23 +30,23 @@ export function FacultyCard({ faculty, variant = "compact", className }: Faculty
           {faculty.image ? (
             <img src={faculty.image} alt={faculty.name} className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-2xl font-bold text-primary">
+            <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-2xl font-bold text-primary">
               {faculty.name.split(" ").map(n => n[0]).join("")}
             </div>
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors truncate">
+          <h3 className="font-semibold text-primary group-hover:text-secondary transition-colors truncate">
             {faculty.name}
           </h3>
-          <p className="text-sm text-secondary font-medium">{faculty.position}</p>
+          <p className="text-sm text-accent font-medium">{faculty.position}</p>
           {faculty.education && (
             <p className="text-xs text-muted-foreground mt-1 truncate">{faculty.education}</p>
           )}
           {faculty.specializations && faculty.specializations.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-2">
               {faculty.specializations.slice(0, 3).map((spec, index) => (
-                <span key={index} className="text-xs bg-muted px-2 py-0.5 rounded-full">
+                <span key={index} className="chip">
                   {spec}
                 </span>
               ))}
@@ -59,7 +58,7 @@ export function FacultyCard({ faculty, variant = "compact", className }: Faculty
         <div className="mt-4 pt-4 border-t border-border">
           <div className="flex flex-wrap gap-3 text-sm">
             {faculty.email && (
-              <a href={`mailto:${faculty.email}`} className="flex items-center gap-1 text-muted-foreground hover:text-primary">
+              <a href={`mailto:${faculty.email}`} className="flex items-center gap-1 text-muted-foreground hover:text-accent">
                 <Mail className="h-4 w-4" />
                 {faculty.email}
               </a>

@@ -58,14 +58,14 @@ export function ContentCard({
       )}
       <div className="p-5 flex-1 flex flex-col">
         <div className="flex items-start justify-between gap-3 mb-2">
-          {icon && <div className="text-secondary shrink-0">{icon}</div>}
+          {icon && <div className="text-accent shrink-0">{icon}</div>}
           {badge && (
-            <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-secondary/10 text-secondary">
+            <span className="chip">
               {badge}
             </span>
           )}
         </div>
-        <h3 className="font-semibold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+        <h3 className="font-semibold text-lg text-primary mb-2 group-hover:text-secondary transition-colors">
           {title}
         </h3>
         {description && (
@@ -74,7 +74,7 @@ export function ContentCard({
         {children}
         {footer && <div className="mt-auto pt-4 border-t border-border">{footer}</div>}
         {href && (
-          <div className="flex items-center gap-1 text-sm font-medium text-primary mt-auto pt-3">
+          <div className="flex items-center gap-1 text-sm font-medium text-accent mt-auto pt-3 group-hover:text-secondary transition-colors">
             Learn More
             {external ? (
               <ExternalLink className="h-4 w-4" />

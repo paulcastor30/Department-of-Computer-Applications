@@ -1,19 +1,11 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Search, Menu, X, ChevronDown, Facebook, Twitter, Linkedin, Youtube, GraduationCap, LogIn } from "lucide-react";
+import { Search, Menu, X, ChevronDown, Facebook, Twitter, Linkedin, Youtube, LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-
+import Logo from "@/assets/ccs-logo.png";
 const mainNavItems = [
   { label: "Home", href: "/" },
   {
@@ -102,7 +94,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Top Utility Bar */}
+      {/* Top Utility Bar - Navy */}
       <div className="bg-primary text-primary-foreground">
         <div className="container flex items-center justify-between py-2 text-sm">
           <div className="flex items-center gap-4">
@@ -110,24 +102,45 @@ export function Header() {
           </div>
           <div className="flex items-center gap-3">
             <div className="hidden md:flex items-center gap-3">
-              <a href="#" aria-label="Facebook" className="hover:text-secondary transition-colors">
+              <a
+                href="https://www.facebook.com/MSUIIT.CCS.CA.Dept"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="hover:text-secondary transition-colors"
+              >
                 <Facebook className="h-4 w-4" />
               </a>
+
               <a href="#" aria-label="Twitter" className="hover:text-secondary transition-colors">
                 <Twitter className="h-4 w-4" />
               </a>
-              <a href="#" aria-label="LinkedIn" className="hover:text-secondary transition-colors">
+
+              <a
+                href="https://www.linkedin.com/in/msuiit-computer-applications-department-353b13299/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="hover:text-secondary transition-colors"
+              >
                 <Linkedin className="h-4 w-4" />
               </a>
+
               <a href="#" aria-label="YouTube" className="hover:text-secondary transition-colors">
                 <Youtube className="h-4 w-4" />
               </a>
               <span className="w-px h-4 bg-primary-foreground/30" />
             </div>
-            <Link to="/portal" className="flex items-center gap-1.5 hover:text-secondary transition-colors">
+            <a
+              href="https://www.msuiit.edu.ph/redirect.php?page=my.iit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-secondary transition-colors"
+            >
               <LogIn className="h-4 w-4" />
-              <span className="hidden sm:inline">Portal Login</span>
-            </Link>
+              <span className="hidden sm:inline">My.IIT Login</span>
+            </a>
+
             <button
               onClick={() => setSearchOpen(!searchOpen)}
               className="flex items-center gap-1.5 hover:text-secondary transition-colors"
@@ -162,72 +175,74 @@ export function Header() {
         </div>
       )}
 
-      {/* Main Navigation */}
-      <div className="bg-card/95 backdrop-blur-md border-b border-border shadow-sm">
+      {/* Main Navigation - White background */}
+      <div className="bg-white border-b border-border shadow-sm">
         <div className="container flex items-center justify-between py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center">
-              <GraduationCap className="h-7 w-7 text-secondary" />
-            </div>
+            <img
+              src={Logo}
+              alt="Computer Applications Logo"
+              className="h-20 w-20 object-contain"
+            />
             <div className="hidden sm:block">
-              <div className="font-bold text-lg text-foreground group-hover:text-primary transition-colors">
+              <div className="font-bold text-lg text-primary group-hover:text-accent transition-colors">
                 Computer Applications
               </div>
               <div className="text-xs text-muted-foreground">Department of Excellence</div>
             </div>
           </Link>
 
+
           {/* Desktop Navigation */}
-          <NavigationMenu className="hidden lg:flex">
-            <NavigationMenuList className="gap-0.5">
-              {mainNavItems.map((item) =>
-                item.children ? (
-                  <NavigationMenuItem key={item.label}>
-                    <NavigationMenuTrigger
-                      className={cn(
-                        "text-sm font-medium px-3 py-2 bg-transparent data-[state=open]:bg-muted",
-                        isActive(item.href) && "text-secondary font-semibold"
-                      )}
-                    >
-                      {item.label}
-                    </NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ul className="grid gap-1 p-4 w-56 bg-popover">
-                        {item.children.map((child) => (
-                          <li key={child.href}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                to={child.href}
-                                className={cn(
-                                  "block select-none rounded-md p-3 text-sm leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                                  location.pathname === child.href && "bg-muted font-medium"
-                                )}
-                              >
-                                {child.label}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                ) : (
-                  <NavigationMenuItem key={item.label}>
-                    <Link
-                      to={item.href}
-                      className={cn(
-                        "text-sm font-medium px-3 py-2 rounded-md hover:bg-muted transition-colors inline-block",
-                        isActive(item.href) && "text-secondary font-semibold"
-                      )}
-                    >
-                      {item.label}
-                    </Link>
-                  </NavigationMenuItem>
-                )
-              )}
-            </NavigationMenuList>
-          </NavigationMenu>
+          <nav className="hidden lg:flex items-center gap-0.5">
+            {mainNavItems.map((item) =>
+              item.children ? (
+                // ✅ KEY FIX: relative group wrapper so dropdown is positioned under THIS trigger
+                <div key={item.label} className="relative group">
+                  <button
+                    className={cn(
+                      "flex items-center gap-1 text-sm font-medium px-3 py-2 rounded-md hover:bg-muted transition-colors text-primary",
+                      isActive(item.href) && "text-secondary font-semibold border-b-2 border-secondary rounded-none"
+                    )}
+                  >
+                    {item.label}
+                    <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
+                  </button>
+
+                  {/* Dropdown — pt-1 bridges the gap so hover stays active */}
+                  <div className="absolute top-full left-0 z-50 hidden group-hover:block pt-1">
+                    <ul className="w-56 rounded-md border border-border bg-popover shadow-lg p-2 grid gap-0.5">
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            to={child.href}
+                            className={cn(
+                              "block select-none rounded-md px-3 py-2.5 text-sm leading-none no-underline outline-none transition-colors hover:bg-secondary/10 hover:text-secondary focus:bg-secondary/10 focus:text-secondary",
+                              location.pathname === child.href && "bg-secondary/10 font-medium text-secondary"
+                            )}
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className={cn(
+                    "text-sm font-medium px-3 py-2 rounded-md hover:bg-muted transition-colors inline-block text-primary",
+                    isActive(item.href) && "text-secondary font-semibold border-b-2 border-secondary rounded-none"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
+          </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-2">
@@ -243,7 +258,7 @@ export function Header() {
           <Sheet>
             <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" aria-label="Open menu">
-                <Menu className="h-6 w-6" />
+                <Menu className="h-6 w-6 text-primary" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-80 overflow-y-auto">
@@ -261,7 +276,7 @@ export function Header() {
                     <div key={item.label}>
                       {item.children ? (
                         <details className="group">
-                          <summary className="flex items-center justify-between p-3 rounded-md hover:bg-muted cursor-pointer font-medium">
+                          <summary className="flex items-center justify-between p-3 rounded-md hover:bg-muted cursor-pointer font-medium text-primary">
                             {item.label}
                             <ChevronDown className="h-4 w-4 transition-transform group-open:rotate-180" />
                           </summary>
@@ -270,7 +285,7 @@ export function Header() {
                               <SheetClose asChild key={child.href}>
                                 <Link
                                   to={child.href}
-                                  className="block p-2 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted"
+                                  className="block p-2 rounded-md text-sm text-muted-foreground hover:text-secondary hover:bg-secondary/5"
                                 >
                                   {child.label}
                                 </Link>
@@ -282,7 +297,7 @@ export function Header() {
                         <SheetClose asChild>
                           <Link
                             to={item.href}
-                            className="block p-3 rounded-md font-medium hover:bg-muted"
+                            className="block p-3 rounded-md font-medium text-primary hover:bg-muted hover:text-secondary"
                           >
                             {item.label}
                           </Link>

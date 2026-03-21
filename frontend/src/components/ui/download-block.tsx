@@ -30,23 +30,23 @@ export function DownloadBlock({ item, className }: DownloadBlockProps) {
       download
       className={cn("download-block group", className)}
     >
-      <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-        <Icon className="h-6 w-6 text-primary" />
+      <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+        <Icon className="h-6 w-6 text-accent" />
       </div>
       <div className="flex-1 min-w-0">
-        <div className="font-medium text-foreground group-hover:text-primary transition-colors truncate">
+        <div className="font-medium text-primary group-hover:text-secondary transition-colors truncate">
           {item.title}
         </div>
         {(item.description || item.fileSize) && (
           <div className="text-sm text-muted-foreground flex items-center gap-2">
             {item.description && <span>{item.description}</span>}
             {item.fileSize && (
-              <span className="text-xs bg-muted px-2 py-0.5 rounded">{item.fileSize}</span>
+              <span className="chip">{item.fileSize}</span>
             )}
           </div>
         )}
       </div>
-      <Download className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
+      <Download className="h-5 w-5 text-muted-foreground group-hover:text-secondary transition-colors shrink-0" />
     </a>
   );
 }

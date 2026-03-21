@@ -18,7 +18,7 @@ export function Timeline({ items, className }: TimelineProps) {
       {items.map((item, index) => (
         <div key={index} className="timeline-item">
           <div className="text-secondary font-bold text-lg mb-1">{item.year}</div>
-          <div className="font-semibold text-foreground mb-2">{item.title}</div>
+          <div className="font-semibold text-primary mb-2">{item.title}</div>
           <p className="text-muted-foreground text-sm">{item.description}</p>
         </div>
       ))}
@@ -51,8 +51,8 @@ export function ProcessSteps({ steps, className }: ProcessStepsProps) {
               <div className="hidden lg:block absolute top-6 left-16 w-[calc(100%-4rem)] h-0.5 bg-border" />
             )}
           </div>
-          {step.icon && <div className="text-primary mb-2">{step.icon}</div>}
-          <h3 className="font-semibold text-foreground mb-2">{step.title}</h3>
+          {step.icon && <div className="text-accent mb-2">{step.icon}</div>}
+          <h3 className="font-semibold text-primary mb-2">{step.title}</h3>
           <p className="text-muted-foreground text-sm">{step.description}</p>
         </div>
       ))}

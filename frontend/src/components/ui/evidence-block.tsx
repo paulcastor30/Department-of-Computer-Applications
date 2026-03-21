@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
-import { CheckCircle2, AlertCircle, Info, Award, Shield } from "lucide-react";
+import { CheckCircle2, AlertCircle, Award, Shield } from "lucide-react";
 
 interface EvidenceBadgeProps {
   type: "aaccup" | "ched" | "aun" | "verified" | "pending";
@@ -8,11 +8,11 @@ interface EvidenceBadgeProps {
 }
 
 const badgeConfig = {
-  aaccup: { label: "AACCUP Evidence", icon: Award, className: "bg-teal-100 text-teal-700 border-teal-200" },
-  ched: { label: "CHED Requirement", icon: Shield, className: "bg-blue-100 text-blue-700 border-blue-200" },
-  aun: { label: "AUN QA Criteria", icon: CheckCircle2, className: "bg-purple-100 text-purple-700 border-purple-200" },
-  verified: { label: "Verified", icon: CheckCircle2, className: "bg-green-100 text-green-700 border-green-200" },
-  pending: { label: "Pending", icon: AlertCircle, className: "bg-amber-100 text-amber-700 border-amber-200" },
+  aaccup: { label: "AACCUP Evidence", icon: Award, className: "bg-secondary/10 text-secondary border-secondary/20" },
+  ched: { label: "CHED Requirement", icon: Shield, className: "bg-accent/10 text-accent border-accent/20" },
+  aun: { label: "AUN QA Criteria", icon: CheckCircle2, className: "bg-steel/10 text-steel-foreground border-steel/20" },
+  verified: { label: "Verified", icon: CheckCircle2, className: "bg-success/10 text-success border-success/20" },
+  pending: { label: "Pending", icon: AlertCircle, className: "bg-warning/10 text-warning-foreground border-warning/20" },
 };
 
 export function EvidenceBadge({ type, className }: EvidenceBadgeProps) {
