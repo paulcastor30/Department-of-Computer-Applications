@@ -14,7 +14,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent   # backend/
+REPO_DIR = BASE_DIR.parent                          # repo root
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,23 +40,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Added by Paul Rodolf P. Castor 3/16/2026
     # I tried to merge django and react
-    'rest_framework',
     'corsheaders',
+    'rest_framework',
     'dca_app',  # your app with models/views
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Added by Paul Rodolf P. Castor 3/16/2026
-    # I tried to merge django and react
-    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',  
 ]
 
 ROOT_URLCONF = 'dca_site.urls'
@@ -65,21 +64,21 @@ ROOT_URLCONF = 'dca_site.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "../frontend/dist"],  # <-- point to Vite build
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [REPO_DIR / "frontend" / "dist"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
 
-WSGI_APPLICATION = 'dca_site.wsgi.application'
+WSGI_APPLICATION = "dca_site.wsgi.application"
 
 
 # Database
@@ -115,30 +114,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'Asia/Manila'
-
+LANGUAGE_CODE = "en-us"
+TIME_ZONE = "Asia/Manila"
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
-
-#STATIC_URL = 'static/'
-#STATIC_ROOT = BASE_DIR / 'static' // this is the old setting just in case
+# cleaner than /assets/
 STATIC_URL = "/assets/"
-
-STATICFILES_DIRS = [
-    BASE_DIR / "../frontend/dist/assets",  # Vite build output (assets)
-]
+STATICFILES_DIRS = [REPO_DIR / "frontend" / "dist" / "assets"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-#TEMPLATES[0]["DIRS"] = [BASE_DIR / "../frontend/dist"]
 
-# Added by Paul Rodolf P. Castor 3/16/2026
-# I tried to merge django and react
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite default, or 3000 if you use that
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
 ]
