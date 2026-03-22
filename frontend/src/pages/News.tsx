@@ -3,13 +3,32 @@ import { Section, SectionHeader } from "@/components/ui/section";
 import { ContentCard, CardGrid } from "@/components/ui/content-card";
 import { FilterBar } from "@/components/ui/filter-bar";
 import { Calendar } from "lucide-react";
+import { useNews } from "@/hooks/useCommunications";
 
 export default function News() {
+  const { data: news = [], isLoading, isError, error } = useNews();
+
+  if (isLoading) return <div className="p-6">Loading news...</div>;
+  if (isError) return <div className="p-6">Error: {(error as Error).message}</div>;
+
   return (
-    <>
-      <PageHero title="News & Events" subtitle="Stay updated with the latest from the department." />
-      <Section><FilterBar searchPlaceholder="Search news..." filters={[{ name: "Category", options: [{ label: "Announcements", value: "ann" }, { label: "Research", value: "research" }, { label: "Events", value: "events" }] }]} className="mb-8" /><CardGrid columns={3}><ContentCard title="AACCUP Level III Achieved" description="The department successfully achieves Level III accreditation." badge="Announcement" /><ContentCard title="Faculty Research Published in IEEE" description="Dr. Santos' paper accepted in IEEE Transactions." badge="Research" /><ContentCard title="Annual Research Colloquium" description="Join us for presentations of student and faculty research." badge="Event" /></CardGrid></Section>
-      <Section variant="muted"><SectionHeader title="Upcoming Events" /><div className="grid gap-4 md:grid-cols-2">{["Research Colloquium - March 15", "Industry Day - March 22", "BSCA Orientation - April 5", "Thesis Defense Week - April 15-19"].map((e, i) => <div key={i} className="card-elevated p-4 flex items-center gap-3"><Calendar className="h-5 w-5 text-secondary" /><span>{e}</span></div>)}</div></Section>
-    </>
+    <main className="px-6 py-12">
+      <div className="mx-auto max-w-6xl">
+        <h1 className="mb-8 text-3xl font-bold">News & Announcements</h1>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {news.map((item) => (
+            <article key={item.id} className="border p-4">
+              <p className="mb-2 text-sm">{item.category}</p>
+              <h2 className="mb-2 text-xl font-semibold">{item.title}</h2>
+              <p className="mb-4 text-sm text-gray-700">{item.summary}</p>
+              <a href={`/news/${item.slug}`} className="underline">
+                Read more
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </main>
   );
 }

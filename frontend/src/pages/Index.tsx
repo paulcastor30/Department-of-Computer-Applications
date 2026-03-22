@@ -22,6 +22,9 @@ import heroCampus from "@/assets/hero-campus.jpg";
 import studentsLab from "@/assets/students-lab.jpg";
 import researchLab from "@/assets/research-lab.jpg";
 import classroomTeaching from "@/assets/classroom-teaching.jpg";
+import { useHomePayload } from "@/hooks/useCore";
+import { useNews } from "@/hooks/useCommunications";
+
 
 const stats = [
   { value: "95%", label: "Employment Rate", icon: <Briefcase className="h-8 w-8" />, trend: "+3% from last year" },
@@ -95,41 +98,97 @@ const upcomingEvents = [
   { title: "BSCA Orientation", date: "April 5, 2025", type: "Students" },
 ];
 
+function getStatIcon(label: string) {
+  const normalized = label.toLowerCase();
+
+  if (normalized.includes("employment")) {
+    return <Briefcase className="h-8 w-8" />;
+  }
+  if (normalized.includes("publication")) {
+    return <BookOpen className="h-8 w-8" />;
+  }
+  if (normalized.includes("ojt") || normalized.includes("hours")) {
+    return <Building className="h-8 w-8" />;
+  }
+  if (normalized.includes("partner")) {
+    return <Globe className="h-8 w-8" />;
+  }
+
+  return <TrendingUp className="h-8 w-8" />;
+}
+
 export default function Index() {
+  const { data: homeData } = useHomePayload();
+  const { data: liveNews = [] } = useNews();
+
+  const hero = homeData?.hero_sections?.[0];
+  const liveStats = homeData?.quick_stats?.length
+    ? homeData.quick_stats.map((stat) => ({
+        value: stat.value,
+        label: stat.label,
+        icon: getStatIcon(stat.label),
+        trend: stat.note || undefined,
+      }))
+    : stats;
+
+  const latestNews = liveNews.length
+    ? liveNews.slice(0, 3).map((item) => ({
+        title: item.title,
+        description: item.summary || item.body?.slice(0, 140) || "News update placeholder.",
+        href: `/news/${item.slug}`,
+        badge: item.category,
+      }))
+    : newsItems;
+
+  const heroBadge = "AACCUP Level III Accredited";
+  const heroTitle = hero?.title || "Shaping Tomorrow's Technology Leaders";
+  const heroEyebrow = hero?.eyebrow || heroBadge;
+  const heroSubtitle =
+    hero?.subtitle ||
+    "The Department of Computer Applications delivers excellence in computing education, research, and community service. Join a community committed to innovation and global competitiveness.";
+
+  const primaryCtaLabel = hero?.primary_cta_label || "Apply Now";
+  const primaryCtaUrl = hero?.primary_cta_url || "/admissions/apply";
+
+  const secondaryCtaLabel = hero?.secondary_cta_label || "Explore Programs";
+  const secondaryCtaUrl = hero?.secondary_cta_url || "/programs";
+
+  const tertiaryCtaUrl = "/admissions/request-info";
+
+  const heroBackgroundImage = hero?.background_image || heroCampus;
+
   return (
     <>
       {/* Hero Section */}
       <section 
         className="hero-primary py-24 md:py-32 lg:py-40 relative"
-        style={{ backgroundImage: `url(${heroCampus})`, backgroundSize: "cover", backgroundPosition: "center" }}
+        style={{ backgroundImage: `url(${heroBackgroundImage})`, backgroundSize: "cover", backgroundPosition: "center" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/70" />
         <div className="container relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 text-secondary mb-6 text-sm font-medium">
               <Award className="h-4 w-4" />
-              AACCUP Level III Accredited
+              {heroEyebrow}
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
-              Shaping Tomorrow's{" "}
-              <span className="text-secondary">Technology Leaders</span>
+              {heroTitle}
             </h1>
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-              The Department of Computer Applications delivers excellence in computing education, 
-              research, and community service. Join a community committed to innovation and global competitiveness.
+              {heroSubtitle}
             </p>
             <div className="flex flex-wrap gap-4">
               <Button className="btn-cta-primary text-base px-8 py-6" asChild>
-                <Link to="/admissions/apply">
-                  Apply Now
+                <a href={primaryCtaUrl}>
+                  {primaryCtaLabel}
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+                </a>
               </Button>
               <Button variant="outline" className="btn-cta-secondary text-base px-8 py-6" asChild>
-                <Link to="/programs">Explore Programs</Link>
+                <a href={secondaryCtaUrl}>{secondaryCtaLabel}</a>
               </Button>
               <Button variant="ghost" className="text-white hover:bg-white/10 text-base px-8 py-6" asChild>
-                <Link to="/admissions/request-info">Request Information</Link>
+                <a href={tertiaryCtaUrl}>Request Information</a>
               </Button>
             </div>
           </div>
@@ -139,7 +198,7 @@ export default function Index() {
       {/* Quick Stats */}
       <Section className="-mt-16 relative z-20 py-0">
         <StatGrid>
-          {stats.map((stat, index) => (
+          {liveStats.map((stat, index) => (
             <StatTile key={index} {...stat} />
           ))}
         </StatGrid>
@@ -230,7 +289,7 @@ export default function Index() {
           <div className="lg:col-span-2">
             <SectionHeader title="Latest News" align="left" className="mb-8" />
             <CardGrid columns={2} className="lg:grid-cols-2">
-              {newsItems.map((item, index) => (
+              {latestNews.map((item, index) => (
                 <ContentCard key={index} {...item} />
               ))}
             </CardGrid>

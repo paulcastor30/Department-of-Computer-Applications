@@ -4,6 +4,7 @@ import { PageHero } from "@/components/ui/hero-section";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { ContentCard, CardGrid } from "@/components/ui/content-card";
 import { Button } from "@/components/ui/button";
+import { useDepartmentProfile } from "@/hooks/useCore";
 
 const aboutSections = [
   {
@@ -45,42 +46,41 @@ const aboutSections = [
 ];
 
 export default function About() {
+  const { data, isLoading, isError, error } = useDepartmentProfile();
+
+  if (isLoading) return <div className="p-6">Loading department profile...</div>;
+  if (isError) return <div className="p-6">Error: {(error as Error).message}</div>;
+
   return (
-    <>
-      <PageHero
-        title="About the Department"
-        subtitle="Learn about our commitment to excellence in computer applications education, research, and community service."
-      />
+    <main className="px-6 py-12">
+      <div className="mx-auto max-w-5xl">
+        <h1 className="mb-6 text-3xl font-bold">{data?.title || "About the Department"}</h1>
 
-      <Section>
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <p className="text-lg text-muted-foreground">
-            The Department of Computer Applications is a premier academic unit dedicated to producing 
-            globally competitive IT professionals. With over 25 years of excellence, we continue to 
-            innovate in teaching, research, and community engagement.
-          </p>
-        </div>
+        <section className="mb-8">
+          <h2 className="mb-2 text-xl font-semibold">Overview</h2>
+          <p>{data?.overview}</p>
+        </section>
 
-        <CardGrid columns={3}>
-          {aboutSections.map((section, index) => (
-            <ContentCard key={index} {...section} />
-          ))}
-        </CardGrid>
-      </Section>
+        <section className="mb-8">
+          <h2 className="mb-2 text-xl font-semibold">Vision</h2>
+          <p>{data?.vision}</p>
+        </section>
 
-      <Section variant="muted">
-        <div className="text-center">
-          <h2 className="section-title mb-4">Visit Our Campus</h2>
-          <p className="section-subtitle mb-8">
-            Experience our state-of-the-art facilities and welcoming community.
-          </p>
-          <Button size="lg" asChild>
-            <Link to="/about/location">
-              Get Directions <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
-      </Section>
-    </>
+        <section className="mb-8">
+          <h2 className="mb-2 text-xl font-semibold">Mission</h2>
+          <p>{data?.mission}</p>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="mb-2 text-xl font-semibold">Goals</h2>
+          <p>{data?.goals}</p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-xl font-semibold">Outcomes Mapping</h2>
+          <p>{data?.outcomes_mapping_note}</p>
+        </section>
+      </div>
+    </main>
   );
 }
