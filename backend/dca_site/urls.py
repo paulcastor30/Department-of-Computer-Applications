@@ -6,8 +6,8 @@ from dca_app.views import FrontendAppView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include("dca_app.urls")),
-    re_path(r"^(?!api/|admin/|assets/).*$", FrontendAppView.as_view(), name="frontend"),
+    path("api/", include("dca_site.api_urls")),
+    re_path(r"^(?!api/|admin/|assets/|media/).*$", FrontendAppView.as_view(), name="frontend"),
 ]
 
 if settings.DEBUG:

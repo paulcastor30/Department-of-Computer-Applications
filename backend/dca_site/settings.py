@@ -22,12 +22,18 @@ REPO_DIR = BASE_DIR.parent                          # repo root
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-oszto&fpaxwj5d!_#lsrub8i1gvctn^ztcw6i=4yo2^*@4#gqm'
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "django-insecure-oszto&fpaxwj5d!_#lsrub8i1gvctn^ztcw6i=4yo2^*@4#gqm"
+)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DJANGO_DEBUG", "True").lower() == "true"
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    '.pythonanywhere.com'
+    ]
 
 # Application definition
 
@@ -42,7 +48,16 @@ INSTALLED_APPS = [
     # I tried to merge django and react
     'corsheaders',
     'rest_framework',
-    'dca_app',  # your app with models/views
+
+    "apps.core",
+    "apps.academics",
+    "apps.people",
+    "apps.research",
+    "apps.extension",
+    "apps.communications",
+    "apps.quality",
+
+    'dca_app',  #temporary, remove after migration
 
 ]
 
@@ -128,3 +143,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
 ]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
