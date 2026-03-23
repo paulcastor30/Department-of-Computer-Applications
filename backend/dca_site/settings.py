@@ -49,13 +49,14 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 
-    "apps.core",
-    "apps.academics",
-    "apps.people",
-    "apps.research",
-    "apps.extension",
-    "apps.communications",
-    "apps.quality",
+    # added 3/23/2026 by Paul Rodolf P. Castor
+    "apps.core.apps.CoreConfig",
+    "apps.academics.apps.AcademicsConfig",
+    "apps.people.apps.PeopleConfig",
+    "apps.communications.apps.CommunicationsConfig",
+    "apps.quality.apps.QualityConfig",
+    "apps.research.apps.ResearchConfig",
+    "apps.extension.apps.ExtensionConfig",
 
     'dca_app',  #temporary, remove after migration
 
