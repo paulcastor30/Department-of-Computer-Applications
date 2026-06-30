@@ -1,39 +1,130 @@
+import { CheckCircle2, FileCheck2, GraduationCap, ListChecks } from "lucide-react";
 import { PageHero } from "@/components/ui/hero-section";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { EvidenceBlock, MetricPlaceholder } from "@/components/ui/evidence-block";
-import { DownloadList } from "@/components/ui/download-block";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { bscaProgram, qaStandards } from "./programData";
+
+function BulletPanel({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="card-elevated p-5">
+      <h3 className="mb-4 text-lg font-semibold text-primary">{title}</h3>
+      <ul className="space-y-3">
+        {items.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-6 text-muted-foreground">
+            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-secondary" />
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function BSCA() {
   return (
     <>
-      <PageHero title="BS Computer Applications" subtitle="A comprehensive 4-year program producing globally competitive IT professionals." />
+      <PageHero
+        title={bscaProgram.title}
+        subtitle="A four-year applied-computing degree with embedded systems, IoT, research, thesis, and supervised industry immersion."
+      />
+
       <Section>
-        <div className="max-w-4xl mx-auto prose prose-lg">
-          <h2>Program Overview</h2>
-          <p>The Bachelor of Science in Computer Applications (BSCA) is designed to produce IT professionals with strong foundations in computing, business applications, and industry-ready skills.</p>
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <p className="mb-6 text-lg leading-8 text-muted-foreground">{bscaProgram.summary}</p>
+            <div className="rounded-md border-l-4 border-secondary bg-secondary/10 p-5">
+              <h2 className="mb-2 text-xl font-semibold text-primary">Official Curriculum Identity</h2>
+              <p className="text-sm leading-6 text-muted-foreground">
+                {bscaProgram.recognition}. The public page should be supported internally by the approved curriculum,
+                curriculum map, syllabi, faculty loading, laboratory inventory, OJT records, thesis outputs, and annual
+                program-improvement minutes.
+              </p>
+            </div>
+          </div>
+          <dl className="grid gap-3">
+            {[
+              ["Program Code", bscaProgram.code],
+              ["Level", bscaProgram.level],
+              ["Duration", bscaProgram.duration],
+              ["Curriculum Load", bscaProgram.units],
+            ].map(([label, value]) => (
+              <div key={label} className="rounded-md border border-border bg-muted/30 p-4">
+                <dt className="text-sm font-semibold text-primary">{label}</dt>
+                <dd className="mt-1 text-sm text-muted-foreground">{value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </Section>
+
       <Section variant="muted">
-        <SectionHeader title="Program Educational Objectives (PEOs)" />
-        <div className="max-w-3xl mx-auto space-y-3">
-          {["Demonstrate professional competence in IT careers", "Pursue lifelong learning and advanced studies", "Contribute to national development through technology", "Practice ethical and socially responsible computing"].map((peo, i) => (
-            <div key={i} className="card-elevated p-4 flex gap-3"><span className="w-8 h-8 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center font-bold shrink-0">{i+1}</span><span>{peo}</span></div>
+        <SectionHeader
+          title="Program Outcomes"
+          subtitle="These statements are written so they can be mapped to CHED policies, course outcomes, assessment rubrics, graduate attributes, and AUN-QA expected learning outcomes."
+        />
+        <div className="grid gap-4 md:grid-cols-2">
+          {bscaProgram.outcomes.map((outcome, index) => (
+            <div key={outcome} className="card-elevated flex gap-4 p-5">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-bold text-secondary-foreground">
+                {index + 1}
+              </div>
+              <p className="text-sm leading-6 text-muted-foreground">{outcome}</p>
+            </div>
           ))}
         </div>
       </Section>
+
       <Section>
-        <SectionHeader title="Curriculum" />
-        <DownloadList items={[{ title: "BSCA Curriculum (CMO 25 s.2015 Aligned)", fileType: "pdf", fileSize: "2.1 MB", href: "#" }]} />
-        <EvidenceBlock title="CHED PSG Alignment" accreditation={["ched"]} className="mt-6"><MetricPlaceholder label="Curriculum alignment" value="100%" /></EvidenceBlock>
+        <SectionHeader title="Curriculum and Assessment Evidence" align="left" />
+        <div className="grid gap-5 lg:grid-cols-2">
+          <BulletPanel title="Curriculum Features" items={bscaProgram.curriculumEvidence} />
+          <BulletPanel title="Evidence to Keep Ready" items={bscaProgram.qualityEvidence} />
+        </div>
       </Section>
+
       <Section variant="muted">
-        <SectionHeader title="Frequently Asked Questions" />
-        <Accordion type="single" collapsible className="max-w-3xl mx-auto">
-          <AccordionItem value="1"><AccordionTrigger>What are the admission requirements?</AccordionTrigger><AccordionContent>High school diploma or equivalent, passing the entrance examination, and interview.</AccordionContent></AccordionItem>
-          <AccordionItem value="2"><AccordionTrigger>How long is the program?</AccordionTrigger><AccordionContent>The BSCA program is a 4-year undergraduate degree.</AccordionContent></AccordionItem>
-          <AccordionItem value="3"><AccordionTrigger>What career opportunities are available?</AccordionTrigger><AccordionContent>Software Developer, Systems Analyst, Database Administrator, IT Consultant, and more.</AccordionContent></AccordionItem>
-        </Accordion>
+        <SectionHeader title="Student Pathway" />
+        <div className="grid gap-5 lg:grid-cols-3">
+          <BulletPanel title="Admission and Advising" items={bscaProgram.admissions} />
+          <BulletPanel title="Progression and Retention" items={bscaProgram.progression} />
+          <BulletPanel title="Graduate Roles" items={bscaProgram.careers} />
+        </div>
+      </Section>
+
+      <Section>
+        <div className="grid gap-5 lg:grid-cols-3">
+          <div className="card-elevated p-5">
+            <GraduationCap className="mb-4 h-8 w-8 text-secondary" />
+            <h3 className="mb-2 text-lg font-semibold text-primary">CHED COPC Readiness</h3>
+            <p className="text-sm leading-6 text-muted-foreground">
+              Show approved curriculum, qualified faculty, library and laboratory support, student policies, and
+              assessment records tied to program outcomes.
+            </p>
+          </div>
+          <div className="card-elevated p-5">
+            <ListChecks className="mb-4 h-8 w-8 text-secondary" />
+            <h3 className="mb-2 text-lg font-semibold text-primary">AACCUP Level III Readiness</h3>
+            <p className="text-sm leading-6 text-muted-foreground">
+              Highlight instruction, research, extension, faculty development, student achievement, linkages, and
+              documented improvements from evaluation results.
+            </p>
+          </div>
+          <div className="card-elevated p-5">
+            <FileCheck2 className="mb-4 h-8 w-8 text-secondary" />
+            <h3 className="mb-2 text-lg font-semibold text-primary">AUN-QA Readiness</h3>
+            <p className="text-sm leading-6 text-muted-foreground">
+              Maintain clear expected learning outcomes, curriculum alignment, teaching-learning evidence, assessment
+              rubrics, stakeholder feedback, and output measures.
+            </p>
+          </div>
+        </div>
+        <div className="mt-5 rounded-md border border-border bg-muted/30 p-5">
+          <h3 className="mb-3 text-lg font-semibold text-primary">Crosswalk Reminder</h3>
+          <ul className="grid gap-2 text-sm leading-6 text-muted-foreground md:grid-cols-2">
+            {qaStandards.map((standard) => (
+              <li key={standard}>{standard}</li>
+            ))}
+          </ul>
+        </div>
       </Section>
     </>
   );
