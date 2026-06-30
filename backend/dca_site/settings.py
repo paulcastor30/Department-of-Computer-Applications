@@ -175,13 +175,18 @@ STORAGES = {
     },
 }
 
-CORS_ALLOWED_ORIGINS = env_list("CORS_ALLOWED_ORIGINS") or [
+DEFAULT_CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:8080",
+    "https://msuiit-comapps.vercel.app",
 ]
+
+CORS_ALLOWED_ORIGINS = sorted(set(DEFAULT_CORS_ALLOWED_ORIGINS + env_list("CORS_ALLOWED_ORIGINS")))
 CORS_ALLOWED_ORIGIN_REGEXES = env_list("CORS_ALLOWED_ORIGIN_REGEXES")
 
-CSRF_TRUSTED_ORIGINS = env_list("CSRF_TRUSTED_ORIGINS")
+CSRF_TRUSTED_ORIGINS = sorted(set([
+    "https://msuiit-comapps.vercel.app",
+] + env_list("CSRF_TRUSTED_ORIGINS")))
 
 if not DEBUG:
     SESSION_COOKIE_SECURE = True
