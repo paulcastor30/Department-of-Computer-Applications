@@ -7,7 +7,7 @@ from apps.core.frontend_views import FrontendAppView
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("dca_site.api_urls")),
-    re_path(r"^(?!api/|admin/|assets/|media/).*$", FrontendAppView.as_view(), name="frontend"),
+    re_path(r"^(?!(api|admin|assets|media)(/|$)).*$", FrontendAppView.as_view(), name="frontend"),
 ]
 
 if settings.DEBUG and settings.STATICFILES_DIRS:
