@@ -5,13 +5,13 @@ def update_program_thesis_terminology(apps, schema_editor):
     Program = apps.get_model("academics", "Program")
 
     Program.objects.filter(code="BSCA").update(
-        formal_description="An undergraduate program in applied computing and computer applications with a culminating Undergraduate Thesis.",
+        formal_description="To be provided by the Department.",
         culminating_requirement="Undergraduate Thesis",
         thesis_information="The culminating academic requirement is the Undergraduate Thesis.\nOfficial thesis procedures, advising arrangements, and assessment documentation are To be provided by the Department.",
     )
 
     Program.objects.filter(code="MSCA").update(
-        formal_description="A graduate program focused on advanced computer applications, applied computing research, and a culminating Master’s Thesis or Graduate Thesis.",
+        formal_description="To be provided by the Department.",
         culminating_requirement="Master’s Thesis or Graduate Thesis",
         thesis_information="The culminating academic requirement is the Master’s Thesis or Graduate Thesis.\nOfficial thesis procedures, advising arrangements, and assessment documentation are To be provided by the Department.",
     )

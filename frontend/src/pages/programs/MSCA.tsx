@@ -10,7 +10,7 @@ export default function MSCA() {
     <ProgramDetailPage
       program={program}
       isError={isError}
-      pageSubtitle="A graduate program focused on advanced computer applications, applied computing research, and a culminating Master’s Thesis or Graduate Thesis."
+      pageSubtitle="Formal graduate program information prepared for official Department content, with Master’s Thesis or Graduate Thesis as the culminating academic requirement."
       goalsTitle="Graduate Program Goals"
       outcomesTitle="Graduate Learning Outcomes"
       areasTitle="Research Areas"

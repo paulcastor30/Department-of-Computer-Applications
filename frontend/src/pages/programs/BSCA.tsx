@@ -10,7 +10,7 @@ export default function BSCA() {
     <ProgramDetailPage
       program={program}
       isError={isError}
-      pageSubtitle="An undergraduate program in applied computing and computer applications with a culminating Undergraduate Thesis."
+      pageSubtitle="Formal undergraduate program information prepared for official Department content, with Undergraduate Thesis as the culminating academic requirement."
       goalsTitle="Program Goals"
       outcomesTitle="Expected Learning Outcomes / Program Outcomes"
       areasTitle="Major Academic Areas"

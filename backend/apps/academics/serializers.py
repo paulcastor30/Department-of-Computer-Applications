@@ -105,7 +105,9 @@ class ProgramSerializer(serializers.ModelSerializer):
             "og_title",
             "og_description",
             "canonical_url",
+            "is_published",
             "featured",
+            "sort_order",
             "updated_at",
         ]
 

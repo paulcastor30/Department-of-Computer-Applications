@@ -54,17 +54,12 @@ const bscaFallback: ProgramProfile = {
   duration: placeholder,
   units: placeholder,
   recognition: "",
-  summary: "An undergraduate program in applied computing and computer applications with a culminating Undergraduate Thesis.",
+  summary: placeholder,
   route: "/programs/bsca",
-  academicOrientation: "Undergraduate applied computing and computer applications.",
+  academicOrientation: placeholder,
   intendedLearners: placeholder,
   culminatingRequirement: "Undergraduate Thesis",
-  academicFocus: [
-    "Applied computing and computer applications.",
-    "Software systems and systems development.",
-    "Embedded systems and Internet of Things.",
-    "Undergraduate research and thesis work.",
-  ],
+  academicFocus: [placeholder],
   goals: [placeholder],
   peos: [],
   outcomes: [placeholder],
@@ -90,7 +85,7 @@ const bscaFallback: ProgramProfile = {
   seoTitle: "Bachelor of Science in Computer Applications",
   seoDescription: "Formal undergraduate program information for the Bachelor of Science in Computer Applications.",
   ogTitle: "Bachelor of Science in Computer Applications",
-  ogDescription: "Undergraduate academic program in applied computing with a culminating Undergraduate Thesis.",
+  ogDescription: "Undergraduate academic program information with official Department content to be provided.",
   canonicalUrl: "",
   isFallback: true,
 };
@@ -104,17 +99,12 @@ const mscaFallback: ProgramProfile = {
   duration: placeholder,
   units: placeholder,
   recognition: "",
-  summary: "A graduate program focused on advanced computer applications, applied computing research, and a culminating Master’s Thesis or Graduate Thesis.",
+  summary: placeholder,
   route: "/programs/msca",
-  academicOrientation: "Graduate applied computing research and advanced computer applications.",
+  academicOrientation: placeholder,
   intendedLearners: placeholder,
   culminatingRequirement: "Master’s Thesis or Graduate Thesis",
-  academicFocus: [
-    "Applied computing research.",
-    "Advanced computer applications.",
-    "Embedded systems and Internet of Things.",
-    "Graduate thesis work.",
-  ],
+  academicFocus: [placeholder],
   goals: [placeholder],
   peos: [],
   outcomes: [placeholder],
@@ -140,7 +130,7 @@ const mscaFallback: ProgramProfile = {
   seoTitle: "Master of Science in Computer Applications",
   seoDescription: "Formal graduate program information for the Master of Science in Computer Applications.",
   ogTitle: "Master of Science in Computer Applications",
-  ogDescription: "Graduate academic program in applied computing research with a culminating Master’s Thesis or Graduate Thesis.",
+  ogDescription: "Graduate academic program information with official Department content to be provided.",
   canonicalUrl: "",
   isFallback: true,
 };
@@ -190,6 +180,7 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
   if (!program) return base;
 
   const academicAreas = lines(program.academic_areas_list, lines(program.specialization_tracks_list, base.academicAreas));
+  const requiredThesis = base.code === "MSCA" ? "Master’s Thesis or Graduate Thesis" : "Undergraduate Thesis";
   const thesisInformation = lines(program.thesis_information_list, base.thesisInformation);
 
   return {
@@ -206,7 +197,7 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
     route: `/programs/${text(program.slug, base.slug)}`,
     academicOrientation: text(program.academic_orientation, base.academicOrientation),
     intendedLearners: text(program.intended_learners, base.intendedLearners),
-    culminatingRequirement: text(program.culminating_requirement, base.culminatingRequirement),
+    culminatingRequirement: requiredThesis,
     academicFocus: academicAreas,
     goals: lines(program.program_goals_list, lines(program.program_educational_objectives_list, base.goals)),
     peos: lines(program.program_educational_objectives_list, base.peos),
@@ -245,29 +236,3 @@ export function normalizePrograms(adminPrograms: Program[] | undefined): Program
 
 export const bscaProgram = bscaFallback;
 export const mscaProgram = mscaFallback;
-
-export const qaStandards = [
-  "CHED COPC: curriculum authority, regulatory compliance records, faculty qualifications, facilities, library and laboratory resources, admission and retention policies, and student-support evidence.",
-  "AACCUP Level III: outcomes-based instruction, faculty development, student achievement, research, extension, linkages, stakeholder feedback, and documented continuous improvement.",
-  "CHED COE: evidence categories may include faculty profile, research productivity, graduate outcomes, extension leadership, institutional linkages, facilities, specialization strength, and documented distinction, subject to official validation.",
-  "AUN-QA: expected learning outcomes, curriculum structure and content, teaching-learning approach, student assessment, academic staff quality, student support, facilities, output indicators, and stakeholder feedback.",
-];
-
-export const evidenceMatrix = [
-  {
-    framework: "CHED COPC",
-    evidence: "Curriculum authority, regulatory compliance records, faculty credentials, facilities, laboratory and library holdings, admission-retention rules, and student services.",
-  },
-  {
-    framework: "AACCUP Level III",
-    evidence: "Instructional quality, research and extension outputs, faculty development, student performance, linkages, stakeholder evaluation, and documented actions taken.",
-  },
-  {
-    framework: "CHED COE",
-    evidence: "Evidence categories may include faculty profile, research, graduate outcomes, extension utilization, external linkages, facilities, and specialization strength, subject to official validation.",
-  },
-  {
-    framework: "AUN-QA",
-    evidence: "Outcome-curriculum-assessment alignment, academic staff quality, student support, facilities, quality enhancement, stakeholder feedback, and output measures.",
-  },
-];

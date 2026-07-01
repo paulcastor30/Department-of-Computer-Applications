@@ -152,7 +152,10 @@ export function ProgramDetailPage({
       <Section>
         <div className="grid gap-5 lg:grid-cols-2">
           <ListPanel title={pathwaysTitle} items={program.pathways} />
-          <ListPanel title={advisingTitle} items={program.level.toLowerCase().includes("graduate") ? program.advisingInformation : program.studentSupport} />
+          <ListPanel
+            title={advisingTitle}
+            items={program.level.toLowerCase().includes("graduate") ? program.advisingInformation : program.studentSupport}
+          />
         </div>
       </Section>
 
@@ -166,7 +169,7 @@ export function ProgramDetailPage({
         <QualityAssuranceNote />
       </Section>
 
-          <Section id="program-inquiries">
+      <Section id="program-inquiries">
         <SectionHeader title="Contact / Inquiry" align="left" />
         <div className="rounded-md border border-border bg-background p-5">
           <dl className="grid gap-4 text-sm md:grid-cols-2">

@@ -76,6 +76,19 @@ Typical flow:
 Django API -> frontend hook -> page component -> reusable UI sections
 ```
 
+## Production API configuration
+
+Set `VITE_API_BASE_URL` in the frontend deployment when the React app is served separately from Django.
+
+Examples:
+
+```text
+VITE_API_BASE_URL=https://your-django-backend.example.com
+VITE_API_BASE_URL=https://your-django-backend.example.com/api
+```
+
+The shared API helper accepts either form. Program routes use `/api/academics/programs/` and `/api/academics/programs/:slug/`; if the API is unavailable, the Program pages render restrained placeholder structure until official Django-backed content is reachable.
+
 ## Contribution ideas
 
 ### Good first issues

@@ -107,7 +107,9 @@ export interface Program {
   og_title: string;
   og_description: string;
   canonical_url: string;
+  is_published: boolean;
   featured: boolean;
+  sort_order: number;
   updated_at: string;
 }
 

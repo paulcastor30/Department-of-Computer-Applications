@@ -18,27 +18,13 @@ def seed_program_page_fields(apps, schema_editor):
 
     seeds = {
         "BSCA": {
-            "formal_description": "An undergraduate academic program in applied computing and computer applications with a culminating Undergraduate Thesis.",
-            "academic_orientation": "Undergraduate applied computing and computer applications.",
-            "intended_learners": "Prospective undergraduate students seeking formal preparation in applied computing, software systems, embedded systems, Internet of Things, and related computing domains.",
+            "formal_description": PLACEHOLDER,
+            "academic_orientation": PLACEHOLDER,
+            "intended_learners": PLACEHOLDER,
             "culminating_requirement": "Undergraduate Thesis",
-            "program_goals": "\n".join([
-                "Provide undergraduate preparation in applied computing and computer applications.",
-                "Develop student competence in software systems, embedded systems, Internet of Things, and related computing domains.",
-                "Prepare students for supervised thesis work, professional practice, further study, and responsible participation in computing-related work.",
-            ]),
-            "academic_areas": "\n".join([
-                "Applied computing and computer applications.",
-                "Software systems and systems development.",
-                "Embedded systems and Internet of Things.",
-                "Undergraduate research and thesis work.",
-            ]),
-            "curriculum_structure": "\n".join([
-                "General education, institutional, and foundational courses.",
-                "Computing, software systems, embedded systems, and Internet of Things courses.",
-                "Research preparation and Undergraduate Thesis.",
-                "Supervised industry exposure, if applicable, to be validated by the Department.",
-            ]),
+            "program_goals": PLACEHOLDER,
+            "academic_areas": PLACEHOLDER,
+            "curriculum_structure": PLACEHOLDER,
             "thesis_information": "\n".join([
                 "The culminating academic requirement is the Undergraduate Thesis.",
                 "Official thesis procedures, advising arrangements, and assessment documentation are To be provided by the Department.",
@@ -51,7 +37,7 @@ def seed_program_page_fields(apps, schema_editor):
             "seo_title": "Bachelor of Science in Computer Applications",
             "seo_description": "Formal undergraduate program information for the Bachelor of Science in Computer Applications of the Department of Computer Applications, MSU-IIT.",
             "og_title": "Bachelor of Science in Computer Applications",
-            "og_description": "Undergraduate academic program in applied computing and computer applications with a culminating Undergraduate Thesis.",
+            "og_description": "Undergraduate academic program information with official Department content to be provided.",
             "documents": [
                 ("BSCA curriculum", "CURRICULUM", 10),
                 ("Undergraduate admission guide", "ADMISSION", 20),
@@ -60,29 +46,15 @@ def seed_program_page_fields(apps, schema_editor):
             ],
         },
         "MSCA": {
-            "formal_description": "A graduate academic program in advanced computer applications, applied computing research, and related computing domains with a culminating Master’s Thesis.",
-            "academic_orientation": "Graduate applied computing research and advanced computer applications.",
-            "intended_learners": "Prospective graduate students seeking advanced preparation in applied computing research, advanced computer applications, and thesis-based scholarly work.",
-            "culminating_requirement": "Master’s Thesis",
-            "program_goals": "\n".join([
-                "Develop graduate-level competence in applied computing research and advanced computer applications.",
-                "Prepare students to conduct thesis-based scholarly work using appropriate methods and ethical research practice.",
-                "Support progression to advanced professional, academic, research, or doctoral pathways.",
-            ]),
-            "academic_areas": "\n".join([
-                "Applied computing research.",
-                "Advanced computer applications.",
-                "Embedded systems and Internet of Things.",
-                "Analytics, intelligent systems, cloud computing, cybersecurity, and related computing domains, subject to Department validation.",
-            ]),
-            "curriculum_structure": "\n".join([
-                "Graduate coursework in advanced computer applications and applied computing research.",
-                "Research preparation and thesis development.",
-                "Master’s Thesis as the culminating academic requirement.",
-                "Bridging or prerequisite preparation, if applicable, to be validated by the Department.",
-            ]),
+            "formal_description": PLACEHOLDER,
+            "academic_orientation": PLACEHOLDER,
+            "intended_learners": PLACEHOLDER,
+            "culminating_requirement": "Master’s Thesis or Graduate Thesis",
+            "program_goals": PLACEHOLDER,
+            "academic_areas": PLACEHOLDER,
+            "curriculum_structure": PLACEHOLDER,
             "thesis_information": "\n".join([
-                "The culminating academic requirement is the Master’s Thesis.",
+                "The culminating academic requirement is the Master’s Thesis or Graduate Thesis.",
                 "Official thesis procedures, advising arrangements, and assessment documentation are To be provided by the Department.",
             ]),
             "student_support": "\n".join([
@@ -93,7 +65,7 @@ def seed_program_page_fields(apps, schema_editor):
             "seo_title": "Master of Science in Computer Applications",
             "seo_description": "Formal graduate program information for the Master of Science in Computer Applications of the Department of Computer Applications, MSU-IIT.",
             "og_title": "Master of Science in Computer Applications",
-            "og_description": "Graduate academic program in advanced computer applications and applied computing research with a culminating Master’s Thesis.",
+            "og_description": "Graduate academic program information with official Department content to be provided.",
             "documents": [
                 ("MSCA curriculum", "CURRICULUM", 10),
                 ("Graduate admission guide", "ADMISSION", 20),

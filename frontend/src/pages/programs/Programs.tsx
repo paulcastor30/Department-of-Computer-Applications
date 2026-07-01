@@ -1,27 +1,10 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, FileText, Info } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { departmentIdentity } from "@/content/siteContent";
 import { usePrograms } from "@/hooks/useAcademics";
 import { normalizePrograms, placeholder, type ProgramProfile } from "./programData";
-
-function ListBlock({ title, items, ordered = false }: { title: string; items: string[]; ordered?: boolean }) {
-  if (!items.length) return null;
-
-  const List = ordered ? "ol" : "ul";
-
-  return (
-    <section className="rounded-md border border-border bg-background p-5">
-      <h3 className="mb-3 text-base font-semibold text-primary">{title}</h3>
-      <List className="space-y-2 text-sm leading-6 text-muted-foreground">
-        {items.map((item) => (
-          <li key={item} className={ordered ? "ml-4 list-decimal" : undefined}>{item}</li>
-        ))}
-      </List>
-    </section>
-  );
-}
 
 function DocumentLink({ label, href, note }: { label: string; href?: string; note?: string }) {
   return (
@@ -51,6 +34,12 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
       <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-secondary">{program.level}</p>
       <h2 className="mb-3 text-2xl font-semibold text-primary">{program.title}</h2>
       <p className="mb-5 text-sm leading-6 text-muted-foreground">{program.summary}</p>
+      {program.isFallback && (
+        <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-border bg-muted/30 px-3 py-2 text-xs text-muted-foreground">
+          <Info className="h-4 w-4 text-secondary" aria-hidden="true" />
+          Showing placeholder structure until the Django program record is available.
+        </p>
+      )}
       <dl className="mb-5 grid gap-3 text-sm">
         <div>
           <dt className="font-semibold text-primary">Academic focus</dt>
@@ -155,7 +144,6 @@ export default function Programs() {
           "BS Computer Applications",
           "MS Computer Applications",
           "academic programs",
-          "applied computing",
         ]}
       />
 
@@ -164,8 +152,8 @@ export default function Programs() {
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-secondary">{departmentIdentity.college}</p>
           <h1 className="mb-5 text-3xl font-bold leading-tight text-primary md:text-5xl">Academic Programs</h1>
           <p className="max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
-            The Department of Computer Applications offers undergraduate and graduate programs in applied computing,
-            computer applications, software systems, embedded systems, Internet of Things, and related computing domains.
+            The Department of Computer Applications maintains undergraduate and graduate program records through the
+            Django content framework. Official details are displayed as they are validated and uploaded by the Department.
           </p>
         </div>
       </section>
@@ -195,7 +183,7 @@ export default function Programs() {
 
         <SectionHeader
           title="Program Overview"
-          subtitle="The following programs are presented for prospective students, current students, faculty, partners, and external reviewers."
+          subtitle="The following Django-backed program records are prepared for official Department content."
           align="left"
         />
         {isError && (
@@ -224,7 +212,7 @@ export default function Programs() {
         <div className="rounded-md border border-border bg-muted/30 p-5">
           <p className="max-w-4xl text-sm leading-6 text-muted-foreground">
             The Department maintains academic program records to support curriculum review, outcomes-based education,
-            accreditation, regulatory compliance, stakeholder feedback, and continuous improvement. Detailed
+            regulatory compliance, stakeholder feedback, accreditation, and continuous improvement. Detailed
             quality-assurance and accreditation documentation is maintained separately by the Department and College.
           </p>
           <Link
