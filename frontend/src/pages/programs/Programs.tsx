@@ -4,9 +4,7 @@ import { Seo } from "@/components/Seo";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { departmentIdentity } from "@/content/siteContent";
 import { usePrograms } from "@/hooks/useAcademics";
-import { normalizePrograms, type ProgramProfile } from "./programData";
-
-const placeholder = "To be provided by the Department.";
+import { normalizePrograms, placeholder, type ProgramProfile } from "./programData";
 
 function ListBlock({ title, items, ordered = false }: { title: string; items: string[]; ordered?: boolean }) {
   if (!items.length) return null;
@@ -56,11 +54,15 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
           <dt className="font-semibold text-primary">Academic focus</dt>
           <dd className="mt-2">
             <ul className="space-y-1 text-muted-foreground">
-              {program.academicFocus.slice(0, 3).map((focus) => (
+              {program.academicFocus.slice(0, 4).map((focus) => (
                 <li key={focus}>{focus}</li>
               ))}
             </ul>
           </dd>
+        </div>
+        <div>
+          <dt className="font-semibold text-primary">Culminating requirement</dt>
+          <dd className="mt-1 text-muted-foreground">{program.culminatingRequirement}</dd>
         </div>
         <div>
           <dt className="font-semibold text-primary">Intended learners</dt>
@@ -70,8 +72,8 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
           <dt className="font-semibold text-primary">Pathways</dt>
           <dd className="mt-2">
             <ul className="space-y-1 text-muted-foreground">
-              {program.careers.slice(0, 4).map((career) => (
-                <li key={career}>{career}</li>
+              {program.pathways.slice(0, 4).map((pathway) => (
+                <li key={pathway}>{pathway}</li>
               ))}
             </ul>
           </dd>
@@ -92,6 +94,36 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
   );
 }
 
+function ProgramComparison({ programs }: { programs: ProgramProfile[] }) {
+  return (
+    <div className="overflow-x-auto rounded-md border border-border bg-background">
+      <table className="w-full min-w-[760px] text-left text-sm">
+        <caption className="sr-only">Comparison of academic programs</caption>
+        <thead className="bg-muted/40 text-primary">
+          <tr>
+            <th scope="col" className="px-4 py-3 font-semibold">Program</th>
+            <th scope="col" className="px-4 py-3 font-semibold">Level</th>
+            <th scope="col" className="px-4 py-3 font-semibold">Academic Orientation</th>
+            <th scope="col" className="px-4 py-3 font-semibold">Culminating Requirement</th>
+            <th scope="col" className="px-4 py-3 font-semibold">Typical Pathways</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-border">
+          {programs.map((program) => (
+            <tr key={program.slug}>
+              <th scope="row" className="px-4 py-4 align-top font-semibold text-primary">{program.code}</th>
+              <td className="px-4 py-4 align-top text-muted-foreground">{program.level}</td>
+              <td className="px-4 py-4 align-top text-muted-foreground">{program.academicOrientation}</td>
+              <td className="px-4 py-4 align-top text-muted-foreground">{program.culminatingRequirement}</td>
+              <td className="px-4 py-4 align-top text-muted-foreground">{program.pathways.slice(0, 3).join("; ") || placeholder}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function ProgramSection({ program }: { program: ProgramProfile }) {
   const isGraduate = program.level.toLowerCase().includes("graduate");
 
@@ -105,12 +137,12 @@ function ProgramSection({ program }: { program: ProgramProfile }) {
           <dd className="mt-1 text-sm text-muted-foreground">{program.level}</dd>
         </div>
         <div className="rounded-md border border-border bg-background p-4">
-          <dt className="text-sm font-semibold text-primary">Normal Duration / Pathway</dt>
+          <dt className="text-sm font-semibold text-primary">Duration / Pathway</dt>
           <dd className="mt-1 text-sm text-muted-foreground">{program.duration}</dd>
         </div>
         <div className="rounded-md border border-border bg-background p-4">
-          <dt className="text-sm font-semibold text-primary">Curriculum Load</dt>
-          <dd className="mt-1 text-sm text-muted-foreground">{program.units}</dd>
+          <dt className="text-sm font-semibold text-primary">Culminating Requirement</dt>
+          <dd className="mt-1 text-sm text-muted-foreground">{program.culminatingRequirement}</dd>
         </div>
       </dl>
 
@@ -118,12 +150,11 @@ function ProgramSection({ program }: { program: ProgramProfile }) {
         <ListBlock title={isGraduate ? "Graduate Program Goals" : "Program Goals"} items={program.goals} />
         <ListBlock title={isGraduate ? "Graduate Learning Outcomes" : "Expected Learning Outcomes"} items={program.outcomes} ordered />
         <ListBlock title="Curriculum Structure" items={program.curriculumStructure} />
-        <ListBlock title={isGraduate ? "Research Areas" : "Major Academic Areas"} items={program.tracks} />
-        <ListBlock title={isGraduate ? "Thesis / Research Component" : "Capstone / Project Component"} items={program.capstoneOrThesis} />
-        <ListBlock title={isGraduate ? "Graduate Advising Information" : "Internship / Industry Exposure"} items={program.industryOrAdvising} />
+        <ListBlock title={isGraduate ? "Research Areas" : "Major Academic Areas"} items={program.academicAreas} />
+        <ListBlock title={isGraduate ? "Master’s Thesis" : "Undergraduate Thesis"} items={program.thesisInformation} />
+        <ListBlock title={isGraduate ? "Graduate Advising and Faculty" : "Student Support and Facilities"} items={isGraduate ? program.advisingInformation : program.studentSupport} />
         <ListBlock title="Admission Information" items={program.admissions} />
-        <ListBlock title="Student Support and Facilities" items={program.studentSupport} />
-        <ListBlock title={isGraduate ? "Graduate Pathways" : "Career Pathways"} items={program.careers} />
+        <ListBlock title={isGraduate ? "Graduate Pathways" : "Career and Further Study Pathways"} items={program.pathways} />
       </div>
     </Section>
   );
@@ -154,8 +185,7 @@ export default function Programs() {
           <h1 className="mb-5 text-3xl font-bold leading-tight text-primary md:text-5xl">Academic Programs</h1>
           <p className="max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
             The Department of Computer Applications offers undergraduate and graduate programs in applied computing,
-            software development, systems development, embedded systems, Internet of Things, and related computing
-            applications.
+            computer applications, software systems, embedded systems, Internet of Things, and related computing domains.
           </p>
         </div>
       </section>
@@ -198,6 +228,15 @@ export default function Programs() {
             <ProgramCard key={program.slug} program={program} />
           ))}
         </div>
+      </Section>
+
+      <Section variant="muted">
+        <SectionHeader
+          title="Program Comparison"
+          subtitle="A concise comparison of degree level, academic orientation, culminating requirement, and typical pathways."
+          align="left"
+        />
+        <ProgramComparison programs={displayedPrograms} />
       </Section>
 
       {displayedPrograms.map((program) => (

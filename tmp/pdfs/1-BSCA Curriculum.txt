@@ -1,0 +1,4029 @@
+
+
+--- PAGE 1 ---
+ 
+1 
+ 
+OVPAA Curriculum Evaluation Checklist of Documents for Curriculum Review 
+ 
+ 
+ 
+Proponent Campus: MSU-IIT     Tel. No. (063) 221-4050 
+College: School of Computer Studies    Fax No. ____________ 
+ 
+Date Proposal Received: _______________ 
+ 
+Course/Program Proposed for Revision:  Bachelor of Science in Computer Applications 
+ 
+Campus Offering Similar Program:  NONE 
+ 
+Documents Page 
+No. Yes No Remarks 
+     
+1. Administrative Papers     
+1.1 Letter from the Chancellor or his counterpart 
+requesting approval 
+    
+1.2 Date of Campus APC Approval     
+1.3 Resolution from the Campus Council  recommending 
+approval of the proposed revision duly certified by the 
+campus council secretary and attested by the 
+Chancellor or his counterpart 
+(Form 2-Campus Council Resolution) 
+    
+1.4 Resolution of the University System Council 
+recommending approval of the proposed revision duly 
+certified by the University/BOR Secretary and attested 
+by the President (Form 3-University Council 
+Resolution) 
+    
+      
+2. Approval sheet duly signed by the chairs and Members 
+of the various reviewing committee  
+(Form 1-Approval Sheet Curriculum Committees) 
+    
+2.1 Department Curriculum Committee     
+2.2 College Curriculum Committee     
+2.3 Campus Curriculum Committee     
+2.4 University System Curriculum Committee     
+      
+3. Features of the Revision     
+      
+4. Rational, Objectives, Strategies and Processes 
+(Form 4) 
+    
+4.1 Rationale 
+(the proposed revision must envision peace and 
+development in Mindanao, towards research university 
+and internationalization and other important rationale 
+to improve the quality of graduates)  
+    
+4.2 Objectives of the program 
+(Competencies to be developed in the graduates) 
+    
+4.3 Strategies and Processes Pursued in the Revision     
+ 
+ 
+
+--- PAGE 2 ---
+ 
+2 
+ 
+Documents Page 
+No. Yes No Remarks 
+5. Semestral Distribution of Courses (The Curriculum 
+Proper)  
+The Curriculum should follow national Standards 
+(Form 5A/5B) 
+    
+      
+6. Summary of Courses and Units (Form 6)     
+      
+7. Comparative Summary of Courses and Units (Form 8)     
+      
+8. Course Description (Form 8)     
+      
+9. End-User Survey (Form 9)     
+      
+10. Faculty Profile of the Department (Form 10)     
+      
+11. College Administration (Form 11)     
+      
+12. Academic Non-Teaching Personnel (Form 12)     
+      
+13. Library Holdings (Form 13)     
+      
+14. Facilities, Equipment, Furniture, etc. (Form 14)     
+      
+15. Feasibility Study (Form 15)     
+      
+16. OBE Syllabi (Form 16)     
+      
+17. A certification from the Dean that the proposal is 
+properly edited. (Form 18) 
+    
+      
+18. Copy of the recent national standards and 
+policies/directories used by the college as guide or 
+basis in the revision. 
+    
+      
+19. A softcopy of the entire proposal already corrected and 
+edited 
+    
+ 
+ 
+ 
+Checked and Evaluated by:     ___________________________________________ 
+ 
+Date of Evaluation: ___________________________________________________ 
+ 
+
+--- PAGE 3 ---
+ 
+3 
+ 
+TABLE OF CONTENTS 
+ 
+  Page No. 
+  Checklist of the Revision 1 
+ Summary of Changes 3 
+ Features of the Revision 5 
+ Administrative Papers 6 
+ Approval Sheet of  the Curriculum Committees 9 
+1 Rationale 13 
+2 Objectives of the Revisions 14 
+ 2.1   Program Outcomes 15 
+ 2.2   Program Educational Objectives 20 
+ 2.3   Relationship of Specific Graduate Outcomes and Program                           
+       Educational Objectives 20 
+3 Other Components 21 
+4 Strategies and Processes Involved in the Revision  21 
+5 Implementation Scheme 21 
+6 Distribution of Courses by Semester 23 
+7 Summary of Courses and Units 28 
+8 Comparative Summary of the Current and Proposed Revised Curriculum 32 
+9 Course Descriptions 39 
+10 Curriculum Map 42 
+11 Means of Curriculum Delivery 54 
+12 Faculty Profile of the Department 55 
+13 Academic Non-Teaching Personnel Form 57 
+14 OBE Syllabi 58 
+15 Certification from the Dean that the Proposal is properly edited 59 
+16 Appendices  
+ APPENDIX A  BSECT Graduate’s Name and Thesis Title 60 
+ APPENDIX B BSECT Graduates and their Career Status 64 
+17 Library Holdings  
+18 CHED CMO No. 25 S.2015  
+19 CHEB CM0 NO. 46 series of 2012  
+
+--- PAGE 4 ---
+ 
+4 
+ 
+ 
+Republic of the Philippines 
+MINDANAO STATE UNIVERSITY 
+Marawi City 
+ 
+Program: Bachelor of Science in Computer Applications 
+ 
+Proponent: Department of Electronics Engineering Technology 
+  School of Computer Studies 
+  MSU-Iligan Institute of Technology 
+  Iligan City 
+SUMMARY OF CHANGES: 
+1. The Bachelor of Science in Electronics and Computer Technology (BOR res. #11 series of 2009) 
+is renamed to Bachelor of Science in Computer Applications. 
+2. The BS Computer Application is still offered as a four (4) year program which will cater to 
+graduates of the K-12 under the STEM track. However graduates from other tracks may still be 
+admitted subject to an appropriate bridging program designed by the university.  
+3. The Bachelor of Science of Computer Applications curriculum has the following tracks: 
+a. Embedded Systems 
+b. Internet of Things (IoT) 
+4.  The proposed curriculum has a total of 153 units including PED and NST compared to 174 units 
+of the old curriculum. D uring the last two (2) years of the curriculum, the student shall be made 
+to take technical electives. 
+5. The GEC courses are now reduced to 39 units as mandated in Republic Act 10533 or the Enhanced 
+Education Act of 2013(CMO#20, s 2013) and the MSU system mandated course as follows: 
+ 
+Course No. Course Title Units 
+GEC101 Understanding The Self 3 
+GEC102 Purposive Communication 3 
+GEC103 The Contemporary World 3 
+GEC104 Mathematics in the Modern World 3 
+GEC105 Readings in Philippine History 3 
+GEC106 Art Appreciation 3 
+GEC107 Ethics 3 
+GEC108 Science, Technology and Society 3 
+GEC109 Life and Works of Rizal 3 
+HIS003 
+History of Filipino Muslims and Indigenous People of 
+MINSUPALA    
+3 
+FIL101 Wika at Kultura sa Mapayapang Lipunan 3 
+FIL102 Ekokritisismo at Pagpapahalaga sa Kalikasan 3 
+FPE101 Fundamentals of Peace Education 3 
+TOTAL  39 
+ 
+ 
+
+--- PAGE 5 ---
+ 
+5 
+ 
+ 
+6. Six (6) subjects of  common computing courses are added to fully support the program 
+outcomes for the computing discipline. 
+ 
+Course no. Course Title Units 
+CCC100 Introduction to Computing 3 
+CCC101 Programming 1 3 
+CCC102 Programming 2 3 
+CCC121 Data Structures and Algorithms 3 
+CCC151 Information Management 3 
+CCC181 Application Development 
+and Emerging Technologies 
+3 
+ Total 18 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 6 ---
+ 
+6 
+ 
+3.  FEATURES OF THE REVISIONS: 
+ 
+The revised Bachelor of Science in Computer Applications Curriculum has the following significant 
+features: 
+ 
+ 
+1. The Bachelor of Science in Computer Application is a revision of Bachelor of Science in 
+Electronics and Computer Technology  (BSECT), retaining 80% of the major  courses. 
+However additional units are added to develop and sharpen the mathematical analysis and 
+specialized skills in Embedded System and Internet of Things (IoT) to align the program 
+with the requirements set by nati onal and  international standards such as  CHED and 
+Seoul Accord.  
+ 
+2. There are two tracks: Embedded Systems Track and Internet of Things (IoT) broken down 
+as follows: 
+ 
+Track General 
+Education 
+ 
+Math 
+ 
+Core 
+Courses 
+ 
+Major  
+Courses  
+Technical 
+Electives 
+OJT PE & 
+NSTP 
+Total 
+Embedded  
+Systems 
+39 21 21 46 12 6 8(6) 153(159) 
+Internet of 
+Things  
+ 
+39 21 21 46 12 6 8(6) 153(159) 
+ 
+ 
+3. The change of the course code s is aligned with the new coding system of the Institute 
+which consist of three (3) letters BCA for Computer Applications followed by three digits. 
+ 
+4. Included six (6) units of Filipino (“Wika at Kultura sa Mapayapang Lipunan ” and  
+“Ekokritisismo at Pagpapahalaga sa Kalikasan”),  and three (3) units of Fundamentals of 
+Peace and Development to better achieve the learning outcomes of being, among others,  
+an advocate of peace  and respect of nature;   
+ 
+5. BCA198  and BCA199  are retained as  Research Methods and Undergraduate  Thesis 
+respectively, as an option to ECTA195 and ECTB196, Capstone Project 1 and 2. 
+ 
+6. Courses that may be offered as professional technical electives may be taken from the 
+Computer Science, Information Technology and other allied programs of the University  
+with the written consent of the Department Chairperson and the adviser. 
+ 
+7. BCA197, On-the-Job Training, is assigned six (6) units and shall be taken during the last 
+term of the program to apply the acquired skills and theories and gain industry experience. 
+A minimum of 700 hours shall be required to complete the training which is align with the 
+requirements set by national standard such as CHED.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PAGE 7 ---
+ 
+7 
+ 
+Administrative Papers 
+ 
+Republic of the Philippines 
+Mindanao State University – Iligan Institute of Technology 
+Iligan City 
+ 
+ 
+OFFICE OF THE REGISTRAR 
+ 
+ 
+ 
+Excerpts from the Minutes of the         th Meeting of the MSU – IIT Campus Council held at the 
+___________________________________________ on ___________________, 2018. 
+ 
+x-x-x      x-x-x      x-x-x 
+ 
+ 
+ 
+ 
+RESOLUTION NO. _____, S. 2018 
+ 
+ RESOLVED that upon the recommendation of the (University President/Chancellor) , the 
+Academic Planning and the Campus Council en banc, the proposed Doctor in Business 
+Administration Program, herein appended as Annex “A” and made an integral part of this resolution, 
+is hereby approved subject further to the approval of the University Council and finally by the Board 
+of Regents. 
+ 
+         
+x-x-x      x-x-x      x-x-x 
+ 
+ 
+ 
+     
+     CERTIFIED TRUE AND CORRECT: 
+ 
+ 
+ 
+       ESMAR N. SEDURIFA, MASE  
+      Acting Institute Registrar 
+           Secretary of the Campus Council 
+ 
+  
+
+--- PAGE 8 ---
+ 
+8 
+ 
+Mindanao State University 
+Marawi City 
+ 
+ 
+OFFICE OF THE UNIVERSITY SECRETARY/ 
+SECRETARY TO THE UNIVERSITY SYSTEM COUNCIL 
+ 
+ 
+Excerpts from the Minutes of the ____th Meeting of the MSU System Council held at MSU 
+Academic Complex, Marawi Campus, Marawi on ________________________, 2018. 
+ 
+x-x-x      x-x-x      x-x-x 
+ 
+ 
+RESOLUTION NO. _____, S. 2018 
+ 
+ RESOLVED that upon the recommendation of the University President, Academic Planning 
+Committee, Campus Council and University System Council en banc, the proposed Doctor in 
+Business Administration Program, herein appended as Annex “A” and made an integral part of this 
+resolution, is hereby approved subject further to the final approval of the Board of Regents. 
+ 
+         
+x-x-x      x-x-x      x-x-x 
+ 
+    
+      
+CERTIFIED TRUE AND CORRECT: 
+ 
+ 
+ 
+      
+    USMAN D. ARAGASI, MPA, LLB  
+         Acting Secretary  
+      University Council and the Board of Regents 
+ 
+ 
+ 
+ 
+ 
+ 
+            
+  
+
+--- PAGE 9 ---
+ 
+9 
+ 
+Approval Sheets 
+ 
+ 
+Program:  Bachelor of Science in Computer Applications 
+Proponent:  Department of Electronics Engineering Technology, 
+     School of Computer Studies 
+    MSU-Iligan Institute of Technology 
+ 
+ 
+Recommending Approval 
+ 
+ 
+Department Curriculum Committee 
+ 
+ 
+ 
+Danilo C. Adlaon 
+Member 
+ 
+ 
+ 
+ 
+Alexander R. Gaw 
+Member 
+ 
+Rolando L. Galucan 
+Member 
+ 
+ 
+ 
+ 
+Ernesto E. Empig 
+Member 
+Jess Christoper B. Lopez 
+Member 
+ 
+ 
+ 
+ 
+Antonio S. Marajas 
+Member 
+Joseph Allan Y. Mascardo 
+Member 
+ 
+ 
+ 
+ 
+Ofelia S. Mendoza 
+Member 
+Michael A. Nabua 
+Member 
+ 
+ 
+ 
+ 
+Nerissa R. Adlaon 
+Committee Chairperson 
+ 
+ 
+ 
+
+--- PAGE 10 ---
+ 
+10 
+ 
+ 
+ 
+ 
+College Curriculum Committee 
+ 
+ 
+ 
+Ernesto E. Empig         Adrian P. Galido  
+Member, Dean’s Ofﬁce                   Member, Dean’s Office 
+Department 
+ 
+ 
+ 
+Haroun Al Raschid Christopher P. Macalisang               Manuel C. Cabido  
+Member, CS Department       Member, IT Department 
+ 
+ 
+ 
+Lomesindo T. Caparida                   Celesamae T. Vicente  
+Member, IT Department        Member, Graduate Program 
+ 
+ 
+ 
+Cenie M. Vilela-Malabanan         Rolando L. Galucan  
+Member, Graduate Program         Member, ESET  Department 
+ 
+ 
+ 
+ 
+Alexander R. Gaw                
+Member, ESET Department        
+ 
+ 
+ 
+ 
+ 
+Renato V. Crisostomo  
+            Committee Chairperson 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 11 ---
+ 
+11 
+ 
+Institute Curriculum Committee: 
+ 
+ 
+GROUP 1                        GROUP 2 
+ 
+ 
+ 
+DR. Rosario B. Dizon      PROF. Corazon T. Biong 
+ Member (CASS)      Member (CED) 
+ 
+ 
+ 
+PROF. Jahara D. Ibrahim     DR. Pamela R. Resurreccion 
+ Member (CBAA)      Member (CBAA) 
+ 
+ 
+ 
+PROF. Julius M. Torralba     PROF.  Angiline L. Teatro 
+ Member (COE & T)      Member (COE & T) 
+ 
+ 
+ 
+PROF. Khandy Lorainne G. Apsay    PROF. Bernie A. Casera 
+ Member (CON)      Member (CON) 
+ 
+ 
+ 
+DR. Lunesa C. Pinzon       DR. Jocelyn P . Vilela 
+ Member (CSM)      Member (CSM) 
+ 
+ 
+ 
+PROF. Renato V . Crisostomo     PROF. Manuel C. Cabido 
+ Member (SCS)      Member (SCS) 
+ 
+ 
+ 
+PROF. Esmar N. Sedurifa     DR. Josefina R. Tabudlong 
+ Member (Registrar)     Vice Chairperson 
+ 
+ 
+     
+       
+ 
+ 
+ 
+       DR. Gaudencio C. Petalcorin, Jr. 
+Chairperson 
+ 
+ 
+ 
+    PROF. Sukarno D. Tanggol, DPA 
+Chancellor 
+ 
+
+--- PAGE 12 ---
+ 
+12 
+ 
+ 
+The University Curriculum Committee 
+ 
+ 
+DR. CYNTHIA M. FILIPINAS 
+ 
+DR. GRACE I. PRADO 
+Main Campus MSU-Naawan 
+  
+  
+DR. SAMUEL E. ANONAS DR. ELNOR C. ROA 
+Main Campus MSU-Naawan 
+  
+  
+DR. MINOMBAO RAMOS-MAYO DR. GAUDENCIO C. PETALCORIN 
+Main Campus MSU-IIT 
+  
+  
+DR. MINERV A-SAMINAH M. NAGA DR. ESMAR N. SEDURIFA 
+Main Campus MSU-IIT 
+  
+  
+PROF. CORAZON S. OLPOC DR. HILTON J. AGUJA 
+Main Campus MSU-IIT 
+  
+  
+DR. ACRAM LA TIP DR. NELIA G. BALGOA 
+Main Campus MSU-IIT 
+  
+  
+PROF. HASMIN M. ABDULHALIM DR. MARY LYNN S. ABIERA 
+Main Campus MSU-Gensan 
+  
+  
+DR. GLENN A. LORENZO DR. TOMANDA D. ANTOK 
+Main Campus MSU-Maguindanao 
+  
+  
+DR. CESAR DELA SEÑA DR. NAGDER J. ABDULRAHMAN 
+Main Campus MSU-Sulu 
+  
+  
+PROF. HENRY C. DAUT DR. ANABEL A. WELLMS 
+Main Campus MSU-TCTO 
+  
+  
+DR. ROSE VILLA B. ESTOISTA PROF. CARMELITA H. BALBOSA 
+Main Campus MSU-Buug 
+  
+  
+DR. RENA TO S. PACALDO  
+Main Campus 
+ 
+ 
+ 
+  
+DR. ALMA E. BEROW A 
+Chairperson 
+MSU System Vice President for Academic Affairs 
+ 
+ 
+Date of Approval by the Campus Council:  March 1, 2018 
+Date of Approval by the University Council: ________________ 
+ 
+Date of Approval by BOR:  ________________  Date of Implementation: ________________ 
+
+--- PAGE 13 ---
+ 
+13 
+ 
+ 
+ 
+College:   School of Computer Studies 
+Department:   Department of Electronics Engineering Technology 
+Unit:    MSU- Iligan Institute of Technology 
+ 
+Proposal:    Revision and renaming of Bachelor of Science in Electronics and Computer 
+Technology (BSECT) to Bachelor of Science in Computer Applications (BSCA)  
+ 
+1   Rationale   
+ 
+Very recently, societies the world over have seen developments in the rapid advancement of technology 
+particularly in the field of emerging technologies that include bio-informatics, medical informatics and 
+services, military advancement applications and I CT for sustainability. Additionally, locally and 
+internationally, societies have felt the advent of Industry 4.0 , the fourth industrial revolution, through 
+the highly autonomous and self-configuring sensor-based production systems. With Industry 4.0 comes 
+connected technology such as Internet of Things (IoT) , Machine learning, artificial intelligence and big 
+data analytics. All these increasing demands from various technological processes and advancements 
+need 21st century skills and knowledge.  
+ 
+The landscape by which the current curricular program Bachelor of Science in Electronics Computer 
+Technology (BSECT) of the School of Computer Studies is heading, is believed to undergo challenges 
+in addressing various demands in the society. Its graduates are bel ieved to face challenges in coping 
+with the fast-changing developments, demands and directions in the field of application of technology; 
+thus, the graduates may, in effect, not successfully fill in the human resource needs as their skills may 
+be insufficient or may be unmatched to the skills needed.  
+ 
+Therefore, the academic program will have to be strategized such that the skills to be acquired by the 
+students will match the demands of various organizations, industries, academic institutions and societies 
+in terms of the current and future technological advancements. It should increase or maximize students’ 
+learning potentials and should empower teachers to be more engaged in more advanced industry-leading 
+processes and developments.  
+ 
+In the light of these developments, the Department of Electronics Engineering Technology has seen the 
+urgent need of revising the curriculum to keep abreast with the changes and demands and the recent 
+technological developments in the international arena. 
+ 
+At the local level, providing additional motivation for revising the curricula offering is the recent reform 
+in the Philippine Educational system, which is the K to 12 Basic Education Program and the CHED 
+CMO No, 20, series of 2013, otherwise known as the “General Education Curriculum: Holistic 
+Understandings, Intellectual and Civic Competencies” is the policy cover for the revised General 
+Education Curriculum (GEC), which offers greater flexibility than the current curriculum.  
+ 
+The Department proposes therefore to change th e name of the program from Bachelor of Science in 
+Electronics and Computer Technology (BSECT) to Bachelor of Science in Computer Application 
+(BSCA) and to retain eighty percent (80%) of its major courses. Changing the name to Bachelor of 
+Science in Compute r Application enables the curricular program to be aligned with the current ITE 
+landscape since majority of the major subjects to be offered are related to computer applications and 
+interfacing of software, firmware and hardware; the electronics subjects, consisting of 6 units 
+introductory to electronics, and which serves as enabler of learning toward computer hardware 
+programming and development. The new revised curriculum is leaning towards the application of 
+firmware with interface on computer software and hardware.  
+ 
+ 
+
+--- PAGE 14 ---
+ 
+14 
+ 
+The curriculum is designed to be dynamic and flexible so that in the future, it can accommodate 
+interdisciplinary and multidisciplinary program such as bio -informatics, social computing, 
+environmental computing and other hardware related courses. It is an enabler and addresses the demands 
+of researchers, innovators and developers for  Industry 4.0.  
+ 
+The proposed revised Computer Applications curriculum shall provide our students with the analytical, 
+interpersonal, and technical skills they need for the Industry 4.0 Implementation. It shall encourage 
+them to apply the skills and knowledge they will gain to solve real-life problems. As our students learn 
+computer applications, they develop research and communication skills and learn how to evaluate their 
+work, and consequently provide them adequate preparation for the workplace or for further 
+advancement through graduate studies in the Master of Science in Computer Application (MSCA). 
+ 
+2  Objectives of the Revision 
+The BSCA graduates are expected to become globally competent, innovative, and socially and ethically 
+responsible computing professionals engaged in life -long learning endeavors. They are capable of 
+contributing to the country’s national development goals. 
+ 
+Specifically, the BSCA aims to achieve the following objectives: 
+ 
+1. To produce graduates who are capable to conduct research and development and produce patentable 
+innovations. 
+2. To be able to cater to the demands of Information and Communication Technology (ICT) in helping 
+to solve the emerging and future global problems. 
+3. To align the program with the requirements set by national and international standards such as 
+CHED PSG and Seoul Accord. 
+4. To produce graduates as prospective enrollees for the Master of Science in computer Applications 
+(MSCA), offered in the School of Computer Studies, thereby supporting the role of MSU-IIT as the 
+only delivering institution for engineering Research and Development for Technology (ERDT) 
+consortium and CHED. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 15 ---
+ 
+15 
+ 
+2.1  PROGRAM OUTCOMES 
+ 
+2.1.1 Program Outcomes, Performance Indicators and Assessment Common to  All  
+Programs in MSU-IIT 
+ 
+Program Outcomes 
+Common to all programs in 
+MSU-IIT 
+ 
+Performance Indicators 
+ 
+Assessment 
+(A) To keep abreast of latest 
+developments in the specific 
+field of practice 
+● Articulate recent 
+developments or trends 
+in the field of practice 
+or discipline  
+● Written reports on 
+recent trends and 
+developments in the 
+field of practice or 
+discipline 
+● Submitted certificate of 
+presentation / 
+participation in 
+scientific fora 
+(B) Effectively communicate 
+using English and Filipino, 
+orally and in writing 
+● Render oral 
+reports/presentations in 
+English and Filipino 
+● Prepare written reports 
+in English and Filipino 
+● Presented oral and 
+written outputs 
+● Submitted terminal 
+reports on authorized 
+group-organized 
+academic and extra-
+curricular activities 
+(C) Work effectively and 
+independently in multi-
+disciplinary and multi-
+cultural teams (PQF Level 6 
+descriptor) 
+● Engage in any 
+collaborative work 
+● Submitted reports on 
+collaborative 
+engagements 
+(D) Demonstrate  professional, 
+social, ethical, and 
+environmental responsibility 
+● Practice 
+professionalism and 
+social, ethical and 
+environmental 
+responsibility in the 
+conduct of projects and 
+other related activities 
+● Incorporate corporate 
+social responsibility 
+aspects in curricular 
+activities 
+● Demonstrate 
+professionalism and 
+social and ethical 
+responsibility in 
+managing curricular  
+activities 
+● Submitted process 
+documentation reports 
+(or evaluation reports) 
+describing how students 
+demonstrate 
+professional, social. 
+ethical, and 
+environmental 
+responsibility in 
+internships and other 
+curricular activities 
+(E) Preserve and promote 
+“Filipino historical and 
+cultural heritage” (based on 
+RA 7722) 
+● Describe various 
+elements of Philippine 
+historical and cultural 
+heritage 
+ 
+● Describe the 
+Philippines in terms of 
+cultural characteristics 
+● Submitted paper, 
+projects or reports 
+integrating cultural and 
+historical perspective 
+
+--- PAGE 16 ---
+ 
+16 
+ 
+(F) Advocate for peace in multi-
+cultural settings  
+● Promote sensitivity to 
+multi-cultural 
+differences 
+● Work effectively as a 
+member of multi-
+cultural teams  
+● Explain cultural and 
+racial differences in the 
+context of sustainable 
+peace-building 
+● Participation in peace 
+dialogues and fora 
+● Submitted reflection 
+paper on peace 
+activities 
+ 
+ 
+2.1.2 Program Outcomes, Performance Indicators and Assessment Common to  all   
+ITE Programs  in MSU-IIT 
+ 
+Program Outcomes 
+Common to all ITE 
+Programs in MSU-IIT 
+ 
+Performance Indicators 
+ 
+Assessment 
+a) Analyze complex 
+problems, and identify 
+and define the 
+computing 
+requirements needed to 
+design an appropriate 
+solution (Student 
+Outcome: SO.3) 
+● Students are able to 
+formulate and decompose a 
+problem into appropriate 
+components 
+● Students are able to solicit 
+and formulate software and 
+hardware requirement 
+specifications 
+● Students are able to 
+estimate resources required 
+for the proposed solution 
+● Approved software 
+requirements 
+specifications document 
+(SRS) 
+● Design document 
+including system 
+architecture 
+b) Apply computing and 
+other knowledge 
+domains to address 
+real-world problems 
+(Student 
+Outcome:SO.1) 
+● Able to perform problem 
+analysis 
+● Propose computing and non-
+computing based solutions 
+● Technical report / 
+concept paper for viable 
+solution to real-world 
+problems 
+c) Design and develop 
+computing solutions 
+using a system-level 
+perspective (Student 
+Outcome: SO.5) 
+● Perform systems analysis 
+and design 
+● Develop and implement 
+proposed computing 
+solutions 
+● Able to perform tests and 
+evaluation 
+● System analysis and 
+design document of a 
+functional socio -
+technical system 
+d) Utilize modern 
+computing tools 
+(Student Outcome: 
+SO.7) 
+● Utilize and apply modern 
+software and hardware 
+tools. 
+● Student’s performance 
+evaluation on the use of 
+appropriate skills, tools 
+and techniques 
+e) Evaluate computing 
+solutions in relation to 
+their impact on society 
+and environment 
+● Analyze local and global 
+impact of computing 
+information technology on 
+individuals, organizations, 
+and society 
+● Thesis Evaluation 
+ 
+ 
+
+--- PAGE 17 ---
+ 
+17 
+ 
+2.1.3  Program Outcomes, Performance Indicators and Assessment for the Computer  
+         Applications  Program 
+ 
+The graduates shall have the ability to: 
+ 
+BSCA PROGRAM 
+OUTCOMES 
+GRADUATE 
+ATTRIBUTE 
+GRADUATE 
+OUTCOMES 
+BSCA 
+PERFORMANCE 
+INDICATORS  
+ 
+ASSESSMENT 
+(G) Apply 
+knowledge of 
+computing 
+fundamentals, 
+mathematics and 
+sciences to solve 
+computer 
+electronics 
+problems. 
+ 
+Knowledge for 
+Solving 
+Analysis of  
+Computer 
+Application 
+Problems 
+CA01 
+ Apply 
+mathematical 
+principles to 
+achieve analytical 
+or numerical 
+solution to model 
+equations in 
+solving computer 
+electronics 
+problems. 
+ Demonstrate 
+critical thinking 
+skills in solving 
+problems. 
+ Plan and write 
+programs that 
+demonstrate 
+programming,     
+debugging, and 
+troubleshooting 
+skills. 
+ Complied 
+course-
+embedded 
+requirements 
+ Submitted 
+programing 
+project 
+ 
+ 
+(H) Analyze a 
+problem, 
+formulate  and 
+identify solutions 
+for computer 
+applications and 
+technology   
+problems using 
+analytical tools 
+appropriate to 
+areas of 
+specialization. 
+Problem 
+Analysis 
+ 
+ 
+ 
+CA02 
+ Identify and 
+distinguish  the 
+appropriate 
+solution to a given 
+problem statement.  
+ Select  appropriate 
+analytical tools to 
+arrive at 
+appropriate 
+solution for a 
+given problem.  
+ Compare  the 
+efficiency of the 
+different 
+appropriate 
+analytical tools to 
+solve problem 
+within reasonable 
+constraint.  
+ 
+ Complied 
+course-
+embedded 
+requirements 
+ Submitted 
+thesis  
+ 
+(I) Apply design 
+principle  using  
+software and 
+ 
+ 
+ 
+ 
+ 
+ 
+ Formulate a 
+clear and 
+unambiguous 
+ Complied 
+course-
+embedded 
+
+--- PAGE 18 ---
+ 
+18 
+ 
+firmware  for 
+broadly defined 
+computer  
+applications  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Design/ 
+Development 
+of solutions 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CA03 
+needs statement 
+in a design 
+project. 
+ Create 
+established 
+criteria for 
+acceptability and 
+desirability of 
+solutions to the 
+designed 
+problem. 
+ Design and 
+implement 
+selected solution 
+for a specific 
+problem 
+requirements 
+ 
+ Submitted 
+thesis 
+(J) Implement and 
+evaluate 
+computer 
+application 
+systems, 
+components or 
+processes to meet 
+specific needs. 
+ 
+ 
+CA04 
+ Generate the 
+most desirable 
+and economical 
+solution  
+ Check the 
+impact of the 
+implemented 
+solution to 
+society and 
+environment. 
+ 
+ Complied 
+course-
+embedded 
+requirements 
+ Submitted 
+thesis 
+(K) Select and apply 
+appropriate 
+techniques, 
+resources and 
+modern 
+computing and 
+ICT tools 
+necessary for 
+computer 
+applications 
+practices. 
+Modern Tool 
+Usage 
+ 
+ 
+CA05 
+ Demonstrate an 
+ability to use 
+current trends 
+and emerging 
+technologies in 
+computer 
+hardware and 
+firmware  
+application. 
+ Utilize various 
+appropriate ICT 
+tools to solve a 
+given problem.  
+ Complied 
+course-
+embedded 
+requirements 
+ Submitted 
+thesis 
+ 
+ 
+(L) Function 
+effectively as a 
+member or leader 
+of a development 
+team recognizing 
+the different roles 
+within a team to 
+accomplish a 
+common goal. 
+Individual and 
+Team Work 
+ 
+ 
+CA06 
+ Worked in a 
+group to develop 
+a computer 
+applications 
+project. 
+ 
+ 
+ 
+ Documentati
+on of 
+engagement 
+in a team 
+project. 
+ 
+ 
+ 
+ 
+  
+  
+
+--- PAGE 19 ---
+ 
+19 
+ 
+(M) Communicate 
+effectively with 
+the computer 
+applications 
+community and 
+with society at 
+large about 
+complex 
+computer 
+application 
+activities through 
+logical writing, 
+presentations, 
+and clear 
+instructions. 
+Communication 
+ 
+ 
+CA07 
+ Presented a 
+proposed 
+solution in class 
+or in a public 
+forum. 
+ 
+ 
+ Terminal 
+report of 
+paper 
+presentations 
+ 
+(N) Understand and 
+commit to 
+professional 
+ethics and 
+responsibilities 
+and norms of 
+computer and 
+cyber technology 
+practices. 
+ 
+Computing 
+Professional 
+and Ethics in 
+the Society 
+ 
+ 
+CA08 
+ Appraise the 
+ethical 
+dimensions of a 
+problem in the 
+discipline 
+ Demonstrate 
+professional 
+responsibilities 
+and norms of 
+computer and 
+cyber 
+technology 
+practices. 
+ 
+ Complied 
+course-
+embedded 
+requirements 
+ OJT 
+supervisor’s 
+evaluation 
+and feedback 
+rating. 
+(O) Recognize  the 
+need for  and 
+have the ability,  
+to engage in 
+independent 
+learning for 
+continual 
+development as a 
+technology 
+specialist. 
+ 
+Life-long 
+Learning 
+ 
+ 
+CA09 
+ Involve oneself 
+in 
+technical/scientif
+ic activities 
+ Submitted 
+proof of 
+attendance to  
+seminars/ 
+workshops. 
+ 
+ 
+2.1.4 Additional Outcome as a University as stipulated in CMO46 s. 2012 
+ 
+(P) Ability to generate new 
+knowledge in the form 
+of research or 
+developmental projects 
+to support national, 
+regional or local 
+ Generate new knowledge in 
+the form of research or 
+developmental project.  
+ Completed acceptable 
+design or capstone project. 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 20 ---
+ 
+20 
+ 
+2.2  Program Educational Objectives 
+ 
+  The objectives achievable within 3 to 5 years after graduation are the following: 
+ 
+Program Educational 
+Objectives Performance Indicators Assessment 
+a) Graduates attained 
+professional growth 
+and advancement in 
+their professional 
+career 
+● CA graduates hold 
+influential roles in an 
+organization or supervisory 
+or managerial positions or 
+consultancy services 
+● Alumni tracer 
+b) Graduates are 
+pursuing advance 
+studies or training 
+● Enrolled in a graduate 
+program or attending 
+professional seminars / 
+training / workshop 
+● Alumni tracer  
+ 
+c) Engaged in lifelong 
+learning for 
+continuous 
+professional 
+development 
+ Enrolled in a graduate 
+program or attending 
+professional seminars/ 
+trainings/workshops  
+● Alumni tracer  
+d) Graduates will be 
+able to practice the 
+computer 
+applications 
+profession 
+● Working as CA specialist 
+in the specified field 
+● Alumni tracer  
+ 
+ 
+ 
+ 
+ 
+ 
+2.3  Relationship of Specific Graduate Outcomes and Program Educational Objectives 
+ 
+The link between the specific graduate outcomes and program educational objectives is presented 
+below. 
+ 
+Graduate 
+Outcome 
+Program Educational Objectives 
+1 2 3 4 
+CA01  / / / 
+CA02   / / 
+CA03 /  / / 
+CA04   /  
+CA05 /  / / 
+CA06 /    
+CA07 /    
+CA08 / / / / 
+CA09   / / 
+ 
+ 
+
+--- PAGE 21 ---
+ 
+21 
+ 
+3.  Other Components 
+3.1  Admission Requirements 
+1. SASE Cut-off Score for Incoming Freshmen 
+The SASE cut-off score for incoming freshmen will be determined by the Department.  
+2. The documentary requirements are prescribed by the Admissions and Registrar Offices. 
+3. The default source of input is the senior high school graduates from Science, Technology, 
+Engineering, and Mathematics (STEM) track in the K to 12 Basic Education Program. 
+Graduates from other tracks such as Humanities, Education, and Social Science 
+(HESS),Accountancy, Business, and Management (ABM), General Academic Strand 
+(GAS), a nd Technical-Vocational-Livelihood (TVL) shall take the necessary bridging 
+courses required for the admission to the program. 
+3.2  Transferees from Within and Other MSU Campuses 
+ 
+1. Transferees shall apply for admission in the Department. 
+ 
+2. The transferee must have a GPA of 2.75 or better. 
+ 
+3.3 Retention Policies:  
+ 
+ The retention policies shall apply as prescribed by the MSU Board of Regents (BOR). 
+ 
+3.4 Fees and Other Payments:  
+The fees shall apply as prescribed by law and MSU Board of Regents (BOR).  
+  
+4.  Strategies and Processes Involved in the Revision 
+4.1 The Department has reviewed the existing curricula and  incorporate t he GEC courses as 
+mandated in Republic Act 10533 or the Enhanced Education Act of 2013(CMO#20, s 2013) and  
+the MSU system mandated course to our new curricula. 
+ 
+4.2 . The Department also examined the related national standard set by CHED. 
+ 
+4.3 The Department also examined the course offerings of COURSERA (https://www.coursera.org) 
+for our Embedded System Track and Internet of Things (IoT).  
+ 
+4.4 Lastly an informal consultation and feedback from some graduates now working in the 
+Philippines and abroad were solicited. 
+ 
+5. Implementation Scheme  
+ 
+1. The Implementation of the revised curriculum shall cover freshman of A Y 2018-2019 who 
+graduated under the K-12 program.  
+ 
+2. As a rule, the schedule of the offering of courses shall be as prescribed in the curriculum. 
+However, off-semester courses may be offered with appropriate assessment provided that 
+there are valid grounds as determined and recommended by the Department Chai r through 
+
+--- PAGE 22 ---
+ 
+22 
+ 
+the College Dean and by the Office of the Vice Chancellor for Academic Affairs, and 
+provided further that the approved minimum class size is met. 
+ 
+3. Implementation of the On -the-Job Training (OJT) program (BCA197) and the assignment 
+of a six (6) unit load per thirty (30) of OJTs assigned to an OJT Coordinator shall be subject 
+to approved BOR policies of the University. At the end of the training, students shall be 
+given a grade of “COMPLETED” if they satisfy the minimum numbers of hours required 
+for the training which is 700 hours. 
+ 
+4. BCA199 - Thesis shall be treated and graded based on existing BOR policy governing 
+Thesis. 
+ 
+5. Other Technical Electives maybe taken from the Computer Science, Information Systems, 
+Computer Applications, Engineering, Math, S tatistics, Physics or other allied programs of 
+the university with the written consent and approval of the Department Chair and the 
+Adviser. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 23 ---
+ 
+23 
+ 
+6.  Distribution of Courses by Semester  
+ 
+Bachelor of Science in Computer Applications 
+List of Courses by Semester 
+  
+First Year, First Semester  
+ Course  
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre- 
+requisite 
+Co- 
+ requisite 
+ 
+ 
+ 
+Lec Lab Total  
+ 
+GEC101 Understanding The Self 3 3 0 3 None None 
+GEC104 
+ 
+Mathematics in the Modern 
+World  
+ 
+3 3 0 3 None None 
+MAT051 Calculus 1 5 5 0 5 None None 
+BCA111 Electrical Circuits  3 2 3 5 None None 
+CCC100 Fundamentals of Computing 3 2 3 5 None None 
+CCC101 Computer Programming 1 3 2 3 5 None None 
+PED001 Exercise Prescription and 
+Management  2 2 0 2 None None 
+NST001 National Service Training 
+Program 1 (3) 3 0 3 None  None 
+Total 22 22 9 31   
+ 
+ 
+First Year, Second Semester  
+ Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre- 
+requisite 
+Co- 
+requisite Lec Lab Total 
+GEC102 Purposive 
+Communication 3 3 0 3 None None 
+MAT061 Calculus 2 5 5 0 5 MAT051 None 
+BCA121 Basic Electronics 
+Circuits 
+3 2 3 5 None None 
+BCA122 Digital Techniques 
+Fundamentals  
+3 2 3 5 None None 
+BCA123 Instruments and 
+Measurements  
+3 2 3 5 None None 
+CCC102 Computer Programming 
+2 
+3 2 3 5 CCC101 None 
+PED002 Dance/ Martial Arts  2 2 0 2 PED001 None 
+NST002 National Service Training 
+Program 2 
+(3) 3 0 3 NST001 None 
+Total 22 21 12 33   
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 24 ---
+ 
+24 
+ 
+Second Year, First Semester  
+ 
+ Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre- 
+requisite 
+Co- 
+requisite Lec Lab Total 
+FIL101 
+ 
+Wika at Kultura sa 
+Mapayapang Lipunan 3 3 0 3 None None 
+MAT071 Calculus 3 5 5 0 5 MAT061 None 
+BCA131 Small Signal Analysis  3 2 3 5 BCA121 None 
+BCA132 
+ 
+Advanced Digital 
+Techniques 
+3 2 3 5 BCA122 None 
+BCA133 Computer Networks and 
+Data Communication 
+Fundamentals 
+3 2 3 5 BCA122 None 
+CCC121 Data Structures and 
+Algorithms 3 2 3 5 CCC102 None 
+PED003 Individual/ Dual Sports / 
+Traditional / Recreational 
+Games  
+2 2 0 2 PED001 None 
+ 
+Total 22 18 12 30   
+ 
+ 
+Second Year, Second Semester  
+ 
+ Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre- 
+requisite 
+Co- 
+requisite Lec Lab Total 
+FPE101 Fundamentals of 
+Peace Education  
+3 3 0 3 None None 
+BCA141 
+ 
+Computer 
+Organization and 
+Architecture 
+4 3 3 6 
+BCA122 None 
+MAT103 Discrete Mathematics 3 3 0 3 None None 
+BCA143 Assembler Language 
+and Programming 
+3 2 3 5 CCC101 None 
+BCA144 Introduction to 
+Internet of Things 3 2 3 5 CCC102 None 
+CCC151 Information 
+Management 3 2 3 5 None None 
+PED004 Team Sports  2 2 0 2 PED001 None 
+Total 21 18 9 27   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 25 ---
+ 
+25 
+ 
+Third Year, First Semester  
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre- 
+requisite 
+Co- 
+requisite Lec Lab Tot
+al 
+FIL102 Ekokritisismo at 
+Pagpapahalaga sa Kalikasan 3 3 0 3 None None 
+GEC106 Art Appreciation 3 3 0 3 None None 
+STE001 
+ 
+Technical Elective 1 3 2 3 5 BCA144 None 
+BCA151 Introduction to Operating 
+Systems 3 2 3 5 BCA141 None 
+BCA152 Microcontrollers 3 2 3 5 CCC102 None 
+BCA153 Programmable Logic 
+Controller Applications 3 2 3 5 BCA122  None 
+CCC181 Application Development 
+and Emerging Technologies 3 3 0 3 None None 
+ 
+Total 21 18 9 27   
+ 
+ 
+Third Year, Second Semester  
+ 
+Course         
+No. Course Title 
+Units Hours/Week 
+Pre- 
+requisite 
+Co- 
+requisite 
+ 
+ 
+ 
+Lec Lab Total  
+ 
+GEC103 Contemporary World 3 3 0 3 None None 
+GEC107 Ethics 3 3 0 3 None None 
+GEC109 Life and Works of Rizal 3 3 0 3 None None 
+BCA161 Numerical Methods  3 3 0 3 MAT071 None 
+HIS003 History of  the Filipino 
+Muslims and the 
+Indigenous Peoples of 
+MINSUPALA 
+3 3 0 3 
+None None 
+STE002 Technical Elective 2 3 2 3 5 BCA144 None 
+BCA198 Research Methods 
+3 3 0 3 
+Third 
+year 
+level 
+None 
+ 
+Total 
+ 
+21 19 6 25 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 26 ---
+ 
+26 
+ 
+Fourth Year, First Semester  
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Unit
+s 
+Hours/Week Pre- 
+Requisite 
+Co- 
+requisite 
+ 
+ 
+ 
+Lec Lab Tota
+l 
+ 
+ 
+GEC108 Science, Technology 
+and Society 3 3 0 3 None None 
+GEC105 Readings in Philippine 
+History 
+3 3 0 3 None None 
+BCA172 Technopreneurship 3 3 0 3 None None 
+ 
+STE003 Technical Elective  3 3 2 3 5 BCA144 None 
+STE004 
+ Technical Elective  4 3 2 3 5 BCA144 None 
+BCA199 Undergraduate Thesis  3 3 0 3 BCA198 None 
+ 
+Total 
+ 
+18 15 9 24 
+  
+ 
+Fourth Year, Second Semester  
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Hours Hours/Week Pre- 
+requisite 
+Co- 
+requisite Lec Lab Total 
+BCA197 
+On-The-Job 
+Training  
+ 
+700 
+(6 
+units) 
+0 40 40  80% of 
+total Units None 
+ 
+Total 6 0 40 40   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 27 ---
+ 
+27 
+ 
+Suggested Technical Elective Subjects 
+ 
+Course No. Course Title Units 
+Hours/Week 
+Pre-
+requisite 
+Co-
+requis
+ite Lec 
+ 
+Lab 
+ 
+Total 
+A. EMBEDDED SYSTEM TRACK 
+ 
+BCA180 Introduction of 
+computer vision 
+3 2 3 5 CCC102 None 
+BCA181 HDL 
+Programming 
+3 2 3 5 CCC102 
+ 
+None 
+BCA182 Embedded 
+Systems 
+Programming 
+3 2 3 5 CCC102 
+ 
+None 
+BCA183 Digital Signal 
+Processing 
+3 2 3 5 CCC102 
+ 
+None 
+B: INTERNET OF THINGS (IOT) TRACK 
+BCA188 Programming 
+For Internet of 
+Things  
+3 2 3 5 CCC102 
+ 
+None 
+BCA189 Applied IoT 3 2 3 5 BCA144 
+ 
+None 
+BCA190 Artificial 
+Intelligence in 
+Internet of 
+Things 
+3 2 3 5 
+BCA144 
+ 
+None 
+BCA191 Robotics 
+System 
+3 2 3 5 BCA144 
+ 
+None 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 28 ---
+ 
+28 
+ 
+7. Summary of Courses and Units                            
+ 
+Bachelor of Science in Computer Applications Program 
+ 
+ 
+Particulars 
+(Units) 
+Present Proposed 
+A. General Education  
+1. Language and Literature   
+Eng 1 3 0 
+Eng 2 3 0 
+Eng 3 3 0 
+Eng 4 3 0 
+Fil101 3 0 
+Fil102 3 0 
+FIL101 0 3 
+FIL102 0 3 
+Sub-Total 18 6 
+2. Mathematics and Natural 
+Science 
+  
+Math 2/Math 15 3 0 
+MAT051 6 5 
+MAT061 0 5 
+MAT071 0 5 
+ECTB 163 3 0 
+MAT103 0 3 
+BCA 161 0 3 
+Stat 32 3 0 
+Chem 12/12.1 3/1 0 
+Physics 21/21.1 3/1 0 
+Sub-Total 23 21 
+   
+3. New GE Courses (CMO 20, 
+series of 2013) 
+  
+GEC101 0 3 
+GEC102 0 3 
+GEC103 0 3 
+GEC104 0 3 
+GEC105 0 3 
+GEC106 0 3 
+GEC107 0 3 
+GEC108 0 3 
+Sub-Total 0 24 
+   
+   
+
+--- PAGE 29 ---
+ 
+29 
+ 
+   
+   
+4. Humanities, Philosophy 
+and Social Sciences 
+  
+Hum 1 3 0 
+Philo 1 3 0 
+Pol Sci 2 3 0 
+Pysch 1 3 0 
+Sub-Total 12 0 
+   
+5. Mandated Courses   
+Hist 1 3 0 
+Hist 3 3 0 
+Hist 5 3 0 
+GEC109 0 3 
+                       HIS003 0 3 
+                                    FPE101 0 3 
+ Sub-Total 9 9 
+6. Physical Education 
+Courses 
+  
+PE 1  2 0 
+PE 2 2 0 
+PE3 2 0 
+PE4 2 0 
+PED001 0 2 
+PED002 0 2 
+PED003 0 2 
+PED004 0 2 
+Sub-Total 8 8 
+ 
+B. Professional Courses    
+1. Core Courses   
+CSc 100 3 0 
+CSc101N 3 0 
+IT 100 3 0 
+TD 111 2 0 
+ECT 111 1 0 
+                         CCC100                                                                               0 3 
+          CCC101 0 3 
+                                    CCC102                                                                                                       0 3 
+                                     CCC121                                                                         0 3 
+             CCC151 0 3 
+             CCC181 0 3 
+ECT 161 3 0 
+ECT 181 3 0 
+BCA172 0 3 
+Sub-total 18 21 
+   
+   
+   
+   
+
+--- PAGE 30 ---
+ 
+30 
+ 
+   
+2.   Major Courses   
+   
+ECT 112/112.1 1/1 0 
+BCA111 0 3 
+            ECT 121/121.1 2/1 0 
+BCA121 0 3 
+ECT 122/122.1 2/1 0 
+BCA122 0 3 
+ECT 131/131.1 2/1 0 
+   
+BCA131 0 3 
+ECT 132/132.1 2/1 0 
+BCA132 0 3 
+ECT 133/133.1 1/1 0 
+BCA123 0 3 
+ECT 141/141.1 3/1 0 
+BCA141 0 4 
+ECT 142/142.1 2/1 0 
+BCA133 0 3 
+ECT 143/143.1 1/1  
+ECTB 144/ 144.1 2/1 0 
+BCA143 0 3 
+BCA144 0 3 
+ECTB 145/ 145.1 2/1 0 
+BCA153 0 3 
+ECTB 151/151.1 3/1 0 
+BCA151 0 3 
+ECT B 152/ 152.1 2/1 0 
+BCA152 0 3 
+ECTB164/ 164.1 2/1 0 
+ECT 162/162.1 2/1 0 
+ECTA  195 3 0 
+BCA198 0 3 
+ECTB 196 3 0 
+BCA199 0 3 
+               Sub-Total                              53 46 
+   
+3. Technical Electives Present Proposed 
+ECT ELECT 1 3 0 
+STE001 0 3 
+ECT ELECT 2 3 0 
+STE002 0 3 
+ECT ELECT 3 3 0 
+STE003 0 3 
+ECT ELECT 4 3 0 
+STE004 0 3 
+Sub-Total 12 12 
+   
+
+--- PAGE 31 ---
+ 
+31 
+ 
+   
+   
+   
+4.  Free Electives   
+Free Electives 1 3 0 
+Free Electives 2 3 0 
+Free Electives 3                                                                               3 0 
+                                         
+Sub-Total 9 0 
+ 
+6. NST Courses   
+NST001 (3) (3) 
+NST002 (3) (3) 
+Sub-Total (6) (6) 
+7. Work Experience   
+BCA197                   12(700 hours)                  6(700 hours) 
+Sub-Total 12 6 
+Grand Total 174 153 
+   
+   
+C. Units Per Semester Present Proposed 
+First Year   
+                          First Semester 23 22 
+Second 
+Semester 23 21 
+Second Year   
+First Semester 23 22 
+Second 
+Semester 23 22 
+Summer             6 0 
+Third Year   
+First Semester 23 21 
+Second 
+Semester 23 21 
+Fourth Year   
+First Semester 18 18 
+Second 
+Semester 12 (700 hrs) 6 (700 hrs) 
+Grand Total of Units 174 153 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 32 ---
+ 
+32 
+ 
+8. Comparative Summary of the Current and Proposed Revised Curriculum                            
+ 
+Bachelor of Science in Computer Applications Program 
+ 
+CURRENT Proposed Specific 
+Changes 
+Done and its 
+Justification 
+Course 
+No. 
+Course Title Unit
+s 
+Course 
+No. 
+Course Title Units 
+A.  General  Education 
+1.   Language and Literature 
+Eng 1 College English I 3   0 Deleted per 
+CMO 20 
+s.2013 
+Eng 2 College English II 3   0 Deleted per 
+CMO 20 
+s.2013 
+Eng 3 Oral 
+Communication 
+3   0 Deleted per 
+CMO 20 
+s.2013 
+Eng 4 Introduction to 
+Literature 
+3   0 Deleted per 
+CMO 20 
+s.2013 
+Fil 1 Sining ng 
+Komunikasyon 
+ 
+ 
+3 
+ 
+FIL101 
+ 
+Wika at Kultura sa 
+Mapayapang 
+Lipunan 
+ 
+3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+Fil 2 
+Pagbasa’t Pagsulat 
+sa Iba’t - ibang 
+Disiplina 
+ 
+3 
+FIL102 
+Ekokritisismo at 
+Pagpapahalaga sa 
+Kalikasan 3 
+Change 
+Course Code 
+and 
+Description 
+ 
+ Sub-Total 18   6  
+2.  Mathematics and Natural Sciences 
+Math 2/ 
+Math 15 
+College Algebra/ 
+College 
+Trigonometry 
+ 
+3 
+ 
+  0 
+ 
+0 
+Deleted per 
+CMO 20 
+s.2013 
+Math 51 Analytic Geometry 
+and Calculus I 
+6 MAT051 Calculus 1 5 Change 
+Course Code 
+   MAT061 Calculus 2 5 New Course 
+   MAT071  Calculus 3 5 New Course 
+ECTB 163 Discrete Mathematics 
+for ECT 
+ 
+3 MAT103 Discrete 
+Mathematics 
+3 Change 
+Course Code 
+ 
+  
+BCA161 Numerical 
+Methods  3 
+Added for 
+major subject 
+requirement 
+
+--- PAGE 33 ---
+ 
+33 
+ 
+       
+Stat 32 
+Statistics for 
+Management 
+Science 
+3   
+0 
+Deleted 
+Phys 
+21/21.1 
+General Physics I / 
+Gen. Physics I Lab  3/1   
+0 Deleted per 
+CMO 20 
+s.2013 
+Chem 
+12/12.1 
+Fundamentals of 
+Chemistry 3/1   
+0 Deleted per 
+CMO 20 
+s.2013 
+ Sub Total 23  Sub-Total 21  
+3. New GEC Courses (CMO 20, series of 2013) 
+   
+GEC101 Understanding The 
+Self 
+3 New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   
+GEC102 Purposive 
+Communication 3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   
+GEC103 The Contemporary 
+World 3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   
+GEC104 Mathematics in the 
+Modern World 3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   
+GEC105 Readings in 
+Philippine History 3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   
+GEC106 Art Appreciation 3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   
+GEC107 Ethics 3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   
+GEC108 
+Science, 
+Technology & 
+Society 
+3 
+New GE 
+Courses 
+ (CMO 20,  
+S  2013) 
+   Sub Total: 24  
+4. Humanities, Philosophy and Social Sciences 
+Philo 1 Introduction to 
+Issues  and isms 3 
+  
+0 
+Deleted per 
+CMO 20 
+s.2013 
+
+--- PAGE 34 ---
+ 
+34 
+ 
+Pol Sci 2 Philippine 
+Government and 
+Constitution, 
+Agrarian Reform 
+and Taxation, 
+Family Planning 
+3 
+  
+0 
+Deleted per 
+CMO 20 
+s.2013 
+Psych 1 
+Introduction to 
+Psychology 
+3   
+0 
+Deleted per 
+CMO 20 
+s.2013 
+Hum 1 
+Introduction to 
+Humanities 
+3   
+0 
+Deleted per 
+CMO 20 
+s.2013 
+ 
+Sub Total 12 
+  
+0 
+ 
+ 
+ 
+5. Mandated Courses 
+Hist 1 Philippine History 
+3 
+  
+0 
+Deleted per 
+CMO 20 
+s.2013 
+Hist 3 
+History of the 
+Filipino Muslims 
+& the Indigenous 
+Peoples of 
+MINSUPALA 
+3 
+HIS003 
+History of the 
+Filipino Muslims 
+& the Indigenous 
+Peoples of 
+MINSUPALA 
+3 
+Change 
+Course Code 
+Hist 5  Life and Works of 
+Rizal 
+3 
+GEC109 
+Life and Works of 
+Rizal 3 
+Change 
+Course Code  
+    
+FPE101 
+Fundamentals of 
+Peace Education 3 
+MSU system 
+mandated 
+course 
+  
+Sub Total 
+ 
+9 
+  
+Sub-Total 
+ 
+9 
+ 
+6.  Physical Education Courses 
+PE 1 Physical Fitness 
+and Health 2 PED001  
+Exercise 
+Prescription and 
+Management 
+2 
+Change 
+Course Code 
+and 
+Description 
+PE 2 Martial Arts/ Dance 2 PED002 Dance/ Martial 
+Arts 2 
+Change 
+Course Code 
+and 
+Description 
+PE 3 Individual and Dual 
+Sports 2 PED003 
+Individual/ Dual 
+Sports / Traditional 
+/ Recreational 
+Games 
+2 
+Change 
+Course Code 
+and 
+Description 
+PE 4 Sports and Dance 
+Competition 2 PED004 Team Sports  2 
+Change 
+Course Code 
+and 
+Description 
+ Sub Total 8  Sub-Total 8  
+
+--- PAGE 35 ---
+ 
+35 
+ 
+       
+ 
+B.  Professional  Courses 
+1. Core Courses 
+IT 100 IT Fundamentals 3   0 Deleted 
+TD 111 Basic Drafting 2   0 Deleted 
+CSC 100 Fundamentals of 
+Computing 3   0 Deleted 
+CSC 101 Computer 
+Programming I 3   0 Deleted 
+ECT 111 Fundamentals of 
+Keyboarding 1   0 Deleted 
+ECT 161 Professional Ethics 3   0 Deleted 
+ECT 181 Technopreneurship 3 BCA172 Technopreneurship 3 Change 
+course code 
+   CCC100 Introduction to 
+Computing 3 
+Added for 
+Knowledge 
+Requirements 
+in Computing 
+   CCC101 Computer 
+Programming 1 3 
+Added for 
+Knowledge 
+Requirements 
+in Computing 
+   CCC102 Computer 
+Programming 2 3 
+Added for 
+Knowledge 
+Requirements 
+in Computing 
+   CCC121 Data Structures 
+and Algorithm 3 
+Added for 
+Knowledge 
+Requirements 
+in Computing 
+   CCC151 Information 
+Management 3 
+Added for 
+Knowledge 
+Requirements 
+in Computing 
+   CCC181 
+Application 
+Development and 
+Emerging 
+Technologies 
+3 
+Added for 
+Knowledge 
+Requirements 
+in Computing 
+       
+ Sub-Total 18   21 
+ 
+      
+ 
+
+--- PAGE 36 ---
+ 
+36 
+ 
+ 
+2. Major Courses 
+ECT 
+112/112.1 
+ 
+Electrical Circuits 
+ 
+1/1 BCA111 Electrical Circuits 3 
+Change Course 
+Code & Merge 
+Lecture and 
+Laboratory 
+reclassification 
+from free 
+elective to 
+required 
+ECT 121 
+/121.1 
+Basic Electronics 
+Circuits 2/1 BCA121 Basic Electronics 
+Circuits 3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECT 122/ 
+122.1 Digital Techniques 2/1 BCA122 Digital Techniques 
+Fundamentals 3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECT 131/ 
+131.1 
+Small Signal 
+Analysis 2/1 BCA131 Small Signal 
+Analysis 3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECT 132 / 
+132.1 
+Advanced Digital 
+Techniques 2/1 BCA132 Advanced Digital 
+Techniques 3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECT 133 
+/133.1 
+Instruments and 
+Measurements 1/1 BCA123 Instruments and 
+Measurements  3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECT 141/ 
+141.1 
+Computer 
+Organization and 
+Architecture 
+3/1 BCA141 
+Computer 
+Organization and 
+Architecture 
+4 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECT 142/  
+142.1 
+Computer 
+Networks and Data 
+Communication 
+Fundamentals 
+2/1 BCA133 
+Computer 
+Networks and Data 
+Communication 
+Fundamentals 
+3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECT 143/ 
+143.1 
+Computer Repair 
+and Maintenance 
+ 
+1/1   0 Deleted 
+
+--- PAGE 37 ---
+ 
+37 
+ 
+ECTB 
+144/ 144.1 
+Assembler 
+Language and 
+Programming 
+2/1 BCA143 
+Assembler 
+Language and 
+Programming 
+3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+   BCA144 Introduction to 
+Internet of Things 3 New Course 
+ECT-B 
+151 
+Introduction to 
+Operating Systems 3/1 BCA151 Introduction to 
+Operating Systems 3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECTB 152 
+/ 152.1 
+Microprocessor 
+and System 
+Applications 
+2/1 BCA152 Microcontrollers 3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECTB 145 
+Programmable 
+Logic Controller 
+Applications 
+2/1 BCA153 
+Programmable 
+Logic Controller 
+Applications 
+3 
+Change 
+Course Code 
+& Merge 
+Lecture and 
+Laboratory  
+ECTB 164 
+/ 164.1 
+Object - Oriented 
+Programming 2/1   0 Deleted 
+ECTA 195 
+ECTB 195 Capstone Project 1 3 BCA198 Research Methods 3 Change 
+course code 
+ECTA 196 
+ECTB 196 Capstone Project 2 3 
+ BCA199 Undergraduate 
+Thesis 3 Change 
+course code 
+ECT 162 / 
+162.1 
+Audio-Video 
+System 2/1   0 Deleted 
+ECTB 153 
+/ 153.1 
+Computer Repair 
+and Maintenance 2 2/1   0 Deleted 
+ Sub-Total 53  Sub-Total 46 
+ 
+ 
+ 
+ 
+3. FREE ELECTIVES 
+ 
+Elective 1 Free Elective 1 3   0 Deleted 
+Elective 2 Free Elective 2 3   0 Deleted 
+Elective 3 Free Elective 3 3   0 Deleted 
+ Sub Total 9   0  
+       
+       
+       
+       
+       
+
+--- PAGE 38 ---
+ 
+38 
+ 
+       
+       
+ 
+4. Technical Electives  
+ Elect 1 ECT 
+Specialization 1 3 STE001 Technical Elective 1 3 
+Merging 
+Lecture and 
+Laboratory 
+and change 
+of course 
+code 
+Elect 2 ECT 
+Specialization 2 3 STE002 Technical Elective 2 3 
+Merging 
+Lecture and 
+Laboratory 
+and change 
+of course 
+code 
+Elect 3 ECT 
+Specialization 3 3 STE003 Technical Elective 3 3 
+Merging 
+Lecture and 
+Laboratory 
+and change 
+of course 
+code 
+Elect 4 ECT 
+Specialization 4 3 STE004 Technical Elective 4 3 
+Merging 
+Lecture and 
+Laboratory 
+and change 
+of course 
+code 
+ Sub Total 12  Sub-Total 12  
+C.  NST Courses 
+NSTP1 
+National Service 
+Training Program 
+1 
+(3) NST001 
+National Service 
+Training Program 1 (3) 
+Change 
+Course 
+Code 
+NSTP2 
+National Service 
+Training Program 
+2 
+(3) NST002 
+National Service 
+Training Program 2 (3) 
+Change 
+Course 
+Code 
+ Subtotal (6)  Sub-Total (6)  
+D. ON-THE-JOB TRAINING 
+BCA197 
+Supervised On-
+The 
+Job Training 
+12 BCA197 On-The-Job 
+Training 6  
+ Sub Total 12  Sub-Total 6  
+ Grand Total 174  Grand Total 153  
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 39 ---
+ 
+39 
+ 
+9. Course  Description 
+ 
+      A. General Education Courses 
+ 
+GEC101   UNDERSTANDING THE SELF 
+ 
+The course deals with the nature of identity, as well as the factors and forces that affect the 
+development and maintenance of personal identity.  The directive to know oneself has inspired countless 
+and varied ways to comply. Among the questions that everyone has had to grapple with at one time or 
+other is ―Who am I? At no other period is this question asked more urgently than i n adolescence—
+traditionally believed to be a time of vulnerability and great possibilities. Issues of self and identity are 
+among the most critical for the young. 
+ 
+This course is intended to facilitate the exploration of the issues and concerns regarding self and 
+identity to arrive a better understanding of one’s self. It strives to meet this goal by stressing the 
+integration of the personal with the academic—contextualizing matters discussed in the classroom and 
+in the everyday experiences of students – making for better learning, generating a new appreciation for 
+the learning process, and developing a more critical and reflective attitude while enabling them to 
+manage and improve their selves to attain a better quality of life. 
+ 
+The course is divided into three major parts: The first part seeks to understand the construct of 
+the self from various disciplinal perspectives: philosophy, sociology, anthropology and psychology – 
+as well as the more traditional division between the East and West – each seeking to provide answer to 
+the difficult but essential question of ―What is the self?   And raising among others the question: ―Is 
+there even such a construct of the self? The second part explores some of the various aspects that make 
+up the self, such as the biol ogical and material up to and including the more recent Digital Self. The 
+third and final part identifies the three areas of concern for young students: learning, goal setting, and 
+managing stress. It also provides for the more practical application of the  concepts discussed in this 
+course and enables them the hands -on experience of developing self -help plans for self -regulated 
+learning, goal setting, and self-care. This course includes the mandatory topics on Family Planning and 
+Population Education. 
+ 
+Credit     :   3 units (3 hrs. lec)   
+Prerequisite(s)   :  None  
+Corequisite(s)   :  None 
+ 
+ 
+GEC102   PURPOSIVE COMMUNICATION 
+ 
+Purposive communication is a 3-unit course that develops students’ communicative competence 
+and enhances their cultural  and intercult ural awareness through multimodal task that provide them 
+opportunities for communicating effectively and appropriately to a multicultural audience in a local or 
+global context. It equips students’ with tools for critical evaluation of a variety of texts an d focuses on 
+the power of language and the impact of images to emphasize the importance of conveying messages 
+responsibly. The knowledge, skills and insights that students’ gain from this course may be used in their 
+other academic endeavors, their chosen d isciplines, and their future careers as they compose and 
+produce relevant oral, written, audio-visual and/or web-based output for various purposes. 
+ 
+Credit      :   3 units (3 hrs. lec)  
+Prerequisite    :   None  
+Corequisite(s)    :  None 
+ 
+
+--- PAGE 40 ---
+ 
+40 
+ 
+ 
+GEC103  THE CONTEMPORARY WORLD 
+ 
+This course introduces students to the contemporary world by examining the multifaceted 
+phenomenon of globalization. Using the various disciplines of the social sciences, it examines the 
+economic, social, political, technological, and o ther transformations that have created an increasing 
+awareness of the interconnectedness of the peoples and places around the globe. To this end, the course 
+provides an overview of the various debates in global governance, development, and sustainability. 
+Beyond exposing the student to the world outside the Philippines, it seeks to inculcate a sense of global 
+citizenship and global ethical responsibility. This course includes mandatory topics on population 
+education in the context of population and demography. 
+ 
+Credit   :  3 units (3 hrs. lec) 
+Prerequisite(s)  :   None 
+Corequisite(s)  :  None 
+ 
+ 
+GEC104  MATHEMATICS IN THE MODERN WORLD 
+ 
+This is a basic course of mathematics for the general education program. Its content includes set 
+theory, algebraic expressions and operations such as addition and division, special products, factoring, 
+operations on fractions, and radicals. The content also includes functions and relations; linear and 
+quadratic equations, systems of linear equations; systems of one lin ear and one quadratic equations, 
+application of the systems of equations; variation; inequalities and systems of inequalities. 
+ 
+Credit   :  3 units (3 hrs. lec) 
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+GEC105  READINGS IN PHILIPPINE HISTORY 
+ 
+Philippine History aims to expose students to different facets of Philippine history through the 
+lens of eyewitness. Rather than rely on secondary materials such as textbooks, which is the usual 
+approach in teaching Philippine history, different types of prima ry sources will be used – written 
+(qualitative and quantitative), oral, visual, audio-visual, digital – covering various aspects of Philippine 
+life (political, economic, social, cultural). Students are expected to analyze the selected readings 
+contextually and in terms of content (stated and implied). The end goal is to enable students to 
+understand and appreciate our rich past by deriving insights from those who were actually present at the 
+time of the event. 
+ 
+Context analysis considers the following: (i) the historical context of the source (time and place 
+it was written and the situation at the time), (ii) the author’s background, intent (to the extent 
+discernable), and authority on the subject, and (iii) the source’s relevance and meaning today. 
+ 
+Content analysis, on the other hand, applies appropriate techniques depending on the type of 
+source (written, oral, visual). In the process students will be asked, for example, to identify the author’s 
+main argument or thesis, compare points of view, identify biases, and evaluate the author’s claim based 
+on the evidences presented or other available evidence at the time. The course will guide the students 
+through their reading and analysis of the texts and require them to write reaction essays of varied length 
+and present their ideas in other ways (debate format, power point presentation, letter to the editor of the 
+source, etc.) 
+ 
+ 
+
+--- PAGE 41 ---
+ 
+41 
+ 
+The instructor may arrange the readings chronologically or thematically, and start with the 
+present (more familiar) and go back to the earlier periods or vice-versa. 
+ 
+Credit   :  3 units (3 hrs. lec) 
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+GEC106  ART APPRECIATION 
+ 
+Art appreciation is a 3 -unit course that develops students’ ability to appreciate, analyze, and 
+critique works of art. Through interdisciplinary and multimodal approaches.This course equip students’ 
+with a broad knowledge of the practical, historical, phil osophical and social relevance of the arts in 
+order to hone students’ ability to articulate their understanding of the arts. The course also develops 
+students’ competency in researching and curating art as well as conceptualizing, mounting, and 
+evaluating art productions. The course aims to develop students’ genuine appreciation for Philippine 
+Arts by providing them opportunities to explore the diversity and richness and their rootedness in 
+Filipino culture. 
+ 
+Credit   :  3 units (3 hrs. lec) 
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+GEC107  ETHICS 
+ 
+Ethics deals with principles of ethical behavior in modern society at the level of the person, 
+society and in interaction with the environment and other shared resources. Mortality pertains to the 
+standards of right and wrong that an individual originally picks up from the community. The course 
+discusses the context and principles of ethical behavior in modern society at the level of individual, 
+society, and in interaction with the   environment and other shared resources.  The course also teaches 
+students to make moral decisions by using dominant moral frameworks and by applying a seven -step 
+moral reasoning model to analyze and solve moral dilemmas. The course is organized according to the 
+three (3) main elements of the moral experience: (a) agent, including context – cultural, communal, and 
+environmental; (b) the act; and (c) reason or framework (for the act). The course includes the mandatory 
+topic on taxation. 
+ 
+Credit   :  3 units (3 hrs.lec)  
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+GEC108  SCIENCE, TECHNOLOGY AND SOCIETY 
+ 
+The course deals with interactions between science and technology and social, cultural, political, 
+and economic contexts that shape and are shaped by them. This int erdisciplinary course engages 
+students to confront the realities brought about by science and technology in society. S uch realities 
+pervade the personal, the public, and the global aspects of our living and are integral to human 
+development. Scientific kno wledge and technological development happen in the context of society 
+with all its socio -political, cultural, economic, and philosophical underpinnings at play. This course 
+seeks to instill reflective knowledge in the students that they are able to live th e good life and display 
+ethical decision making in the face of scientific and technological advancement. This course includes 
+mandatory topics on climate change and environmental awareness. 
+ 
+
+--- PAGE 42 ---
+ 
+42 
+ 
+Credit   :  3 units (3 hrs. lec) 
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+GEC109  LIFE AND WORKS OF RIZAL 
+ 
+Life and works of Rizal with emphasis on Rizal’s contribution to Philippine nationhood. 
+ 
+Credit : 3 units (3 hrs. lec) 
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+HIS003 HISTORY OF FILIPINO MUSLIMS & THE INDIGENOUS PEOPLE 
+OF MINSUPALA 
+ 
+A historical overview of the Filipino Muslims and the Indigenous Peoples of Mindanao, the Sulu 
+Archipelago, Palawan since pre-colonial times to the present of how they fought against the forces of 
+foreign and local do mination which threatened their very existence; of the significance of this study 
+within the broad context of Philippine History 
+ 
+Credit   :  3 units (3 hrs.lec) 
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+FIL101   WIKA AT KULTURA SA MAPAYAPANG LIPUNAN 
+ 
+Ang kursong ito ay kritikal na pag -aaral sa ugnayan ng wika at kultura tungo sa mapayapa at 
+maunlad na pamumuhay sa lipunan gamit ang pambansang wikang Filipino. 
+ 
+Credit   :  3 units (3 hrs.lec) 
+Prerequisite(s)  :  None 
+Corequisite(s)  :  None 
+ 
+ 
+BCA172    TECHNOPRENEURSHIP 
+This course covers the principles and theories of Technopreneurship. It includes topic such as 
+technology management, research and development and Technopreneurship. Students are expected to 
+develop a feasible electronics and/or computer related business plan.  
+ 
+Credits  :  3 units (3hrs. Lec) 
+Pre-requisite : None 
+ 
+ 
+ 
+FIL102  EKOKRITISISMO AT PAGPAPAHALAGA SA KALIKASAN 
+ 
+Kursong nakalaan sa mga napapanahong usapin sa wika at panitikan na tumatalakay sa 
+paggalang sa kalikasan at kapaligiran sa iba’t ibang panahon at pook sa Pilipinas. 
+   
+
+--- PAGE 43 ---
+ 
+43 
+ 
+  Credit   :  3 units (3hrs. lec) 
+  Prerequisite(s)  :  None 
+  Corequisite(s)  :  None 
+ 
+FPE101   FUNDAMENALS OF PEACE EDUCATION 
+ 
+This is a 3-unit basic and comprehensive course to be offered in all undergraduate programs in 
+ the University System. His course is a peace in action or action-based discipline for which a holistic, 
+multi-, inter-, and trans-disciplinary approach is adopted . it intends tpo produce students who are 
+peace loving, change accelerators or agents of positive change, peace advocates and champions to 
+establish or build a culture of peace  
+ 
+  Credit   :  3 units (3hr lec) 
+  Prerequisite(s)  :  None 
+  Corequisite(s)  :  None 
+ 
+ 
+MAT051    CALCULUS 1 
+ 
+This is a first course in calculus. It covers limits, continuity, derivatives of algebraic and 
+transcendental functions (exponential, logarithmic, trigonometric, hyperbolic and their inverses), 
+applications of derivatives, differentials, antiderivatives, d efinite integrals, Fundamental Theorem of 
+Calculus, and applications of definite integrals. 
+ 
+Credit   :  5 units (5hrs lec) 
+  Prerequisite(s)  :  Algebra and Trigonometry 
+  Corequisite(s)  :  None 
+ 
+ 
+ 
+MAT061   CALCULUS 2 
+ 
+This is the second of the three 5-unit courses of calculus intended for students. The course 
+includes topics on definite integrals and its applications, differentiation and integration of logarithmic, 
+exponential, trigonometric functions, techniques of integration, indeterminate forms of  the limits, 
+improper integrals, polar coordinates, and vectors in the three dimensional space. 
+ 
+  Credit   :  5 units (5hrs lec) 
+  Prerequisite(s)  :  CALCULUS I 
+  Corequisite(s)  :  None 
+ 
+ 
+MAT071   CALCULUS 3 
+ 
+First order differential equation, elementary application of linear differential equations, 
+differential operations, solution of non-homogeneous equation by undetermined coefficients and 
+variation of parameters, solution of system linear differential equations, Laplace transforms, 
+differential equations of higher order, solution by power series, numerical methods, partial differential 
+equation. 
+Credit   :  3 units (3hrs lec) 
+  Prerequisite  :  MAT061 
+ 
+   
+ 
+
+--- PAGE 44 ---
+ 
+44 
+ 
+MAT103    DISCRETE MATH  
+ 
+This course provides an overview of the computing industry an d computing 
+profession,includingresearchandapplicationsindifferentﬁelds;anappreciationofcomputingindifferentﬁel
+dssuchasbiology,sociology,environment, and gaming; and understanding of the ACM requirements; an 
+appreciation of the history of computing; and kn owledge of the key components of the computer 
+systems (organization and architecture), malware, computer security, internet, and internet protocols, 
+HTML4/5 and CSS. 
+ 
+  Credits :  3 units 
+Prerequisite : None 
+ 
+ 
+B. PROFESSIONAL COURSES 
+ 
+1. Core Courses  
+ 
+CCC101    PROGRAMMING 1  
+ 
+The course covers the use of general-purpose programming language to solve problems. The 
+emphasis is to train students to design, implement, test, and debug programs intended to solve 
+computing problems using fundamental programming constructs. 
+ 
+ Credits :  3 units 
+ Prerequisite : None 
+ 
+CCC102    PROGRAMMING 2 
+ 
+ This course is a continuation of CCC101 - Programming 1. The emphasis is to train students 
+to design, implement, test, and debug programs intended to solve computing problems using basic 
+data structures and standard libraries. 
+ 
+ Credits :  3 units  
+Prerequisite : CCC101 
+ 
+ 
+CCC121   DATA STRUCTURES AND ALGORITHMS  
+ 
+The course the standard data representation and algorithms to solve computing problems efﬁciently 
+(with respect to space requirements and time complexity of algorithm). This covers the following: 
+stacks, queues, trees, graphs, maps, and sets. Thorough discussion of sorting and searching algorithms 
+and hashing is covered. 
+ 
+  Credits :  3 units  
+Prerequisite : CCC102 
+ 
+ 
+CCC151   INFORMATION MANAGEMENT 
+ 
+ This course covers information management, database design, data modeling, SQL, and 
+implementation using relational database system.  
+ 
+Credits :  3 units  
+Prerequisite : CCC102 
+
+--- PAGE 45 ---
+ 
+45 
+ 
+ 
+ 
+CCC181  APPLICATIONS DEVELOPMENT AND EMERGING TECHNOLOGIES  
+ 
+Development of applications using web, mobile, and emerging technologies with emphasis on 
+requirements management, interface design, usability, testing, deployment, including ethical and legal 
+considerations.  
+ 
+Credits :  3 units 
+ Prerequisite : CCC102 
+ 
+ 
+2. Major Course 
+ 
+BCA111  ELECTRICAL CIRCUITS 
+ 
+A course on fundamentals of electric circuits, basic elements and laws, techniques of circuit 
+analyses,  ohm’s law, Kirchhoff’s law, mesh method, superposition theorem, thevenin’s/norton’s  
+theorem, and source transformation; inductors, capacitors, transient response of RC, RL,  RLC and  AC 
+circuits. 
+  
+Credit     :   3 units (2 hr lec) (3 hrs lab) 
+Pre-requisite   :  None 
+BCA121    BASIC ELECTRONICS CIRCUITS 
+ This course deals with the study of basic components such as resistors, variable resistors, 
+capacitors, inductors, transformers, diodes, and transistors on their fundamental theory, types, symbols, 
+characteristics and testing using instruments. It also includes the study of the basic prin ciples, 
+constructions, operations, characteristics and applications of semiconductor diodes and bipolar junction 
+transistors, field effect transistors and integrated circuits. It also includes terminal identification, basic 
+design operations, and troubleshooting and biasing techniques.  
+ 
+Credit    :    3 unit (2 hrs. Lec) (3 hrs. lab) 
+Pre-requisite    :   None 
+ 
+ 
+ 
+BCA122   DIGITAL TECHNIQUES FUNDAMENTALS  
+ 
+ This course covers topics such as number system, number base conversion, Boolean algebra, 
+logic gates, Karnaugh maps, and its application such as designing a voting system, alarm system and 
+BCD. These applications are simulated using the Digital Trainer. The student will be able to identifying 
+the symbols for the different types of gates, obtaining the tru th table, and connecting logic circuit 
+designs. 
+ 
+Credit     :    3 units (2 hrs lec,) (3 hrs. lab) 
+Pre-requisite    :   None 
+ 
+ 
+BCA123   INSTRUMENTS AND MEASUREMENTS 
+This course deals with the principles, operations, and applications of basic electronic measuring 
+and display instruments applied particularly in the different areas of electronics namely 
+
+--- PAGE 46 ---
+ 
+46 
+ 
+communications, computer and information technology. It includes calibration and repair of basic 
+electronics instruments. 
+ 
+Credit     :   3 units (2 hr lec.)  (3 hrs lab) 
+Pre-requisite   :   None 
+ 
+ 
+ 
+ 
+BCA131   SMALL SIGNAL ANALYSIS  
+ 
+ This course is a continuation of electronic devices and circuits with emphasis on data conversion, 
+instrumentation and power circuits. It also deals with the study of AC operation of bipolar junction 
+transistor on its model such as Re and Hybrid equivalent.  It includes the study of AC operation of field 
+effect transistor on its AC equivalent. 
+ 
+Credit    :   3 units (2 hrs lec) (3 hrs lab) 
+Pre-requisite   :    BCA121 
+ 
+ 
+ 
+BCA132  ADVANCED DIGITAL TECHNIQUES 
+ 
+ This course is a continuation of BCA122 which includes more advanced logic circuits such as 
+flip-flops, registers, counters, counter design and memories. This would also include SAP 1 and SAP 2 
+architectures. The students simulate s this advance logic circuit, design counters and actualize it using 
+bread board and Integrated Circuit (IC). 
+ 
+Credit     :  3 units (2 hrs lec) (3 hrs lab) 
+Pre-requisite   :    BCA122  
+ 
+ 
+ 
+BCA133 COMPUTER NETWORKS AND DATA COMMUNICATION 
+FUNDAMENTALS 
+ 
+This course deals with the introduction of distributed and parallel processing, data 
+communication systems, and networks, switching and Local Area networking (LAN). Specifically, this 
+course prepares the students to understand and apply basic concepts of networ king technology. It 
+introduces the OSI model, industry standards, network topologies, IP addressing, subnetting, network 
+components, cabling techniques and basic network design. The students will be able to implement basic 
+networking. 
+  
+Credit                     :   3 unit (2 hrs. lec.) (3 hrs. lab.) 
+Pre-requisite             :   BCA122 
+ 
+BCA141    COMPUTER ORGANIZATION AND ARCHITECTURE 
+This course deals with the study of Von Neumann architecture; Levels of machine organization: 
+micro program, machine and a ssembly language, operating system, instruction sets and types, 
+addressing modes, and alternative architecture. The student will gain experience in simulator -based 
+assembly language solutions. 
+
+--- PAGE 47 ---
+ 
+47 
+ 
+ 
+Credit                     :   4 unit (3 hrs. lec.) (3 hrs. lab.) 
+Pre-requisite             :   BCA122 
+ 
+ 
+ 
+BCA143                   ASSEMBLER LANGUAGE AND PROGRAMMING 
+  
+         This course deals with the study of assembler language programming for the 80x86family of 
+microprocessors. It examines the structure of an assembler language program and the 80x86 instruction 
+set. It uses NASM to assemble and link source code into executable code. The student will be able to 
+write assembler programs, assembly source code into object code, debug source code, link object code 
+into executable code, and run executable code. 
+  
+Credit                       :        3 units (2 hrs lec) (3 hrs lab.) 
+Pre-requisite             :        None 
+ 
+ 
+BCA144  INTRODUCTION TO INTERNET OF THINGS 
+ 
+This course covers embedded systems, the Raspberry Pi Platform, and the Arduino environment 
+for building Internet of Things (IoT) devices that can control the physical world. This course also 
+discusses the importance of IoT in society, the current components of typical IOT devices and future 
+trends, IoT design considerations, constraints and interfacing between the physical world and the IoT 
+device. Students are also expected to learn design trade-offs between hardware and software.  
+ 
+ 
+  Credit                       :        3 units (2 hrs lec) (3 hrs lab) 
+Pre-requisite             :        CCC102 
+ 
+ 
+ 
+BCA151                   INTRODUCTION TO OPERATING SYSTEMS 
+  
+         This course covers the concepts of different operating systems such as UNIX/Linux, MS-DOS, 
+Windows, Windows NT and OS/2. It explains the concepts of CPU scheduling, algorithms file 
+management systems, disk/drum scheduling algorithms, concurrent processes and programming 
+languages. It covers process management, process coordination, memory management and storage 
+management, distributed syste ms, protection and security, special -purpose systems and some case 
+studies of the real operating systems Linux and FreeBSD. 
+  
+Credit                       :        3 Units (2 hrs lec) (3 hrs lab) 
+Pre-requisite             :        BCA141 
+  
+ 
+ 
+BCA152                   MICROCONTROLLERS 
+ 
+          This course introduces students to microcontroller/microprocessor-based systems. Students will 
+learn to program the 8051 for various applications. Students will also develop skills in interfacing the 
+8051 to different devices. The course assumes a programming background in C or assembly language 
+and provides an overview of the software development process. The course covers such topics as 
+
+--- PAGE 48 ---
+ 
+48 
+ 
+microprocessors and microcontrollers, configuring and programming the various com ponents of the 
+8051 microcontroller, and interfacing the 8051 microcontroller with different devices. 
+ 
+Credit                       :        3 units (2 hrs lec) (3 hrs lab) 
+Pre-requisite             :        CCC102 
+   
+  
+ 
+BCA153                   PROGRAMMABLE LOGIC CONTROLLER APPLICATIONS 
+         This course covers the study on the computer application in manufacturing, processing, 
+communications and other industrial processes. The subject also includes educational tour in the 
+different industries to observe and see the actual application of computers in industries. The subject 
+specifically uses Programmable Logic Controller (PLC), it is one of the most used computer based 
+controller in industries. The student will be able to analyze industrial pro cessing problem and apply 
+programming skills using ladder diagram and mnemonics and simulate it using PC and PLC hardware 
+and software. 
+Credit                       :        3 unit (1 hr lec) (3 hrs lab) 
+Pre-requisite             :        BCA122 
+ 
+ 
+BCA161  NUMERICAL METHODS  
+ 
+ Topics includes systems of linear equations, numerical integration, ordinary differential 
+equations, and nonlinear equations. Construction and use of large numerical systems, Influence of data 
+representation and computer architectures on algorithms choice and development. 
+ 
+Credit                       :        3 unit (3 hr lec)  
+Pre-requisite             :        MAT071 
+ 
+ 
+ 
+3. Technical Electives 
+ 
+BCA180     INTRODUCTION TO COMPUTER VISION 
+ 
+ This course provides an introduction to computer vision. It will focus on fundamental 
+models and algorithms in computer vision, including such topics as image formation, image sensing, 
+image filtering, edge extraction, brightness and reflectance. It will also focus on computer vision 
+applications, includ ing various algorithms for reconstructing 3D shape (shape -from-X, stereo, 
+photometric stereo), and recognizing objects in images. 
+ 
+Credit                       :        3 units (2 hrs lec) (3 hrs lab) 
+Pre-requisite             :        CCC102 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 49 ---
+ 
+49 
+ 
+BCA181 HDL PROGRAMMING 
+ 
+ This course will develop the digital hardware design skills necessary for practitioners in the 
+embedded systems field. It will provide a brief overview of logic design concepts before examining, in 
+detail, the design methodologies for complex digital systems, including the use of high -level design 
+languages for rapid development; hardware description languages and tools; FPGA based designs; 
+computer arithmetic in digital systems; energy efficient architectures; signal integrity and cloc k event 
+horizons. Design for production test strategies will also be examined, including: test structures; 
+automated testing techniques; test coverage and economics of testing; enhancing testability, structured 
+design techniques, scan based design and built in self-test. 
+ 
+Credit  : 3 Units  (2 hrs. Lec, 3hrs lab) 
+Prerequisite : CCC102 
+ 
+BCA182                   EMBEDDED SYSTEMS PROGRAMMING 
+  
+         The course introduces the student to Linux Embedded OS. It focuses on the OS structure. It 
+introduce the deve lopment environment and Tools the difference between kernel and user space, and 
+embedded considerations, usage and mechanism of Linux system calls and library functions. The course 
+deals with many facets of the Linux operating system, including: Linux kern el structure, I/O, Signals, 
+Processes, Threads, and IPC. 
+  
+Credits                     :        3 Units (2 hrs. Lec, 3 hrs. lab.) 
+Pre-requisite             :        CCC102 
+  
+ 
+BCA183 DIGITAL SIGNAL PROCESSING 
+ 
+ This course will introduce students to digital  signal processing algorithms and to hardware 
+related implementation issues. It provides and introduction to signals and systems, including: sampling 
+techniques, aliasing, line spectra, symmetry, anti-alias filters; discrete time systems; FIR and IIR filters; 
+windowing techniques, frequency transformations, auto- and cross-correlation;  Fast Fourier Transform 
+(FFT), decimation, twiddle functions and butterflies (DIF & DIT) and an introduction to stochastic 
+signal processing techniques. The course will then examine implementation issues, including: hardware 
+and software structures for FFT implementation and FFT processing rates; examine hardware issues, 
+including: DSP processors; organization, programming model, and on -chip concurrency; MAC units; 
+pipelining; addressing modes; application specific  features such as short/long interrupts, hardware do 
+loops, etc.; dedicated architectures vs. programmable DSPs; multi -DSP implementations; and 
+development tools. 
+ 
+Credits   : 3 Units (2 hrs. Lec, 3 hrs. lab) 
+Prerequisite  :  CCC102 
+ 
+ 
+ 
+BCA188 PROGRAMMING FOR THE INTERNET OF THING PROJECT 
+ 
+This course introduces students to computer interfacing using the Arduino platform, an open -
+source computer hardware/software platform for building digital interactive devices that can sense 
+and respond to physical variables. The course assumes a basic pro gramming background and 
+knowledge in basic electronics. Students will be exposed to lecture and laboratory activities related 
+to programming the microcontroller board using software libraries & the IDE (Integrated 
+Development Environment), and interfacing it to hardware modules.  The course covers topics such 
+as controlling and interfacing with external devices, connecting the microcontroller board to the 
+
+--- PAGE 50 ---
+ 
+50 
+ 
+internet using expansion shields and configuring it as an IoT device, and discussions on other 
+functionalities and capabilities of the board.  
+ 
+ 
+Credits   : 3 Units (2 hrs. Lec, 3 hrs.lab) 
+Prerequisite  : BCA144 
+ 
+ 
+BCA189 APPLIED INTERNET OF THINGS 
+ 
+  
+This course covers programming and interfacing hardware design necessary for practitioners in 
+the IoT systems using the Raspberry Pi. In addition, students will learn how to set up the Raspberry Pi 
+environment, get a Linux operating system running, and write and execute some basic Python code on 
+the Raspberry Pi and will also learn how to use Python -based IDE (in tegrated development 
+environments) for the Raspberry Pi and how to trace and debug Python code on the device. They will 
+learn how to use these protocols with other external devices (sensors, motors, GPS, orientation, LCD 
+screens etc.) to get IoT device to interact with the real world.  
+ 
+ 
+Credits   : 3 Units (2 hrs. Lec, 3 hrs. lab) 
+Prerequisite  : BCA144 
+ 
+ 
+ 
+BCA190 ARTIFICIAL INTELLIGENCE IN INTERNET OF THINGS 
+ 
+This course provides a broad introduction to machine learning, data mining, and statistical 
+pattern recognition. Topics include: (i) Supervised learning (parametric/non -parametric algorithms, 
+support vector machines, kernels, neural networks). (ii) Unsupervised learning (clustering, 
+dimensionality reduction, recommender systems, deep learning). (iii) Best practices in machine learning 
+(bias/variance theory; innovation process in machine learning and AI). The course will also draw from 
+numerous case studies and applications, so that you'll also learn how to apply learning algorithms to 
+building smart robots and IoT devices.  
+ 
+Credits   : 3 Units (2 hrs. Lec, 3 hrs.  lab) 
+Prerequisite  : BCA144 
+ 
+ 
+BCA191 ROBOTIC SYSTEMS 
+ 
+This course is to introduce students to the field of Robotics and stimulate their interests in  
+design process. This course covers a variety of multidisciplinary topics necessary to understand the 
+fundamentals of designing, building, and programming robots. 
+ 
+ 
+Credits   : 3 Units (2 hrs. Lec, 3 hrs.  lab) 
+Prerequisite  : BCA144 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 51 ---
+ 
+51 
+ 
+BCA198  RESEARCH METHODS 
+  
+ This course is a requirement for the BSCA program. Contents must be focused on the basic 
+principles of research in the field of Computer Application. Student will be able to defend his project 
+proposal in the panel. 
+ 
+Credit    :   3 unit (3 hrs lec) 
+ 
+ 
+ 
+ 
+BCA199   UNDERGRADUATE THESIS  
+ 
+ This course is the continuation of BCA195 that deals with the development of applied research 
+and special project that can be beneficial to the institute, industry and community in computer 
+application fields.  
+ 
+Credit    :   3 unit (3 hrs lec) 
+Pre-requisite   :  BCA198 
+ 
+BCA197  ON-THE-JOB TRAINING  
+ 
+This is a five -month supervised on -the-job training (BCA197) prior to graduation which 
+provides the necessary hands -on experience and allow students to utilize and refine their skills 
+previously learned in their educational process. Students are eligible t o enroll the On-The-Job training 
+after completing 80% of the total number units in the curriculum.  
+ 
+The whole semester is devoted to in -house training, or industrial training, or a combination of 
+both, where each student can actualize classroom experience  to improve knowledge and manipulative 
+skills. All work is to be performed in accordance with the industry standards and guidelines and will be 
+supervised by industry and school representatives. An industrial exposure of 700 hours is required prior 
+to graduation.  
+  
+As an option, the student may be allowed to engage in entrepreneurship utilizing the knowledge 
+and skills gained in their field of specialization. Likewise, at the end of their On the Job Training (OJT), 
+students are required to submit a narrative reports to the department. 
+ 
+ 
+Credit    :   6 unit (700 hrs lec) 
+Pre-requisite   :  Must have completed 80% of the academic  
+                                                            course work 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 52 ---
+ 
+52 
+ 
+ 
+ 
+ 
+ 
+10.  Curriculum Map  
+ 
+A. To keep abreast of the latest developments in the specific field of practice 
+B. Effectively communicate using English, Filipino, orally and in writing 
+C. Work effectively and independently in multi-disciplinary and multi-cultural teams 
+D. Demonstrate  professional, social, ethical, and environmental responsibility  
+E. Preserve and promote " Filipino historical and cultural heritage" (based on RA 7722) 
+F. Advocates for peace in multi-cultural settings  
+G. Apply knowledge of mathematics and sciences to solve computer electronics problems. 
+H. Analyze a problem, formulate  and identify solutions for computer applications and technology   
+problems using analytical tools appropriate to areas of specialization.  
+I. Apply design principle  using  software and firmware  for broadly defined computer  
+applications 
+J. Implement and evaluate computer application systems, components or processes to meet specific 
+needs.. 
+K. Select and apply appropriate techniques, resources and modern computing and ICT tools 
+necessary for computer applications practices. 
+L. Function effectively as a member or leader of a development team recognizing the different 
+roles within a team to accomplish a common goal. 
+M. Communicate effectively with the computer applications community and with society at large 
+about complex computer application activities through logical writing, presentations, and clear 
+instructions. 
+N. Understand and commit to professional ethics and responsibilities and norms of computer and 
+cyber technology practices. 
+O. Recognize  the need for  and have the ability,  to engage in independent learning for continual 
+development as a technology specialist . 
+ 
+ 
+COURSE  PROGRAM OUTCOMES 
+ A B C D E F G H I J K L M N O 
+A. General Education Courses 
+ 
+               
+1. Understanding The Self  √ √ √ √ √          
+2. Purposive Communication  √ √ √            
+3. The Contemporary World  √ √ √ √ √          
+4. Mathematics in TheModern 
+World 
+ √ √ √            
+5. Readings in Philippine History  √ √ √ √ √          
+6. Art Appreciation  √ √ √ √ √          
+7. Ethics  √ √ √ √ √          
+8. Science, Technology and 
+Society 
+ √ √ √            
+9. Life and Works of  Rizal  √ √ √  √          
+10. History o the Filipino 
+Muslims and the Indigenous 
+Peoples of MINSUPALA 
+ √ √ √ √ √          
+11. Wika at Kultura sa Mapayapang 
+Lipunan 
+ √ √ √ √ √          
+12. Ekokritisismo at Pagpapahalaga 
+sa Kalikasan 
+ √ √ √ √ √          
+
+--- PAGE 53 ---
+ 
+53 
+ 
+ 
+13. Fundamentals of Peace 
+Education 
+ √ √ √ √ √          
+                
+COURSE A B C D E F G H I J K L M N O 
+B. Core Courses                
+1. Fundamentals of Computing √ √ √ √        I  I I 
+2. Computer Programming I √ √ √ √   I I I I      
+3. Computer Programming II √ √ √ √    I I I      
+4. Data Structures and Algorithms √ √ √ √   E E I E      
+5. InformationManagement √ √ √ √   E E I E E E E  I 
+6. Application Development and 
+Emerging Technologis 
+√ √ √ √   E E I E      
+7. Technopreneurship √ √ √ √    E  E E     
+C. Major Courses                
+1. Electrical Circuits √ √ √ √   I I       E 
+2. Basic Electronics Circuits √ √ √ √   I I       E 
+3. DigitalTechniques 
+Fundamentals 
+√ √ √ √   I I       E 
+4. Instrument and 
+Measurements 
+√ √ √ √   I I       E 
+5. Small Signal Analysis √ √ √ √   E        E 
+6. Advance Digital 
+Techniques 
+√ √ √ √   I I       E 
+7. Computer Networks and 
+Data Communication 
+Fundamentals 
+√ √ √ √   I I       E 
+8. Introduction to Internet of 
+Things 
+√ √ √ √   I I       E 
+9. Computer Organization 
+Architecture 
+√ √ √ √   I I       E 
+10. Assembler Language and 
+Programming 
+√ √ √ √    E  E E     
+11. Introduction to Operating 
+Systems 
+√ √ √ √      E E    E 
+12. Microcontrollers √ √ √ √    E I E E    E 
+13. Programmable Logic 
+Controller Applications 
+√ √ √ √    E I E E    E 
+14. Robotics System √ √ √ √    E I  E     
+D. Specialization Corse                
+1.  Introduction to Computer 
+Vision 
+√ √ √ √    E  E E     
+2. HDL Programming √ √ √ √    E  E E     
+3. Embedded Systems 
+Programming 
+√ √ √ √    E I E E     
+4. Digital Signal Processing √ √ √ √   E   E     E 
+5. Programming for Internet of 
+Things  
+√ √ √ √   E E   E    D 
+6. Applied Internet of Things  √ √ √ √    E E E E    E 
+7. Artificial Intelligence in 
+Internet of  Things  
+√ √ √ √    E E E E     
+8. Robotic Systems  √ √ √ √    E E E E     
+9. Methods of Research √ √ √ √     E E   E  E 
+
+--- PAGE 54 ---
+ 
+54 
+ 
+10. Thesis √ √ √ √   √ √ E E    D E E 
+ 
+                
+                
+E. Additional Math Courses                
+1. Calculus 1 √ √ √ √   I I       E 
+2. Calculus 2 √ √ √ √   I I       E 
+3. Calculus 3 √ √ √ √   I I       E 
+4. Numerical Methods √ √ √ √   I I       E 
+5. Discrete Math √ √ √ √   I I       E 
+F. On-The-Job Training                
+1.   BCA197 √ √ √ √ D D D D D D D D D D D 
+ 
+ 
+6. Means of Curriculum Delivery 
+ 
+The Student outcomes of the BSCA curriculum are achieved through, but not limited to the following 
+activities: 
+ 
+  Lecture and classroom discussions 
+1. Programming demonstrations 
+2. Guided hands-on laboratory session 
+3. Guided design and development of project specifications 
+4. Thesis (Capstone) Writing 
+5. Mentorship and monitored internship 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+--- PAGE 55 ---
+ 
+55 
+ 
+Republic of the Philippines 
+Mindanao State University 
+Iligan Institute of Technology 
+Andres Bonifacio Ave., Tibanga, Iligan City 
+ 
+Bachelor of Science in Computer Applications 
+ 
+FACULTY PROFILE 
+ 
+Name Educational 
+Qualification 
+Area of 
+Specialization 
+Subjects to be 
+Taught 
+Employment 
+Status 
+(Tenure) 
+with years of 
+experience 
+TER 
+(Average 
+for last 2 
+semesters) 
+ADLAON, 
+Danilo C. 
+Masters in 
+Teaching 
+Technology 
+Industrial 
+Electronics 
+Basic Electronics, 
+Industrial 
+Electronics 
+Robotics 
+Permanent  
+36 years Outstanding 
+ADLAON, 
+Nerissa R. 
+Masters in 
+Technology 
+Teacher 
+Education 
+Basic 
+Electronics 
+Computer 
+Software 
+Application 
+and Hardware 
+Repair 
+Basic Electronics 
+Technopreneurshi
+p 
+Computer 
+Fundamentals 
+ 
+Permanent 
+25 years Outstanding 
+EMPIG, 
+Ernesto E. 
+Master of 
+Science in 
+Information 
+Technology 
+Networking 
+Operating 
+System & 
+Computer 
+Programming 
+ 
+Networking, 
+Capstone 1 and 
+Capstone 2 
+Permanent 
+25 years  Outstanding 
+GAW, 
+Alexander  
+R. 
+Masters in 
+Computer 
+Application 
+Networking 
+Operating 
+System 
+Computer 
+Interface 
+Instruments and 
+Measurements 
+Computer 
+Interface 
+Computer Repair 
+and Maintenance 
+Electrical Circuits 
+Networking 
+Permanent 
+34 years Very Good 
+GALUCAN, 
+Rolando L. 
+Masters in 
+Computer 
+Engineering 
+Instrumentatio
+n and Process 
+Control 
+Basic Electronics 
+Circuits 
+Electrical Circuit 
+Permanent 
+38 years Outstanding 
+
+--- PAGE 56 ---
+ 
+56 
+ 
+MARAJAS, 
+Antonio S. 
+Masters in 
+Teaching 
+Technology 
+Digital 
+Electronics 
+Electrical 
+Circuits 
+PLC 
+Digital, 
+PLC, Electronic 
+Circuits 
+Permanent 
+30 years Outstanding 
+MASCARD, 
+Joseph Allan 
+Y. 
+Masters in 
+Teaching 
+Technology- 
+CAR 
+Electronics and 
+Communicatio
+n 
+Computer 
+Networks 
+Analog and 
+Digital 
+Communication 
+Electronics 
+Permanent 
+37 years Outstanding 
+MENDOZA
+, Ofelia  S. 
+Masters in 
+Teaching 
+Technology 
+Electronics & 
+Computer 
+Applications 
+Digital Tech. 
+Research 
+Methods 
+Basic Electronics 
+Computer 
+Applications 
+Permanent  
+32 years Very Good 
+NABUA, 
+Michael A. 
+Masters of 
+Engineering 
+Computer 
+Programming 
+& 
+Microcontrolle
+r 
+Electronics and 
+Computer 
+Applications 
+(Programming, 
+Microcontroller) 
+Permanent 
+29 years Outstanding 
+ 
+  
+
+--- PAGE 57 ---
+ 
+57 
+ 
+Republic of the Philippines 
+Mindanao State University 
+Iligan Institute of Technology 
+Andres Bonifacio Ave., Tibanga, Iligan City 
+ 
+Bachelor of Science in Computer Applications 
+ 
+LIST OF ACADEMIC NON-TEACHING PERSONNEL  
+ 
+Name Educational 
+Qualification 
+Employme
+nt Status 
+Previous 
+Work 
+Experienc
+e 
+Present Position 
+Name and 
+Registration 
+Number of 
+License, if any 
+BONIAO, Juvy 
+D. 
+ BS Office 
+Management 
+ CGM-MPA 
+ 
+Permanent MSU-IIT ADMINISTRATIVE 
+AIDE VI 
+NC II 
+DATA ENCODER 
+– CATEGORY 1 
+BICADA, Allan 
+P. 
+ ESET 
+ BSTTE 
+ MSTTE 
+Permanent MSU-IIT LABORATORY 
+TECHNICIAN 1 
+CSS 
+NC II 
+EPAS 
+LACANARIA, 
+Ivan Ray 
+ ESET 
+ BS ECT Casual MSU-IIT CMP OPERATOR 
+III 
+NC II 
+CISCO 
+CSC 
+ORIGENES, 
+Kristian Kirk L.  ESET Casual MSU-IIT LABORATORY 
+TECHNICIAN 1 - 
+MAGDADARO, 
+Mae Rose E. 
+ ESET 
+ BSECT Casual MSU-IIT LABORATORY 
+TECHNICIAN 1 NC II CSS 
+RARUGAL, 
+Junil P. 
+ ESET 
+ BSECT 
+ BSETM 
+Casual MSU-IIT LABORATORY 
+TECHNICIAN 1 - 
+GENIELO, 
+Shirley Jane T.  ESET Job Order - OFFICE CLERK - 
+PASLAAW, 
+Floreizel M.  BSLIS Casual MSU-IIT LIBRARIAN License # 006805 
+ 
+ 
+ 

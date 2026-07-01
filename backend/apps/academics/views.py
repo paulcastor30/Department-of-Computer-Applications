@@ -3,10 +3,10 @@ from .models import Program
 from .serializers import ProgramSerializer
 
 class ProgramListView(generics.ListAPIView):
-    queryset = Program.objects.filter(is_published=True).order_by("sort_order", "title")
+    queryset = Program.objects.filter(is_published=True).prefetch_related("documents").order_by("sort_order", "title")
     serializer_class = ProgramSerializer
 
 class ProgramDetailView(generics.RetrieveAPIView):
-    queryset = Program.objects.filter(is_published=True)
+    queryset = Program.objects.filter(is_published=True).prefetch_related("documents")
     serializer_class = ProgramSerializer
     lookup_field = "slug"

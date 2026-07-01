@@ -63,15 +63,30 @@ export interface Program {
   degree_level: string;
   degree_level_display: string;
   overview: string;
+  formal_description: string;
+  academic_orientation: string;
+  intended_learners: string;
+  culminating_requirement: string;
   duration: string;
   curriculum_load: string;
   recognition: string;
+  program_goals: string;
+  program_goals_list: string[];
   program_educational_objectives: string;
   program_educational_objectives_list: string[];
   outcomes: string;
   outcomes_list: string[];
+  academic_areas: string;
+  academic_areas_list: string[];
   specialization_tracks: string;
   specialization_tracks_list: string[];
+  curriculum_structure: string;
+  curriculum_structure_list: string[];
+  thesis_information: string;
+  thesis_information_list: string[];
+  student_support: string;
+  student_support_list: string[];
+  contact_information: string;
   curriculum_evidence: string;
   curriculum_evidence_list: string[];
   quality_evidence: string;
@@ -85,7 +100,27 @@ export interface Program {
   historical_notes: string;
   historical_notes_list: string[];
   faq_intro: string;
+  curriculum_pdf_url: string | null;
+  documents: ProgramDocument[];
+  seo_title: string;
+  seo_description: string;
+  og_title: string;
+  og_description: string;
+  canonical_url: string;
   featured: boolean;
+  updated_at: string;
+}
+
+export interface ProgramDocument {
+  id: number;
+  title: string;
+  document_type: string;
+  document_type_display: string;
+  file_url: string | null;
+  url: string;
+  href: string;
+  note: string;
+  sort_order: number;
   updated_at: string;
 }
 

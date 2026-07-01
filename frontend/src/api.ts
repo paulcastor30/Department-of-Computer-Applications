@@ -1,16 +1,4 @@
-import axios from "axios";
+import { fetchJSON } from "@/lib/api";
+import type { DepartmentProfile } from "@/types/api";
 
-const apiBaseURL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, "");
-
-const baseURL =
-  apiBaseURL
-    ? apiBaseURL.endsWith("/api")
-      ? apiBaseURL
-      : `${apiBaseURL}/api`
-    : import.meta.env.MODE === "production"
-      ? "/api"
-      : "http://127.0.0.1:8000/api";
-
-export const api = axios.create({ baseURL });
-
-export const getDepartmentInfo = () => api.get("/department/");
+export const getDepartmentInfo = () => fetchJSON<DepartmentProfile>("/api/core/department-profile/");

@@ -6,7 +6,7 @@ import { evidenceMatrix, qaStandards } from "./programs/programData";
 const qaProcesses = [
   "Program outcomes, curriculum maps, syllabi, assessment rubrics, and improvement actions.",
   "Faculty profile, faculty development, research and extension outputs, and workload documentation.",
-  "Student admission, progression, retention, completion, thesis or capstone, OJT, and graduate outcomes.",
+  "Student admission, progression, retention, completion, thesis records, supervised industry exposure where applicable, and graduate outcomes.",
   "Facilities, library resources, laboratories, software, equipment, and student support services.",
   "Stakeholder feedback, advisory input, tracer studies, employer feedback, and actions taken.",
 ];

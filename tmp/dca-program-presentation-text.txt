@@ -1,0 +1,250 @@
+--- Slide 1 ---
+BS in Computer Applications Overview
+Castor, Paul Rodolf P.
+College of Computer Studies,
+MSU - Iligan Institute of Technology
+Andres Bonifacio Avenue, Iligan City, 9200 Philippines
+June
+18
+, 2026
+
+--- Slide 2 ---
+Program
+Profile
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no.
+2
+BS in Computer Applications
+Developing Intelligent Applications for Connected Communities
+Applied Computing
+Design, development, integration, and deployment of computing applications and systems
+Distinct Strengths
+Embedded Systems, Internet of Things, Edge AI and Artificial Intelligence of Things
+Graduate Preparation
+Preparing RIDE graduates — Researchers, Innovators, Developers, and Educators — through strong computing foundations, research, and industry immersion.
+
+--- Slide 3 ---
+Program Educational Objectives (PEOs)
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no.
+3
+Career Growth
+Professional growth and advancement in career
+Advanced Studies and Training
+Pursuit of graduate studies or further training
+Lifelong Learning
+Continuous professional development
+Professional Practice
+Practice of the computer applications profession
+
+--- Slide 4 ---
+Program Learning Outcomes (PLOs)
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no.
+4
+Grouped into
+Four Core Domains
+of Graduate Capability
+Foundations and Problem Analysis
+CA01, CA02
+Mathematics, science, analytical thinking, and problem solving
+Design, Implementation, and Tools
+CA03, CA04, CA05
+Software and firmware design, system implementation, evaluation, and modern ICT tools
+Teamwork and Communication
+CA06, CA07
+Collaboration, leadership, presentations, and technical communication
+Ethics and Lifelong Learning
+CA08, CA09
+Professional responsibility, ethical practice, and continuous learning
+
+--- Slide 5 ---
+Program Learning Outcomes (PLOs)
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no. 5
+CA01
+- Apply knowledge of mathematics and sciences to solve computer electronics problems.
+CA02
+- Analyze a problem, formulate and identify solutions for computer applications and technology problems using analytical tools appropriate to areas of specialization.
+CA03
+- Apply design principle using software and firmware for broadly defined computer applications.
+CA04
+- Implement and evaluate computer application systems, components or processes to meet specific needs.
+CA05
+- Select and apply appropriate techniques, resources and modern computing and ICT tools necessary for computer applications practices.
+CA06
+- Function effectively as a member or leader of a development team recognizing the different roles within a team to accomplish a common goal.
+CA07
+- Communicate effectively with the computer applications community and with society at large about complex computer application activities through logical writing, presentations, and clear instructions.
+CA08
+- Understand and commit to professional ethics and responsibilities and norms of computer and cyber technology practices.
+CA09
+- Recognize the need for and have the ability, to engage in independent learning for continual development as a technology specialist.
+
+--- Slide 6 ---
+Curriculum Structure
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no. 6
+Foundations -> Applied Development -> Integration -> Professional Practice
+General Education and Values
+Communication, Ethics, History, Cultural Grounding
+Mathematics and Analytical Foundations
+Calculus, Discrete Mathematics, Numerical Methods
+Programming & Core Computing
+Programming, Data Structures and Algorithms, Application Development
+Foundations
+Applied Development
+Information Management & Applications
+Databases and Real-world Solutions
+Computer Systems, Embedded Systems and Internet of Things
+Systems, Firmware, and Connected Devices
+Technical Electives & Specialization
+Advanced Track Courses
+Research & Thesis
+Applied Research and Thesis Work
+Practicum / Industry Immersion
+On-the-job training and Experience
+Integration & Professional Preparation
+
+--- Slide 7 ---
+Curriculum Highlights
+Presentation Title
+CA Department
+|
+Page no. 7
+Accrediting Agency of Chartered Colleges and Universities in the Philippines (AACCUP) Level III Re -Accredited
+October 16, 2025 – October 15, 2029
+Program Standards Foundation and Alignment
+CHED Center of Development (CMO No. 38, Series of 20215)
+Aligned with the minimum standards prescribed by
+CHED Policies, Standards, and Guidelines (PSG)
+under
+CHED CMO No. 25, Series of 2015
+; further enhances the curriculum with a
+specialized focus
+on
+embedded systems
+and
+IoT
+.
+Anchored to
+ACM Computing Curricula of 2005
+;
+homegrown program of MSU-IIT since 2010
+;  unique
+applied computing
+and
+interdisciplinary space
+by combining foundational computing concepts with practical skills in system development, deployment, and configuration, with added focus on
+embedded systems
+and
+IoT
+; and
+clearly different
+from
+BS CpE (hardware/engineering design)
+,
+BSIT (IT services/infrastructure)
+,
+BSIS (organizational IS)
+, and
+BSCS (theoretical computing)
+.
+
+--- Slide 8 ---
+Curriculum Highlights
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no. 8
+Applied Computing Focus
+Real world design, development, integration, and deployment of computing applications and systems
+Two Specialization Tracks
+Focused pathways in Embedded Systems and Internet of Things
+Hands on Laboratory and Project Work
+Programming Demonstrations, guided laboratory sessions, and project based learning are part of delivery
+Research and Thesis Development
+Applied research, research methods, and undergraduate thesis work
+700 hour Industry Immersion
+Supervised on-the-job training for workplace readiness and practical experience, with opportunities in both national and international companies.
+Emerging Technology Orientation
+Curriculum aligned with Industry 4.0, IoT, AI, and current technological demands
+
+--- Slide 9 ---
+Tracks/Specialization
+/Focus Areas
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no. 9
+Embedded Systems Track
+Edge Devices, Control, Interfacing, Embedded Intelligence
+Computer Vision
+HDL Programming
+Embedded Systems Programming
+Digital Signal Processing
+Internet of Things
+Connectivity, data exchange, smart monitoring, intelligent systems
+Programming for IoT
+Applied IoT
+Artificial Intelligence in IoT
+Robotics Systems
+
+--- Slide 10 ---
+Career and Graduate Pathways
+Stakeholders’ Forum on Computing Education
+CA Department
+|
+Page no.
+10
+Preparing RIDE graduates
+— Researchers, Innovators, Developers, and Educators
+Career Pathways
+Graduate and Professional Pathways
+Developer
+Application Developer
+System / Application Developer
+Software Support Developer
+Researcher
+MS in Computer Applications; Other Graduate Studies
+Advanced Research
+Thesis
+Embedded Systems and Firmware
+Embedded Systems Developer
+Firmware Developer
+IoT Developer
+Smart Systems Developer
+Innovator
+Technology Venture Development
+Product & Solution Ventures
+Emerging Technology Applications
+Research and Innovation
+Applied Research Assistant
+Prototype and Solutions Developer
+Innovation and Technology Project Contributor
+Developer
+Specialized Expertise
+System Development, Integration, and Deployment
+Professional Upskilling and Certifications
+Education and Knowledge Support
+Technical Trainer
+Laboratory/Academic Support Roles
+Future Computing Educator
+Educator
+Academic and Training Pathways
+Knowledge Sharing and Future Teaching Roles
+Community and Extension Engagement
+Work Ready  •  Research Ready  •  Future Ready
+
+--- Slide 11 ---
+THANK YOU !

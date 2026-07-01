@@ -1,0 +1,290 @@
+
+
+--- PAGE 1 ---
+BACHELOR OF SCIENCE IN COMPUTER APPLICATIONS (BSCA) 
+ 
+(List of Courses by Semester) 
+ 
+BOR Resolution No. 129, Series of 2018 
+ 
+ 
+First Year, First Semester 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+GEC101 Understanding The Self 3 3 0 3 None None 
+GEC104 Mathematics in the Modern 
+World 3 3 0 3 None None 
+MAT051 Calculus 1 5 5 0 5 None None 
+BCA111 Fundamentals of Computer 
+Applications 1 3 2 3 5 None None 
+CCC100 Fundamentals of Computing 3 2 3 5 None None 
+CCC101 Computer Programming 1 3 2 3 5 None None 
+PED001 Exercise Prescription and 
+Management 2 2 0 2 None None 
+NST001 National Service Training 
+Program 1 (3) 3 0 30 None None 
+Total 19(22) 22 9 31   
+ 
+ 
+First Year, Second Semester 
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+GEC102 Purposive Communication 3 3 0 3 None None 
+MAT061 Calculus 2 5 5 0 5 MAT051 None 
+BCA121 Fundamentals of Computer 
+Applications 2 3 2 3 5 None None 
+BCA122 Digital Techniques 
+Fundamentals 3 2 3 5 None None 
+BCA123 
+Basic Computer 
+Instrumentation and 
+Measurement 
+3 2 3 5 None None 
+CCC102 Computer Programming 2 3 2 3 5 CCC101 None 
+PED002 Dance/Martial Arts 2 2 0 2 PED001 None 
+NST002 National Service Training 
+Program 2 (3) 3 0 3 NST001 None 
+Total 19(22) 21 12 33   
+ 
+ 
+ 
+
+--- PAGE 2 ---
+ 
+ 
+Second Year, First Semester 
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+FIL101 Wika at Kultura sa 
+Mapayapang Lipunan 3 3 0 3 None None 
+MAT071 Calculus 3 5 5 0 5 MAT061 None 
+BCA131 Advanced Computer Circuits 3 2 3 5 BCA121 None 
+BCA132 Advanced Digital Techniques 3 2 3 5 BCA122 None 
+BCA133 Data Communication 3 2 3 5 BCA122 None 
+CCC121 Computer Structures and 
+Algorithms 3 2 3 5 CCC102 None 
+PED003 
+Individual/Dual 
+Sports/Traditional/Recreational 
+Games 
+2 2 0 2 PED001 None 
+Total 22 18 12 30   
+ 
+ 
+ 
+Second Year, Second Semester 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+FPE101 Fundamentals of Peace 
+Education 3 3 0 3 None None 
+BCA141 Computer Organization and 
+Architecture  4 3 3 6 BCA122 None 
+MAT103 Discrete Mathematics 3 3 0 3 None None 
+BCA143 Firmware Programming 3 2 3 5 CCC101 None 
+BCA144 Introduction to Internet of 
+Things 3 2 3 5 CCC102 None 
+CCC151 Information Management 3 2 3 5 None None 
+PED004 Team Sports 2 2 0 2 PED001 None 
+Total 21 18 9 27   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 3 ---
+ 
+Third Year, First Semester 
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+FIL102 Ekokritisismo at 
+Pagpapahalaga sa Kalikasan 3 3 0 3 None None 
+GEC106 Art Appreciation 3 3 0 3 None None 
+Elective 1 (Technical Elective 1) 3 2 3 5 
+(As the 
+course 
+requires) 
+(As the 
+course 
+requires) 
+BCA151 Introduction to Operating 
+Systems 3 2 3 5 BCA141 None 
+BCA152 Microcontrollers 3 2 3 5 CCC102 None 
+BCA153 Computer Applications in 
+Industry 3 2 3 5 BCA122 None 
+CCC181 Application Development and 
+Emerging Technologies 3 3 0 3 None None 
+Total 21 18 9 27   
+ 
+ 
+Third Year, Second Semester 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+GEC103 The Contemporary World 3 3 0 3 None None 
+GEC107 Ethics 3 3 0 3 None None 
+GEC109 Life and Works of Rizal 3 3 0 3 None None 
+BCA161 Numerical Methods for 
+Computer Applications 3 3 0 3 MAT071 None 
+HIS003 
+History of  Filipino Muslims 
+and Indigenous People of 
+MINSUPALA 
+3 3 0 3 None None 
+Elective 2 (Technical Elective 2) 3 2 3 5 
+(As the 
+course 
+requires) 
+(As the 
+course 
+requires) 
+BCA198 Research Methods 3 3 0 3 CCC181 None 
+Total 21 19 6 25   
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 4 ---
+ 
+ 
+ 
+ 
+Fourth Year, First Semester 
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+GEC108 Science, Technology and 
+Society 3 3 0 3 None None 
+GEC105 Readings in Philippine History 3 3 0 3 None None 
+BCA172 Technopreneurship 3 3 0 3 None None 
+Elective 3 (Technical Elective 3) 3 2 3 5 
+(As the 
+course 
+requires) 
+(As the 
+course 
+requires) 
+Elective 4 (Technical Elective 4) 3 2 3 5 
+(As the 
+course 
+requires) 
+(As the 
+course 
+requires) 
+BCA199 Undergraduate Thesis 3 3 0 3 BCA198 None 
+Total 18 15 9 24   
+ 
+ 
+ 
+Fourth Year, Second Semester 
+ 
+Course         
+No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+Course Title Units Hours/Week Pre-
+requisite(s) 
+Co-
+requisite(s) Lec Lab Total 
+BCA197 On-The-Job-Training  6  0 40 40  BCA198 None 
+Total 6 0 40 700hrs   
+Grand Total     147(153) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+--- PAGE 5 ---
+ 
+ 
+ 
+Suggested Technical Elective Subjects 
+ 
+Course No. Course Title Units 
+Hours/Week 
+Pre-
+requisite(s) 
+Co-
+requisite(s) 
+Lec 
+ 
+Lab 
+ 
+Total 
+A. EMBEDDED SYSTEM TRACK 
+BCA180 Introduction of 
+Computer Vision 
+3 2 3 5 CCC102 None 
+BCA181 HDL Programming 3 2 3 5 CCC102 
+ 
+None 
+BCA182 Embedded Systems 
+Programming 
+3 2 3 5 CCC102 
+ 
+None 
+BCA183 Digital Signal 
+Processing 
+3 2 3 5 CCC102 
+ 
+None 
+B: INTERNET OF THINGS (IOT) TRACK 
+BCA188 Programming For 
+Internet of Things  
+3 2 3 5 CCC102 
+ 
+None 
+BCA189 Applied Internet of 
+Things 
+3 2 3 5 BCA144 
+ 
+None 
+BCA190 Artificial Intelligence 
+in Internet of Things 
+3 2 3 5 BCA144 
+ 
+None 
+BCA191 Fundamentals of 
+Robotics Systems  
+3 2 3 5 BCA144 
+ 
+None 
+ 
