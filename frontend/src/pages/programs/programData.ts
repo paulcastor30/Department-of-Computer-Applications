@@ -13,6 +13,7 @@ export type ProgramProfile = {
   peos: string[];
   outcomes: string[];
   tracks: string[];
+  curriculumStructure: string[];
   curriculumEvidence: string[];
   qualityEvidence: string[];
   admissions: string[];
@@ -29,7 +30,7 @@ export const bscaProgram: ProgramProfile = {
   units: "147 academic units plus NSTP, with 700-hour OJT",
   recognition: "BOR-approved curriculum, Resolution No. 129, Series of 2018",
   summary:
-    "Developing intelligent applications for connected communities, the BSCA program prepares RIDE graduates: Researchers, Innovators, Developers, and Educators with strong computing foundations, research preparation, and industry immersion.",
+    "The BSCA program is an undergraduate applied-computing program covering software and firmware development, embedded systems, Internet of Things, applied research, thesis work, and supervised industry immersion.",
   route: "/programs/bsca",
   peos: [
     "Professional growth and advancement in career.",
@@ -59,6 +60,15 @@ export const bscaProgram: ProgramProfile = {
     "Applied IoT.",
     "Artificial Intelligence in IoT.",
     "Robotics Systems.",
+  ],
+  curriculumStructure: [
+    "General education and values formation.",
+    "Mathematics and analytical foundations.",
+    "Programming, data structures, algorithms, and application development.",
+    "Information management and real-world application systems.",
+    "Computer systems, embedded systems, firmware, and Internet of Things.",
+    "Technical electives and specialization courses.",
+    "Research methods, undergraduate thesis, and practicum or industry immersion.",
   ],
   curriculumEvidence: [
     "Applied computing focus on real-world design, development, integration, and deployment of computing applications and systems.",
@@ -103,7 +113,7 @@ export const mscaProgram: ProgramProfile = {
   units: "31 units for the regular track; 43 units when bridging courses are required",
   recognition: "Revised graduate curriculum with thesis and publication requirements",
   summary:
-    "The MSCA program develops graduate-level research capability in applied computing, embedded systems, IoT, machine learning, cloud computing, cybersecurity, analytics, and related computing applications.",
+    "The MSCA program is a thesis-based graduate program in applied computing, embedded systems, IoT, machine learning, cloud computing, cybersecurity, analytics, and related computing applications.",
   route: "/programs/msca",
   peos: [],
   outcomes: [
@@ -121,6 +131,13 @@ export const mscaProgram: ProgramProfile = {
     "Network Security for IoT.",
     "Advanced Cloud Computing.",
     "Applied Big-Data and Analytics for IoT.",
+  ],
+  curriculumStructure: [
+    "Core graduate courses in advanced computer organization, advanced operating systems, research methods, emerging technologies, ICT for peace and development, and systematic review.",
+    "Specialization courses in embedded systems, digital signal processing, computer vision, machine learning for embedded systems, IoT, network security, cloud computing, and big-data analytics.",
+    "Comprehensive examination after required core preparation.",
+    "Thesis proposal, thesis implementation, final defense, and publication or juried scholarly output.",
+    "Prescribed bridging courses for applicants requiring additional computing preparation.",
   ],
   curriculumEvidence: [
     "Core courses cover advanced computer organization, advanced operating systems, research methods, emerging technologies, ICT for peace and development, systematic review, and thesis.",
@@ -163,10 +180,29 @@ export const historicalLinkages = [
 ];
 
 export const qaStandards = [
-  "CHED COPC: curriculum authority, faculty qualifications, facilities, library and laboratory resources, admission-retention policies, and student-support evidence.",
-  "AACCUP Level III: outcomes-based instruction, research, extension, faculty development, student performance, community impact, and documented continuous improvement.",
-  "CHED COE readiness: strong faculty profile, research productivity, graduate outcomes, extension leadership, linkages, and visible centers of specialization.",
-  "AUN-QA: program outcomes, curriculum design, teaching-learning strategy, student assessment, academic staff quality, support services, facilities, stakeholder feedback, and output measures.",
+  "CHED COPC: approved curriculum, PSG compliance, faculty qualifications, facilities, library and laboratory resources, admission and retention policies, and student-support evidence.",
+  "AACCUP Level III: outcomes-based instruction, faculty development, student achievement, research, extension, linkages, stakeholder feedback, and documented continuous improvement.",
+  "CHED COE: qualified faculty profile, research productivity, graduate outcomes, extension leadership, institutional linkages, facilities, specialization strength, and evidence of distinction.",
+  "AUN-QA: expected learning outcomes, curriculum structure and content, teaching-learning approach, student assessment, academic staff quality, student support, facilities, output indicators, and stakeholder feedback.",
+];
+
+export const evidenceMatrix = [
+  {
+    framework: "CHED COPC",
+    evidence: "Curriculum authority, PSG alignment, faculty credentials, facilities, laboratory and library holdings, admission-retention rules, and student services.",
+  },
+  {
+    framework: "AACCUP Level III",
+    evidence: "Instructional quality, research and extension outputs, faculty development, student performance, linkages, stakeholder evaluation, and actions taken.",
+  },
+  {
+    framework: "CHED COE",
+    evidence: "Program distinction through faculty profile, high-quality research, graduate outcomes, extension utilization, external linkages, facilities, and specialization leadership.",
+  },
+  {
+    framework: "AUN-QA",
+    evidence: "Outcome-curriculum-assessment alignment, academic staff quality, student support, facilities, quality enhancement, stakeholder feedback, and output measures.",
+  },
 ];
 
 const fallbackBySlug = {
@@ -195,6 +231,7 @@ export function normalizeProgram(program: Program | undefined, fallback: Program
     peos: pickList(program.program_educational_objectives_list, fallback.peos),
     outcomes: pickList(program.outcomes_list, fallback.outcomes),
     tracks: pickList(program.specialization_tracks_list, fallback.tracks),
+    curriculumStructure: fallback.curriculumStructure,
     curriculumEvidence: pickList(program.curriculum_evidence_list, fallback.curriculumEvidence),
     qualityEvidence: pickList(program.quality_evidence_list, fallback.qualityEvidence),
     admissions: pickList(program.admission_requirements_list, fallback.admissions),
@@ -226,6 +263,7 @@ export function normalizePrograms(adminPrograms: Program[] | undefined): Program
       peos: program.program_educational_objectives_list || [],
       outcomes: program.outcomes_list || [],
       tracks: program.specialization_tracks_list || [],
+      curriculumStructure: [],
       curriculumEvidence: program.curriculum_evidence_list || [],
       qualityEvidence: program.quality_evidence_list || [],
       admissions: program.admission_requirements_list || [],

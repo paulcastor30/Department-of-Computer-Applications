@@ -1,12 +1,14 @@
-import { CheckCircle2, FileCheck2, GraduationCap, ListChecks } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { PageHero } from "@/components/ui/hero-section";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { useProgram } from "@/hooks/useAcademics";
-import { bscaProgram, normalizeProgram, qaStandards } from "./programData";
+import { bscaProgram, evidenceMatrix, normalizeProgram } from "./programData";
 
-function BulletPanel({ title, items }: { title: string; items: string[] }) {
+function EvidenceList({ title, items }: { title: string; items: string[] }) {
+  if (!items.length) return null;
+
   return (
-    <div className="card-elevated p-5">
+    <div className="rounded-md border border-border bg-background p-5">
       <h3 className="mb-4 text-lg font-semibold text-primary">{title}</h3>
       <ul className="space-y-3">
         {items.map((item) => (
@@ -28,37 +30,35 @@ export default function BSCA() {
     <>
       <PageHero
         title={program.title}
-        subtitle="A four-year applied-computing degree with embedded systems, IoT, research, thesis, and supervised industry immersion."
+        subtitle="Formal undergraduate program information for curriculum review, accreditation, and quality-assurance documentation."
       />
 
       <Section>
+        {isError && (
+          <p className="mb-6 rounded-md border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
+            Built-in BSCA information is shown because the live Django program record could not be reached.
+          </p>
+        )}
+
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
-            {isError && (
-              <p className="mb-4 rounded-md border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
-                Showing built-in BSCA content because the live Django program record could not be reached.
-              </p>
-            )}
-            <p className="mb-6 text-lg leading-8 text-muted-foreground">{program.summary}</p>
-            <div className="rounded-md border-l-4 border-secondary bg-secondary/10 p-5">
-              <h2 className="mb-2 text-xl font-semibold text-primary">Official Curriculum Identity</h2>
-              <p className="text-sm leading-6 text-muted-foreground">
-                {program.recognition}. The public page should be supported internally by the approved curriculum,
-                curriculum map, syllabi, faculty loading, laboratory inventory, OJT records, thesis outputs, and annual
-                program-improvement minutes.
-              </p>
-            </div>
+            <SectionHeader title="Program Identity" align="left" className="mb-5" />
+            <p className="text-base leading-7 text-muted-foreground">{program.summary}</p>
+            <p className="mt-5 rounded-md border-l-4 border-secondary bg-secondary/10 p-4 text-sm leading-6 text-muted-foreground">
+              {program.recognition}
+            </p>
           </div>
-          <dl className="grid gap-3">
+
+          <dl className="grid gap-3 text-sm">
             {[
               ["Program Code", program.code],
-              ["Level", program.level],
-              ["Duration", program.duration],
+              ["Degree Level", program.level],
+              ["Normal Duration", program.duration],
               ["Curriculum Load", program.units],
             ].map(([label, value]) => (
               <div key={label} className="rounded-md border border-border bg-muted/30 p-4">
-                <dt className="text-sm font-semibold text-primary">{label}</dt>
-                <dd className="mt-1 text-sm text-muted-foreground">{value}</dd>
+                <dt className="font-semibold text-primary">{label}</dt>
+                <dd className="mt-1 text-muted-foreground">{value}</dd>
               </div>
             ))}
           </dl>
@@ -67,103 +67,65 @@ export default function BSCA() {
 
       <Section variant="muted">
         <SectionHeader
-          title="Program Educational Objectives"
-          subtitle="The BSCA program develops graduates for career growth, graduate study, lifelong learning, and ethical professional practice."
+          title="Educational Objectives and Learning Outcomes"
+          subtitle="The objectives and outcomes should be mapped to course outcomes, learning activities, assessments, rubrics, and documented improvement actions."
         />
-        <div className="grid gap-4 md:grid-cols-2">
-          {program.peos.map((peo, index) => (
-            <div key={peo} className="card-elevated flex gap-4 p-5">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                {index + 1}
-              </div>
-              <p className="text-sm leading-6 text-muted-foreground">{peo}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionHeader
-          title="Program Outcomes"
-          subtitle="The CA01-CA09 outcomes group graduate capability across foundations, design and implementation, teamwork and communication, ethics, and lifelong learning."
-        />
-        <div className="grid gap-4 md:grid-cols-2">
-          {program.outcomes.map((outcome, index) => (
-            <div key={outcome} className="card-elevated flex gap-4 p-5">
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary text-sm font-bold text-secondary-foreground">
-                {index + 1}
-              </div>
-              <p className="text-sm leading-6 text-muted-foreground">{outcome}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section variant="muted">
-        <SectionHeader
-          title="Tracks and Focus Areas"
-          subtitle="The program’s distinctive applied-computing space is strengthened by embedded systems and Internet of Things pathways."
-        />
-        <div className="grid gap-3 md:grid-cols-2">
-          {program.tracks.map((track) => (
-            <div key={track} className="rounded-md border border-border bg-background p-4 text-sm leading-6 text-muted-foreground">
-              {track}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionHeader title="Curriculum and Assessment Evidence" align="left" />
         <div className="grid gap-5 lg:grid-cols-2">
-          <BulletPanel title="Curriculum Features" items={program.curriculumEvidence} />
-          <BulletPanel title="Evidence to Keep Ready" items={program.qualityEvidence} />
-        </div>
-      </Section>
-
-      <Section variant="muted">
-        <SectionHeader title="Student Pathway" />
-        <div className="grid gap-5 lg:grid-cols-3">
-          <BulletPanel title="Admission and Advising" items={program.admissions} />
-          <BulletPanel title="Progression and Retention" items={program.progression} />
-          <BulletPanel title="Graduate Roles" items={program.careers} />
+          <EvidenceList title="Program Educational Objectives" items={program.peos} />
+          <EvidenceList title="Program Learning Outcomes" items={program.outcomes} />
         </div>
       </Section>
 
       <Section>
-        <div className="grid gap-5 lg:grid-cols-3">
-          <div className="card-elevated p-5">
-            <GraduationCap className="mb-4 h-8 w-8 text-secondary" />
-            <h3 className="mb-2 text-lg font-semibold text-primary">CHED COPC Readiness</h3>
-            <p className="text-sm leading-6 text-muted-foreground">
-              Show approved curriculum, qualified faculty, library and laboratory support, student policies, and
-              assessment records tied to program outcomes.
-            </p>
-          </div>
-          <div className="card-elevated p-5">
-            <ListChecks className="mb-4 h-8 w-8 text-secondary" />
-            <h3 className="mb-2 text-lg font-semibold text-primary">AACCUP Level III Readiness</h3>
-            <p className="text-sm leading-6 text-muted-foreground">
-              Highlight instruction, research, extension, faculty development, student achievement, linkages, and
-              documented improvements from evaluation results.
-            </p>
-          </div>
-          <div className="card-elevated p-5">
-            <FileCheck2 className="mb-4 h-8 w-8 text-secondary" />
-            <h3 className="mb-2 text-lg font-semibold text-primary">AUN-QA Readiness</h3>
-            <p className="text-sm leading-6 text-muted-foreground">
-              Maintain clear expected learning outcomes, curriculum alignment, teaching-learning evidence, assessment
-              rubrics, stakeholder feedback, and output measures.
-            </p>
-          </div>
+        <SectionHeader
+          title="Curriculum Structure"
+          subtitle="The curriculum is presented by academic component rather than promotional theme, so it can support CHED, AACCUP, and AUN-QA review."
+        />
+        <div className="grid gap-5 lg:grid-cols-2">
+          <EvidenceList title="Curricular Components" items={program.curriculumStructure} />
+          <EvidenceList title="Specialization and Focus Areas" items={program.tracks} />
         </div>
-        <div className="mt-5 rounded-md border border-border bg-muted/30 p-5">
-          <h3 className="mb-3 text-lg font-semibold text-primary">Crosswalk Reminder</h3>
-          <ul className="grid gap-2 text-sm leading-6 text-muted-foreground md:grid-cols-2">
-            {qaStandards.map((standard) => (
-              <li key={standard}>{standard}</li>
-            ))}
-          </ul>
+      </Section>
+
+      <Section variant="muted">
+        <SectionHeader title="Admission, Progression, and Completion Controls" />
+        <div className="grid gap-5 lg:grid-cols-3">
+          <EvidenceList title="Admission and Advising" items={program.admissions} />
+          <EvidenceList title="Progression Requirements" items={program.progression} />
+          <EvidenceList title="Graduate Pathways" items={program.careers} />
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader
+          title="Required Program Evidence"
+          subtitle="These evidence areas should be supported by dated documents in the department, college, university, and quality-assurance repositories."
+        />
+        <div className="grid gap-5 lg:grid-cols-2">
+          <EvidenceList title="Curriculum and Assessment Evidence" items={program.curriculumEvidence} />
+          <EvidenceList title="Quality-Assurance Evidence" items={program.qualityEvidence} />
+        </div>
+      </Section>
+
+      <Section variant="muted">
+        <SectionHeader title="Framework Alignment" align="left" />
+        <div className="overflow-hidden rounded-md border border-border bg-background">
+          <table className="w-full border-collapse text-left text-sm">
+            <thead className="bg-muted/60 text-primary">
+              <tr>
+                <th className="border-b border-border p-4 font-semibold">Framework</th>
+                <th className="border-b border-border p-4 font-semibold">Evidence Expected from BSCA</th>
+              </tr>
+            </thead>
+            <tbody>
+              {evidenceMatrix.map((item) => (
+                <tr key={item.framework} className="align-top">
+                  <td className="border-b border-border p-4 font-semibold text-primary">{item.framework}</td>
+                  <td className="border-b border-border p-4 leading-6 text-muted-foreground">{item.evidence}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </Section>
     </>
