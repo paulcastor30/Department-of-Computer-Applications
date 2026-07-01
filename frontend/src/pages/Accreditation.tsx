@@ -1,7 +1,32 @@
 import { Seo } from "@/components/Seo";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { placeholder } from "@/content/siteContent";
-import { evidenceMatrix, qaStandards } from "./programs/programData";
+
+const qaStandards = [
+  "CHED COPC: curriculum authority, regulatory compliance records, faculty qualifications, facilities, library and laboratory resources, admission and retention policies, and student-support evidence.",
+  "AACCUP Level III: outcomes-based instruction, faculty development, student achievement, research, extension, linkages, stakeholder feedback, and documented continuous improvement.",
+  "CHED COE: evidence categories may include faculty profile, research productivity, graduate outcomes, extension leadership, institutional linkages, facilities, specialization strength, and documented distinction, subject to official validation.",
+  "AUN-QA: expected learning outcomes, curriculum structure and content, teaching-learning approach, student assessment, academic staff quality, student support, facilities, output indicators, and stakeholder feedback.",
+];
+
+const evidenceMatrix = [
+  {
+    framework: "CHED COPC",
+    evidence: "Curriculum authority, regulatory compliance records, faculty credentials, facilities, laboratory and library holdings, admission-retention rules, and student services.",
+  },
+  {
+    framework: "AACCUP Level III",
+    evidence: "Instructional quality, research and extension outputs, faculty development, student performance, linkages, stakeholder evaluation, and documented actions taken.",
+  },
+  {
+    framework: "CHED COE",
+    evidence: "Evidence categories may include faculty profile, research, graduate outcomes, extension utilization, external linkages, facilities, and specialization strength, subject to official validation.",
+  },
+  {
+    framework: "AUN-QA",
+    evidence: "Outcome-curriculum-assessment alignment, academic staff quality, student support, facilities, quality enhancement, stakeholder feedback, and output measures.",
+  },
+];
 
 const qaProcesses = [
   "Program outcomes, curriculum maps, syllabi, assessment rubrics, and improvement actions.",
