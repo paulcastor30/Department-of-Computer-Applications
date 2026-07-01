@@ -1,86 +1,67 @@
 import { Link } from "react-router-dom";
-import { Users, Award, BookOpen, Building, ArrowRight } from "lucide-react";
-import { PageHero } from "@/components/ui/hero-section";
+import { Seo } from "@/components/Seo";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { ContentCard, CardGrid } from "@/components/ui/content-card";
-import { Button } from "@/components/ui/button";
+import { departmentIdentity, placeholder } from "@/content/siteContent";
 import { useDepartmentProfile } from "@/hooks/useCore";
 
-const aboutSections = [
-  {
-    title: "Vision, Mission, Goals & Objectives",
-    description: "Our guiding principles that shape our commitment to excellence in computing education.",
-    href: "/about/vmgo",
-    icon: <Award className="h-6 w-6" />,
-  },
-  {
-    title: "History & Milestones",
-    description: "Tracing our journey of growth and achievement in computer applications education.",
-    href: "/about/history",
-    icon: <BookOpen className="h-6 w-6" />,
-  },
-  {
-    title: "Chair's Message",
-    description: "A welcome message from the Department Chair on our vision and commitment.",
-    href: "/about/chair-message",
-    icon: <Users className="h-6 w-6" />,
-  },
-  {
-    title: "Organizational Structure",
-    description: "Understanding our departmental organization and leadership.",
-    href: "/about/organization",
-    icon: <Building className="h-6 w-6" />,
-  },
-  {
-    title: "Faculty & Staff Directory",
-    description: "Meet our dedicated team of educators and administrative personnel.",
-    href: "/about/faculty-staff",
-    icon: <Users className="h-6 w-6" />,
-  },
-  {
-    title: "Contact Us",
-    description: "Get in touch with us for inquiries and more information.",
-    href: "/about/contact",
-    icon: <Building className="h-6 w-6" />,
-  },
-];
-
 export default function About() {
-  const { data, isLoading, isError, error } = useDepartmentProfile();
-
-  if (isLoading) return <div className="p-6">Loading department profile...</div>;
-  if (isError) return <div className="p-6">Error: {(error as Error).message}</div>;
+  const { data } = useDepartmentProfile();
 
   return (
-    <main className="px-6 py-12">
-      <div className="mx-auto max-w-5xl">
-        <h1 className="mb-6 text-3xl font-bold">{data?.title || "About the Department"}</h1>
+    <>
+      <Seo title="About" description="Department profile, mandate, academic domains, and institutional role." />
 
-        <section className="mb-8">
-          <h2 className="mb-2 text-xl font-semibold">Overview</h2>
-          <p>{data?.overview}</p>
-        </section>
+      <Section>
+        <SectionHeader title="About the Department" align="left" />
+        <div className="max-w-4xl space-y-5 text-base leading-7 text-muted-foreground">
+          <p>
+            {data?.overview ||
+              `The ${departmentIdentity.name} is an academic department under the ${departmentIdentity.college}, ${departmentIdentity.institution}. Its official mandate, history, and current department profile are ${placeholder.toLowerCase()}.`}
+          </p>
+          <p>
+            The Department provides academic programs and related scholarly work in computer applications, applied
+            computing, embedded systems, Internet of Things, and allied areas. Specific statements on mandate,
+            leadership, and institutional responsibilities should be taken from approved department and college records.
+          </p>
+        </div>
+      </Section>
 
-        <section className="mb-8">
-          <h2 className="mb-2 text-xl font-semibold">Vision</h2>
-          <p>{data?.vision}</p>
-        </section>
+      <Section variant="muted">
+        <SectionHeader title="Institutional Information" align="left" />
+        <dl className="grid gap-4 md:grid-cols-2">
+          {[
+            ["Department", departmentIdentity.name],
+            ["College", departmentIdentity.college],
+            ["University", departmentIdentity.institution],
+            ["Department Mandate", placeholder],
+            ["Current Department Chair", placeholder],
+            ["Administrative Office", placeholder],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-md border border-border bg-background p-4">
+              <dt className="text-sm font-semibold text-primary">{label}</dt>
+              <dd className="mt-1 text-sm text-muted-foreground">{value}</dd>
+            </div>
+          ))}
+        </dl>
+      </Section>
 
-        <section className="mb-8">
-          <h2 className="mb-2 text-xl font-semibold">Mission</h2>
-          <p>{data?.mission}</p>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="mb-2 text-xl font-semibold">Goals</h2>
-          <p>{data?.goals}</p>
-        </section>
-
-        <section>
-          <h2 className="mb-2 text-xl font-semibold">Outcomes Mapping</h2>
-          <p>{data?.outcomes_mapping_note}</p>
-        </section>
-      </div>
-    </main>
+      <Section>
+        <SectionHeader title="Related Information" align="left" />
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            ["Vision, Mission, Goals", "/about/vmgo"],
+            ["History", "/about/history"],
+            ["Organization", "/about/organization"],
+            ["Faculty", "/faculty"],
+            ["Contact", "/about/contact"],
+            ["Location", "/about/location"],
+          ].map(([label, href]) => (
+            <Link key={href} to={href} className="rounded-md border border-border p-4 text-sm font-semibold text-accent hover:border-secondary">
+              {label}
+            </Link>
+          ))}
+        </div>
+      </Section>
+    </>
   );
 }

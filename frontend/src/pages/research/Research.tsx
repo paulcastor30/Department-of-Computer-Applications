@@ -1,29 +1,44 @@
 import { Link } from "react-router-dom";
-import { PageHero } from "@/components/ui/hero-section";
+import { Seo } from "@/components/Seo";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { ContentCard, CardGrid } from "@/components/ui/content-card";
-import { StatTile, StatGrid } from "@/components/ui/stat-tile";
-import { FlaskConical, BookOpen, Users, Globe } from "lucide-react";
+import { placeholder } from "@/content/siteContent";
+
+const researchSections = [
+  ["Research Agenda", "/research/focus-areas", "Official research agenda and priority areas."],
+  ["Projects", "/research/projects", "Current and completed research projects."],
+  ["Publications", "/research/publications", "Verified publications and scholarly outputs."],
+  ["Laboratories", "/research/labs", "Research laboratories and facilities."],
+  ["Student Research", "/research/student-research", "Undergraduate and graduate student research involvement."],
+  ["Collaborations", "/research/collaborations", "Documented research collaborations and partners."],
+];
 
 export default function Research() {
   return (
     <>
-      <PageHero title="Research & Innovation" subtitle="Advancing knowledge through impactful research addressing real-world challenges." />
+      <Seo title="Research" description="Research agenda, projects, publications, laboratories, and student research." />
+
       <Section>
-        <StatGrid columns={4}>
-          <StatTile value="85+" label="Scopus Publications" icon={<BookOpen className="h-8 w-8" />} />
-          <StatTile value="12" label="Active Projects" icon={<FlaskConical className="h-8 w-8" />} />
-          <StatTile value="25" label="Research Faculty" icon={<Users className="h-8 w-8" />} />
-          <StatTile value="8" label="Partner Institutions" icon={<Globe className="h-8 w-8" />} />
-        </StatGrid>
+        <SectionHeader
+          title="Research"
+          subtitle="This section should present verified research agenda, projects, publications, laboratories, collaborations, and student research involvement."
+          align="left"
+        />
+        <div className="max-w-4xl rounded-md border border-border bg-muted/30 p-5 text-sm leading-6 text-muted-foreground">
+          Current verified research agenda, active projects, publication lists, laboratory records, and collaboration
+          documents are {placeholder.toLowerCase()}.
+        </div>
       </Section>
+
       <Section variant="muted">
-        <SectionHeader title="Explore Research" />
-        <CardGrid columns={3}>
-          <ContentCard title="Focus Areas" description="Explore our research domains and expertise." href="/research/focus-areas" icon={<FlaskConical className="h-6 w-6" />} />
-          <ContentCard title="Publications" description="Browse our Scopus-indexed publications." href="/research/publications" icon={<BookOpen className="h-6 w-6" />} />
-          <ContentCard title="Labs & Facilities" description="Discover our research infrastructure." href="/research/labs" icon={<FlaskConical className="h-6 w-6" />} />
-        </CardGrid>
+        <SectionHeader title="Research Information" align="left" />
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {researchSections.map(([title, href, description]) => (
+            <Link key={href} to={href} className="rounded-md border border-border bg-background p-5 hover:border-secondary">
+              <h2 className="mb-2 text-lg font-semibold text-primary">{title}</h2>
+              <p className="text-sm leading-6 text-muted-foreground">{description}</p>
+            </Link>
+          ))}
+        </div>
       </Section>
     </>
   );

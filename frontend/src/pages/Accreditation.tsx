@@ -1,30 +1,75 @@
-import { PageHero } from "@/components/ui/hero-section";
+import { Seo } from "@/components/Seo";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { EvidenceBlock, EvidenceBadge, MetricPlaceholder } from "@/components/ui/evidence-block";
-import { ContentCard, CardGrid } from "@/components/ui/content-card";
+import { placeholder } from "@/content/siteContent";
+import { evidenceMatrix, qaStandards } from "./programs/programData";
+
+const qaProcesses = [
+  "Program outcomes, curriculum maps, syllabi, assessment rubrics, and improvement actions.",
+  "Faculty profile, faculty development, research and extension outputs, and workload documentation.",
+  "Student admission, progression, retention, completion, thesis or capstone, OJT, and graduate outcomes.",
+  "Facilities, library resources, laboratories, software, equipment, and student support services.",
+  "Stakeholder feedback, advisory input, tracer studies, employer feedback, and actions taken.",
+];
 
 export default function Accreditation() {
   return (
     <>
-      <PageHero title="Accreditation & Quality Assurance" subtitle="Our commitment to excellence through recognized quality standards." />
+      <Seo title="Quality Assurance and Accreditation" description="Quality assurance processes and evidence categories for program review and accreditation." />
+
       <Section>
-        <div className="flex flex-wrap gap-4 justify-center mb-12"><EvidenceBadge type="aaccup" /><EvidenceBadge type="ched" /><EvidenceBadge type="aun" /></div>
-        <CardGrid columns={3}>
-          <ContentCard title="AACCUP Level III" description="Accrediting Agency of Chartered Colleges and Universities in the Philippines" badge="Achieved 2020" />
-          <ContentCard title="CHED COPC" description="Commission on Higher Education Center of Program Compliance" badge="Under Review" />
-          <ContentCard title="AUN-QA" description="ASEAN University Network Quality Assurance" badge="Preparing" />
-        </CardGrid>
+        <SectionHeader
+          title="Quality Assurance and Accreditation"
+          subtitle="This page consolidates quality-assurance and accreditation-related information. Public claims should be supported by official documents and dated evidence."
+          align="left"
+        />
+        <div className="rounded-md border border-border bg-muted/30 p-5 text-sm leading-6 text-muted-foreground">
+          Current accreditation certificates, CHED compliance documents, AUN-QA self-assessment materials, and official
+          quality-assurance reports are {placeholder.toLowerCase()}.
+        </div>
       </Section>
+
       <Section variant="muted">
-        <SectionHeader title="Quality Metrics" />
-        <EvidenceBlock title="Accreditation Evidence Summary" accreditation={["aaccup", "ched", "aun"]}>
-          <div className="grid gap-3 md:grid-cols-2">
-            <MetricPlaceholder label="Faculty with doctoral degrees" value="60%" target="50%" />
-            <MetricPlaceholder label="Licensure exam passing rate" value="85%" target="80%" />
-            <MetricPlaceholder label="Employment rate" value="95%" target="90%" />
-            <MetricPlaceholder label="Research publications" value="85+" />
-          </div>
-        </EvidenceBlock>
+        <SectionHeader title="Framework Reference Areas" align="left" />
+        <div className="grid gap-4">
+          {qaStandards.map((standard) => (
+            <div key={standard} className="rounded-md border border-border bg-background p-4 text-sm leading-6 text-muted-foreground">
+              {standard}
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <SectionHeader title="Evidence Categories" align="left" />
+        <div className="overflow-hidden rounded-md border border-border">
+          <table className="w-full border-collapse text-left text-sm">
+            <thead className="bg-muted/60 text-primary">
+              <tr>
+                <th className="border-b border-border p-4 font-semibold">Framework</th>
+                <th className="border-b border-border p-4 font-semibold">Evidence Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              {evidenceMatrix.map((item) => (
+                <tr key={item.framework} className="align-top">
+                  <td className="border-b border-border p-4 font-semibold text-primary">{item.framework}</td>
+                  <td className="border-b border-border p-4 leading-6 text-muted-foreground">{item.evidence}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </Section>
+
+      <Section variant="muted">
+        <SectionHeader title="Quality-Assurance Process Records" align="left" />
+        <ul className="grid gap-3 md:grid-cols-2">
+          {qaProcesses.map((item) => (
+            <li key={item} className="rounded-md border border-border bg-background p-4 text-sm leading-6 text-muted-foreground">
+              {item}
+            </li>
+          ))}
+        </ul>
       </Section>
     </>
   );

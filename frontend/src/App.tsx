@@ -58,6 +58,8 @@ import Admissions from "./pages/Admissions";
 import Alumni from "./pages/Alumni";
 import News from "./pages/News";
 import Accreditation from "./pages/Accreditation";
+import Facilities from "./pages/Facilities";
+import InternationalLinkages from "./pages/InternationalLinkages";
 
 const queryClient = new QueryClient();
 
@@ -124,6 +126,8 @@ const App = () => (
             <Route path="/alumni" element={<Alumni />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/events" element={<News />} />
+            <Route path="/facilities" element={<Facilities />} />
+            <Route path="/international-linkages" element={<InternationalLinkages />} />
             <Route path="/accreditation" element={<Accreditation />} />
             <Route path="/accreditation/aaccup" element={<Accreditation />} />
             <Route path="/accreditation/ched" element={<Accreditation />} />

@@ -1,55 +1,61 @@
-import { PageHero } from "@/components/ui/hero-section";
-import { Section } from "@/components/ui/section";
-import { FacultyGrid } from "@/components/ui/faculty-card";
-import { FilterBar } from "@/components/ui/filter-bar";
+import { Link } from "react-router-dom";
+import { Seo } from "@/components/Seo";
+import { Section, SectionHeader } from "@/components/ui/section";
+import { placeholder } from "@/content/siteContent";
 import { useFaculty } from "@/hooks/usePeople";
 
-
-const faculty = [
-  { id: "1", name: "Dr. Juan Dela Cruz", position: "Professor / Chair", specializations: ["AI/ML", "Data Science"], publications: 45 },
-  { id: "2", name: "Dr. Maria Santos", position: "Associate Professor", specializations: ["Software Engineering"], publications: 32 },
-  { id: "3", name: "Dr. Ana Reyes", position: "Associate Professor", specializations: ["Cybersecurity"], publications: 28 },
-  { id: "4", name: "Prof. Carlos Garcia", position: "Assistant Professor", specializations: ["Web Development"], publications: 15 },
-  { id: "5", name: "Prof. Roberto Cruz", position: "Assistant Professor", specializations: ["IoT"], publications: 12 },
-  { id: "6", name: "Prof. Lisa Mendoza", position: "Instructor", specializations: ["Programming"], publications: 8 },
-];
-
 export default function Faculty() {
-  const { data: faculty = [], isLoading, isError, error } = useFaculty();
-
-  if (isLoading) return <div className="p-6">Loading faculty directory...</div>;
-  if (isError) return <div className="p-6">Error: {(error as Error).message}</div>;
+  const { data: faculty = [], isLoading, isError } = useFaculty();
 
   return (
-    <main className="px-6 py-12">
-      <div className="mx-auto max-w-6xl">
-        <h1 className="mb-8 text-3xl font-bold">Faculty Directory</h1>
+    <>
+      <Seo title="Faculty" description="Faculty directory and academic staff information." />
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {faculty.map((member) => (
-            <article key={member.id} className="border p-4">
-              {member.photo && (
-                <img
-                  src={member.photo}
-                  alt={member.title}
-                  className="mb-4 h-48 w-full object-cover"
-                />
-              )}
+      <Section>
+        <SectionHeader
+          title="Faculty"
+          subtitle="Faculty information should be maintained using verified academic ranks, degrees, specialization areas, research interests, and official contact details."
+          align="left"
+        />
 
-              <h2 className="text-xl font-semibold">{member.title}</h2>
-              <p className="mb-2">{member.position}</p>
+        {isLoading && <p className="text-sm text-muted-foreground">Loading faculty directory...</p>}
+        {isError && <p className="text-sm text-muted-foreground">Faculty data could not be loaded.</p>}
 
-              {member.research_interests && (
-                <p className="text-sm text-gray-700">{member.research_interests}</p>
-              )}
-
-              <a href={`/faculty/${member.slug}`} className="mt-4 inline-block underline">
-                View profile
-              </a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </main>
+        {faculty.length ? (
+          <div className="overflow-hidden rounded-md border border-border">
+            <table className="w-full border-collapse text-left text-sm">
+              <thead className="bg-muted/60 text-primary">
+                <tr>
+                  <th className="border-b border-border p-4 font-semibold">Name</th>
+                  <th className="border-b border-border p-4 font-semibold">Rank / Position</th>
+                  <th className="border-b border-border p-4 font-semibold">Research Interests</th>
+                  <th className="border-b border-border p-4 font-semibold">Profile</th>
+                </tr>
+              </thead>
+              <tbody>
+                {faculty.map((member) => (
+                  <tr key={member.id} className="align-top">
+                    <td className="border-b border-border p-4 font-semibold text-primary">{member.title}</td>
+                    <td className="border-b border-border p-4 text-muted-foreground">{member.position || placeholder}</td>
+                    <td className="border-b border-border p-4 text-muted-foreground">{member.research_interests || placeholder}</td>
+                    <td className="border-b border-border p-4">
+                      <Link to={`/faculty/${member.slug}`} className="font-semibold text-accent hover:text-secondary">
+                        View profile
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : (
+          !isLoading && (
+            <div className="rounded-md border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
+              Complete faculty directory information is {placeholder.toLowerCase()}.
+            </div>
+          )
+        )}
+      </Section>
+    </>
   );
 }
