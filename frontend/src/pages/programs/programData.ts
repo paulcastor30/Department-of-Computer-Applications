@@ -10,10 +10,17 @@ export type ProgramProfile = {
   recognition: string;
   summary: string;
   route: string;
+  intendedLearners: string;
+  academicFocus: string[];
   peos: string[];
+  goals: string[];
   outcomes: string[];
   tracks: string[];
   curriculumStructure: string[];
+  capstoneOrThesis: string[];
+  industryOrAdvising: string[];
+  studentSupport: string[];
+  documents: Array<{ label: string; href?: string; note?: string }>;
   curriculumEvidence: string[];
   qualityEvidence: string[];
   admissions: string[];
@@ -32,11 +39,25 @@ export const bscaProgram: ProgramProfile = {
   summary:
     "The BSCA program is an undergraduate applied-computing program covering software and firmware development, embedded systems, Internet of Things, applied research, thesis work, and supervised industry immersion.",
   route: "/programs/bsca",
+  intendedLearners:
+    "Applicants seeking an undergraduate computing program with emphasis on applied software development, systems development, embedded systems, IoT, and supervised industry exposure.",
+  academicFocus: [
+    "Applied computing and software development.",
+    "Systems development, integration, and deployment.",
+    "Embedded systems, firmware, and connected devices.",
+    "Internet of Things and related computing applications.",
+    "Applied research and undergraduate thesis work.",
+  ],
   peos: [
     "Professional growth and advancement in career.",
     "Pursuit of graduate studies or further training.",
     "Continuous professional development and lifelong learning.",
     "Ethical and competent practice of the computer applications profession.",
+  ],
+  goals: [
+    "Provide students with foundational and applied preparation in computer applications.",
+    "Develop competence in software, firmware, systems, and application development.",
+    "Prepare students for supervised research, industry immersion, and professional practice.",
   ],
   outcomes: [
     "CA01 - Apply knowledge of mathematics and sciences to solve computer electronics problems.",
@@ -69,6 +90,25 @@ export const bscaProgram: ProgramProfile = {
     "Computer systems, embedded systems, firmware, and Internet of Things.",
     "Technical electives and specialization courses.",
     "Research methods, undergraduate thesis, and practicum or industry immersion.",
+  ],
+  capstoneOrThesis: [
+    "Research methods and undergraduate thesis are included in the program structure.",
+    "Student project, thesis, or prototype documentation should be maintained by the Department.",
+  ],
+  industryOrAdvising: [
+    "The curriculum records indicate a supervised industry immersion or on-the-job training component.",
+    "Current internship placement procedures, host institutions, and advising processes are To be provided by the Department.",
+  ],
+  studentSupport: [
+    "Academic advising arrangements are To be provided by the Department.",
+    "Laboratory access, software resources, and technical support arrangements are To be provided by the Department.",
+    "Student handbook or advising guide is To be provided by the Department.",
+  ],
+  documents: [
+    { label: "BSCA curriculum", note: "To be provided by the Department." },
+    { label: "Admission guide", note: "To be provided by the Department." },
+    { label: "Program brochure", note: "To be provided by the Department." },
+    { label: "Student handbook or advising guide", note: "To be provided by the Department." },
   ],
   curriculumEvidence: [
     "Applied computing focus on real-world design, development, integration, and deployment of computing applications and systems.",
@@ -115,7 +155,21 @@ export const mscaProgram: ProgramProfile = {
   summary:
     "The MSCA program is a thesis-based graduate program in applied computing, embedded systems, IoT, machine learning, cloud computing, cybersecurity, analytics, and related computing applications.",
   route: "/programs/msca",
+  intendedLearners:
+    "Applicants seeking graduate-level preparation in applied computing research, advanced systems, computing applications, and thesis-based scholarly work.",
+  academicFocus: [
+    "Applied computing research.",
+    "Embedded systems and Internet of Things.",
+    "Machine learning, analytics, and intelligent systems.",
+    "Cloud computing and networked systems.",
+    "Thesis development and scholarly dissemination.",
+  ],
   peos: [],
+  goals: [
+    "Develop graduate-level competence in applied computing research.",
+    "Prepare students to conduct thesis work using appropriate methods, data, and ethical research practice.",
+    "Support scholarly output, technical leadership, and progression to advanced professional or doctoral pathways.",
+  ],
   outcomes: [
     "Formulate research problems grounded in computing theory, applied systems, and documented societal or industry need.",
     "Design and evaluate advanced computing solutions using rigorous methods, defensible data, and ethical research practice.",
@@ -138,6 +192,25 @@ export const mscaProgram: ProgramProfile = {
     "Comprehensive examination after required core preparation.",
     "Thesis proposal, thesis implementation, final defense, and publication or juried scholarly output.",
     "Prescribed bridging courses for applicants requiring additional computing preparation.",
+  ],
+  capstoneOrThesis: [
+    "The MSCA is structured as a thesis-based graduate program.",
+    "The pathway includes thesis proposal, thesis implementation, final defense, and publication or juried scholarly-output evidence.",
+  ],
+  industryOrAdvising: [
+    "Graduate advising arrangements, adviser assignment procedures, and research supervision loads are To be provided by the Department.",
+    "Graduate-school residency, comprehensive examination, and thesis procedures should follow official Graduate School policies.",
+  ],
+  studentSupport: [
+    "Graduate advising information is To be provided by the Department.",
+    "Research laboratory access and scholarly support arrangements are To be provided by the Department.",
+    "Graduate handbook or thesis guide is To be provided by the Department.",
+  ],
+  documents: [
+    { label: "MSCA curriculum", note: "To be provided by the Department." },
+    { label: "Graduate admission guide", note: "To be provided by the Department." },
+    { label: "Program brochure", note: "To be provided by the Department." },
+    { label: "Graduate handbook or thesis guide", note: "To be provided by the Department." },
   ],
   curriculumEvidence: [
     "Core courses cover advanced computer organization, advanced operating systems, research methods, emerging technologies, ICT for peace and development, systematic review, and thesis.",
@@ -228,10 +301,17 @@ export function normalizeProgram(program: Program | undefined, fallback: Program
     recognition: program.recognition || fallback.recognition,
     summary: program.overview || fallback.summary,
     route: `/programs/${program.slug || fallback.slug}`,
+    intendedLearners: fallback.intendedLearners,
+    academicFocus: fallback.academicFocus,
     peos: pickList(program.program_educational_objectives_list, fallback.peos),
+    goals: fallback.goals,
     outcomes: pickList(program.outcomes_list, fallback.outcomes),
     tracks: pickList(program.specialization_tracks_list, fallback.tracks),
     curriculumStructure: fallback.curriculumStructure,
+    capstoneOrThesis: fallback.capstoneOrThesis,
+    industryOrAdvising: fallback.industryOrAdvising,
+    studentSupport: fallback.studentSupport,
+    documents: fallback.documents,
     curriculumEvidence: pickList(program.curriculum_evidence_list, fallback.curriculumEvidence),
     qualityEvidence: pickList(program.quality_evidence_list, fallback.qualityEvidence),
     admissions: pickList(program.admission_requirements_list, fallback.admissions),
@@ -260,10 +340,17 @@ export function normalizePrograms(adminPrograms: Program[] | undefined): Program
       recognition: program.recognition || "Published program record",
       summary: program.overview,
       route: `/programs/${program.slug}`,
+      intendedLearners: "To be provided by the Department.",
+      academicFocus: [],
       peos: program.program_educational_objectives_list || [],
+      goals: [],
       outcomes: program.outcomes_list || [],
       tracks: program.specialization_tracks_list || [],
       curriculumStructure: [],
+      capstoneOrThesis: [],
+      industryOrAdvising: [],
+      studentSupport: [],
+      documents: [],
       curriculumEvidence: program.curriculum_evidence_list || [],
       qualityEvidence: program.quality_evidence_list || [],
       admissions: program.admission_requirements_list || [],

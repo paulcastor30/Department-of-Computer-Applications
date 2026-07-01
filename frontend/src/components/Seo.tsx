@@ -3,22 +3,35 @@ import { useEffect } from "react";
 interface SeoProps {
   title: string;
   description?: string;
+  keywords?: string[];
 }
 
-export function Seo({ title, description }: SeoProps) {
+export function Seo({ title, description, keywords }: SeoProps) {
   useEffect(() => {
-    document.title = `${title} | Department of Computer Applications`;
+    const fullTitle = `${title} | Department of Computer Applications`;
+    document.title = fullTitle;
 
-    if (description) {
-      let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    const setMeta = (selector: string, attribute: "name" | "property", key: string, value: string) => {
+      let meta = document.querySelector<HTMLMetaElement>(selector);
       if (!meta) {
         meta = document.createElement("meta");
-        meta.name = "description";
+        meta.setAttribute(attribute, key);
         document.head.appendChild(meta);
       }
-      meta.content = description;
+      meta.content = value;
+    };
+
+    if (description) {
+      setMeta('meta[name="description"]', "name", "description", description);
+      setMeta('meta[property="og:description"]', "property", "og:description", description);
     }
-  }, [description, title]);
+
+    if (keywords?.length) {
+      setMeta('meta[name="keywords"]', "name", "keywords", keywords.join(", "));
+    }
+
+    setMeta('meta[property="og:title"]', "property", "og:title", fullTitle);
+  }, [description, keywords, title]);
 
   return null;
 }

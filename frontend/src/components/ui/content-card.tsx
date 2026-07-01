@@ -30,23 +30,8 @@ export function ContentCard({
   className,
   children,
 }: ContentCardProps) {
-  const Wrapper = href ? (external ? "a" : Link) : "div";
-  const wrapperProps = href
-    ? external
-      ? { href, target: "_blank", rel: "noopener noreferrer" }
-      : { to: href }
-    : {};
-
-  return (
-    <Wrapper
-      {...(wrapperProps as any)}
-      className={cn(
-        featured ? "card-featured" : "card-elevated",
-        href && "cursor-pointer group",
-        "overflow-hidden flex flex-col",
-        className
-      )}
-    >
+  const cardContent = (
+    <>
       {image && (
         <div className="aspect-video overflow-hidden bg-muted">
           <img
@@ -84,7 +69,36 @@ export function ContentCard({
           </div>
         )}
       </div>
-    </Wrapper>
+    </>
+  );
+
+  const classNames = cn(
+    featured ? "card-featured" : "card-elevated",
+    href && "cursor-pointer group",
+    "overflow-hidden flex flex-col",
+    className
+  );
+
+  if (href && external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classNames}>
+        {cardContent}
+      </a>
+    );
+  }
+
+  if (href) {
+    return (
+      <Link to={href} className={classNames}>
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={classNames}>
+      {cardContent}
+    </div>
   );
 }
 
