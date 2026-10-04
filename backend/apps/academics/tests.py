@@ -81,3 +81,26 @@ class BSCAReferenceContentTests(TransactionTestCase):
         self.assertIn("BOR Resolution No. 129", program.curriculum_evidence)
         self.assertEqual(program.documents.count(), 1)
         self.assertTrue(program.documents.get().url.endswith("/curricula/bsca-prospectus.pdf"))
+
+
+    def test_guidance_preserves_admissions_and_department_edits(self):
+        from datetime import date
+        from .serializers import ProgramSerializer
+        program = Program.objects.create(code="MSCA", title="MSCA", slug="msca",
+            admission_requirements="University admission rules", duration="Confirmed duration",
+            curriculum_load="Confirmed load", completion_requirements="Department requirement",
+            content_reviewed_on=date(2026, 9, 1))
+        migration = import_module("apps.academics.migrations.0012_program_study_guidance")
+        with connection.schema_editor() as editor:
+            migration.add_program_guidance(apps, editor)
+            migration.add_program_guidance(apps, editor)
+        program.refresh_from_db()
+        self.assertEqual(program.admission_requirements, "University admission rules")
+        self.assertEqual(program.duration, "Confirmed duration")
+        self.assertEqual(program.curriculum_load, "Confirmed load")
+        self.assertEqual(program.completion_requirements, "Department requirement")
+        self.assertEqual(program.content_reviewed_on, date(2026, 9, 1))
+        payload = ProgramSerializer(program).data
+        self.assertEqual(payload["content_reviewed_on"], "2026-09-01")
+        self.assertEqual(payload["completion_requirements_list"], ["Department requirement"])
+        self.assertTrue(any("Bridging courses" in item for item in payload["study_plan_guidance_list"]))

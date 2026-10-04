@@ -40,6 +40,8 @@ class ProgramSerializer(serializers.ModelSerializer):
     academic_areas_list = serializers.SerializerMethodField()
     specialization_tracks_list = serializers.SerializerMethodField()
     curriculum_structure_list = serializers.SerializerMethodField()
+    study_plan_guidance_list = serializers.SerializerMethodField()
+    completion_requirements_list = serializers.SerializerMethodField()
     thesis_information_list = serializers.SerializerMethodField()
     student_support_list = serializers.SerializerMethodField()
     curriculum_evidence_list = serializers.SerializerMethodField()
@@ -80,6 +82,11 @@ class ProgramSerializer(serializers.ModelSerializer):
             "specialization_tracks_list",
             "curriculum_structure",
             "curriculum_structure_list",
+            "study_plan_guidance",
+            "study_plan_guidance_list",
+            "completion_requirements",
+            "completion_requirements_list",
+            "content_reviewed_on",
             "thesis_information",
             "thesis_information_list",
             "student_support",
@@ -131,6 +138,12 @@ class ProgramSerializer(serializers.ModelSerializer):
 
     def get_curriculum_structure_list(self, obj):
         return self._lines(obj.curriculum_structure)
+
+    def get_study_plan_guidance_list(self, obj):
+        return self._lines(obj.study_plan_guidance)
+
+    def get_completion_requirements_list(self, obj):
+        return self._lines(obj.completion_requirements)
 
     def get_thesis_information_list(self, obj):
         return self._lines(obj.thesis_information)

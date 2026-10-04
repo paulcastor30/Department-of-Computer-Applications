@@ -160,8 +160,21 @@ it('explains curriculum-supported MSCA study and flags current requirements for 
   expect(main.getByRole('heading', { name: 'What you will study' })).toBeInTheDocument();
   expect(main.getByText(/Advanced embedded systems: computing/)).toBeInTheDocument();
   expect(main.getByText(/BOR Resolution No. 128/i)).toBeInTheDocument();
-  expect(main.getByText(/31 units for the non-scholar plan/)).toBeInTheDocument();
+  expect(within(document.getElementById('before-applying')!).getByText(/31 units for the non-scholar plan/)).toBeInTheDocument();
   expect(main.getByRole('link', { name: 'Open MSCA prospectus (PDF, 4 pages)' })).toHaveAttribute('href', '/curricula/msca-prospectus.pdf');
   expect(main.getByRole('heading', { name: 'Before applying' })).toBeInTheDocument();
   expect(main.getByText(/MSCA advances the study of Computer Applications/)).toBeInTheDocument();
+});
+
+
+it('explains study terms and offers advising support without replacing university admissions', async () => {
+  window.history.replaceState({}, '', '/programs/msca');
+  render(<App />);
+  const main = within(screen.getByRole('main'));
+  expect(main.getByRole('link', { name: 'Key requirements' })).toHaveAttribute('href', '#requirements');
+  expect(main.getByText('Bridging courses')).toBeInTheDocument();
+  expect(main.getByText(/Publication: the prospectus specifies/)).toBeInTheDocument();
+  expect(main.getByRole('heading', { name: 'Advising and learning support' })).toBeInTheDocument();
+  expect(main.getByText(/Website summary reviewed:/)).toHaveTextContent('5 October 2026');
+  expect(within(document.getElementById('before-applying')!).getByText(/Entry requirements and application instructions:/)).toBeInTheDocument();
 });

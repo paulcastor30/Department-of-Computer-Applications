@@ -48,6 +48,8 @@ class ProgramAdmin(admin.ModelAdmin):
                 "academic_areas",
                 "specialization_tracks",
                 "curriculum_structure",
+                "study_plan_guidance",
+                "completion_requirements",
                 "thesis_information",
                 "student_support",
             ),
@@ -84,6 +86,7 @@ class ProgramAdmin(admin.ModelAdmin):
                 "featured",
                 "sort_order",
                 "last_updated_note",
+                "content_reviewed_on",
                 "created_at",
                 "updated_at",
             )

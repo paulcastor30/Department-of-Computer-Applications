@@ -82,6 +82,9 @@ export interface Program {
   specialization_tracks_list: string[];
   curriculum_structure: string;
   curriculum_structure_list: string[];
+  study_plan_guidance_list?: string[];
+  completion_requirements_list?: string[];
+  content_reviewed_on?: string | null;
   thesis_information: string;
   thesis_information_list: string[];
   student_support: string;

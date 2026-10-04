@@ -43,6 +43,9 @@ export type ProgramProfile = {
   ogDescription: string;
   canonicalUrl: string;
   curriculumNotes: string[];
+  studyTerms: string[];
+  completionRequirements: string[];
+  reviewedOn: string;
   isFallback: boolean;
 };
 
@@ -100,7 +103,7 @@ const bscaFallback: ProgramProfile = {
   advisingInformation: [placeholder],
   studentSupport: [placeholder],
   documents: [
-    { label: "BSCA prospectus (PDF, 5 pages)", href: "/curricula/bsca-prospectus.pdf", note: "Department-supplied prospectus. Confirm the study plan applicable to you before enrolling." },
+    { label: "BSCA prospectus (PDF, 5 pages)", href: "/curricula/bsca-prospectus.pdf", note: "Department-supplied prospectus." },
     { label: "BSCA curriculum", note: placeholder },
     { label: "Undergraduate admission guide", note: placeholder },
     { label: "BSCA program brochure", note: placeholder },
@@ -116,7 +119,16 @@ const bscaFallback: ProgramProfile = {
   ogTitle: "Bachelor of Science in Computer Applications",
   ogDescription: "Undergraduate academic program information with official Department content to be provided.",
   canonicalUrl: "",
-  curriculumNotes: ["Based on the department-supplied BSCA prospectus, which cites BOR Resolution No. 129, Series of 2018. Confirm the applicable curriculum with the department before enrolling."],
+  curriculumNotes: ["Source: department-supplied BSCA prospectus, citing BOR Resolution No. 129, Series of 2018."],
+  studyTerms: [
+    "Units: the credit assigned to a course. The total describes the study load, not the number of courses.",
+    "NSTP (National Service Training Program): the two first-year subjects shown separately in parentheses in the prospectus. They add six units to the 147-unit total."
+  ],
+  completionRequirements: [
+    "Undergraduate Thesis: BCA199 is listed as a three-unit course, following Research Methods.",
+    "On-the-job training: BCA197 is listed as six units and 700 hours in the final semester."
+  ],
+  reviewedOn: "2026-10-05",
   isFallback: true,
 };
 
@@ -166,7 +178,7 @@ const mscaFallback: ProgramProfile = {
   advisingInformation: [placeholder],
   studentSupport: [placeholder],
   documents: [
-    { label: "MSCA prospectus (PDF, 4 pages)", href: "/curricula/msca-prospectus.pdf", note: "Department-supplied prospectus. Confirm the study plan applicable to you before enrolling." },
+    { label: "MSCA prospectus (PDF, 4 pages)", href: "/curricula/msca-prospectus.pdf", note: "Department-supplied prospectus." },
     { label: "MSCA curriculum", note: placeholder },
     { label: "Graduate admission guide", note: placeholder },
     { label: "MSCA program brochure", note: placeholder },
@@ -182,7 +194,19 @@ const mscaFallback: ProgramProfile = {
   ogTitle: "Master of Science in Computer Applications",
   ogDescription: "Graduate academic program information with official Department content to be provided.",
   canonicalUrl: "",
-  curriculumNotes: ["Based on the department-supplied MSCA prospectus, which cites BOR Resolution No. 128, Series of 2023. It shows separate non-scholar, ERDT scholarship, and bridging study plans. Confirm your applicable plan with the department before enrolling."],
+  curriculumNotes: ["Source: department-supplied MSCA prospectus, citing BOR Resolution No. 128, Series of 2023."],
+  studyTerms: [
+    "Units: the credit assigned to a course. Different study plans have different total units.",
+    "Non-scholar plan: the 31-unit study sequence labelled “A. Non-Scholar” in the prospectus.",
+    "ERDT (Engineering Research and Development for Technology): the scholarship program named in the 34-unit study plan, which includes Technology Entrepreneurship.",
+    "Bridging courses: additional foundational subjects used to prepare a student for advanced study. The prospectus shows a 43-unit plan with bridging courses, with subjects selected through the adviser’s evaluation of the study plan."
+  ],
+  completionRequirements: [
+    "Master’s Thesis: MCA300 is listed as a six-unit course.",
+    "Comprehensive examination: the prospectus lists this examination after the required core study. Ask the department about scheduling and preparation.",
+    "Publication: the prospectus specifies at least one published article in a refereed journal or juried creative-work outlet. Ask the department about the applicable submission and assessment process."
+  ],
+  reviewedOn: "2026-10-05",
   isFallback: true,
 };
 
@@ -271,6 +295,9 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
     academicAreas,
     curriculumStructure: lines(program.curriculum_structure_list, base.curriculumStructure),
     curriculumNotes: lines(program.curriculum_evidence_list, base.curriculumNotes),
+    studyTerms: lines(program.study_plan_guidance_list, base.studyTerms),
+    completionRequirements: lines(program.completion_requirements_list, base.completionRequirements),
+    reviewedOn: /^\d{4}-\d{2}-\d{2}$/.test(program.content_reviewed_on || "") ? program.content_reviewed_on! : base.reviewedOn,
     thesisInformation,
     advisingInformation: lines(program.progression_requirements_list, base.advisingInformation),
     studentSupport: lines(program.student_support_list, base.studentSupport),

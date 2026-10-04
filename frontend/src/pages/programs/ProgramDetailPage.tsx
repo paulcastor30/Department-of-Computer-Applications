@@ -30,6 +30,8 @@ function ListPanel({ title, items, nested = false }: { title: string; items: str
 }
 
 export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, outcomesTitle, areasTitle, thesisTitle, pathwaysTitle, advisingTitle }: ProgramDetailPageProps) {
+  const reviewedDate = new Date(`${program.reviewedOn}T00:00:00Z`);
+  const reviewedLabel = Number.isNaN(reviewedDate.getTime()) ? null : new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(reviewedDate);
   const areas = availableProgramItems(program.academicAreas);
   const structure = availableProgramItems(program.curriculumStructure);
   const outcomes = availableProgramItems(program.outcomes);
@@ -58,8 +60,13 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
           {[["Degree level", program.degreeLevelCode === "UNDERGRAD" ? "Bachelor’s degree (undergraduate)" : "Master’s degree (graduate)"], ["Program abbreviation", program.code], ["Thesis requirement", program.culminatingRequirement]].map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 leading-7 text-muted-foreground">{value}</dd></div>)}
         </dl>
       </div>
+      <dl aria-label="Study commitment" className="mt-8 grid gap-6 rounded-md border border-border p-6 md:grid-cols-2">
+        <div><dt className="font-semibold">Study sequence</dt><dd className="mt-2 leading-7 text-muted-foreground">{program.duration}</dd></div>
+        <div><dt className="font-semibold">Study load</dt><dd className="mt-2 leading-7 text-muted-foreground">{program.units.replace(" Confirm your applicable plan with the department.", "")}</dd></div>
+      </dl>
       <nav aria-label={`${program.code} page sections`} className="mt-8 flex flex-wrap gap-3">
         {(areas.length > 0 || structure.length > 0) && <a className="outline-link" href="#study">What you will study</a>}
+        <a className="outline-link" href="#requirements">Key requirements</a>
         <a className="outline-link" href="#before-applying">Before applying</a>
         <a className="outline-link" href="#program-inquiries">Ask about {program.code}</a>
       </nav>
@@ -72,6 +79,20 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
         <ListPanel title="How the learning develops" items={structure} nested />
       </div>
     </Section>}
+    <Section id="requirements">
+      <SectionHeader title="Key requirements in the prospectus" className="mb-6" />
+      <p className="mb-5 max-w-3xl leading-7 text-muted-foreground">These highlights help you understand the study commitment. Use the prospectus and department guidance for the complete requirements and the plan applicable to you.</p>
+      <ul className="max-w-4xl list-disc space-y-3 pl-5 leading-7 text-muted-foreground">{availableProgramItems(program.completionRequirements).map(item => <li key={item}>{item}</li>)}</ul>
+      <section className="mt-10 max-w-4xl">
+        <h3 className="mb-5 text-xl font-semibold text-primary">Understanding your study plan</h3>
+        <dl className="space-y-5">{availableProgramItems(program.studyTerms).map(item => {
+          const separator = item.indexOf(":");
+          const term = separator >= 0 ? item.slice(0, separator) : "Study guidance";
+          const definition = separator >= 0 ? item.slice(separator + 1).trim() : item;
+          return <div key={item}><dt className="font-semibold">{term}</dt><dd className="mt-1 leading-7 text-muted-foreground">{definition}</dd></div>;
+        })}</dl>
+      </section>
+    </Section>
     {(outcomes.length > 0 || extraPanels.length > 0) && <Section>
       {outcomes.length > 0 && <details className="max-w-4xl rounded-md border border-border p-5">
         <summary className="min-h-11 cursor-pointer text-xl font-semibold text-primary">{outcomesTitle}</summary>
@@ -107,6 +128,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
     <Section id="program-inquiries">
       <SectionHeader title={`Questions about ${program.code}?`} />
       <ProgramInquiry code={program.code} />
+      {reviewedLabel && <p className="mt-8 text-sm text-muted-foreground">Website summary reviewed: <time dateTime={program.reviewedOn}>{reviewedLabel}</time>. This date records a website content review.</p>}
     </Section>
   </>;
 }
