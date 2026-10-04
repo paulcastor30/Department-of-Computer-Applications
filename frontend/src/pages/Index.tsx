@@ -2,10 +2,10 @@ import { departmentProfileText } from "@/lib/departmentProfileText";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Seo } from "@/components/Seo";
-import { useDepartmentProfile } from "@/hooks/useCore";
+import { useDepartmentProfile, useSiteSettings } from "@/hooks/useCore";
 import { usePrograms } from "@/hooks/useAcademics";
+import { visitGuidance } from "@/content/visitGuidance";
 import { departmentIntroduction } from "@/content/departmentIntroduction";
-import { useSiteSettings } from "@/hooks/useCore";
 import { departmentIdentity } from "@/content/siteContent";
 import { normalizePrograms } from "./programs/programData";
 import { NewsList } from "./News";
@@ -98,11 +98,12 @@ export default function Index() {
               <div><dt>Email</dt><dd><a className="text-link" href={`mailto:${email}`}>{email}</a></dd></div>
               <div><dt>Telephone</dt><dd>{phone}</dd></div>
             </dl>
-            <p>Ask us about studying, our work, or planning a visit. For access assistance or information in another format, tell us what you need.</p>
+            <p>{visitGuidance.summary}</p>
           </div>
           <nav className="home-support-actions" aria-label="Visiting and assistance">
             <Link className="action-link" to="/about/contact">Contact the department</Link>
             <Link className="text-link" to="/about/location">Location and directions</Link>
+            <Link className="text-link" to="/about/location#access">Plan an accessible visit</Link>
             <Link className="text-link" to="/accessibility">Help using this website</Link>
           </nav>
         </div>
