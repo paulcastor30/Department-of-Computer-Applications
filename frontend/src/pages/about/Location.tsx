@@ -21,7 +21,15 @@ export default function Location() {
           <h2 id="access-title" className="section-title">{visitGuidance.title}</h2>
           <p className="mt-4 whitespace-pre-line leading-8">{location}</p>
           <p className="mt-4 leading-8">{visitGuidance.directions}</p>
-          <p className="mt-4 leading-8">{visitGuidance.summary} {visitGuidance.details} {visitGuidance.status}</p>
+          <p className="mt-4 leading-8">{visitGuidance.summary} {visitGuidance.details}</p>
+          <h3 className="mt-6 text-xl font-semibold">Drop-off point</h3>
+          <p className="mt-3 leading-8">{visitGuidance.dropOff}</p>
+          <h3 className="mt-6 text-xl font-semibold">Toilet locations</h3>
+          <ul className="mt-3 list-disc space-y-2 pl-5">
+            <li><strong>Women’s toilet:</strong> {visitGuidance.womensToilet}</li>
+            <li><strong>Men’s toilet:</strong> {visitGuidance.mensToilet}</li>
+          </ul>
+          <p className="mt-3 leading-8">{visitGuidance.toiletAccess}</p>
           <dl className="mt-6 space-y-3">
             <div><dt className="font-semibold">Office hours</dt><dd>{departmentIdentity.officeHours}</dd></div>
             <div><dt className="font-semibold">Email</dt><dd><a className="text-link inline-flex min-h-11 items-center" href={`mailto:${email}`}>{email}</a></dd></div>

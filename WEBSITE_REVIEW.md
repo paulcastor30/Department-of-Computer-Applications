@@ -108,3 +108,8 @@ All 20 tests, build, type checks, and lint passed (the same two existing warning
 ## Confirmed building entrance-to-office route
 
 The owner clarified that the CCS entrance has stairs and an alternative ramp. Visitors can use the ramp to enter the first floor and continue to the Department of Computer Applications office without using stairs. The shared visiting summary now describes that entrance-to-office route, appearing on Home, Contact, and Location. The general statement that step-free access remains unconfirmed has been replaced. The ramp’s position relative to the stairs, dimensions, accessible toilets, and drop-off locations were not inferred. Toilet and suitable drop-off locations remain to be provided by the Department. This confirms the described building route, not compliance with an accessibility standard or a detailed route from a named campus gate.
+
+
+## Supplied toilet and drop-off locations
+
+The owner confirmed a permitted drop-off point between CSM and CCS, with a ramp from there into CCS. The guide now describes that location and the entrance route. The owner also supplied the women’s toilet location on the first floor near the Dean’s Office after the ramp, and the men’s toilet on the second floor above the Dean’s Office. These appear under Toilet locations. Toilet accessibility features remain to be validated; no elevator-to-toilet route, fixture specification, or wheelchair suitability was inferred. The old message asking for toilet/drop-off locations was removed.
