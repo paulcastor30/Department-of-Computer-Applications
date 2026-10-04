@@ -30,93 +30,128 @@ A CMS-backed, accreditation-aware department website built with a **Django REST*
 
 ---
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Repository Structure](#repository-structure)
+- [Getting Started](#getting-started)
+- [Deployment](#deployment)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [License](#license)
+- [Maintainers](#maintainers)
+
+---
+
 ## Overview
 
-This repository powers the public website of the **Department of Computer Applications (DCA)** at **MSU–IIT**. It is designed to read like a formal, student-facing academic department site while giving department staff a structured, permission-controlled way to manage content — including evidence artefacts used for accreditation and quality-assurance work.
+This repository powers the public website of the **Department of Computer Applications (DCA)** at **MSU–IIT**. It is designed to read like a formal, student-facing academic department site while giving department staff a structured, permission-controlled way to manage content, including evidence artefacts used for accreditation and quality-assurance work.
 
-The project is intentionally developed as an **open-source, contributor-friendly codebase**. The frontend began as a polished static UI and is being migrated, page by page, to Django-backed content. Some pages are already fully dynamic; others remain placeholder-driven until their backend models land. That incremental state is expected.
+The project is developed as an **open-source, contributor-friendly codebase**. The frontend began as a polished static UI and is being migrated, page by page, to Django-backed content. Some pages are already fully dynamic; others remain placeholder-driven until their backend models land. That incremental state is expected.
 
-**Design principles**
+### Design Principles
 
 | Principle | What it means in practice |
 | --- | --- |
-| Academic & restrained | Formal tone, no promotional copy, no invented statistics |
-| Evidence-aware | First-class support for accreditation evidence (AACCUP, AUN-QA, CHED COPC/COE) |
-| Editor-friendly | Content lives in Django admin; non-developers can publish without touching code |
-| Accessible & responsive | Semantic markup, labelled controls, mobile-first layouts |
-| Maintainable | Small domain apps, typed API contracts, shared hooks — no clever code |
+| **Academic & restrained** | Formal tone, no promotional copy, no invented statistics |
+| **Evidence-aware** | First-class support for accreditation evidence (AACCUP, AUN-QA, CHED COPC/COE) |
+| **Editor-friendly** | Content lives in Django admin; non-developers can publish without touching code |
+| **Accessible & responsive** | Semantic markup, labelled controls, mobile-first layouts |
+| **Maintainable** | Small domain apps, typed API contracts, shared hooks, no clever code |
 
 ---
 
 ## Key Features
 
-- **Headless CMS workflow** — Django admin as the editorial interface, DRF read-only endpoints for the public site.
-- **Domain-driven backend** — separate apps for `core`, `academics`, `people`, `communications`, `quality`, `research`, and `extension`.
-- **Role-based editorial permissions** — one command provisions `site_admin`, `qa_editor`, `program_editor`, `faculty_editor`, `research_editor`, and `communications_editor` groups.
-- **Publishable content model** — every public entity carries `slug`, `is_published`, `featured`, `sort_order`, and audit timestamps out of the box.
-- **Faculty directory & profiles** — filterable by classification, programme, and expertise; profiles aggregate education, publications, projects, supervised theses, and more.
-- **Programme pages** — BSCA and MSCA content (PEOs, outcomes, tracks, curriculum structure, thesis information, documents) served from the API with graceful placeholder fallback.
-- **Accreditation evidence registry** — evidence documents tagged by framework and area code, linkable to programmes and faculty.
-- **Site-wide search & SEO helpers** — header search, per-page `<Seo>` metadata, breadcrumbs.
-- **Flexible deployment** — split deployment (Vercel + Railway) *or* single-origin, where Django serves the built SPA.
-- **Type-safe frontend** — TypeScript API types, TanStack Query hooks, shadcn/ui component library on Radix primitives.
+- **Headless CMS workflow**: Django admin as the editorial interface, DRF read-only endpoints for the public site.
+- **Domain-driven backend**: separate apps for `core`, `academics`, `people`, `communications`, `quality`, `research`, and `extension`.
+- **Role-based editorial permissions**: one command provisions the `site_admin`, `qa_editor`, `program_editor`, `faculty_editor`, `research_editor`, and `communications_editor` groups.
+- **Publishable content model**: every public entity carries `slug`, `is_published`, `featured`, `sort_order`, and audit timestamps.
+- **Faculty directory & profiles**: filterable by classification, programme, and expertise; profiles aggregate education, publications, projects, supervised theses, and more.
+- **Programme pages**: BSCA and MSCA content (PEOs, outcomes, tracks, curriculum structure, thesis information, documents) served from the API with graceful placeholder fallback.
+- **Accreditation evidence registry**: evidence documents tagged by framework and area code, linkable to programmes and faculty.
+- **Site-wide search & SEO helpers**: header search, per-page `<Seo>` metadata, and breadcrumbs.
+- **Flexible deployment**: split deployment (Vercel + Railway) *or* single-origin, where Django serves the built SPA.
+- **Type-safe frontend**: TypeScript API types, TanStack Query hooks, and a shadcn/ui component library on Radix primitives.
 
 ---
 
-## Current architecture
+## Architecture
 
-The repository currently has a `backend` folder, a `frontend` folder, and a root `requirements.txt` file, with Django serving as the backend and a Vite based React frontend for the public user interface.
+The project is a monorepo with two main parts:
 
-The backend is configured with Django 6.0.3, Django REST framework, and `django-cors-headers`, and is structured around domain apps such as `core`, `academics`, `people`, `research`, `extension`, `communications`, and `quality`.
+| Layer | Responsibility |
+| --- | --- |
+| **Django** (`backend/`) | Admin and content management, REST API endpoints, media, permissions, and structured accreditation evidence |
+| **React + Vite** (`frontend/`) | The public-facing experience: routing, data fetching, UI, and accessibility |
 
-The frontend uses Vite with React, TypeScript, React Router, React Query, and a Tailwind based component setup, with scripts for development, build, linting, preview, and tests already defined in `package.json`.
+The backend is configured with Django 6.0.3, Django REST Framework, and `django-cors-headers`, and is organised into domain apps (`core`, `academics`, `people`, `research`, `extension`, `communications`, `quality`). The frontend uses React Router for navigation and TanStack Query for data fetching, with scripts for development, build, linting, preview, and tests defined in `frontend/package.json`.
 
-## Repository structure
+> [!NOTE]
+> Some pages remain partially static while their backend models and APIs are being introduced. Incremental improvement is expected and welcome.
+
+---
+
+## Tech Stack
+
+| Area | Technologies |
+| --- | --- |
+| **Backend** | Django, Django REST Framework, `django-cors-headers` |
+| **Database** | SQLite (local development), PostgreSQL (production) |
+| **Frontend** | React, TypeScript, Vite, React Router, TanStack Query |
+| **Styling & UI** | Tailwind CSS, Radix UI-based components (shadcn/ui) |
+| **Testing** | Vitest |
+| **Hosting** | Vercel (frontend), Railway (backend), or single-origin Django |
+
+---
+
+## Repository Structure
 
 ```text
 Department-of-Computer-Applications/
-├── backend/        # Django project and backend apps
-├── frontend/       # React + Vite frontend
-└── requirements.txt
+├── backend/            # Django project and domain apps
+├── frontend/           # React + Vite frontend
+├── DEPLOYMENT.md       # Deployment guide
+└── requirements.txt    # Python dependencies
 ```
 
-## Tech stack
+---
 
-### Backend
-- Django
-- Django REST framework
-- django-cors-headers
-- SQLite for local development
+## Getting Started
 
-### Frontend
-- React
-- TypeScript
-- Vite
-- React Router
-- TanStack Query
-- Tailwind CSS
-- Radix UI based components
-- Vitest
+### Prerequisites
 
-## Development workflow
+- **Python** 3.12
+- **Node.js** and **npm**
+- **Git**
 
-### 1. Backend
+### 1. Clone the repository
 
-From the project root:
+```bash
+git clone https://github.com/paulcastor30/Department-of-Computer-Applications.git
+cd Department-of-Computer-Applications
+```
+
+### 2. Run the backend
 
 ```bash
 cd backend
 python -m venv .venv
+
 # Windows
 .venv\Scripts\activate
-# macOS/Linux
+# macOS / Linux
 source .venv/bin/activate
+
 pip install -r ../requirements.txt
 python manage.py migrate
 python manage.py runserver
 ```
 
-### 2. Frontend
+### 3. Run the frontend
 
 In a second terminal:
 
@@ -126,9 +161,12 @@ npm install
 npm run dev
 ```
 
-### 3. Production style local test
+> [!TIP]
+> See `frontend/package.json` for the full list of scripts, including linting, preview, and tests.
 
-If you want Django to serve the built frontend:
+### 4. Production-style local test
+
+To have Django serve the built frontend (single-origin mode):
 
 ```bash
 cd frontend
@@ -139,41 +177,50 @@ python manage.py collectstatic --noinput
 python manage.py runserver
 ```
 
-## Contribution guide
+---
 
-We welcome contributors at all levels.
+## Deployment
 
-### Good beginner contributions
-- fix typos or improve documentation
-- improve placeholder text
-- add loading and empty states
-- improve accessibility labels and alt text
-- refine responsive spacing and layout consistency
-- add tests for existing views and serializers
+Two deployment models are supported:
 
-### Intermediate contributions
-- connect React pages to existing API endpoints
-- improve admin usability
-- add filters, search, and pagination
-- add reusable UI components
-- improve error handling and API hooks
-- add contributor friendly setup scripts
+- **Split deployment**: frontend on Vercel, backend on Railway.
+- **Single-origin**: Django serves the built SPA.
 
-### Advanced contributions
-- design and implement new backend models
-- improve editorial workflow and permissions
-- add accreditation evidence structures
-- optimize query performance and serializer design
-- harden deployment and CI workflows
-- improve search architecture and observability
+See the [Deployment Guide](DEPLOYMENT.md) for full instructions.
 
-## How to contribute
+---
 
-1. Fork the repository
-2. Create a feature branch
-3. Make one focused change at a time
-4. Test your change locally
-5. Open a pull request with a clear summary
+## Roadmap
+
+- [ ] Finish wiring the first CMS-backed pages: Home, About, Programs, Faculty, News
+- [ ] Expand the backend editorial workflow by role
+- [ ] Strengthen documentation for setup and contribution
+- [ ] Add tests for APIs and admin behaviour
+- [ ] Improve deployment instructions for contributors
+
+---
+
+## Contributing
+
+Contributions at all levels are welcome.
+
+### Where to Start
+
+| Level | Ideas |
+| --- | --- |
+| **Beginner** | Fix typos or improve documentation; improve placeholder text; add loading and empty states; improve accessibility labels and alt text; refine responsive spacing and layout consistency; add tests for existing views and serializers |
+| **Intermediate** | Connect React pages to existing API endpoints; improve admin usability; add filters, search, and pagination; add reusable UI components; improve error handling and API hooks; add contributor-friendly setup scripts |
+| **Advanced** | Design and implement new backend models; improve editorial workflow and permissions; add accreditation evidence structures; optimise query performance and serializer design; harden deployment and CI workflows; improve search architecture and observability |
+
+If you are unsure where to begin, start with documentation, accessibility, or UI cleanup.
+
+### Workflow
+
+1. **Fork** the repository.
+2. **Create** a feature branch.
+3. **Make** one focused change at a time.
+4. **Test** your change locally.
+5. **Open** a pull request with a clear summary.
 
 Suggested branch naming:
 
@@ -183,48 +230,27 @@ fix/faculty-admin-filter
 docs/update-readme
 ```
 
-## Contribution principles
+### Principles
 
-- keep changes focused and reviewable
-- prefer readable code over clever code
-- write for maintainability
-- preserve accessibility and responsiveness
-- document non obvious decisions
-- do not break existing public routes without discussion
+- Keep changes focused and reviewable.
+- Prefer readable code over clever code.
+- Write for maintainability.
+- Preserve accessibility and responsiveness.
+- Document non-obvious decisions.
+- Do not break existing public routes without discussion.
 
-## Recommended first issues
+### Issue Labels
 
-A useful issue board for this project would include labels such as:
+`good first issue` · `frontend` · `backend` · `documentation` · `accessibility` · `testing` · `help wanted`
 
-- `good first issue`
-- `frontend`
-- `backend`
-- `documentation`
-- `accessibility`
-- `testing`
-- `help wanted`
-
-## What contributors should know
-
-This project is moving toward a model where:
-
-- **React** handles the public facing experience
-- **Django** handles admin, content, API endpoints, media, permissions, and structured evidence
-
-That means some pages may remain partially static while their backend models and APIs are still being introduced. Incremental improvement is expected and acceptable.
-
-## Suggested next milestones
-
-- finish wiring the first CMS backed pages: Home, About, Programs, Faculty, News
-- expand the backend editorial workflow by role
-- strengthen documentation for setup and contribution
-- add tests for APIs and admin behavior
-- improve deployment instructions for contributors
+---
 
 ## License
 
-Add a license file before wider community onboarding. For an open source academic web project, a permissive license such as MIT or Apache 2.0 is usually the simplest option.
+A license has not yet been selected for this project. Until one is added, all rights are reserved by default.
+
+---
 
 ## Maintainers
 
-This repository is currently maintained by the project owner and open to community contributions. If you want to contribute but are unsure where to start, begin with documentation, accessibility, or UI cleanup.
+This repository is currently maintained by the project owner ([@paulcastor30](https://github.com/paulcastor30)) and is open to community contributions.
