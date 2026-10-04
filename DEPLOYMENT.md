@@ -34,3 +34,23 @@ VITE_API_BASE_URL=https://<your-railway-domain>
 ```
 
 The value may include `/api`, but it does not need to. The frontend handles both forms.
+
+## Vercel Web Analytics
+
+The React frontend includes `@vercel/analytics/react`. It records the initial page
+view and subsequent React Router navigation. Local development uses development
+mode; production builds send page views to Vercel.
+
+1. Open the frontend project in Vercel and enable **Web Analytics** if it is not already enabled.
+2. Deploy the updated frontend (including `package.json` and `package-lock.json`).
+3. Visit the production site and navigate between pages.
+4. Open the project's **Analytics** tab to view visitor counts, page views, referrers, countries, devices, and traffic over the selected date range.
+
+Collection begins after the integration is deployed; previous visits are not
+backfilled. Web Analytics is anonymous and does not reveal visitor names or email
+addresses. It shows aggregate traffic over time rather than a named attendance log.
+
+No Railway or Django changes are needed. If visits do not appear, check browser
+content blockers and the analytics script/page-view requests in the Network tab.
+
+Reference: https://vercel.com/docs/analytics/quickstart
