@@ -130,3 +130,34 @@ it('identifies the supplied statements as college content rather than department
   expect(screen.getByText('Offer highly specialized and ladderized programs')).toBeInTheDocument();
   expect(screen.queryByText('Official mission')).not.toBeInTheDocument();
 });
+
+
+it('makes both programs discoverable without unavailable download controls', async () => {
+  window.history.replaceState({}, '', '/programs');
+  render(<App />);
+  const main = within(screen.getByRole('main'));
+  expect(main.getByRole('link', { name: 'Explore BSCA' })).toHaveAttribute('href', '/programs/bsca');
+  expect(main.getByRole('link', { name: 'Explore MSCA' })).toHaveAttribute('href', '/programs/msca');
+  expect(main.queryByText(/Download Curriculum/)).not.toBeInTheDocument();
+});
+
+it('explains BSCA learning areas and keeps detailed outcomes accessible', async () => {
+  window.history.replaceState({}, '', '/programs/bsca');
+  render(<App />);
+  const main = within(screen.getByRole('main'));
+  expect(main.getByRole('heading', { name: 'What you will study' })).toBeInTheDocument();
+  expect(main.getByText(/Firmware: software that controls/)).toBeInTheDocument();
+  const summary = main.getByText('Program learning outcomes');
+  expect(summary.tagName).toBe('SUMMARY');
+  expect(main.getByText(/Apply knowledge of mathematics/)).toBeInTheDocument();
+  expect((await main.findByRole('link', { name: 'Email about BSCA' })).getAttribute('href')).toContain('subject=BSCA%20program%20enquiry');
+});
+
+it('keeps missing MSCA details explicit without inventing areas or outcomes', () => {
+  window.history.replaceState({}, '', '/programs/msca');
+  render(<App />);
+  const main = within(screen.getByRole('main'));
+  expect(main.queryByRole('heading', { name: 'What you will study' })).not.toBeInTheDocument();
+  expect(main.getByRole('heading', { name: 'Before applying' })).toBeInTheDocument();
+  expect(main.getByText(/Detailed program introduction: To be provided/)).toBeInTheDocument();
+});

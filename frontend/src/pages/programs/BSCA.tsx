@@ -13,8 +13,8 @@ export default function BSCA() {
       isError={isError}
       pageSubtitle="Explore the undergraduate degree, its learning areas, and Undergraduate Thesis requirement."
       goalsTitle="Program Goals"
-      outcomesTitle="Expected Learning Outcomes / Program Outcomes"
-      areasTitle="Major Academic Areas"
+      outcomesTitle="Program learning outcomes"
+      areasTitle="Learning areas"
       thesisTitle="Undergraduate Thesis"
       pathwaysTitle="Career and Further Study Pathways"
       advisingTitle="Student Support and Facilities"

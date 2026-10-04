@@ -45,6 +45,8 @@ export type ProgramProfile = {
   isFallback: boolean;
 };
 
+// Reference: owner-supplied BSCA presentation, slides 5–6, 9, and 14.
+// Django stores the same reference through migration 0007; substantive CMS edits take precedence.
 const bscaFallback: ProgramProfile = {
   slug: "bsca",
   code: "BSCA",
@@ -54,17 +56,42 @@ const bscaFallback: ProgramProfile = {
   duration: placeholder,
   units: placeholder,
   recognition: "",
-  summary: placeholder,
+  summary: "Computer Applications bridges computing and the physical world. BSCA brings together software, firmware, and hardware to develop embedded, connected, and intelligent systems for real-world applications.",
   route: "/programs/bsca",
-  academicOrientation: placeholder,
+  academicOrientation: "Software, firmware, and hardware integration",
   intendedLearners: placeholder,
   culminatingRequirement: "Undergraduate Thesis",
-  academicFocus: [placeholder],
+  academicFocus: [
+    "Software: the programs, logic, and interfaces people use.",
+    "Firmware: software that controls electronic devices.",
+    "Hardware: the physical components of a computer or electronic system.",
+    "Embedded and connected systems: computing built into devices, including devices that exchange information over a network."
+  ],
   goals: [placeholder],
   peos: [],
-  outcomes: [placeholder],
-  academicAreas: [placeholder],
-  curriculumStructure: [placeholder],
+  outcomes: [
+    "Apply knowledge of mathematics and sciences to solve computer electronics problems.",
+    "Analyze a problem, formulate and identify solutions for computer applications and technology problems using analytical tools appropriate to areas of specialization.",
+    "Apply design principle using software and firmware for broadly defined computer applications.",
+    "Implement and evaluate computer application systems, components or processes to meet specific needs.",
+    "Select and apply appropriate techniques, resources and modern computing and ICT tools necessary for computer applications practices.",
+    "Function effectively as a member or leader of a development team recognizing the different roles within a team to accomplish a common goal.",
+    "Communicate effectively with the computer applications community and with society at large about complex computer application activities through logical writing, presentations, and clear instructions.",
+    "Understand and commit to professional ethics and responsibilities and norms of computer and cyber technology practices.",
+    "Recognize the need for and have the ability, to engage in independent learning for continual development as a technology specialist."
+  ],
+  academicAreas: [
+    "Software: the programs, logic, and interfaces people use.",
+    "Firmware: software that controls electronic devices.",
+    "Hardware: the physical components of a computer or electronic system.",
+    "Embedded and connected systems: computing built into devices, including devices that exchange information over a network."
+  ],
+  curriculumStructure: [
+    "Foundations: programming, mathematics, digital systems, and computer architecture.",
+    "Core development: microcontrollers, operating systems, embedded systems, and software and firmware.",
+    "System integration: the Internet of Things (IoT), connected systems, embedded intelligence, and hardware–software integration.",
+    "Application: technical projects, research, Undergraduate Thesis, and industry training."
+  ],
   thesisInformation: [
     "The culminating academic requirement is the Undergraduate Thesis.",
     "Official thesis procedures, advising arrangements, and assessment documentation are To be provided by the Department.",
@@ -142,12 +169,21 @@ const fallbackBySlug = {
   msca: mscaFallback,
 };
 
+export function hasProgramContent(value: string | undefined | null): boolean {
+  return Boolean(value?.trim() && !/^to be (provided|validated) by the department[.]?$/i.test(value.trim()));
+}
+
+export function availableProgramItems(items: string[]): string[] {
+  return items.filter(hasProgramContent);
+}
+
 function lines(adminItems: string[] | undefined, fallbackItems: string[]) {
-  return adminItems && adminItems.length > 0 ? adminItems : fallbackItems;
+  const available = availableProgramItems(adminItems || []);
+  return available.length ? available : fallbackItems;
 }
 
 function text(value: string | undefined | null, fallback: string) {
-  return value && value.trim() ? value : fallback;
+  return hasProgramContent(value) ? value!.trim() : fallback;
 }
 
 function documentsFor(program: Program | undefined, fallback: ProgramProfile): ProgramDocumentLink[] {

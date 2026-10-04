@@ -11,10 +11,10 @@ export default function MSCA() {
     <ProgramDetailPage
       program={program}
       isError={isError}
-      pageSubtitle="Explore the graduate degree, research areas, and Master’s Thesis or Graduate Thesis requirement."
+      pageSubtitle="Explore the graduate degree and its Master’s Thesis or Graduate Thesis requirement."
       goalsTitle="Graduate Program Goals"
       outcomesTitle="Graduate Learning Outcomes"
-      areasTitle="Research Areas"
+      areasTitle="Research areas"
       thesisTitle="Master’s Thesis or Graduate Thesis"
       pathwaysTitle="Graduate Pathways"
       advisingTitle="Graduate Advising and Faculty"

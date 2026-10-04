@@ -1,264 +1,40 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Info } from "lucide-react";
 import { Seo } from "@/components/Seo";
+import { PageHero } from "@/components/ui/hero-section";
 import { Section, SectionHeader } from "@/components/ui/section";
-import { departmentIdentity } from "@/content/siteContent";
 import { usePrograms } from "@/hooks/useAcademics";
-import { normalizePrograms, placeholder, type ProgramProfile } from "./programData";
-
-function DocumentLink({ label, href, note }: { label: string; href?: string; note?: string }) {
-  return (
-    <div className="flex items-start gap-3 rounded-md border border-border bg-background p-4">
-      <FileText className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
-      <div>
-        <p className="text-sm font-semibold text-primary">{label}</p>
-        {href ? (
-          <a href={href} className="text-sm font-semibold text-accent hover:text-secondary">
-            Download document
-          </a>
-        ) : (
-          <p className="text-sm text-muted-foreground">
-            {note || placeholder}
-          </p>
-        )}
-      </div>
-    </div>
-  );
-}
+import { ProgramInquiry } from "./ProgramInquiry";
+import { hasProgramContent, normalizePrograms, placeholder, type ProgramProfile } from "./programData";
 
 function ProgramCard({ program }: { program: ProgramProfile }) {
-  const curriculumDocument = program.documents.find((document) => document.label.toLowerCase().includes("curriculum") && document.href);
-
-  return (
-    <article id={program.slug} className="brand-network-subtle rounded-md border border-border bg-background p-6">
-      <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-secondary">{program.level}</p>
-      <h2 className="mb-3 text-2xl font-semibold text-primary">{program.title}</h2>
-      {!program.isFallback && <p className="mb-5 text-sm leading-6 text-muted-foreground">{program.summary}</p>}
-      {program.isFallback && (
-        <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-border bg-muted/30 px-3 py-2 text-xs text-muted-foreground">
-          <Info className="h-4 w-4 text-secondary" aria-hidden="true" />
-          Official program details are To be provided by the Department.
-        </p>
-      )}
-      <dl className="mb-5 grid gap-3 text-sm">
-        <div hidden={program.isFallback}>
-          <dt className="font-semibold text-primary">Academic focus</dt>
-          <dd className="mt-2">
-            <ul className="space-y-1 text-muted-foreground">
-              {program.academicFocus.slice(0, 4).map((focus) => (
-                <li key={focus}>{focus}</li>
-              ))}
-            </ul>
-          </dd>
-        </div>
-        <div>
-          <dt className="font-semibold text-primary">Thesis requirement</dt>
-          <dd className="mt-1 text-muted-foreground">{program.culminatingRequirement}</dd>
-        </div>
-        <div hidden={program.isFallback}>
-          <dt className="font-semibold text-primary">Who this degree is for</dt>
-          <dd className="mt-1 text-muted-foreground">{program.intendedLearners}</dd>
-        </div>
-        <div hidden={program.isFallback}>
-          <dt className="font-semibold text-primary">Pathways</dt>
-          <dd className="mt-2">
-            <ul className="space-y-1 text-muted-foreground">
-              {program.pathways.slice(0, 4).map((pathway) => (
-                <li key={pathway}>{pathway}</li>
-              ))}
-            </ul>
-          </dd>
-        </div>
-      </dl>
-      <div className="flex flex-wrap gap-3">
-        <Link
-          to={program.route}
-          className="inline-flex items-center gap-2 rounded-md border border-accent px-4 py-2 text-sm font-semibold text-accent hover:border-secondary hover:text-secondary"
-        >
-          View Program Details <ArrowRight className="h-4 w-4" />
-        </Link>
-        {curriculumDocument?.href ? (
-          <a
-            href={curriculumDocument.href}
-            className="inline-flex items-center rounded-md border border-border px-4 py-2 text-sm font-semibold text-primary hover:border-secondary hover:text-secondary"
-          >
-            Download Curriculum
-          </a>
-        ) : (
-          <span className="inline-flex items-center rounded-md border border-border px-4 py-2 text-sm text-muted-foreground">
-            Download Curriculum: {placeholder}
-          </span>
-        )}
-      </div>
-    </article>
-  );
+  return <article className="flex flex-col rounded-md border border-border bg-background p-6 md:p-8">
+    <p className="mb-3 text-sm font-semibold text-secondary">{program.level} · {program.code}</p>
+    <h2 className="mb-4 text-2xl font-semibold leading-snug text-primary">{program.title}</h2>
+    <p className="mb-6 leading-7 text-muted-foreground">{hasProgramContent(program.summary) ? program.summary : `A graduate degree offered by the department. Detailed program information: ${placeholder}`}</p>
+    <dl className="mb-6 border-t border-border pt-5"><dt className="font-semibold">Thesis requirement</dt><dd className="mt-1 leading-7 text-muted-foreground">{program.culminatingRequirement}</dd></dl>
+    <Link className="action-link mt-auto self-start" to={program.route}>Explore {program.code}</Link>
+  </article>;
 }
-
-function ProgramComparison({ programs }: { programs: ProgramProfile[] }) {
-  return (
-    <div role="region" aria-label="Program comparison: scroll horizontally to see all columns" tabIndex={0} className="overflow-x-auto rounded-md border border-border bg-background">
-      <table className="w-full min-w-[760px] text-left text-sm">
-        <caption className="sr-only">Comparison of academic programs</caption>
-        <thead className="bg-muted/40 text-primary">
-          <tr>
-            <th scope="col" className="px-4 py-3 font-semibold">Program</th>
-            <th scope="col" className="px-4 py-3 font-semibold">Level</th>
-            <th scope="col" className="px-4 py-3 font-semibold">Academic Orientation</th>
-            <th scope="col" className="px-4 py-3 font-semibold">Culminating Requirement</th>
-            <th scope="col" className="px-4 py-3 font-semibold">Typical Pathways</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-border">
-          {programs.map((program) => (
-            <tr key={program.slug}>
-              <th scope="row" className="px-4 py-4 align-top font-semibold text-primary">
-                <span>{program.title}</span>
-                <span className="block text-xs font-normal text-muted-foreground">{program.code}</span>
-              </th>
-              <td className="px-4 py-4 align-top text-muted-foreground">{program.level}</td>
-              <td className="px-4 py-4 align-top text-muted-foreground">{program.academicOrientation}</td>
-              <td className="px-4 py-4 align-top text-muted-foreground">{program.culminatingRequirement}</td>
-              <td className="px-4 py-4 align-top text-muted-foreground">{program.pathways.slice(0, 3).join("; ") || placeholder}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-
 
 export default function Programs() {
   const { data, isError } = usePrograms();
-  const displayedPrograms = normalizePrograms(data);
-  const availableDocuments = displayedPrograms.flatMap(program => program.documents.map(document => ({ ...document, key: `${program.code}-${document.label}-${document.href || ""}` }))).filter(document => document.href || (document.note && document.note !== placeholder));
-
-  return (
-    <>
-      <Seo
-        title="Academic Programs"
-        description="Undergraduate and graduate academic programs of the Department of Computer Applications, College of Computer Studies, MSU-Iligan Institute of Technology."
-        keywords={[
-          "Department of Computer Applications",
-          "MSU-IIT",
-          "BS Computer Applications",
-          "MS Computer Applications",
-          "academic programs",
-        ]}
-      />
-
-      <section className="border-b border-border bg-background py-16 md:py-20">
-        <div className="container max-w-5xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-secondary">{departmentIdentity.college}</p>
-          <h1 className="mb-5 text-3xl font-bold leading-tight text-primary md:text-5xl">Academic Programs</h1>
-          <p className="max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
-            Explore our two degree programs. Read about what you can study, thesis requirements, and where to ask for help.
-          </p>
-        </div>
-      </section>
-
-      <Section>
-        <nav className="mb-8 rounded-md border border-border bg-muted/30 p-4" aria-label="Academic programs page sections">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
-            {displayedPrograms.map((program) => (
-              <li key={program.slug}>
-                <a href={`#${program.slug}`} className="font-semibold text-accent hover:text-secondary">
-                  {program.code}
-                </a>
-              </li>
-            ))}
-            <li>
-              <a href="#official-documents" className="font-semibold text-accent hover:text-secondary">
-                Official Documents
-              </a>
-            </li>
-            <li>
-              <a href="#program-inquiries" className="font-semibold text-accent hover:text-secondary">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-        <SectionHeader
-          title="Choose a degree"
-          subtitle="Explore our undergraduate and graduate degrees."
-          align="left"
-        />
-        {isError && (
-          <p className="mb-6 rounded-md border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
-            Built-in program information is shown because the live academic-program records could not be reached.
-          </p>
-        )}
-        <div className="grid gap-6 lg:grid-cols-2">
-          {displayedPrograms.map((program) => (
-            <ProgramCard key={program.slug} program={program} />
-          ))}
-        </div>
-      </Section>
-
-      {displayedPrograms.some(program => !program.isFallback) && <Section variant="muted">
-        <SectionHeader
-          title="Program Comparison"
-          subtitle="A concise comparison of degree level, academic orientation, culminating requirement, and typical pathways."
-          align="left"
-        />
-        <ProgramComparison programs={displayedPrograms} />
-      </Section>}
-
-      <Section>
-        <SectionHeader title="Quality Assurance" align="left" />
-        <div className="rounded-md border border-border bg-muted/30 p-5">
-          <p className="max-w-4xl text-sm leading-6 text-muted-foreground">
-            Official information about program review and accreditation is To be provided by the Department.
-          </p>
-          <Link
-            to="/accreditation"
-            className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-secondary"
-          >
-            View Quality Assurance Information <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </Section>
-
-      <Section id="official-documents" variant="muted">
-        <SectionHeader title="Official Documents" align="left" />
-        {availableDocuments.length ? <div className="grid gap-4 md:grid-cols-2">
-          {availableDocuments.map(({ key, ...document }) => <DocumentLink key={key} {...document} />)}
-        </div> : <p className="notice">Official curricula, admission guides, and student handbooks: {placeholder}</p>}
-      </Section>
-
-      <Section id="program-inquiries">
-        <SectionHeader title="Contact and Inquiries" align="left" />
-        <div className="rounded-md border border-border p-5">
-          <dl className="grid gap-4 text-sm md:grid-cols-2">
-            <div>
-              <dt className="font-semibold text-primary">Department</dt>
-              <dd className="mt-1 text-muted-foreground">{departmentIdentity.name}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-primary">College</dt>
-              <dd className="mt-1 text-muted-foreground">{departmentIdentity.college}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-primary">University</dt>
-              <dd className="mt-1 text-muted-foreground">{departmentIdentity.institution}</dd>
-            </div>
-            <div>
-              <dt className="font-semibold text-primary">Email</dt>
-              <dd className="mt-1 text-muted-foreground">{departmentIdentity.email || placeholder}</dd>
-            </div>
-            <div className="md:col-span-2">
-              <dt className="font-semibold text-primary">Office Location</dt>
-              <dd className="mt-1 text-muted-foreground">{departmentIdentity.address || placeholder}</dd>
-            </div>
-          </dl>
-          <Link to="/about/contact" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-secondary">
-            Contact the Department <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </Section>
-    </>
-  );
+  const programs = normalizePrograms(data);
+  const documents = programs.flatMap(program => program.documents.filter(document => document.href).map(document => ({ ...document, code: program.code })));
+  return <>
+    <Seo title="Academic Programs" description="Explore BSCA and MSCA at the Department of Computer Applications, MSU-IIT. Learn about each degree, thesis requirements, and how to ask about applying." />
+    <PageHero title="Academic Programs" subtitle="Explore our undergraduate and graduate degrees in Computer Applications." />
+    <Section>
+      <p className="mb-8 max-w-3xl leading-7 text-muted-foreground">Start with the degree level you are interested in. Each program page explains the available information and where to ask about studying with us.</p>
+      {isError && <p className="notice mb-6" role="status">The latest program updates could not be loaded. Reference information is shown; contact the department for current details.</p>}
+      <div className="grid gap-6 lg:grid-cols-2">{programs.map(program => <ProgramCard key={program.code} program={program} />)}</div>
+    </Section>
+    <Section id="official-documents" variant="muted">
+      <SectionHeader title="Curriculum and documents" className="mb-5" />
+      {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.code}-${document.label}-${document.href}`}><a className="outline-link" href={document.href}>Open {document.code}: {document.label}</a></li>)}</ul> : <p className="max-w-3xl leading-7 text-muted-foreground">Official curricula, admission guides, and student handbooks: {placeholder} Contact the department for current documents.</p>}
+    </Section>
+    <Section id="program-inquiries">
+      <SectionHeader title="Need help choosing or applying?" className="mb-5" />
+      <ProgramInquiry />
+    </Section>
+  </>;
 }
