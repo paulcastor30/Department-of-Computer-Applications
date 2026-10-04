@@ -3,7 +3,9 @@ import { ChevronRight, Home } from "lucide-react";
 
 const routeLabels: Record<string, string> = {
   about: "About",
-  vmgo: "Vision, Mission, Goals",
+  "our-work": "Our work",
+  accessibility: "Using this website",
+  vmgo: "College vision and mission",
   history: "History",
   "chair-message": "Chair's Message",
   organization: "Organization",

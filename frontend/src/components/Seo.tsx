@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface SeoProps {
   title: string;
@@ -10,8 +11,9 @@ interface SeoProps {
 }
 
 export function Seo({ title, description, keywords, ogTitle, ogDescription, canonicalUrl }: SeoProps) {
+  const { pathname } = useLocation();
   useEffect(() => {
-    const fullTitle = `${title} | Department of Computer Applications`;
+    const fullTitle = title === "Home" ? "Department of Computer Applications | MSU-IIT" : `${title} | Computer Applications, MSU-IIT`;
     document.title = fullTitle;
 
     const setMeta = (selector: string, attribute: "name" | "property", key: string, value: string) => {
@@ -39,16 +41,20 @@ export function Seo({ title, description, keywords, ogTitle, ogDescription, cano
 
     setMeta('meta[property="og:title"]', "property", "og:title", ogTitle || fullTitle);
 
-    if (canonicalUrl) {
+    setMeta('meta[name="twitter:title"]', "name", "twitter:title", ogTitle || fullTitle);
+    setMeta('meta[name="twitter:description"]', "name", "twitter:description", ogDescription || description || "Department information, programs, news, and contact details.");
+    const canonical = canonicalUrl || `https://msuiit-comapps.vercel.app${pathname === "/" ? "/" : pathname}`;
+    setMeta('meta[property="og:url"]', "property", "og:url", canonical);
+    if (canonical) {
       let link = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
       if (!link) {
         link = document.createElement("link");
         link.rel = "canonical";
         document.head.appendChild(link);
       }
-      link.href = canonicalUrl;
+      link.href = canonical;
     }
-  }, [canonicalUrl, description, keywords, ogDescription, ogTitle, title]);
+  }, [canonicalUrl, description, keywords, ogDescription, ogTitle, pathname, title]);
 
   return null;
 }

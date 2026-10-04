@@ -62,6 +62,7 @@ import Alumni from "./pages/Alumni";
 import News from "./pages/News";
 import Accreditation from "./pages/Accreditation";
 import Facilities from "./pages/Facilities";
+import OurWork from "./pages/OurWork";
 import InternationalLinkages from "./pages/InternationalLinkages";
 
 const queryClient = new QueryClient();
@@ -105,6 +106,7 @@ const App = () => (
             <Route path="/programs/msca" element={<MSCA />} />
             
             {/* Research Routes */}
+            <Route path="/our-work" element={<OurWork />} />
             <Route path="/research" element={<Research />} />
             <Route path="/research/focus-areas" element={<ResearchFocusAreas />} />
             <Route path="/research/faculty-profiles" element={<ResearchFacultyProfiles />} />

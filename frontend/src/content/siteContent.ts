@@ -1,3 +1,12 @@
+export const departmentQuestions = [
+  { title: "Who are we?", description: "Meet the department, faculty, and staff.", href: "/about" },
+  { title: "What do we do?", description: "Explore teaching, research, and community work.", href: "/our-work" },
+  { title: "When can you participate?", description: "Find announcements and ask about dates.", href: "/news" },
+  { title: "Where are we?", description: "Get directions and plan an accessible visit.", href: "/about/location" },
+  { title: "Why does our work matter?", description: "Read our college's mission and vision.", href: "/about#purpose" },
+  { title: "How can you connect?", description: "Ask about studying, visiting, or working with us.", href: "/about/contact" },
+];
+
 export const departmentIdentity = {
   name: "Department of Computer Applications",
   college: "College of Computer Studies",
@@ -14,7 +23,7 @@ export const primaryNavigation = [
   { label: "About", href: "/about" },
   { label: "Academic Programs", href: "/programs" },
   { label: "Faculty", href: "/faculty" },
-  { label: "Our work", href: "/research" },
+  { label: "Our work", href: "/our-work" },
   { label: "News and Events", href: "/news" },
   { label: "Contact & visit", href: "/about/contact" },
 ];
@@ -69,20 +78,23 @@ export const missingOfficialContent = [
 ];
 
 export const searchPages = [
+  ...departmentQuestions.map(question => ({ title: question.title, keywords: [question.title.toLowerCase()], href: question.href })),
+  { title: "What we do", keywords: ["what", "our work", "teaching", "research", "community", "collaborate"], href: "/our-work" },
+  { title: "Using this website", keywords: ["accessibility", "keyboard", "screen reader", "zoom", "help using"], href: "/accessibility" },
   { 
     title: "Home",
     keywords: ["home", "index"], 
      href: "/" },
   { 
     title: "About", 
-    keywords: ["about", "college"], 
+    keywords: ["about", "college", "who", "department"],
     href: "/about" },
   { 
     title: "History", 
     keywords: ["history"], 
     href: "/about/history" },
   {
-    title: "Mission, Vision & Goals",
+    title: "College vision and mission",
     keywords: ["vision", "mission", "goals", "mvgo", "vmgo"],
     href: "/about/vmgo",
   },

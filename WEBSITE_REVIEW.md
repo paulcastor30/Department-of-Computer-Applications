@@ -1,46 +1,63 @@
-# Website usability and accessibility review
+# Department website review
 
-Reviewed and refined on 5 October 2026. Changes are local and require a Vercel deployment to appear on the public website.
+Updated 5 October 2026. The latest refinements are local; this task has not deployed them to Vercel.
 
-## Purpose and experience
+## Public purpose and design
 
-The homepage now directs visitors to six practical questions: Who we are, What you can study, When things happen, Where to find us, Why our work matters, and How to get started. The first screen explains the department, expands the degree names, and offers clear program and contact actions.
+The site introduces the official Department of Computer Applications, College of Computer Studies, MSU-Iligan Institute of Technology. It welcomes people seeking information about its people, teaching, research, community work, dates, location, purpose, and ways to connect.
 
-The layout uses readable text, restrained navy and teal colours, consistent spacing, and a header that stays in normal page flow. Primary navigation has seven clear choices; secondary information remains available through the footer and related links. Existing page URLs are preserved.
+The homepage opens with the official department identity, a concise study introduction, and two clear actions: Explore programs and Contact us. The existing college logo provides a restrained institutional visual on desktop; the mobile opening prioritizes readable text and actions. Navy and teal colours, visible links, readable text, and consistent spacing keep the experience approachable. The main menu and footer remain available throughout the site.
 
-## Findings resolved
+The homepage now follows the introduction with Django-backed degree programs, a compact department overview and people/work links, announcements, and visiting/contact assistance. The six public questions continue to inform the information structure and remain searchable, without six competing cards at the top or repeated teaching sections. “What” now opens a dedicated explanation of the department's work instead of a degree-only page. The new /our-work page provides degree facts and thesis requirements, explains the categories of research and community work in ordinary language, and offers a direct enquiry route.
 
-- Dense navigation, decorative spacing, and a blocking homepage loading screen made simple tasks harder. The revised layout keeps useful information available while news loads.
-- Search now handles extra spaces, deduplicates page links, provides a labelled input and result count, and supports keyboard navigation. Search and mobile menu have visible labels and return focus when closed with Escape.
-- Keyboard users have a visible skip link, strong focus indicators, heading focus after navigation, accessible hash destinations, and a keyboard-scrollable comparison table.
-- Narrow-screen header overlap was fixed. The homepage was checked at 320, 390, and 1280 pixels; the final 320-pixel layout and doubled homepage text do not cause page-wide horizontal scrolling.
-- Improved contrast, heading structure, and reduced-motion support. Removed a nested main landmark from faculty profiles and unsupported ARIA labels from document placeholders.
-- News links now open full published CMS articles, with publication dates clearly labelled “Posted”. Publication dates are not represented as event dates.
-- Contact and directions use CMS settings where available, explain email and map actions, and identify missing office and access details.
-- Removed unsupported static statistics, accreditation claims, laboratory names, partnerships, and application requirements. Missing official content is marked “To be provided by the Department”. Published program, faculty, department, contact, and news records continue to use the existing Django API.
-- Program pages show concise fallback information when official details are unavailable. Program links remain valid if an editor changes a CMS slug. A published curriculum PDF is no longer hidden by a placeholder document.
-- Added a “Using this website” page with practical keyboard, reading, and assistance guidance.
-- Existing Vercel Analytics integration is retained.
+Contact options open email with a useful subject for study/application questions, research/community enquiries, or visits/access assistance. The address is also available to copy. News explains the distinction between an announcement's publication date and an actual activity date; visitors can find application and visiting help directly.
+
+## Accessibility and content integrity
+
+Keyboard navigation, skip links, visible focus, route-heading focus, hash destinations, descriptive links, generous targets, responsive layouts, and reduced-motion support are preserved. Search now understands the full wording of the six public questions. Missing information is marked “To be provided by the Department”. Program facts remain sourced from the existing Django architecture and approved fallback facts.
+
+Read-only checks of the public Railway API found keyboard test text in the department overview, mission, vision, and goals; empty site settings; and no published news posts. The frontend now suppresses the known repeated keyboard-test values in department profile fields, retains meaningful CMS text, and displays known department identity or missing-content messages instead. The live database was not edited.
+
+The site retains its existing official college logo. No unverified laboratory or department photographs were introduced. Published news may display its uploaded cover image; cover images are decorative and the article title, summary, dates, and full text must carry the essential information. Images load lazily, reserve their dimensions, and disappear if they fail to load. An actual department photograph can be added once its subject, permission, and appropriate alternative text are confirmed.
+
+## Discoverability
+
+Page titles identify Computer Applications and MSU-IIT. Descriptions, canonical page URLs, and social metadata are maintained as visitors change pages. The previously missing social-preview logo is now a real public asset. A sitemap lists the main public pages and is linked from robots.txt. Individual published faculty and news pages remain discoverable through links on their indexes; the static sitemap does not automatically enumerate CMS records. Metadata and sitemap URLs use the existing msuiit-comapps.vercel.app domain and should be updated if the production domain changes.
 
 ## Verification
 
-- Production frontend build: passed.
-- TypeScript check: passed.
-- ESLint: passed with two existing Fast Refresh warnings in button.tsx and sonner.tsx.
-- Ten tests: passed. Coverage includes the six questions, search, menu dismissal, route and section focus, CMS contact information, full news article display, curriculum downloads, and supported program routes.
-- Browser accessibility audit: axe-core 4.12.1, WCAG 2 A/AA, 2.1 AA, and 2.2 AA rule tags. All 50 routes scanned at 320 pixels with zero reported violations or incomplete findings in their tested states. Open search and the homepage with doubled text were also checked.
-- Manual browser checks: skip-link visibility and destination, mobile menu Escape/focus return, phone and desktop appearance.
-- Django check and backend tests: attempted but unavailable because Django is not installed in the local Python environment. No backend models or migrations changed.
+- Twenty frontend tests passed, including the homepage program/contact routes and content order, natural-language search, menu dismissal, route and section focus, CMS contact and article responses, direct enquiry subjects, publication-date labelling, cover-image rendering, retry/contact actions, curriculum downloads, stable degree routes, and handling known CMS test text.
+- Production build and TypeScript checks passed.
+- ESLint passed with two existing Fast Refresh warnings in button.tsx and sonner.tsx.
+- Browser axe-core checks reported zero violations or incomplete findings across Home, Our work, About, News, Contact, and Location at 320, 390, and 1280 pixels. Each tested page had one main heading and no page-wide horizontal overflow. Mission/vision/goals was also checked after the test-text fix.
+- The homepage was rechecked with doubled text. Manual browser checks verified skip-link visibility and destination, the mobile menu's Escape/focus behaviour, the What link's destination and heading focus, and the Why section's hash focus.
+- The revised preview was also exercised against the real public Railway API using a temporary local development proxy. That proxy is not included in the project changes. Known identity and missing-content messages rendered correctly after the test-text fix. No browser JavaScript errors were reported.
+- Django check and backend tests were attempted but could not start because Django is absent from the local Python environment. No backend models or migrations changed.
 
-The browser preview did not have a live backend. It exercised loading, missing-content, and API-failure states. Frontend tests used clearly separated CMS fixtures for successful contact and article responses. Published faculty profiles, uploaded documents, real event announcements, and the live Vercel/Railway flow still require checking against the deployed backend. These checks do not establish full WCAG conformance or replace testing with people using assistive technology.
+Automated checks do not establish full WCAG conformance. Testing with screen readers and people with disabilities remains necessary, particularly for future photographs, videos, documents, and forms.
 
-## Official information still needed
+## Official content still needed
 
-1. Office building, room, opening hours, current phone number, and visitor arrangements.
-2. Confirmed accessible entrances, step-free routes, lifts, toilets, parking, and assistance contact.
-3. Application steps, eligibility, fees, deadlines, official curriculum files, and advising information for both degrees.
-4. Department mission, vision, and goals where not already published through the CMS.
-5. Dated news and event announcements stating the actual event date, time, location, and how to participate.
-6. Approved research, community work, facilities, partnerships, and accreditation records.
+1. Replace the test department overview in Django admin with department-approved text. No separate university-approved department mission and vision are available; the user-supplied CCS statements are now displayed and explicitly attributed to the college.
+2. Populate site settings with current email, phone, campus office location, and confirmed contact details.
+3. Publish application steps, requirements, fees, deadlines, curriculum files, and advising information.
+4. Confirm opening hours and accessible routes, entrances, lifts, toilets, parking, and assistance arrangements.
+5. Publish news and event announcements with actual dates, times, location, and participation instructions in readable text.
+6. Supply approved research and community examples, projects, partnerships, facilities, and accreditation records.
+7. Provide authentic photographs with permission and appropriate captions/alternative text.
 
-After deployment, check these pages with a screen reader and keyboard, verify email/map/document links, and invite a few first-time visitors and people with disabilities to try the six homepage tasks. Reference: [W3C WCAG 2.2 quick reference](https://www.w3.org/WAI/WCAG22/quickref/).
+After deployment, verify shared-link previews, sitemap availability, email/map/document actions, and the live program, people, news, purpose, and visiting journeys. Invite first-time visitors and people using assistive technology to try those tasks.
+
+
+## College vision and mission
+
+The website owner supplied the College of Computer Studies vision, mission, and four commitments. Their wording is preserved in one shared content source and displayed in the About page's purpose section and the existing /about/vmgo page. The page, search label, breadcrumb, and homepage college vision-and-mission link now explicitly refer to the college. The supplied statements are not stored in the department's mission/vision API fields, and the absence of separate university-approved department statements is explained.
+
+The “Center of Excellence” wording is reproduced as part of the college's vision statement; this change adds no current accreditation or designation claim. Phone and desktop accessibility scans reported no violations or incomplete findings, and the page has one main heading without horizontal overflow at 320 pixels. Twenty frontend tests passed; build, type check, and lint also passed with the existing two warnings. No backend code changed. These changes remain local and require deployment.
+
+
+## Latest homepage refinement
+
+The homepage review found excessive emphasis on the question directory, repeated destinations, and generic teaching/research/community definitions. These were replaced with the simpler hierarchy described above. BSCA and MSCA cards now use the existing usePrograms/normalizePrograms flow instead of a separate static degree array. Known identity remains available while data loads or fails, and news failure does not block navigation. Existing placeholder campus/laboratory imagery was not treated as authentic department photography.
+
+Twenty frontend tests, the production build, TypeScript, and lint passed (the same two existing warnings). The homepage was visually reviewed at 1440 and 320 pixels against the public Railway backend through a temporary preview-only proxy. Automated axe-core checks reported zero violations and zero incomplete findings at both widths. Mobile width was 320 pixels with no horizontal overflow and one main heading; keyboard checks verified the visible skip link and main-content focus. No browser runtime errors were reported. Django check and tests remain unavailable because the local Python environment has no Django installed. No backend code or models were changed.
