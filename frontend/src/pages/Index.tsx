@@ -6,7 +6,6 @@ import { useDepartmentProfile } from "@/hooks/useCore";
 import { usePrograms } from "@/hooks/useAcademics";
 import { departmentIdentity } from "@/content/siteContent";
 import { normalizePrograms } from "./programs/programData";
-import collegeLogo from "@/assets/ccs-logo.png";
 import { NewsList } from "./News";
 
 export default function Index() {
@@ -28,9 +27,10 @@ export default function Index() {
               <Link className="outline-link" to="/about/contact">Contact us</Link>
             </div>
           </div>
-          <div className="home-college-mark" aria-hidden="true">
-            <img src={collegeLogo} alt="" width="180" height="180" decoding="async" />
-          </div>
+          <figure className="home-photo">
+            <div className="home-photo-placeholder" aria-hidden="true" />
+            <figcaption>Department photograph to be added</figcaption>
+          </figure>
         </div>
       </section>
 

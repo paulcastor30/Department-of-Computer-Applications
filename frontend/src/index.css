@@ -516,7 +516,9 @@ footer h2 { color: white; }
 .home-title-prefix { display: block; margin-bottom: .6rem; font-size: 1.125rem; line-height: 1.5; font-weight: 600; letter-spacing: 0; }
 .home-lead { max-width: 54ch; margin-top: 1.25rem; font-size: 1.125rem; line-height: 1.65; color: hsl(var(--primary)); }
 .home-intro-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
-.home-college-mark { display: none; }
+.home-photo { margin: 0; }
+.home-photo-placeholder { aspect-ratio: 16 / 9; background: #000; }
+.home-photo figcaption { margin-top: .5rem; font-size: .875rem; color: hsl(var(--muted-foreground)); }
 .home-page h2 { font-size: 1.5rem; line-height: 1.35; font-weight: 600; color: hsl(var(--primary)); }
 .home-section { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 .home-section-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; column-gap: 1.5rem; row-gap: .5rem; margin-bottom: .75rem; }
@@ -544,9 +546,8 @@ footer h2 { color: white; }
 .home-support-actions .text-link { display: inline-flex; align-items: center; min-height: 44px; }
 @media (min-width: 640px) { .home-degree-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1024px) {
-  .home-opening { grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); align-items: center; gap: 3rem; padding-block: 3rem; }
-  .home-college-mark { display: flex; justify-content: center; }
-  .home-college-mark img { width: 180px; height: auto; }
+  .home-opening { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); align-items: center; gap: 3rem; padding-block: 3rem; }
+  .home-photo-placeholder { aspect-ratio: 4 / 3; }
   .home-about-layout { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 4rem; align-items: start; }
   .home-support { grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: center; }
 }
