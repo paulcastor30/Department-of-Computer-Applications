@@ -1,67 +1,14 @@
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
-import { Section, SectionHeader } from "@/components/ui/section";
-import { departmentIdentity, placeholder } from "@/content/siteContent";
+import { PageHero } from "@/components/ui/hero-section";
 import { useDepartmentProfile } from "@/hooks/useCore";
-
+import { departmentIdentity, placeholder } from "@/content/siteContent";
 export default function About() {
-  const { data } = useDepartmentProfile();
-
-  return (
-    <>
-      <Seo title="About" description="Department profile, mandate, academic domains, and institutional role." />
-
-      <Section>
-        <SectionHeader title="About the Department" align="left" />
-        <div className="max-w-4xl space-y-5 text-base leading-7 text-muted-foreground">
-          <p>
-            {data?.overview ||
-              `The ${departmentIdentity.name} is an academic department under the ${departmentIdentity.college}, ${departmentIdentity.institution}. Its official mandate, history, and current department profile are ${placeholder.toLowerCase()}.`}
-          </p>
-          <p>
-            The Department provides academic programs and related scholarly work in computer applications, applied
-            computing, embedded systems, Internet of Things, and allied areas. Specific statements on mandate,
-            leadership, and institutional responsibilities should be taken from approved department and college records.
-          </p>
-        </div>
-      </Section>
-
-      <Section variant="muted">
-        <SectionHeader title="Institutional Information" align="left" />
-        <dl className="grid gap-4 md:grid-cols-2">
-          {[
-            ["Department", departmentIdentity.name],
-            ["College", departmentIdentity.college],
-            ["University", departmentIdentity.institution],
-            ["Department Mandate", placeholder],
-            ["Current Department Chair", placeholder],
-            ["Administrative Office", placeholder],
-          ].map(([label, value]) => (
-            <div key={label} className="rounded-md border border-border bg-background p-4">
-              <dt className="text-sm font-semibold text-primary">{label}</dt>
-              <dd className="mt-1 text-sm text-muted-foreground">{value}</dd>
-            </div>
-          ))}
-        </dl>
-      </Section>
-
-      <Section>
-        <SectionHeader title="Related Information" align="left" />
-        <div className="grid gap-4 md:grid-cols-3">
-          {[
-            ["Vision, Mission, Goals", "/about/vmgo"],
-            ["History", "/about/history"],
-            ["Organization", "/about/organization"],
-            ["Faculty", "/faculty"],
-            ["Contact", "/about/contact"],
-            ["Location", "/about/location"],
-          ].map(([label, href]) => (
-            <Link key={href} to={href} className="rounded-md border border-border p-4 text-sm font-semibold text-accent hover:border-secondary">
-              {label}
-            </Link>
-          ))}
-        </div>
-      </Section>
-    </>
-  );
+  const { data, isError } = useDepartmentProfile();
+  return <><Seo title="About the department" description="Who we are, what we do, and how to find more information."/><PageHero title="About the department" subtitle="Get to know the Department of Computer Applications at MSU–Iligan Institute of Technology."/>
+    <div className="container max-w-5xl space-y-12 py-12"><section><h2 className="section-title">Who we are</h2><p className="mt-4 leading-8 whitespace-pre-line">{data?.overview || `The ${departmentIdentity.name} is part of the ${departmentIdentity.college}, ${departmentIdentity.institution}.`}</p><Link className="text-link mt-4 inline-flex" to="/faculty">Meet our faculty</Link></section>
+    <section><h2 className="section-title">What we offer</h2><p className="mt-4 leading-8">Our two degree programs are the Bachelor of Science in Computer Applications (BSCA) and Master of Science in Computer Applications (MSCA). Computer applications means using computing to address practical needs.</p><Link className="text-link mt-4 inline-flex" to="/programs">Compare the programs</Link></section>
+    <section id="purpose"><h2 className="section-title">Why we do this work</h2><h3 className="mt-5 font-semibold">Our mission</h3><p className="mt-2 whitespace-pre-line leading-8">{data?.mission || placeholder}</p><h3 className="mt-5 font-semibold">Our vision</h3><p className="mt-2 whitespace-pre-line leading-8">{data?.vision || placeholder}</p><h3 className="mt-5 font-semibold">Our goals</h3><p className="mt-2 whitespace-pre-line leading-8">{data?.goals || placeholder}</p>{isError && <p className="notice mt-4">Some department information could not be loaded. Please contact us if you need it.</p>}</section>
+    <section><h2 className="section-title">Explore our work</h2><ul className="mt-4 grid gap-3 sm:grid-cols-2">{[["Research", "/research"],["Community work", "/extension"],["Facilities", "/facilities"],["International partnerships", "/international-linkages"],["Quality assurance", "/accreditation"],["Department history", "/about/history"]].map(([label,href]) => <li key={href}><Link className="outline-link w-full" to={href}>{label}</Link></li>)}</ul></section>
+    <section><h2 className="section-title">Get in touch</h2><p className="mt-4 mb-5">Questions about the department? Start with our contact and visiting information.</p><Link className="action-link" to="/about/contact">Contact & visit</Link></section></div></>;
 }

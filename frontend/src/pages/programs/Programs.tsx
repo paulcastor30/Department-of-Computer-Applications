@@ -17,7 +17,7 @@ function DocumentLink({ label, href, note }: { label: string; href?: string; not
             Download document
           </a>
         ) : (
-          <p className="text-sm text-muted-foreground" aria-label={`${label}: ${note || placeholder}`}>
+          <p className="text-sm text-muted-foreground">
             {note || placeholder}
           </p>
         )}
@@ -27,21 +27,21 @@ function DocumentLink({ label, href, note }: { label: string; href?: string; not
 }
 
 function ProgramCard({ program }: { program: ProgramProfile }) {
-  const curriculumDocument = program.documents.find((document) => document.label.toLowerCase().includes("curriculum"));
+  const curriculumDocument = program.documents.find((document) => document.label.toLowerCase().includes("curriculum") && document.href);
 
   return (
     <article id={program.slug} className="brand-network-subtle rounded-md border border-border bg-background p-6">
       <p className="mb-2 text-sm font-semibold uppercase tracking-wide text-secondary">{program.level}</p>
       <h2 className="mb-3 text-2xl font-semibold text-primary">{program.title}</h2>
-      <p className="mb-5 text-sm leading-6 text-muted-foreground">{program.summary}</p>
+      {!program.isFallback && <p className="mb-5 text-sm leading-6 text-muted-foreground">{program.summary}</p>}
       {program.isFallback && (
         <p className="mb-5 inline-flex items-center gap-2 rounded-md border border-border bg-muted/30 px-3 py-2 text-xs text-muted-foreground">
           <Info className="h-4 w-4 text-secondary" aria-hidden="true" />
-          Showing placeholder structure until the Django program record is available.
+          Official program details are To be provided by the Department.
         </p>
       )}
       <dl className="mb-5 grid gap-3 text-sm">
-        <div>
+        <div hidden={program.isFallback}>
           <dt className="font-semibold text-primary">Academic focus</dt>
           <dd className="mt-2">
             <ul className="space-y-1 text-muted-foreground">
@@ -52,14 +52,14 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
           </dd>
         </div>
         <div>
-          <dt className="font-semibold text-primary">Culminating requirement</dt>
+          <dt className="font-semibold text-primary">Thesis requirement</dt>
           <dd className="mt-1 text-muted-foreground">{program.culminatingRequirement}</dd>
         </div>
-        <div>
-          <dt className="font-semibold text-primary">Intended learners</dt>
+        <div hidden={program.isFallback}>
+          <dt className="font-semibold text-primary">Who this degree is for</dt>
           <dd className="mt-1 text-muted-foreground">{program.intendedLearners}</dd>
         </div>
-        <div>
+        <div hidden={program.isFallback}>
           <dt className="font-semibold text-primary">Pathways</dt>
           <dd className="mt-2">
             <ul className="space-y-1 text-muted-foreground">
@@ -96,7 +96,7 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
 
 function ProgramComparison({ programs }: { programs: ProgramProfile[] }) {
   return (
-    <div className="overflow-x-auto rounded-md border border-border bg-background">
+    <div role="region" aria-label="Program comparison: scroll horizontally to see all columns" tabIndex={0} className="overflow-x-auto rounded-md border border-border bg-background">
       <table className="w-full min-w-[760px] text-left text-sm">
         <caption className="sr-only">Comparison of academic programs</caption>
         <thead className="bg-muted/40 text-primary">
@@ -132,6 +132,7 @@ function ProgramComparison({ programs }: { programs: ProgramProfile[] }) {
 export default function Programs() {
   const { data, isError } = usePrograms();
   const displayedPrograms = normalizePrograms(data);
+  const availableDocuments = displayedPrograms.flatMap(program => program.documents.map(document => ({ ...document, key: `${program.code}-${document.label}-${document.href || ""}` }))).filter(document => document.href || (document.note && document.note !== placeholder));
 
   return (
     <>
@@ -152,8 +153,7 @@ export default function Programs() {
           <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-secondary">{departmentIdentity.college}</p>
           <h1 className="mb-5 text-3xl font-bold leading-tight text-primary md:text-5xl">Academic Programs</h1>
           <p className="max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
-            The Department of Computer Applications maintains undergraduate and graduate program records through the
-            Django content framework. Official details are displayed as they are validated and uploaded by the Department.
+            Explore our two degree programs. Read about what you can study, thesis requirements, and where to ask for help.
           </p>
         </div>
       </section>
@@ -182,8 +182,8 @@ export default function Programs() {
         </nav>
 
         <SectionHeader
-          title="Program Overview"
-          subtitle="The following Django-backed program records are prepared for official Department content."
+          title="Choose a degree"
+          subtitle="Explore our undergraduate and graduate degrees."
           align="left"
         />
         {isError && (
@@ -198,22 +198,20 @@ export default function Programs() {
         </div>
       </Section>
 
-      <Section variant="muted">
+      {displayedPrograms.some(program => !program.isFallback) && <Section variant="muted">
         <SectionHeader
           title="Program Comparison"
           subtitle="A concise comparison of degree level, academic orientation, culminating requirement, and typical pathways."
           align="left"
         />
         <ProgramComparison programs={displayedPrograms} />
-      </Section>
+      </Section>}
 
       <Section>
         <SectionHeader title="Quality Assurance" align="left" />
         <div className="rounded-md border border-border bg-muted/30 p-5">
           <p className="max-w-4xl text-sm leading-6 text-muted-foreground">
-            The Department maintains academic program records to support curriculum review, outcomes-based education,
-            regulatory compliance, stakeholder feedback, accreditation, and continuous improvement. Detailed
-            quality-assurance and accreditation documentation is maintained separately by the Department and College.
+            Official information about program review and accreditation is To be provided by the Department.
           </p>
           <Link
             to="/accreditation"
@@ -226,13 +224,9 @@ export default function Programs() {
 
       <Section id="official-documents" variant="muted">
         <SectionHeader title="Official Documents" align="left" />
-        <div className="grid gap-4 md:grid-cols-2">
-          {displayedPrograms.flatMap((program) =>
-            program.documents.map((document) => (
-              <DocumentLink key={`${program.slug}-${document.label}`} {...document} />
-            ))
-          )}
-        </div>
+        {availableDocuments.length ? <div className="grid gap-4 md:grid-cols-2">
+          {availableDocuments.map(({ key, ...document }) => <DocumentLink key={key} {...document} />)}
+        </div> : <p className="notice">Official curricula, admission guides, and student handbooks: {placeholder}</p>}
       </Section>
 
       <Section id="program-inquiries">

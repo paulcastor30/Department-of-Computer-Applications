@@ -1,16 +1,17 @@
-import { useProgram } from "@/hooks/useAcademics";
+import { usePrograms } from "@/hooks/useAcademics";
 import { ProgramDetailPage } from "./ProgramDetailPage";
 import { bscaProgram, normalizeProgram } from "./programData";
 
 export default function BSCA() {
-  const { data, isError } = useProgram("bsca");
+  const { data: programs, isError } = usePrograms();
+  const data = programs?.find(program => program.code === "BSCA" || program.slug === "bsca");
   const program = normalizeProgram(data, bscaProgram);
 
   return (
     <ProgramDetailPage
       program={program}
       isError={isError}
-      pageSubtitle="Formal undergraduate program information prepared for official Department content, with Undergraduate Thesis as the culminating academic requirement."
+      pageSubtitle="Explore the undergraduate degree, its learning areas, and Undergraduate Thesis requirement."
       goalsTitle="Program Goals"
       outcomesTitle="Expected Learning Outcomes / Program Outcomes"
       areasTitle="Major Academic Areas"

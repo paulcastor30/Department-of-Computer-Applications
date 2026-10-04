@@ -1,83 +1,10 @@
+import { Link } from "react-router-dom";
 import { PageHero } from "@/components/ui/hero-section";
-import { Section, SectionHeader } from "@/components/ui/section";
-import { MapPin, Car, Train, Bus } from "lucide-react";
-
+import { Seo } from "@/components/Seo";
+import { departmentIdentity, placeholder } from "@/content/siteContent";
+import { useSiteSettings } from "@/hooks/useCore";
 export default function Location() {
-  return (
-    <>
-      <PageHero
-        title="Location & Directions"
-        subtitle="Find us on campus and learn how to get here."
-      />
-
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <SectionHeader title="Campus Location" align="left" />
-            <div className="card-elevated p-6 mb-6">
-              <div className="flex items-start gap-4">
-                <MapPin className="h-6 w-6 text-secondary shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-2">Department of Computer Applications</h3>
-                  <p className="text-muted-foreground">
-                    College of Science Building, 3rd Floor, Room 301<br />
-                    University Campus<br />
-                    Metro Manila, Philippines 1234
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <SectionHeader title="Getting Here" align="left" className="mt-8" />
-            <div className="space-y-4">
-              <div className="card-elevated p-5">
-                <div className="flex items-start gap-4">
-                  <Car className="h-5 w-5 text-primary shrink-0" />
-                  <div>
-                    <h4 className="font-semibold mb-1">By Car</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Parking is available at the Main Parking Area. Enter through Gate 1 and follow signs to the College of Science Building.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="card-elevated p-5">
-                <div className="flex items-start gap-4">
-                  <Train className="h-5 w-5 text-primary shrink-0" />
-                  <div>
-                    <h4 className="font-semibold mb-1">By Train (MRT/LRT)</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Nearest station: University Station. From the station, take a 10-minute walk or jeepney ride to the main campus.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="card-elevated p-5">
-                <div className="flex items-start gap-4">
-                  <Bus className="h-5 w-5 text-primary shrink-0" />
-                  <div>
-                    <h4 className="font-semibold mb-1">By Bus/Jeepney</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Multiple bus and jeepney routes pass by the university. Alight at the Main Gate and proceed to the College of Science Building.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="aspect-video rounded-xl bg-muted overflow-hidden mb-6">
-              <div className="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                <p className="text-muted-foreground">[Map Embed Placeholder]</p>
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground text-center">
-              [Google Maps or OpenStreetMap embed will be displayed here]
-            </p>
-          </div>
-        </div>
-      </Section>
-    </>
-  );
+ const { data } = useSiteSettings();
+ const address = data?.address || `${departmentIdentity.institution}, ${departmentIdentity.address}`;
+ return <><Seo title="Location & directions" description="Campus location and information to confirm before visiting."/><PageHero title="Location & directions" subtitle="Find the campus and confirm where to meet the department."/><div className="container max-w-4xl space-y-8 py-12"><section><h2 className="section-title">Campus address</h2><address className="my-5 whitespace-pre-line not-italic leading-8">{address}</address><a className="outline-link" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`}>Find the campus on Google Maps <span className="text-sm">(external website)</span></a></section><section className="notice"><h2 className="mb-3 text-xl font-semibold">Before you travel</h2><p className="leading-7">The department's building, room, office hours, accessible entrances, and transport directions are {placeholder.toLowerCase()}. Contact the department to confirm these details and request any assistance you need.</p><Link className="text-link mt-4 inline-flex" to="/about/contact">Contact the department</Link></section></div></>;
 }

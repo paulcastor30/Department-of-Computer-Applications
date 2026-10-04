@@ -1,3 +1,5 @@
+import Accessibility from "./pages/Accessibility";
+import NewsDetail from "./pages/NewsDetail";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -140,6 +142,8 @@ const App = () => (
             <Route path="/alumni" element={<Alumni />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/events" element={<News />} />
+            <Route path="/news/:slug" element={<NewsDetail />} />
+            <Route path="/accessibility" element={<Accessibility />} />
             <Route path="/facilities" element={<Facilities />} />
             <Route path="/international-linkages" element={<InternationalLinkages />} />
             <Route path="/accreditation" element={<Accreditation />} />

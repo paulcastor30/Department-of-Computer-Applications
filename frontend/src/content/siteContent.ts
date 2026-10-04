@@ -14,13 +14,9 @@ export const primaryNavigation = [
   { label: "About", href: "/about" },
   { label: "Academic Programs", href: "/programs" },
   { label: "Faculty", href: "/faculty" },
-  { label: "Research", href: "/research" },
-  { label: "Extension", href: "/extension" },
-  { label: "Facilities", href: "/facilities" },
-  { label: "International Linkages", href: "/international-linkages" },
-  { label: "Quality Assurance", href: "/accreditation" },
+  { label: "Our work", href: "/research" },
   { label: "News and Events", href: "/news" },
-  { label: "Contact", href: "/about/contact" },
+  { label: "Contact & visit", href: "/about/contact" },
 ];
 
 export const homepageSections = [
@@ -76,7 +72,7 @@ export const searchPages = [
   { 
     title: "Home",
     keywords: ["home", "index"], 
-     ref: "/" },
+     href: "/" },
   { 
     title: "About", 
     keywords: ["about", "college"], 

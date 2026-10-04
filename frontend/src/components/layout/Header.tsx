@@ -1,285 +1,54 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import {
-  departmentIdentity,
-  primaryNavigation,
-  searchPages,
-} from "@/content/siteContent";
-import { cn } from "@/lib/utils";
+import { departmentIdentity, primaryNavigation, searchPages } from "@/content/siteContent";
 import Logo from "@/assets/ccs-logo.png";
 
 export function Header() {
-  const location = useLocation();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [query, setQuery] = useState("");
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const searchButtonRef = useRef<HTMLButtonElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const normalized = query.trim().toLowerCase();
+  const results = normalized ? Array.from(new Map(searchPages.filter(page => page.title.toLowerCase().includes(normalized) || page.keywords.some(word => word.toLowerCase().includes(normalized))).map(page => [page.href, page])).values()) : [];
 
-  const isSolid = isScrolled || searchOpen;
-
-  const isActive = (href: string) => {
-    if (href === "/") return location.pathname === "/";
-    return (
-      location.pathname === href || location.pathname.startsWith(`${href}/`)
-    );
-  };
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 0);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (!searchOpen) return;
-    searchInputRef.current?.focus();
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeSearch();
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [searchOpen]);
-
-  const closeSearch = () => {
-    setSearchOpen(false);
-    setQuery("");
-  };
-
-  const results = query
-    ? searchPages.filter((page) => {
-        const q = query.toLowerCase();
-        return (
-          page.title.toLowerCase().includes(q) ||
-          page.keywords.some((keyword) => keyword.toLowerCase().includes(q))
-        );
-      })
-    : [];
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (results.length > 0) {
-      navigate(results[0].href);
-      closeSearch();
-    }
-  };
+  useEffect(() => { if (searchOpen) inputRef.current?.focus(); }, [searchOpen]);
+  useEffect(() => { setMenuOpen(false); setSearchOpen(false); setQuery(""); }, [pathname]);
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 w-full transition-all duration-500",
-        isSolid
-          ? "bg-white/60 backdrop-blur-md shadow-sm text-zinc-900"
-          : "bg-transparent text-white",
-      )}
-    >
-      <div
-        className={cn(
-          "border-b transition-colors duration-300",
-          isSolid
-            ? "border-zinc-200 bg-primary text-white/90"
-            : "border-white/10 bg-primary text-white/90",
-        )}
-      >
-        <div className="container flex items-center justify-between py-2 text-xs md:text-sm">
-          <span>{departmentIdentity.institution}</span>
-          <button
-            type="button"
-            onClick={() => setSearchOpen((open) => !open)}
-            className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
-            aria-label={searchOpen ? "Close search" : "Search site"}
-            aria-expanded={searchOpen}
-          >
-            <Search className="h-4 w-4" />
-            Search
-          </button>
-        </div>
-      </div>
-
-      {searchOpen && (
-        <div
-          className={cn(
-            "relative z-50 border-b backdrop-blur-sm animate-in slide-in-from-top-2 duration-200",
-            isSolid
-              ? "bg-white border-zinc-200"
-              : "bg-primary/95 border-white/10 text-white",
-          )}
-        >
-          <div className="container py-4">
-            <form
-              onSubmit={handleSubmit}
-              className="relative mx-auto flex max-w-xl gap-2"
-              role="search"
-            >
-              <div className="relative flex-1">
-                <Input
-                  ref={searchInputRef}
-                  type="search"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search the department website"
-                  aria-label="Search the department website"
-                  role="combobox"
-                  aria-expanded={results.length > 0}
-                  aria-controls="search-results"
-                  className={cn(
-                    isSolid
-                      ? "bg-zinc-50"
-                      : "bg-white/10 text-white placeholder:text-white/50 border-white/20",
-                  )}
-                />
-
-                {query && (
-                  <div
-                    id="search-results"
-                    className="absolute left-0 right-0 top-full z-10 mt-2 max-h-80 overflow-y-auto rounded-lg border bg-white text-zinc-900 shadow-lg"
-                  >
-                    {results.length > 0 ? (
-                      results.map((page) => (
-                        <Link
-                          key={page.href}
-                          to={page.href}
-                          onClick={closeSearch}
-                          className="block px-4 py-3 text-sm hover:bg-zinc-100"
-                        >
-                          {page.title}
-                        </Link>
-                      ))
-                    ) : (
-                      <div className="px-4 py-3 text-sm text-zinc-500">
-                        No results found.
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-
-              <Button
-                type="submit"
-                variant={isSolid ? "outline" : "secondary"}
-              >
-                Search
-              </Button>
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                onClick={closeSearch}
-                aria-label="Close search"
-                className={cn(!isSolid && "hover:bg-white/10 text-white")}
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      <div
-        className={cn(
-          "container flex items-center justify-between gap-6 transition-all duration-300",
-          isSolid ? "py-2" : "py-4",
-        )}
-      >
-        <Link to="/" className="flex min-w-0 items-center gap-3 group">
-          <img
-            src={Logo}
-            alt="College of Computer Studies logo"
-            className="h-14 w-14 object-contain transition-all duration-300"
-          />
-          <div className="min-w-0">
-            <div
-              className={cn(
-                "text-sm font-semibold leading-tight md:text-base transition-colors",
-                isSolid ? "text-zinc-900" : "text-white",
-              )}
-            >
-              {departmentIdentity.name}
-            </div>
-            <div
-              className={cn(
-                "text-xs leading-tight transition-colors",
-                isSolid ? "text-zinc-500" : "text-white/70",
-              )}
-            >
-              {departmentIdentity.college}
-            </div>
-          </div>
+    <header className="site-header" onKeyDown={event => {
+      if (event.key === "Escape") {
+        if (searchOpen) { setSearchOpen(false); searchButtonRef.current?.focus(); }
+        else if (menuOpen) { setMenuOpen(false); menuButtonRef.current?.focus(); }
+      }
+    }}>
+      <div className="border-b border-border bg-muted/40"><div className="container py-2 text-sm text-muted-foreground">MSU–Iligan Institute of Technology · {departmentIdentity.college}</div></div>
+      <div className="container flex flex-wrap items-center justify-between gap-4 py-5">
+        <Link to="/" className="flex w-full min-w-0 items-center gap-3 font-semibold text-primary sm:w-auto sm:flex-1" aria-label="Department of Computer Applications home">
+          <img src={Logo} alt="" width="52" height="52" className="h-12 w-12 shrink-0 object-contain" />
+          <span className="max-w-sm text-base leading-snug sm:text-xl">{departmentIdentity.name}</span>
         </Link>
-
-        <nav
-          className="hidden items-center gap-1 lg:flex"
-          aria-label="Primary navigation"
-        >
-          {primaryNavigation.map((item) => {
-            const active = isActive(item.href);
-            return (
-              <Link
-                key={item.href}
-                to={item.href}
-                className={cn(
-                  "relative rounded-sm px-2.5 py-2 text-sm font-medium transition-all duration-200",
-                  isSolid
-                    ? "text-zinc-700 hover:bg-zinc-100"
-                    : "text-white/90 hover:bg-white/10",
-                  active &&
-                    (isSolid
-                      ? "text-blue-600 font-semibold"
-                      : "text-sky-300 font-semibold after:absolute after:bottom-0 after:left-2.5 after:right-2.5 after:h-0.5 after:bg-sky-300"),
-                )}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <Sheet>
-          <SheetTrigger asChild className="lg:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Open menu"
-              className={cn(!isSolid && "text-white hover:bg-white/10")}
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent
-            side="right"
-            className="w-80 overflow-y-auto bg-white text-zinc-900"
-          >
-            <nav className="mt-8 grid gap-1" aria-label="Mobile navigation">
-              {primaryNavigation.map((item) => (
-                <SheetClose asChild key={item.href}>
-                  <Link
-                    to={item.href}
-                    className={cn(
-                      "rounded-sm px-3 py-3 text-sm font-medium transition-colors",
-                      isActive(item.href)
-                        ? "bg-blue-50 text-blue-600 font-semibold"
-                        : "text-zinc-700 hover:bg-zinc-100",
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                </SheetClose>
-              ))}
-            </nav>
-          </SheetContent>
-        </Sheet>
+        <div className="flex shrink-0 gap-2">
+          <button ref={searchButtonRef} aria-label="Search site" type="button" className="control-button" aria-expanded={searchOpen} aria-controls="site-search" onClick={() => setSearchOpen(value => !value)}><Search aria-hidden="true" size={18}/><span>Search</span></button>
+          <button ref={menuButtonRef} type="button" className="control-button md:hidden" aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => setMenuOpen(value => !value)}>{menuOpen ? <X aria-hidden="true" size={18}/> : <Menu aria-hidden="true" size={18}/>}<span>Menu</span></button>
+        </div>
       </div>
+      <nav id="primary-nav" aria-label="Main navigation" className={`container ${menuOpen ? "flex" : "hidden"} flex-col gap-1 pb-4 md:flex md:flex-row md:flex-wrap md:gap-2`}>
+        {primaryNavigation.map(item => <Link key={item.href} to={item.href} aria-current={pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`)) ? "page" : undefined} className="nav-item">{item.label}</Link>)}
+      </nav>
+      {searchOpen && <div id="site-search" className="border-t border-border bg-muted/30"><div className="container py-5">
+        <form role="search" onSubmit={event => { event.preventDefault(); if (results[0]) navigate(results[0].href); }} className="max-w-2xl">
+          <label htmlFor="site-search-input" className="mb-2 block font-semibold text-primary">Find a page</label>
+          <div className="flex gap-2"><input id="site-search-input" ref={inputRef} type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Try programs, email, or location" className="min-w-0 flex-1 rounded-md border border-input bg-background px-3 py-3"/><button type="submit" className="action-link">Search</button></div>
+          <p className="mt-3 text-sm text-muted-foreground" role="status">{normalized ? `${results.length} matching ${results.length === 1 ? "page" : "pages"}.` : "Search page titles and topics. Use Tab to move through results."}</p>
+          {normalized && <ul className="mt-3 grid gap-1">{results.map(page => <li key={page.href}><Link className="block rounded-md px-3 py-3 text-primary underline underline-offset-4 hover:bg-muted" to={page.href}>{page.title}</Link></li>)}</ul>}
+          {normalized && !results.length && <p className="mt-3">Try another word, or <Link to="/about/contact" className="text-link">contact the department</Link>.</p>}
+        </form>
+      </div></div>}
     </header>
   );
 }

@@ -18,9 +18,9 @@ export default function Research() {
       <Seo title="Research" description="Research agenda, projects, publications, laboratories, and student research." />
 
       <Section>
-        <SectionHeader
+        <SectionHeader as="h1"
           title="Research"
-          subtitle="This section should present verified research agenda, projects, publications, laboratories, collaborations, and student research involvement."
+          subtitle="Explore research topics, projects, and published work. Detailed records will appear as they become available."
           align="left"
         />
         <div className="max-w-4xl rounded-md border border-border bg-muted/30 p-5 text-sm leading-6 text-muted-foreground">

@@ -151,7 +151,7 @@ export default function Faculty() {
   const [status, setStatus] = useState<"all" | FacultyStatus>("all");
   const [rank, setRank] = useState("all");
   const [expertise, setExpertise] = useState("");
-  const [supervisionLevel, setSupervisionLevel] = useState("all");
+
   const [graduateRole, setGraduateRole] = useState("all");
 
   const rankOptions = useMemo(() => Array.from(new Set(people.map((member) => member.position).filter(Boolean))).sort(), [people]);
@@ -173,11 +173,6 @@ export default function Faculty() {
         includesText(member.specialization_areas, normalizedExpertise) ||
         includesText(member.research_interests, normalizedExpertise) ||
         includesText(member.teaching_areas, normalizedExpertise);
-      const matchesSupervision =
-        supervisionLevel === "all" ||
-        (supervisionLevel === "BSCA" && member.supervised_works_count > 0) ||
-        (supervisionLevel === "MSCA" &&
-          (member.supervised_works_count > 0 || member.supporting_programs.toLowerCase().includes("msca")));
       const matchesGraduateRole = graduateRole === "all" || member.msca_roles.toLowerCase().includes(graduateRole.toLowerCase());
       const matchesSearch =
         !normalizedQuery ||
@@ -190,9 +185,9 @@ export default function Faculty() {
         includesText(member.research_interests, normalizedQuery) ||
         includesText(member.teaching_areas, normalizedQuery);
 
-      return matchesClassification && matchesStatus && matchesRank && matchesExpertise && matchesSupervision && matchesGraduateRole && matchesSearch;
+      return matchesClassification && matchesStatus && matchesRank && matchesExpertise && matchesGraduateRole && matchesSearch;
     });
-  }, [classification, expertise, graduateRole, people, query, rank, status, supervisionLevel]);
+  }, [classification, expertise, graduateRole, people, query, rank, status]);
 
   return (
     <>
@@ -202,9 +197,9 @@ export default function Faculty() {
       />
 
       <Section>
-        <SectionHeader
+        <SectionHeader as="h1"
           title="Faculty Directory"
-          subtitle="Faculty records are maintained through the Department's Django-backed profile system and separated by official appointment or service classification."
+          subtitle="Meet the department's teachers and staff. Search by name or use the filters below."
           align="left"
         />
 
@@ -264,11 +259,7 @@ export default function Faculty() {
             placeholder="Expertise keyword"
           />
 
-          <select aria-label="Filter by supervision level" value={supervisionLevel} onChange={(event) => setSupervisionLevel(event.target.value)} className="h-10 rounded-md border border-input bg-background px-3 text-sm">
-            <option value="all">All supervision levels</option>
-            <option value="BSCA">BSCA supervision</option>
-            <option value="MSCA">MSCA supervision/support</option>
-          </select>
+
 
           <select aria-label="Filter by graduate teaching role" value={graduateRole} onChange={(event) => setGraduateRole(event.target.value)} className="h-10 rounded-md border border-input bg-background px-3 text-sm">
             <option value="all">All graduate roles</option>

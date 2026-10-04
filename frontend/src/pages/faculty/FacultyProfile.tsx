@@ -113,8 +113,9 @@ export default function FacultyProfile() {
     return (
       <>
         <Seo title="Faculty Profile" description="Faculty profile information." />
+        <PageHero title="Faculty profile" subtitle="Loading the department directory." />
         <Section>
-          <p className="text-sm text-muted-foreground">Loading faculty profile...</p>
+          <p role="status" className="text-sm text-muted-foreground">Loading faculty profile...</p>
         </Section>
       </>
     );
@@ -207,7 +208,7 @@ export default function FacultyProfile() {
             </div>
           </aside>
 
-          <main>
+          <div>
             <nav aria-label="Faculty profile sections" className="mb-8 flex flex-wrap gap-2">
               {navItems.map(([id, label]) => (
                 <a key={id} href={`#${id}`} className="rounded-sm border border-border px-3 py-2 text-xs font-medium text-primary hover:bg-muted">
@@ -369,7 +370,7 @@ export default function FacultyProfile() {
             <Link to="/faculty" className="mt-8 inline-block text-sm font-semibold text-accent hover:text-secondary">
               Back to Faculty Directory
             </Link>
-          </main>
+          </div>
         </div>
       </Section>
     </>

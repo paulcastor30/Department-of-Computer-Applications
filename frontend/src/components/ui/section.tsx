@@ -28,12 +28,13 @@ interface SectionHeaderProps {
   align?: "left" | "center";
   className?: string;
   children?: ReactNode;
+  as?: "h1" | "h2";
 }
 
-export function SectionHeader({ title, subtitle, align = "center", className, children }: SectionHeaderProps) {
+export function SectionHeader({ title, subtitle, align = "left", className, children, as: Heading = "h2" }: SectionHeaderProps) {
   return (
     <div className={cn("mb-12", align === "center" && "text-center max-w-3xl mx-auto", className)}>
-      <h2 className="section-title">{title}</h2>
+      <Heading className="section-title">{title}</Heading>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}
       {children}
     </div>

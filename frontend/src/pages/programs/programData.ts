@@ -159,7 +159,7 @@ function documentsFor(program: Program | undefined, fallback: ProgramProfile): P
       note: document.href ? undefined : document.note || placeholder,
     })) || [];
 
-  if (program?.curriculum_pdf_url && !programDocuments.some((document) => document.label.toLowerCase().includes("curriculum"))) {
+  if (program?.curriculum_pdf_url && !programDocuments.some((document) => document.label.toLowerCase().includes("curriculum") && document.href)) {
     programDocuments.unshift({
       label: `${program.code} curriculum`,
       href: program.curriculum_pdf_url,
@@ -194,7 +194,7 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
     units: text(program.curriculum_load, base.units),
     recognition: text(program.recognition, base.recognition),
     summary: text(program.formal_description, text(program.overview, base.summary)),
-    route: `/programs/${text(program.slug, base.slug)}`,
+    route: base.route,
     academicOrientation: text(program.academic_orientation, base.academicOrientation),
     intendedLearners: text(program.intended_learners, base.intendedLearners),
     culminatingRequirement: requiredThesis,
@@ -223,15 +223,9 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
 }
 
 export function normalizePrograms(adminPrograms: Program[] | undefined): ProgramProfile[] {
-  if (!adminPrograms || adminPrograms.length === 0) return fallbackPrograms;
-
-  return adminPrograms
-    .filter((program) => program.slug === "bsca" || program.slug === "msca" || program.code === "BSCA" || program.code === "MSCA")
-    .map((program) => normalizeProgram(program))
-    .sort((a, b) => {
-      const order = { bsca: 0, msca: 1 };
-      return (order[a.slug as keyof typeof order] ?? 99) - (order[b.slug as keyof typeof order] ?? 99);
-    });
+  return fallbackPrograms.map(base => normalizeProgram(
+    adminPrograms?.find(program => program.code === base.code || program.slug === base.slug), base,
+  ));
 }
 
 export const bscaProgram = bscaFallback;

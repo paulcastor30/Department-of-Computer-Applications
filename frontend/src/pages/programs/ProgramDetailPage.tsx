@@ -62,9 +62,7 @@ function QualityAssuranceNote() {
   return (
     <div className="rounded-md border border-border bg-muted/30 p-5">
       <p className="max-w-4xl text-sm leading-6 text-muted-foreground">
-        The Department maintains academic program records to support curriculum review, outcomes-based education,
-        regulatory compliance, stakeholder feedback, accreditation, and continuous improvement. Detailed
-        quality-assurance and accreditation documentation is maintained separately by the Department and College.
+        Official information about program review and accreditation is To be provided by the Department.
       </p>
     </div>
   );
@@ -81,6 +79,26 @@ export function ProgramDetailPage({
   pathwaysTitle,
   advisingTitle,
 }: ProgramDetailPageProps) {
+  if (program.isFallback) {
+    return <>
+      <Seo title={program.seoTitle} description={program.seoDescription} />
+      <PageHero title={program.title} subtitle={pageSubtitle} />
+      <Section>
+        <div className="max-w-3xl space-y-7">
+          <section><h2 className="mb-3 text-xl font-semibold">About this degree</h2>
+            <dl className="space-y-4"><div><dt className="font-semibold">Level</dt><dd>{program.level} · {program.code}</dd></div>
+            <div><dt className="font-semibold">Thesis requirement</dt><dd>{program.culminatingRequirement}</dd></div></dl>
+          </section>
+          <section className="notice"><h2 className="mb-3 text-xl font-semibold">Ask about this program</h2>
+            <p>Official curriculum, fees, entry requirements, application dates, and advising details are To be provided by the Department.</p>
+            {isError && <p className="mt-3">The latest program information could not be loaded.</p>}
+            <p className="mt-3">Contact the department for current information before applying.</p>
+          </section>
+          <div className="flex flex-wrap gap-3"><Link className="action-link" to="/about/contact">Ask about {program.code}</Link><Link className="outline-link" to="/programs">See both programs</Link></div>
+        </div>
+      </Section>
+    </>;
+  }
   return (
     <>
       <Seo
@@ -97,7 +115,7 @@ export function ProgramDetailPage({
       <Section>
         {isError && (
           <p className="mb-6 rounded-md border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
-            Built-in placeholder information is shown because the live Django program record could not be reached.
+            We could not load the latest program details. Please contact the department for current information.
           </p>
         )}
 

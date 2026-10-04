@@ -1,161 +1,28 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { BrandPattern } from "@/components/brand/BrandPattern";
 import { Seo } from "@/components/Seo";
-import { Section, SectionHeader } from "@/components/ui/section";
-import {
-  departmentIdentity,
-  homepageSections,
-  placeholder,
-  primaryNavigation,
-} from "@/content/siteContent";
-import { useNews } from "@/hooks/useCommunications";
-import { PageLoading } from "@/components/ui/page-loading";
+import { useDepartmentProfile } from "@/hooks/useCore";
+import { departmentIdentity, placeholder } from "@/content/siteContent";
+import { NewsList } from "./News";
 
+const questions = [
+  ["Who we are", "Meet the department and its faculty.", "/about", "01"],
+  ["What you can study", "Explore the bachelor's and master's programs.", "/programs", "02"],
+  ["When things happen", "Read dated news and announcements.", "/news", "03"],
+  ["Where to find us", "Find the campus address and visiting information.", "/about/location", "04"],
+  ["Why our work matters", "Learn about the department's mission and work.", "/about#purpose", "05"],
+  ["How to get started", "Ask a question or find out how to apply.", "/admissions", "06"],
+];
 export default function Index() {
-  const { data: news = [], isLoading, isError } = useNews();
-  const latestNews = news.slice(0, 3);
-
-  return (
-    <>
-
-      <PageLoading isLoading={isLoading} />
-      
-      <Seo
-        title="Home"
-        description="Official website of the Department of Computer Applications, College of Computer Studies, MSU-Iligan Institute of Technology."
-      />
-
-      <section className="home-brand-hero  pt-40 pb-20 md:pt-52 md:pb-20">
-        <BrandPattern />
-        <div className="container relative z-10 max-w-7xl">
-          <div className="max-w-4xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-cyan-100">
-              {departmentIdentity.institution}
-            </p>
-            <p className="mb-2 text-lg font-semibold text-white/90">
-              {departmentIdentity.college}
-            </p>
-            <h1 className="mb-6 text-4xl font-bold leading-tight text-white md:text-6xl">
-              {departmentIdentity.name}
-            </h1>
-            <p className="max-w-3xl text-base leading-7 text-white/88 md:text-lg">
-              Official website of the Department of Computer Applications,
-              providing public information on academic programs, faculty,
-              research, extension, facilities, quality assurance, and department
-              announcements.
-            </p>
-          </div>
-
-          <nav
-            className="mt-10 flex flex-wrap gap-3"
-            aria-label="Homepage primary links"
-          >
-            {primaryNavigation
-              .filter((item) =>
-                [
-                  "Academic Programs",
-                  "Faculty",
-                  "Research",
-                  "Extension",
-                  "Facilities",
-                  "Quality Assurance",
-                  "News and Events",
-                  "Contact",
-                ].includes(item.label),
-              )
-              .map((item) => (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className="rounded-md border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/18"
-                >
-                  {item.label}
-                </Link>
-              ))}
-          </nav>
-        </div>
-      </section>
-
-      <Section>
-        <SectionHeader title="Department Information" align="left" />
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {homepageSections.map((item) => (
-            <Link
-              key={item.href}
-              to={item.href}
-              className="rounded-md border border-border bg-background p-5 hover:border-secondary"
-            >
-              <h2 className="mb-2 text-lg font-semibold text-primary">
-                {item.title}
-              </h2>
-              <p className="mb-4 text-sm leading-6 text-muted-foreground">
-                {item.description}
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                View section <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <Section variant="muted">
-        <SectionHeader
-          title="Academic Focus"
-          subtitle="The Department’s public academic focus should be confirmed against officially approved program documents, department plans, and college-level records."
-          align="left"
-        />
-        <div className="grid gap-5 lg:grid-cols-3">
-          {[
-            "Applied computing and computer applications.",
-            "Embedded systems, Internet of Things, and connected systems.",
-            "Research, thesis work, industry immersion, and community engagement.",
-          ].map((item) => (
-            <div
-              key={item}
-              className="rounded-md border border-border bg-background p-5 text-sm leading-6 text-muted-foreground"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section>
-        <SectionHeader title="News and Announcements" align="left" />
-        {latestNews.length ? (
-          <div className="grid gap-5 md:grid-cols-3">
-            {latestNews.map((item) => (
-              <article
-                key={item.id}
-                className="rounded-md border border-border p-5"
-              >
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-secondary">
-                  {item.category}
-                </p>
-                <h2 className="mb-3 text-lg font-semibold text-primary">
-                  {item.title}
-                </h2>
-                <p className="text-sm leading-6 text-muted-foreground">
-                  {item.summary || placeholder}
-                </p>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="rounded-md border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
-            Official announcements and department news are{" "}
-            {placeholder.toLowerCase()}.
-          </div>
-        )}
-        <Link
-          to="/news"
-          className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent"
-        >
-          View news and events <ArrowRight className="h-4 w-4" />
-        </Link>
-      </Section>
-    </>
-  );
+  const { data } = useDepartmentProfile();
+  return <>
+    <Seo title="Home" description="Meet the Department of Computer Applications at MSU-IIT. Find programs, people, news, directions, and help."/>
+    <section className="home-intro"><div className="container grid gap-10 py-12 md:grid-cols-[1.5fr_1fr] md:py-20">
+      <div><p className="mb-4 text-sm font-semibold text-secondary">WELCOME TO THE DEPARTMENT</p><h1 className="max-w-3xl text-4xl font-semibold leading-tight text-primary md:text-5xl">Computer Applications</h1><p className="mt-5 max-w-2xl text-lg leading-8">{data?.overview || `The Department of Computer Applications is part of the ${departmentIdentity.college} at MSU–Iligan Institute of Technology.`}</p><p className="mt-4 max-w-2xl text-muted-foreground">Find information about our degree programs, people, and work. You do not need a technical background to explore this website.</p><div className="mt-7 flex flex-wrap gap-3"><Link className="action-link" to="/programs">Explore our programs <ArrowRight size={18} aria-hidden="true"/></Link><Link className="outline-link" to="/about/contact">Ask a question</Link></div></div>
+      <aside className="self-center rounded-xl border border-border bg-white p-6"><h2 className="mb-4 text-lg font-semibold text-primary">Start here</h2><p className="mb-5 leading-7">Looking for a degree? We offer two programs:</p><ul className="space-y-5"><li><Link className="text-link font-semibold" to="/programs/bsca">Bachelor of Science in Computer Applications</Link><p className="mt-1 text-sm text-muted-foreground">Undergraduate program · BSCA</p></li><li><Link className="text-link font-semibold" to="/programs/msca">Master of Science in Computer Applications</Link><p className="mt-1 text-sm text-muted-foreground">Graduate program · MSCA</p></li></ul></aside>
+    </div></section>
+    <section className="container py-12 md:py-16" aria-labelledby="find-information"><h2 id="find-information" className="mb-3 text-2xl font-semibold text-primary">What would you like to know?</h2><p className="mb-8 text-muted-foreground">Choose a question to find the right information.</p><div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{questions.map(([title,description,href,number]) => <Link key={href} to={href} className="question-card"><span aria-hidden="true" className="mb-5 block text-sm font-semibold text-secondary">{number}</span><h3 className="mb-2 text-xl font-semibold text-primary">{title}</h3><p className="leading-7 text-muted-foreground">{description}</p><ArrowRight className="mt-5 text-secondary" size={20} aria-hidden="true"/></Link>)}</div></section>
+    <section className="border-t border-border bg-muted/30"><div className="container py-12 md:py-16"><div className="mb-8 flex flex-wrap items-center justify-between gap-4"><h2 className="text-2xl font-semibold text-primary">Latest news</h2><Link className="text-link" to="/news">All news and events</Link></div><NewsList limit={3}/></div></section>
+    <section className="container py-12"><h2 className="mb-3 text-2xl font-semibold text-primary">Not sure where to begin?</h2><p className="mb-5 max-w-2xl leading-7">Tell the department what you need help with: studying here, visiting, research, or a community project.</p><Link className="outline-link" to="/about/contact">Contact the department</Link></section>
+  </>;
 }

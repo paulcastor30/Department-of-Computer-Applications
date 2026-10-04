@@ -22,7 +22,7 @@ const routeLabels: Record<string, string> = {
   "student-research": "Student Research",
   collaborations: "Collaborations",
   metrics: "Metrics Dashboard",
-  extension: "Extension",
+  extension: "Community work",
   partnerships: "Partnerships",
   "tech-transfer": "Tech Transfer",
   "service-projects": "Service Projects",
@@ -45,7 +45,7 @@ const routeLabels: Record<string, string> = {
   aaccup: "AACCUP",
   ched: "CHED",
   "aun-qa": "AUN QA",
-  international: "International Linkages",
+  "international-linkages": "International Linkages",
   facilities: "Facilities",
   resources: "Resources",
   policies: "Policies",
@@ -62,14 +62,12 @@ export function Breadcrumbs() {
 
   return (
     <nav aria-label="Breadcrumb" className="bg-muted/50 border-b border-border">
-      <div className="w-full bg-primary h-32">
 
-      </div>
       <div className="container py-3 ">
         <ol className="flex items-center flex-wrap gap-1.5 text-sm">
           <li>
             <Link to="/" className="breadcrumb-link flex items-center gap-1 hover:text-primary">
-              <Home className="h-3.5 w-3.5" />
+              <Home aria-hidden="true" className="h-3.5 w-3.5" />
               <span className="sr-only sm:not-sr-only">Home</span>
             </Link>
           </li>
@@ -80,7 +78,7 @@ export function Breadcrumbs() {
 
             return (
               <li key={href} className="flex items-center gap-1.5">
-                <ChevronRight className="h-3.5 w-3.5 text-muted-foreground" />
+                <ChevronRight aria-hidden="true" className="h-3.5 w-3.5 text-muted-foreground" />
                 {isLast ? (
                   <span className="breadcrumb-current" aria-current="page">
                     {label}

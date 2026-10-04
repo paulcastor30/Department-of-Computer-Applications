@@ -14,12 +14,12 @@ const extensionSections = [
 export default function Extension() {
   return (
     <>
-      <Seo title="Extension and Community Engagement" description="Extension programs, community projects, partners, outputs, and impact documentation." />
+      <Seo title="Community work" description="Extension programs, community projects, partners, outputs, and impact documentation." />
 
       <Section>
-        <SectionHeader
-          title="Extension and Community Engagement"
-          subtitle="Extension information should be limited to documented programs, partner communities, implementation periods, project leaders, outputs, and impact evidence."
+        <SectionHeader as="h1"
+          title="Community work"
+          subtitle="Community work shares computing knowledge and tools beyond the classroom. Explore the available information below."
           align="left"
         />
         <div className="max-w-4xl rounded-md border border-border bg-muted/30 p-5 text-sm leading-6 text-muted-foreground">
@@ -29,7 +29,7 @@ export default function Extension() {
       </Section>
 
       <Section variant="muted">
-        <SectionHeader title="Extension Information" align="left" />
+        <SectionHeader title="Explore community work" align="left" />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {extensionSections.map(([title, href, description]) => (
             <Link key={href} to={href} className="rounded-md border border-border bg-background p-5 hover:border-secondary">

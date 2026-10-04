@@ -1,24 +1,11 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Seo } from "@/components/Seo";
+import { PageHero } from "@/components/ui/hero-section";
 
-const NotFound = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
-  }, [location.pathname]);
-
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-muted">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">404</h1>
-        <p className="mb-4 text-xl text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="text-primary underline hover:text-primary/90">
-          Return to Home
-        </a>
-      </div>
-    </div>
-  );
-};
-
-export default NotFound;
+export default function NotFound() {
+  return <><Seo title="Page not found" description="Find department information or contact us for help." />
+    <PageHero title="Page not found" subtitle="This link may have changed, or the page may no longer be available." />
+    <div className="container max-w-4xl py-12"><p className="mb-6">Use the menu or search to find a topic, or choose an option below.</p>
+      <div className="flex flex-wrap gap-4"><Link className="action-link" to="/">Go to the homepage</Link><Link className="action-link secondary" to="/about/contact">Contact the department</Link></div>
+    </div></>;
+}

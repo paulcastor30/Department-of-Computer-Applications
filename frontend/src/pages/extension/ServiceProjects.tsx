@@ -1,3 +1,2 @@
-import { PageHero } from "@/components/ui/hero-section";
-import { Section } from "@/components/ui/section";
-export default function ServiceProjects() { return (<><PageHero title="Service Projects" subtitle="Ongoing community service initiatives." /><Section><p className="text-center text-muted-foreground">[Service projects listing placeholder]</p></Section></>); }
+import { PublicInfoPage } from "@/components/PublicInfoPage";
+export default function Page() { return <PublicInfoPage title="Community projects" description="Find information about work with partner communities." information="Project descriptions, participating communities, dates, and contacts" links={[["Community work", "/extension"], ["News and events", "/news"]]}/>; }

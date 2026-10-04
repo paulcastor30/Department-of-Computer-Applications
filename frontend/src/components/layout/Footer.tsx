@@ -1,77 +1,13 @@
 import { Link } from "react-router-dom";
-import { Mail, MapPin, Phone } from "lucide-react";
-import { departmentIdentity, primaryNavigation } from "@/content/siteContent";
-import Logo from "@/assets/ccs-logo.png";
-
-const footerSections = [
-  {
-    title: "Department",
-    links: primaryNavigation.filter((item) => ["About", "Faculty", "Contact"].includes(item.label)),
-  },
-  {
-    title: "Academic Work",
-    links: primaryNavigation.filter((item) => ["Academic Programs", "Research", "Extension"].includes(item.label)),
-  },
-  {
-    title: "Institutional Information",
-    links: primaryNavigation.filter((item) => ["Facilities", "International Linkages", "Quality Assurance", "News and Events"].includes(item.label)),
-  },
-];
+import { departmentIdentity } from "@/content/siteContent";
+import { useSiteSettings } from "@/hooks/useCore";
 
 export function Footer() {
-  return (
-    <footer className="border-t border-border bg-primary text-primary-foreground">
-      <div className="h-1 bg-gradient-to-r from-accent via-secondary to-cyan-300" />
-      <div className="container grid gap-10 py-10 lg:grid-cols-[1.2fr_2fr]">
-        <div>
-          <Link to="/" className="mb-5 flex items-center gap-3">
-            <img src={Logo} alt="College of Computer Studies logo" className="h-14 w-14 object-contain" />
-            <div>
-              <div className="font-semibold">{departmentIdentity.name}</div>
-              <div className="text-sm opacity-80">{departmentIdentity.college}</div>
-              <div className="text-xs opacity-70">{departmentIdentity.institution}</div>
-            </div>
-          </Link>
-          <div className="space-y-3 text-sm opacity-90">
-            <a href={`mailto:${departmentIdentity.email}`} className="flex items-center gap-2 hover:text-secondary">
-              <Mail className="h-4 w-4" />
-              {departmentIdentity.email}
-            </a>
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4" />
-              {departmentIdentity.phone}
-            </div>
-            <div className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-              <span>{departmentIdentity.address}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid gap-8 sm:grid-cols-3">
-          {footerSections.map((section) => (
-            <div key={section.title}>
-              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-secondary">{section.title}</h2>
-              <ul className="space-y-2 text-sm">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <Link to={link.href} className="opacity-85 hover:text-secondary hover:opacity-100">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="border-t border-white/10">
-        <div className="container flex flex-col gap-2 py-4 text-xs opacity-80 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {departmentIdentity.name}. {departmentIdentity.institution}.</p>
-          <p>Official public information should be verified by the Department before publication.</p>
-        </div>
-      </div>
-    </footer>
-  );
+  const { data } = useSiteSettings();
+  const email = data?.primary_email || departmentIdentity.email;
+  return <footer className="border-t border-border bg-primary text-white"><div className="container grid gap-8 py-12 md:grid-cols-3">
+    <div><h2 className="mb-3 text-lg font-semibold">{departmentIdentity.name}</h2><p className="mb-4 text-sm leading-6">{departmentIdentity.college}<br/>{departmentIdentity.institution}</p><a href={`mailto:${email}`} className="inline-flex min-h-11 items-center break-all underline underline-offset-4">{email}</a></div>
+    <nav aria-label="Explore the department"><h2 className="mb-3 font-semibold">Explore</h2><ul className="grid gap-2">{[["Research", "/research"],["Community work", "/extension"],["Facilities", "/facilities"],["International partnerships", "/international-linkages"],["Quality assurance", "/accreditation"]].map(([label,href]) => <li key={href}><Link className="inline-flex min-h-11 items-center underline-offset-4 hover:underline" to={href}>{label}</Link></li>)}</ul></nav>
+    <nav aria-label="Get help"><h2 className="mb-3 font-semibold">Get help</h2><ul className="grid gap-2">{[["Contact & visiting information", "/about/contact"],["How to apply", "/admissions"],["Location & directions", "/about/location"],["Using this website", "/accessibility"]].map(([label,href]) => <li key={href}><Link className="inline-flex min-h-11 items-center underline-offset-4 hover:underline" to={href}>{label}</Link></li>)}</ul></nav>
+    </div><div className="border-t border-white/20"><div className="container py-5 text-sm">© {new Date().getFullYear()} {departmentIdentity.name}</div></div></footer>;
 }
