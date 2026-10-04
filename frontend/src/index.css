@@ -552,3 +552,8 @@ footer h2 { color: white; }
   .home-support { grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: center; }
 }
 @media (forced-colors: active) { .home-degree-link, .home-discovery-links a { border-color: ButtonText; } }
+
+.home-visit-address { max-width: 65ch; margin-top: 1rem; font-style: normal; white-space: pre-line; }
+.home-contact-details { display: grid; gap: .65rem; margin-top: 1rem; }
+.home-contact-details dt { font-weight: 600; }
+.home-contact-details dd a { display: inline-flex; align-items: center; min-height: 44px; }

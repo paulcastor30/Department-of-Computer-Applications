@@ -38,10 +38,10 @@ Automated checks do not establish full WCAG conformance. Testing with screen rea
 
 ## Official content still needed
 
-1. Replace the test department overview in Django admin with department-approved text. No separate university-approved department mission and vision are available; the user-supplied CCS statements are now displayed and explicitly attributed to the college.
-2. Populate site settings with current email, phone, campus office location, and confirmed contact details.
+1. The user-supplied BSCA deck now provides the basis for the introductory fallback copy. Replace the test department overview in Django admin with this reviewed text so it is maintained centrally. No separate university-approved department mission and vision are available; the user-supplied CCS statements are now displayed and explicitly attributed to the college.
+2. The owner supplied the department address, phone with local 4112, email, and Monday–Friday 8 AM–5 PM hours. Shared frontend reference details and Home/Contact/Location now show them; populate Django site settings to maintain the address, email, and phone centrally.
 3. Publish application steps, requirements, fees, deadlines, curriculum files, and advising information.
-4. Confirm opening hours and accessible routes, entrances, lifts, toilets, parking, and assistance arrangements.
+4. Regular office hours and the first-floor building location are now supplied. Confirm closure exceptions and accessible routes, entrances, toilets, parking, and assistance arrangements.
 5. Publish news and event announcements with actual dates, times, location, and participation instructions in readable text.
 6. Supply approved research and community examples, projects, partnerships, facilities, and accreditation records.
 7. Provide authentic photographs with permission and appropriate captions/alternative text.
@@ -67,6 +67,19 @@ Twenty frontend tests, the production build, TypeScript, and lint passed (the sa
 
 The homepage structure is suitable to retain as the final layout: identity and main actions, degree programs, department/people/work links, announcements, and visiting assistance. A black photograph placeholder replaces the duplicated large college logo in the opening, as requested by the owner. It is an interim design element, not finished public content. Use one approved photograph of actual department people, teaching, or activity with an appropriate caption and alternative text.
 
-The page is not yet content-complete: the approved department overview, accurate office location/hours and access arrangements, and current program/application information still require official content. No announcements is a valid empty state, but the available state currently indicates official information has yet to be supplied. Before declaring the public page final, verify the deployed links and seek task-based feedback from first-time visitors and people using assistive technology. Automated checks alone do not establish usability or full WCAG conformance.
+The page is not yet content-complete: the owner has now supplied an introduction source, office location, and regular hours. Access arrangements, current program/application information, and authentic imagery remain outstanding. No announcements is a valid empty state, but the available state currently indicates official information has yet to be supplied. Before declaring the public page final, verify the deployed links and seek task-based feedback from first-time visitors and people using assistive technology. Automated checks alone do not establish usability or full WCAG conformance.
 
 After the placeholder change, twenty tests, build, type check, and lint passed with the same two existing warnings. Browser checks at 1440 and 320 pixels found no automated accessibility violations or incomplete findings, no horizontal overflow at 320 pixels, and no runtime errors. These findings supplement the previously recorded backend-check limitation; no backend changes were needed.
+
+
+## Presentation-based introduction and contact details
+
+The owner supplied “BS of Computer Applications.pptx”, dated 12 August 2026, and requested it as the basis for the department introduction. Slides 5–6 describe Computer Applications as connecting computing with the physical world and describe BSCA as integrating software, firmware, and hardware for embedded, connected, and intelligent systems. Shared introductory fallback copy now explains the embedded/connected focus in ordinary language, defines firmware and embedded systems, and explicitly attributes BSCA-specific content to BSCA. This evidence was not generalized into unprovided MSCA outcomes. Accreditation and comparison claims were not added in this change. The original presentation was read without changes.
+
+The owner confirmed: 1st floor, College of Computer Studies, Mindanao State University-Iligan Institute of Technology, Andres Bonifacio Avenue, Tibanga, 9200 Iligan City, Philippines; +63 221 2002 local 4112; ccs.ca@g.msuiit.edu.ph; Monday–Friday, 8 AM–5 PM. The number is displayed as provided, with the extension separate in the shared source. No automatic dial sequence or extra digits were inferred. Hours are represented as the owner-supplied department schedule, not inferred from a universal government-university rule.
+
+Home shows the full office address, hours, email, and telephone. Contact and Location use matching fallback information, retaining Django site settings when populated. Department introductory content remains editable through the existing DepartmentProfile API, with this supplied copy used when the existing value is missing or known test text. No live database content was modified. A first-floor location is not treated as proof of step-free access.
+
+Remaining homepage content: the genuine photograph replacing the black box; current admissions steps, application dates and program details; selected verified project/community examples; office room and campus entry/access directions; closure exceptions; and usability feedback from first-time visitors and assistive-technology users. A BSCA presentation alone does not fully establish the department’s current research, extension, or MSCA scope.
+
+Verification: 20 tests, build, type check, and lint passed (two existing warnings). Home at 1440 and 320 pixels and About/Contact/Location at 320 pixels reported zero automated accessibility violations or incomplete findings. The supplied fallback text and contact data rendered against the public Railway backend; no browser runtime errors or horizontal overflow on the checked mobile Home/Contact views were found. Django check and tests could not run because Django is absent from the local Python environment. No models or migrations changed.

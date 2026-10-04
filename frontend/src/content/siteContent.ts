@@ -11,9 +11,11 @@ export const departmentIdentity = {
   name: "Department of Computer Applications",
   college: "College of Computer Studies",
   institution: "Mindanao State University – Iligan Institute of Technology",
-  address: "Andres Bonifacio Avenue, Iligan City, 9200 Philippines",
+  address: "1st floor, College of Computer Studies\nMindanao State University-Iligan Institute of Technology\nAndres Bonifacio Avenue, Tibanga, 9200 Iligan City, Philippines",
   email: "ccs.ca@g.msuiit.edu.ph",
-  phone: "To be provided by the Department",
+  phone: "+63 221 2002",
+  phoneExtension: "4112",
+  officeHours: "Monday to Friday, 8:00 AM–5:00 PM (Philippine time)",
 };
 
 export const placeholder = "To be provided by the Department";
@@ -74,7 +76,7 @@ export const missingOfficialContent = [
   "Verified extension projects with partner communities, project leaders, dates, outputs, and impact documentation.",
   "Official facilities inventory, laboratory names, equipment lists, and software resources.",
   "Active international linkages, mobility activities, visiting scholars, internships, and collaborations.",
-  "Official phone number, office hours, and inquiry-routing procedure.",
+  "Closure exceptions and enquiry-routing procedure.",
 ];
 
 export const searchPages = [

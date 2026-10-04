@@ -4,12 +4,18 @@ import { ArrowRight } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { useDepartmentProfile } from "@/hooks/useCore";
 import { usePrograms } from "@/hooks/useAcademics";
+import { departmentIntroduction } from "@/content/departmentIntroduction";
+import { useSiteSettings } from "@/hooks/useCore";
 import { departmentIdentity } from "@/content/siteContent";
 import { normalizePrograms } from "./programs/programData";
 import { NewsList } from "./News";
 
 export default function Index() {
   const { data } = useDepartmentProfile();
+  const { data: settings } = useSiteSettings();
+  const email = settings?.primary_email || departmentIdentity.email;
+  const address = settings?.address || departmentIdentity.address;
+  const phone = settings?.primary_phone || `${departmentIdentity.phone}, local ${departmentIdentity.phoneExtension}`;
   const { data: programData } = usePrograms();
   const programs = normalizePrograms(programData);
 
@@ -21,7 +27,7 @@ export default function Index() {
           <div className="home-welcome">
             <p className="home-eyebrow">{departmentIdentity.college} · MSU-IIT</p>
             <h1 id="home-title"><span className="home-title-prefix">Department of </span>Computer Applications</h1>
-            <p className="home-lead">Explore undergraduate and graduate study in Computer Applications at MSU–Iligan Institute of Technology.</p>
+            <p className="home-lead">{departmentIntroduction.lead}</p>
             <div className="home-intro-actions">
               <Link className="action-link" to="/programs">Explore programs <ArrowRight size={18} aria-hidden="true" /></Link>
               <Link className="outline-link" to="/about/contact">Contact us</Link>
@@ -57,7 +63,8 @@ export default function Index() {
         <div className="container home-content home-section home-about-layout">
           <div>
             <h2 id="home-about-title">Get to know the department</h2>
-            <p className="home-overview">{departmentProfileText(data?.overview) || `We are part of the ${departmentIdentity.college} at MSU–Iligan Institute of Technology.`}</p>
+            <p className="home-overview">{departmentProfileText(data?.overview) || departmentIntroduction.overview}</p>
+            <p className="home-overview">{departmentIntroduction.explanation}</p>
             <div className="home-about-links">
               <Link className="text-link" to="/about">About the department</Link>
               <Link className="text-link" to="/about#purpose">Our college’s vision and mission</Link>
@@ -85,7 +92,12 @@ export default function Index() {
         <div className="container home-content home-section home-support">
           <div>
             <h2 id="home-help-title">Visit or get in touch</h2>
-            <p>MSU–Iligan Institute of Technology<br />{departmentIdentity.address}</p>
+            <address className="home-visit-address">{address}</address>
+            <dl className="home-contact-details">
+              <div><dt>Office hours</dt><dd>{departmentIdentity.officeHours}</dd></div>
+              <div><dt>Email</dt><dd><a className="text-link" href={`mailto:${email}`}>{email}</a></dd></div>
+              <div><dt>Telephone</dt><dd>{phone}</dd></div>
+            </dl>
             <p>Ask us about studying, our work, or planning a visit. For access assistance or information in another format, tell us what you need.</p>
           </div>
           <nav className="home-support-actions" aria-label="Visiting and assistance">
