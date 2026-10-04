@@ -113,3 +113,8 @@ The owner clarified that the CCS entrance has stairs and an alternative ramp. Vi
 ## Supplied toilet and drop-off locations
 
 The owner confirmed a permitted drop-off point between CSM and CCS, with a ramp from there into CCS. The guide now describes that location and the entrance route. The owner also supplied the women’s toilet location on the first floor near the Dean’s Office after the ramp, and the men’s toilet on the second floor above the Dean’s Office. These appear under Toilet locations. Toilet accessibility features remain to be validated; no elevator-to-toilet route, fixture specification, or wheelchair suitability was inferred. The old message asking for toilet/drop-off locations was removed.
+
+
+## Toilet-location correction
+
+The owner clarified that after the entrance ramp, stairs lead to the men’s toilet on the second floor next to the Dean’s Office. That description replaces the earlier “above the first-floor Dean’s Office” wording. The women’s toilet remains described as first floor after the ramp; its earlier Dean’s Office landmark was removed to avoid contradictory directions. The described route to the men’s toilet uses stairs and is not represented as step-free. No elevator-to-toilet route has been confirmed.
