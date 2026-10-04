@@ -94,3 +94,12 @@ Home, Contact, and the website-help page link directly to /about/location#access
 The guidance is ready to use, but no physical-access claim was invented. Step-free routes, entrances, toilets, parking/drop-off, and office-room directions remain to be provided by the Department. A first-floor address does not establish a route without stairs. The earlier website-help reference to removed homepage question cards was corrected.
 
 Verification: all 20 existing frontend tests, production build, TypeScript, and lint passed with the same two pre-existing warnings. Browser review confirmed Home’s link opens #access and focuses that section, with the email directed to the supplied department address. Automated accessibility scans found zero violations/incomplete findings for Home at desktop/mobile width, and Location/Contact at mobile width; Location reflowed without horizontal overflow at 320 pixels. No browser runtime errors were observed. Django checks/tests still cannot run because Django is absent from the local Python environment. No backend or model changes were needed.
+
+
+## Approved final visiting wording
+
+The owner approved the final “Directions to the department and access assistance” text. It now replaces the longer visit-planning checklist on Location. It gives the complete department address, identifies ICTC on the second floor as a landmark, states weekday office hours and contacts, and asks visitors to confirm access arrangements before travelling. It does not rely on the uploaded map being present on the website and does not claim unverified step-free facilities.
+
+Home, Contact, and Using this website now label their direct #access link “Directions and access assistance.” Shared summary text matches the approved wording. Existing Django site settings remain authoritative when populated; otherwise the owner-supplied details render. The photograph placeholder and other deferred content are unchanged.
+
+All 20 tests, build, type checks, and lint passed (the same two existing warnings). Browser checks verified the final text, #access focus, and contact links against the public backend. Accessibility scans at 1280 and 320 pixels reported zero violations/incomplete findings; the 320-pixel view had no horizontal overflow or browser runtime errors. Backend checks/tests still cannot start because Django is absent locally. Changes are local and not deployed by this task.
