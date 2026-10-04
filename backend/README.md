@@ -14,7 +14,7 @@ The backend is responsible for:
 
 The backend uses Django 6.0.3 together with Django REST framework and `django-cors-headers`.【turn189303view0†L0-L0】【turn837861view2†L0-L2】
 
-The settings currently show domain apps under `apps.core`, `apps.academics`, `apps.people`, `apps.research`, `apps.extension`, `apps.communications`, and `apps.quality`, alongside a temporary `dca_app` compatibility layer during migration work.【turn837861view2†L1-L2】
+The settings currently show domain apps under `apps.core`, `apps.academics`, `apps.people`, `apps.research`, `apps.extension`, `apps.communications`, and `apps.quality`.【turn837861view2†L1-L2】
 
 ## Backend structure
 
@@ -31,7 +31,6 @@ backend/
 │   ├── communications/
 │   └── quality/
 ├── dca_site/
-├── dca_app/
 ├── manage.py
 └── db.sqlite3
 ```
@@ -144,7 +143,6 @@ These roles should be permission based, not superuser based.
 - add structured accreditation mapping support
 - implement custom publish permissions
 - improve search across models
-- refactor compatibility code out of `dca_app`
 - add CI checks for backend code quality
 
 ## Development expectations

@@ -72,7 +72,6 @@ INSTALLED_APPS = [
     "apps.research.apps.ResearchConfig",
     "apps.extension.apps.ExtensionConfig",
 
-    'dca_app',  #temporary, remove after migration
 
 ]
 

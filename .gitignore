@@ -3,3 +3,12 @@
 
 # macOS
 .DS_Store
+
+# Generated build outputs and package caches
+.pnpm-store/
+/frontend/dist/
+/backend/staticfiles/
+/backend/backend/staticfiles/
+
+# Temporary document extracts
+/tmp/
