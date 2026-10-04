@@ -32,3 +32,19 @@ it("preserves substantive CMS content ahead of the BSCA reference", () => {
   expect(program.academicAreas).toEqual(["Department-approved learning area"]);
   expect(program.outcomes).toEqual(["Updated official outcome"]);
 });
+
+
+it("makes the supplied prospectus available while CMS documents are still placeholders", () => {
+  const program = normalizeProgram({ code: "BSCA", documents: [
+    { title: "BSCA curriculum", document_type: "CURRICULUM", href: "", note: "To be provided by the Department." },
+  ] } as Program);
+  expect(program.documents.find(document => document.label.includes("prospectus"))?.href).toBe("/curricula/bsca-prospectus.pdf");
+});
+
+it("keeps a newer published CMS curriculum ahead of the supplied fallback prospectus", () => {
+  const program = normalizeProgram({ code: "MSCA", documents: [
+    { title: "Updated curriculum", document_type: "CURRICULUM", href: "/media/current.pdf", note: "Current department version" },
+  ] } as Program);
+  expect(program.documents).toHaveLength(1);
+  expect(program.documents[0].href).toBe("/media/current.pdf");
+});

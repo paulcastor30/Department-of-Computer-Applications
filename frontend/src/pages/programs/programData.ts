@@ -42,6 +42,7 @@ export type ProgramProfile = {
   ogTitle: string;
   ogDescription: string;
   canonicalUrl: string;
+  curriculumNotes: string[];
   isFallback: boolean;
 };
 
@@ -53,8 +54,8 @@ const bscaFallback: ProgramProfile = {
   title: "Bachelor of Science in Computer Applications",
   level: "Undergraduate",
   degreeLevelCode: "UNDERGRAD",
-  duration: placeholder,
-  units: placeholder,
+  duration: "Four-year study sequence shown in the supplied prospectus.",
+  units: "147 units excluding NSTP; 153 units including the six NSTP units.",
   recognition: "",
   summary: "Computer Applications bridges computing and the physical world. BSCA brings together software, firmware, and hardware to develop embedded, connected, and intelligent systems for real-world applications.",
   route: "/programs/bsca",
@@ -99,6 +100,7 @@ const bscaFallback: ProgramProfile = {
   advisingInformation: [placeholder],
   studentSupport: [placeholder],
   documents: [
+    { label: "BSCA prospectus (PDF, 5 pages)", href: "/curricula/bsca-prospectus.pdf", note: "Department-supplied prospectus. Confirm the study plan applicable to you before enrolling." },
     { label: "BSCA curriculum", note: placeholder },
     { label: "Undergraduate admission guide", note: placeholder },
     { label: "BSCA program brochure", note: placeholder },
@@ -114,6 +116,7 @@ const bscaFallback: ProgramProfile = {
   ogTitle: "Bachelor of Science in Computer Applications",
   ogDescription: "Undergraduate academic program information with official Department content to be provided.",
   canonicalUrl: "",
+  curriculumNotes: ["Based on the department-supplied BSCA prospectus, which cites BOR Resolution No. 129, Series of 2018. Confirm the applicable curriculum with the department before enrolling."],
   isFallback: true,
 };
 
@@ -123,20 +126,39 @@ const mscaFallback: ProgramProfile = {
   title: "Master of Science in Computer Applications",
   level: "Graduate",
   degreeLevelCode: "GRAD",
-  duration: placeholder,
-  units: placeholder,
+  duration: "Two-year study sequence shown in the supplied prospectus.",
+  units: "31 units for the non-scholar plan; 34 for the ERDT scholarship plan; 43 for the plan with bridging courses. Confirm your applicable plan with the department.",
   recognition: "",
-  summary: placeholder,
+  summary: "MSCA advances the study of Computer Applications through specialized study and research in embedded and connected systems. It builds on software, firmware, and hardware foundations to address real-world computing problems.",
   route: "/programs/msca",
-  academicOrientation: placeholder,
+  academicOrientation: "Advanced study and research in embedded and connected systems",
   intendedLearners: placeholder,
   culminatingRequirement: "Master’s Thesis or Graduate Thesis",
-  academicFocus: [placeholder],
+  academicFocus: [
+    "Advanced embedded systems: computing built into devices, including how software and hardware work together.",
+    "Internet of Things (IoT): connected devices, their networks, and device security.",
+    "Machine learning and computer vision: methods that help systems learn from data and interpret images.",
+    "Cloud computing and IoT data analytics: services and methods for managing and analyzing data from connected systems."
+  ],
   goals: [placeholder],
   peos: [],
-  outcomes: [placeholder],
-  academicAreas: [placeholder],
-  curriculumStructure: [placeholder],
+  outcomes: [
+    "Demonstrate mastery of advanced knowledge in Computer Applications to solve complex computing problems and apply relevant approaches, resources, and emerging technologies.",
+    "Apply practical skills, ideas, and related technologies to new problems and societal issues in Computer Applications.",
+    "Conduct research, collaborate, and communicate results in written work and presentations."
+  ],
+  academicAreas: [
+    "Advanced embedded systems: computing built into devices, including how software and hardware work together.",
+    "Internet of Things (IoT): connected devices, their networks, and device security.",
+    "Machine learning and computer vision: methods that help systems learn from data and interpret images.",
+    "Cloud computing and IoT data analytics: services and methods for managing and analyzing data from connected systems."
+  ],
+  curriculumStructure: [
+    "Core study: advanced computer organization, advanced operating systems, research methods, and system development with emerging technologies.",
+    "Specialized study: subjects selected in relation to the student\u2019s research interests, including embedded systems and IoT.",
+    "Research preparation: systematic review and a research seminar in ICT.",
+    "Independent research: the Master\u2019s Thesis."
+  ],
   thesisInformation: [
     "The culminating academic requirement is the Master’s Thesis or Graduate Thesis.",
     "Official thesis procedures, advising arrangements, and assessment documentation are To be provided by the Department.",
@@ -144,6 +166,7 @@ const mscaFallback: ProgramProfile = {
   advisingInformation: [placeholder],
   studentSupport: [placeholder],
   documents: [
+    { label: "MSCA prospectus (PDF, 4 pages)", href: "/curricula/msca-prospectus.pdf", note: "Department-supplied prospectus. Confirm the study plan applicable to you before enrolling." },
     { label: "MSCA curriculum", note: placeholder },
     { label: "Graduate admission guide", note: placeholder },
     { label: "MSCA program brochure", note: placeholder },
@@ -159,6 +182,7 @@ const mscaFallback: ProgramProfile = {
   ogTitle: "Master of Science in Computer Applications",
   ogDescription: "Graduate academic program information with official Department content to be provided.",
   canonicalUrl: "",
+  curriculumNotes: ["Based on the department-supplied MSCA prospectus, which cites BOR Resolution No. 128, Series of 2023. It shows separate non-scholar, ERDT scholarship, and bridging study plans. Confirm your applicable plan with the department before enrolling."],
   isFallback: true,
 };
 
@@ -192,7 +216,7 @@ function documentsFor(program: Program | undefined, fallback: ProgramProfile): P
     .map((document) => ({
       label: document.title,
       href: document.href || undefined,
-      note: document.href ? undefined : document.note || placeholder,
+      note: hasProgramContent(document.note) ? document.note : (document.href ? undefined : placeholder),
     })) || [];
 
   if (program?.curriculum_pdf_url && !programDocuments.some((document) => document.label.toLowerCase().includes("curriculum") && document.href)) {
@@ -202,6 +226,12 @@ function documentsFor(program: Program | undefined, fallback: ProgramProfile): P
     });
   }
 
+  const hasCurriculum = Boolean(program?.curriculum_pdf_url) || program?.documents?.some(document =>
+    document.href && (document.document_type === "CURRICULUM" || /curriculum|prospectus/i.test(document.title)));
+  if (!hasCurriculum) {
+    const prospectus = fallback.documents.find(document => document.href && document.label.includes("prospectus"));
+    if (prospectus) programDocuments.unshift(prospectus);
+  }
   return programDocuments.length ? programDocuments : fallback.documents;
 }
 
@@ -239,7 +269,8 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
     peos: lines(program.program_educational_objectives_list, base.peos),
     outcomes: lines(program.outcomes_list, base.outcomes),
     academicAreas,
-    curriculumStructure: lines(program.curriculum_structure_list, lines(program.curriculum_evidence_list, base.curriculumStructure)),
+    curriculumStructure: lines(program.curriculum_structure_list, base.curriculumStructure),
+    curriculumNotes: lines(program.curriculum_evidence_list, base.curriculumNotes),
     thesisInformation,
     advisingInformation: lines(program.progression_requirements_list, base.advisingInformation),
     studentSupport: lines(program.student_support_list, base.studentSupport),

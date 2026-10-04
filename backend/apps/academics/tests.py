@@ -33,3 +33,51 @@ class BSCAReferenceContentTests(TransactionTestCase):
         program.refresh_from_db()
         self.assertEqual(program.overview, "Official MSCA text")
         self.assertEqual(program.academic_areas, "")
+
+
+    def test_msca_introduction_fills_placeholder_and_preserves_editor_description(self):
+        program = Program.objects.create(code="MSCA", title="MSCA", slug="msca",
+            overview="To be provided by the Department.", formal_description="Department-edited MSCA text",
+            admission_requirements="Official entry rules", is_published=False)
+        migration = import_module("apps.academics.migrations.0008_msca_introduction")
+        with connection.schema_editor() as editor:
+            migration.add_msca_introduction(apps, editor)
+        program.refresh_from_db()
+        self.assertEqual(program.overview, migration.INTRODUCTION)
+        self.assertEqual(program.formal_description, "Department-edited MSCA text")
+        self.assertEqual(program.admission_requirements, "Official entry rules")
+        self.assertFalse(program.is_published)
+
+
+    def test_curriculum_reference_preserves_editor_content_and_adds_no_downloads(self):
+        program = Program.objects.create(code="MSCA", title="MSCA", slug="msca",
+            overview="MSCA offers advanced study in Computer Applications, building on the software, firmware, and hardware foundations introduced in BSCA. Computer Applications bridges computing and the physical world.",
+            formal_description="Official editor description", outcomes="Official outcomes", duration="Approved duration")
+        migration = import_module("apps.academics.migrations.0009_curriculum_reference_content")
+        with connection.schema_editor() as editor:
+            migration.add_curriculum_reference(apps, editor)
+        program.refresh_from_db()
+        self.assertIn("specialized study and research", program.overview)
+        self.assertEqual(program.formal_description, "Official editor description")
+        self.assertEqual(program.outcomes, "Official outcomes")
+        self.assertEqual(program.duration, "Approved duration")
+        self.assertIn("Advanced embedded systems", program.academic_areas)
+        self.assertIn("To be validated", program.curriculum_evidence)
+        self.assertFalse(program.documents.exists())
+
+
+    def test_prospectuses_replace_old_reference_fields_and_preserve_editor_values(self):
+        previous = import_module("apps.academics.migrations.0009_curriculum_reference_content")
+        program = Program.objects.create(code="BSCA", title="BSCA", slug="bsca", overview="Official introduction",
+            duration="Editor-confirmed duration", curriculum_load=previous.REFERENCE_FIELDS["BSCA"]["curriculum_load"],
+            curriculum_evidence=previous.REFERENCE_FIELDS["BSCA"]["curriculum_evidence"])
+        migration = import_module("apps.academics.migrations.0010_department_prospectuses")
+        with connection.schema_editor() as editor:
+            migration.use_prospectuses(apps, editor)
+            migration.use_prospectuses(apps, editor)
+        program.refresh_from_db()
+        self.assertEqual(program.duration, "Editor-confirmed duration")
+        self.assertIn("147 units", program.curriculum_load)
+        self.assertIn("BOR Resolution No. 129", program.curriculum_evidence)
+        self.assertEqual(program.documents.count(), 1)
+        self.assertTrue(program.documents.get().url.endswith("/curricula/bsca-prospectus.pdf"))

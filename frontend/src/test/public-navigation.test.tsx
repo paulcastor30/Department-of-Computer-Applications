@@ -153,11 +153,15 @@ it('explains BSCA learning areas and keeps detailed outcomes accessible', async 
   expect((await main.findByRole('link', { name: 'Email about BSCA' })).getAttribute('href')).toContain('subject=BSCA%20program%20enquiry');
 });
 
-it('keeps missing MSCA details explicit without inventing areas or outcomes', () => {
+it('explains curriculum-supported MSCA study and flags current requirements for validation', () => {
   window.history.replaceState({}, '', '/programs/msca');
   render(<App />);
   const main = within(screen.getByRole('main'));
-  expect(main.queryByRole('heading', { name: 'What you will study' })).not.toBeInTheDocument();
+  expect(main.getByRole('heading', { name: 'What you will study' })).toBeInTheDocument();
+  expect(main.getByText(/Advanced embedded systems: computing/)).toBeInTheDocument();
+  expect(main.getByText(/BOR Resolution No. 128/i)).toBeInTheDocument();
+  expect(main.getByText(/31 units for the non-scholar plan/)).toBeInTheDocument();
+  expect(main.getByRole('link', { name: 'Open MSCA prospectus (PDF, 4 pages)' })).toHaveAttribute('href', '/curricula/msca-prospectus.pdf');
   expect(main.getByRole('heading', { name: 'Before applying' })).toBeInTheDocument();
-  expect(main.getByText(/Detailed program introduction: To be provided/)).toBeInTheDocument();
+  expect(main.getByText(/MSCA advances the study of Computer Applications/)).toBeInTheDocument();
 });

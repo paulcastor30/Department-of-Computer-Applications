@@ -55,7 +55,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
           {hasProgramContent(program.intendedLearners) && <p className="mt-4 leading-7 text-muted-foreground">{program.intendedLearners}</p>}
         </div>
         <dl className="space-y-5 rounded-md border border-border bg-muted/30 p-6">
-          {[["Degree level", program.level], ["Program abbreviation", program.code], ["Thesis requirement", program.culminatingRequirement]].map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 leading-7 text-muted-foreground">{value}</dd></div>)}
+          {[["Degree level", program.degreeLevelCode === "UNDERGRAD" ? "Bachelor’s degree (undergraduate)" : "Master’s degree (graduate)"], ["Program abbreviation", program.code], ["Thesis requirement", program.culminatingRequirement]].map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 leading-7 text-muted-foreground">{value}</dd></div>)}
         </dl>
       </div>
       <nav aria-label={`${program.code} page sections`} className="mt-8 flex flex-wrap gap-3">
@@ -65,7 +65,8 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
       </nav>
     </Section>
     {(areas.length > 0 || structure.length > 0) && <Section id="study" variant="muted">
-      <SectionHeader title="What you will study" subtitle="An introduction to the learning areas. Refer to the official curriculum for courses and requirements." />
+      <SectionHeader title="What you will study" subtitle="An introduction to the learning areas and study sequence in Computer Applications." />
+      <div className="mb-8 max-w-3xl space-y-3 text-sm leading-6 text-muted-foreground">{program.curriculumNotes.map(note => <p key={note}>{note}</p>)}</div>
       <div className="grid gap-10 lg:grid-cols-2">
         <ListPanel title={areasTitle} items={areas} nested />
         <ListPanel title="How the learning develops" items={structure} nested />
@@ -74,7 +75,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
     {(outcomes.length > 0 || extraPanels.length > 0) && <Section>
       {outcomes.length > 0 && <details className="max-w-4xl rounded-md border border-border p-5">
         <summary className="min-h-11 cursor-pointer text-xl font-semibold text-primary">{outcomesTitle}</summary>
-        <p className="mb-5 mt-3 text-sm text-muted-foreground">The abilities students are expected to develop through this degree.</p>
+        <p className="mb-5 mt-3 text-sm text-muted-foreground">A summary of the learning outcomes described in the supplied program materials.</p>
         <ol className="list-decimal space-y-4 pl-6 leading-7 text-muted-foreground">{outcomes.map(item => <li key={item}>{item}</li>)}</ol>
       </details>}
       {extraPanels.length > 0 && <div className="mt-8 grid gap-10 lg:grid-cols-2">{extraPanels.map(panel => <ListPanel key={panel.title} {...panel} />)}</div>}
@@ -86,7 +87,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
           <h3 className="mb-3 text-xl font-semibold text-primary">{thesisTitle}</h3>
           <ul className="space-y-3 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).map(item => <li key={item}>{item}</li>)}</ul>
           <dl className="mt-6 space-y-4">
-            {[["Duration", program.duration], ["Required units", program.units]].map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 text-muted-foreground">{value || placeholder}</dd></div>)}
+            {[["Duration", program.duration], ["Units in the prospectus", program.units]].map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 text-muted-foreground">{value || placeholder}</dd></div>)}
           </dl>
         </section>
         <section>
@@ -99,7 +100,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
       <section className="mt-10 border-t border-border pt-8">
         <h3 className="mb-4 text-xl font-semibold text-primary">Curriculum and documents</h3>
         {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.label}-${document.href}`}>
-          {document.href ? <a className="outline-link" href={document.href}>Open {document.label}</a> : <p className="leading-7"><strong>{document.label}:</strong> {document.note}</p>}
+          {document.href ? <><a className="outline-link" href={document.href}>Open {document.label}</a>{hasProgramContent(document.note) && <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">{document.note}</p>}</> : <p className="leading-7"><strong>{document.label}:</strong> {document.note}</p>}
         </li>)}</ul> : <p className="leading-7 text-muted-foreground">Official curriculum and program guides: {placeholder}</p>}
       </section>
     </Section>
