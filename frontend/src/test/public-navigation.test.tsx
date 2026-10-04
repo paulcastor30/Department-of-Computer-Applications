@@ -79,7 +79,7 @@ it('takes the college vision link directly to the purpose section', async () => 
 it('gives the public a help route as well as an application route on Home', () => {
   render(<App />);
   expect(screen.getByRole('link', { name: 'Contact us' })).toHaveAttribute('href', '/about/contact');
-  expect(screen.getByRole('link', { name: 'Location and directions' })).toHaveAttribute('href', '/about/location');
+  expect(screen.getByRole('link', { name: 'Directions and access assistance' })).toHaveAttribute('href', '/about/location#access');
   expect(within(screen.getByRole('region', { name: 'Study with us' })).getByRole('link', { name: 'How to apply' })).toHaveAttribute('href', '/admissions');
   expect(screen.getByRole('link', { name: 'Help using this website' })).toHaveAttribute('href', '/accessibility');
   const people = screen.getByRole('navigation', { name: 'People and work' });

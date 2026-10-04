@@ -103,3 +103,8 @@ The owner approved the final “Directions to the department and access assistan
 Home, Contact, and Using this website now label their direct #access link “Directions and access assistance.” Shared summary text matches the approved wording. Existing Django site settings remain authoritative when populated; otherwise the owner-supplied details render. The photograph placeholder and other deferred content are unchanged.
 
 All 20 tests, build, type checks, and lint passed (the same two existing warnings). Browser checks verified the final text, #access focus, and contact links against the public backend. Accessibility scans at 1280 and 320 pixels reported zero violations/incomplete findings; the 320-pixel view had no horizontal overflow or browser runtime errors. Backend checks/tests still cannot start because Django is absent locally. Changes are local and not deployed by this task.
+
+
+## Confirmed building entrance-to-office route
+
+The owner clarified that the CCS entrance has stairs and an alternative ramp. Visitors can use the ramp to enter the first floor and continue to the Department of Computer Applications office without using stairs. The shared visiting summary now describes that entrance-to-office route, appearing on Home, Contact, and Location. The general statement that step-free access remains unconfirmed has been replaced. The ramp’s position relative to the stairs, dimensions, accessible toilets, and drop-off locations were not inferred. Toilet and suitable drop-off locations remain to be provided by the Department. This confirms the described building route, not compliance with an accessibility standard or a detailed route from a named campus gate.

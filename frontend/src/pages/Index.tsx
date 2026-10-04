@@ -102,7 +102,6 @@ export default function Index() {
           </div>
           <nav className="home-support-actions" aria-label="Visiting and assistance">
             <Link className="action-link" to="/about/contact">Contact the department</Link>
-            <Link className="text-link" to="/about/location">Location and directions</Link>
             <Link className="text-link" to="/about/location#access">Directions and access assistance</Link>
             <Link className="text-link" to="/accessibility">Help using this website</Link>
           </nav>
