@@ -9,6 +9,7 @@ import { departmentIntroduction } from "@/content/departmentIntroduction";
 import { departmentIdentity } from "@/content/siteContent";
 import { normalizePrograms } from "./programs/programData";
 import { NewsList } from "./News";
+import departmentBanner from "@/assets/department-home-web.png";
 
 export default function Index() {
   const { data } = useDepartmentProfile();
@@ -33,10 +34,9 @@ export default function Index() {
               <Link className="outline-link" to="/about/contact">Contact us</Link>
             </div>
           </div>
-          <figure className="home-photo">
-            <div className="home-photo-placeholder" aria-hidden="true" />
-            <figcaption>Department photograph to be added</figcaption>
-          </figure>
+          <div className="home-visual">
+            <img src={departmentBanner} alt="" width="1600" height="603" decoding="async" />
+          </div>
         </div>
       </section>
 

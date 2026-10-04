@@ -118,3 +118,8 @@ The owner confirmed a permitted drop-off point between CSM and CCS, with a ramp 
 ## Toilet-location correction
 
 The owner clarified that after the entrance ramp, stairs lead to the men’s toilet on the second floor next to the Dean’s Office. That description replaces the earlier “above the first-floor Dean’s Office” wording. The women’s toilet remains described as first floor after the ramp; its earlier Dean’s Office landmark was removed to avoid contradictory directions. The described route to the men’s toilet uses stairs and is not represented as step-free. No elevator-to-toilet route has been confirmed.
+
+
+## Owner-supplied homepage banner
+
+The owner supplied department-home.png (11938 × 4500 pixels, about 10 MB). It is a wide institutional graphic with the college/university logos, department name, and email, rather than a photograph. It now replaces the homepage black box and placeholder caption. The graphic is shown at its natural aspect ratio without cropping text or logos. Its text is duplicated by the accessible HTML department identity and contact details, so the image has empty alternative text to avoid repetition. A 1600-pixel web copy is used for delivery; the original remains unchanged.
