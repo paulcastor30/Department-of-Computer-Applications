@@ -13,11 +13,11 @@ export default function Projects() {
   const kinds = [...new Map(data.map(project => [project.kind, project.kind_display])).entries()].sort((a, b) => a[1].localeCompare(b[1]));
   const records = data.filter(project => (year === "all" || String(project.reporting_year) === year) && (kind === "all" || project.kind === kind));
   return <>
-    <Seo title="Projects and prototypes" description="Explore embedded games, sensors, displays and controllers from the department project showcase, with reporting years and public Hackster project links." />
-    <PageHero title="Projects and prototypes" subtitle="See how software, firmware and hardware come together in practical computing projects." />
+    <Seo title="BSCA student projects and prototypes" description="Explore BSCA student outputs: embedded games, sensors, displays and controllers, with reporting years and public Hackster project links." />
+    <PageHero title="BSCA student projects and prototypes" subtitle="See how Bachelor of Science in Computer Applications (BSCA) students bring software, firmware and hardware together." />
     <Section>
       <Link className="text-link inline-flex min-h-11 items-center" to="/our-work">What we do</Link>
-      <SectionHeader title="Explore the project showcase" subtitle="Browse the department-supplied project collection. Each entry links to its documentation and creator credits on Hackster." className="mb-5 mt-6" />
+      <SectionHeader title="Explore the project showcase" subtitle="These projects and prototypes are BSCA student outputs, as confirmed by the department. Each entry links to its documentation and creator credits on Hackster." className="mb-5 mt-6" />
       <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Years are department reporting years. These examples showcase project design and implementation; they are listed separately from research publications.</p>
       {isLoading ? <p role="status">Loading projects…</p> : isError ? <p role="status">Projects could not be loaded. <Link className="text-link" to="/about/contact">Ask the department about project examples.</Link></p> : !data.length ? <p>No projects are currently listed.</p> : <>
         <div className="grid max-w-xl gap-4 sm:grid-cols-2">

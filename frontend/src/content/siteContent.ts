@@ -80,7 +80,7 @@ export const missingOfficialContent = [
 ];
 
 const allSearchPages = [
-  { title: "Projects and prototypes", keywords: ["projects", "prototypes", "creative works", "games", "hardware", "firmware", "Hackster"], href: "/projects" },
+  { title: "BSCA student projects and prototypes", keywords: ["BSCA", "student outputs", "student projects", "projects", "prototypes", "creative works", "games", "hardware", "firmware", "Hackster"], href: "/projects" },
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
   { title: "Advising and learning support", keywords: ["learning support", "disability assistance", "disability-related assistance", "disability support", "academic accommodations", "accessible learning", "PWD", "advising", "study plan"], href: "/resources#learning-support" },
   { title: "Thesis forms and preparation guidance", keywords: ["thesis forms", "thesis checklist", "proposal", "defense", "manuscript", "submission", "graduation forms"], href: "/resources#student-forms" },
