@@ -3,6 +3,7 @@ import type { Program } from "@/types/api";
 export const placeholder = "To be provided by the Department.";
 
 export type ProgramDocumentLink = {
+  documentType?: string;
   formGroup?: string;
   label: string;
   href?: string;
@@ -206,7 +207,8 @@ const mscaFallback: ProgramProfile = {
     { label: "Graduate admission guide", note: placeholder },
     { label: "MSCA program brochure", note: placeholder },
     { label: "Revised university graduate publication policy (June 2026)", href: "https://msuiit.edu.ph/news/news-detail.php?id=2496", note: "Confirm the graduate track and required evidence with your coordinator." },
-    { label: "Graduate handbook or thesis guide", note: placeholder },
+    { label: "CCS graduate thesis guide and forms", documentType: "HANDBOOK", href: "https://sites.google.com/g.msuiit.edu.ph/ccsg/resources", note: "College resources for the Graduate Framework, Thesis Guide and graduate forms. Follow college guidance for the applicable procedure and form version." },
+    { label: "CCS graduate coordinator and contact details", documentType: "CONTACT", href: "https://sites.google.com/g.msuiit.edu.ph/ccsg/contact" },
   ],
   admissions: ['MSCA applicants should follow the College of Computer Studies graduate application and admission procedures. Review the official guide for eligibility, required documents, program acceptance, university admission and enrolment steps.'],
   admissionsUrl: "https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission",
@@ -214,7 +216,7 @@ const mscaFallback: ProgramProfile = {
   progression: [placeholder],
   pathways: [placeholder],
   historicalNotes: [],
-  contactInformation: placeholder,
+  contactInformation: "CCS Graduate Program Coordinator\nOffice of the Dean, College of Computer Studies, MSU-IIT\nccs.gs@g.msuiit.edu.ph",
   seoTitle: "Master of Science in Computer Applications",
   seoDescription: "Formal graduate program information for the Master of Science in Computer Applications.",
   ogTitle: "Master of Science in Computer Applications",
@@ -265,6 +267,7 @@ function documentsFor(program: Program | undefined, fallback: ProgramProfile): P
     ?.filter((document) => document.title)
     .map((document) => ({
       label: document.title,
+      documentType: document.document_type,
       formGroup: document.form_group || undefined,
       href: document.href || undefined,
       note: hasProgramContent(document.note) ? document.note : (document.href ? undefined : placeholder),

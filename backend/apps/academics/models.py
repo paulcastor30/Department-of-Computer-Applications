@@ -62,6 +62,7 @@ class ProgramDocument(TimeStampedModel):
         ("ADMISSION", "Admission guide"),
         ("BROCHURE", "Program brochure"),
         ("HANDBOOK", "Student handbook or advising guide"),
+        ("CONTACT", "Program contact"),
         ("OTHER", "Other"),
     ]
 

@@ -2,18 +2,22 @@ import { Link } from "react-router-dom";
 import { departmentIdentity } from "@/content/siteContent";
 import { useSiteSettings } from "@/hooks/useCore";
 
-export function ProgramInquiry({ code, compact = false }: { code?: string; compact?: boolean }) {
+export function ProgramInquiry({ code, compact = false, contactInformation }: { code?: string; compact?: boolean; contactInformation?: string }) {
   const { data } = useSiteSettings();
-  const email = data?.primary_email || departmentIdentity.email;
+  const graduateEmail = contactInformation?.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i)?.[0];
+  const email = graduateEmail || data?.primary_email || departmentIdentity.email;
   const subject = code ? `${code} program enquiry` : "Academic program enquiry";
   const supportSubject = `${code || "Program"} learning-support enquiry`;
   if (compact) return <div className="max-w-3xl space-y-4">
-    <p className="leading-7">Not sure which degree fits your interests? Ask the department about programs, applications or learning support.</p>
+    {graduateEmail ? <>
+      <p className="leading-7">For questions about {code} applications, enrolment, study plans or thesis procedures, contact the graduate coordinator.</p>
+      <p className="whitespace-pre-line leading-7">{contactInformation}</p>
+    </> : <p className="leading-7">Not sure which degree fits your interests? Ask the department about programs, applications or learning support.</p>}
     <div className="flex flex-wrap items-center gap-5">
       <a className="action-link" href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}>Email about {code || "our programs"}</a>
       <Link className="text-link inline-flex min-h-11 items-center" to="/resources#learning-support">Advising and learning support</Link>
     </div>
-    <p className="break-all text-sm text-muted-foreground">Email opens your email app. You can also copy this address: {email}</p>
+    <p className="break-words text-sm text-muted-foreground">Email opens your email app. You can also copy this address: {email}</p>
   </div>;
   return <div className="max-w-3xl space-y-5">
     <p className="leading-7">Ask about the curriculum, entry requirements, fees, application dates, or support you may need. Include {code ? `“${code}”` : "the program name"} and your question in your email.</p>
@@ -34,6 +38,6 @@ export function ProgramInquiry({ code, compact = false }: { code?: string; compa
       <a className="action-link" href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}>Email about {code || "our programs"}</a>
       <Link className="outline-link" to="/about/contact">Campus directions and physical access</Link>
     </div>
-    <p className="break-all text-sm text-muted-foreground">Email opens your email app. You can also copy this address: {email}</p>
+    <p className="break-words text-sm text-muted-foreground">Email opens your email app. You can also copy this address: {email}</p>
   </div>;
 }

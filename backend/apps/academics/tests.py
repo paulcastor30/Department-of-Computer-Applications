@@ -224,3 +224,27 @@ class BSCAReferenceContentTests(TransactionTestCase):
         published = next(item for item in response.json() if item["code"] == "BSCA")["documents"]
         self.assertEqual(len(published), 9)
         self.assertTrue(all(item["form_group"] for item in published))
+
+    def test_graduate_references_preserve_edits_and_do_not_affect_bsca(self):
+        migration = import_module("apps.academics.migrations.0021_msca_graduate_references")
+        bsca = Program.objects.create(code="BSCA", title="BSCA", slug="bsca")
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca")
+        with connection.schema_editor() as editor:
+            migration.add_graduate_references(apps, editor)
+        msca.refresh_from_db()
+        self.assertIn("ccs.gs@g.msuiit.edu.ph", msca.contact_information)
+        self.assertEqual(bsca.documents.count(), 0)
+        guide = msca.documents.get(url=migration.RESOURCE_URL)
+        guide.note = "College-reviewed instructions"
+        guide.is_public = False
+        guide.save()
+        msca.contact_information = "Updated coordinator contact"
+        msca.save()
+        with connection.schema_editor() as editor:
+            migration.add_graduate_references(apps, editor)
+        guide.refresh_from_db()
+        msca.refresh_from_db()
+        self.assertEqual(msca.documents.count(), 2)
+        self.assertEqual(guide.note, "College-reviewed instructions")
+        self.assertFalse(guide.is_public)
+        self.assertEqual(msca.contact_information, "Updated coordinator contact")

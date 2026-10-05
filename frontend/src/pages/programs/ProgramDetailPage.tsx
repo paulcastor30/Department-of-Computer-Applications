@@ -36,7 +36,9 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
   const areas = availableProgramItems(program.academicAreas);
   const structure = availableProgramItems(program.curriculumStructure);
   const outcomes = availableProgramItems(program.outcomes);
-  const documents = program.documents.filter(document => !document.formGroup && (document.href || hasProgramContent(document.note)));
+  const guides = program.documents.filter(document => !document.formGroup && document.documentType === "HANDBOOK" && document.href);
+  const contacts = program.documents.filter(document => !document.formGroup && document.documentType === "CONTACT" && document.href);
+  const documents = program.documents.filter(document => !document.formGroup && !["HANDBOOK", "CONTACT"].includes(document.documentType || "") && (document.href || hasProgramContent(document.note)));
   const extraPanels = [
     { title: goalsTitle, items: program.goals },
     { title: "Program educational objectives", items: program.peos },
@@ -125,6 +127,13 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
     <Section id="current-students">
       <SectionHeader title="For current students" subtitle="Thesis preparation and submission guidance for enrolled students." className="mb-6" />
       <h3 className="mb-3 text-xl font-semibold text-primary">{thesisTitle}</h3>
+      {guides.length > 0 && <div className="mb-6 max-w-4xl space-y-3">
+        {guides.map(guide => <div key={guide.href}>
+          <a className="action-link" href={guide.href}>View {guide.label}</a>
+          {hasProgramContent(guide.note) && <p className="mt-3 leading-7 text-muted-foreground">{guide.note}</p>}
+        </div>)}
+        <p className="leading-7 text-muted-foreground">Use the official guide for detailed procedures. The checklist below is a summary; confirm the form version and submission requirements with your adviser or coordinator.</p>
+      </div>}
       {availableProgramItems(program.thesisInformation).length > 1 && <details className="max-w-4xl rounded-md border border-border p-5">
         <summary className="min-h-11 cursor-pointer font-semibold text-primary">Thesis procedure checklist</summary>
         <ul className="mt-4 space-y-5 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).slice(1).map(item => <li key={item}>{item}</li>)}</ul>
@@ -134,7 +143,8 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
     </Section>
     <Section id="program-inquiries">
       <SectionHeader title={`Questions about ${program.code}?`} />
-      <ProgramInquiry code={program.code} compact />
+      <ProgramInquiry code={program.code} compact contactInformation={program.degreeLevelCode === "GRAD" ? program.contactInformation : undefined} />
+      {contacts.map(contact => <a key={contact.href} className="text-link mt-4 inline-flex min-h-11 items-center" href={contact.href}>View {contact.label}</a>)}
       {reviewedLabel && <p className="mt-8 text-sm text-muted-foreground">Website summary reviewed: <time dateTime={program.reviewedOn}>{reviewedLabel}</time>. This date records a website content review.</p>}
     </Section>
   </>;

@@ -20,3 +20,7 @@ The initial public routes are Home, About/college purpose, Programs, Faculty, Re
 5. A person responsible for updates and a practical review schedule. These have not been assigned by the website changes.
 
 No research output, support service, staff appointment or announcement should be invented to fill an empty section.
+
+## MSCA college references
+
+MSCA links the CCS graduate application/admission guide, the college Resources page (Graduate Framework, Thesis Guide and forms), and the graduate coordinator Contact page. These are editable Program documents; HANDBOOK links appear beside thesis guidance and CONTACT links beside program enquiries. The confirmed coordinator email is stored in MSCA contact information and used for its enquiry button. Learning-support enquiries retain the department route; this graduate contact does not establish accommodation services. Keep local blank forms available, but use college guidance to identify the applicable version and procedure.
