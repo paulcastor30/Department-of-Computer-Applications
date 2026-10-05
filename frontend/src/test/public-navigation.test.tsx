@@ -232,3 +232,27 @@ it('does not promote unfinished pages through the footer or search', () => {
   expect(within(screen.getByRole('search')).queryByRole('link', { name: 'Facilities' })).not.toBeInTheDocument();
   expect(screen.getByRole('status')).toHaveTextContent('0 matching pages');
 });
+
+
+it.each([
+  ['learning support', 'Advising and learning support', '/resources#learning-support'],
+  ['disability assistance', 'Advising and learning support', '/resources#learning-support'],
+  ['thesis forms', 'Thesis forms and preparation guidance', '/resources#program-documents'],
+  ['application steps', 'How to apply', '/admissions'],
+  ['wheelchair', 'Campus directions and physical access', '/about/location#access'],
+])('finds the relevant public guidance for %s', (query, label, href) => {
+  render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
+  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: query } });
+  expect(within(screen.getByRole('search')).getByRole('link', { name: label })).toHaveAttribute('href', href);
+});
+
+it('introduces existing research and community examples without claiming an approved agenda', () => {
+  window.history.replaceState({}, '', '/our-work');
+  render(<App />);
+  const main = within(screen.getByRole('main'));
+  expect(main.queryByText(/to be provided/i)).not.toBeInTheDocument();
+  expect(main.getByText(/past my.ComApps workshop/)).toBeInTheDocument();
+  expect(main.getByRole('link', { name: 'Find research information' })).toHaveAttribute('href', '/research');
+  expect(main.getByRole('link', { name: 'Find community information' })).toHaveAttribute('href', '/extension');
+});

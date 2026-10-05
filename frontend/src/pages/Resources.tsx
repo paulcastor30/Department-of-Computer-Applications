@@ -12,7 +12,7 @@ export default function Resources() {
   return <>
     <Seo canonicalUrl="https://msuiit-comapps.vercel.app/resources" title="Student & faculty resources" description="Find program documents, thesis checklists, academic contacts and learning-support enquiries for the Department of Computer Applications." />
     <PageHero title="Student & faculty resources" subtitle="Quick access to study documents, thesis guidance and people who can help." />
-    <Section>
+    <Section id="program-documents">
       {isError && <p className="notice mb-6" role="status">The latest program documents could not be loaded. Reference links are shown; contact the department for current guidance.</p>}
       <SectionHeader title="Program documents and thesis guidance" className="mb-6" />
       <div className="grid gap-6 md:grid-cols-2">{programs.map(program => <article key={program.code} className="rounded-md border border-border p-6">

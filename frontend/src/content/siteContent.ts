@@ -81,6 +81,9 @@ export const missingOfficialContent = [
 
 const allSearchPages = [
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
+  { title: "Advising and learning support", keywords: ["learning support", "disability assistance", "disability-related assistance", "disability support", "academic accommodations", "accessible learning", "PWD", "advising", "study plan"], href: "/resources#learning-support" },
+  { title: "Thesis forms and preparation guidance", keywords: ["thesis forms", "thesis checklist", "proposal", "defense", "manuscript", "submission", "graduation forms"], href: "/resources#program-documents" },
+  { title: "Campus directions and physical access", keywords: ["physical access", "step-free", "ramp", "wheelchair", "drop-off", "toilet", "accessible visit"], href: "/about/location#access" },
   ...departmentQuestions.map(question => ({ title: question.title, keywords: [question.title.toLowerCase()], href: question.href })),
   { title: "What we do", keywords: ["what", "our work", "teaching", "research", "community", "collaborate"], href: "/our-work" },
   { title: "Using this website", keywords: ["accessibility", "keyboard", "screen reader", "zoom", "help using"], href: "/accessibility" },
@@ -249,8 +252,8 @@ const allSearchPages = [
     href: "/students/organizations",
   },
   {
-    title: "Admissions",
-    keywords: ["admissions", "apply"],
+    title: "How to apply",
+    keywords: ["admissions", "apply", "application steps", "application instructions", "admission requirements", "entry requirements", "application dates"],
     href: "/admissions",
   },
   {
@@ -293,4 +296,4 @@ const allSearchPages = [
 
 // Keep saved links working, but do not promote unfinished destinations in search.
 const availableSearchRoutes = new Set(["/", "/about", "/about/vmgo", "/our-work", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
-export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href));
+export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href.split("#")[0]));

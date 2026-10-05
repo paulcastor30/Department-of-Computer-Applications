@@ -3,7 +3,6 @@ import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
 import { usePrograms } from "@/hooks/useAcademics";
 import { normalizePrograms } from "./programs/programData";
-import { placeholder } from "@/content/siteContent";
 
 export default function OurWork() {
   const { data } = usePrograms();
@@ -25,12 +24,12 @@ export default function OurWork() {
         </section>
         <section aria-labelledby="work-research">
           <h2 id="work-research" className="section-title">Research</h2>
-          <p className="mt-4">Research investigates questions and develops knowledge. The department's approved research topics, projects, and publications are {placeholder.toLowerCase()}.</p>
+          <p className="mt-4">Explore a documented Computer Applications research example and the computing areas studied in our programs. Contact the department about current projects, publications or collaboration.</p>
           <Link className="text-link inline-flex min-h-11 items-center mt-3" to="/research">Find research information</Link>
         </section>
         <section aria-labelledby="work-community">
           <h2 id="work-community" className="section-title">Community work</h2>
-          <p className="mt-4">Community work shares knowledge beyond the classroom. Official department activities, partners, and participation details are {placeholder.toLowerCase()}.</p>
+          <p className="mt-4">Community work shares knowledge beyond the classroom. Read about a past my.ComApps workshop, then ask the department about current activities and participation.</p>
           <Link className="text-link inline-flex min-h-11 items-center mt-3" to="/extension">Find community information</Link>
         </section>
         <section className="notice" aria-labelledby="work-connect">
