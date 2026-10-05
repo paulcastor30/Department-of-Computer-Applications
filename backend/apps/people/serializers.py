@@ -143,7 +143,7 @@ class FacultyMemberSerializer(FacultyDirectorySerializer):
 
     def get_department_contributions(self, member):
         result = []
-        paths = {"research": "/research", "publication": "/research/publications", "conference": "/research/conferences", "extension": "/extension"}
+        paths = {"research": "/research/projects", "publication": "/research/publications", "conference": "/research/conferences", "extension": "/extension"}
         for credit in member.department_contributions.all():
             for kind, path in paths.items():
                 record = getattr(credit, kind)

@@ -143,7 +143,7 @@ class SharedContributionTests(TestCase):
         url = "/api/people/faculty/joel-i-miano/"
         payload = self.client.get(url).json()["department_contributions"]
         self.assertEqual(payload[0]["role"], "Research leader")
-        self.assertEqual(payload[0]["href"], "/research#shared")
+        self.assertEqual(payload[0]["href"], "/research/projects#shared")
         self.project.title = "Corrected title"
         self.project.save()
         self.assertEqual(self.client.get(url).json()["department_contributions"][0]["title"], "Corrected title")

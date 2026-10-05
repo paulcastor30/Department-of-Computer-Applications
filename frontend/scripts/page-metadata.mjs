@@ -14,6 +14,7 @@ const pages = {
   '/faculty': ['Faculty', 'Meet the Computer Applications faculty, explore their expertise and find academic contacts.'],
   '/research/publications': ['Publications', 'Research publications involving DCA faculty and collaborators, with authors, publication dates, journal and conference details, and publisher links.'],
   '/research/conferences': ['Research conferences', 'Conference research involving DCA faculty, students and collaborators: authors, titles, dates, locations and withdrawn entries.'],
+  '/research/projects': ['Research projects', 'Browse department research projects by reporting year, with credited leaders, teams and funding categories.'],
   '/research': ['Research', 'Explore department research projects, reporting years, leaders, teams and funding, alongside computing study areas and collaboration enquiries.'],
   '/extension': ['Community work', 'Explore extension programs and community projects involving DCA faculty, their leaders and participants, and collaboration enquiries.'],
   '/news': ['News and events', 'Find published department announcements, activity information and where to ask about dates.'],

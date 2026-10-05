@@ -16,18 +16,19 @@ export default function Research() {
     <Seo title="Research" description="Explore department research projects, research teams and funding, computing study areas, and collaboration enquiries." />
     <PageHero title="Research" subtitle="Explore department research projects, the people involved and computing study areas." />
     <Section>
+      <p className="mb-6 max-w-3xl leading-7">Find projects, publications and conference papers involving department faculty and collaborators. Explore the work below, meet its researchers, or contact us about collaboration.</p>
       <nav aria-label="Research sections" className="flex flex-wrap gap-3">
-        <a className="outline-link" href="#department-projects">Research projects</a>
+        <Link className="outline-link" to="/research/projects">All research projects</Link>
         <Link className="outline-link" to="/research/conferences">Conference records</Link>
         <Link className="outline-link" to="/research/publications">Publications</Link>
         <Link className="outline-link" to="/projects">BSCA student projects</Link>
         <a className="outline-link" href="#research-enquiries">Research enquiries</a>
       </nav>
     </Section>
-    <ResearchProjectList />
-    <ConferenceRecordList preview />
-    <PublicationRecordList preview />
+    <ResearchProjectList preview />
     <DepartmentWorkExample slug="vermisense-rcite-2026" heading="Research in practice" />
+    <PublicationRecordList preview />
+    <ConferenceRecordList preview />
     <Section>
       <SectionHeader title="Computing areas in our programs" subtitle="These are curriculum-based learning areas, rather than a statement of an approved departmental research agenda." className="mb-6" />
       <div className="grid gap-8 md:grid-cols-2">{programs.map(program => <section key={program.code}>
