@@ -1,3 +1,4 @@
+import { ResearchProjectList } from "@/components/ResearchProjectList";
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
@@ -10,8 +11,9 @@ export default function Research() {
   const { data } = usePrograms();
   const programs = normalizePrograms(data);
   return <>
-    <Seo title="Research" description="Explore Computer Applications study areas, thesis preparation and where to enquire about verified research and collaboration." />
-    <PageHero title="Research" subtitle="Learn about the computing areas in our programs and ask about current research." />
+    <Seo title="Research" description="Explore department research projects, research teams and funding, computing study areas, and collaboration enquiries." />
+    <PageHero title="Research" subtitle="Explore department research projects, the people involved and computing study areas." />
+    <ResearchProjectList />
     <DepartmentWorkExample slug="vermisense-rcite-2026" heading="Research in practice" />
     <Section>
       <SectionHeader title="Computing areas in our programs" subtitle="These are curriculum-based learning areas, rather than a statement of an approved departmental research agenda." className="mb-6" />
