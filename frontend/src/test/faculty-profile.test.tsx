@@ -7,6 +7,8 @@ vi.mock('@/hooks/usePeople', () => ({ useFacultyMember: () => ({ data: {
   education_records: [
     { id: 1, degree_name: 'Master of Science', institution: 'University', year_completed: 2020, notes: '' },
     { id: 2, degree_name: 'Doctor of Philosophy', institution: 'University', year_completed: null, notes: 'Ongoing study; degree not yet completed.' },
+    { id: 4, degree_level: 'other', degree_name: 'Academic fellowship', institution: 'University', year_completed: 2024, notes: 'Academic fellowship; not a degree.' },
+    { id: 5, degree_level: 'doctorate', degree_name: 'Completed doctorate with year unspecified', institution: 'University', year_completed: null, notes: 'Completed qualification; year not supplied by the Department.' },
     { id: 3, degree_name: 'Doctor of Engineering', institution: 'University', year_completed: null, notes: 'Completion status to be validated by the Department.' },
   ], expertise_records: [], supervised_works: [], publications: [], conferences: [], research_projects: [], extension_projects: [], creative_works: [], training_seminars: [], achievements: [],
 }, isLoading: false, isError: false }) }));
@@ -26,4 +28,13 @@ it('offers a consultation enquiry without inventing consultation hours', () => {
   expect(screen.getByRole('link', { name: 'Email Example Faculty' })).toHaveAttribute('href', 'mailto:example@g.msuiit.edu.ph?subject=Academic%20enquiry%20for%20Example%20Faculty');
   expect(screen.getByText(/confirm availability and the meeting location before visiting/)).toBeInTheDocument();
   expect(screen.queryByRole('heading', { name: 'Publications' })).not.toBeInTheDocument();
+});
+
+it('separates fellowships from degrees and does not invent missing completion years', () => {
+  render(<MemoryRouter><FacultyProfile /></MemoryRouter>);
+  const experience = screen.getByRole('heading', { name: 'Fellowships and other academic experience' }).parentElement!;
+  expect(within(experience).getByText('Academic fellowship')).toBeInTheDocument();
+  const completed = screen.getByRole('heading', { name: 'Completed qualifications' }).parentElement!;
+  expect(within(completed).queryByText('Academic fellowship')).not.toBeInTheDocument();
+  expect(within(completed).getByText('Completed doctorate with year unspecified')).toBeInTheDocument();
 });

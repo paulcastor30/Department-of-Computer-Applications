@@ -132,17 +132,18 @@ export default function FacultyProfile() {
     training: Boolean(member.training_seminars.length), achievements: Boolean(member.achievements.length),
   };
   const educationGroups = [
-    { title: "Completed qualifications", records: member.education_records.filter(record => record.year_completed != null && !/ongoing|on-going|not yet completed|completion status/i.test(record.notes)) },
-    { title: "Ongoing study", records: member.education_records.filter(record => /ongoing|on-going|not yet completed/i.test(record.notes)) },
-    { title: "Study records awaiting confirmation", records: member.education_records.filter(record => !/ongoing|on-going|not yet completed/i.test(record.notes) && (record.year_completed == null || /completion status/i.test(record.notes))) },
+    { title: "Completed qualifications", records: member.education_records.filter(record => record.degree_level !== "other" && (record.year_completed != null || /Completed qualification; year not supplied/i.test(record.notes)) && !/ongoing|on-going|not yet completed|completion status/i.test(record.notes)) },
+    { title: "Ongoing study", records: member.education_records.filter(record => record.degree_level !== "other" && /ongoing|on-going|not yet completed/i.test(record.notes)) },
+    { title: "Study records awaiting confirmation", records: member.education_records.filter(record => record.degree_level !== "other" && !/Completed qualification; year not supplied/i.test(record.notes) && !/ongoing|on-going|not yet completed/i.test(record.notes) && (record.year_completed == null || /completion status/i.test(record.notes))) },
   ];
+  educationGroups.push({ title: "Fellowships and other academic experience", records: member.education_records.filter(record => record.degree_level === "other") });
   const internalResearch = member.research_projects.filter((record) => record.funding_type === "internal");
   const externalResearch = member.research_projects.filter((record) => record.funding_type === "external");
 
   return (
     <>
       <Seo title={seoTitle} description={seoDescription} ogTitle={member.og_title || seoTitle} ogDescription={member.og_description || seoDescription} />
-      <PageHero title={member.title} subtitle={`${member.position || TO_BE_PROVIDED} | ${member.service_classification_display}`} />
+      <PageHero title={member.title} subtitle={[member.position ? `${member.faculty_status === "resigned" ? "Former position: " : ""}${member.position}` : "", member.service_classification_display].filter(Boolean).join(" | ")} />
 
       <Section>
         <div className="grid gap-8 lg:grid-cols-[18rem_1fr]">
@@ -158,6 +159,7 @@ export default function FacultyProfile() {
                 <Field label="Classification" value={member.service_classification_display} />
                 <Field label="Status" value={member.service_classification === "retired_dca_faculty" ? "Retired" : member.faculty_status_display} />
                 <Field label="Home Unit" value={member.home_unit} />
+                <Field label="PRC license number (as supplied)" value={member.prc_license_number} />
                 <Field label="Supporting Program" value={member.supporting_programs} />
                 <Field label="MSCA Role" value={member.msca_roles} />
               </dl>

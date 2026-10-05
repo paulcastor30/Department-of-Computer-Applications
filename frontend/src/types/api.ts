@@ -136,13 +136,15 @@ export type FacultyServiceClassification =
   | "active_dca_faculty"
   | "affiliated_msca_faculty"
   | "retired_dca_faculty"
+  | "resigned_dca_faculty"
   | "academic_staff"
   | "laboratory_personnel";
 
-export type FacultyStatus = "" | "active" | "active_full_time" | "study_leave" | "sabbatical_leave" | "retired" | "inactive_affiliation";
+export type FacultyStatus = "" | "active" | "active_full_time" | "study_leave" | "sabbatical_leave" | "retired" | "resigned" | "inactive_affiliation";
 
 export interface FacultyDirectoryMember {
   transferred_from_dca?: boolean;
+  prc_license_number?: string;
   last_updated_note?: string;
   id: number;
   title: string;

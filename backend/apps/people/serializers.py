@@ -35,6 +35,7 @@ class FacultyDirectorySerializer(serializers.ModelSerializer):
             "service_classification_display",
             "faculty_status",
             "faculty_status_display",
+            "prc_license_number",
             "position",
             "employment_classification",
             "faculty_category",

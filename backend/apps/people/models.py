@@ -15,12 +15,14 @@ class FacultyMember(PublishableModel):
         STUDY_LEAVE = "study_leave", "Study Leave"
         SABBATICAL_LEAVE = "sabbatical_leave", "Sabbatical Leave"
         RETIRED = "retired", "Retired"
+        RESIGNED = "resigned", "Resigned"
         INACTIVE_AFFILIATION = "inactive_affiliation", "Inactive Affiliation"
 
     class ServiceClassification(models.TextChoices):
         ACTIVE_DCA_FACULTY = "active_dca_faculty", "Active DCA Faculty"
         AFFILIATED_MSCA_FACULTY = "affiliated_msca_faculty", "Affiliated MSCA Faculty"
         RETIRED_DCA_FACULTY = "retired_dca_faculty", "Retired DCA Faculty"
+        RESIGNED_DCA_FACULTY = "resigned_dca_faculty", "Resigned DCA Faculty"
         ACADEMIC_STAFF = "academic_staff", "Academic Staff"
         LABORATORY_PERSONNEL = "laboratory_personnel", "Laboratory Personnel"
 
@@ -75,6 +77,7 @@ class FacultyMember(PublishableModel):
     start_year = models.PositiveIntegerField(blank=True, null=True)
     end_year = models.PositiveIntegerField(blank=True, null=True)
     active_affiliation = models.BooleanField(default=True)
+    prc_license_number = models.CharField(max_length=32, blank=True, help_text="License number supplied by the Department; not verification of current license validity.")
     certifications = models.TextField(blank=True)
     awards = models.TextField(blank=True)
     office = models.CharField(max_length=255, blank=True)

@@ -195,6 +195,7 @@ class FacultyMemberAdmin(admin.ModelAdmin):
                     "employment_classification",
                     "faculty_category",
                     "highest_degree",
+                    "prc_license_number",
                     "photo",
                     "active_affiliation",
                     "transferred_from_dca",

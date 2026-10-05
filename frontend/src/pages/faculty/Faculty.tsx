@@ -10,11 +10,12 @@ function FacultyCard({ member }: { member: FacultyDirectoryMember }) {
     <div className="mb-5 flex items-start gap-4">
       {member.photo && <img src={member.photo} alt="" className="h-20 w-20 shrink-0 rounded-md object-cover" loading="lazy" />}
       <div className="min-w-0"><h3 className="text-xl font-semibold leading-snug text-primary"><Link className="text-link" to={`/faculty/${member.slug}`}>{member.title}</Link></h3>
-      {member.position && <p className="mt-2 leading-6">{member.position}</p>}
-      {["study_leave", "sabbatical_leave", "inactive_affiliation"].includes(member.faculty_status) && <p className="mt-1 text-sm text-muted-foreground">{member.faculty_status_display}</p>}
+      {member.position && <p className="mt-2 leading-6">{member.faculty_status === "resigned" ? "Former position: " : ""}{member.position}</p>}
+      {["study_leave", "sabbatical_leave", "inactive_affiliation", "resigned"].includes(member.faculty_status) && <p className="mt-1 text-sm text-muted-foreground">{member.faculty_status_display}</p>}
       {member.highest_degree && <p className="mt-1 text-sm text-muted-foreground">Highest completed qualification: {member.highest_degree}</p>}</div>
     </div>
     {member.transferred_from_dca && <p className="mb-4 leading-7 text-muted-foreground">Transferred from DCA{member.home_unit ? ` to ${member.home_unit}` : ""}.{member.service_classification === "affiliated_msca_faculty" && member.active_affiliation ? " Also affiliated with MSCA." : ""}</p>}
+    {member.home_unit && !member.transferred_from_dca && <p className="mb-4 leading-7 text-muted-foreground"><span className="font-semibold text-foreground">Home unit: </span>{member.home_unit}</p>}
     {(member.specialization_areas || member.research_interests) && <p className="mb-6 leading-7 text-muted-foreground"><span className="font-semibold text-foreground">Specialization: </span>{member.specialization_areas || member.research_interests}</p>}
     <div className="mt-auto flex flex-wrap gap-3"><Link className="outline-link" to={`/faculty/${member.slug}`}>View profile<span className="sr-only"> of {member.title}</span></Link>
       {member.email && <a className="outline-link" href={`mailto:${member.email}`}>Email<span className="sr-only"> {member.title}</span></a>}
@@ -30,8 +31,9 @@ export default function Faculty() {
   const groups = [
     { title: "Core faculty", members: filtered.filter(p => p.service_classification === "active_dca_faculty" && !p.transferred_from_dca && p.faculty_category !== "Lecturer") },
     { title: "Lecturers", members: filtered.filter(p => p.service_classification === "active_dca_faculty" && !p.transferred_from_dca && p.faculty_category === "Lecturer") },
-    { title: "Affiliated graduate faculty", members: filtered.filter(p => p.service_classification === "affiliated_msca_faculty") },
-    { title: "Transferred faculty", intro: "Faculty who have transferred to another unit. Those with a current graduate affiliation also appear under Affiliated graduate faculty.", members: filtered.filter(p => p.transferred_from_dca) },
+    { title: "Allied faculty", intro: "Faculty from other units affiliated with graduate Computer Applications. Their home units are listed separately from their DCA affiliation.", members: filtered.filter(p => p.service_classification === "affiliated_msca_faculty") },
+    { title: "Transferred faculty", intro: "Faculty who have transferred to another unit. Those with a current graduate affiliation also appear under Allied faculty.", members: filtered.filter(p => p.transferred_from_dca) },
+    { title: "Resigned faculty", intro: "Former DCA faculty whose resignation has been confirmed by the Department.", members: filtered.filter(p => p.service_classification === "resigned_dca_faculty") },
     { title: "Retired faculty", members: filtered.filter(p => p.service_classification === "retired_dca_faculty") },
     { title: "Department staff", members: filtered.filter(p => ["academic_staff", "laboratory_personnel"].includes(p.service_classification)) },
   ];

@@ -20,6 +20,7 @@ CLASSIFICATION_ORDER = {
     FacultyMember.ServiceClassification.ACTIVE_DCA_FACULTY: 1,
     FacultyMember.ServiceClassification.AFFILIATED_MSCA_FACULTY: 2,
     FacultyMember.ServiceClassification.RETIRED_DCA_FACULTY: 3,
+    FacultyMember.ServiceClassification.RESIGNED_DCA_FACULTY: 3.5,
     FacultyMember.ServiceClassification.ACADEMIC_STAFF: 4,
     FacultyMember.ServiceClassification.LABORATORY_PERSONNEL: 5,
 }
