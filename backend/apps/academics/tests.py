@@ -147,3 +147,25 @@ class BSCAReferenceContentTests(TransactionTestCase):
             migration.add_bsca_admissions(apps, editor)
         bsca.refresh_from_db()
         self.assertEqual(bsca.admission_requirements, "Department-approved instructions")
+
+
+    def test_thesis_checklist_updates_both_programs_and_preserves_authored_guidance(self):
+        migration = import_module("apps.academics.migrations.0017_thesis_procedures")
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca", thesis_information="To be provided by the Department.")
+        bsca = Program.objects.create(code="BSCA", title="BSCA", slug="bsca", thesis_information="To be provided by the Department.")
+        with connection.schema_editor() as editor:
+            migration.add_thesis_procedures(apps, editor)
+            migration.add_thesis_procedures(apps, editor)
+        msca.refresh_from_db()
+        bsca.refresh_from_db()
+        self.assertIn("Form 017", msca.thesis_information)
+        self.assertIn("one month", msca.thesis_information)
+        self.assertNotIn("CD", msca.thesis_information)
+        self.assertIn("Undergraduate Thesis", bsca.thesis_information)
+        self.assertIn("Form 017", bsca.thesis_information)
+        msca.thesis_information = "Department-authored revised procedure"
+        msca.save()
+        with connection.schema_editor() as editor:
+            migration.add_thesis_procedures(apps, editor)
+        msca.refresh_from_db()
+        self.assertEqual(msca.thesis_information, "Department-authored revised procedure")

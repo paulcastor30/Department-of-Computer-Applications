@@ -106,7 +106,11 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
       <div className="grid gap-10 lg:grid-cols-2">
         <section>
           <h3 className="mb-3 text-xl font-semibold text-primary">{thesisTitle}</h3>
-          <ul className="space-y-3 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).map(item => <li key={item}>{item}</li>)}</ul>
+          <p className="leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation)[0]}</p>
+          {availableProgramItems(program.thesisInformation).length > 1 && <details className="mt-4 rounded-md border border-border p-4">
+            <summary className="min-h-11 cursor-pointer font-semibold text-primary">Thesis procedure checklist</summary>
+            <ul className="mt-4 space-y-5 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).slice(1).map(item => <li key={item}>{item}</li>)}</ul>
+          </details>}
           <dl className="mt-6 space-y-4">
             {[["Duration", program.duration], ["Units in the prospectus", program.units]].map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 text-muted-foreground">{value || placeholder}</dd></div>)}
           </dl>
