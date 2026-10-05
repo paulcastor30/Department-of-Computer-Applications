@@ -176,5 +176,16 @@ it('explains study terms and offers advising support without replacing universit
   expect(main.getByText(/Publication: the prospectus specifies/)).toBeInTheDocument();
   expect(main.getByRole('heading', { name: 'Advising and learning support' })).toBeInTheDocument();
   expect(main.getByText(/Website summary reviewed:/)).toHaveTextContent('5 October 2026');
-  expect(within(document.getElementById('before-applying')!).getByText(/Entry requirements and application instructions:/)).toBeInTheDocument();
+  expect(within(document.getElementById('before-applying')!).getByRole('link', { name: 'View graduate application and admission guide' })).toHaveAttribute('href', 'https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission');
+});
+
+
+it('provides undergraduate requirements and portal links without copying unconfirmed cutoffs', () => {
+  window.history.replaceState({}, '', '/programs/bsca');
+  render(<App />);
+  const admission = within(document.getElementById('before-applying')!);
+  expect(admission.getByRole('link', { name: 'View official admission requirements' })).toHaveAttribute('href', 'https://www.msuiit.edu.ph/offices/admissions/requirements.php');
+  expect(admission.getByRole('link', { name: 'Visit the MSU-IIT Admission Portal' })).toHaveAttribute('href', 'https://admission.msuiit.edu.ph/');
+  expect(admission.queryByText(/Entry requirements and application instructions:/)).not.toBeInTheDocument();
+  expect(admission.queryByText(/85 or better/)).not.toBeInTheDocument();
 });

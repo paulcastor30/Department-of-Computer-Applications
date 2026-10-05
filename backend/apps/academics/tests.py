@@ -104,3 +104,46 @@ class BSCAReferenceContentTests(TransactionTestCase):
         self.assertEqual(payload["content_reviewed_on"], "2026-09-01")
         self.assertEqual(payload["completion_requirements_list"], ["Department requirement"])
         self.assertTrue(any("Bridging courses" in item for item in payload["study_plan_guidance_list"]))
+
+
+    def test_msca_admission_link_preserves_editor_content_and_bsca(self):
+        from .serializers import ProgramSerializer
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca", admission_requirements="Department entry instructions")
+        bsca = Program.objects.create(code="BSCA", title="BSCA", slug="bsca", admission_requirements="University undergraduate process")
+        migration = import_module("apps.academics.migrations.0014_msca_admission_guidance")
+        with connection.schema_editor() as editor:
+            migration.add_msca_admissions(apps, editor)
+        msca.refresh_from_db()
+        bsca.refresh_from_db()
+        self.assertEqual(msca.admission_requirements, "Department entry instructions")
+        self.assertEqual(ProgramSerializer(msca).data["admissions_url"], migration.GUIDANCE_URL)
+        self.assertEqual(bsca.admissions_url, "")
+        self.assertEqual(bsca.admission_requirements, "University undergraduate process")
+        msca.admissions_url = "https://example.edu/new-guide"
+        msca.save()
+        with connection.schema_editor() as editor:
+            migration.add_msca_admissions(apps, editor)
+        msca.refresh_from_db()
+        self.assertEqual(msca.admissions_url, "https://example.edu/new-guide")
+
+
+    def test_bsca_guidance_fills_missing_values_without_changing_msca(self):
+        from .serializers import ProgramSerializer
+        bsca = Program.objects.create(code="BSCA", title="BSCA", slug="bsca", admission_requirements="To be provided by the Department.")
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca", admissions_url="https://example.edu/graduate")
+        migration = import_module("apps.academics.migrations.0016_bsca_admission_guidance")
+        with connection.schema_editor() as editor:
+            migration.add_bsca_admissions(apps, editor)
+        bsca.refresh_from_db()
+        msca.refresh_from_db()
+        self.assertIn("official admissions procedures", bsca.admission_requirements)
+        self.assertEqual(bsca.admissions_url, migration.REQUIREMENTS_URL)
+        self.assertEqual(ProgramSerializer(bsca).data["admissions_portal_url"], migration.PORTAL_URL)
+        self.assertEqual(msca.admissions_url, "https://example.edu/graduate")
+        self.assertEqual(msca.admissions_portal_url, "")
+        bsca.admission_requirements = "Department-approved instructions"
+        bsca.save()
+        with connection.schema_editor() as editor:
+            migration.add_bsca_admissions(apps, editor)
+        bsca.refresh_from_db()
+        self.assertEqual(bsca.admission_requirements, "Department-approved instructions")

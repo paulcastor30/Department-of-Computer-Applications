@@ -96,6 +96,8 @@ export interface Program {
   quality_evidence_list: string[];
   career_opportunities: string;
   career_opportunities_list: string[];
+  admissions_url?: string;
+  admissions_portal_url?: string;
   admission_requirements: string;
   admission_requirements_list: string[];
   progression_requirements: string;

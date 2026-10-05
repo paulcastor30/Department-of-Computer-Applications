@@ -58,6 +58,8 @@ class ProgramAdmin(admin.ModelAdmin):
         ("Student Pathway", {
             "fields": (
                 "admission_requirements",
+                "admissions_url",
+                "admissions_portal_url",
                 "progression_requirements",
                 "career_opportunities",
                 "contact_information",

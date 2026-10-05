@@ -207,3 +207,19 @@ Checks: 32 frontend tests and nine backend tests pass, along with TypeScript, pr
 ## Collien Princess C. Pepito: current appointment clarification
 
 The owner confirmed she has been accepted as faculty, currently serves as Assistant Lecturer, and will receive an updated permanent position once her plantilla item is received. Data migration people.0007 records that distinction in the existing profile assignment note, retains the Lecturer directory grouping and faculty personnel type, and does not assign a future permanent rank or employment classification. Existing profile URL, publication state and professional records remain preserved. The note appears through the existing profile overview and API. Ten backend tests, Django checks, migration checks and temporary database migration passed; regression coverage verifies note idempotence, current title, preserved records and no inferred permanency. No frontend or academic-program changes were needed. This update is local pending deployment/migration.
+
+
+## Official MSCA application/admission route
+
+The owner supplied https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission as the MSCA admissions authority. Verified that the CCS Graduate page provides eligibility, documents, program acceptance, university admission/registration and subject-enrolment guidance. MSCA Before applying now provides a descriptive direct link and a brief process summary instead of a missing-instructions placeholder; no fees, thresholds or forms were copied into the department website. BSCA admissions remain unchanged.
+
+Added an editable admissions_url to Program, admin, API and frontend normalization. Migrations academics.0013/0014 add the field and fill missing MSCA URL/text while preserving department-written instructions and existing URLs. Matching frontend reference keeps the approved link available during API fallback. All 32 frontend and seven academic backend tests pass, along with TypeScript, production build, Django checks and migration consistency; lint retains the two existing fast-refresh warnings. Changes are local pending frontend deployment and backend migrations.
+
+
+## Completed BSCA and MSCA admissions routes
+
+Completed both Before applying sections using official admissions sources. BSCA links to the university requirements page (https://www.msuiit.edu.ph/offices/admissions/requirements.php) and the MSU-IIT Admission Portal (https://admission.msuiit.edu.ph/). Its short guidance distinguishes first-year applications from transfer and second-degree enquiries, with selection and available slots governed by university procedures. MSCA retains the owner-supplied CCS Graduate application/admission guide. Unconfirmed SASE cutoffs, GPA thresholds and bridging admission rules were not published.
+
+Added an editable admissions_portal_url alongside admissions_url in the model, admin, API and frontend. Migrations academics.0015/0016 add the field and fill missing BSCA links and placeholder guidance, preserving substantive department-authored instructions, existing URLs and the MSCA route. Both links remain available in frontend fallback content.
+
+Validation: 33 frontend tests and eight academic backend tests passed, along with TypeScript, lint, production build, Django checks and migration consistency. Lint retains two existing fast-refresh warnings. Migrations applied to an isolated temporary database. API-backed browser checks confirmed both programs' correct destinations, no obsolete admissions placeholder, no horizontal overflow at 320 pixels and no runtime errors. Automated WCAG scans found zero violations or incomplete findings on both pages; this is not accessibility certification. Temporary preview servers were stopped. Changes remain local pending frontend deployment and backend migrations.

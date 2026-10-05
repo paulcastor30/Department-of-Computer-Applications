@@ -33,6 +33,8 @@ export type ProgramProfile = {
   studentSupport: string[];
   documents: ProgramDocumentLink[];
   admissions: string[];
+  admissionsUrl: string;
+  admissionsPortalUrl: string;
   progression: string[];
   pathways: string[];
   historicalNotes: string[];
@@ -109,7 +111,13 @@ const bscaFallback: ProgramProfile = {
     { label: "BSCA program brochure", note: placeholder },
     { label: "Student handbook or advising guide", note: placeholder },
   ],
-  admissions: [placeholder],
+  admissions: [
+    "Admission to BSCA follows MSU-IIT’s official admissions procedures. Review the current requirements, document checklist and application announcements before applying.",
+    "Incoming first-year applicants should use the MSU-IIT Admission Portal when applications open. Transfer and second-degree applicants should follow the university’s applicable instructions and contact the department about program evaluation.",
+    "Admission is subject to the university’s selection process and available program slots.",
+  ],
+  admissionsUrl: "https://www.msuiit.edu.ph/offices/admissions/requirements.php",
+  admissionsPortalUrl: "https://admission.msuiit.edu.ph/",
   progression: [placeholder],
   pathways: [placeholder],
   historicalNotes: [],
@@ -184,7 +192,9 @@ const mscaFallback: ProgramProfile = {
     { label: "MSCA program brochure", note: placeholder },
     { label: "Graduate handbook or thesis guide", note: placeholder },
   ],
-  admissions: [placeholder],
+  admissions: ['MSCA applicants should follow the College of Computer Studies graduate application and admission procedures. Review the official guide for eligibility, required documents, program acceptance, university admission and enrolment steps.'],
+  admissionsUrl: "https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission",
+  admissionsPortalUrl: "",
   progression: [placeholder],
   pathways: [placeholder],
   historicalNotes: [],
@@ -303,6 +313,8 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
     studentSupport: lines(program.student_support_list, base.studentSupport),
     documents: documentsFor(program, base),
     admissions: lines(program.admission_requirements_list, base.admissions),
+    admissionsUrl: text(program.admissions_url, base.admissionsUrl),
+    admissionsPortalUrl: text(program.admissions_portal_url, base.admissionsPortalUrl),
     progression: lines(program.progression_requirements_list, base.progression),
     pathways: lines(program.career_opportunities_list, base.pathways),
     historicalNotes: lines(program.historical_notes_list, base.historicalNotes),

@@ -33,6 +33,8 @@ class Program(PublishableModel):
     curriculum_evidence = models.TextField(blank=True, help_text="Enter one curriculum feature or evidence item per line.")
     quality_evidence = models.TextField(blank=True, help_text="Enter one accreditation evidence item per line.")
     career_opportunities = models.TextField(blank=True)
+    admissions_portal_url = models.URLField(blank=True, help_text="Official application portal, if separate from the admission guide.")
+    admissions_url = models.URLField(blank=True, help_text="Official university or college application and admission guidance.")
     admission_requirements = models.TextField(blank=True)
     progression_requirements = models.TextField(blank=True, help_text="Enter one progression or retention requirement per line.")
     historical_notes = models.TextField(blank=True, help_text="Enter historical notes, linkages, or dated curriculum notes. Avoid presenting expired linkages as current offers.")

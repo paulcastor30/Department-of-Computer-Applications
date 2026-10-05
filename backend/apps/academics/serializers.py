@@ -99,6 +99,8 @@ class ProgramSerializer(serializers.ModelSerializer):
             "career_opportunities",
             "career_opportunities_list",
             "admission_requirements",
+            "admissions_url",
+            "admissions_portal_url",
             "admission_requirements_list",
             "progression_requirements",
             "progression_requirements_list",
