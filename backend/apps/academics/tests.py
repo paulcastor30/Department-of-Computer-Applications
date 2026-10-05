@@ -169,3 +169,16 @@ class BSCAReferenceContentTests(TransactionTestCase):
             migration.add_thesis_procedures(apps, editor)
         msca.refresh_from_db()
         self.assertEqual(msca.thesis_information, "Department-authored revised procedure")
+
+
+    def test_social_descriptions_replace_seeded_values_and_preserve_editor_content(self):
+        migration = import_module("apps.academics.migrations.0018_program_social_descriptions")
+        bsca = Program.objects.create(code="BSCA", title="BSCA", slug="bsca", og_description=migration.DESCRIPTIONS["BSCA"][0])
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca", og_description="Department-approved sharing text")
+        with connection.schema_editor() as editor:
+            migration.update_social_descriptions(apps, editor)
+            migration.update_social_descriptions(apps, editor)
+        bsca.refresh_from_db()
+        msca.refresh_from_db()
+        self.assertEqual(bsca.og_description, migration.DESCRIPTIONS["BSCA"][1])
+        self.assertEqual(msca.og_description, "Department-approved sharing text")
