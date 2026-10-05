@@ -29,6 +29,10 @@
       "destination": "/faculty/index.html"
     },
     {
+      "source": "/research/conferences",
+      "destination": "/research/conferences/index.html"
+    },
+    {
       "source": "/research",
       "destination": "/research/index.html"
     },

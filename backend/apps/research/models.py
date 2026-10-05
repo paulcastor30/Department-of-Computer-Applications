@@ -14,3 +14,22 @@ class ResearchProject(PublishableModel):
 
     def __str__(self):
         return self.title
+
+
+class ConferenceRecord(PublishableModel):
+    year = models.PositiveIntegerField()
+    authors = models.TextField(help_text="Authors in the supplied order; includes faculty, students and collaborators.")
+    conference = models.CharField(max_length=500)
+    date_label = models.CharField(max_length=100)
+    starts_on = models.DateField()
+    ends_on = models.DateField()
+    location = models.CharField(max_length=255)
+    scope = models.CharField(max_length=20, choices=[("LOCAL", "Local"), ("REGIONAL", "Regional"), ("NATIONAL", "National"), ("INTERNATIONAL", "International")])
+    withdrawn = models.BooleanField(default=False, help_text="Explicit withdrawal recorded in the department source.")
+    source_note = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ["-year", "-starts_on", "sort_order", "title"]
+
+    def __str__(self):
+        return self.title

@@ -1,3 +1,4 @@
+import { ConferenceRecordList } from "@/components/ConferenceRecordList";
 import { ResearchProjectList } from "@/components/ResearchProjectList";
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
@@ -13,7 +14,15 @@ export default function Research() {
   return <>
     <Seo title="Research" description="Explore department research projects, research teams and funding, computing study areas, and collaboration enquiries." />
     <PageHero title="Research" subtitle="Explore department research projects, the people involved and computing study areas." />
+    <Section>
+      <nav aria-label="Research sections" className="flex flex-wrap gap-3">
+        <a className="outline-link" href="#department-projects">Research projects</a>
+        <Link className="outline-link" to="/research/conferences">Conference records</Link>
+        <a className="outline-link" href="#research-enquiries">Research enquiries</a>
+      </nav>
+    </Section>
     <ResearchProjectList />
+    <ConferenceRecordList preview />
     <DepartmentWorkExample slug="vermisense-rcite-2026" heading="Research in practice" />
     <Section>
       <SectionHeader title="Computing areas in our programs" subtitle="These are curriculum-based learning areas, rather than a statement of an approved departmental research agenda." className="mb-6" />
@@ -23,7 +32,7 @@ export default function Research() {
         <Link className="text-link mt-5 inline-flex min-h-11 items-center" to={program.route}>Explore {program.code}</Link>
       </section>)}</div>
     </Section>
-    <Section variant="muted">
+    <Section id="research-enquiries" variant="muted">
       <SectionHeader title="Research enquiries" className="mb-5" />
       <p className="max-w-3xl leading-7">For current research topics, project participation, publications or collaboration, contact the department and describe your interest.</p>
       <div className="mt-5 flex flex-wrap gap-4"><Link className="action-link" to="/about/contact">Ask about research</Link><Link className="outline-link" to="/faculty">Find faculty and their expertise</Link><Link className="text-link inline-flex min-h-11 items-center" to="/resources">Thesis guidance</Link></div>

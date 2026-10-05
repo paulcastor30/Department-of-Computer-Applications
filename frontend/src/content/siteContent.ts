@@ -168,6 +168,7 @@ const allSearchPages = [
     href: "/faculty/development",
   },
   { title: "Research", keywords: ["research"], href: "/research" },
+  { title: "Research conferences", keywords: ["conference", "conferences", "authors", "conference papers", "withdrawn"], href: "/research/conferences" },
   {
     title: "Research Focus Areas",
     keywords: ["focus areas", "research focus"],
@@ -297,5 +298,5 @@ const allSearchPages = [
 
 
 // Keep saved links working, but do not promote unfinished destinations in search.
-const availableSearchRoutes = new Set(["/", "/about", "/about/vmgo", "/our-work", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
+const availableSearchRoutes = new Set(["/", "/about", "/about/vmgo", "/our-work", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/conferences", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
 export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href.split("#")[0]));

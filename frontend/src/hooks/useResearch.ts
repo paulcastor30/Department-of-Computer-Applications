@@ -17,3 +17,26 @@ export function useResearchProjects() {
     queryFn: () => fetchJSON<ResearchProject[]>("/api/research/projects/"),
   });
 }
+
+
+export type ConferenceRecord = {
+  id: number;
+  slug: string;
+  title: string;
+  year: number;
+  authors: string;
+  conference: string;
+  date_label: string;
+  starts_on: string;
+  ends_on: string;
+  location: string;
+  scope_display: string;
+  withdrawn: boolean;
+};
+
+export function useConferenceRecords() {
+  return useQuery<ConferenceRecord[]>({
+    queryKey: ["research", "conferences"],
+    queryFn: () => fetchJSON<ConferenceRecord[]>("/api/research/conferences/"),
+  });
+}

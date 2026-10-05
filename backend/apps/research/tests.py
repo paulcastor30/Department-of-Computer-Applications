@@ -29,3 +29,33 @@ class ResearchProjectTests(TransactionTestCase):
         self.assertEqual(len(response.json()), 14)
         self.assertNotIn("source_note", response.json()[0])
         self.assertEqual(ResearchProject.objects.get(slug="emerging-technology-prototypes").team_members.count("Apple Rose"), 1)
+
+
+class ConferenceRecordTests(TransactionTestCase):
+    def setUp(self):
+        from .models import ConferenceRecord
+        ConferenceRecord.objects.all().delete()
+
+    def test_import_keeps_withdrawals_distinct_and_preserves_edits(self):
+        from .models import ConferenceRecord
+        migration = import_module("apps.research.migrations.0004_department_conferences")
+        with connection.schema_editor() as editor:
+            migration.add_conference_records(apps, editor)
+        self.assertEqual(ConferenceRecord.objects.count(), 45)
+        self.assertEqual(ConferenceRecord.objects.filter(withdrawn=True).count(), 2)
+        self.assertEqual(ConferenceRecord.objects.filter(year=2026).count(), 29)
+        self.assertEqual(ConferenceRecord.objects.filter(title__startswith="VermiSense").count(), 2)
+        self.assertTrue(ConferenceRecord.objects.filter(year=2024, location="Athens, Greece").exists())
+        entry = ConferenceRecord.objects.first()
+        entry.authors = "Department-corrected authors"
+        entry.is_published = False
+        entry.save()
+        with connection.schema_editor() as editor:
+            migration.add_conference_records(apps, editor)
+        entry.refresh_from_db()
+        self.assertEqual(entry.authors, "Department-corrected authors")
+        response = self.client.get("/api/research/conferences/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.json()), 44)
+        self.assertEqual(sum(x["withdrawn"] for x in response.json()), 2)
+        self.assertNotIn("source_note", response.json()[0])

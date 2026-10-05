@@ -26,6 +26,7 @@ import BSCA from "./pages/programs/BSCA";
 import MSCA from "./pages/programs/MSCA";
 
 // Research Pages
+import ResearchConferences from "./pages/research/Conferences";
 import Research from "./pages/research/Research";
 import ResearchFocusAreas from "./pages/research/FocusAreas";
 import ResearchFacultyProfiles from "./pages/research/FacultyProfiles";
@@ -111,6 +112,7 @@ const App = () => (
             <Route path="/research" element={<Research />} />
             <Route path="/research/focus-areas" element={<ResearchFocusAreas />} />
             <Route path="/research/faculty-profiles" element={<ResearchFacultyProfiles />} />
+            <Route path="/research/conferences" element={<ResearchConferences />} />
             <Route path="/research/projects" element={<ResearchProjects />} />
             <Route path="/research/publications" element={<Publications />} />
             <Route path="/research/labs" element={<Labs />} />

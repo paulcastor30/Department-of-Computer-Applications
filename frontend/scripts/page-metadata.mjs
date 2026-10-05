@@ -11,6 +11,7 @@ const pages = {
   '/programs/bsca': ['Bachelor of Science in Computer Applications', 'Explore BSCA at MSU-IIT: software, firmware and hardware foundations for embedded, connected and intelligent systems.'],
   '/programs/msca': ['Master of Science in Computer Applications', 'Explore MSCA at MSU-IIT: advanced study and research in Computer Applications, with program information and admissions guidance.'],
   '/faculty': ['Faculty', 'Meet the Computer Applications faculty, explore their expertise and find academic contacts.'],
+  '/research/conferences': ['Research conferences', 'Conference research involving DCA faculty, students and collaborators: authors, titles, dates, locations and withdrawn entries.'],
   '/research': ['Research', 'Explore department research projects, reporting years, leaders, teams and funding, alongside computing study areas and collaboration enquiries.'],
   '/extension': ['Community work', 'Contact the Department of Computer Applications about current community activities and collaboration.'],
   '/news': ['News and events', 'Find published department announcements, activity information and where to ask about dates.'],
