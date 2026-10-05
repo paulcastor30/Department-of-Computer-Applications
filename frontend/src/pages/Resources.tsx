@@ -4,7 +4,7 @@ import { PageHero } from "@/components/ui/hero-section";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { usePrograms } from "@/hooks/useAcademics";
 import { normalizePrograms } from "./programs/programData";
-import { ProgramForms } from "@/components/ProgramForms";
+import { ProgramFormPicker } from "@/components/ProgramForms";
 import { ProgramInquiry } from "./programs/ProgramInquiry";
 
 export default function Resources() {
@@ -26,7 +26,7 @@ export default function Resources() {
     </Section>
     <Section id="student-forms" variant="muted">
       <SectionHeader title="Download student forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
-      {programs.map(program => <ProgramForms key={program.code} program={program} />)}
+      <ProgramFormPicker programs={programs} />
     </Section>
     <Section variant="muted">
       <SectionHeader title="Contacts and announcements" className="mb-5" />
