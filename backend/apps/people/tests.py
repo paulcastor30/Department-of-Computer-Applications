@@ -61,3 +61,26 @@ class FacultyImportTests(TransactionTestCase):
         self.assertEqual(len(response), 1)
         self.assertTrue(response[0]["transferred_from_dca"])
         self.assertEqual(response[0]["service_classification"], "affiliated_msca_faculty")
+
+
+    def test_pepito_acceptance_retains_current_rank_and_does_not_assign_permanency(self):
+        member = FacultyMember.objects.create(title="Collien Princess C. Pepito", slug="existing-pepito",
+            email="collienprincess.pepito@g.msuiit.edu.ph", position="Assistant Lecturer",
+            is_published=True, appointment_or_assignment_note="Existing department note")
+        FacultyPublication.objects.create(faculty=member, title="Existing professional work")
+        migration = import_module("apps.people.migrations.0007_pepito_appointment_status")
+        with connection.schema_editor() as editor:
+            migration.record_pepito_appointment(apps, editor)
+            migration.record_pepito_appointment(apps, editor)
+        member.refresh_from_db()
+        self.assertEqual(member.position, "Assistant Lecturer")
+        self.assertEqual(member.faculty_category, "Lecturer")
+        self.assertEqual(member.personnel_type, "faculty")
+        self.assertEqual(member.employment_classification, "")
+        self.assertIn("Existing department note", member.appointment_or_assignment_note)
+        self.assertEqual(member.appointment_or_assignment_note.count("Accepted as faculty"), 1)
+        self.assertEqual(member.slug, "existing-pepito")
+        self.assertEqual(member.publications.count(), 1)
+        self.assertEqual(FacultyMember.objects.count(), 1)
+        detail = self.client.get("/api/people/faculty/existing-pepito/").json()
+        self.assertIn("plantilla item", detail["appointment_or_assignment_note"])
