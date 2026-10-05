@@ -17,7 +17,7 @@ for (const code of ['bsca', 'msca']) {
 assert.notEqual(titles[0], titles[1]);
 assert.notEqual(descriptions[0], descriptions[1]);
 const config = JSON.parse(await readFile('vercel.json', 'utf8'));
-for (const route of ['/programs/bsca', '/programs/msca', '/admissions', '/resources', '/research/publications']) {
+for (const route of ['/programs/bsca', '/programs/msca', '/admissions', '/resources', '/research/publications', '/projects']) {
   assert.ok(config.rewrites.some(rewrite => rewrite.source === route && rewrite.destination === `${route}/index.html`));
 }
 console.log('Crawler metadata and production route mapping checks passed.');

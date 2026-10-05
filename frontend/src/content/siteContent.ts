@@ -80,6 +80,7 @@ export const missingOfficialContent = [
 ];
 
 const allSearchPages = [
+  { title: "Projects and prototypes", keywords: ["projects", "prototypes", "creative works", "games", "hardware", "firmware", "Hackster"], href: "/projects" },
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
   { title: "Advising and learning support", keywords: ["learning support", "disability assistance", "disability-related assistance", "disability support", "academic accommodations", "accessible learning", "PWD", "advising", "study plan"], href: "/resources#learning-support" },
   { title: "Thesis forms and preparation guidance", keywords: ["thesis forms", "thesis checklist", "proposal", "defense", "manuscript", "submission", "graduation forms"], href: "/resources#student-forms" },
@@ -298,5 +299,5 @@ const allSearchPages = [
 
 
 // Keep saved links working, but do not promote unfinished destinations in search.
-const availableSearchRoutes = new Set(["/", "/about", "/about/vmgo", "/our-work", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
+const availableSearchRoutes = new Set(["/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
 export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href.split("#")[0]));

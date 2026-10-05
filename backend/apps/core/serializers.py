@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import SiteSetting, DepartmentProfile, HeroSection, QuickStat
+from .models import SiteSetting, DepartmentProfile, HeroSection, QuickStat, ProjectPrototype
 
 
 class SiteSettingSerializer(serializers.ModelSerializer):
@@ -66,3 +66,10 @@ class QuickStatSerializer(serializers.ModelSerializer):
             "sort_order",
             "updated_at",
         ]
+
+class ProjectPrototypeSerializer(serializers.ModelSerializer):
+    kind_display = serializers.CharField(source="get_kind_display", read_only=True)
+
+    class Meta:
+        model = ProjectPrototype
+        fields = ["id", "slug", "title", "reporting_year", "summary", "kind", "kind_display", "creator_credits", "source_url"]

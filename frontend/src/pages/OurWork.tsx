@@ -22,6 +22,11 @@ export default function OurWork() {
             <Link className="text-link inline-flex min-h-11 items-center mt-3" to={program.route}>Explore {program.code}</Link>
           </li>)}</ul>
         </section>
+        <section aria-labelledby="work-prototypes">
+          <h2 id="work-prototypes" className="section-title">Projects and prototypes</h2>
+          <p className="mt-4">Explore games, sensors, displays and controllers that bring software, firmware and hardware together. Open the project documentation to see how they were built and who is credited.</p>
+          <Link className="text-link inline-flex min-h-11 items-center mt-3" to="/projects">Explore projects and prototypes</Link>
+        </section>
         <section aria-labelledby="work-research">
           <h2 id="work-research" className="section-title">Research</h2>
           <p className="mt-4">Explore a documented Computer Applications research example and the computing areas studied in our programs. Contact the department about current projects, publications or collaboration.</p>

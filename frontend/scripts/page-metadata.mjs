@@ -6,6 +6,7 @@ const pages = {
   '/': ['Home', 'Get to know the Department of Computer Applications at MSU-IIT. Explore programs, people, announcements and visiting information.'],
   '/about': ['About the department', 'Meet the Department of Computer Applications, College of Computer Studies, MSU-Iligan Institute of Technology.'],
   '/about/vmgo': ['College vision and mission', 'Read the vision and mission of the College of Computer Studies at MSU-IIT.'],
+  '/projects': ['Projects and prototypes', 'Explore embedded games, sensors, displays and controllers from the department project showcase, with reporting years and public Hackster project links.'],
   '/our-work': ['What we do', 'Explore Computer Applications teaching, research information and community enquiries.'],
   '/programs': ['Academic Programs', 'Compare BSCA and MSCA: undergraduate foundations and advanced study and research in Computer Applications.'],
   '/programs/bsca': ['Bachelor of Science in Computer Applications', 'Explore BSCA at MSU-IIT: software, firmware and hardware foundations for embedded, connected and intelligent systems.'],

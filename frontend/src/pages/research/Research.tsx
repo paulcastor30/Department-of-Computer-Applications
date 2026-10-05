@@ -20,6 +20,7 @@ export default function Research() {
         <a className="outline-link" href="#department-projects">Research projects</a>
         <Link className="outline-link" to="/research/conferences">Conference records</Link>
         <Link className="outline-link" to="/research/publications">Publications</Link>
+        <Link className="outline-link" to="/projects">Projects and prototypes</Link>
         <a className="outline-link" href="#research-enquiries">Research enquiries</a>
       </nav>
     </Section>

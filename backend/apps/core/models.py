@@ -45,3 +45,17 @@ class QuickStat(TimeStampedModel):
 
     def __str__(self):
         return f"{self.label}: {self.value}"
+
+class ProjectPrototype(PublishableModel):
+    reporting_year = models.PositiveIntegerField(help_text="Department reporting year; not a verified completion or publication date.")
+    summary = models.TextField(help_text="Brief plain-language description; avoid unsupported performance or novelty claims.")
+    kind = models.CharField(max_length=20, choices=[("GAME", "Games and learning"), ("SENSING", "Sensing and monitoring"), ("INTERFACE", "Displays and interfaces"), ("TIMING", "Clocks and timers"), ("CONTROL", "Controllers")])
+    creator_credits = models.TextField(blank=True, help_text="Credits as confirmed on the source page; do not infer student, adviser or faculty roles.")
+    source_url = models.URLField(max_length=500, help_text="Public project link without private access tokens.")
+    source_note = models.TextField(blank=True, help_text="Internal provenance and verification notes.")
+
+    class Meta:
+        ordering = ["-reporting_year", "sort_order", "title"]
+
+    def __str__(self):
+        return self.title

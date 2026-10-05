@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SiteSetting, DepartmentProfile, HeroSection, QuickStat
+from .models import SiteSetting, DepartmentProfile, HeroSection, QuickStat, ProjectPrototype
 
 
 @admin.action(description="Mark selected hero sections as published")
@@ -37,3 +37,10 @@ class QuickStatAdmin(admin.ModelAdmin):
     search_fields = ("label", "value", "note")
     ordering = ("sort_order", "label")
     readonly_fields = ("created_at", "updated_at")
+
+@admin.register(ProjectPrototype)
+class ProjectPrototypeAdmin(admin.ModelAdmin):
+    list_display = ("title", "reporting_year", "kind", "is_published")
+    list_filter = ("reporting_year", "kind", "is_published")
+    search_fields = ("title", "summary", "creator_credits")
+    prepopulated_fields = {"slug": ("title",)}

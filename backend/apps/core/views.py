@@ -1,12 +1,14 @@
+from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import SiteSetting, DepartmentProfile, HeroSection, QuickStat
+from .models import SiteSetting, DepartmentProfile, HeroSection, QuickStat, ProjectPrototype
 from .serializers import (
     SiteSettingSerializer,
     DepartmentProfileSerializer,
     HeroSectionSerializer,
     QuickStatSerializer,
+    ProjectPrototypeSerializer,
 )
 
 
@@ -40,3 +42,7 @@ class HomePayloadView(APIView):
             "quick_stats": QuickStatSerializer(quick_stats, many=True).data,
         }
         return Response(data)
+
+class ProjectPrototypeListView(generics.ListAPIView):
+    queryset = ProjectPrototype.objects.filter(is_published=True)
+    serializer_class = ProjectPrototypeSerializer
