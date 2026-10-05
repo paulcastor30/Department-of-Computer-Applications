@@ -14,6 +14,7 @@ class NewsPostSerializer(serializers.ModelSerializer):
             "category",
             "summary",
             "body",
+            "source_url",
             "featured_image",
             "published_at",
             "featured",

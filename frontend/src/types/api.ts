@@ -367,6 +367,7 @@ export interface FacultyMember extends FacultyDirectoryMember {
 }
 
 export interface NewsPost {
+  source_url?: string;
   id: number;
   title: string;
   slug: string;

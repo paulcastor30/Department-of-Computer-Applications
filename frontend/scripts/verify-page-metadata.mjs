@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+const home = await readFile('dist/index.html', 'utf8');
+const titles = [];
+const descriptions = [];
+for (const code of ['bsca', 'msca']) {
+  const html = await readFile(`dist/programs/${code}/index.html`, 'utf8');
+  const title = html.match(/<title>(.*?)<\/title>/)?.[1];
+  const description = html.match(/<meta property="og:description" content="([^"]*)"/)?.[1];
+  assert.ok(title && description, 'A crawler must receive title and description before JavaScript runs.');
+  assert.notEqual(title, home.match(/<title>(.*?)<\/title>/)?.[1]);
+  assert.ok(!/to be (provided|validated)/i.test(description));
+  assert.ok(html.includes(`rel="canonical" href="https://msuiit-comapps.vercel.app/programs/${code}"`));
+  titles.push(title);
+  descriptions.push(description);
+}
+assert.notEqual(titles[0], titles[1]);
+assert.notEqual(descriptions[0], descriptions[1]);
+const config = JSON.parse(await readFile('vercel.json', 'utf8'));
+for (const route of ['/programs/bsca', '/programs/msca', '/admissions', '/resources']) {
+  assert.ok(config.rewrites.some(rewrite => rewrite.source === route && rewrite.destination === `${route}/index.html`));
+}
+console.log('Crawler metadata and production route mapping checks passed.');

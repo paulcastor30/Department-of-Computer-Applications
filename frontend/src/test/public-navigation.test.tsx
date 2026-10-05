@@ -211,3 +211,24 @@ it('provides thesis and learning-support routes for both degrees on the resource
   expect(main.getByRole('link', { name: 'Ask about learning support' }).getAttribute('href')).toContain('learning-support%20enquiry');
   expect(main.getByRole('link', { name: /Revised university graduate publication policy/ })).toHaveAttribute('href', 'https://msuiit.edu.ph/news/news-detail.php?id=2496');
 });
+
+
+it('takes a visitor from Home to both authoritative application routes', async () => {
+  render(<App />);
+  fireEvent.click(within(screen.getByRole('region', { name: 'Study with us' })).getByRole('link', { name: 'How to apply' }));
+  const main = within(screen.getByRole('main'));
+  expect(await main.findByRole('heading', { level: 1, name: 'How to apply' })).toBeInTheDocument();
+  expect(main.queryByText('Information to come')).not.toBeInTheDocument();
+  expect(main.getByRole('link', { name: 'Read the official undergraduate admission requirements' })).toHaveAttribute('href', 'https://www.msuiit.edu.ph/offices/admissions/requirements.php');
+  expect(main.getByRole('link', { name: 'Visit the MSU-IIT Admission Portal' })).toHaveAttribute('href', 'https://admission.msuiit.edu.ph/');
+  expect(main.getByRole('link', { name: 'Read the CCS graduate application and admission guide' })).toHaveAttribute('href', 'https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission');
+});
+
+it('does not promote unfinished pages through the footer or search', () => {
+  render(<App />);
+  expect(screen.queryByRole('link', { name: 'International partnerships' })).not.toBeInTheDocument();
+  fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
+  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'facilities' } });
+  expect(within(screen.getByRole('search')).queryByRole('link', { name: 'Facilities' })).not.toBeInTheDocument();
+  expect(screen.getByRole('status')).toHaveTextContent('0 matching pages');
+});

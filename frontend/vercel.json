@@ -1,5 +1,80 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/about",
+      "destination": "/about/index.html"
+    },
+    {
+      "source": "/about/vmgo",
+      "destination": "/about/vmgo/index.html"
+    },
+    {
+      "source": "/our-work",
+      "destination": "/our-work/index.html"
+    },
+    {
+      "source": "/programs",
+      "destination": "/programs/index.html"
+    },
+    {
+      "source": "/programs/bsca",
+      "destination": "/programs/bsca/index.html"
+    },
+    {
+      "source": "/programs/msca",
+      "destination": "/programs/msca/index.html"
+    },
+    {
+      "source": "/faculty",
+      "destination": "/faculty/index.html"
+    },
+    {
+      "source": "/research",
+      "destination": "/research/index.html"
+    },
+    {
+      "source": "/extension",
+      "destination": "/extension/index.html"
+    },
+    {
+      "source": "/news",
+      "destination": "/news/index.html"
+    },
+    {
+      "source": "/resources",
+      "destination": "/resources/index.html"
+    },
+    {
+      "source": "/admissions",
+      "destination": "/admissions/index.html"
+    },
+    {
+      "source": "/about/contact",
+      "destination": "/about/contact/index.html"
+    },
+    {
+      "source": "/about/location",
+      "destination": "/about/location/index.html"
+    },
+    {
+      "source": "/accessibility",
+      "destination": "/accessibility/index.html"
+    },
+    {
+      "source": "/admissions/apply",
+      "destination": "/admissions/index.html"
+    },
+    {
+      "source": "/admissions/request-info",
+      "destination": "/admissions/index.html"
+    },
+    {
+      "source": "/students/current",
+      "destination": "/resources/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }

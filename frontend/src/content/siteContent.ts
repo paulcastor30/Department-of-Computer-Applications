@@ -79,7 +79,7 @@ export const missingOfficialContent = [
   "Closure exceptions and enquiry-routing procedure.",
 ];
 
-export const searchPages = [
+const allSearchPages = [
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
   ...departmentQuestions.map(question => ({ title: question.title, keywords: [question.title.toLowerCase()], href: question.href })),
   { title: "What we do", keywords: ["what", "our work", "teaching", "research", "community", "collaborate"], href: "/our-work" },
@@ -289,3 +289,8 @@ export const searchPages = [
     href: "/accreditation/aun-qa",
   },
 ];
+
+
+// Keep saved links working, but do not promote unfinished destinations in search.
+const availableSearchRoutes = new Set(["/", "/about", "/about/vmgo", "/our-work", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
+export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href));

@@ -10,7 +10,7 @@ export default function Resources() {
   const { data, isError } = usePrograms();
   const programs = normalizePrograms(data);
   return <>
-    <Seo title="Student & faculty resources" description="Find program documents, thesis checklists, academic contacts and learning-support enquiries for the Department of Computer Applications." />
+    <Seo canonicalUrl="https://msuiit-comapps.vercel.app/resources" title="Student & faculty resources" description="Find program documents, thesis checklists, academic contacts and learning-support enquiries for the Department of Computer Applications." />
     <PageHero title="Student & faculty resources" subtitle="Quick access to study documents, thesis guidance and people who can help." />
     <Section>
       {isError && <p className="notice mb-6" role="status">The latest program documents could not be loaded. Reference links are shown; contact the department for current guidance.</p>}

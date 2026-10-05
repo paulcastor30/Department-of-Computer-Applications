@@ -10,7 +10,7 @@ export function NewsList({ limit }: { limit?: number }) {
   const { data = [], isLoading, isError, refetch } = useNews();
   if (isLoading) return <p role="status">Loading news… You can continue exploring the website.</p>;
   if (isError) return <div className="notice"><p>We could not load the news right now.</p><div className="mt-3 flex flex-wrap items-center gap-4"><button className="outline-link" type="button" onClick={() => refetch()}>Try again</button><Link className="text-link inline-flex min-h-11 items-center" to="/about/contact">Ask about announcements</Link></div></div>;
-  if (!data.length) return <div className="notice"><p>Official news and event dates: {placeholder}.</p><Link className="text-link inline-flex min-h-11 items-center mt-2" to="/about/contact">Ask about upcoming activities</Link></div>;
+  if (!data.length) return <div className="notice"><p>There are no published department announcements at the moment.</p><Link className="text-link inline-flex min-h-11 items-center mt-2" to="/about/contact">Ask about upcoming activities</Link></div>;
   const posts = limit ? data.slice(0, limit) : data;
   return <div className="grid gap-5 md:grid-cols-3">{posts.map(post => <article key={post.id} className="overflow-hidden rounded-lg border border-border bg-background">
     {post.featured_image && <img src={post.featured_image} alt="" loading="lazy" decoding="async" width="640" height="360" className="aspect-video w-full object-cover" onError={event => { event.currentTarget.hidden = true; }} />}

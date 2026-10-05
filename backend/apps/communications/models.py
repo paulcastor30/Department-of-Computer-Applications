@@ -12,6 +12,7 @@ class NewsPost(PublishableModel):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     summary = models.TextField(blank=True)
     body = models.TextField()
+    source_url = models.URLField(blank=True, help_text="Official source supporting this report.")
     featured_image = models.ImageField(upload_to="news/", blank=True, null=True)
     published_at = models.DateTimeField(null=True, blank=True)
 
