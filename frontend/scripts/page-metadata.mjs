@@ -14,7 +14,7 @@ const pages = {
   '/research/publications': ['Publications', 'Research publications involving DCA faculty and collaborators, with authors, publication dates, journal and conference details, and publisher links.'],
   '/research/conferences': ['Research conferences', 'Conference research involving DCA faculty, students and collaborators: authors, titles, dates, locations and withdrawn entries.'],
   '/research': ['Research', 'Explore department research projects, reporting years, leaders, teams and funding, alongside computing study areas and collaboration enquiries.'],
-  '/extension': ['Community work', 'Contact the Department of Computer Applications about current community activities and collaboration.'],
+  '/extension': ['Community work', 'Explore extension programs and community projects involving DCA faculty, their leaders and participants, and collaboration enquiries.'],
   '/news': ['News and events', 'Find published department announcements, activity information and where to ask about dates.'],
   '/resources': ['Student & faculty resources', 'Find program documents, thesis checklists, faculty contacts and learning-support enquiries.'],
   '/admissions': ['How to apply', 'Choose BSCA undergraduate or MSCA graduate study and follow official MSU-IIT admission guidance.'],
