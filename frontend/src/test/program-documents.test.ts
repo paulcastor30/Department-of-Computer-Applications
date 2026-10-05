@@ -2,12 +2,13 @@ import { expect, it } from "vitest";
 import { normalizeProgram } from "../pages/programs/programData";
 import type { Program } from "../types/api";
 
-it("keeps a published curriculum downloadable even when a placeholder document exists", () => {
+it("removes the BSCA curriculum link from CMS files and documents while retaining the prospectus", () => {
   const program = normalizeProgram({
     code: "BSCA", slug: "bsca", curriculum_pdf_url: "/media/curriculum.pdf",
-    documents: [{ title: "BSCA curriculum", href: "", note: "To be provided by the Department." }],
+    documents: [{ title: "BSCA curriculum", href: "/media/old-curriculum.pdf", note: "" }],
   } as Program);
-  expect(program.documents.find(document => document.href)?.href).toBe("/media/curriculum.pdf");
+  expect(program.documents.some(document => /curriculum/i.test(document.label))).toBe(false);
+  expect(program.documents.find(document => document.href)?.href).toBe("/curricula/bsca-prospectus.pdf");
 });
 
 it("keeps program links on supported pages when an editor changes the CMS slug", () => {

@@ -115,7 +115,6 @@ const bscaFallback: ProgramProfile = {
   studentSupport: [placeholder],
   documents: [
     { label: "BSCA prospectus (PDF, 5 pages)", href: "/curricula/bsca-prospectus.pdf", note: "Department-supplied prospectus." },
-    { label: "BSCA curriculum", note: placeholder },
     { label: "Undergraduate admission guide", note: placeholder },
     { label: "BSCA program brochure", note: placeholder },
     { label: "Student handbook or advising guide", note: placeholder },
@@ -263,8 +262,9 @@ function text(value: string | undefined | null, fallback: string) {
 }
 
 function documentsFor(program: Program | undefined, fallback: ProgramProfile): ProgramDocumentLink[] {
+  const isBSCA = (program?.code || fallback.code).toUpperCase() === "BSCA";
   const programDocuments: ProgramDocumentLink[] = program?.documents
-    ?.filter((document) => document.title)
+    ?.filter((document) => document.title && !(isBSCA && /curriculum/i.test(document.title) && !/prospectus/i.test(document.title)))
     .map((document) => ({
       label: document.title,
       documentType: document.document_type,
@@ -273,15 +273,15 @@ function documentsFor(program: Program | undefined, fallback: ProgramProfile): P
       note: hasProgramContent(document.note) ? document.note : (document.href ? undefined : placeholder),
     })) || [];
 
-  if (program?.curriculum_pdf_url && !programDocuments.some((document) => document.label.toLowerCase().includes("curriculum") && document.href)) {
+  if (!isBSCA && program?.curriculum_pdf_url && !programDocuments.some((document) => document.label.toLowerCase().includes("curriculum") && document.href)) {
     programDocuments.unshift({
       label: `${program.code} curriculum`,
       href: program.curriculum_pdf_url,
     });
   }
 
-  const hasCurriculum = Boolean(program?.curriculum_pdf_url) || program?.documents?.some(document =>
-    document.href && (document.document_type === "CURRICULUM" || /curriculum|prospectus/i.test(document.title)));
+  const hasCurriculum = (!isBSCA && Boolean(program?.curriculum_pdf_url)) || programDocuments.some(document =>
+    document.href && (document.documentType === "CURRICULUM" || /curriculum|prospectus/i.test(document.label)));
   if (!hasCurriculum) {
     const prospectus = fallback.documents.find(document => document.href && document.label.includes("prospectus"));
     if (prospectus) programDocuments.unshift(prospectus);
