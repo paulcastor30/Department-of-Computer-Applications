@@ -11,6 +11,7 @@ function FacultyCard({ member }: { member: FacultyDirectoryMember }) {
       {member.photo && <img src={member.photo} alt="" className="h-20 w-20 shrink-0 rounded-md object-cover" loading="lazy" />}
       <div className="min-w-0"><h3 className="text-xl font-semibold leading-snug text-primary"><Link className="text-link" to={`/faculty/${member.slug}`}>{member.title}</Link></h3>
       {member.position && <p className="mt-2 leading-6">{member.position}</p>}
+      {["study_leave", "sabbatical_leave", "inactive_affiliation"].includes(member.faculty_status) && <p className="mt-1 text-sm text-muted-foreground">{member.faculty_status_display}</p>}
       {member.highest_degree && <p className="mt-1 text-sm text-muted-foreground">Highest completed qualification: {member.highest_degree}</p>}</div>
     </div>
     {(member.specialization_areas || member.research_interests) && <p className="mb-6 leading-7 text-muted-foreground"><span className="font-semibold text-foreground">Specialization: </span>{member.specialization_areas || member.research_interests}</p>}

@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import { useFacultyMember } from "@/hooks/usePeople";
 import { ChevronRight, Home } from "lucide-react";
 
 const routeLabels: Record<string, string> = {
@@ -60,6 +61,9 @@ export function Breadcrumbs() {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
+  const facultySlug = pathnames[0] === "faculty" && pathnames.length === 2 && !routeLabels[pathnames[1]] ? pathnames[1] : undefined;
+  const { data: facultyMember } = useFacultyMember(facultySlug);
+
   if (pathnames.length === 0) return null;
 
   return (
@@ -76,7 +80,7 @@ export function Breadcrumbs() {
           {pathnames.map((segment, index) => {
             const href = `/${pathnames.slice(0, index + 1).join("/")}`;
             const isLast = index === pathnames.length - 1;
-            const label = routeLabels[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
+            const label = (isLast && facultySlug && facultyMember?.title) || routeLabels[segment] || segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
 
             return (
               <li key={href} className="flex items-center gap-1.5">
