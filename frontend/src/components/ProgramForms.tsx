@@ -67,7 +67,7 @@ export function ProgramForms({ program }: { program: ProgramProfile }) {
                   {variants.length > 1 ? "Download " : "Download form: "}{variants.length > 1 ? reference || purpose : purpose} ({extension})
                   <span className="sr-only"> — {program.code}{variants.length > 1 ? `: ${purpose}` : reference ? `, ${reference}` : ""}</span>
                 </a>
-                <p className="text-sm leading-6 text-muted-foreground">{program.code}{reference ? ` · ${reference}` : ""} · {extension === "DOC" || extension === "DOCX" ? "Word document" : extension === "PDF" ? "PDF document" : "Image template"}</p>
+                <p className="text-sm leading-6 text-muted-foreground">{program.code}{reference && variants.length === 1 ? ` · ${reference}` : ""} · {extension === "DOC" || extension === "DOCX" ? "Word document" : extension === "PDF" ? "PDF document" : "Image template"}</p>
                 {document.note && document.note !== "Department-supplied form. Confirm the applicable version before use." && <p className="mt-1 text-sm leading-6 text-muted-foreground">{document.note}</p>}
               </div>;
             })}

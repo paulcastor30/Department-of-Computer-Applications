@@ -19,7 +19,7 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
 export default function Programs() {
   const { data, isError } = usePrograms();
   const programs = normalizePrograms(data);
-  const documents = programs.flatMap(program => program.documents.filter(document => !document.formGroup && document.href && !(program.code === "BSCA" && /^(?:BSCA\s+)?curriculum$/i.test(document.label.trim()))).map(document => ({ ...document, code: program.code })));
+  const documents = programs.flatMap(program => program.documents.filter(document => !document.formGroup && document.href && /\bprospectus\b/i.test(document.label)).map(document => ({ ...document, code: program.code })));
   return <>
     <Seo title="Academic Programs" description="Explore BSCA and MSCA at the Department of Computer Applications, MSU-IIT. Learn about each degree, thesis requirements, and how to ask about applying." />
     <PageHero title="Academic Programs" subtitle="Explore our undergraduate and graduate degrees in Computer Applications." />
@@ -29,8 +29,8 @@ export default function Programs() {
       <div className="grid gap-6 lg:grid-cols-2">{programs.map(program => <ProgramCard key={program.code} program={program} />)}</div>
     </Section>
     <Section id="official-documents" variant="muted">
-      <SectionHeader title="Prospectuses and guides" className="mb-5" />
-      {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.code}-${document.label}-${document.href}`}><a className="outline-link" href={document.href}>Open {document.label.startsWith(document.code) ? document.label : `${document.code}: ${document.label}`}</a></li>)}</ul> : <p className="max-w-3xl leading-7 text-muted-foreground">Official curricula, admission guides, and student handbooks: {placeholder} Contact the department for current documents.</p>}
+      <SectionHeader title="Program prospectuses" className="mb-5" />
+      {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.code}-${document.label}-${document.href}`}><a className="outline-link" href={document.href}>Open {document.label.startsWith(document.code) ? document.label : `${document.code}: ${document.label}`}</a></li>)}</ul> : <p className="max-w-3xl leading-7 text-muted-foreground">Official program prospectuses: {placeholder} Contact the department for current documents.</p>}
     </Section>
     <Section id="program-inquiries">
       <SectionHeader title="Need help choosing or applying?" className="mb-5" />

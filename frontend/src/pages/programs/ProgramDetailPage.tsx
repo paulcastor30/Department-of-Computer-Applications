@@ -113,7 +113,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
           {program.admissionsUrl && <a className="action-link" href={program.admissionsUrl}>{program.code === "MSCA" ? "View graduate application and admission guide" : "View official admission requirements"}</a>}
           {program.admissionsPortalUrl && <a className="outline-link" href={program.admissionsPortalUrl}>Visit the MSU-IIT Admission Portal</a>}
           </div>
-          <p className="mt-4 leading-7 text-muted-foreground">Contact the department to confirm current fees, application dates, and available support before applying.</p>
+          <p className="mt-4 leading-7 text-muted-foreground">Contact {program.degreeLevelCode === "GRAD" ? "the graduate coordinator" : "the department"} to confirm current fees, application dates, and available support before applying.</p>
           {hasProgramContent(program.contactInformation) && <p className="mt-4 whitespace-pre-line leading-7">{program.contactInformation}</p>}
       </div>
       <section id="program-documents" className="mt-10 border-t border-border pt-8">
