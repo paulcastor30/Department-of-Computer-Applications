@@ -6,6 +6,7 @@ import { Section } from "@/components/ui/section";
 import { PageHero } from "@/components/ui/hero-section";
 import { useFacultyMember } from "@/hooks/usePeople";
 import type {
+  DepartmentContribution,
   FacultyAchievement,
   FacultyConference,
   FacultyCreativeWork,
@@ -121,14 +122,16 @@ export default function FacultyProfile() {
   const seoDescription =
     member.seo_description ||
     `${member.title}${member.position ? `, ${member.position}` : ""}, Department of Computer Applications faculty profile.`;
+  const credits = member.department_contributions || [];
+  const shared = (kind: DepartmentContribution["kind"]) => credits.filter(record => record.kind === kind);
   const sectionAvailable: Record<string, boolean> = {
     contact: true,
     overview: Boolean(member.profile_summary || member.highest_degree || member.appointment_or_assignment_note),
     education: Boolean(member.education_records.length || member.educational_background),
     expertise: Boolean(member.expertise_records.length || member.specialization_areas || member.research_interests || member.teaching_areas),
-    "supervised-work": Boolean(member.supervised_works.length), publications: Boolean(member.publications.length),
-    conferences: Boolean(member.conferences.length), research: Boolean(member.research_projects.length),
-    extension: Boolean(member.extension_projects.length), "creative-works": Boolean(member.creative_works.length),
+    "supervised-work": Boolean(member.supervised_works.length), publications: Boolean(member.publications.length || shared("publication").length),
+    conferences: Boolean(member.conferences.length || shared("conference").length), research: Boolean(member.research_projects.length || shared("research").length),
+    extension: Boolean(member.extension_projects.length || shared("extension").length), "creative-works": Boolean(member.creative_works.length),
     training: Boolean(member.training_seminars.length), achievements: Boolean(member.achievements.length),
   };
   const educationGroups = [
@@ -137,8 +140,8 @@ export default function FacultyProfile() {
     { title: "Study records awaiting confirmation", records: member.education_records.filter(record => record.degree_level !== "other" && !/Completed qualification; year not supplied/i.test(record.notes) && !/ongoing|on-going|not yet completed/i.test(record.notes) && (record.year_completed == null || /completion status/i.test(record.notes))) },
   ];
   educationGroups.push({ title: "Fellowships and other academic experience", records: member.education_records.filter(record => record.degree_level === "other") });
-  const internalResearch = member.research_projects.filter((record) => record.funding_type === "internal");
-  const externalResearch = member.research_projects.filter((record) => record.funding_type === "external");
+  const internalResearch = member.research_projects.filter(record => !shared("research").some(item => item.title.toLowerCase() === record.title.toLowerCase())).filter((record) => record.funding_type === "internal");
+  const externalResearch = member.research_projects.filter(record => !shared("research").some(item => item.title.toLowerCase() === record.title.toLowerCase())).filter((record) => record.funding_type === "external");
 
   return (
     <>
@@ -202,6 +205,7 @@ export default function FacultyProfile() {
               ))}
             </nav>
 
+            {credits.length > 0 && <p className="mb-8 max-w-3xl text-sm leading-7 text-muted-foreground">The work below shows credited contributions in the department’s shared records, including historical work. These credits do not establish a current appointment or project status.</p>}
             <div className="space-y-8">
               {sectionAvailable["overview"] && <FacultyProfileSection id="overview" title="Profile Overview">
                 {member.profile_summary && <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{member.profile_summary}</p>}
@@ -268,8 +272,9 @@ export default function FacultyProfile() {
               </FacultyProfileSection>}
 
               {sectionAvailable["publications"] && <FacultyProfileSection id="publications" title="Publications">
+                <SharedContributions records={shared("publication")} />
                 <RecordList
-                  records={member.publications}
+                  records={member.publications.filter(record => !shared("publication").some(item => item.title.toLowerCase() === record.title.toLowerCase() || (record.doi && record.doi.toLowerCase() === item.doi.toLowerCase())))}
                   render={(record: FacultyPublication) => (
                     <TimelineItem
                       key={record.id}
@@ -288,8 +293,9 @@ export default function FacultyProfile() {
               </FacultyProfileSection>}
 
               {sectionAvailable["conferences"] && <FacultyProfileSection id="conferences" title="Conferences">
+                <SharedContributions records={shared("conference")} />
                 <RecordList
-                  records={member.conferences}
+                  records={member.conferences.filter(record => !shared("conference").some(item => item.title.toLowerCase() === record.title.toLowerCase()))}
                   render={(record: FacultyConference) => (
                     <TimelineItem
                       key={record.id}
@@ -302,21 +308,23 @@ export default function FacultyProfile() {
               </FacultyProfileSection>}
 
               {sectionAvailable["research"] && <FacultyProfileSection id="research" title="Research Projects">
+                <SharedContributions records={shared("research")} />
                 <div className="grid gap-6">
-                  <section>
+                  {internalResearch.length > 0 && <section>
                     <h3 className="mb-3 text-base font-semibold text-foreground">Internally-Funded Research</h3>
                     <ResearchRecords records={internalResearch} />
-                  </section>
-                  <section>
+                  </section>}
+                  {externalResearch.length > 0 && <section>
                     <h3 className="mb-3 text-base font-semibold text-foreground">Externally-Funded Research</h3>
                     <ResearchRecords records={externalResearch} />
-                  </section>
+                  </section>}
                 </div>
               </FacultyProfileSection>}
 
               {sectionAvailable["extension"] && <FacultyProfileSection id="extension" title="Extension Projects">
+                <SharedContributions records={shared("extension")} />
                 <RecordList
-                  records={member.extension_projects}
+                  records={member.extension_projects.filter(record => !shared("extension").some(item => item.title.toLowerCase() === record.title.toLowerCase()))}
                   render={(record: FacultyExtensionProject) => (
                     <TimelineItem key={record.id} title={record.title} meta={[record.implementation_period, record.role, record.status].filter(Boolean).join(" | ")} evidenceUrl={record.evidence_url}>
                       <dl className="grid gap-3 md:grid-cols-2">
@@ -387,4 +395,18 @@ function ResearchRecords({ records }: { records: FacultyResearchProject[] }) {
       )}
     />
   );
+}
+
+
+function SharedContributions({ records }: { records: DepartmentContribution[] }) {
+  if (!records.length) return null;
+  const render = (record: DepartmentContribution) => <article key={record.id} className="rounded-md border border-border p-4">
+    <h3 className="font-semibold text-primary">{record.title}</h3>
+    <p className="mt-2 text-sm leading-6 text-muted-foreground">{record.kind === "research" || record.kind === "extension" ? `Reporting year: ${record.year}` : record.year} · {record.role}{record.withdrawn ? " · Withdrawn" : ""}</p>
+    <Link className="text-link mt-2 inline-flex min-h-11 items-center" to={record.href}>View full record<span className="sr-only"> for {record.title}</span></Link>
+  </article>;
+  return <div className="mb-6 space-y-4">
+    {records.slice(0, 3).map(render)}
+    {records.length > 3 && <details className="rounded-md border border-border p-4"><summary className="min-h-11 cursor-pointer font-semibold">View all {records.length} records</summary><div className="mt-4 space-y-4">{records.slice(3).map(render)}</div></details>}
+  </div>;
 }

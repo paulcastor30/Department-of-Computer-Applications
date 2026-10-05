@@ -301,3 +301,34 @@ class FacultyAchievement(FacultyProfileRecord):
 
     def __str__(self):
         return self.title
+
+
+class FacultyContribution(models.Model):
+    """A confirmed credit linking a faculty profile to one shared department record."""
+    faculty = models.ForeignKey(FacultyMember, on_delete=models.CASCADE, related_name="department_contributions")
+    research = models.ForeignKey("research.ResearchProject", null=True, blank=True, on_delete=models.CASCADE)
+    publication = models.ForeignKey("research.PublicationRecord", null=True, blank=True, on_delete=models.CASCADE)
+    conference = models.ForeignKey("research.ConferenceRecord", null=True, blank=True, on_delete=models.CASCADE)
+    extension = models.ForeignKey("extension.ExtensionProject", null=True, blank=True, on_delete=models.CASCADE)
+    role = models.CharField(max_length=100, help_text="Use only a role established by the source; conference author does not mean presenter.")
+    credited_name = models.CharField(max_length=255, blank=True)
+    is_published = models.BooleanField(default=True)
+
+    class Meta:
+        constraints = [
+            models.CheckConstraint(condition=(
+                models.Q(research__isnull=False, publication__isnull=True, conference__isnull=True, extension__isnull=True) |
+                models.Q(research__isnull=True, publication__isnull=False, conference__isnull=True, extension__isnull=True) |
+                models.Q(research__isnull=True, publication__isnull=True, conference__isnull=False, extension__isnull=True) |
+                models.Q(research__isnull=True, publication__isnull=True, conference__isnull=True, extension__isnull=False)
+            ), name="faculty_contribution_one_source"),
+            *[models.UniqueConstraint(fields=["faculty", field], name="unique_faculty_" + field + "_credit") for field in ("research", "publication", "conference", "extension")],
+        ]
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        if sum(bool(getattr(self, field + "_id")) for field in ("research", "publication", "conference", "extension")) != 1:
+            raise ValidationError("Select exactly one department record.")
+
+    def __str__(self):
+        return f"{self.faculty} — {self.role}"

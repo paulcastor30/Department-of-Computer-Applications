@@ -355,3 +355,13 @@ class FacultyAchievementAdmin(FacultyRecordAdmin):
     list_display = ("title", "faculty", "awarding_body", "level", "year", "achievement_date", "is_published", "sort_order")
     list_filter = ("level", "year", "is_published")
     search_fields = ("title", "faculty__title", "awarding_body", "description")
+
+
+from .models import FacultyContribution
+
+@admin.register(FacultyContribution)
+class FacultyContributionAdmin(admin.ModelAdmin):
+    list_display = ("faculty", "role", "credited_name", "is_published")
+    list_filter = ("role", "is_published")
+    search_fields = ("faculty__title", "credited_name", "research__title", "publication__title", "conference__title", "extension__title")
+    autocomplete_fields = ("faculty", "research", "publication", "conference", "extension")

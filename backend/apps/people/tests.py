@@ -120,3 +120,66 @@ class FacultyImportTests(TransactionTestCase):
             migration.import_allied_and_resigned(apps, editor)
         empig.refresh_from_db()
         self.assertEqual(empig.specialization_areas, "Department-reviewed specialization")
+
+
+from django.test import TestCase
+from apps.people.models import FacultyContribution
+from apps.research.models import ResearchProject, PublicationRecord, ConferenceRecord
+from apps.extension.models import ExtensionProject
+from django.core.exceptions import ValidationError
+
+class SharedContributionTests(TestCase):
+    def setUp(self):
+        FacultyMember.objects.all().delete()
+        ResearchProject.objects.all().delete()
+        PublicationRecord.objects.all().delete()
+        ConferenceRecord.objects.all().delete()
+        ExtensionProject.objects.all().delete()
+        self.person = FacultyMember.objects.create(title="Joel I. Miano", slug="joel-i-miano", is_published=True, faculty_status="resigned", active_affiliation=False)
+        self.project = ResearchProject.objects.create(title="Shared research", slug="shared", reporting_year="2025", research_leader="Joel I. Miano", team_members="Other Person", funding="INTERNAL", is_published=True)
+
+    def test_shared_source_edits_visibility_and_historical_credit(self):
+        credit = FacultyContribution.objects.create(faculty=self.person, research=self.project, role="Research leader")
+        url = "/api/people/faculty/joel-i-miano/"
+        payload = self.client.get(url).json()["department_contributions"]
+        self.assertEqual(payload[0]["role"], "Research leader")
+        self.assertEqual(payload[0]["href"], "/research#shared")
+        self.project.title = "Corrected title"
+        self.project.save()
+        self.assertEqual(self.client.get(url).json()["department_contributions"][0]["title"], "Corrected title")
+        credit.is_published = False
+        credit.save()
+        self.assertEqual(self.client.get(url).json()["department_contributions"], [])
+        credit.is_published = True
+        credit.save()
+        self.project.is_published = False
+        self.project.save()
+        self.assertEqual(self.client.get(url).json()["department_contributions"], [])
+        self.assertEqual(FacultyContribution.objects.count(), 1)
+
+    def test_import_roles_identity_and_idempotency(self):
+        member = FacultyMember.objects.create(title="Apple Rose B. Alce", slug="alce", is_published=True)
+        ambiguous = FacultyMember.objects.create(title="Other Miano", slug="other-miano")
+        self.project.team_members = "Apple Rose Alce\nOther unknown person"
+        self.project.save()
+        publication = PublicationRecord.objects.create(title="Paper", year=2025, authors="Joel I. Miano; Apple Rose B. Alce", kind="JOURNAL", source_url="https://example.org/paper", is_published=True)
+        conference = ConferenceRecord.objects.create(title="Conference paper", year=2026, authors="Apple Rose Alce and Joel I. Miano", starts_on="2026-11-01", ends_on="2026-11-02", withdrawn=True, is_published=True)
+        extension = ExtensionProject.objects.create(title="Extension", reporting_year=2024, extension_leader="Apple Rose Alce", faculty_members="Joel I. Miano", is_published=True)
+        migration = import_module("apps.people.migrations.0011_department_contributions")
+        from types import SimpleNamespace
+        Editor = lambda: SimpleNamespace(connection=connection)
+        migration.link_department_records(apps, Editor())
+        migration.link_department_records(apps, Editor())
+        self.assertEqual(FacultyContribution.objects.count(), 8)
+        self.assertEqual(FacultyContribution.objects.filter(faculty=ambiguous).count(), 0)
+        self.assertEqual(FacultyContribution.objects.get(faculty=member, research=self.project).role, "Research team member")
+        self.assertEqual(FacultyContribution.objects.get(faculty=member, extension=extension).role, "Extension leader")
+        credits = self.client.get("/api/people/faculty/joel-i-miano/").json()["department_contributions"]
+        conference_credit = next(item for item in credits if item["kind"] == "conference")
+        self.assertTrue(conference_credit["withdrawn"])
+        self.assertEqual(conference_credit["role"], "Conference paper author (presenter not confirmed)")
+        self.assertEqual(FacultyContribution.objects.get(faculty=self.person, publication=publication).role, "Author")
+
+    def test_requires_exactly_one_shared_source(self):
+        with self.assertRaises(ValidationError):
+            FacultyContribution(faculty=self.person, role="Member").clean()

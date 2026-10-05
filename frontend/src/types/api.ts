@@ -348,7 +348,19 @@ export interface FacultyAchievement {
   updated_at: string;
 }
 
+export interface DepartmentContribution {
+  id: number;
+  kind: "research" | "publication" | "conference" | "extension";
+  title: string;
+  year: string;
+  role: string;
+  href: string;
+  withdrawn: boolean;
+  doi: string;
+}
+
 export interface FacultyMember extends FacultyDirectoryMember {
+  department_contributions?: DepartmentContribution[];
   educational_background: string;
   advising_areas: string;
   certifications: string;

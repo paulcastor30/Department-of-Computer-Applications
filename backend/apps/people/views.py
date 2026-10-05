@@ -1,6 +1,7 @@
 from django.db.models import Count, Prefetch, Q
 from rest_framework import generics
 from .models import (
+    FacultyContribution,
     FacultyAchievement,
     FacultyConference,
     FacultyCreativeWork,
@@ -73,6 +74,7 @@ class FacultyDetailView(generics.RetrieveAPIView):
     def get_queryset(self):
         return published_faculty_queryset().prefetch_related(
             "evidence_documents",
+            Prefetch("department_contributions", queryset=FacultyContribution.objects.filter(is_published=True).select_related("research", "publication", "conference", "extension")),
             Prefetch("education_records", queryset=FacultyEducation.objects.filter(is_published=True)),
             Prefetch("expertise_records", queryset=FacultyExpertise.objects.filter(is_published=True)),
             Prefetch("supervised_works", queryset=FacultySupervisedWork.objects.filter(is_published=True)),

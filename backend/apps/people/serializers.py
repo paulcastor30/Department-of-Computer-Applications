@@ -139,6 +139,18 @@ class FacultyAchievementSerializer(serializers.ModelSerializer):
 
 
 class FacultyMemberSerializer(FacultyDirectorySerializer):
+    department_contributions = serializers.SerializerMethodField()
+
+    def get_department_contributions(self, member):
+        result = []
+        paths = {"research": "/research", "publication": "/research/publications", "conference": "/research/conferences", "extension": "/extension"}
+        for credit in member.department_contributions.all():
+            for kind, path in paths.items():
+                record = getattr(credit, kind)
+                if record is not None and credit.is_published and record.is_published:
+                    result.append({"id": credit.pk, "kind": kind, "title": record.title, "year": str(getattr(record, "reporting_year", getattr(record, "year", ""))), "role": credit.role, "href": path + "#" + record.slug, "withdrawn": getattr(record, "withdrawn", False), "doi": getattr(record, "doi", "")})
+        return sorted(result, key=lambda item: (item["year"], item["title"]), reverse=True)
+
     evidence_documents = serializers.StringRelatedField(many=True, read_only=True)
     education_records = FacultyEducationSerializer(many=True, read_only=True)
     expertise_records = FacultyExpertiseSerializer(many=True, read_only=True)
@@ -162,6 +174,7 @@ class FacultyMemberSerializer(FacultyDirectorySerializer):
             "end_year",
             "evidence_documents",
             "education_records",
+            "department_contributions",
             "expertise_records",
             "supervised_works",
             "publications",
