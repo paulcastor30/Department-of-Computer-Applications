@@ -89,7 +89,7 @@ it('gives the public a help route as well as an application route on Home', () =
 
 it('explains teaching, research, and community work through main navigation', async () => {
   render(<App />);
-  fireEvent.click(screen.getByRole('link', { name: 'Our work' }));
+  fireEvent.click(screen.getByRole('link', { name: 'What we do' }));
   expect(await screen.findByRole('heading', { level: 1, name: 'What we do' })).toBeInTheDocument();
   for (const title of ['Teaching and learning', 'Research', 'Community work']) {
     expect(screen.getByRole('heading', { level: 2, name: title })).toBeInTheDocument();
@@ -160,7 +160,7 @@ it('explains curriculum-supported MSCA study and flags current requirements for 
   expect(main.getByRole('heading', { name: 'What you will study' })).toBeInTheDocument();
   expect(main.getByText(/Advanced embedded systems: computing/)).toBeInTheDocument();
   expect(main.getByText(/BOR Resolution No. 128/i)).toBeInTheDocument();
-  expect(within(document.getElementById('before-applying')!).getByText(/31 units for the non-scholar plan/)).toBeInTheDocument();
+  expect(main.getByText(/31 units for the non-scholar plan/)).toBeInTheDocument();
   expect(main.getByRole('link', { name: 'Open MSCA prospectus (PDF, 4 pages)' })).toHaveAttribute('href', '/curricula/msca-prospectus.pdf');
   expect(main.getByRole('heading', { name: 'Before applying' })).toBeInTheDocument();
   expect(main.getByText(/MSCA advances the study of Computer Applications/)).toBeInTheDocument();
@@ -173,8 +173,8 @@ it('explains study terms and offers advising support without replacing universit
   const main = within(screen.getByRole('main'));
   expect(main.getByRole('link', { name: 'Key requirements' })).toHaveAttribute('href', '#requirements');
   expect(main.getByText('Bridging courses')).toBeInTheDocument();
-  expect(main.getByText(/Publication: the prospectus specifies/)).toBeInTheDocument();
-  expect(main.getByRole('heading', { name: 'Advising and learning support' })).toBeInTheDocument();
+  expect(main.getByText(/Publication requirement: follow/)).toBeInTheDocument();
+  expect(main.getByRole('link', { name: 'Advising and learning support' })).toHaveAttribute('href', '/resources#learning-support');
   expect(main.getByText(/Website summary reviewed:/)).toHaveTextContent('5 October 2026');
   expect(within(document.getElementById('before-applying')!).getByRole('link', { name: 'View graduate application and admission guide' })).toHaveAttribute('href', 'https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission');
 });
@@ -188,4 +188,26 @@ it('provides undergraduate requirements and portal links without copying unconfi
   expect(admission.getByRole('link', { name: 'Visit the MSU-IIT Admission Portal' })).toHaveAttribute('href', 'https://admission.msuiit.edu.ph/');
   expect(admission.queryByText(/Entry requirements and application instructions:/)).not.toBeInTheDocument();
   expect(admission.queryByText(/85 or better/)).not.toBeInTheDocument();
+});
+
+
+it('separates applicant tasks from enrolled-student procedures and provides a resource route', () => {
+  window.history.replaceState({}, '', '/programs/bsca');
+  render(<App />);
+  const admission = within(document.getElementById('before-applying')!);
+  expect(admission.queryByText('Thesis procedure checklist')).not.toBeInTheDocument();
+  const enrolled = within(document.getElementById('current-students')!);
+  expect(enrolled.getByText('Thesis procedure checklist').tagName).toBe('SUMMARY');
+  expect(enrolled.getByRole('link', { name: 'Student & faculty resources' })).toHaveAttribute('href', '/resources');
+});
+
+it('provides thesis and learning-support routes for both degrees on the resources page', () => {
+  window.history.replaceState({}, '', '/resources');
+  render(<App />);
+  const main = within(screen.getByRole('main'));
+  expect(main.getByRole('heading', { level: 1, name: 'Student & faculty resources' })).toBeInTheDocument();
+  expect(main.getByRole('link', { name: 'View BSCA thesis checklist' })).toHaveAttribute('href', '/programs/bsca#current-students');
+  expect(main.getByRole('link', { name: 'View MSCA thesis checklist' })).toHaveAttribute('href', '/programs/msca#current-students');
+  expect(main.getByRole('link', { name: 'Ask about learning support' }).getAttribute('href')).toContain('learning-support%20enquiry');
+  expect(main.getByRole('link', { name: /Revised university graduate publication policy/ })).toHaveAttribute('href', 'https://msuiit.edu.ph/news/news-detail.php?id=2496');
 });

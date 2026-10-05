@@ -182,3 +182,19 @@ class BSCAReferenceContentTests(TransactionTestCase):
         msca.refresh_from_db()
         self.assertEqual(bsca.og_description, migration.DESCRIPTIONS["BSCA"][1])
         self.assertEqual(msca.og_description, "Department-approved sharing text")
+
+
+    def test_current_publication_policy_preserves_other_requirements_and_is_idempotent(self):
+        migration = import_module("apps.academics.migrations.0019_public_program_guidance")
+        previous = import_module("apps.academics.migrations.0012_program_study_guidance")
+        old = previous.GUIDANCE["MSCA"]["completion_requirements"].splitlines()[-1]
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca", completion_requirements="Department thesis instructions\n" + old, duration="Department-confirmed duration")
+        with connection.schema_editor() as editor:
+            migration.refine_program_guidance(apps, editor)
+            migration.refine_program_guidance(apps, editor)
+        msca.refresh_from_db()
+        self.assertIn("Department thesis instructions", msca.completion_requirements)
+        self.assertIn("June 2026", msca.completion_requirements)
+        self.assertNotIn("at least one published", msca.completion_requirements)
+        self.assertEqual(msca.duration, "Department-confirmed duration")
+        self.assertEqual(msca.documents.filter(url=migration.POLICY_URL).count(), 1)

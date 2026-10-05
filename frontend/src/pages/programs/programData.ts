@@ -59,7 +59,7 @@ const bscaFallback: ProgramProfile = {
   title: "Bachelor of Science in Computer Applications",
   level: "Undergraduate",
   degreeLevelCode: "UNDERGRAD",
-  duration: "Four-year study sequence shown in the supplied prospectus.",
+  duration: "Four-year study sequence in the BSCA prospectus.",
   units: "147 units excluding NSTP; 153 units including the six NSTP units.",
   recognition: "",
   summary: "Computer Applications bridges computing and the physical world. BSCA brings together software, firmware, and hardware to develop embedded, connected, and intelligent systems for real-world applications.",
@@ -134,7 +134,7 @@ const bscaFallback: ProgramProfile = {
   ogTitle: "Bachelor of Science in Computer Applications",
   ogDescription: "Explore BSCA at MSU-IIT: software, firmware and hardware foundations for embedded, connected and intelligent systems.",
   canonicalUrl: "",
-  curriculumNotes: ["Source: department-supplied BSCA prospectus, citing BOR Resolution No. 129, Series of 2018."],
+  curriculumNotes: ["Curriculum source: BSCA prospectus, citing BOR Resolution No. 129, Series of 2018."],
   studyTerms: [
     "Units: the credit assigned to a course. The total describes the study load, not the number of courses.",
     "NSTP (National Service Training Program): the two first-year subjects shown separately in parentheses in the prospectus. They add six units to the 147-unit total."
@@ -153,7 +153,7 @@ const mscaFallback: ProgramProfile = {
   title: "Master of Science in Computer Applications",
   level: "Graduate",
   degreeLevelCode: "GRAD",
-  duration: "Two-year study sequence shown in the supplied prospectus.",
+  duration: "Two-year study sequence in the MSCA prospectus.",
   units: "31 units for the non-scholar plan; 34 for the ERDT scholarship plan; 43 for the plan with bridging courses. Confirm your applicable plan with the department.",
   recognition: "",
   summary: "MSCA advances the study of Computer Applications through specialized study and research in embedded and connected systems. It builds on software, firmware, and hardware foundations to address real-world computing problems.",
@@ -204,6 +204,7 @@ const mscaFallback: ProgramProfile = {
     { label: "MSCA curriculum", note: placeholder },
     { label: "Graduate admission guide", note: placeholder },
     { label: "MSCA program brochure", note: placeholder },
+    { label: "Revised university graduate publication policy (June 2026)", href: "https://msuiit.edu.ph/news/news-detail.php?id=2496", note: "Confirm the graduate track and required evidence with your coordinator." },
     { label: "Graduate handbook or thesis guide", note: placeholder },
   ],
   admissions: ['MSCA applicants should follow the College of Computer Studies graduate application and admission procedures. Review the official guide for eligibility, required documents, program acceptance, university admission and enrolment steps.'],
@@ -218,7 +219,7 @@ const mscaFallback: ProgramProfile = {
   ogTitle: "Master of Science in Computer Applications",
   ogDescription: "Explore MSCA at MSU-IIT: advanced study and research in Computer Applications, with program information and admissions guidance.",
   canonicalUrl: "",
-  curriculumNotes: ["Source: department-supplied MSCA prospectus, citing BOR Resolution No. 128, Series of 2023."],
+  curriculumNotes: ["Curriculum source: MSCA prospectus, citing BOR Resolution No. 128, Series of 2023."],
   studyTerms: [
     "Units: the credit assigned to a course. Different study plans have different total units.",
     "Non-scholar plan: the 31-unit study sequence labelled “A. Non-Scholar” in the prospectus.",
@@ -228,7 +229,7 @@ const mscaFallback: ProgramProfile = {
   completionRequirements: [
     "Master’s Thesis: MCA300 is listed as a six-unit course.",
     "Comprehensive examination: the prospectus lists this examination after the required core study. Ask the department about scheduling and preparation.",
-    "Publication: the prospectus specifies at least one published article in a refereed journal or juried creative-work outlet. Ask the department about the applicable submission and assessment process."
+    "Publication requirement: follow the university’s revised graduate publication policy, approved in June 2026. Required evidence differs by graduate track. Ask the graduate coordinator which track and requirement apply to MSCA."
   ],
   reviewedOn: "2026-10-05",
   isFallback: true,

@@ -52,6 +52,7 @@ import Achievements from "./pages/faculty/Achievements";
 import Development from "./pages/faculty/Development";
 
 // Students Pages
+import Resources from "./pages/Resources";
 import CurrentStudents from "./pages/students/CurrentStudents";
 import ProspectiveStudents from "./pages/students/ProspectiveStudents";
 import Organizations from "./pages/students/Organizations";
@@ -133,6 +134,7 @@ const App = () => (
             <Route path="/faculty/:slug" element={<FacultyProfile />} />
             
             {/* Students Routes */}
+            <Route path="/resources" element={<Resources />} />
             <Route path="/students/current" element={<CurrentStudents />} />
             <Route path="/students/prospective" element={<ProspectiveStudents />} />
             <Route path="/students/organizations" element={<Organizations />} />

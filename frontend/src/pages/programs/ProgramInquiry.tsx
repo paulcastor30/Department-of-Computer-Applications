@@ -2,11 +2,19 @@ import { Link } from "react-router-dom";
 import { departmentIdentity } from "@/content/siteContent";
 import { useSiteSettings } from "@/hooks/useCore";
 
-export function ProgramInquiry({ code }: { code?: string }) {
+export function ProgramInquiry({ code, compact = false }: { code?: string; compact?: boolean }) {
   const { data } = useSiteSettings();
   const email = data?.primary_email || departmentIdentity.email;
   const subject = code ? `${code} program enquiry` : "Academic program enquiry";
   const supportSubject = `${code || "Program"} learning-support enquiry`;
+  if (compact) return <div className="max-w-3xl space-y-4">
+    <p className="leading-7">Not sure which degree fits your interests? Ask the department about programs, applications or learning support.</p>
+    <div className="flex flex-wrap items-center gap-5">
+      <a className="action-link" href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}>Email about {code || "our programs"}</a>
+      <Link className="text-link inline-flex min-h-11 items-center" to="/resources#learning-support">Advising and learning support</Link>
+    </div>
+    <p className="break-all text-sm text-muted-foreground">Email opens your email app. You can also copy this address: {email}</p>
+  </div>;
   return <div className="max-w-3xl space-y-5">
     <p className="leading-7">Ask about the curriculum, entry requirements, fees, application dates, or support you may need. Include {code ? `“${code}”` : "the program name"} and your question in your email.</p>
     <section>

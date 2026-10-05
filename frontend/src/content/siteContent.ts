@@ -23,9 +23,9 @@ export const placeholder = "To be provided by the Department";
 export const primaryNavigation = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Academic Programs", href: "/programs" },
-  { label: "Faculty", href: "/faculty" },
-  { label: "Our work", href: "/our-work" },
+  { label: "Programs", href: "/programs" },
+  { label: "People", href: "/faculty" },
+  { label: "Research", href: "/research" },
   { label: "News and Events", href: "/news" },
   { label: "Contact & visit", href: "/about/contact" },
 ];
@@ -80,6 +80,7 @@ export const missingOfficialContent = [
 ];
 
 export const searchPages = [
+  { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
   ...departmentQuestions.map(question => ({ title: question.title, keywords: [question.title.toLowerCase()], href: question.href })),
   { title: "What we do", keywords: ["what", "our work", "teaching", "research", "community", "collaborate"], href: "/our-work" },
   { title: "Using this website", keywords: ["accessibility", "keyboard", "screen reader", "zoom", "help using"], href: "/accessibility" },

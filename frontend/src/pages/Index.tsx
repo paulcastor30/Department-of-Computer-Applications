@@ -29,6 +29,7 @@ export default function Index() {
             <p className="home-eyebrow">{departmentIdentity.college} · MSU-IIT</p>
             <h1 id="home-title"><span className="home-title-prefix">Department of </span>Computer Applications</h1>
             <p className="home-lead">{departmentIntroduction.lead}</p>
+            <p className="mt-3 max-w-prose leading-7 text-muted-foreground">Think of software reading a sensor, controlling a device or connecting equipment to a network.</p>
             <div className="home-intro-actions">
               <Link className="action-link" to="/programs">Explore programs <ArrowRight size={18} aria-hidden="true" /></Link>
               <Link className="outline-link" to="/about/contact">Contact us</Link>
@@ -52,6 +53,7 @@ export default function Index() {
               <Link className="home-degree-link" to={program.route}>
                 <p className="home-degree-level">{program.level} · {program.code}</p>
                 <h3>{program.title}</h3>
+                <p className="mt-3 leading-7 text-muted-foreground">{program.degreeLevelCode === "UNDERGRAD" ? "Build foundations in software, firmware and hardware." : "Advance your knowledge through specialized study and research."}</p>
                 <span className="home-degree-action">View program <ArrowRight size={18} aria-hidden="true" /></span>
               </Link>
             </li>
@@ -74,6 +76,7 @@ export default function Index() {
             <ul className="home-discovery-links">
               <li><Link to="/faculty"><span>Meet our faculty and staff</span><ArrowRight size={20} aria-hidden="true" /></Link></li>
               <li><Link to="/research"><span>Research information</span><ArrowRight size={20} aria-hidden="true" /></Link></li>
+              <li><Link to="/resources"><span>Student &amp; faculty resources</span><ArrowRight size={20} aria-hidden="true" /></Link></li>
               <li><Link to="/extension"><span>Community work</span><ArrowRight size={20} aria-hidden="true" /></Link></li>
             </ul>
           </nav>

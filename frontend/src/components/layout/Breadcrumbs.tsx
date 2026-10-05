@@ -50,7 +50,7 @@ const routeLabels: Record<string, string> = {
   "aun-qa": "AUN QA",
   "international-linkages": "International Linkages",
   facilities: "Facilities",
-  resources: "Resources",
+  resources: "Student & faculty resources",
   policies: "Policies",
   reports: "Reports",
   faq: "FAQ",

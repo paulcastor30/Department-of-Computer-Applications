@@ -68,30 +68,30 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
         {(areas.length > 0 || structure.length > 0) && <a className="outline-link" href="#study">What you will study</a>}
         <a className="outline-link" href="#requirements">Key requirements</a>
         <a className="outline-link" href="#before-applying">Before applying</a>
+        <a className="outline-link" href="#current-students">For current students</a>
         <a className="outline-link" href="#program-inquiries">Ask about {program.code}</a>
       </nav>
     </Section>
     {(areas.length > 0 || structure.length > 0) && <Section id="study" variant="muted">
       <SectionHeader title="What you will study" subtitle="An introduction to the learning areas and study sequence in Computer Applications." />
-      <div className="mb-8 max-w-3xl space-y-3 text-sm leading-6 text-muted-foreground">{program.curriculumNotes.map(note => <p key={note}>{note}</p>)}</div>
       <div className="grid gap-10 lg:grid-cols-2">
         <ListPanel title={areasTitle} items={areas} nested />
         <ListPanel title="How the learning develops" items={structure} nested />
       </div>
     </Section>}
     <Section id="requirements">
-      <SectionHeader title="Key requirements in the prospectus" className="mb-6" />
-      <p className="mb-5 max-w-3xl leading-7 text-muted-foreground">These highlights help you understand the study commitment. Use the prospectus and department guidance for the complete requirements and the plan applicable to you.</p>
+      <SectionHeader title="Study and completion requirements" className="mb-6" />
+      <p className="mb-5 max-w-3xl leading-7 text-muted-foreground">These highlights explain the study commitment. Read the full prospectus for the course sequence and ask the department which study plan applies to you.</p>
       <ul className="max-w-4xl list-disc space-y-3 pl-5 leading-7 text-muted-foreground">{availableProgramItems(program.completionRequirements).map(item => <li key={item}>{item}</li>)}</ul>
-      <section className="mt-10 max-w-4xl">
-        <h3 className="mb-5 text-xl font-semibold text-primary">Understanding your study plan</h3>
-        <dl className="space-y-5">{availableProgramItems(program.studyTerms).map(item => {
+      <details className="mt-8 max-w-4xl rounded-md border border-border p-5">
+        <summary className="min-h-11 cursor-pointer font-semibold text-primary">Understanding units and study plans</summary>
+        <dl className="mt-4 space-y-5">{availableProgramItems(program.studyTerms).map(item => {
           const separator = item.indexOf(":");
           const term = separator >= 0 ? item.slice(0, separator) : "Study guidance";
           const definition = separator >= 0 ? item.slice(separator + 1).trim() : item;
           return <div key={item}><dt className="font-semibold">{term}</dt><dd className="mt-1 leading-7 text-muted-foreground">{definition}</dd></div>;
         })}</dl>
-      </section>
+      </details>
     </Section>
     {(outcomes.length > 0 || extraPanels.length > 0) && <Section>
       {outcomes.length > 0 && <details className="max-w-4xl rounded-md border border-border p-5">
@@ -103,19 +103,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
     </Section>}
     <Section id="before-applying" variant="muted">
       <SectionHeader title="Before applying" />
-      <div className="grid gap-10 lg:grid-cols-2">
-        <section>
-          <h3 className="mb-3 text-xl font-semibold text-primary">{thesisTitle}</h3>
-          <p className="leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation)[0]}</p>
-          {availableProgramItems(program.thesisInformation).length > 1 && <details className="mt-4 rounded-md border border-border p-4">
-            <summary className="min-h-11 cursor-pointer font-semibold text-primary">Thesis procedure checklist</summary>
-            <ul className="mt-4 space-y-5 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).slice(1).map(item => <li key={item}>{item}</li>)}</ul>
-          </details>}
-          <dl className="mt-6 space-y-4">
-            {[["Duration", program.duration], ["Units in the prospectus", program.units]].map(([label, value]) => <div key={label}><dt className="font-semibold">{label}</dt><dd className="mt-1 text-muted-foreground">{value || placeholder}</dd></div>)}
-          </dl>
-        </section>
-        <section>
+      <div className="max-w-3xl">
           <h3 className="mb-3 text-xl font-semibold text-primary">Admission information</h3>
           {availableProgramItems(program.admissions).length ? <ul className="list-disc space-y-3 pl-5 leading-7 text-muted-foreground">{availableProgramItems(program.admissions).map(item => <li key={item}>{item}</li>)}</ul> : <p className="leading-7 text-muted-foreground">Entry requirements and application instructions: {placeholder}</p>}
           <div className="mt-5 flex flex-wrap gap-3">
@@ -124,18 +112,27 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
           </div>
           <p className="mt-4 leading-7 text-muted-foreground">Contact the department to confirm current fees, application dates, and available support before applying.</p>
           {hasProgramContent(program.contactInformation) && <p className="mt-4 whitespace-pre-line leading-7">{program.contactInformation}</p>}
-        </section>
       </div>
-      <section className="mt-10 border-t border-border pt-8">
-        <h3 className="mb-4 text-xl font-semibold text-primary">Curriculum and documents</h3>
+      <section id="program-documents" className="mt-10 border-t border-border pt-8">
+        <h3 className="mb-4 text-xl font-semibold text-primary">Program documents</h3>
         {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.label}-${document.href}`}>
           {document.href ? <><a className="outline-link" href={document.href}>Open {document.label}</a>{hasProgramContent(document.note) && <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">{document.note}</p>}</> : <p className="leading-7"><strong>{document.label}:</strong> {document.note}</p>}
         </li>)}</ul> : <p className="leading-7 text-muted-foreground">Official curriculum and program guides: {placeholder}</p>}
+        <div className="mt-6 max-w-3xl space-y-2 text-sm leading-6 text-muted-foreground">{program.curriculumNotes.map(note => <p key={note}>{note}</p>)}</div>
       </section>
+    </Section>
+    <Section id="current-students">
+      <SectionHeader title="For current students" subtitle="Thesis preparation and submission guidance for enrolled students." className="mb-6" />
+      <h3 className="mb-3 text-xl font-semibold text-primary">{thesisTitle}</h3>
+      {availableProgramItems(program.thesisInformation).length > 1 && <details className="max-w-4xl rounded-md border border-border p-5">
+        <summary className="min-h-11 cursor-pointer font-semibold text-primary">Thesis procedure checklist</summary>
+        <ul className="mt-4 space-y-5 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).slice(1).map(item => <li key={item}>{item}</li>)}</ul>
+      </details>}
+      <Link className="text-link mt-5 inline-flex min-h-11 items-center" to="/resources">Student &amp; faculty resources</Link>
     </Section>
     <Section id="program-inquiries">
       <SectionHeader title={`Questions about ${program.code}?`} />
-      <ProgramInquiry code={program.code} />
+      <ProgramInquiry code={program.code} compact />
       {reviewedLabel && <p className="mt-8 text-sm text-muted-foreground">Website summary reviewed: <time dateTime={program.reviewedOn}>{reviewedLabel}</time>. This date records a website content review.</p>}
     </Section>
   </>;
