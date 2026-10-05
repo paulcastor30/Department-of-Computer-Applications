@@ -82,8 +82,10 @@ export const missingOfficialContent = [
 const allSearchPages = [
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
   { title: "Advising and learning support", keywords: ["learning support", "disability assistance", "disability-related assistance", "disability support", "academic accommodations", "accessible learning", "PWD", "advising", "study plan"], href: "/resources#learning-support" },
-  { title: "Thesis forms and preparation guidance", keywords: ["thesis forms", "thesis checklist", "proposal", "defense", "manuscript", "submission", "graduation forms"], href: "/resources#program-documents" },
+  { title: "Thesis forms and preparation guidance", keywords: ["thesis forms", "thesis checklist", "proposal", "defense", "manuscript", "submission", "graduation forms"], href: "/resources#student-forms" },
   { title: "Campus directions and physical access", keywords: ["physical access", "step-free", "ramp", "wheelchair", "drop-off", "toilet", "accessible visit"], href: "/about/location#access" },
+  { title: "BSCA thesis forms", keywords: ["bsca forms", "bsca thesis forms", "undergraduate thesis forms"], href: "/resources#bsca-forms" },
+  { title: "MSCA graduate forms", keywords: ["msca forms", "msca thesis forms", "graduate forms"], href: "/resources#msca-forms" },
   ...departmentQuestions.map(question => ({ title: question.title, keywords: [question.title.toLowerCase()], href: question.href })),
   { title: "What we do", keywords: ["what", "our work", "teaching", "research", "community", "collaborate"], href: "/our-work" },
   { title: "Using this website", keywords: ["accessibility", "keyboard", "screen reader", "zoom", "help using"], href: "/accessibility" },

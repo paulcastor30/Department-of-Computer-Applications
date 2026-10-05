@@ -10,7 +10,7 @@ def mark_published(modeladmin, request, queryset):
 class ProgramDocumentInline(admin.TabularInline):
     model = ProgramDocument
     extra = 1
-    fields = ("title", "document_type", "file", "url", "note", "is_public", "sort_order")
+    fields = ("title", "document_type", "form_group", "file", "url", "note", "is_public", "sort_order")
 
 
 @admin.register(Program)
@@ -108,6 +108,6 @@ class ProgramAdmin(admin.ModelAdmin):
 @admin.register(ProgramDocument)
 class ProgramDocumentAdmin(admin.ModelAdmin):
     list_display = ("title", "program", "document_type", "is_public", "sort_order", "updated_at")
-    list_filter = ("document_type", "is_public", "program")
+    list_filter = ("document_type", "form_group", "is_public", "program")
     search_fields = ("title", "program__title", "program__code", "note")
     ordering = ("program", "sort_order", "title")

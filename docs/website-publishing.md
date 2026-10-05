@@ -14,7 +14,7 @@ The initial public routes are Home, About/college purpose, Programs, Faculty, Re
 ## Department confirmation still needed
 
 1. Additional verified work examples and approved photographs. The research and community pages now show dated examples from official MSU-IIT reports: VermiSense (28 September 2026 report) and my.ComApps (24 May 2024 report). These are editable News posts with official source links; existing editor changes are preserved by the migration.
-2. Current thesis-form download links and the applicable graduation-submission checklist for each degree.
+2. Confirm the applicable graduation-submission checklist for each degree. The supplied blank forms are now linked separately: 10 BSCA and 28 MSCA files. Keep form groups and notes editable under Program documents. MSCA includes older templates and multiple examination versions; these are not represented as a complete or universally required set. The graduate written-examination template placed in the BSCA folder is held back from publication pending confirmation.
 3. Named learning-support office/contact, available assistance and the actual request process.
 4. MSCA graduate-track classification under the revised university publication policy.
 5. A person responsible for updates and a practical review schedule. These have not been assigned by the website changes.

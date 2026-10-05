@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
 import { Section, SectionHeader } from "@/components/ui/section";
+import { ProgramForms } from "@/components/ProgramForms";
 import { ProgramInquiry } from "./ProgramInquiry";
 import { availableProgramItems, hasProgramContent, placeholder, type ProgramProfile } from "./programData";
 
@@ -35,7 +36,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
   const areas = availableProgramItems(program.academicAreas);
   const structure = availableProgramItems(program.curriculumStructure);
   const outcomes = availableProgramItems(program.outcomes);
-  const documents = program.documents.filter(document => document.href || hasProgramContent(document.note));
+  const documents = program.documents.filter(document => !document.formGroup && (document.href || hasProgramContent(document.note)));
   const extraPanels = [
     { title: goalsTitle, items: program.goals },
     { title: "Program educational objectives", items: program.peos },
@@ -128,6 +129,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
         <summary className="min-h-11 cursor-pointer font-semibold text-primary">Thesis procedure checklist</summary>
         <ul className="mt-4 space-y-5 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).slice(1).map(item => <li key={item}>{item}</li>)}</ul>
       </details>}
+      <ProgramForms program={program} />
       <Link className="text-link mt-5 inline-flex min-h-11 items-center" to="/resources">Student &amp; faculty resources</Link>
     </Section>
     <Section id="program-inquiries">

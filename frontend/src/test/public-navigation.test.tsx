@@ -237,7 +237,7 @@ it('does not promote unfinished pages through the footer or search', () => {
 it.each([
   ['learning support', 'Advising and learning support', '/resources#learning-support'],
   ['disability assistance', 'Advising and learning support', '/resources#learning-support'],
-  ['thesis forms', 'Thesis forms and preparation guidance', '/resources#program-documents'],
+  ['thesis forms', 'Thesis forms and preparation guidance', '/resources#student-forms'],
   ['application steps', 'How to apply', '/admissions'],
   ['wheelchair', 'Campus directions and physical access', '/about/location#access'],
 ])('finds the relevant public guidance for %s', (query, label, href) => {

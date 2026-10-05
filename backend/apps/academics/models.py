@@ -70,6 +70,7 @@ class ProgramDocument(TimeStampedModel):
     document_type = models.CharField(max_length=30, choices=DOCUMENT_TYPES, default="OTHER")
     file = models.FileField(upload_to="programs/documents/", blank=True, null=True)
     url = models.URLField(blank=True)
+    form_group = models.CharField(max_length=20, blank=True, choices=[("PROPOSAL", "Thesis proposal"), ("DEFENSE", "Final defense"), ("COMPLETION", "Binding and completion"), ("EXAMINATION", "Written examination"), ("ADMISSION", "Graduate admission"), ("READMISSION", "Return and readmission"), ("RECORDS", "Academic records"), ("PAYMENT", "Payment")], help_text="Select only for a downloadable student form.")
     note = models.CharField(max_length=255, blank=True, default="To be provided by the Department.")
     is_public = models.BooleanField(default=True)
     sort_order = models.PositiveIntegerField(default=0)

@@ -119,6 +119,7 @@ export interface Program {
 }
 
 export interface ProgramDocument {
+  form_group?: string;
   id: number;
   title: string;
   document_type: string;

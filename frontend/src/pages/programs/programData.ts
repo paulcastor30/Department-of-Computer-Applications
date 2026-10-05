@@ -3,6 +3,7 @@ import type { Program } from "@/types/api";
 export const placeholder = "To be provided by the Department.";
 
 export type ProgramDocumentLink = {
+  formGroup?: string;
   label: string;
   href?: string;
   note?: string;
@@ -102,12 +103,12 @@ const bscaFallback: ProgramProfile = {
     "The culminating academic requirement is the Undergraduate Thesis.",
     "Proposal hearing — Prepare Form 017 (Nomination of Members of Advisory Panel). Submit Form 019 (Approval for Proposal Hearing) with your manuscript to the College Dean and panel members at least one week before the presentation. Prepare three copies and attach the official receipt (OR) or scholarship approval/signature.",
     "Proposal approval — Prepare Form 020 (Approval of Proposal), including both pages, with one copy for each panel member.",
-    "Final defense — Prepare Form 021 (Nomination of Members of Oral Exam Panel). Submit Form 022 (Approval for Final Defense) with your manuscript to the College Dean and panel members one week before the presentation. Prepare three copies and attach the official receipt or scholarship grant approval/signature. Ask the graduate coordinator for the payment slip.",
+    "Final defense — Prepare Form 021 (Nomination of Members of Oral Exam Panel). Submit Form 022 (Approval for Final Defense) with your manuscript to the College Dean and panel members one week before the presentation. Prepare three copies and attach the official receipt or scholarship grant approval/signature. Ask your thesis adviser or the department for the payment slip.",
     "Final-defense poster — Attach an A4 research poster summarizing the abstract, introduction, research design and methods, results and discussion, and conclusions and recommendations.",
-    "Final-defense timing — Conduct the final presentation at least one month before grades are automatically locked. Confirm the applicable grade-locking date with the graduate coordinator before scheduling.",
+    "Final-defense timing — Conduct the final presentation at least one month before grades are automatically locked. Confirm the applicable grade-locking date with your thesis adviser or the department before scheduling.",
     "Final-defense reports — Prepare Form 023 (Oral Exam Report on Final Defense), including both pages, with one copy per panel member, and Form 024 (Panel Oral Exam Report).",
     "Bound manuscript — Print the Certificate of Panel Approval and attach the Certificate of Authentic Authorship as the last page of your manuscript. Use the ODGP Research Quick Guide for the authorship certificate format.",
-    "Forms and advising — Ask the graduate coordinator for current forms, the Research Quick Guide, payment instructions, adviser/panel arrangements and the applicable graduation submission checklist. This summary covers the supplied procedure; it does not replace the full guide.",
+    "Forms and advising — Ask your thesis adviser or the department for current forms, the Research Quick Guide, payment instructions, adviser/panel arrangements and the applicable graduation submission checklist. This summary covers the supplied procedure; it does not replace the full guide.",
   ],
   advisingInformation: [placeholder],
   studentSupport: [placeholder],
@@ -264,6 +265,7 @@ function documentsFor(program: Program | undefined, fallback: ProgramProfile): P
     ?.filter((document) => document.title)
     .map((document) => ({
       label: document.title,
+      formGroup: document.form_group || undefined,
       href: document.href || undefined,
       note: hasProgramContent(document.note) ? document.note : (document.href ? undefined : placeholder),
     })) || [];

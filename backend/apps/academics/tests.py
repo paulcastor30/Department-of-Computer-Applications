@@ -198,3 +198,29 @@ class BSCAReferenceContentTests(TransactionTestCase):
         self.assertNotIn("at least one published", msca.completion_requirements)
         self.assertEqual(msca.duration, "Department-confirmed duration")
         self.assertEqual(msca.documents.filter(url=migration.POLICY_URL).count(), 1)
+
+    def test_program_forms_are_separate_and_preserve_editor_changes(self):
+        migration = import_module("apps.academics.migrations.0020_program_forms")
+        bsca = Program.objects.create(code="BSCA", title="BSCA", slug="bsca", is_published=True)
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca", is_published=True)
+        with connection.schema_editor() as editor:
+            migration.add_program_forms(apps, editor)
+        self.assertEqual(bsca.documents.count(), 10)
+        self.assertEqual(msca.documents.count(), 28)
+        self.assertFalse(bsca.documents.filter(title__contains="027").exists())
+        self.assertTrue(all("/bsca/" in doc.url for doc in bsca.documents.all()))
+        self.assertTrue(all("/msca/" in doc.url for doc in msca.documents.all()))
+        document = bsca.documents.first()
+        document.note = "Department-reviewed instructions"
+        document.is_public = False
+        document.save()
+        with connection.schema_editor() as editor:
+            migration.add_program_forms(apps, editor)
+        document.refresh_from_db()
+        self.assertEqual(document.note, "Department-reviewed instructions")
+        self.assertFalse(document.is_public)
+        response = self.client.get("/api/academics/programs/")
+        self.assertEqual(response.status_code, 200)
+        published = next(item for item in response.json() if item["code"] == "BSCA")["documents"]
+        self.assertEqual(len(published), 9)
+        self.assertTrue(all(item["form_group"] for item in published))

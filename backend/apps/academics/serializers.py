@@ -14,6 +14,7 @@ class ProgramDocumentSerializer(serializers.ModelSerializer):
             "title",
             "document_type",
             "document_type_display",
+            "form_group",
             "file_url",
             "url",
             "href",

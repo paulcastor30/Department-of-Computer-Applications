@@ -19,7 +19,7 @@ function ProgramCard({ program }: { program: ProgramProfile }) {
 export default function Programs() {
   const { data, isError } = usePrograms();
   const programs = normalizePrograms(data);
-  const documents = programs.flatMap(program => program.documents.filter(document => document.href && !(program.code === "BSCA" && /^(?:BSCA\s+)?curriculum$/i.test(document.label.trim()))).map(document => ({ ...document, code: program.code })));
+  const documents = programs.flatMap(program => program.documents.filter(document => !document.formGroup && document.href && !(program.code === "BSCA" && /^(?:BSCA\s+)?curriculum$/i.test(document.label.trim()))).map(document => ({ ...document, code: program.code })));
   return <>
     <Seo title="Academic Programs" description="Explore BSCA and MSCA at the Department of Computer Applications, MSU-IIT. Learn about each degree, thesis requirements, and how to ask about applying." />
     <PageHero title="Academic Programs" subtitle="Explore our undergraduate and graduate degrees in Computer Applications." />
