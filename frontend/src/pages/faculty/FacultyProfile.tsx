@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import type { ReactNode } from "react";
-import { BookOpen, FlaskConical, GraduationCap, Mail, MapPin, Phone, Users } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Seo } from "@/components/Seo";
 import { Section } from "@/components/ui/section";
 import { PageHero } from "@/components/ui/hero-section";
@@ -23,22 +23,10 @@ function valueOrPlaceholder(value?: string | null | number) {
   return value === 0 || value ? String(value) : TO_BE_PROVIDED;
 }
 
-function initials(name: string) {
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join("");
-}
-
 function dateLabel(date?: string | null, year?: number | null) {
   return date || year || "";
 }
 
-function EmptyProfileSection() {
-  return <p className="text-sm leading-7 text-muted-foreground">{TO_BE_PROVIDED}.</p>;
-}
 
 function FacultyProfileSection({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
@@ -50,6 +38,7 @@ function FacultyProfileSection({ id, title, children }: { id: string; title: str
 }
 
 function Field({ label, value }: { label: string; value?: string | number | null }) {
+  if (!value || /^to be (provided|validated)/i.test(String(value))) return null;
   return (
     <div>
       <dt className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{label}</dt>
@@ -58,19 +47,9 @@ function Field({ label, value }: { label: string; value?: string | number | null
   );
 }
 
-function MetricCard({ icon: Icon, label, value }: { icon: typeof Users; label: string; value: number }) {
-  return (
-    <div className="rounded-md border border-border bg-background p-3">
-      <Icon className="mb-2 h-4 w-4 text-primary" aria-hidden="true" />
-      <p className="text-lg font-semibold text-primary">{value}</p>
-      <p className="text-xs text-muted-foreground">{label}</p>
-    </div>
-  );
-}
-
 function RecordList<T>({ records, render }: { records: T[]; render: (record: T) => ReactNode }) {
   if (records.length === 0) {
-    return <EmptyProfileSection />;
+    return null;
   }
 
   return <div className="space-y-4">{records.map(render)}</div>;
@@ -142,6 +121,15 @@ export default function FacultyProfile() {
   const seoDescription =
     member.seo_description ||
     `${member.title}${member.position ? `, ${member.position}` : ""}, Department of Computer Applications faculty profile.`;
+  const sectionAvailable: Record<string, boolean> = {
+    overview: Boolean(member.profile_summary || member.highest_degree),
+    education: Boolean(member.education_records.length || member.educational_background),
+    expertise: Boolean(member.expertise_records.length || member.specialization_areas || member.research_interests || member.teaching_areas),
+    "supervised-work": Boolean(member.supervised_works.length), publications: Boolean(member.publications.length),
+    conferences: Boolean(member.conferences.length), research: Boolean(member.research_projects.length),
+    extension: Boolean(member.extension_projects.length), "creative-works": Boolean(member.creative_works.length),
+    training: Boolean(member.training_seminars.length), achievements: Boolean(member.achievements.length),
+  };
   const internalResearch = member.research_projects.filter((record) => record.funding_type === "internal");
   const externalResearch = member.research_projects.filter((record) => record.funding_type === "external");
 
@@ -153,15 +141,9 @@ export default function FacultyProfile() {
       <Section>
         <div className="grid gap-8 lg:grid-cols-[18rem_1fr]">
           <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
-            <div className="aspect-square w-full overflow-hidden rounded-md border border-border bg-muted">
-              {member.photo ? (
-                <img src={member.photo} alt={`${member.title} profile photo`} className="h-full w-full object-cover" />
-              ) : (
-                <div className="flex h-full w-full items-center justify-center text-4xl font-semibold text-primary">
-                  {initials(member.title)}
-                </div>
-              )}
-            </div>
+            {member.photo && <div className="aspect-square w-full overflow-hidden rounded-md border border-border bg-muted">
+              <img src={member.photo} alt="" className="h-full w-full object-cover" />
+            </div>}
 
             <div className="space-y-4 rounded-md border border-border p-4">
               <dl className="space-y-3">
@@ -175,7 +157,7 @@ export default function FacultyProfile() {
 
               <div className="space-y-2 border-t border-border pt-4 text-sm">
                 {member.email && (
-                  <a className="flex items-center gap-2 text-accent hover:text-secondary" href={`mailto:${member.email}`}>
+                  <a className="text-link flex min-h-11 items-center gap-2 break-all" href={`mailto:${member.email}`}>
                     <Mail className="h-4 w-4" aria-hidden="true" />
                     {member.email}
                   </a>
@@ -200,33 +182,28 @@ export default function FacultyProfile() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3">
-              <MetricCard icon={GraduationCap} label="Supervised Works" value={member.supervised_works_count} />
-              <MetricCard icon={BookOpen} label="Publications" value={member.publications_count} />
-              <MetricCard icon={FlaskConical} label="Research Projects" value={member.research_projects_count} />
-              <MetricCard icon={Users} label="Extension Projects" value={member.extension_projects_count} />
-            </div>
           </aside>
 
           <div>
             <nav aria-label="Faculty profile sections" className="mb-8 flex flex-wrap gap-2">
-              {navItems.map(([id, label]) => (
-                <a key={id} href={`#${id}`} className="rounded-sm border border-border px-3 py-2 text-xs font-medium text-primary hover:bg-muted">
+              {navItems.filter(([id]) => sectionAvailable[id]).map(([id, label]) => (
+                <a key={id} href={`#${id}`} className="outline-link">
                   {label}
                 </a>
               ))}
             </nav>
 
             <div className="space-y-8">
-              <FacultyProfileSection id="overview" title="Profile Overview">
+              {sectionAvailable["overview"] && <FacultyProfileSection id="overview" title="Profile Overview">
                 <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{valueOrPlaceholder(member.profile_summary)}</p>
                 <dl className="mt-5 grid gap-4 md:grid-cols-2">
-                  <Field label="Highest Degree" value={member.highest_degree} />
+                  <Field label="Highest completed qualification" value={member.highest_degree} />
                   <Field label="Appointment / Assignment Note" value={member.appointment_or_assignment_note} />
                 </dl>
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="education" title="Educational Attainment">
+              {sectionAvailable["education"] && <FacultyProfileSection id="education" title="Educational Attainment">
+                {!member.education_records.length && <p className="whitespace-pre-line leading-7 text-muted-foreground">{member.educational_background}</p>}
                 <RecordList
                   records={member.education_records}
                   render={(record: FacultyEducation) => (
@@ -239,9 +216,10 @@ export default function FacultyProfile() {
                     </TimelineItem>
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="expertise" title="Expertise">
+              {sectionAvailable["expertise"] && <FacultyProfileSection id="expertise" title="Expertise">
+                {!member.expertise_records.length && <p className="whitespace-pre-line leading-7 text-muted-foreground">{[member.specialization_areas, member.research_interests, member.teaching_areas].filter(Boolean).join("\n")}</p>}
                 <RecordList
                   records={member.expertise_records}
                   render={(record) => (
@@ -250,9 +228,9 @@ export default function FacultyProfile() {
                     </TimelineItem>
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="supervised-work" title="Supervised Work">
+              {sectionAvailable["supervised-work"] && <FacultyProfileSection id="supervised-work" title="Supervised Work">
                 <RecordList
                   records={member.supervised_works}
                   render={(record: FacultySupervisedWork) => (
@@ -272,9 +250,9 @@ export default function FacultyProfile() {
                     </TimelineItem>
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="publications" title="Publications">
+              {sectionAvailable["publications"] && <FacultyProfileSection id="publications" title="Publications">
                 <RecordList
                   records={member.publications}
                   render={(record: FacultyPublication) => (
@@ -292,9 +270,9 @@ export default function FacultyProfile() {
                     </TimelineItem>
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="conferences" title="Conferences">
+              {sectionAvailable["conferences"] && <FacultyProfileSection id="conferences" title="Conferences">
                 <RecordList
                   records={member.conferences}
                   render={(record: FacultyConference) => (
@@ -306,9 +284,9 @@ export default function FacultyProfile() {
                     />
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="research" title="Research Projects">
+              {sectionAvailable["research"] && <FacultyProfileSection id="research" title="Research Projects">
                 <div className="grid gap-6">
                   <section>
                     <h3 className="mb-3 text-base font-semibold text-foreground">Internally-Funded Research</h3>
@@ -319,9 +297,9 @@ export default function FacultyProfile() {
                     <ResearchRecords records={externalResearch} />
                   </section>
                 </div>
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="extension" title="Extension Projects">
+              {sectionAvailable["extension"] && <FacultyProfileSection id="extension" title="Extension Projects">
                 <RecordList
                   records={member.extension_projects}
                   render={(record: FacultyExtensionProject) => (
@@ -333,9 +311,9 @@ export default function FacultyProfile() {
                     </TimelineItem>
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="creative-works" title="Creative Works">
+              {sectionAvailable["creative-works"] && <FacultyProfileSection id="creative-works" title="Creative Works">
                 <RecordList
                   records={member.creative_works}
                   render={(record: FacultyCreativeWork) => (
@@ -344,18 +322,18 @@ export default function FacultyProfile() {
                     </TimelineItem>
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="training" title="Training and Seminars">
+              {sectionAvailable["training"] && <FacultyProfileSection id="training" title="Training and Seminars">
                 <RecordList
                   records={member.training_seminars}
                   render={(record: FacultyTrainingSeminar) => (
                     <TimelineItem key={record.id} title={record.title} meta={[record.organizer, record.venue, dateLabel(record.event_date, record.year), record.role].filter(Boolean).join(" | ")} evidenceUrl={record.evidence_url} />
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
 
-              <FacultyProfileSection id="achievements" title="Achievements">
+              {sectionAvailable["achievements"] && <FacultyProfileSection id="achievements" title="Achievements">
                 <RecordList
                   records={member.achievements}
                   render={(record: FacultyAchievement) => (
@@ -364,9 +342,11 @@ export default function FacultyProfile() {
                     </TimelineItem>
                   )}
                 />
-              </FacultyProfileSection>
+              </FacultyProfileSection>}
             </div>
 
+            {member.last_updated_note && <p className="mt-8 text-sm leading-6 text-muted-foreground">{member.last_updated_note}</p>}
+            <p className="mt-5 text-sm leading-6 text-muted-foreground">This page contains available professional information. For further details, contact the faculty member or department.</p>
             <Link to="/faculty" className="mt-8 inline-block text-sm font-semibold text-accent hover:text-secondary">
               Back to Faculty Directory
             </Link>

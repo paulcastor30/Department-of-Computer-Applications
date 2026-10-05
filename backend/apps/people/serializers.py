@@ -60,6 +60,7 @@ class FacultyDirectorySerializer(serializers.ModelSerializer):
             "is_published",
             "sort_order",
             "updated_at",
+            "last_updated_note",
             "supervised_works_count",
             "publications_count",
             "research_projects_count",
