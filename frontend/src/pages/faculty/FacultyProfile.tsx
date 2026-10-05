@@ -123,7 +123,7 @@ export default function FacultyProfile() {
     `${member.title}${member.position ? `, ${member.position}` : ""}, Department of Computer Applications faculty profile.`;
   const sectionAvailable: Record<string, boolean> = {
     contact: true,
-    overview: Boolean(member.profile_summary || member.highest_degree),
+    overview: Boolean(member.profile_summary || member.highest_degree || member.appointment_or_assignment_note),
     education: Boolean(member.education_records.length || member.educational_background),
     expertise: Boolean(member.expertise_records.length || member.specialization_areas || member.research_interests || member.teaching_areas),
     "supervised-work": Boolean(member.supervised_works.length), publications: Boolean(member.publications.length),
@@ -154,6 +154,7 @@ export default function FacultyProfile() {
             <div className="space-y-4 rounded-md border border-border p-4">
               <dl className="space-y-3">
                 <Field label="Rank / Position" value={member.position} />
+                {member.transferred_from_dca && <Field label="Department relationship" value="Transferred from DCA" />}
                 <Field label="Classification" value={member.service_classification_display} />
                 <Field label="Status" value={member.service_classification === "retired_dca_faculty" ? "Retired" : member.faculty_status_display} />
                 <Field label="Home Unit" value={member.home_unit} />
@@ -201,7 +202,7 @@ export default function FacultyProfile() {
 
             <div className="space-y-8">
               {sectionAvailable["overview"] && <FacultyProfileSection id="overview" title="Profile Overview">
-                <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{valueOrPlaceholder(member.profile_summary)}</p>
+                {member.profile_summary && <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{member.profile_summary}</p>}
                 <dl className="mt-5 grid gap-4 md:grid-cols-2">
                   <Field label="Highest completed qualification" value={member.highest_degree} />
                   <Field label="Appointment / Assignment Note" value={member.appointment_or_assignment_note} />

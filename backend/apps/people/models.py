@@ -42,6 +42,7 @@ class FacultyMember(PublishableModel):
         default=ServiceClassification.ACTIVE_DCA_FACULTY,
         help_text="Controls public directory grouping.",
     )
+    transferred_from_dca = models.BooleanField(default=False, help_text="Transferred out of DCA; may also remain affiliated with MSCA. Record the destination and order in the home unit and assignment note.")
     position = models.CharField(max_length=255, blank=True)
     profile_summary = models.TextField(
         blank=True,

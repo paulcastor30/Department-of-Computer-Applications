@@ -6,7 +6,7 @@ The current website structure is ready for maintaining faculty profiles through 
 
 - Confirm current ranks and appointments; retain existing service/leave status until explicitly corrected. Apple Rose Alce's live profile currently records study leave, which was preserved during import.
 - Confirm completion status for Maria Fe Bahinting's two doctoral study records, Jerry Halibas's doctoral study, and Phoebe Ruth Alithea Sudaria's doctoral study. A missing year must not be treated as completion or ongoing study.
-- Confirm whether Ernesto E. Empig should remain in the core group. He is published in the existing live directory but absent from the updated spreadsheet.
+- Ernesto E. Empig: resolved by the supplied Special Order No. 00181-IIT, Series of 2026 (effective 13 February 2026) and owner confirmation of MSCA affiliation. He belongs under Transferred faculty and Affiliated graduate faculty, with SIS as his home unit, rather than Core faculty. One profile is retained.
 - Review the eight existing affiliated graduate faculty and seven retired faculty, who are outside the updated spreadsheet. Do not remove them solely because the spreadsheet covers core faculty and lecturers.
 - Confirm faculty office locations and consultation arrangements before publishing scheduled hours or an appointment policy.
 

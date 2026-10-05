@@ -38,3 +38,26 @@ class FacultyImportTests(TransactionTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual([p["slug"] for p in response.json()], ["public"])
         self.assertEqual(self.client.get("/api/people/faculty/private/").status_code, 404)
+
+
+    def test_transfer_preserves_one_profile_and_graduate_affiliation(self):
+        member = FacultyMember.objects.create(title="Ernesto E. Empig", slug="existing-empig",
+            is_published=True, supporting_programs="BSCA", email="official@example.edu")
+        FacultyPublication.objects.create(faculty=member, title="Existing research")
+        migration = import_module("apps.people.migrations.0006_empig_sis_transfer")
+        with connection.schema_editor() as editor:
+            migration.record_empig_transfer(apps, editor)
+            migration.record_empig_transfer(apps, editor)
+        member.refresh_from_db()
+        self.assertEqual(FacultyMember.objects.count(), 1)
+        self.assertEqual(member.slug, "existing-empig")
+        self.assertTrue(member.transferred_from_dca)
+        self.assertEqual(member.service_classification, "affiliated_msca_faculty")
+        self.assertEqual(member.home_unit, "School of Interdisciplinary Studies (SIS)")
+        self.assertEqual(member.supporting_programs, "BSCA, MSCA")
+        self.assertEqual(member.publications.count(), 1)
+        self.assertEqual(member.appointment_or_assignment_note.count("00181-IIT"), 1)
+        response = self.client.get("/api/people/faculty/").json()
+        self.assertEqual(len(response), 1)
+        self.assertTrue(response[0]["transferred_from_dca"])
+        self.assertEqual(response[0]["service_classification"], "affiliated_msca_faculty")

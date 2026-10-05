@@ -126,6 +126,7 @@ class FacultyMemberAdmin(admin.ModelAdmin):
         "title",
         "service_classification",
         "faculty_status",
+        "transferred_from_dca",
         "position",
         "home_unit",
         "supporting_programs",
@@ -139,6 +140,7 @@ class FacultyMemberAdmin(admin.ModelAdmin):
         "is_published",
         "featured",
         "personnel_type",
+        "transferred_from_dca",
         "service_classification",
         "faculty_status",
         "position",
@@ -195,6 +197,7 @@ class FacultyMemberAdmin(admin.ModelAdmin):
                     "highest_degree",
                     "photo",
                     "active_affiliation",
+                    "transferred_from_dca",
                     "start_year",
                     "end_year",
                 )

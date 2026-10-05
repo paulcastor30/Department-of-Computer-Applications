@@ -52,6 +52,7 @@ class FacultyDirectorySerializer(serializers.ModelSerializer):
             "supporting_programs",
             "msca_roles",
             "active_affiliation",
+            "transferred_from_dca",
             "seo_title",
             "seo_description",
             "og_title",

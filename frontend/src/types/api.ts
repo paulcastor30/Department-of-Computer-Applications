@@ -139,6 +139,7 @@ export type FacultyServiceClassification =
 export type FacultyStatus = "" | "active" | "active_full_time" | "study_leave" | "sabbatical_leave" | "retired" | "inactive_affiliation";
 
 export interface FacultyDirectoryMember {
+  transferred_from_dca?: boolean;
   last_updated_note?: string;
   id: number;
   title: string;
