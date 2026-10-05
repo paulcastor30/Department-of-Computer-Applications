@@ -40,3 +40,27 @@ export function useConferenceRecords() {
     queryFn: () => fetchJSON<ConferenceRecord[]>("/api/research/conferences/"),
   });
 }
+
+
+export type PublicationRecord = {
+  id: number;
+  slug: string;
+  title: string;
+  year: number;
+  authors: string;
+  venue: string;
+  kind: "JOURNAL" | "PROCEEDINGS" | "PREPRINT";
+  kind_display: string;
+  citation_details: string;
+  date_label: string;
+  publisher: string;
+  doi: string;
+  source_url: string;
+};
+
+export function usePublicationRecords() {
+  return useQuery<PublicationRecord[]>({
+    queryKey: ["research", "publications"],
+    queryFn: () => fetchJSON<PublicationRecord[]>("/api/research/publications/"),
+  });
+}

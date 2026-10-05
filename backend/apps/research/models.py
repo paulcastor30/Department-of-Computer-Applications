@@ -33,3 +33,22 @@ class ConferenceRecord(PublishableModel):
 
     def __str__(self):
         return self.title
+
+
+class PublicationRecord(PublishableModel):
+    year = models.PositiveIntegerField(help_text="First online year where confirmed; otherwise proceedings or citation year.")
+    authors = models.TextField(help_text="Complete author list in publisher order, separated by semicolons.")
+    venue = models.TextField(help_text="Journal, proceedings or preprint repository.")
+    kind = models.CharField(max_length=20, choices=[("JOURNAL", "Journal article"), ("PROCEEDINGS", "Conference paper"), ("PREPRINT", "Preprint")])
+    citation_details = models.CharField(max_length=255, blank=True)
+    date_label = models.CharField(max_length=255, help_text="Use only the precision supported by the publisher; distinguish online and citation dates.")
+    publisher = models.CharField(max_length=255, blank=True)
+    doi = models.CharField(max_length=255, blank=True)
+    source_url = models.URLField(max_length=500)
+    source_note = models.TextField(blank=True, help_text="Internal verification notes and provenance.")
+
+    class Meta:
+        ordering = ["-year", "sort_order", "title"]
+
+    def __str__(self):
+        return self.title

@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/research/publications",
+      "destination": "/research/publications/index.html"
+    },
+    {
       "source": "/about",
       "destination": "/about/index.html"
     },

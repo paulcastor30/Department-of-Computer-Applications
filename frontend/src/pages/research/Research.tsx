@@ -1,3 +1,4 @@
+import { PublicationRecordList } from "@/components/PublicationRecordList";
 import { ConferenceRecordList } from "@/components/ConferenceRecordList";
 import { ResearchProjectList } from "@/components/ResearchProjectList";
 import { Link } from "react-router-dom";
@@ -18,11 +19,13 @@ export default function Research() {
       <nav aria-label="Research sections" className="flex flex-wrap gap-3">
         <a className="outline-link" href="#department-projects">Research projects</a>
         <Link className="outline-link" to="/research/conferences">Conference records</Link>
+        <Link className="outline-link" to="/research/publications">Publications</Link>
         <a className="outline-link" href="#research-enquiries">Research enquiries</a>
       </nav>
     </Section>
     <ResearchProjectList />
     <ConferenceRecordList preview />
+    <PublicationRecordList preview />
     <DepartmentWorkExample slug="vermisense-rcite-2026" heading="Research in practice" />
     <Section>
       <SectionHeader title="Computing areas in our programs" subtitle="These are curriculum-based learning areas, rather than a statement of an approved departmental research agenda." className="mb-6" />

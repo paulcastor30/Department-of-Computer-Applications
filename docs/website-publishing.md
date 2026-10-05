@@ -32,3 +32,10 @@ Research projects are edited under Research projects in Django admin and publish
 ## Conference records
 
 The owner supplied 45 records for 2022–2026 on 6 October 2026. Manage them under Conference records in Django admin. The research landing page previews three non-withdrawn entries; `/research/conferences` lists all published records with a year filter. Preserve the supplied author order and explicit Withdrawn flags (two ICITCOM entries). Repeat titles at different conferences are separate records. Neither past dates nor inclusion confirm completed presentation, acceptance or publication. Future conference dates are included neutrally. Athens, Greece was confirmed by the owner; obvious spacing and trailing punctuation were cleaned. Further author-name corrections, proceedings URLs, DOIs and presentation status require department evidence. The migration preserves editor changes and hidden records.
+
+
+### Publications
+
+The research publications list is managed in Django under **Publication records**. The initial import contains 29 department-supplied entries (28 DOI records and one AIS proceedings record without a DOI). Keep complete publisher author order, distinguish journal articles, conference papers and preprints, and preserve publication date precision. Use first online year when confirmed; otherwise use citation year. A proceedings event date is not necessarily the paper's online publication date. Do not infer dates from DOI suffixes. Internal `source_note` is not exposed by the public API.
+
+The import is idempotent and preserves existing departmental edits and visibility settings. Verification and important corrections are recorded in `docs/publication-review.md`. Full texts are linked through publisher records rather than redistributed.
