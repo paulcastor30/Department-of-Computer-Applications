@@ -140,8 +140,8 @@ export default function FacultyProfile() {
     { title: "Study records awaiting confirmation", records: member.education_records.filter(record => record.degree_level !== "other" && !/Completed qualification; year not supplied/i.test(record.notes) && !/ongoing|on-going|not yet completed/i.test(record.notes) && (record.year_completed == null || /completion status/i.test(record.notes))) },
   ];
   educationGroups.push({ title: "Fellowships and other academic experience", records: member.education_records.filter(record => record.degree_level === "other") });
-  const internalResearch = member.research_projects.filter(record => !shared("research").some(item => item.title.toLowerCase() === record.title.toLowerCase())).filter((record) => record.funding_type === "internal");
-  const externalResearch = member.research_projects.filter(record => !shared("research").some(item => item.title.toLowerCase() === record.title.toLowerCase())).filter((record) => record.funding_type === "external");
+  const internalResearch = member.research_projects.filter((record) => record.funding_type === "internal");
+  const externalResearch = member.research_projects.filter((record) => record.funding_type === "external");
 
   return (
     <>
@@ -274,7 +274,7 @@ export default function FacultyProfile() {
               {sectionAvailable["publications"] && <FacultyProfileSection id="publications" title="Publications">
                 <SharedContributions records={shared("publication")} />
                 <RecordList
-                  records={member.publications.filter(record => !shared("publication").some(item => item.title.toLowerCase() === record.title.toLowerCase() || (record.doi && record.doi.toLowerCase() === item.doi.toLowerCase())))}
+                  records={member.publications}
                   render={(record: FacultyPublication) => (
                     <TimelineItem
                       key={record.id}
@@ -292,10 +292,10 @@ export default function FacultyProfile() {
                 />
               </FacultyProfileSection>}
 
-              {sectionAvailable["conferences"] && <FacultyProfileSection id="conferences" title="Conferences">
+              {sectionAvailable["conferences"] && <FacultyProfileSection id="conferences" title="Conference Contributions">
                 <SharedContributions records={shared("conference")} />
                 <RecordList
-                  records={member.conferences.filter(record => !shared("conference").some(item => item.title.toLowerCase() === record.title.toLowerCase()))}
+                  records={member.conferences}
                   render={(record: FacultyConference) => (
                     <TimelineItem
                       key={record.id}
@@ -324,7 +324,7 @@ export default function FacultyProfile() {
               {sectionAvailable["extension"] && <FacultyProfileSection id="extension" title="Extension Projects">
                 <SharedContributions records={shared("extension")} />
                 <RecordList
-                  records={member.extension_projects.filter(record => !shared("extension").some(item => item.title.toLowerCase() === record.title.toLowerCase()))}
+                  records={member.extension_projects}
                   render={(record: FacultyExtensionProject) => (
                     <TimelineItem key={record.id} title={record.title} meta={[record.implementation_period, record.role, record.status].filter(Boolean).join(" | ")} evidenceUrl={record.evidence_url}>
                       <dl className="grid gap-3 md:grid-cols-2">
@@ -402,7 +402,7 @@ function SharedContributions({ records }: { records: DepartmentContribution[] })
   if (!records.length) return null;
   const render = (record: DepartmentContribution) => <article key={record.id} className="rounded-md border border-border p-4">
     <h3 className="font-semibold text-primary">{record.title}</h3>
-    <p className="mt-2 text-sm leading-6 text-muted-foreground">{record.kind === "research" || record.kind === "extension" ? `Reporting year: ${record.year}` : record.year} · {record.role}{record.withdrawn ? " · Withdrawn" : ""}</p>
+    <p className="mt-2 text-sm leading-6 text-muted-foreground">{record.kind === "research" || record.kind === "extension" ? `Reporting year: ${record.year}` : record.year}{record.role ? ` · ${record.role}` : ""}{record.withdrawn ? " · Withdrawn" : ""}</p>
     <Link className="text-link mt-2 inline-flex min-h-11 items-center" to={record.href}>View full record<span className="sr-only"> for {record.title}</span></Link>
   </article>;
   return <div className="mb-6 space-y-4">

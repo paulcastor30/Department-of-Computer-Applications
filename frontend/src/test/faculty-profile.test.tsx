@@ -2,7 +2,7 @@ import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import FacultyProfile from '../pages/faculty/FacultyProfile';
-const shared = vi.hoisted(() => ({ records: [] as import('../types/api').DepartmentContribution[] }));
+const shared = vi.hoisted(() => ({ records: [] as import('../types/api').DepartmentContribution[], publications: [] as import('../types/api').FacultyPublication[] }));
 vi.mock('@/hooks/usePeople', () => ({ useFacultyMember: () => ({ data: {
   department_contributions: shared.records,
   title: 'Example Faculty', position: 'Professor', service_classification: 'retired_dca_faculty', service_classification_display: 'Retired DCA Faculty', faculty_status_display: 'Active', email: 'example@g.msuiit.edu.ph', profile_summary: 'Academic profile.', highest_degree: 'Master’s Degree',
@@ -12,9 +12,9 @@ vi.mock('@/hooks/usePeople', () => ({ useFacultyMember: () => ({ data: {
     { id: 4, degree_level: 'other', degree_name: 'Academic fellowship', institution: 'University', year_completed: 2024, notes: 'Academic fellowship; not a degree.' },
     { id: 5, degree_level: 'doctorate', degree_name: 'Completed doctorate with year unspecified', institution: 'University', year_completed: null, notes: 'Completed qualification; year not supplied by the Department.' },
     { id: 3, degree_name: 'Doctor of Engineering', institution: 'University', year_completed: null, notes: 'Completion status to be validated by the Department.' },
-  ], expertise_records: [], supervised_works: [], publications: [], conferences: [], research_projects: [], extension_projects: [], creative_works: [], training_seminars: [], achievements: [],
+  ], expertise_records: [], supervised_works: [], publications: shared.publications, conferences: [], research_projects: [], extension_projects: [], creative_works: [], training_seminars: [], achievements: [],
 }, isLoading: false, isError: false }) }));
-afterEach(() => { cleanup(); shared.records = []; });
+afterEach(() => { cleanup(); shared.records = []; shared.publications = []; });
 it('distinguishes completed qualifications, ongoing study and unconfirmed records', () => {
   render(<MemoryRouter><FacultyProfile /></MemoryRouter>);
   const completed = screen.getByRole('heading', { name: 'Completed qualifications' }).parentElement!;
@@ -52,4 +52,15 @@ it('shows confirmed shared roles, source links and a short expandable preview', 
   expect(within(overflow).getByText('View all 4 records')).toBeInTheDocument();
   expect(screen.getByText(/presenter not confirmed.*Withdrawn/)).toBeInTheDocument();
   expect(screen.queryByRole('heading', { name: 'Extension Projects' })).not.toBeInTheDocument();
+});
+
+
+it('preserves an API-approved unmatched item with the same title in another year', () => {
+  shared.records = [{ id: 20, kind: 'publication', title: 'Repeated title', year: '2025', role: '', href: '/research/publications#repeated-title', doi: '', withdrawn: false }];
+  shared.publications = [{ id: 30, title: 'Repeated title', year: 2020, authors: '', venue: '', publication_type: '', publication_date: null, doi: '', url: '', indexing_note: '', citation_text: '', is_published: true, sort_order: 0, created_at: '', updated_at: '' }];
+  render(<MemoryRouter><FacultyProfile /></MemoryRouter>);
+  expect(screen.getAllByText('Repeated title')).toHaveLength(2);
+  expect(screen.getByText('2020')).toBeInTheDocument();
+  expect(screen.queryByText(/legacy/i)).not.toBeInTheDocument();
+  expect(screen.queryByText(/2025.*Author/)).not.toBeInTheDocument();
 });

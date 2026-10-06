@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import (
+    FacultyContribution,
     FacultyAchievement,
     FacultyConference,
     FacultyCreativeWork,
@@ -71,7 +72,24 @@ class FacultySupervisedWorkInline(admin.StackedInline):
     )
 
 
-class FacultyPublicationInline(admin.StackedInline):
+class HistoricalActivityInline(admin.StackedInline):
+    extra = 0
+    show_change_link = True
+    verbose_name_plural = "Historical activities — deprecated for new institutional entries; use Faculty Contributions"
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+
+class FacultyContributionInline(admin.TabularInline):
+    model = FacultyContribution
+    extra = 0
+    autocomplete_fields = ("research", "publication", "conference", "extension")
+    fields = ("research", "publication", "conference", "extension", "role", "is_published")
+    verbose_name_plural = "Department contributions — select exactly one shared institutional record"
+
+
+class FacultyPublicationInline(HistoricalActivityInline):
     model = FacultyPublication
     extra = 0
     fields = (
@@ -90,17 +108,17 @@ class FacultyPublicationInline(admin.StackedInline):
     )
 
 
-class FacultyConferenceInline(admin.StackedInline):
+class FacultyConferenceInline(HistoricalActivityInline):
     model = FacultyConference
     extra = 0
 
 
-class FacultyResearchProjectInline(admin.StackedInline):
+class FacultyResearchProjectInline(HistoricalActivityInline):
     model = FacultyResearchProject
     extra = 0
 
 
-class FacultyExtensionProjectInline(admin.StackedInline):
+class FacultyExtensionProjectInline(HistoricalActivityInline):
     model = FacultyExtensionProject
     extra = 0
 
@@ -173,6 +191,7 @@ class FacultyMemberAdmin(admin.ModelAdmin):
         FacultyEducationInline,
         FacultyExpertiseInline,
         FacultySupervisedWorkInline,
+        FacultyContributionInline,
         FacultyPublicationInline,
         FacultyConferenceInline,
         FacultyResearchProjectInline,
@@ -309,31 +328,43 @@ class FacultySupervisedWorkAdmin(FacultyRecordAdmin):
     search_fields = ("title", "faculty__title", "researchers", "adviser", "co_adviser", "award")
 
 
+class HistoricalActivityAdmin(FacultyRecordAdmin):
+    autocomplete_fields = ("faculty", "reconciled_contribution")
+    list_filter = ("is_published", ("reconciled_contribution", admin.EmptyFieldListFilter))
+
+    def has_add_permission(self, request):
+        return False
+
+    def change_view(self, request, object_id, form_url="", extra_context=None):
+        self.message_user(request, "Historical activity: deprecated for new institutional entries. Correct the authoritative record in Research or Extension and link it through Faculty Contributions. Existing historical content remains editable.", level="warning")
+        return super().change_view(request, object_id, form_url, extra_context)
+
+
 @admin.register(FacultyPublication)
-class FacultyPublicationAdmin(FacultyRecordAdmin):
+class FacultyPublicationAdmin(HistoricalActivityAdmin):
     list_display = ("title", "faculty", "publication_type", "year", "publication_date", "is_published", "sort_order")
-    list_filter = ("publication_type", "year", "is_published")
+    list_filter = ("publication_type", "year", "is_published", ("reconciled_contribution", admin.EmptyFieldListFilter))
     search_fields = ("title", "faculty__title", "authors", "venue", "doi", "indexing_note")
 
 
 @admin.register(FacultyConference)
-class FacultyConferenceAdmin(FacultyRecordAdmin):
+class FacultyConferenceAdmin(HistoricalActivityAdmin):
     list_display = ("title", "faculty", "conference_name", "year", "event_date", "role", "is_published", "sort_order")
-    list_filter = ("year", "role", "is_published")
+    list_filter = ("year", "role", "is_published", ("reconciled_contribution", admin.EmptyFieldListFilter))
     search_fields = ("title", "faculty__title", "conference_name", "location", "role")
 
 
 @admin.register(FacultyResearchProject)
-class FacultyResearchProjectAdmin(FacultyRecordAdmin):
+class FacultyResearchProjectAdmin(HistoricalActivityAdmin):
     list_display = ("title", "faculty", "funding_type", "funding_source", "status", "end_year", "is_published", "sort_order")
-    list_filter = ("funding_type", "status", "start_year", "end_year", "is_published")
+    list_filter = ("funding_type", "status", "start_year", "end_year", "is_published", ("reconciled_contribution", admin.EmptyFieldListFilter))
     search_fields = ("title", "faculty__title", "funding_source", "role", "status")
 
 
 @admin.register(FacultyExtensionProject)
-class FacultyExtensionProjectAdmin(FacultyRecordAdmin):
+class FacultyExtensionProjectAdmin(HistoricalActivityAdmin):
     list_display = ("title", "faculty", "partner_community", "status", "end_year", "is_published", "sort_order")
-    list_filter = ("status", "start_year", "end_year", "is_published")
+    list_filter = ("status", "start_year", "end_year", "is_published", ("reconciled_contribution", admin.EmptyFieldListFilter))
     search_fields = ("title", "faculty__title", "funding_source", "partner_community", "role")
 
 
@@ -357,11 +388,45 @@ class FacultyAchievementAdmin(FacultyRecordAdmin):
     search_fields = ("title", "faculty__title", "awarding_body", "description")
 
 
-from .models import FacultyContribution
+class ContributionKindFilter(admin.SimpleListFilter):
+    title = "contribution type"
+    parameter_name = "kind"
+
+    def lookups(self, request, model_admin):
+        return [(kind, kind.title()) for kind in ("research", "publication", "conference", "extension")]
+
+    def queryset(self, request, queryset):
+        if self.value() in ("research", "publication", "conference", "extension"):
+            return queryset.filter(**{self.value() + "__isnull": False})
+        return queryset
+
 
 @admin.register(FacultyContribution)
 class FacultyContributionAdmin(admin.ModelAdmin):
-    list_display = ("faculty", "role", "credited_name", "is_published")
-    list_filter = ("role", "is_published")
+    list_display = ("faculty", "contribution_kind", "source_title", "source_year", "role", "credited_name", "is_published", "source_published")
+    list_filter = ("role", "is_published", ContributionKindFilter, "research__is_published", "publication__is_published", "conference__is_published", "extension__is_published")
     search_fields = ("faculty__title", "credited_name", "research__title", "publication__title", "conference__title", "extension__title")
     autocomplete_fields = ("faculty", "research", "publication", "conference", "extension")
+
+    def get_queryset(self, request):
+        return super().get_queryset(request).select_related("faculty", "research", "publication", "conference", "extension")
+
+    @admin.display(description="Type")
+    def contribution_kind(self, obj):
+        return next(kind for kind in ("research", "publication", "conference", "extension") if getattr(obj, kind + "_id"))
+
+    def source(self, obj):
+        return getattr(obj, self.contribution_kind(obj))
+
+    @admin.display(description="Institutional record")
+    def source_title(self, obj):
+        return self.source(obj).title
+
+    @admin.display(description="Year")
+    def source_year(self, obj):
+        record = self.source(obj)
+        return getattr(record, "reporting_year", getattr(record, "year", ""))
+
+    @admin.display(boolean=True, description="Source published")
+    def source_published(self, obj):
+        return self.source(obj).is_published

@@ -262,3 +262,11 @@ The student-facing guide is available at `/thesis-guide` for BSCA and MSCA. Proc
 ## Homepage orientation
 
 Beginner-facing homepage explanations and source/maintenance notes are documented in [Homepage orientation](docs/homepage-orientation.md). Actual program facts, research and student-project examples continue to use Django CMS data.
+
+## Institutional data and CI
+
+Department-level research, publications, conferences and extension activities are stored once in shared institutional records and linked to faculty through `FacultyContribution`. Historical faculty activity copies remain available for reconciliation; new duplicate institutional entries are disabled in admin. Qualifications, expertise and other personal profile records remain faculty-specific.
+
+[Editor workflow, reconciliation audit/report, migration behavior and local CI commands](docs/institutional-contributions-and-ci.md) explain the transition and the required merge-check configuration.
+
+[CI workflow](.github/workflows/ci.yml) verifies PRs targeting `main` and pushes to `main` through **frontend-quality** (install, typecheck, lint, tests, build, sharing metadata) and **backend-quality** (install, Django check, migration consistency, tests). CI verifies code; Vercel and Railway continue to deploy the application. Required branch checks must be configured separately in GitHub.

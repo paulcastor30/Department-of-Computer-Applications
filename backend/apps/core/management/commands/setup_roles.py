@@ -15,7 +15,10 @@ GROUP_MATRIX = {
         },
         "people": {
             "facultymember": ["view", "add", "change", "delete"],
+            "facultycontribution": ["view", "add", "change", "delete"],
         },
+        "research": {model: ["view", "add", "change", "delete"] for model in ("researchproject", "publicationrecord", "conferencerecord")},
+        "extension": {"extensionproject": ["view", "add", "change", "delete"]},
         "communications": {
             "newspost": ["view", "add", "change", "delete"],
         },
@@ -57,17 +60,21 @@ GROUP_MATRIX = {
     "faculty_editor": {
         "people": {
             "facultymember": ["view", "add", "change"],
+            "facultycontribution": ["view", "add", "change"],
         },
-        "quality": {
-            "evidencedocument": ["view"],
-        },
+        "research": {model: ["view"] for model in ("researchproject", "publicationrecord", "conferencerecord")},
+        "extension": {"extensionproject": ["view"]},
+        "quality": {"evidencedocument": ["view"]},
     },
 
     "research_editor": {
-        "quality": {
-            "evidencedocument": ["view", "add", "change"],
+        "people": {
+            "facultymember": ["view"],
+            "facultycontribution": ["view", "add", "change"],
         },
-        # add research model permissions here later when research models exist
+        "research": {model: ["view", "add", "change"] for model in ("researchproject", "publicationrecord", "conferencerecord")},
+        "extension": {"extensionproject": ["view", "add", "change"]},
+        "quality": {"evidencedocument": ["view", "add", "change"]},
     },
 
     "communications_editor": {

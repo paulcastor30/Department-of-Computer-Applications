@@ -171,7 +171,28 @@ class FacultySupervisedWork(FacultyProfileRecord):
         return self.title
 
 
-class FacultyPublication(FacultyProfileRecord):
+class HistoricalActivity(FacultyProfileRecord):
+    """Preserved faculty activity; institutional metadata belongs in shared records."""
+    reconciled_contribution = models.ForeignKey(
+        "FacultyContribution", null=True, blank=True, on_delete=models.PROTECT,
+        help_text="Deprecated for new institutional entries. Link a confirmed contribution; historical data are retained internally.",
+    )
+
+    class Meta:
+        abstract = True
+
+    def clean(self):
+        super().clean()
+        if self.reconciled_contribution_id:
+            from django.core.exceptions import ValidationError
+            credit = self.reconciled_contribution
+            kind = {"FacultyPublication": "publication", "FacultyConference": "conference",
+                    "FacultyResearchProject": "research", "FacultyExtensionProject": "extension"}[type(self).__name__]
+            if credit.faculty_id != self.faculty_id or not getattr(credit, kind + "_id"):
+                raise ValidationError({"reconciled_contribution": "Select a contribution for this faculty and activity type."})
+
+
+class FacultyPublication(HistoricalActivity):
     faculty = models.ForeignKey(FacultyMember, related_name="publications", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     authors = models.TextField(blank=True)
@@ -191,7 +212,7 @@ class FacultyPublication(FacultyProfileRecord):
         return self.title
 
 
-class FacultyConference(FacultyProfileRecord):
+class FacultyConference(HistoricalActivity):
     faculty = models.ForeignKey(FacultyMember, related_name="conferences", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     conference_name = models.CharField(max_length=255, blank=True)
@@ -208,7 +229,7 @@ class FacultyConference(FacultyProfileRecord):
         return self.title
 
 
-class FacultyResearchProject(FacultyProfileRecord):
+class FacultyResearchProject(HistoricalActivity):
     class FundingType(models.TextChoices):
         INTERNAL = "internal", "Internally-Funded Research"
         EXTERNAL = "external", "Externally-Funded Research"
@@ -233,7 +254,7 @@ class FacultyResearchProject(FacultyProfileRecord):
         return self.title
 
 
-class FacultyExtensionProject(FacultyProfileRecord):
+class FacultyExtensionProject(HistoricalActivity):
     faculty = models.ForeignKey(FacultyMember, related_name="extension_projects", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     funding_source = models.CharField(max_length=255, blank=True)
@@ -310,7 +331,7 @@ class FacultyContribution(models.Model):
     publication = models.ForeignKey("research.PublicationRecord", null=True, blank=True, on_delete=models.CASCADE)
     conference = models.ForeignKey("research.ConferenceRecord", null=True, blank=True, on_delete=models.CASCADE)
     extension = models.ForeignKey("extension.ExtensionProject", null=True, blank=True, on_delete=models.CASCADE)
-    role = models.CharField(max_length=100, help_text="Use only a role established by the source; conference author does not mean presenter.")
+    role = models.CharField(max_length=100, blank=True, help_text="Use only a role established by the source; conference author does not mean presenter.")
     credited_name = models.CharField(max_length=255, blank=True)
     is_published = models.BooleanField(default=True)
 
