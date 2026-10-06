@@ -197,7 +197,7 @@ it('separates applicant tasks from enrolled-student procedures and provides a re
   const admission = within(document.getElementById('before-applying')!);
   expect(admission.queryByText('Thesis procedure checklist')).not.toBeInTheDocument();
   const enrolled = within(document.getElementById('current-students')!);
-  expect(enrolled.getByText('Thesis procedure checklist').tagName).toBe('SUMMARY');
+  expect(enrolled.getByRole('link', { name: 'Open BSCA Thesis Process Guide' })).toHaveAttribute('href', '/thesis-guide?program=BSCA');
   expect(enrolled.getByRole('link', { name: 'Student & faculty resources' })).toHaveAttribute('href', '/resources');
 });
 
@@ -206,8 +206,8 @@ it('provides thesis and learning-support routes for both degrees on the resource
   render(<App />);
   const main = within(screen.getByRole('main'));
   expect(main.getByRole('heading', { level: 1, name: 'Student & faculty resources' })).toBeInTheDocument();
-  expect(main.getByRole('link', { name: 'View BSCA thesis checklist' })).toHaveAttribute('href', '/programs/bsca#current-students');
-  expect(main.getByRole('link', { name: 'View MSCA thesis checklist' })).toHaveAttribute('href', '/programs/msca#current-students');
+  expect(main.getByRole('link', { name: 'View BSCA Thesis Process Guide' })).toHaveAttribute('href', '/thesis-guide?program=BSCA');
+  expect(main.getByRole('link', { name: 'View MSCA Thesis Process Guide' })).toHaveAttribute('href', '/thesis-guide?program=MSCA');
   expect(main.getByRole('link', { name: 'Ask about learning support' }).getAttribute('href')).toContain('learning-support%20enquiry');
   expect(main.getByRole('link', { name: /Revised university graduate publication policy/ })).toHaveAttribute('href', 'https://msuiit.edu.ph/news/news-detail.php?id=2496');
 });

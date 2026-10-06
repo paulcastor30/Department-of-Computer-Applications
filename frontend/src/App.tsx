@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import Accessibility from "./pages/Accessibility";
 import NewsDetail from "./pages/NewsDetail";
 import { Toaster } from "@/components/ui/toaster";
@@ -54,6 +55,7 @@ import Development from "./pages/faculty/Development";
 
 // Students Pages
 import Resources from "./pages/Resources";
+const ThesisGuide = lazy(() => import("./pages/ThesisGuide"));
 import CurrentStudents from "./pages/students/CurrentStudents";
 import ProspectiveStudents from "./pages/students/ProspectiveStudents";
 import Organizations from "./pages/students/Organizations";
@@ -139,6 +141,7 @@ const App = () => (
             
             {/* Students Routes */}
             <Route path="/resources" element={<Resources />} />
+            <Route path="/thesis-guide" element={<Suspense fallback={<p className="container py-12" role="status">Loading the Thesis Process Guide…</p>}><ThesisGuide /></Suspense>} />
             <Route path="/students/current" element={<CurrentStudents />} />
             <Route path="/students/prospective" element={<ProspectiveStudents />} />
             <Route path="/students/organizations" element={<Organizations />} />

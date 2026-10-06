@@ -134,12 +134,10 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
           <a className="action-link" href={guide.href}>View {guide.label}</a>
           {hasProgramContent(guide.note) && <p className="mt-3 leading-7 text-muted-foreground">{guide.note}</p>}
         </div>)}
-        <p className="leading-7 text-muted-foreground">Use the official guide for detailed procedures. The checklist below is a summary; confirm the form version and submission requirements with your adviser or coordinator.</p>
+        <p className="leading-7 text-muted-foreground">Use the official guide for detailed procedures. The Thesis Process Guide below explains the uploaded forms; confirm the applicable version and submission requirements with your adviser or coordinator.</p>
       </div>}
-      {availableProgramItems(program.thesisInformation).length > 1 && <details className="max-w-4xl rounded-md border border-border p-5">
-        <summary className="min-h-11 cursor-pointer font-semibold text-primary">Thesis procedure checklist</summary>
-        <ul className="mt-4 space-y-5 leading-7 text-muted-foreground">{availableProgramItems(program.thesisInformation).slice(1).map(item => <li key={item}>{item}</li>)}</ul>
-      </details>}
+      <Link className="action-link mb-6" to={`/thesis-guide?program=${program.code}`}>Open {program.code} Thesis Process Guide</Link>
+      <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Follow the process from panel formation to final submission. Find each form, its preparation checklist, signatures and next step.</p>
       <ProgramForms program={program} />
       <Link className="text-link mt-5 inline-flex min-h-11 items-center" to="/resources">Student &amp; faculty resources</Link>
     </Section>

@@ -254,3 +254,7 @@ A license has not yet been selected for this project. Until one is added, all ri
 ## Maintainers
 
 This repository is currently maintained by the project owner ([@paulcastor30](https://github.com/paulcastor30)) and is open to community contributions.
+
+## Thesis Process Guide
+
+The student-facing guide is available at `/thesis-guide` for BSCA and MSCA. Process content, deadlines, checklists, document metadata and download paths are centralized in `frontend/src/content/thesisProcess.ts`. See [maintenance and document-control notes](docs/thesis-process-guide.md) before changing institutional requirements. No database or login is used.

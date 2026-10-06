@@ -1,0 +1,216 @@
+// STAFF: Edit workflow wording, checklists, deadlines and approvals here, not in the page.
+// Requirements are transcribed from the uploaded official forms, not the older infographic.
+export type ThesisProgram = "BSCA" | "MSCA";
+export interface FormSource {
+  code: string; revision: string; effectiveDate: string; file: string; downloadUrl?: string;
+  program: ThesisProgram; status: string; verificationNote?: string;
+}
+export const thesisFormSources: Record<string, FormSource> = {
+  "BSCA017": {
+    "code": "FM-MSU-IIT-ACAD-017",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-017 - NOMINATION OF MEMBERS OF ADVISORY PANEL.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA018": {
+    "code": "FM-MSU-IIT-ACAD-018",
+    "revision": "00",
+    "effectiveDate": "02.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-018  - REQUEST OF ADVISER PANEL MEMBER.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA019": {
+    "code": "FM-MSU-IIT-ACAD-019",
+    "revision": "00",
+    "effectiveDate": "02.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-019 - APPROVAL FOR PROPOSAL HEARING.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA020": {
+    "code": "FM-MSU-IIT-ACAD-020",
+    "revision": "00",
+    "effectiveDate": "02.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-020 - APPROVAL OF PROPOSAL.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA021": {
+    "code": "FM-MSU-IIT-ACAD-021",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-021 - NOMINATION OF MEMBERS OF ORAL EXAMINATION PANEL.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA022": {
+    "code": "FM-MSU-IIT-ACAD-022",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-022 - APPROVAL FOR FINAL DEFENSE.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA023": {
+    "code": "FM-MSU-IIT-ACAD-023",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-023 - ORAL EXAMINATION REPORT IN FINAL DEFENSE.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA024": {
+    "code": "FM-MSU-IIT-ACAD-024",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-024 - PANEL ORAL EXAMINATION REPORT.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "BSCA025": {
+    "code": "FM-MSU-IIT-ACAD-025",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-025 - APPROVAL FOR BINDING.docx",
+    "program": "BSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA017": {
+    "code": "FM-MSU-IIT-ACAD-017",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 017 Nomination of Members of Advisory Panel.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA018": {
+    "code": "FM-MSU-IIT-ACAD-018",
+    "revision": "00",
+    "effectiveDate": "02.20.2020",
+    "file": "msca/FORM 018 Request for Change of Adviser Panel Member.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA019": {
+    "code": "FM-MSU-IIT-ACAD-019",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 019 Approval for Proposal Hearing.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA020": {
+    "code": "FM-MSU-IIT-ACAD-020",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 020 Approval of Proposal.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA021": {
+    "code": "FM-MSU-IIT-ACAD-021",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 021-Nomination-of-Members-of-Oral-Exam-Panel.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA022": {
+    "code": "FM-MSU-IIT-ACAD-022",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 022-Approval-for-Final-Defense.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA023": {
+    "code": "FM-MSU-IIT-ACAD-023",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 023-Oral-Exam-Report-on-Final-Defense.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA024": {
+    "code": "FM-MSU-IIT-ACAD-024",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 024-Panel-Oral-Exam-Report.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA025": {
+    "code": "FM-MSU-IIT-ACAD-025",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "msca/FORM 025-Approval-for-Binding.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "MSCA027": {
+    "code": "FM-MSU-IIT-ACAD-027",
+    "revision": "00",
+    "effectiveDate": "02.20.2020",
+    "file": "msca/Form 027 Nomination of Written  Exam.docx",
+    "program": "MSCA",
+    "status": "Source reviewed"
+  },
+  "BSCAsubmission": {
+    "code": "FM-MSU-IIT-ACAD-025",
+    "revision": "00",
+    "effectiveDate": "01.20.2020",
+    "file": "bsca/FM-MSU-IIT-ACAD-025 - REQUIREMENTS SUBMISSION.docx",
+    "program": "BSCA",
+    "status": "Document code requires verification",
+    "verificationNote": "Verify official document code with the department before publication."
+  }
+};
+export const formUrl = (source: FormSource) => source.downloadUrl || "/thesis-forms/" + source.file.split("/").map(encodeURIComponent).join("/");
+export interface ThesisForm {
+  id: string; title: string; purpose: string; when: string; requirements: string[];
+  approvals: Partial<Record<ThesisProgram, string[]>>; notes?: string[];
+}
+const undergraduateApprovals = ["Department Chairperson — recommending approval", "Research Instructor / Research Adviser — recommending approval", "College Dean — approval"];
+const graduateApprovals = ["Department Chairperson — recommending approval", "Department Graduate Program Coordinator — recommending approval", "College Graduate Coordinator — recommending approval", "College Dean — approval"];
+const standardApprovals = { BSCA: undergraduateApprovals, MSCA: graduateApprovals };
+const panelSignatures = { BSCA: ["Advisory Panel: Chairperson/Adviser, Co-Adviser and Members"], MSCA: ["Advisory Panel: Chairperson/Adviser and Members"] };
+export const thesisForms: Record<string, ThesisForm> = {
+  "017": { id: "017", title: "Nomination of Members of Advisory Panel", purpose: "Establish your thesis Advisory Panel.", when: "When forming your panel, before applying for a proposal hearing.", requirements: ["Complete student details, degree and thesis title.", "Enter the panel members’ names and obtain the signatures indicated on the form."], approvals: standardApprovals, notes: ["The BSCA form has Chairperson/Adviser, Co-Adviser and Member slots. The MSCA form has Chairperson/Adviser and Member slots."] },
+  "018": { id: "018", title: "Request for Change of Adviser / Panel Member", purpose: "Request a replacement only when your Adviser or a Panel Member needs to change.", when: "Only if a change is needed; this is not a required stage for everyone.", requirements: ["Complete student and degree details.", "Explain the reasons for replacement.", "Obtain concurrence from the outgoing Adviser/Panel Member and the proposed Adviser/Panel Member.", "Sign the request as the student (MSCA) or student-group representative (BSCA)."], approvals: standardApprovals },
+  "019": { id: "019", title: "Approval for Proposal Hearing", purpose: "Request approval of your proposal hearing and its schedule.", when: "At least one week before the scheduled hearing.", requirements: ["Complete Form 019, including the hearing date, time and place.", "Submit the form and a copy of the manuscript to the College Dean at least one week before the hearing.", "Prepare a copy of the manuscript for each panel member.", "Arrange a proposal hearing that is open to the public.", "Attach the official receipt of the proposal fee."], approvals: { BSCA: [...panelSignatures.BSCA, ...undergraduateApprovals], MSCA: [...panelSignatures.MSCA, ...graduateApprovals] } },
+  "020": { id: "020", title: "Approval of Proposal", purpose: "Record the examiner’s recommendations and the Advisory Panel’s approval after the hearing.", when: "After the proposal hearing and any required changes.", requirements: ["Have the examiner complete and sign the Proposal Hearing recommendation page.", "Address the changes required in the recommendations.", "Obtain the Advisory Panel’s dated signatures on the approval sheet.", "Submit the approval sheet, proposal and examiner recommendations to the College Dean."], approvals: panelSignatures },
+  "021": { id: "021", title: "Nomination of Members of Oral Examination Panel", purpose: "Establish the panel for your final oral examination.", when: "While preparing for the final defense, before requesting its approval.", requirements: ["Complete student details, degree and thesis title.", "Enter the Oral Examination Panel members and obtain the signatures indicated on the form."], approvals: standardApprovals },
+  "022": { id: "022", title: "Approval for Final Defense", purpose: "Secure approval for the public final defense after the panel has examined the manuscript.", when: "Apply at least one week before defense; hold the defense at least one month before grade locking.", requirements: ["Have the Oral Examination Panel examine the manuscript and sign its recommendation on Form 022.", "Complete the defense date, time and place.", "Submit the form and manuscript to the College Dean at least one week before the scheduled defense.", "Prepare a manuscript copy for each panel member.", "Prepare an A4 summary poster: Abstract; Introduction; Research Design and Methodology; Results and Discussion; Conclusions and Recommendations.", "Arrange a public oral examination at least one month before the day of locking of grades.", "Attach the official receipt of the defense fee."], approvals: { BSCA: ["Oral Examination Panel — recommendation", "Department Chairperson — recommending approval", "College Dean — approval"], MSCA: ["Oral Examination Panel — recommendation", ...graduateApprovals] }, notes: ["The A4 poster for defense is different from the final-submission poster size listed in the BSCA submission form. Ask your coordinator for the actual grade-locking date; the form does not supply a calendar date."] },
+  "023": { id: "023", title: "Oral Examination Report in Final Defense", purpose: "Individual examiner evaluation — each examiner records their assessment and recommendations.", when: "During / following the final defense.", requirements: ["The examiner records organization, presentation, content, mastery of subject matter, ability to defend ideas and receptiveness to suggestions.", "The examiner records an overall evaluation: Passed, Failed or Conditional.", "The examiner completes the recommendation page, signature and date."], approvals: { BSCA: ["Individual Examiner — evaluation and signature"], MSCA: ["Individual Examiner — evaluation and signature"] } },
+  "024": { id: "024", title: "Panel Oral Examination Report", purpose: "Official panel result — records the panel’s decision, rather than one examiner’s assessment.", when: "Following the final oral examination.", requirements: ["Record the panel result and remarks.", "Attach the list of required suggestions / changes when the result requires manuscript modification.", "Obtain the Oral Examination Panel’s signatures."], approvals: { BSCA: ["Oral Examination Panel: Chairperson/Adviser, Co-Adviser and Members"], MSCA: ["Oral Examination Panel: Chairperson/Adviser and Members"] }, notes: ["Results: Passed without manuscript modification; Passed provided the attached suggestions/changes are reflected; or Failed. If the result is Failed or requires clarification, ask your adviser or coordinator what to do before proceeding."] },
+  "025": { id: "025", title: "Approval for Binding", purpose: "Confirm that all Oral Examination Panel comments and recommendations are reflected in the manuscript.", when: "After the panel verifies the final manuscript, before final binding.", requirements: ["Incorporate all comments and recommendations from the final defense.", "Have the Oral Examination Panel examine the manuscript and sign its certification.", "Obtain the recommending and approval signatures indicated on the form before proceeding to final binding."], approvals: standardApprovals },
+  "submission": { id: "submission", title: "Final requirements submission", purpose: "Submit the final materials and request signing of the approval sheet.", when: "After approval for binding, when completing final submission.", requirements: ["USB flash drive: manuscript in MS Word format.", "USB flash drive: abstract in MS Word format.", "USB flash drive: research article.", "USB flash drive: thesis documentation — presentation video, codes and application/program.", "Three hard copies of the abstract.", "Two hard copies of the research article / journal-type paper.", "One printed research poster: 33 × 48.5 cm or 13 × 19 inches."], approvals: { BSCA: ["Researchers — request signatures", "Thesis Adviser — recommending approval", "Department Chairperson — approval; letter addressed to the College Dean for signing of the approval sheet"] }, notes: ["The department has confirmed that the USB, printed-copy and poster checklist applies to both BSCA and MSCA. Complete the applicable current form; the BSCA form includes a publication-intention choice, which does not establish a requirement to publish an article."] },
+  "027": { id: "027", title: "Nomination of Members of Written Examination Committee", purpose: "Nominate the committee for a graduate written examination.", when: "Only when instructed to prepare for a Comprehensive Exam or Preliminary Exam (SDS).", requirements: ["Select the applicable examination, complete student details and enter the examination date, time and place.", "Enter the committee Chairperson/Adviser and Members and obtain the required signatures."], approvals: { MSCA: graduateApprovals }, notes: ["This is a separate graduate academic process. It is not a required step between thesis proposal and final defense. The additional Form 027 uploaded in the BSCA folder is headed Office of Graduate Studies and has a different coordinator signature layout; confirm the applicable version with the graduate coordinator."] },
+};
+export interface ThesisStage { id: string; title: string; description: string; forms: string[]; deadline?: string; next: string; notes?: string[]; conditional?: string; }
+export const thesisStages: ThesisStage[] = [
+  { id: "panel-formation", title: "Panel formation", description: "Establish who will advise and review your thesis.", forms: ["017"], next: "Prepare the proposal manuscript and apply for a proposal hearing.", conditional: "018" },
+  { id: "proposal-hearing", title: "Proposal hearing application", description: "Prepare your manuscript, copies and fee receipt; request approval of the hearing schedule.", forms: ["019"], deadline: "Submit the form and manuscript to the Dean at least one week before the hearing.", next: "Attend the approved public proposal hearing." },
+  { id: "proposal-approval", title: "Proposal hearing and approval", description: "Hearing → examiner recommendations → required changes → panel approval → submission to the Dean.", forms: ["020"], next: "Proceed with the approved thesis, then prepare for the final defense." },
+  { id: "defense-preparation", title: "Preparation for final defense", description: "Nominate the Oral Examination Panel, prepare the manuscript and A4 poster, and request defense approval.", forms: ["021", "022"], deadline: "Apply at least one week before defense. Hold the defense at least one month before grade locking.", next: "Attend the approved public final oral examination." },
+  { id: "final-defense", title: "Final defense", description: "Form 023 is an individual examiner’s evaluation. Form 024 is the official panel result.", forms: ["023", "024"], next: "Follow the panel’s result: complete required revisions, or proceed to binding verification if no changes are required." },
+  { id: "revisions", title: "Post-defense revisions", description: "If changes are required: panel comments → revise manuscript → adviser/panel verification.", forms: [], notes: ["This stage applies when the panel requires changes. No separate numbered revision form is supplied. Form 025 certifies that all comments and recommendations have been reflected."], next: "Request approval for binding after the panel verifies the manuscript." },
+  { id: "binding", title: "Approval for binding", description: "Reach the manuscript milestone: panel recommendations incorporated and approval for binding secured.", forms: ["025"], next: "Bind the approved manuscript and prepare the applicable final-submission materials." },
+  { id: "final-submission", title: "Final requirements submission", description: "Prepare the final materials for your program and submit them through the applicable office.", forms: ["submission"], next: "Confirm with the department / graduate coordinator that your submission has been received and all applicable requirements have been met." },
+];
+export const thesisStartingPoints = [
+  ["Starting my thesis", "panel-formation"], ["Preparing for proposal hearing", "proposal-hearing"],
+  ["Proposal already defended", "proposal-approval"], ["Preparing for final defense", "defense-preparation"],
+  ["Final defense completed", "final-defense"], ["Completing revisions", "revisions"],
+  ["Preparing final submission", "binding"], ["Approval for binding already secured", "final-submission"],
+] as const;
+export const thesisSourceNotes = [
+  "The BSCA Form 017 title says Advisory Panel, while its body says Oral Examination Panel. The guide follows the document title for panel formation; confirm the intended wording with the department.",
+  "BSCA Requirements Submission and Approval for Binding both carry FM-MSU-IIT-ACAD-025. They are distinguished by title; neither has been renumbered.",
+  "The supplied MSCA Requirements Submission is a March 2018 OGS Form 14. It mentions a CD-ROM, three abstracts and four research articles, and names a different college in its address. The department confirms that the BSCA USB, printed-copy and poster checklist now applies to MSCA too. The current MSCA submission document and signatories still need graduate-coordinator verification.",
+  "Legacy CCS Forms 13–14, Certificate of Panel Approval and Certificate of Authentic Authorship are outside the main checklist until their current applicability is confirmed. Uploaded reference templates alone do not establish current requirements.",
+];
+export const thesisDisclaimer = "This guide is intended to assist students in navigating the thesis process. Official university and college policies, approved forms, and instructions issued by the College, Department, and Office of Graduate Studies shall prevail in case of any discrepancy.";

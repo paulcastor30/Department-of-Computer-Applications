@@ -24,8 +24,8 @@ export default function Facilities() {
       <div className="container max-w-4xl space-y-10 py-12">
         <p className="leading-8">Computer Applications uses the following rooms in the College of Computer Studies (CCS) building at MSU-IIT. Find your room by floor below.</p>
         {floors.map(({ floor, rooms }) => (
-          <section key={floor} aria-labelledby={floor.replaceAll(" ", "-")}>
-            <h2 id={floor.replaceAll(" ", "-")} className="section-title">{floor}</h2>
+          <section key={floor} aria-labelledby={floor.replace(/ /g, "-")}>
+            <h2 id={floor.replace(/ /g, "-")} className="section-title">{floor}</h2>
             <dl className="mt-4 divide-y divide-border rounded-lg border border-border bg-card px-5">
               {rooms.map(({ name, use }) => (
                 <div key={name} className="py-5">

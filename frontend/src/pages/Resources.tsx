@@ -20,7 +20,7 @@ export default function Resources() {
       <div className="grid gap-6 md:grid-cols-2">{programs.map(program => <article key={program.code} className="rounded-md border border-border p-6">
         <h3 className="text-xl font-semibold text-primary">{program.code}: {program.culminatingRequirement}</h3>
         <p className="mt-3 leading-7 text-muted-foreground">Find proposal, defense and manuscript-preparation steps. Ask your coordinator for current forms and submission dates.</p>
-        <Link className="action-link mt-5" to={`${program.route}#current-students`}>View {program.code} thesis checklist</Link>
+        <Link className="action-link mt-5" to={`/thesis-guide?program=${program.code}`}>View {program.code} Thesis Process Guide</Link>
         <ul className="mt-4 space-y-2">{program.documents.filter(document => !document.formGroup && document.href).map(document => <li key={`${document.label}-${document.href}`}><a className="text-link inline-flex min-h-11 items-center" href={document.href}>Open {document.label}</a></li>)}</ul>
       </article>)}</div>
       <p className="mt-6 max-w-prose leading-7 text-muted-foreground">University forms and graduate guides are also listed in the <a className="text-link" href="https://www.msuiit.edu.ph/offices/odgp/resources/index.php">graduate resources directory</a>. Confirm the applicable version with your coordinator.</p>

@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/thesis-guide",
+      "destination": "/thesis-guide/index.html"
+    },
+    {
       "source": "/projects",
       "destination": "/projects/index.html"
     },

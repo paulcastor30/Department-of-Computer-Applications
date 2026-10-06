@@ -83,6 +83,7 @@ const allSearchPages = [
   { title: "BSCA student projects and prototypes", keywords: ["BSCA", "student outputs", "student projects", "projects", "prototypes", "creative works", "games", "hardware", "firmware", "Hackster"], href: "/projects" },
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
   { title: "Advising and learning support", keywords: ["learning support", "disability assistance", "disability-related assistance", "disability support", "academic accommodations", "accessible learning", "PWD", "advising", "study plan"], href: "/resources#learning-support" },
+  { title: "Thesis Process Guide", keywords: ["thesis process", "thesis guide", "017", "018", "019", "020", "021", "022", "023", "024", "025", "027", "binding", "panel", "proposal", "final defense", "submission"], href: "/thesis-guide" },
   { title: "Thesis forms and preparation guidance", keywords: ["thesis forms", "thesis checklist", "proposal", "defense", "manuscript", "submission", "graduation forms"], href: "/resources#student-forms" },
   { title: "Campus directions and physical access", keywords: ["physical access", "step-free", "ramp", "wheelchair", "drop-off", "toilet", "accessible visit"], href: "/about/location#access" },
   { title: "BSCA thesis forms", keywords: ["bsca forms", "bsca thesis forms", "undergraduate thesis forms"], href: "/resources#bsca-forms" },
@@ -299,5 +300,5 @@ const allSearchPages = [
 
 
 // Keep saved links working, but do not promote unfinished destinations in search.
-const availableSearchRoutes = new Set(["/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
+const availableSearchRoutes = new Set(["/thesis-guide", "/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
 export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href.split("#")[0]));
