@@ -205,7 +205,7 @@ export const hardboundSubmissionRequirements = {
     "Prepare a printed hardbound thesis copy for the Department of Computer Applications.",
     "Prepare a printed hardbound thesis copy for the College Dean’s Office.",
     "Prepare a printed hardbound thesis copy for the University Library.",
-    "Include a fully signed Certificate of Panel Approval in each of the three hardbound copies.",
+    "Ensure the fully signed Certificate of Panel Approval is bound inside each of the three hardbound thesis copies, not submitted separately.",
   ],
   notes: ["These are three complete hardbound thesis copies, in addition to the abstract copies, research-article copies, poster and electronic files listed above.", "Confirm the submission handoff and receipt of the copies with the department or graduate coordinator. Preparing the copies alone does not establish clearance."],
   source: "Department-confirmed final-submission and clearance requirement for BSCA and MSCA. This additional requirement is not attributed to the uploaded Requirements Submission form.",
@@ -258,7 +258,7 @@ export function getThesisSourceNotes(program: ThesisProgram): string[] {
 // Exact registrar documents affected and hold-removal procedure remain subject to official instructions.
 export const thesisClearance = {
   title: "Required for clearance",
-  message: "Complete and submit the final thesis requirements, including three printed hardbound thesis copies with a fully signed Certificate of Panel Approval in each copy. Incomplete or unsubmitted requirements will result in an outstanding thesis liability, which may prevent the release of your Transcript of Records (TOR) and other registrar certifications until the liability is cleared.",
+  message: "Complete and submit the final thesis requirements, including three printed hardbound thesis copies with a fully signed Certificate of Panel Approval bound inside each copy. Incomplete or unsubmitted requirements will result in an outstanding thesis liability, which may prevent the release of your Transcript of Records (TOR) and other registrar certifications until the liability is cleared.",
   action: "Confirm with the department or graduate coordinator that your submission has been accepted and your thesis liability has been cleared. Submitting documents alone does not confirm clearance.",
   source: "Department-confirmed requirement. Follow the applicable university clearance and registrar instructions.",
   completion: "Submission accepted and thesis liability cleared",
@@ -284,6 +284,6 @@ export const thesisSourceNotes = [
   "The BSCA Form 017 title says Advisory Panel, while its body says Oral Examination Panel. The guide follows the document title for panel formation; confirm the intended wording with the department.",
   "BSCA Requirements Submission and Approval for Binding both carry FM-MSU-IIT-ACAD-025. They are distinguished by title; neither has been renumbered.",
   "The supplied MSCA Requirements Submission is a March 2018 OGS Form 14. It mentions a CD-ROM, three abstracts and four research articles, and names a different college in its address. The department confirms that the BSCA USB, printed-copy and poster checklist now applies to MSCA too. The current MSCA submission document and signatories still need graduate-coordinator verification.",
-  "The department confirms a fully signed Certificate of Panel Approval in each of the three hardbound thesis copies. Legacy CCS Forms 13–14 and the Certificate of Authentic Authorship remain outside the main checklist until their current applicability is confirmed. Uploaded reference templates alone do not establish current requirements.",
+  "The department confirms that a fully signed Certificate of Panel Approval is bound inside each of the three hardbound thesis copies. Legacy CCS Forms 13–14 and the Certificate of Authentic Authorship remain outside the main checklist until their current applicability is confirmed. Uploaded reference templates alone do not establish current requirements.",
 ];
 export const thesisDisclaimer = "This guide is intended to assist students in navigating the thesis process. Official university and college policies, approved forms, and instructions issued by the College, Department, and Office of Graduate Studies shall prevail in case of any discrepancy.";

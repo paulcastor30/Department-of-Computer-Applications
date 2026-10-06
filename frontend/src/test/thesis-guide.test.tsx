@@ -135,7 +135,7 @@ it.each(["BSCA", "MSCA"])("requires three %s hardbound thesis copies with signed
   expect(within(group).getByRole("checkbox", { name: /copy for the Department of Computer Applications/ })).toBeInTheDocument();
   expect(within(group).getByRole("checkbox", { name: /copy for the College Dean’s Office/ })).toBeInTheDocument();
   expect(within(group).getByRole("checkbox", { name: /copy for the University Library/ })).toBeInTheDocument();
-  expect(within(group).getByRole("checkbox", { name: /fully signed Certificate of Panel Approval in each/ })).toBeInTheDocument();
+  expect(within(group).getByRole("checkbox", { name: /fully signed Certificate of Panel Approval is bound inside each/ })).toBeInTheDocument();
   expect(screen.getByLabelText("Required for clearance")).toHaveTextContent("three printed hardbound thesis copies");
   expect(screen.getByText("Three hard copies of the abstract.")).toBeInTheDocument();
   expect(screen.getByText("Two hard copies of the research article / journal-type paper.")).toBeInTheDocument();
