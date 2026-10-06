@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen, within } from "@testing-library/rea
 import { afterEach, expect, it } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import ThesisGuide from "@/pages/ThesisGuide";
-import { formUrl, thesisFormSources, thesisStages } from "@/content/thesisProcess";
+import { formUrl, thesisForms, thesisFormSources, thesisStages } from "@/content/thesisProcess";
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -50,4 +50,16 @@ it("keeps original duplicate codes and links only to existing official source fi
   for (const source of Object.values(thesisFormSources)) {
     expect(existsSync(resolve("public", decodeURIComponent(formUrl(source)).slice(1)))).toBe(true);
   }
+});
+
+it.each(["BSCA", "MSCA"])("shows department photo requirements for both %s hearing applications without attributing them to the official forms", program => {
+  guide(program);
+  const notices = screen.getAllByRole("group", { name: "Department booking requirement · Public announcement" });
+  expect(notices).toHaveLength(2);
+  for (const notice of notices) {
+    expect(within(notice).getByRole("checkbox", { name: /Submit a personal photo of each student/ })).toBeInTheDocument();
+  }
+  expect(screen.getAllByText(/not stated in Forms 019 or 022/)).toHaveLength(2);
+  expect(thesisForms["019"].requirements.join(" ")).not.toMatch(/photo/i);
+  expect(thesisForms["022"].requirements.join(" ")).not.toMatch(/photo/i);
 });

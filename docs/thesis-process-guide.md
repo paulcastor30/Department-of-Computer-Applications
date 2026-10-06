@@ -4,7 +4,7 @@ The page is `/thesis-guide`; use `?program=BSCA` or `?program=MSCA` to link to a
 
 Edit `frontend/src/content/thesisProcess.ts` for all process content:
 - `thesisStages`: sequence, plain-language descriptions, next steps and deadline callouts.
-- `thesisForms`: form title, purpose, preparation checklist, program-specific signatories and notes.
+- `thesisForms`: form title, purpose, preparation checklist, program-specific signatories and notes. `departmentRequirements` keeps department booking requirements separate from what the university forms state.
 - `thesisFormSources`: official code, revision, effective date, program, status and file path. `formUrl` safely encodes the path to an existing uploaded document. Set the optional `downloadUrl` to a verified official URL if external hosting is adopted.
 - `thesisStartingPoints`: beginner-friendly jump choices.
 - `thesisSourceNotes`: unresolved source issues and legacy items; keep these visible in the expandable source notes until resolved.
@@ -28,3 +28,7 @@ Legacy CCS Forms 13–14 and certificates are outside the main checklist pending
 ## Verify changes
 
 Run frontend lint, TypeScript validation, tests and production build. Verify every configured download exists, inspect BSCA and MSCA on desktop and a narrow phone, operate the program selector, stage chooser, native disclosures and checkboxes by keyboard, and follow program/resource links. Test with an actual screen-reader user and student volunteers before claiming human usability/accessibility certification. The HTML guide makes instructions readable but does not repair accessibility limitations of official Word documents.
+
+## Public hearing announcements
+
+On 6 October 2026, the department instructed that each student supply a personal photo with the proposal/final-defense booking and approval materials, for the department’s public Facebook announcements. This applies to BSCA and MSCA. `publicAnnouncementPhotos` centrally maintains the requirement and is attached to Forms 019 and 022 through `departmentRequirements`; it is not attributed to the forms themselves. Photo format, resolution, delivery channel, staff recipient and an additional photo deadline were not specified, so none are invented. Students are directed to confirm the format and submission method with the department. No website photo-upload feature, Facebook publishing action or additional policy is introduced.

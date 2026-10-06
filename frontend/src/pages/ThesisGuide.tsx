@@ -5,21 +5,34 @@ import { PageHero } from "@/components/ui/hero-section";
 import { DocumentAccessHelp } from "@/components/DocumentAccessHelp";
 import { formUrl, thesisDisclaimer, thesisForms, thesisFormSources, thesisSourceNotes, thesisStages, thesisStartingPoints, type ThesisForm, type ThesisProgram } from "@/content/thesisProcess";
 
+function PreparationChecklist({ items, title }: { items: string[]; title: string }) {
+  const [checked, setChecked] = useState<Set<string>>(new Set());
+  return <fieldset className="mt-5">
+    <legend className="mb-2 font-semibold">{title}</legend>
+    <div className="space-y-1">{items.map(item => <label key={item} className="flex min-h-11 cursor-pointer items-start gap-3 rounded px-1 py-2 leading-7">
+      <input type="checkbox" className="mt-1.5 h-5 w-5 shrink-0 accent-current" checked={checked.has(item)} onChange={event => setChecked(previous => {
+        const next = new Set(previous);
+        if (event.target.checked) next.add(item); else next.delete(item);
+        return next;
+      })} />
+      <span>{item}</span>
+    </label>)}</div>
+  </fieldset>;
+}
+
 function FormCard({ form, program }: { form: ThesisForm; program: ThesisProgram }) {
   const source = thesisFormSources[program + form.id];
-  const [checked, setChecked] = useState<Set<number>>(new Set());
   return <article className="rounded-md border border-border bg-background p-4 sm:p-6">
     <p className="mb-2 font-semibold text-accent">{form.id === "submission" ? `Final submission · ${program}` : `Form ${form.id} · ${program}`}</p>
     <h3 className="text-xl font-semibold leading-7 text-primary">{form.title}</h3>
     <p className="mt-3 leading-7">{form.purpose}</p>
     <p className="mt-3 leading-7"><strong>When to use it:</strong> {form.when}</p>
-    <fieldset className="mt-5">
-      <legend className="mb-2 font-semibold">Preparation checklist</legend>
-      <div className="space-y-1">{form.requirements.map((item, index) => <label key={item} className="flex min-h-11 cursor-pointer items-start gap-3 rounded px-1 py-2 leading-7">
-        <input type="checkbox" className="mt-1.5 h-5 w-5 shrink-0 accent-current" checked={checked.has(index)} onChange={event => setChecked(previous => { const next = new Set(previous); if (event.target.checked) next.add(index); else next.delete(index); return next; })} />
-        <span>{item}</span>
-      </label>)}</div>
-    </fieldset>
+    <PreparationChecklist items={form.requirements} title="Preparation checklist" />
+    {form.departmentRequirements && <aside className="mt-5 rounded-md border-l-4 border-accent bg-muted p-4">
+      <PreparationChecklist items={form.departmentRequirements.items} title={form.departmentRequirements.title} />
+      {form.departmentRequirements.notes.map(note => <p key={note} className="mt-3 leading-7">{note}</p>)}
+      <p className="mt-3 leading-7 text-muted-foreground">{form.departmentRequirements.source}</p>
+    </aside>}
     <h4 className="mt-5 font-semibold">Who signs / approves?</h4>
     <ul className="mt-2 list-disc space-y-2 pl-5 leading-7">{(form.approvals[program] || ["Confirm the current MSCA submission form and signatories with the graduate coordinator."]).map(approval => <li key={approval}>{approval}</li>)}</ul>
     {form.notes?.map(note => <p key={note} className="mt-4 leading-7 text-muted-foreground">{note}</p>)}
