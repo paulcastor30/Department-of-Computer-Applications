@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen, within } from "@testing-library/rea
 import { afterEach, expect, it } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import ThesisGuide from "@/pages/ThesisGuide";
-import { formUrl, thesisForms, thesisFormSources, thesisStages } from "@/content/thesisProcess";
+import { formUrl, getThesisForm, getThesisFormSource, thesisForms, thesisFormSources, thesisStages } from "@/content/thesisProcess";
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -87,4 +87,26 @@ it.each(["BSCA", "MSCA"])("requires approved room bookings for both %s hearings 
     expect(thesisForms[id].roomBooking?.deadline).toMatch(/two working days.*does not replace the one-week/);
     expect(thesisForms[id].roomBooking?.items.join(" ")).toMatch(/submitted request is not an approved booking/);
   }
+});
+
+it.each(["BSCA", "MSCA"] as const)("keeps every %s guide document in its own program folder and uses its own requester and panel wording", program => {
+  guide(program);
+  const downloads = screen.getAllByRole("link", { name: /^Download / });
+  expect(downloads.length).toBeGreaterThan(0);
+  expect(downloads.every(link => link.getAttribute("href")?.startsWith(`/thesis-forms/${program.toLowerCase()}/`))).toBe(true);
+  expect(getThesisFormSource(program, "019")?.program).toBe(program);
+  expect(getThesisFormSource("MSCA", "submission")).toBeUndefined();
+  expect(getThesisForm(program, "018").requirements.join(" ")).toContain(program === "BSCA" ? "Student Group Representative" : "as the student");
+  expect(getThesisForm(program, "017").notes?.join(" ")).toContain(program === "BSCA" ? "Co-Adviser" : "individual graduate student");
+  const binding = getThesisForm(program, "025").approvals[program]?.join(" ") || "";
+  expect(binding).toContain("manuscript certification");
+  expect(binding.includes("Co-Adviser")).toBe(program === "BSCA");
+});
+it("does not publish a form assigned to the wrong program folder", () => {
+  const source = thesisFormSources.BSCA019;
+  const original = source.file;
+  try {
+    source.file = thesisFormSources.MSCA019.file;
+    expect(getThesisFormSource("BSCA", "019")).toBeUndefined();
+  } finally { source.file = original; }
 });

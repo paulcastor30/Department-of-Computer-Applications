@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
 import { DocumentAccessHelp } from "@/components/DocumentAccessHelp";
-import { formUrl, thesisDisclaimer, thesisForms, thesisFormSources, thesisSourceNotes, thesisStages, thesisStartingPoints, type ThesisForm, type ThesisProgram } from "@/content/thesisProcess";
+import { formUrl, thesisDisclaimer, thesisForms, getThesisForm, getThesisFormSource, getThesisSourceNotes, thesisStages, thesisStartingPoints, type ThesisForm, type ThesisProgram } from "@/content/thesisProcess";
 
 function PreparationChecklist({ items, title }: { items: string[]; title: string }) {
   const [checked, setChecked] = useState<Set<string>>(new Set());
@@ -21,7 +21,7 @@ function PreparationChecklist({ items, title }: { items: string[]; title: string
 }
 
 function FormCard({ form, program }: { form: ThesisForm; program: ThesisProgram }) {
-  const source = thesisFormSources[program + form.id];
+  const source = getThesisFormSource(program, form.id);
   return <article className="rounded-md border border-border bg-background p-4 sm:p-6">
     <p className="mb-2 font-semibold text-accent">{form.id === "submission" ? `Final submission · ${program}` : `Form ${form.id} · ${program}`}</p>
     <h3 className="text-xl font-semibold leading-7 text-primary">{form.title}</h3>
@@ -88,6 +88,7 @@ export default function ThesisGuide() {
     <div className="container max-w-5xl py-8 md:py-12">
       <section aria-labelledby="choose-step" className="rounded-md border border-border bg-card p-5 sm:p-7">
         <fieldset><legend className="font-semibold text-primary">Choose your program</legend><div className="mt-2 flex flex-wrap gap-3">{(["BSCA", "MSCA"] as const).map(code => <label key={code} className="flex min-h-11 cursor-pointer items-center gap-3 rounded border border-border px-4 py-2 font-medium"><input type="radio" name="thesis-program" value={code} checked={program === code} onChange={() => { const next = new URLSearchParams(params); next.set("program", code); setParams(next, { replace: true, preventScrollReset: true }); }} className="h-5 w-5 accent-current" />{code} · {code === "BSCA" ? "Undergraduate" : "Graduate"}</label>)}</div></fieldset>
+        <p className="mt-4 leading-7"><strong>{program} forms only.</strong> Download and complete the forms for your selected program. Matching form numbers do not make BSCA and MSCA documents interchangeable.</p>
         <h2 id="choose-step" className="mt-6 text-xl font-semibold text-primary">Where are you in the process?</h2>
         <form className="mt-3 flex flex-col gap-3 sm:flex-row" onSubmit={event => { event.preventDefault(); goToStage(destination); }}>
           <label className="sr-only" htmlFor="starting-point">Your current thesis situation</label>
@@ -110,9 +111,9 @@ export default function ThesisGuide() {
           <details ref={element => { detailsRefs.current[stage.id] = element; }} open={openStages.has(stage.id)} onToggle={event => { const isOpen = event.currentTarget.open; setOpenStages(previous => { if (previous.has(stage.id) === isOpen) return previous; const next = new Set(previous); if (isOpen) next.add(stage.id); else next.delete(stage.id); return next; }); }} className="mt-4 border-t border-border pt-2">
             <summary className="min-h-12 cursor-pointer py-3 font-semibold text-primary">View requirements <span className="sr-only">for {stage.title}</span></summary>
             <div className="mt-3 space-y-5">
-              {stage.forms.map(id => <FormCard key={`${program}-${id}`} form={thesisForms[id]} program={program} />)}
+              {stage.forms.map(id => <FormCard key={`${program}-${id}`} form={getThesisForm(program, id)} program={program} />)}
               {stage.notes?.map(note => <p key={note} className="leading-7">{note}</p>)}
-              {stage.conditional && <details className="rounded-md border border-border p-4"><summary className="min-h-12 cursor-pointer py-3 font-semibold">Need to change your Adviser or a Panel Member? <span className="block font-normal">Only if a replacement is needed · Form 018</span></summary><div className="mt-4"><FormCard key={`${program}-018`} form={thesisForms[stage.conditional]} program={program} /></div></details>}
+              {stage.conditional && <details className="rounded-md border border-border p-4"><summary className="min-h-12 cursor-pointer py-3 font-semibold">Need to change your Adviser or a Panel Member? <span className="block font-normal">Only if a replacement is needed · Form 018</span></summary><div className="mt-4"><FormCard key={`${program}-018`} form={getThesisForm(program, stage.conditional)} program={program} /></div></details>}
             </div>
           </details>
           <p className="mt-5 border-t border-border pt-4 leading-7"><strong>What happens next?</strong> {stage.next}</p>
@@ -120,9 +121,9 @@ export default function ThesisGuide() {
         </li>)}
       </ol>
       <aside className="mt-6 rounded-md border border-border bg-muted p-5 leading-7"><h2 className="text-xl font-semibold">Completion</h2><p className="mt-2">The guide ends here. The department or graduate coordinator confirms receipt and completion of the applicable requirements.</p></aside>
-      {program === "MSCA" && <section id="graduate-examinations" aria-labelledby="graduate-processes" className="mt-10 border-t border-border pt-8"><p className="font-semibold text-accent">For graduate students · Separate process</p><h2 id="graduate-processes" className="mt-2 text-2xl font-semibold">Other graduate academic processes</h2><p className="my-4 leading-7">Written / Comprehensive Examination is outside the thesis timeline. Follow your coordinator’s instructions about its applicability and schedule.</p><details id="graduate-examination-details" className="rounded-md border border-border bg-card p-5"><summary className="min-h-12 cursor-pointer py-3 font-semibold">Form 027 · Written Examination Committee</summary><div className="mt-4"><FormCard key="MSCA-027" form={thesisForms["027"]} program="MSCA" /></div></details></section>}
+      {program === "MSCA" && <section id="graduate-examinations" aria-labelledby="graduate-processes" className="mt-10 border-t border-border pt-8"><p className="font-semibold text-accent">For graduate students · Separate process</p><h2 id="graduate-processes" className="mt-2 text-2xl font-semibold">Other graduate academic processes</h2><p className="my-4 leading-7">Written / Comprehensive Examination is outside the thesis timeline. Follow your coordinator’s instructions about its applicability and schedule.</p><details id="graduate-examination-details" className="rounded-md border border-border bg-card p-5"><summary className="min-h-12 cursor-pointer py-3 font-semibold">Form 027 · Written Examination Committee</summary><div className="mt-4"><FormCard key="MSCA-027" form={getThesisForm("MSCA", "027")} program="MSCA" /></div></details></section>}
       <section aria-labelledby="guide-help" className="mt-10 border-t border-border pt-8"><h2 id="guide-help" className="text-2xl font-semibold">Need help with a form?</h2><p className="mt-3 leading-7">Ask your adviser or coordinator when an instruction or signature is unclear.</p><a className="text-link inline-flex min-h-11 items-center" href="mailto:ccs.ca@g.msuiit.edu.ph?subject=Thesis%20process%20guidance">Contact the department: ccs.ca@g.msuiit.edu.ph</a><DocumentAccessHelp context={`${program} thesis process forms`} /><nav aria-label="Related thesis resources" className="mt-5 flex flex-wrap gap-x-6 gap-y-2"><Link className="text-link min-h-11 py-2" to={`/programs/${program.toLowerCase()}#current-students`}>{program} program and form collection</Link><Link className="text-link min-h-11 py-2" to="/resources">Student &amp; faculty resources</Link></nav>
-        <details className="mt-5 rounded-md border border-border p-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold">Source notes and items requiring verification</summary><ul className="mt-3 list-disc space-y-3 pl-5 leading-7">{thesisSourceNotes.map(note => <li key={note}>{note}</li>)}</ul></details>
+        <details className="mt-5 rounded-md border border-border p-4"><summary className="min-h-11 cursor-pointer py-2 font-semibold">Source notes and items requiring verification</summary><ul className="mt-3 list-disc space-y-3 pl-5 leading-7">{getThesisSourceNotes(program).map(note => <li key={note}>{note}</li>)}</ul></details>
         <p className="mt-6 leading-7 text-muted-foreground">{thesisDisclaimer}</p>
         <a className="text-link mt-5 inline-flex min-h-11 items-center" href="#choose-step">Back to step chooser</a>
       </section>

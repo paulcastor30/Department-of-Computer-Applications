@@ -211,6 +211,37 @@ export const thesisForms: Record<string, ThesisForm> = {
   "submission": { id: "submission", title: "Final requirements submission", purpose: "Submit the final materials and request signing of the approval sheet.", when: "After approval for binding, when completing final submission.", requirements: ["USB flash drive: manuscript in MS Word format.", "USB flash drive: abstract in MS Word format.", "USB flash drive: research article.", "USB flash drive: thesis documentation — presentation video, codes and application/program.", "Three hard copies of the abstract.", "Two hard copies of the research article / journal-type paper.", "One printed research poster: 33 × 48.5 cm or 13 × 19 inches."], approvals: { BSCA: ["Researchers — request signatures", "Thesis Adviser — recommending approval", "Department Chairperson — approval; letter addressed to the College Dean for signing of the approval sheet"] }, notes: ["The department has confirmed that the USB, printed-copy and poster checklist applies to both BSCA and MSCA. Complete the applicable current form; the BSCA form includes a publication-intention choice, which does not establish a requirement to publish an article."] },
   "027": { id: "027", title: "Nomination of Members of Written Examination Committee", purpose: "Nominate the committee for a graduate written examination.", when: "Only when instructed to prepare for a Comprehensive Exam or Preliminary Exam (SDS).", requirements: ["Select the applicable examination, complete student details and enter the examination date, time and place.", "Enter the committee Chairperson/Adviser and Members and obtain the required signatures."], approvals: { MSCA: graduateApprovals }, notes: ["This is a separate graduate academic process. It is not a required step between thesis proposal and final defense. The additional Form 027 uploaded in the BSCA folder is headed Office of Graduate Studies and has a different coordinator signature layout; confirm the applicable version with the graduate coordinator."] },
 };
+// STAFF: Differences between the uploaded program forms belong here.
+// Never substitute a document from the other program when a source is missing.
+const programFormOverrides: Record<ThesisProgram, Record<string, Partial<ThesisForm>>> = {
+  BSCA: {
+    "017": { notes: ["Use the BSCA form for the undergraduate thesis group. Its panel slots are Chairperson/Adviser, Co-Adviser and Members."] },
+    "018": { requirements: ["Complete student and degree details.", "Explain the reasons for replacement.", "Obtain concurrence from the outgoing Adviser/Panel Member and the proposed Adviser/Panel Member.", "Have the Student Group Representative sign the request."] },
+    "021": { notes: ["Use the BSCA form for the undergraduate thesis group. Its Oral Examination Panel slots are Chairperson/Adviser, Co-Adviser and Members."] },
+    "022": { notes: ["The BSCA form includes the undergraduate thesis group and Chairperson/Adviser, Co-Adviser and Member signatures.", "The A4 defense poster differs from the final-submission poster. Ask your coordinator for the actual grade-locking date."] },
+    "025": { approvals: { BSCA: ["Oral Examination Panel: Chairperson/Adviser, Co-Adviser and Members — manuscript certification", ...undergraduateApprovals] } },
+    "submission": { notes: ["Use the BSCA Requirements Submission form from the BSCA folder. Its publication-intention choice does not establish a requirement to publish an article."] },
+  },
+  MSCA: {
+    "017": { notes: ["Use the MSCA form for the individual graduate student. Its panel slots are Chairperson/Adviser and Members."] },
+    "018": { requirements: ["Complete student and degree details.", "Explain the reasons for replacement.", "Obtain concurrence from the outgoing Adviser/Panel Member and the proposed Adviser/Panel Member.", "Sign the request as the student."] },
+    "021": { notes: ["Use the MSCA form for the individual graduate student. Its Oral Examination Panel slots are Chairperson/Adviser and Members."] },
+    "022": { notes: ["The MSCA form includes the individual graduate student and Chairperson/Adviser and Member signatures, followed by the graduate recommending authorities.", "The A4 defense poster differs from the department-confirmed final-submission poster. Ask your graduate coordinator for the actual grade-locking date."] },
+    "025": { approvals: { MSCA: ["Oral Examination Panel: Chairperson/Adviser and Members — manuscript certification", ...graduateApprovals] } },
+    "submission": { notes: ["The department confirmed the USB, printed-copy and poster checklist for MSCA. Obtain the current MSCA submission form from the graduate coordinator; do not use a BSCA form as a substitute."] },
+  },
+};
+export function getThesisForm(program: ThesisProgram, id: string): ThesisForm {
+  return { ...thesisForms[id], ...programFormOverrides[program][id] };
+}
+export function getThesisFormSource(program: ThesisProgram, id: string): FormSource | undefined {
+  const source = thesisFormSources[program + id];
+  // Fail closed: a missing/misclassified source must never become a cross-program download.
+  return source?.program === program && source.file.startsWith(program.toLowerCase() + "/") ? source : undefined;
+}
+export function getThesisSourceNotes(program: ThesisProgram): string[] {
+  return thesisSourceNotes.filter(note => program === "BSCA" ? !note.startsWith("The supplied MSCA") : !note.startsWith("The BSCA Form") && !note.startsWith("BSCA Requirements"));
+}
 export interface ThesisStage { id: string; title: string; description: string; forms: string[]; deadline?: string; next: string; notes?: string[]; conditional?: string; }
 export const thesisStages: ThesisStage[] = [
   { id: "panel-formation", title: "Panel formation", description: "Establish who will advise and review your thesis.", forms: ["017"], next: "Prepare the proposal manuscript and apply for a proposal hearing.", conditional: "018" },
