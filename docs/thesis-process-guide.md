@@ -23,7 +23,7 @@ The BSCA final-submission USB/printed-copy checklist is confirmed by its uploade
 
 Form 018 is conditional. Form 027 is a separate graduate examination process. The newly uploaded Form 027 in the BSCA folder is headed Office of Graduate Studies and has different coordinator signature wording; its folder does not establish BSCA applicability. The guide links the existing MSCA variant, and notes the difference.
 
-Legacy CCS Forms 13–14 and certificates are outside the main checklist pending current verification. No scholarship-receipt alternative, three-copy hearing requirement, invented calendar date or mandatory publication requirement is added from the old infographic.
+Legacy CCS Forms 13–14 and the Certificate of Authentic Authorship are outside the main checklist pending current verification. The department has separately confirmed the Certificate of Panel Approval requirement for the hardbound copies. No scholarship-receipt alternative, three-copy hearing requirement, invented calendar date or mandatory publication requirement is added from the old infographic.
 
 ## Verify changes
 
@@ -52,3 +52,7 @@ BSCA sources resolve only from `frontend/public/thesis-forms/bsca`; MSCA sources
 ## Final submission and clearance
 
 On 6 October 2026, the department confirmed that incomplete or unsubmitted final thesis requirements create an outstanding thesis liability affecting TOR and other registrar certifications. `thesisClearance` centralizes the notice, enquiry instruction and completion milestone; the final-submission stage displays it without needing to expand details. It is attributed to departmental confirmation, not to Form 025 itself. Approval for Binding is distinct from Requirements Submission despite the duplicate code. The wording says documents **may** be withheld: the exact affected registrar services, office recording/removing the hold, evidence of clearance and processing time are not specified. Do not invent these. Completion means acceptance and cleared liability confirmed by the responsible office, never checking boxes on this guide. Searching TOR or clearance finds final submission. Both BSCA and MSCA receive the reminder.
+
+## Three hardbound thesis copies
+
+The department additionally confirms three printed hardbound thesis copies for both programs: one for the Department of Computer Applications, one for the College Dean’s Office, and one for the University Library. Each copy must include a fully signed Certificate of Panel Approval. `hardboundSubmissionRequirements` keeps this departmental instruction separate from the uploaded submission-form checklist. It is additional to the USB, abstract/article copies and poster, and included in the clearance reminder. No certificate template, new signatory, OGS collection procedure, delivery deadline or binding specification is invented.
