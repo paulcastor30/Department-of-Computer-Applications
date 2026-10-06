@@ -28,6 +28,13 @@ function FormCard({ form, program }: { form: ThesisForm; program: ThesisProgram 
     <p className="mt-3 leading-7">{form.purpose}</p>
     <p className="mt-3 leading-7"><strong>When to use it:</strong> {form.when}</p>
     <PreparationChecklist items={form.requirements} title="Preparation checklist" />
+    {form.roomBooking && <aside className="mt-5 rounded-md border-l-4 border-accent bg-muted p-4">
+      <PreparationChecklist items={form.roomBooking.items} title={form.roomBooking.title} />
+      <p className="mt-3 leading-7"><strong>Room-request deadline:</strong> {form.roomBooking.deadline}</p>
+      <a className="outline-link mt-3" href={form.roomBooking.url}>Request a CCS room (official booking website)</a>
+      {form.roomBooking.notes.map(note => <p key={note} className="mt-3 leading-7">{note}</p>)}
+      <p className="mt-3 leading-7 text-muted-foreground">{form.roomBooking.source}</p>
+    </aside>}
     {form.departmentRequirements && <aside className="mt-5 rounded-md border-l-4 border-accent bg-muted p-4">
       <PreparationChecklist items={form.departmentRequirements.items} title={form.departmentRequirements.title} />
       {form.departmentRequirements.notes.map(note => <p key={note} className="mt-3 leading-7">{note}</p>)}

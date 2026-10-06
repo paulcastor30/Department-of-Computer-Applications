@@ -77,3 +77,14 @@ it("presents one concise workflow with closed details until a student chooses a 
   const sourceNotes = screen.getByText("Source notes and items requiring verification").closest("details");
   expect(sourceNotes).not.toHaveAttribute("open");
 });
+
+it.each(["BSCA", "MSCA"])("requires approved room bookings for both %s hearings without replacing thesis deadlines", program => {
+  guide(program);
+  expect(screen.getAllByRole("group", { name: "Required · Book and confirm the hearing room" })).toHaveLength(2);
+  expect(screen.getAllByRole("link", { name: "Request a CCS room (official booking website)" })).toHaveLength(2);
+  for (const id of ["019", "022"]) {
+    expect(thesisForms[id].roomBooking?.url).toBe("https://one.msuiit.edu.ph/ccs/facility/");
+    expect(thesisForms[id].roomBooking?.deadline).toMatch(/two working days.*does not replace the one-week/);
+    expect(thesisForms[id].roomBooking?.items.join(" ")).toMatch(/submitted request is not an approved booking/);
+  }
+});
