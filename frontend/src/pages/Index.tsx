@@ -9,6 +9,9 @@ import { departmentIntroduction } from "@/content/departmentIntroduction";
 import { departmentIdentity } from "@/content/siteContent";
 import { normalizePrograms } from "./programs/programData";
 import { NewsList } from "./News";
+import { homeOrientation } from "@/content/homeOrientation";
+import { WhatIsComputerApplications, WhatStudentsBuild, ChoosingComputerApplications } from "@/components/HomeOrientation";
+import { RealDepartmentWork } from "@/components/RealDepartmentWork";
 import departmentBanner from "@/assets/department-home-web.png";
 
 export default function Index() {
@@ -22,7 +25,7 @@ export default function Index() {
 
   return (
     <div className="home-page">
-      <Seo title="Home" description="Get to know the Department of Computer Applications at MSU-IIT. Explore undergraduate and graduate programs, meet our faculty, and find news and visiting information." />
+      <Seo title="Home" description={homeOrientation.description} />
       <section className="home-intro" aria-labelledby="home-title">
         <div className="container home-content home-opening">
           <div className="home-welcome">
@@ -30,6 +33,7 @@ export default function Index() {
             <h1 id="home-title"><span className="home-title-prefix">Department of </span>Computer Applications</h1>
             <p className="home-lead">{departmentIntroduction.lead}</p>
             <p className="mt-3 max-w-prose leading-7 text-muted-foreground">Think of software reading a sensor, controlling a device or connecting equipment to a network.</p>
+            <p className="mt-3 max-w-prose leading-7">Study with us: <strong>BSCA</strong> (bachelor’s degree) and <strong>MSCA</strong> (master’s degree).</p>
             <div className="home-intro-actions">
               <Link className="action-link" to="/programs">Explore programs <ArrowRight size={18} aria-hidden="true" /></Link>
               <Link className="outline-link" to="/about/contact">Contact us</Link>
@@ -41,19 +45,21 @@ export default function Index() {
         </div>
       </section>
 
+      <WhatIsComputerApplications />
+
       <section className="container home-content home-section home-study" aria-labelledby="home-study-title">
         <div className="home-section-heading">
           <h2 id="home-study-title">Study with us</h2>
           <Link className="text-link" to="/admissions">How to apply</Link>
         </div>
-        <p className="home-section-description">Choose a degree to find program information and academic requirements.</p>
+        <p className="home-section-description">Choose undergraduate foundations or advanced graduate study. Each program page provides subjects, the prospectus and official admission guidance.</p>
         <ul className="home-degree-grid">
           {programs.map(program => (
             <li key={program.code}>
               <Link className="home-degree-link" to={program.route}>
                 <p className="home-degree-level">{program.level} · {program.code}</p>
                 <h3>{program.title}</h3>
-                <p className="mt-3 leading-7 text-muted-foreground">{program.degreeLevelCode === "UNDERGRAD" ? "Build foundations in software, firmware and hardware." : "Advance your knowledge through specialized study and research."}</p>
+                <p className="mt-3 leading-7 text-muted-foreground">{program.degreeLevelCode === "UNDERGRAD" ? "Learn programming and how software, firmware and hardware work together in embedded and connected devices." : "Advanced study and research in Computer Applications, including embedded and connected systems. Check the official graduate admission requirements."}</p>
                 <span className="home-degree-action">View program <ArrowRight size={18} aria-hidden="true" /></span>
               </Link>
             </li>
@@ -61,12 +67,15 @@ export default function Index() {
         </ul>
       </section>
 
+      <WhatStudentsBuild />
+      <RealDepartmentWork />
+      <ChoosingComputerApplications />
+
       <section className="home-about" aria-labelledby="home-about-title">
         <div className="container home-content home-section home-about-layout">
           <div>
             <h2 id="home-about-title">Get to know the department</h2>
             <p className="home-overview">{departmentProfileText(data?.overview) || departmentIntroduction.overview}</p>
-            <p className="home-overview">{departmentIntroduction.explanation}</p>
             <div className="home-about-links">
               <Link className="text-link" to="/about">About the department</Link>
               <Link className="text-link" to="/about#purpose">Our college’s vision and mission</Link>

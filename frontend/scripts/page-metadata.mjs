@@ -3,7 +3,7 @@ import { loadEnv } from 'vite';
 
 const origin = 'https://msuiit-comapps.vercel.app';
 const pages = {
-  '/': ['Home', 'Get to know the Department of Computer Applications at MSU-IIT. Explore programs, people, announcements and visiting information.'],
+  '/': ['Home', 'Explore BSCA and MSCA at MSU-IIT: programming, firmware, embedded systems and the Internet of Things, connecting computing with real-world devices.'],
   '/about': ['About the department', 'Meet the Department of Computer Applications, College of Computer Studies, MSU-Iligan Institute of Technology.'],
   '/about/vmgo': ['College vision and mission', 'Read the vision and mission of the College of Computer Studies at MSU-IIT.'],
   '/projects': ['BSCA student projects and prototypes', 'Explore BSCA student outputs: embedded games, sensors, displays and controllers, with reporting years and public Hackster project links.'],

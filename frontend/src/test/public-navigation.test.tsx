@@ -256,3 +256,11 @@ it('introduces existing research and community examples without claiming an appr
   expect(main.getByRole('link', { name: 'Find research information' })).toHaveAttribute('href', '/research');
   expect(main.getByRole('link', { name: 'Find community information' })).toHaveAttribute('href', '/extension');
 });
+
+it('puts beginner understanding before program choice and deeper institutional information', () => {
+  render(<App />);
+  const main = within(screen.getByRole('main'));
+  const titles = main.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent);
+  expect(titles).toEqual(['What is Computer Applications?', 'Study with us', 'What will you learn to build?', 'Computer Applications in practice', 'Is BSCA for me?', 'Get to know the department', 'News and announcements', 'Visit or get in touch']);
+  expect(main.getByText(/Study with us:/)).toHaveTextContent('BSCA (bachelor’s degree) and MSCA (master’s degree)');
+});

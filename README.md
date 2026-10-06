@@ -258,3 +258,7 @@ This repository is currently maintained by the project owner ([@paulcastor30](ht
 ## Thesis Process Guide
 
 The student-facing guide is available at `/thesis-guide` for BSCA and MSCA. Process content, deadlines, checklists, document metadata and download paths are centralized in `frontend/src/content/thesisProcess.ts`. See [maintenance and document-control notes](docs/thesis-process-guide.md) before changing institutional requirements. No database or login is used.
+
+## Homepage orientation
+
+Beginner-facing homepage explanations and source/maintenance notes are documented in [Homepage orientation](docs/homepage-orientation.md). Actual program facts, research and student-project examples continue to use Django CMS data.
