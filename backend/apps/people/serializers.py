@@ -97,13 +97,13 @@ class FacultySupervisedWorkSerializer(serializers.ModelSerializer):
 class FacultyPublicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyPublication
-        exclude = ["faculty"]
+        exclude = ["faculty", "reconciled_contribution"]
 
 
 class FacultyConferenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyConference
-        exclude = ["faculty"]
+        exclude = ["faculty", "reconciled_contribution"]
 
 
 class FacultyResearchProjectSerializer(serializers.ModelSerializer):
@@ -111,13 +111,13 @@ class FacultyResearchProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacultyResearchProject
-        exclude = ["faculty"]
+        exclude = ["faculty", "reconciled_contribution"]
 
 
 class FacultyExtensionProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyExtensionProject
-        exclude = ["faculty"]
+        exclude = ["faculty", "reconciled_contribution"]
 
 
 class FacultyCreativeWorkSerializer(serializers.ModelSerializer):
@@ -155,10 +155,26 @@ class FacultyMemberSerializer(FacultyDirectorySerializer):
     education_records = FacultyEducationSerializer(many=True, read_only=True)
     expertise_records = FacultyExpertiseSerializer(many=True, read_only=True)
     supervised_works = FacultySupervisedWorkSerializer(many=True, read_only=True)
-    publications = FacultyPublicationSerializer(many=True, read_only=True)
-    conferences = FacultyConferenceSerializer(many=True, read_only=True)
-    research_projects = FacultyResearchProjectSerializer(many=True, read_only=True)
-    extension_projects = FacultyExtensionProjectSerializer(many=True, read_only=True)
+    publications = serializers.SerializerMethodField()
+
+    def get_publications(self, member):
+        records = [row for row in member.publications.all() if row.is_published and not row.reconciled_contribution_id]
+        return FacultyPublicationSerializer(records, many=True, context=self.context).data
+    conferences = serializers.SerializerMethodField()
+
+    def get_conferences(self, member):
+        records = [row for row in member.conferences.all() if row.is_published and not row.reconciled_contribution_id]
+        return FacultyConferenceSerializer(records, many=True, context=self.context).data
+    research_projects = serializers.SerializerMethodField()
+
+    def get_research_projects(self, member):
+        records = [row for row in member.research_projects.all() if row.is_published and not row.reconciled_contribution_id]
+        return FacultyResearchProjectSerializer(records, many=True, context=self.context).data
+    extension_projects = serializers.SerializerMethodField()
+
+    def get_extension_projects(self, member):
+        records = [row for row in member.extension_projects.all() if row.is_published and not row.reconciled_contribution_id]
+        return FacultyExtensionProjectSerializer(records, many=True, context=self.context).data
     creative_works = FacultyCreativeWorkSerializer(many=True, read_only=True)
     training_seminars = FacultyTrainingSeminarSerializer(many=True, read_only=True)
     achievements = FacultyAchievementSerializer(many=True, read_only=True)

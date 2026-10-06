@@ -27,16 +27,28 @@ CLASSIFICATION_ORDER = {
 }
 
 
+def activity_count(legacy_relation, kind):
+    historical = Count(
+        legacy_relation,
+        filter=Q(**{legacy_relation + "__is_published": True,
+                    legacy_relation + "__reconciled_contribution__isnull": True}),
+        distinct=True,
+    )
+    shared = Count(
+        "department_contributions",
+        filter=Q(department_contributions__is_published=True,
+                 **{"department_contributions__" + kind + "__is_published": True}),
+        distinct=True,
+    )
+    return historical + shared
+
+
 def published_faculty_queryset():
     return FacultyMember.objects.filter(is_published=True).annotate(
         supervised_works_count=Count("supervised_works", filter=Q(supervised_works__is_published=True), distinct=True),
-        publications_count=Count("publications", filter=Q(publications__is_published=True), distinct=True),
-        research_projects_count=Count("research_projects", filter=Q(research_projects__is_published=True), distinct=True),
-        extension_projects_count=Count(
-            "extension_projects",
-            filter=Q(extension_projects__is_published=True),
-            distinct=True,
-        ),
+        publications_count=activity_count("publications", "publication"),
+        research_projects_count=activity_count("research_projects", "research"),
+        extension_projects_count=activity_count("extension_projects", "extension"),
     )
 
 

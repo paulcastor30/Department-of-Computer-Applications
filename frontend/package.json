@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check:sharing": "node scripts/verify-page-metadata.mjs"
+    "check:sharing": "node scripts/verify-page-metadata.mjs",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

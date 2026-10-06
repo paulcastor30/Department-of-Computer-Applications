@@ -156,3 +156,9 @@ These roles should be permission based, not superuser based.
 ## Notes for contributors
 
 This backend is being built incrementally. Some modules may still be in transition while the repository moves from a thin Django shell to a fuller content and API backend. Contributions that improve structure, readability, and maintainability are valuable.
+
+## Institutional source of truth
+
+Store department-level activity in `ResearchProject`, `PublicationRecord`, `ConferenceRecord` or `ExtensionProject`, then link faculty using `FacultyContribution`. Do not duplicate those facts in faculty-specific activity models. Historical activity models are deprecated for new institutional entries, retained for review, and editable for corrections. Education, expertise, supervised work, creative work, professional development and achievements remain faculty-specific.
+
+See [institutional contributions and CI](../docs/institutional-contributions-and-ci.md) for reconciliation commands, editor permissions, migrations and the backend quality gate. Install this folder's requirements with `python -m pip install -r requirements.txt`.
