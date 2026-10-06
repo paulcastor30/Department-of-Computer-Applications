@@ -52,12 +52,14 @@ it("keeps original duplicate codes and links only to existing official source fi
   }
 });
 
-it.each(["BSCA", "MSCA"])("shows department photo requirements for both %s hearing applications without attributing them to the official forms", program => {
+it.each(["BSCA", "MSCA"])("shows department photo requirements for both %s hearing applications and calendar reminders without attributing them to the official forms", program => {
   guide(program);
-  const notices = screen.getAllByRole("group", { name: "Department booking requirement · Public announcement" });
+  const notices = screen.getAllByRole("group", { name: "Department booking requirements · Announcement and calendar" });
   expect(notices).toHaveLength(2);
   for (const notice of notices) {
     expect(within(notice).getByRole("checkbox", { name: /Submit a personal photo of each student/ })).toBeInTheDocument();
+    expect(within(notice).getByRole("checkbox", { name: /approved hearing date, start and end times, and room.*Google Calendar/ })).toBeInTheDocument();
+    expect(within(notice).getByRole("checkbox", { name: /participating faculty.*calendar invitation.*reminders/ })).toBeInTheDocument();
   }
   expect(screen.getAllByText(/not stated in Forms 019 or 022/)).toHaveLength(2);
   expect(thesisForms["019"].requirements.join(" ")).not.toMatch(/photo/i);
