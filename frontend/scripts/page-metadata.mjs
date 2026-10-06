@@ -18,6 +18,7 @@ const pages = {
   '/research': ['Research', 'Explore department research projects, reporting years, leaders, teams and funding, alongside computing study areas and collaboration enquiries.'],
   '/extension': ['Community work', 'Explore extension programs and community projects involving DCA faculty, their leaders and participants, and collaboration enquiries.'],
   '/news': ['News and events', 'Find published department announcements, activity information and where to ask about dates.'],
+  '/sojt-guide': ['SOJT Process Guide', 'Explore the ten BSCA internship stages: eligibility, orientation, HTE approval, Internship Plan, deployment safeguards, monitoring, evaluation and clearance.'],
   '/thesis-guide': ['Thesis Process Guide', 'Follow BSCA and MSCA thesis steps, find the right forms, prepare requirements and understand proposal, defense and submission deadlines.'],
   '/resources': ['Student & faculty resources', 'Find program documents, thesis checklists, faculty contacts and learning-support enquiries.'],
   '/admissions': ['How to apply', 'Choose BSCA undergraduate or MSCA graduate study and follow official MSU-IIT admission guidance.'],

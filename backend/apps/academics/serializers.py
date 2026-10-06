@@ -182,3 +182,12 @@ class ProgramSerializer(serializers.ModelSerializer):
     def get_documents(self, obj):
         documents = obj.documents.filter(is_public=True)
         return ProgramDocumentSerializer(documents, many=True, context=self.context).data
+
+
+from .models import SOJTGuide
+
+
+class SOJTGuideSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SOJTGuide
+        fields = ("slug", "content", "reviewed_on", "updated_at")

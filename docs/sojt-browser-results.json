@@ -1,0 +1,175 @@
+{
+  "viewports": [
+    {
+      "closed": 320,
+      "collectsPrivate": false,
+      "expanded": 320,
+      "steps": 10,
+      "width": 320
+    },
+    {
+      "closed": 390,
+      "collectsPrivate": false,
+      "expanded": 390,
+      "steps": 10,
+      "width": 390
+    },
+    {
+      "closed": 768,
+      "collectsPrivate": false,
+      "expanded": 768,
+      "steps": 10,
+      "width": 768
+    },
+    {
+      "closed": 1440,
+      "collectsPrivate": false,
+      "expanded": 1440,
+      "steps": 10,
+      "width": 1440
+    }
+  ],
+  "keyboard": {
+    "nativeDisclosure": true,
+    "focus": {
+      "style": "solid",
+      "tag": "SUMMARY",
+      "width": "3px"
+    },
+    "statusJump": {
+      "focused": "pre-deployment",
+      "open": true
+    }
+  },
+  "discovery": [
+    "Resources and BSCA link present",
+    "SOJT",
+    "OJT",
+    "internship"
+  ],
+  "accessibility": [
+    {
+      "width": 320,
+      "incomplete": [],
+      "passes": 21,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "incomplete": [],
+      "passes": 21,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passes": 21,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "incomplete": [
+        "color-contrast"
+      ],
+      "passes": 21,
+      "violations": []
+    }
+  ],
+  "contrast": [
+    {
+      "width": 320,
+      "minimumRatio": 7.13,
+      "pairs": {
+        "13,26,54 / 235,240,244": 15.03,
+        "13,26,54 / 248,250,252": 16.48,
+        "13,26,54 / 255,255,255": 17.24,
+        "15,27,51 / 235,240,244": 14.94,
+        "15,27,51 / 242,246,248": 15.77,
+        "15,27,51 / 248,250,252": 16.39,
+        "15,27,51 / 255,255,255": 17.14,
+        "23,38,75 / 255,255,255": 14.84,
+        "255,255,255 / 23,38,75": 14.84,
+        "27,75,152 / 248,250,252": 8.01,
+        "27,75,152 / 255,255,255": 8.38,
+        "75,89,108 / 255,255,255": 7.13
+      },
+      "pseudoConnectors": "Visual review: lines are outside text areas; number backgrounds are opaque."
+    },
+    {
+      "width": 390,
+      "minimumRatio": 7.13,
+      "pairs": {
+        "13,26,54 / 235,240,244": 15.03,
+        "13,26,54 / 248,250,252": 16.48,
+        "13,26,54 / 255,255,255": 17.24,
+        "15,27,51 / 235,240,244": 14.94,
+        "15,27,51 / 242,246,248": 15.77,
+        "15,27,51 / 248,250,252": 16.39,
+        "15,27,51 / 255,255,255": 17.14,
+        "23,38,75 / 255,255,255": 14.84,
+        "255,255,255 / 23,38,75": 14.84,
+        "27,75,152 / 248,250,252": 8.01,
+        "27,75,152 / 255,255,255": 8.38,
+        "75,89,108 / 255,255,255": 7.13
+      },
+      "pseudoConnectors": "Visual review: lines are outside text areas; number backgrounds are opaque."
+    },
+    {
+      "width": 768,
+      "minimumRatio": 7.13,
+      "pairs": {
+        "13,26,54 / 235,240,244": 15.03,
+        "13,26,54 / 248,250,252": 16.48,
+        "13,26,54 / 255,255,255": 17.24,
+        "15,27,51 / 235,240,244": 14.94,
+        "15,27,51 / 242,246,248": 15.77,
+        "15,27,51 / 248,250,252": 16.39,
+        "15,27,51 / 255,255,255": 17.14,
+        "23,38,75 / 255,255,255": 14.84,
+        "255,255,255 / 23,38,75": 14.84,
+        "27,75,152 / 248,250,252": 8.01,
+        "27,75,152 / 255,255,255": 8.38,
+        "75,89,108 / 255,255,255": 7.13
+      },
+      "pseudoConnectors": "Visual review: lines are outside text areas; number backgrounds are opaque."
+    },
+    {
+      "width": 1440,
+      "minimumRatio": 7.13,
+      "pairs": {
+        "13,26,54 / 235,240,244": 15.03,
+        "13,26,54 / 248,250,252": 16.48,
+        "13,26,54 / 255,255,255": 17.24,
+        "15,27,51 / 235,240,244": 14.94,
+        "15,27,51 / 242,246,248": 15.77,
+        "15,27,51 / 248,250,252": 16.39,
+        "15,27,51 / 255,255,255": 17.14,
+        "23,38,75 / 255,255,255": 14.84,
+        "255,255,255 / 23,38,75": 14.84,
+        "27,75,152 / 248,250,252": 8.01,
+        "27,75,152 / 255,255,255": 8.38,
+        "75,89,108 / 255,255,255": 7.13
+      },
+      "pseudoConnectors": "Visual review: lines are outside text areas; number backgrounds are opaque."
+    }
+  ],
+  "thesisPreserved": true,
+  "browserErrors": {
+    "errors": [],
+    "lifecycle": {
+      "effectiveLaunch": {
+        "browserLaunched": true,
+        "engine": "chrome",
+        "launchHash": 11677035664275012000
+      },
+      "launched": false,
+      "relaunchedBrowser": false,
+      "restartedBackground": false,
+      "restoreStatus": "not_configured",
+      "reused": true,
+      "saveStatus": "not_attempted"
+    }
+  }
+}

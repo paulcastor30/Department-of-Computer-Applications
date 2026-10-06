@@ -111,3 +111,13 @@ class ProgramDocumentAdmin(admin.ModelAdmin):
     list_filter = ("document_type", "form_group", "is_public", "program")
     search_fields = ("title", "program__title", "program__code", "note")
     ordering = ("program", "sort_order", "title")
+
+
+from .models import SOJTGuide
+
+
+@admin.register(SOJTGuide)
+class SOJTGuideAdmin(admin.ModelAdmin):
+    list_display = ("slug", "is_published", "reviewed_on", "updated_at")
+    readonly_fields = ("created_at", "updated_at")
+    fields = ("slug", "content", "internal_notes", "reviewed_on", "approval_reference", "is_published", "created_at", "updated_at")

@@ -11,6 +11,7 @@ GROUP_MATRIX = {
         },
         "academics": {
             "program": ["view", "add", "change", "delete"],
+            "sojtguide": ["view", "add", "change", "delete"],
         },
         "people": {
             "facultymember": ["view", "add", "change", "delete"],
@@ -46,6 +47,7 @@ GROUP_MATRIX = {
     "program_editor": {
         "academics": {
             "program": ["view", "add", "change"],
+            "sojtguide": ["view", "add", "change"],
         },
         "quality": {
             "evidencedocument": ["view"],

@@ -80,6 +80,7 @@ export const missingOfficialContent = [
 ];
 
 const allSearchPages = [
+  { title: "SOJT Process Guide", keywords: ["SOJT", "OJT", "internship", "practicum", "Host Training Establishment", "HTE", "MOA", "Internship Plan", "training hours", "SOJT Coordinator", "Excel Van Jondonero"], href: "/sojt-guide" },
   { title: "BSCA student projects and prototypes", keywords: ["BSCA", "student outputs", "student projects", "projects", "prototypes", "creative works", "games", "hardware", "firmware", "Hackster"], href: "/projects" },
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },
   { title: "Advising and learning support", keywords: ["learning support", "disability assistance", "disability-related assistance", "disability support", "academic accommodations", "accessible learning", "PWD", "advising", "study plan"], href: "/resources#learning-support" },
@@ -300,5 +301,5 @@ const allSearchPages = [
 
 
 // Keep saved links working, but do not promote unfinished destinations in search.
-const availableSearchRoutes = new Set(["/thesis-guide", "/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
+const availableSearchRoutes = new Set(["/sojt-guide", "/thesis-guide", "/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
 export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href.split("#")[0]));

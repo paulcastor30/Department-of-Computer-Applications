@@ -599,3 +599,9 @@ footer h2 { color: white; }
   .home-example-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 .home-page :where(h2,h3,h4,p,li,summary,a) { overflow-wrap: anywhere; }
+
+/* SOJT uses the existing thesis sequence; every card also connects on narrow screens. */
+.sojt-guide :where(h2,h3,p,li,summary,a,label) { overflow-wrap: anywhere; }
+.sojt-guide select { width: 100%; }
+.sojt-guide .thesis-timeline > li:not(:last-child)::after { content: ""; position: absolute; left: 1.5rem; bottom: -1.5rem; height: 1.5rem; width: 1px; background: hsl(var(--border)); }
+@media (min-width: 640px) { .sojt-guide .thesis-timeline > li::after { display: none; } }

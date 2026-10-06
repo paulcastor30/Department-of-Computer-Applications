@@ -1,6 +1,7 @@
 from django.db import models
 from apps.core.base_models import PublishableModel, TimeStampedModel
 from apps.quality.models import EvidenceDocument
+from .sojt_schema import validate_guide
 
 class Program(PublishableModel):
     DEGREE_LEVELS = [
@@ -81,3 +82,30 @@ class ProgramDocument(TimeStampedModel):
 
     def __str__(self):
         return f"{self.program.code} - {self.title}"
+
+
+class SOJTGuide(TimeStampedModel):
+    """One editorial document, not a student tracking workflow."""
+    slug = models.SlugField(unique=True, default="bsca")
+    content = models.JSONField(validators=[validate_guide], help_text="Structured public guide; see docs/sojt-process-guide.md for the schema and source map.")
+    is_published = models.BooleanField(default=False)
+    reviewed_on = models.DateField(null=True, blank=True)
+    approval_reference = models.CharField(max_length=255, blank=True, help_text="Internal reference to the Department's approval and applicability review; never exposed by the API.")
+    internal_notes = models.TextField(blank=True, help_text="Internal editorial notes only. Never put student, medical, complaint or agreement records in the guide.")
+
+    def clean(self):
+        from django.core.exceptions import ValidationError
+        super().clean()
+        validate_guide(self.content)
+        if self.is_published:
+            if not self.reviewed_on or not self.approval_reference.strip():
+                raise ValidationError("Publishing requires a review date and Department approval reference.")
+            if any(source["status"] != "verified" for source in self.content["sources"]):
+                raise ValidationError("Resolve and verify all source statuses before publishing approved guidance.")
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.slug.upper()} SOJT Process Guide"

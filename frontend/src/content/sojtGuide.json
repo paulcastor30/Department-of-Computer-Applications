@@ -1,0 +1,1291 @@
+{
+  "version": 1,
+  "coordinator": "Excel Van Jondonero",
+  "intro": "Student On-the-Job Training (SOJT) is a supervised academic learning experience with an approved Host Training Establishment (HTE). Complete eligibility, orientation, HTE approval, the Internship Plan and mandatory pre-deployment documentation before official deployment.",
+  "warning": "Do not begin training solely on the basis of company acceptance. Official deployment occurs only after applicable Department, College, University and HTE requirements have been completed and verified.",
+  "warningSources": [
+    "C14",
+    "C22",
+    "DCA"
+  ],
+  "steps": [
+    {
+      "id": "eligibility",
+      "title": "Eligibility & Academic Load Assessment",
+      "purpose": {
+        "text": "Check academic and administrative eligibility before applications or placement.",
+        "sources": [
+          "C12",
+          "Local"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Ask your academic adviser and SOJT Coordinator to assess your academic record and Plan of Study (POS), prerequisites, major/professional subjects, SOJT enrollment, thesis obligations and concurrent load. Enrollment alone does not establish eligibility.",
+              "sources": [
+                "C12",
+                "Local",
+                "DCA"
+              ]
+            },
+            {
+              "text": "CHED requires enrollment in the HEI and internship subject, an age of at least 18 at the start, and passing pre-internship requirements. Section 12 addresses completion of major/professional subjects and permits other subjects up to six units, subject to institutional policy and HTE requirements; this is not automatic permission to take six units.",
+              "sources": [
+                "C12",
+                "Local",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Begin by requesting assessment. Confirm the approved application window before submitting formal applications; you may identify potential HTEs while preparing. Application dates and current local assessment procedure: To be validated by the Department.",
+              "sources": [
+                "C12",
+                "Local",
+                "DCA"
+              ]
+            },
+            {
+              "text": "The Department-supplied BSCA prospectus (page 4) lists BCA197 On-The-Job-Training: six units, prerequisite BCA198, 40 hours/week and 700 total hours in fourth year, second semester. Ask the adviser which approved study plan applies to you and how its prerequisite is reconciled with CHED section 12; do not infer clearance from the course prerequisite alone.",
+              "sources": [
+                "Curriculum",
+                "C12",
+                "Local"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Coordinate formal assessment with the academic adviser/Program and explain the applicable curriculum, load restrictions and clearance decision. Confirm any program exception through the responsible academic authority.",
+              "sources": [
+                "C12",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "Internship enrollment and pre-internship eligibility evidence; the official evidence format is to be provided by the Department.",
+          "sources": [
+            "C12",
+            "Local"
+          ]
+        },
+        {
+          "text": "BSCA prospectus, page 4: use during eligibility/load assessment with your academic adviser; supplied reference identified by BOR Resolution No. 129, Series of 2018. Confirm the current applicable curriculum.",
+          "sources": [
+            "Curriculum"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Academic eligibility is formally assessed and cleared before proceeding. Confirm any outstanding academic obligations with the adviser.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Starting while academically ineligible",
+        "Assuming enrollment is clearance",
+        "Concurrent thesis or course obligations delay training"
+      ],
+      "sources": [
+        "C12",
+        "Local",
+        "DCA",
+        "Curriculum"
+      ]
+    },
+    {
+      "id": "orientation",
+      "title": "Mandatory Pre-Internship Orientation",
+      "purpose": {
+        "text": "Prepare for workplace expectations, documentation and student protection before endorsement or deployment.",
+        "sources": [
+          "C14"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Attend the required HEI orientation. Cover objectives, student/HEI/HTE roles, conduct and work ethics, attendance, safety, confidentiality, anti-harassment laws, grievance routing, prohibited conduct, monitoring, evaluation, required documents and consequences under applicable policies.",
+              "sources": [
+                "C14",
+                "DCA"
+              ]
+            },
+            {
+              "text": "If you miss regular orientation, arrange an approved make-up orientation before endorsement or deployment. Written materials supplement attendance; they do not automatically replace orientation. This make-up control is a proposed Department procedure.",
+              "sources": [
+                "C14",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Conduct or coordinate orientation with the dean/authorized office; document completion and arrange approved make-up sessions. Explain the confidential reporting route.",
+              "sources": [
+                "C14",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "Documented orientation completion; the attendance or completion record format is to be provided by the Department.",
+          "sources": [
+            "C14",
+            "DCA"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Orientation completion is documented, including an approved make-up session when needed.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Deployment without orientation",
+        "Treating a handout as proof of attendance"
+      ],
+      "sources": [
+        "C14",
+        "DCA"
+      ]
+    },
+    {
+      "id": "hte-approval",
+      "title": "HTE Identification, Screening & Approval",
+      "purpose": {
+        "text": "Select a legitimate, safe Host Training Establishment (HTE) with relevant supervised learning.",
+        "sources": [
+          "C17",
+          "C14",
+          "Program"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "An HTE is the organization hosting and supervising your internship. Ask for the Department/College HTE pool or propose an establishment for review; identification and company acceptance are not approval.",
+              "sources": [
+                "C17",
+                "C14",
+                "Program",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Provide the proposed tasks, location, supervisor and training arrangements for screening. Relevant IT-allied work may include software development, embedded systems, firmware, IoT or connected systems where consistent with approved BSCA competencies; these examples are not an exclusive list.",
+              "sources": [
+                "C17",
+                "C14",
+                "Program",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Screen establishment authorization/legitimacy, training environment, safety and welfare, supervisors, BSCA task relevance, mentoring, monitoring capacity and use of HEI evaluation instruments. Record approval before formal placement.",
+              "sources": [
+                "C17",
+                "C14",
+                "Program",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HTE responsibilities",
+          "items": [
+            {
+              "text": "Provide establishment and training information, a qualified supervisor/focal person, relevant tasks, safe conditions and capacity to co-develop a plan, monitor learning and submit monthly reports.",
+              "sources": [
+                "C17",
+                "C14",
+                "Program",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [],
+      "gate": {
+        "text": "The proposed HTE is screened and approved. HTE approval alone does not guarantee the relevance of every assignment.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Unsuitable or unapproved HTE",
+        "Inadequate supervision",
+        "Calling an unverified organization an accredited partner"
+      ],
+      "sources": [
+        "C17",
+        "C14",
+        "Program",
+        "DCA"
+      ]
+    },
+    {
+      "id": "internship-plan",
+      "title": "Internship Plan Development & Approval",
+      "purpose": {
+        "text": "Agree on a structured learning plan that connects program competencies with workplace tasks.",
+        "sources": [
+          "C14",
+          "C17",
+          "Local"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Review learning objectives, expected competencies, training areas and tasks, schedule and hours, responsibilities, named supervisor, supervision/monitoring arrangements, evaluation criteria and outputs. The supplied prospectus lists 700 hours for BCA197; use the requirement confirmed for your applicable approved study plan.",
+              "sources": [
+                "C14",
+                "C17",
+                "Local",
+                "DCA",
+                "Curriculum"
+              ]
+            },
+            {
+              "text": "Use this learning chain: Program Competencies → Internship Objectives → HTE Tasks → Monitoring → Evaluation. Raise unrelated tasks before accepting the plan.",
+              "sources": [
+                "C14",
+                "C17",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Co-develop and approve the Internship Plan with the HTE; check competency alignment, feasible schedule, monitoring and the official evaluation criteria. Make the approved plan available to the student and part of the internship contract.",
+              "sources": [
+                "C14",
+                "C17",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HTE responsibilities",
+          "items": [
+            {
+              "text": "Co-develop, approve and follow the plan; identify the supervisor, assigned tasks, learning opportunities and schedule.",
+              "sources": [
+                "C14",
+                "C17",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "Approved Internship Plan, prepared and approved by HEI and HTE; CHED Annex A is a reference, not a supplied CCS form.",
+          "sources": [
+            "C14",
+            "C17"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Relevant parties agree on the Internship Plan and the HEI and HTE approve it before deployment.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Assignments unrelated to competencies",
+        "HTE approval mistaken for plan approval",
+        "Unclear hours, outputs or evaluation"
+      ],
+      "sources": [
+        "C14",
+        "C17",
+        "Local",
+        "DCA",
+        "Curriculum"
+      ]
+    },
+    {
+      "id": "pre-deployment",
+      "title": "Pre-Deployment Compliance, MOA & Internship Contract",
+      "purpose": {
+        "text": "Verify mandatory safeguards and documents before authorizing deployment.",
+        "sources": [
+          "C14",
+          "C16",
+          "C17",
+          "C22",
+          "Local"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Complete the checklist below with the coordinator. Use current official templates and confirm signatories; the website has no verified SOJT form downloads.",
+              "sources": [
+                "C14",
+                "C16",
+                "C17",
+                "C22",
+                "Local",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Obtain HTE orientation on its rules before contract signing. The HTE workplace induction in Step 6 does not replace this earlier requirement. Do not treat a pending MOA as permission to train.",
+              "sources": [
+                "C14",
+                "C16",
+                "C17",
+                "C22",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Verify enrollment, eligibility, orientation, HTE and plan approval, acceptance, agreements, fitness, consent and appropriate insurance. Coordinate HEI responsibilities, endorsement and any additional institutional documents. Batch processing or tracking must not bypass verification.",
+              "sources": [
+                "C14",
+                "C16",
+                "C17",
+                "C22",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HTE responsibilities",
+          "items": [
+            {
+              "text": "Confirm acceptance, orient the student on rules before signing the contract, execute the required agreements with HEI/student and coordinate documents.",
+              "sources": [
+                "C14",
+                "C16",
+                "C17",
+                "C22",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [],
+      "gate": {
+        "text": "No student shall be deployed until all mandatory pre-deployment requirements have been verified as complete. The responsible office confirms the authorized start date.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Incomplete mandatory documents",
+        "Unfinished signed/notarized MOA",
+        "No required insurance",
+        "Acceptance mistaken for deployment"
+      ],
+      "sources": [
+        "C14",
+        "C16",
+        "C17",
+        "C22",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "id": "deployment",
+      "title": "Deployment & HTE Orientation",
+      "purpose": {
+        "text": "Start the approved learning experience only after the Step 5 gate is satisfied.",
+        "sources": [
+          "C16",
+          "C17",
+          "DCA"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Report on the authorized deployment date in the agreement. Meet your supervisor and complete workplace induction: policies, assigned tasks, schedule, time recording, tools, safety and communication/escalation channels.",
+              "sources": [
+                "C16",
+                "C17",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Application or acceptance is not deployment. Do not start solely because the HTE accepted you; obtain confirmation that Step 5 is complete.",
+              "sources": [
+                "C16",
+                "C17",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Confirm all deployment requirements and the official start date; establish communication and monitoring arrangements.",
+              "sources": [
+                "C16",
+                "C17",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HTE responsibilities",
+          "items": [
+            {
+              "text": "Receive the student, introduce the supervisor and orient them on site-specific work, attendance, safety, policies and reporting arrangements.",
+              "sources": [
+                "C16",
+                "C17",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "Internship contract/agreement and approved Internship Plan govern reporting date and activities.",
+          "sources": [
+            "C16",
+            "C14"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Step 5 is verified complete; the student officially reports and starts the approved Internship Plan under HTE supervision.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Starting before authorization",
+        "Unclear attendance records",
+        "Missing site induction"
+      ],
+      "sources": [
+        "C16",
+        "C17",
+        "DCA",
+        "DCA"
+      ]
+    },
+    {
+      "id": "monitoring",
+      "title": "Monitoring, Site Inspection, Student Welfare & Monthly Assessment",
+      "purpose": {
+        "text": "Check safety, supervision and learning progress throughout training, beyond accumulated hours.",
+        "sources": [
+          "C20",
+          "C17",
+          "C16",
+          "C22"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Maintain attendance/time records and the internship journal as required; report actual tasks, competencies, progress, supervisor feedback and likely delays. Protect confidential HTE information.",
+              "sources": [
+                "C20",
+                "C17",
+                "C16",
+                "C22",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Report unsafe conditions, harassment, exploitation, conflicts, unrelated assignments, poor supervision or significant plan deviations privately to the coordinator or appropriate institutional authority. Use the support section below; do not post sensitive reports publicly.",
+              "sources": [
+                "C20",
+                "C17",
+                "C16",
+                "C22",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Conduct initial and regular HTE visits/inspections and periodic student assessments; check working conditions, safety, supervision quality, attendance, hours, tasks and competencies against the plan. Collect monthly HTE reports and feedback.",
+              "sources": [
+                "C20",
+                "C17",
+                "C16",
+                "C22",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Keep restricted monitoring records: visit date, responsible person, physical visit or institutionally permitted remote contact, issues, corrective action and follow-up status. Remote contact must not silently replace required site inspections. Coach the student and coordinate corrective action and welfare support.",
+              "sources": [
+                "C20",
+                "C17",
+                "C16",
+                "C22",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HTE responsibilities",
+          "items": [
+            {
+              "text": "Supervise agreed learning tasks, provide feedback and accurate attendance/performance records, submit monthly reports and allow HEI monitoring. Students must not be substitutes for regular employees.",
+              "sources": [
+                "C20",
+                "C17",
+                "C16",
+                "C22",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "Monthly HTE reports and performance/attendance records using the HEI evaluation system.",
+          "sources": [
+            "C17",
+            "C20"
+          ]
+        },
+        {
+          "text": "Internship journal reflecting the approved plan, activities, difficulties and learning, as required by HTE.",
+          "sources": [
+            "C16"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Monitoring verifies safe supervised learning and progress against hours and competencies; issues receive documented corrective action before completion review.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Unsafe workplace or harassment/exploitation",
+        "Substitute employee duties",
+        "Poor supervision or failure to monitor",
+        "Uncorrected plan deviations or delays"
+      ],
+      "sources": [
+        "C20",
+        "C17",
+        "C16",
+        "C22",
+        "DCA"
+      ]
+    },
+    {
+      "id": "completion",
+      "title": "Completion & HTE Evaluation",
+      "purpose": {
+        "text": "Check that the learning experience and required evidence are complete, not just the hours.",
+        "sources": [
+          "C20",
+          "C17",
+          "Local"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Reconcile required hours, Internship Plan activities and competencies, student outputs and applicable program requirements with the coordinator and supervisor. Request the official HTE evaluation and certificate.",
+              "sources": [
+                "C20",
+                "C17",
+                "Local",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Use official evaluation instruments; attendance, professionalism, technical competence, learning progress, work quality, responsibility and workplace compliance may be discussed only as applicable to those instruments.",
+              "sources": [
+                "C20",
+                "C17",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Validate completion evidence and the HTE evaluation against the approved plan and curriculum; identify deficiencies and explain the next action. Do not clear a student based on hours alone.",
+              "sources": [
+                "C20",
+                "C17",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HTE responsibilities",
+          "items": [
+            {
+              "text": "Evaluate using the HEI instrument and issue the certificate within two weeks of completion under 17.2.16. Transmit the certificate, accomplished evaluation sheet and pertinent reports to the HEI within 10–15 working days under 20.1. Confirm institutional handling of these separate milestones.",
+              "sources": [
+                "C20",
+                "C17",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "HTE certificate of completion and duly accomplished evaluation sheet, plus pertinent reports.",
+          "sources": [
+            "C20",
+            "C17"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Required hours + Internship Plan completion + required student outputs + HTE performance evaluation + certificate + other applicable program requirements are verified.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Insufficient hours or competencies",
+        "Missing evaluation or certificate",
+        "Hours treated as the only completion measure"
+      ],
+      "sources": [
+        "C20",
+        "C17",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "id": "exit-review",
+      "title": "Exit Assessment & Post-Training Review",
+      "purpose": {
+        "text": "Review learning and the suitability of the HTE after training.",
+        "sources": [
+          "C16",
+          "C20"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Report to the SOJT Coordinator for exit assessment after the internship period. Discuss relevant learning, achievement of plan objectives, supervision, safety/welfare concerns and recommendations.",
+              "sources": [
+                "C16",
+                "C20",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Submit the internship journal/report and reflections using applicable official instructions. Individual responses remain restricted; this guide collects none.",
+              "sources": [
+                "C16",
+                "C20",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Conduct the exit assessment and post-training program/HTE review. Assess relevant training, achieved objectives, supervisor support, welfare issues, plan effectiveness and whether the HTE should remain in the pool. Document improvements privately.",
+              "sources": [
+                "C16",
+                "C20",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "HTE responsibilities",
+          "items": [
+            {
+              "text": "Provide feedback and respond to HEI review of training arrangements where needed.",
+              "sources": [
+                "C16",
+                "C20",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "Exit assessment and internship journal as applicable; official format and additional CCS report requirements are to be provided by the Department.",
+          "sources": [
+            "C16",
+            "C20",
+            "Local"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Exit assessment is completed and the HEI records the post-training review and any unresolved issues.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Incomplete exit assessment",
+        "Ignoring unsuitable HTE experience",
+        "Public exposure of individual evaluations"
+      ],
+      "sources": [
+        "C16",
+        "C20",
+        "DCA"
+      ]
+    },
+    {
+      "id": "clearance",
+      "title": "Clearance, Final Grade & Institutional/CHED Reporting",
+      "purpose": {
+        "text": "Close the academic requirement and complete institutional records and reporting.",
+        "sources": [
+          "C20",
+          "CReport",
+          "Local"
+        ]
+      },
+      "groups": [
+        {
+          "title": "Student responsibilities",
+          "items": [
+            {
+              "text": "Check verified hours, HTE evaluation, certificate, journal/report, exit assessment, applicable forms and final academic requirements. Resolve deficiencies with the responsible office; only that office confirms clearance.",
+              "sources": [
+                "C20",
+                "CReport",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "SOJT Coordinator / responsible office",
+          "items": [
+            {
+              "text": "Process the final evaluation/grade under University/College policy, using the coordinator report and HTE evaluation. Keep appropriate restricted evidence for audit.",
+              "sources": [
+                "C20",
+                "CReport",
+                "Local",
+                "DCA"
+              ]
+            },
+            {
+              "text": "Coordinate HEI submission through CHEDRO of the annual SIPP implementation report, duly notarized MOA/training agreement and certified HTE/student completion lists under 14.2.3. Confirm the authorized signatory, current reporting channel, deadline and retention/access rules. These are institutional duties, not public student uploads.",
+              "sources": [
+                "C20",
+                "CReport",
+                "Local",
+                "DCA"
+              ]
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "text": "Coordinator report and HTE evaluation supporting final grade; institutional clearance forms are to be provided by the Department.",
+          "sources": [
+            "C20",
+            "Local"
+          ]
+        },
+        {
+          "text": "Institutional SIPP report, MOA/training agreement and HTE/completion lists for restricted CHEDRO submission.",
+          "sources": [
+            "CReport"
+          ]
+        }
+      ],
+      "gate": {
+        "text": "Applicable student requirements and deficiencies are resolved; the authorized office confirms clearance/final academic action and completes institutional reporting responsibilities.",
+        "sources": [
+          "DCA"
+        ]
+      },
+      "risks": [
+        "Unresolved deficiencies",
+        "Missing final grade evidence",
+        "Failure to complete institutional/CHED reporting",
+        "Disclosure of confidential records"
+      ],
+      "sources": [
+        "C20",
+        "CReport",
+        "Local",
+        "DCA"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "text": "Official HEI and internship-subject enrollment, academic eligibility and applicable pre-internship requirements.",
+      "sources": [
+        "C12"
+      ]
+    },
+    {
+      "text": "Documented pre-internship orientation completion.",
+      "sources": [
+        "C14",
+        "DCA"
+      ]
+    },
+    {
+      "text": "Approved HTE and HEI/HTE-approved Internship Plan included in the contract.",
+      "sources": [
+        "C14",
+        "C17"
+      ]
+    },
+    {
+      "text": "HTE acceptance / valid offer and required signed student internship contract or agreement; parent/guardian co-signature as applicable under section 19.",
+      "sources": [
+        "C16",
+        "C22"
+      ]
+    },
+    {
+      "text": "Duly notarized HEI–HTE MOA / required training agreement completed; no start while the required agreement is unfinished.",
+      "sources": [
+        "C14",
+        "C22"
+      ]
+    },
+    {
+      "text": "Medical certificate of good health and emotional fitness based on physical and psychological examination by/certified through DOH-accredited clinics/hospitals; any additional HTE medical examinations. Coordinate HEI medical/dental services and certification.",
+      "sources": [
+        "C16",
+        "C14"
+      ]
+    },
+    {
+      "text": "Notarized written parent/legal guardian consent; CHED states that a waiver is not allowed.",
+      "sources": [
+        "C16"
+      ]
+    },
+    {
+      "text": "Appropriate HEI-arranged insurance covering travel, medical and health for the duration of the internship under section 14.2.1(h); the coordinator verifies the actual coverage before deployment.",
+      "sources": [
+        "C14",
+        "C22"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "C12",
+      "title": "CHED CMO No. 104, s. 2017 · sections 11–13 and 16.1.1–16.1.4",
+      "level": "CHED",
+      "status": "verified",
+      "url": "https://cms-cdn.e.gov.ph/CHED/pdf/2017-CMO-NO104.pdf",
+      "note": "National eligibility, academic load, duration and access to the Internship Plan. Current BSCA application and any newer issuances need institutional confirmation."
+    },
+    {
+      "id": "C14",
+      "title": "CHED CMO No. 104 · sections 14.1, 14.2.1, 15.2.1–15.2.3",
+      "level": "CHED",
+      "status": "verified",
+      "url": "https://cms-cdn.e.gov.ph/CHED/pdf/2017-CMO-NO104.pdf",
+      "note": "HTE selection, approved plan, notarized MOA, HEI medical/dental services, insurance and mandatory pre-internship orientation."
+    },
+    {
+      "id": "C16",
+      "title": "CHED CMO No. 104 · sections 16.1.5–16.1.6, 16.2 and 19",
+      "level": "CHED",
+      "status": "verified",
+      "url": "https://cms-cdn.e.gov.ph/CHED/pdf/2017-CMO-NO104.pdf",
+      "note": "Medical fitness, notarized parent/guardian consent (no waiver), student agreements, conduct, journal, completion and exit assessment."
+    },
+    {
+      "id": "C17",
+      "title": "CHED CMO No. 104 · section 17 and Annex A",
+      "level": "CHED",
+      "status": "verified",
+      "url": "https://cms-cdn.e.gov.ph/CHED/pdf/2017-CMO-NO104.pdf",
+      "note": "HTE legitimacy, mentoring, monthly reports, HEI evaluation instruments, supervised learning and certificates. HTE orientation on rules precedes contract signing (17.2.4); on-site induction also occurs at deployment."
+    },
+    {
+      "id": "C20",
+      "title": "CHED CMO No. 104 · sections 14.2.2, 15.2.4–15.2.7 and 20",
+      "level": "CHED",
+      "status": "verified",
+      "url": "https://cms-cdn.e.gov.ph/CHED/pdf/2017-CMO-NO104.pdf",
+      "note": "Initial and regular site inspection, joint monitoring, post-training review, coordinator report, HTE evaluation and grading. Section 17.2.16 gives certificate issuance within two weeks; 20.1 gives transmission to HEI within 10–15 working days. These are different actions."
+    },
+    {
+      "id": "C22",
+      "title": "CHED CMO No. 104 · sections 22–25",
+      "level": "CHED",
+      "status": "verified",
+      "url": "https://cms-cdn.e.gov.ph/CHED/pdf/2017-CMO-NO104.pdf",
+      "note": "Grievance machinery and violations, including internship without signed MOA or valid offer/contract, inadequate insurance and failure to monitor."
+    },
+    {
+      "id": "CReport",
+      "title": "CHED CMO No. 104 · section 14.2.3, Annexes C–D",
+      "level": "CHED",
+      "status": "verified",
+      "url": "https://cms-cdn.e.gov.ph/CHED/pdf/2017-CMO-NO104.pdf",
+      "note": "HEI annual SIPP implementation report, notarized MOA/training agreements, HTE lists and certified student completion records submitted through CHEDRO. These records are not public website content."
+    },
+    {
+      "id": "Local",
+      "title": "MSU-IIT / CCS SOJT policy and official forms",
+      "level": "University / College",
+      "status": "pending",
+      "url": "",
+      "note": "To be provided by the Department. No applicable CCS SOJT manual or SOJT form was located in the supplied repository or existing public program-document CMS. Reconcile the supplied prospectus with the applicable curriculum, prerequisites, load restrictions, signatories, submission channels, evaluation instrument, insurance and grievance routing."
+    },
+    {
+      "id": "DCA",
+      "title": "DCA ten-step implementation procedure",
+      "level": "Department",
+      "status": "proposed",
+      "url": "",
+      "note": "Requested process and coordinator name supplied for this implementation; formal Department adoption and the coordinator designation record are to be validated by the Department. Make-up orientation, documented gates, status labels and risk severity are proposed implementation controls, not verbatim CHED rules."
+    },
+    {
+      "id": "Program",
+      "title": "Existing BSCA program reference content",
+      "level": "Program",
+      "status": "verified",
+      "url": "/programs/bsca",
+      "note": "Repository BSCA introduction and curriculum-reference content describe software, firmware, embedded and connected systems. Examples here do not prescribe or restrict approved HTE assignments."
+    },
+    {
+      "id": "Curriculum",
+      "title": "Department-supplied BSCA prospectus · page 4",
+      "level": "University / Program",
+      "status": "verified",
+      "url": "/curricula/bsca-prospectus.pdf",
+      "note": "Lists BOR Resolution No. 129, Series of 2018; BCA197 On-The-Job-Training, six units, prerequisite BCA198, 40 hours/week and 700 total hours in fourth year, second semester. These are supplied-prospectus facts, not verification that this plan applies to every current student. Confirm eligibility under CHED section 12 as well as the curriculum prerequisite."
+    },
+    {
+      "id": "Staff",
+      "title": "Existing public faculty CMS record · Excel Van O. Jondonero",
+      "level": "Department directory",
+      "status": "verified",
+      "url": "/faculty/excel-van-o-jondonero",
+      "note": "Repository faculty migration 0004 and the public CMS record confirm excelvan.jondonero@g.msuiit.edu.ph. The guide uses the requested coordinator name without adding rank; formal SOJT designation is still to be validated by the Department."
+    }
+  ],
+  "risks": [
+    {
+      "step": 1,
+      "title": "Academically ineligible deployment",
+      "severity": "High",
+      "control": "Formal adviser/program assessment before progression.",
+      "sources": [
+        "C12",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 2,
+      "title": "Deployment without mandatory orientation",
+      "severity": "High",
+      "control": "Documented orientation or approved make-up before endorsement/deployment.",
+      "sources": [
+        "C14",
+        "DCA"
+      ]
+    },
+    {
+      "step": 3,
+      "title": "Unsuitable or unapproved HTE",
+      "severity": "High",
+      "control": "Screen legitimacy, safety, supervision and training capacity.",
+      "sources": [
+        "C17",
+        "C14",
+        "Program",
+        "DCA"
+      ]
+    },
+    {
+      "step": 4,
+      "title": "Tasks unrelated to the approved Internship Plan",
+      "severity": "High",
+      "control": "Approve competencies/tasks and monitor changes.",
+      "sources": [
+        "C14",
+        "C17",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Incomplete mandatory documents",
+      "severity": "High",
+      "control": "Verify all mandatory requirements before authorization.",
+      "sources": [
+        "C14",
+        "C16",
+        "C17",
+        "C22",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Incomplete required MOA/agreement",
+      "severity": "High",
+      "control": "Require signed/notarized applicable agreement before start.",
+      "sources": [
+        "C14",
+        "C16",
+        "C17",
+        "C22",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Missing required insurance coverage",
+      "severity": "High",
+      "control": "Verify appropriate HEI-arranged coverage before deployment.",
+      "sources": [
+        "C14",
+        "C16",
+        "C17",
+        "C22",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Unsafe workplace",
+      "severity": "High",
+      "control": "Inspect sites, address hazards and follow up privately.",
+      "sources": [
+        "C20",
+        "C17",
+        "C16",
+        "C22",
+        "DCA"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Harassment or exploitation",
+      "severity": "High",
+      "control": "Use confidential institutional support and grievance routing.",
+      "sources": [
+        "C20",
+        "C17",
+        "C16",
+        "C22",
+        "DCA"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Student substitutes for a regular employee",
+      "severity": "High",
+      "control": "Keep assignments within supervised educational learning.",
+      "sources": [
+        "C20",
+        "C17",
+        "C16",
+        "C22",
+        "DCA"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Inadequate HTE supervision",
+      "severity": "High",
+      "control": "Confirm supervisor and mentoring; correct deficiencies.",
+      "sources": [
+        "C20",
+        "C17",
+        "C16",
+        "C22",
+        "DCA"
+      ]
+    },
+    {
+      "step": 7,
+      "title": "Failure to monitor",
+      "severity": "High",
+      "control": "Regular visits, monthly reports, competency review and follow-up.",
+      "sources": [
+        "C20",
+        "C17",
+        "C16",
+        "C22",
+        "DCA"
+      ]
+    },
+    {
+      "step": 8,
+      "title": "Insufficient hours or competencies",
+      "severity": "High",
+      "control": "Review hours and plan outcomes before completion.",
+      "sources": [
+        "C20",
+        "C17",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 8,
+      "title": "Missing completion evaluation/certificate",
+      "severity": "High",
+      "control": "Obtain official HTE evaluation and certificate.",
+      "sources": [
+        "C20",
+        "C17",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 9,
+      "title": "Incomplete exit assessment",
+      "severity": "High",
+      "control": "Complete exit assessment and review HTE suitability.",
+      "sources": [
+        "C16",
+        "C20",
+        "DCA"
+      ]
+    },
+    {
+      "step": 10,
+      "title": "Incomplete institutional/CHED reporting",
+      "severity": "High",
+      "control": "Authorized office completes restricted reports and records.",
+      "sources": [
+        "C20",
+        "CReport",
+        "Local",
+        "DCA"
+      ]
+    },
+    {
+      "step": 5,
+      "title": "Document processing delay before deployment",
+      "severity": "Moderate",
+      "control": "Track pending documents and adjust start date without bypassing the gate.",
+      "sources": [
+        "DCA"
+      ]
+    },
+    {
+      "step": 1,
+      "title": "Unclear process terminology",
+      "severity": "Low",
+      "control": "Explain HTE, POS and Internship Plan and route questions to the coordinator.",
+      "sources": [
+        "DCA"
+      ]
+    }
+  ],
+  "confirmations": [
+    "Current CMO applicability, any superseding issuance and BSCA program-specific PSG/curriculum requirements, including duration and exceptions to section 11.",
+    "Current MSU-IIT/CCS SOJT manual and curriculum applicability: reconcile the supplied BCA197 six-unit/700-hour entry and BCA198 prerequisite with CHED section 12, other prerequisites, concurrent load, thesis obligations, application window and eligibility evidence.",
+    "Formal adoption of the ten-step procedure, make-up orientation and documented pre-deployment verification; exact authorized deployment wording and signatories.",
+    "Formal coordinator designation record, approved HTE pool and screening instrument. The directory email is verified, but no approved HTE names were supplied.",
+    "Current official forms, versions and signatories; endorsement, student identification, additional institutional requirements and medical/insurance arrangements.",
+    "Monitoring frequency, site inspection arrangements, any permitted remote monitoring, monthly report/evaluation instruments, outputs and grade/clearance rules.",
+    "Confidential grievance authority and channel (including a route when a complaint concerns the coordinator), emergency support, interruption/termination handling and reporting/retention rules.",
+    "HTE certificate issuance within two weeks (17.2.16) and transmission to HEI within 10–15 working days (20.1): confirm how local scheduling implements both actions."
+  ]
+}

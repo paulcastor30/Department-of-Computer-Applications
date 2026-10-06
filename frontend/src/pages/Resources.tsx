@@ -26,6 +26,11 @@ export default function Resources() {
       <p className="mt-6 max-w-prose leading-7 text-muted-foreground">University forms and graduate guides are also listed in the <a className="text-link" href="https://www.msuiit.edu.ph/offices/odgp/resources/index.php">graduate resources directory</a>. Confirm the applicable version with your coordinator.</p>
       <DocumentAccessHelp context="program documents and student forms" />
     </Section>
+    <Section id="sojt-guide">
+      <SectionHeader title="BSCA SOJT Process Guide" subtitle="Understand eligibility, orientation, HTE approval, your Internship Plan, deployment safeguards and completion." />
+      <p className="max-w-prose leading-7">Follow the ten internship stages and find the SOJT Coordinator. Check the guide’s verification status and confirm current institutional requirements before applying or starting training.</p>
+      <Link className="action-link mt-4" to="/sojt-guide">View SOJT Process Guide</Link>
+    </Section>
     <Section id="student-forms" variant="muted">
       <SectionHeader title="Download student forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
       <ProgramFormPicker programs={programs} />

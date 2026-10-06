@@ -138,6 +138,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
       </div>}
       <Link className="action-link mb-6" to={`/thesis-guide?program=${program.code}`}>Open {program.code} Thesis Process Guide</Link>
       <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Follow the process from panel formation to final submission. Find each form, its preparation checklist, signatures and next step.</p>
+      {program.code === "BSCA" && <section className="mb-8 rounded-md border border-border p-5"><h3 className="text-xl font-semibold">Student On-the-Job Training (SOJT)</h3><p className="mt-3 leading-7">Prepare for supervised internship learning: eligibility, orientation, HTE approval, the Internship Plan, deployment safeguards, monitoring and clearance. Confirm current institutional requirements with the SOJT Coordinator.</p><Link className="action-link mt-4" to="/sojt-guide">Open BSCA SOJT Process Guide</Link></section>}
       <ProgramForms program={program} />
       <Link className="text-link mt-5 inline-flex min-h-11 items-center" to="/resources">Student &amp; faculty resources</Link>
     </Section>

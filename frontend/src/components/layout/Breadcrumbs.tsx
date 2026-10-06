@@ -51,6 +51,7 @@ const routeLabels: Record<string, string> = {
   "international-linkages": "International Linkages",
   facilities: "Facilities",
   resources: "Student & faculty resources",
+  "sojt-guide": "SOJT Process Guide",
   "thesis-guide": "Thesis Process Guide",
   policies: "Policies",
   reports: "Reports",
