@@ -110,3 +110,20 @@ it("does not publish a form assigned to the wrong program folder", () => {
     expect(getThesisFormSource("BSCA", "019")).toBeUndefined();
   } finally { source.file = original; }
 });
+
+
+it.each(["BSCA", "MSCA"])("shows %s clearance consequences before disclosure without treating binding or checkboxes as clearance", program => {
+  guide(program);
+  const notice = screen.getByLabelText("Required for clearance");
+  expect(notice.closest("details")).toBeNull();
+  expect(notice).toHaveTextContent("Transcript of Records (TOR)");
+  expect(notice).toHaveTextContent("may prevent");
+  expect(notice).toHaveTextContent("Department-confirmed requirement");
+  const finalStep = screen.getByRole("heading", { name: "Final requirements submission", level: 2 }).closest("li")!;
+  expect(within(finalStep).getByText(/Submitting documents alone does not confirm clearance/)).toBeInTheDocument();
+  const bindingStep = screen.getByRole("heading", { name: "Approval for binding", level: 2 }).closest("li")!;
+  expect(within(bindingStep).queryByLabelText("Required for clearance")).not.toBeInTheDocument();
+  expect(screen.getByText(/checkboxes do not record submission, approval or clearance/)).toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText("Find a form or step"), { target: { value: "TOR" } });
+  expect(screen.getByRole("button", { name: "Final requirements submission · Final submission" })).toBeInTheDocument();
+});

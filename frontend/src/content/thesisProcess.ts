@@ -242,7 +242,16 @@ export function getThesisFormSource(program: ThesisProgram, id: string): FormSou
 export function getThesisSourceNotes(program: ThesisProgram): string[] {
   return thesisSourceNotes.filter(note => program === "BSCA" ? !note.startsWith("The supplied MSCA") : !note.startsWith("The BSCA Form") && !note.startsWith("BSCA Requirements"));
 }
-export interface ThesisStage { id: string; title: string; description: string; forms: string[]; deadline?: string; next: string; notes?: string[]; conditional?: string; }
+// Department-confirmed clearance consequence; do not attribute this statement to the uploaded forms.
+// Exact registrar documents affected and hold-removal procedure remain subject to official instructions.
+export const thesisClearance = {
+  title: "Required for clearance",
+  message: "Complete and submit the final thesis requirements. Incomplete or unsubmitted requirements will result in an outstanding thesis liability, which may prevent the release of your Transcript of Records (TOR) and other registrar certifications until the liability is cleared.",
+  action: "Confirm with the department or graduate coordinator that your submission has been accepted and your thesis liability has been cleared. Submitting documents alone does not confirm clearance.",
+  source: "Department-confirmed requirement. Follow the applicable university clearance and registrar instructions.",
+  completion: "Submission accepted and thesis liability cleared",
+};
+export interface ThesisStage { id: string; title: string; description: string; forms: string[]; deadline?: string; next: string; notes?: string[]; conditional?: string; clearance?: typeof thesisClearance; }
 export const thesisStages: ThesisStage[] = [
   { id: "panel-formation", title: "Panel formation", description: "Establish who will advise and review your thesis.", forms: ["017"], next: "Prepare the proposal manuscript and apply for a proposal hearing.", conditional: "018" },
   { id: "proposal-hearing", title: "Proposal hearing application", description: "Request and confirm the hearing room; prepare the manuscript, copies, receipt and announcement photos, secure hearing approval and arrange the faculty calendar entry.", forms: ["019"], deadline: "Submit the form and manuscript to the Dean at least one week before the hearing.", next: "Attend the public proposal hearing only after both hearing approval and the room booking are confirmed." },
@@ -251,7 +260,7 @@ export const thesisStages: ThesisStage[] = [
   { id: "final-defense", title: "Final defense", description: "Form 023 is an individual examiner’s evaluation. Form 024 is the official panel result.", forms: ["023", "024"], next: "Follow the panel’s result: complete required revisions, or proceed to binding verification if no changes are required." },
   { id: "revisions", title: "Post-defense revisions", description: "If changes are required: panel comments → revise manuscript → adviser/panel verification.", forms: [], notes: ["This stage applies when the panel requires changes. No separate numbered revision form is supplied. Form 025 certifies that all comments and recommendations have been reflected."], next: "Request approval for binding after the panel verifies the manuscript." },
   { id: "binding", title: "Approval for binding", description: "Reach the manuscript milestone: panel recommendations incorporated and approval for binding secured.", forms: ["025"], next: "Bind the approved manuscript and prepare the applicable final-submission materials." },
-  { id: "final-submission", title: "Final requirements submission", description: "Prepare the final materials for your program and submit them through the applicable office.", forms: ["submission"], next: "Confirm with the department / graduate coordinator that your submission has been received and all applicable requirements have been met." },
+  { id: "final-submission", title: "Final requirements submission", description: "Prepare the final materials for your program and submit them through the applicable office.", forms: ["submission"], clearance: thesisClearance, next: thesisClearance.action },
 ];
 export const thesisStartingPoints = [
   ["Starting my thesis", "panel-formation"], ["Preparing for proposal hearing", "proposal-hearing"],
