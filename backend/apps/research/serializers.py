@@ -8,7 +8,7 @@ class ResearchProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ResearchProject
-        fields = ["id", "slug", "title", "reporting_year", "research_leader", "team_members", "funding_display"]
+        fields = ["id", "slug", "title", "plain_language_summary", "intended_audience", "reporting_year", "research_leader", "team_members", "funding_display"]
 
     def get_team_members(self, obj):
         return list(dict.fromkeys(name.strip() for name in obj.team_members.splitlines() if name.strip()))

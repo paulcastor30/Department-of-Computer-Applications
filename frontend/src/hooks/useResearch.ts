@@ -5,6 +5,8 @@ export type ResearchProject = {
   id: number;
   slug: string;
   title: string;
+  plain_language_summary?: string;
+  intended_audience?: string;
   reporting_year: string;
   research_leader: string;
   team_members: string[];

@@ -3,6 +3,8 @@ from apps.core.base_models import PublishableModel
 
 
 class ResearchProject(PublishableModel):
+    plain_language_summary = models.TextField(blank=True, help_text="Explain the intended focus in everyday language. Do not claim completed work or measured outcomes without evidence.")
+    intended_audience = models.CharField(max_length=255, blank=True, help_text="Intended users or audience supported by the source. Leave blank when not established; not a count of people reached.")
     reporting_year = models.CharField(max_length=20, help_text="Reporting year or range; not project status or confirmed start/end dates.")
     research_leader = models.CharField(max_length=255)
     team_members = models.TextField(blank=True, help_text="One additional team member per line. Do not infer employment roles from project membership.")

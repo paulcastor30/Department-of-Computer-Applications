@@ -4,7 +4,7 @@ import { afterEach, expect, it, vi } from "vitest";
 import { ExtensionProjectList } from "@/components/ExtensionProjectList";
 
 vi.mock("@/hooks/useExtension", () => ({ useExtensionProjects: () => ({ isLoading: false, isError: false, data: [
-  { id: 1, slug: "2026-training", title: "Community training", reporting_year: 2026, extension_leader: "Leader A", participant_groups: [{ label: "MSU-IIT faculty", members: ["Faculty A"] }, { label: "Students", members: ["Student A"] }] },
+  { id: 1, slug: "2026-training", title: "Community training", plain_language_summary: "Microcontroller training for out-of-school youth.", intended_audience: "Out-of-school youth", reporting_year: 2026, extension_leader: "Leader A", participant_groups: [{ label: "MSU-IIT faculty", members: ["Faculty A"] }, { label: "Students", members: ["Student A"] }] },
   { id: 2, slug: "2024-training", title: "Community training", reporting_year: 2024, extension_leader: "Leader B", participant_groups: [{ label: "Lecturers", members: ["Lecturer A"] }] },
 ] }) }));
 afterEach(cleanup);
@@ -12,6 +12,8 @@ afterEach(cleanup);
 it("keeps yearly records distinct and filters their reporting year", () => {
   render(<MemoryRouter><ExtensionProjectList /></MemoryRouter>);
   expect(screen.getAllByText("Community training")).toHaveLength(2);
+  expect(screen.getByText("Microcontroller training for out-of-school youth.")).toBeInTheDocument();
+  expect(screen.getByText("Out-of-school youth")).toBeInTheDocument();
   expect(screen.getByText("Leader A")).toBeInTheDocument();
   fireEvent.change(screen.getByLabelText("Reporting year"), { target: { value: "2024" } });
   expect(screen.queryByText("Leader A")).not.toBeInTheDocument();

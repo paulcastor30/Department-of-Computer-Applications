@@ -19,7 +19,7 @@ export function ResearchProjectList({ preview = false }: { preview?: boolean }) 
   const visibleYears = [...new Set(records.map(project => project.reporting_year))];
   return <Section id="department-projects">
     <SectionHeader title={preview ? "Research project highlights" : "Department research projects"} subtitle={preview ? "A short selection from the latest reporting years. Explore the complete list for more projects and their teams." : "Research involving department researchers and their collaborators."} className="mb-5" />
-    <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Years below are reporting years and do not indicate whether a project is ongoing or completed.</p>
+    <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Years below are reporting years and do not indicate whether a project is ongoing or completed. Plain-language summaries describe the intended focus, not measured results.</p>
     {isLoading ? <p role="status">Loading research projects…</p> : isError ? <p role="status">Research projects could not be loaded. <Link className="text-link" to="/about/contact">Contact the department for research information.</Link></p> : !data.length ? <p>No research projects are currently listed.</p> : <>
       {!preview && <div className="mb-6 max-w-xs">
         <label htmlFor="research-reporting-year" className="mb-2 block font-semibold">Reporting year</label>
@@ -45,6 +45,8 @@ function ProjectCard({ project, showYear = false }: { project: ResearchProject; 
   return <article id={project.slug} className="scroll-mt-24 rounded-md border border-border p-5 md:p-6">
             {showYear && <p className="mb-3 text-sm font-semibold text-muted-foreground">Reporting year: {project.reporting_year}</p>}
             <Heading className="text-lg font-semibold leading-7 text-primary">{project.title}</Heading>
+            {project.plain_language_summary && <p className="mt-3 leading-7">{project.plain_language_summary}</p>}
+            {project.intended_audience && <p className="mt-3 text-sm leading-6"><strong>Intended users or audience:</strong> {project.intended_audience}</p>}
             <dl className="mt-4 grid gap-4 sm:grid-cols-2">
               <div><dt className="text-sm font-semibold">Research leader</dt><dd className="mt-1 leading-7">{project.research_leader}</dd></div>
               <div><dt className="text-sm font-semibold">Funding</dt><dd className="mt-1 leading-7 text-muted-foreground">{project.funding_display}</dd></div>

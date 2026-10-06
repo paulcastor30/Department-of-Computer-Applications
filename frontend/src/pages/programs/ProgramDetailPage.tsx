@@ -1,3 +1,4 @@
+import { DocumentAccessHelp } from "@/components/DocumentAccessHelp";
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
@@ -121,6 +122,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
         {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.label}-${document.href}`}>
           {document.href ? <><a className="outline-link" href={document.href}>Open {document.label}</a>{hasProgramContent(document.note) && <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">{document.note}</p>}</> : <p className="leading-7"><strong>{document.label}:</strong> {document.note}</p>}
         </li>)}</ul> : <p className="leading-7 text-muted-foreground">Official curriculum and program guides: {placeholder}</p>}
+        <DocumentAccessHelp context={`${program.code} documents and forms`} />
         <div className="mt-6 max-w-3xl space-y-2 text-sm leading-6 text-muted-foreground">{program.curriculumNotes.map(note => <p key={note}>{note}</p>)}</div>
       </section>
     </Section>

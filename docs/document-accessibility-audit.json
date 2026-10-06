@@ -1,0 +1,419 @@
+[
+  {
+    "file": "frontend/public/curricula/bsca-prospectus.pdf",
+    "type": ".pdf",
+    "pages": 5,
+    "tag_tree": true,
+    "language": "en-US",
+    "text_characters": [
+      2675,
+      2442,
+      2544,
+      2149,
+      715
+    ],
+    "interactive_fields": 0
+  },
+  {
+    "file": "frontend/public/curricula/msca-prospectus.pdf",
+    "type": ".pdf",
+    "pages": 4,
+    "tag_tree": false,
+    "language": "",
+    "text_characters": [
+      1640,
+      1682,
+      1794,
+      1769
+    ],
+    "interactive_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-017 - NOMINATION OF MEMBERS OF ADVISORY PANEL.docx",
+    "type": ".docx",
+    "text_characters": 1162,
+    "tables": 2,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-018  - REQUEST OF ADVISER PANEL MEMBER.docx",
+    "type": ".docx",
+    "text_characters": 484,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-019 - APPROVAL FOR PROPOSAL HEARING.docx",
+    "type": ".docx",
+    "text_characters": 1413,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-020 - APPROVAL OF PROPOSAL.docx",
+    "type": ".docx",
+    "text_characters": 939,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-021 - NOMINATION OF MEMBERS OF ORAL EXAMINATION PANEL.docx",
+    "type": ".docx",
+    "text_characters": 1149,
+    "tables": 2,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-022 - APPROVAL FOR FINAL DEFENSE.docx",
+    "type": ".docx",
+    "text_characters": 1534,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-023 - ORAL EXAMINATION REPORT IN FINAL DEFENSE.docx",
+    "type": ".docx",
+    "text_characters": 879,
+    "tables": 10,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-024 - PANEL ORAL EXAMINATION REPORT.docx",
+    "type": ".docx",
+    "text_characters": 818,
+    "tables": 2,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-025 - APPROVAL FOR BINDING.docx",
+    "type": ".docx",
+    "text_characters": 781,
+    "tables": 2,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/bsca/FM-MSU-IIT-ACAD-025 - REQUIREMENTS SUBMISSION.docx",
+    "type": ".docx",
+    "text_characters": 1421,
+    "tables": 1,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM - Application-for-Admission-form2015.doc",
+    "type": ".doc"
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM - Concept-Paper-Template.docx",
+    "type": ".docx",
+    "text_characters": 4653,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading4",
+      "Heading4"
+    ],
+    "content_controls": 98,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM - Personal-statement.doc",
+    "type": ".doc"
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM - RECOMMENDATION FORM.docx",
+    "type": ".docx",
+    "text_characters": 1754,
+    "tables": 1,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM 0 - CONCEPT PAPER PRESENTATION FORM.docx",
+    "type": ".docx",
+    "text_characters": 686,
+    "tables": 4,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1",
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM 10 - Application for Written Examination.docx",
+    "type": ".docx",
+    "text_characters": 724,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1",
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM 11 - NOMINATION OF MEMBERS OF WRITTEN EXAMINATION COMMITTEE.docx",
+    "type": ".docx",
+    "text_characters": 1053,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1",
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM 12 - WRITTEN EXAMINATION REPORT.docx",
+    "type": ".docx",
+    "text_characters": 699,
+    "tables": 1,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM 13 - APPLICATION FOR INTENTION TO GRADUATE SCS .docx",
+    "type": ".docx",
+    "text_characters": 887,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM 14 - ReQUIREMENTS SUBMISSION.docx",
+    "type": ".docx",
+    "text_characters": 1522,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CCS FORM 16 - Approval for Readmission.docx",
+    "type": ".docx",
+    "text_characters": 2157,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CERTIFICATE OF 3 PANEL APPROVAL (change name,title,degree,chair).docx",
+    "type": ".docx",
+    "text_characters": 706,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/CERTIFICATE OF PANEL APPROVAL (change name,title,degree,chair).docx",
+    "type": ".docx",
+    "text_characters": 696,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FM-MSU-IIT-RGTR-004-OTR-and-F137A-Request-Form.pdf",
+    "type": ".pdf",
+    "pages": 1,
+    "tag_tree": true,
+    "language": "en-PH",
+    "text_characters": [
+      2096
+    ],
+    "interactive_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FM-MSU-IIT-RGTR-005 Returnees Application Form.pdf",
+    "type": ".pdf",
+    "pages": 1,
+    "tag_tree": true,
+    "language": "en",
+    "text_characters": [
+      3063
+    ],
+    "interactive_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 017 Nomination of Members of Advisory Panel.docx",
+    "type": ".docx",
+    "text_characters": 947,
+    "tables": 2,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 018 Request for Change of Adviser Panel Member.docx",
+    "type": ".docx",
+    "text_characters": 529,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 019 Approval for Proposal Hearing.docx",
+    "type": ".docx",
+    "text_characters": 887,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 020 Approval of Proposal.docx",
+    "type": ".docx",
+    "text_characters": 605,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 021-Nomination-of-Members-of-Oral-Exam-Panel.docx",
+    "type": ".docx",
+    "text_characters": 1067,
+    "tables": 2,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 022-Approval-for-Final-Defense.docx",
+    "type": ".docx",
+    "text_characters": 1505,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 023-Oral-Exam-Report-on-Final-Defense.docx",
+    "type": ".docx",
+    "text_characters": 885,
+    "tables": 10,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 024-Panel-Oral-Exam-Report.docx",
+    "type": ".docx",
+    "text_characters": 639,
+    "tables": 3,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/FORM 025-Approval-for-Binding.docx",
+    "type": ".docx",
+    "text_characters": 602,
+    "tables": 2,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/Form 026 Application for Written Exam.docx",
+    "type": ".docx",
+    "text_characters": 805,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/Form 027 Nomination of Written  Exam.docx",
+    "type": ".docx",
+    "text_characters": 1214,
+    "tables": 0,
+    "marked_header_rows": 0,
+    "heading_styles": [
+      "Heading1"
+    ],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/Form 028 Written Exam Report.docx",
+    "type": ".docx",
+    "text_characters": 1286,
+    "tables": 1,
+    "marked_header_rows": 0,
+    "heading_styles": [],
+    "content_controls": 0,
+    "form_fields": 0
+  },
+  {
+    "file": "frontend/public/thesis-forms/msca/Payslip form.jpg",
+    "type": ".jpg"
+  }
+]

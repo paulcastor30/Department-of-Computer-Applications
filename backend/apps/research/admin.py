@@ -6,7 +6,7 @@ from .models import ResearchProject, ConferenceRecord, PublicationRecord
 class ResearchProjectAdmin(admin.ModelAdmin):
     list_display = ("title", "reporting_year", "research_leader", "funding", "is_published")
     list_filter = ("reporting_year", "funding", "is_published")
-    search_fields = ("title", "research_leader", "team_members")
+    search_fields = ("title", "plain_language_summary", "intended_audience", "research_leader", "team_members")
     prepopulated_fields = {"slug": ("title",)}
 
 

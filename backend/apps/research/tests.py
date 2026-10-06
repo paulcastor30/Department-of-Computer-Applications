@@ -6,6 +6,31 @@ from .models import ResearchProject
 
 
 class ResearchProjectTests(TransactionTestCase):
+    def test_explanations_preserve_editorial_changes_and_are_public(self):
+        original = import_module("apps.research.migrations.0002_department_projects")
+        seed = import_module("apps.research.migrations.0007_project_explanations")
+        with connection.schema_editor() as editor:
+            original.add_department_projects(apps, editor)
+            seed.add_explanations(apps, editor)
+        self.assertEqual(ResearchProject.objects.exclude(plain_language_summary="").count(), len(seed.EXPLANATIONS))
+        project = ResearchProject.objects.first()
+        project.plain_language_summary = "Department-reviewed explanation"
+        project.intended_audience = "Department-reviewed audience"
+        project.save()
+        with connection.schema_editor() as editor:
+            seed.add_explanations(apps, editor)
+        project.refresh_from_db()
+        self.assertEqual(project.plain_language_summary, "Department-reviewed explanation")
+        self.assertEqual(project.intended_audience, "Department-reviewed audience")
+        rows = self.client.get("/api/research/projects/").json()
+        row = next(row for row in rows if row["slug"] == project.slug)
+        self.assertEqual(row["plain_language_summary"], "Department-reviewed explanation")
+        self.assertEqual(row["intended_audience"], "Department-reviewed audience")
+        self.assertNotIn("source_note", row)
+        project.is_published = False
+        project.save()
+        self.assertNotIn(project.slug, [row["slug"] for row in self.client.get("/api/research/projects/").json()])
+
     def setUp(self):
         ResearchProject.objects.all().delete()
 

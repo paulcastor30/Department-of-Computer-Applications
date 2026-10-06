@@ -10,6 +10,7 @@ export function ExtensionProjectList() {
   const records = data.filter(project => year === "all" || String(project.reporting_year) === year);
   return <Section id="extension-projects">
     <SectionHeader title="Extension programs and projects" subtitle="Community activities involving DCA faculty and their collaborators. Reporting years do not indicate whether an activity is ongoing or completed." className="mb-6" />
+    <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Plain-language summaries explain the focus of each reported activity. Intended audiences are not a claim of attendance or measured impact.</p>
     {isLoading ? <p role="status">Loading extension records…</p> : isError ? <p role="status">Extension records could not be loaded. <Link className="text-link" to="/about/contact">Contact the department for community activity information.</Link></p> : !data.length ? <p>No extension records are currently listed.</p> : <>
       <div className="mb-6 max-w-xs">
         <label className="mb-2 block font-semibold" htmlFor="extension-year">Reporting year</label>
@@ -21,6 +22,8 @@ export function ExtensionProjectList() {
       <div className="space-y-5">{records.map(project => <article id={project.slug} key={project.slug} className="scroll-mt-24 rounded-md border border-border p-5 md:p-6">
         <p className="mb-3 text-sm font-semibold">Reporting year: {project.reporting_year}</p>
         <h3 className="text-lg font-semibold leading-7 text-primary">{project.title}</h3>
+        {project.plain_language_summary && <p className="mt-3 leading-7">{project.plain_language_summary}</p>}
+        {project.intended_audience && <p className="mt-3 text-sm leading-6"><strong>Intended users or audience:</strong> {project.intended_audience}</p>}
         <dl className="mt-4"><dt className="text-sm font-semibold">Extension leader</dt><dd className="mt-1 leading-7">{project.extension_leader}</dd></dl>
         {project.participant_groups.length > 0 && <details className="mt-4 border-t border-border pt-3">
           <summary className="min-h-11 cursor-pointer py-2 font-semibold text-primary">View participants<span className="sr-only"> for {project.title}, {project.reporting_year}</span></summary>

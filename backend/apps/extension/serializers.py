@@ -7,7 +7,7 @@ class ExtensionProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ExtensionProject
-        fields = ["id", "slug", "title", "reporting_year", "extension_leader", "participant_groups"]
+        fields = ["id", "slug", "title", "plain_language_summary", "intended_audience", "reporting_year", "extension_leader", "participant_groups"]
 
     def get_participant_groups(self, obj):
         groups = []

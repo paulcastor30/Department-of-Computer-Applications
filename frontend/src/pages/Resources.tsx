@@ -1,3 +1,4 @@
+import { DocumentAccessHelp } from "@/components/DocumentAccessHelp";
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
@@ -23,6 +24,7 @@ export default function Resources() {
         <ul className="mt-4 space-y-2">{program.documents.filter(document => !document.formGroup && document.href).map(document => <li key={`${document.label}-${document.href}`}><a className="text-link inline-flex min-h-11 items-center" href={document.href}>Open {document.label}</a></li>)}</ul>
       </article>)}</div>
       <p className="mt-6 max-w-prose leading-7 text-muted-foreground">University forms and graduate guides are also listed in the <a className="text-link" href="https://www.msuiit.edu.ph/offices/odgp/resources/index.php">graduate resources directory</a>. Confirm the applicable version with your coordinator.</p>
+      <DocumentAccessHelp context="program documents and student forms" />
     </Section>
     <Section id="student-forms" variant="muted">
       <SectionHeader title="Download student forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
