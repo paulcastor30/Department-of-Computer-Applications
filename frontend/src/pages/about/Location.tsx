@@ -24,7 +24,9 @@ export default function Location() {
           <p className="mt-4 leading-8">{visitGuidance.summary} {visitGuidance.details}</p>
           <h3 className="mt-6 text-xl font-semibold">Drop-off point</h3>
           <p className="mt-3 leading-8">{visitGuidance.dropOff}</p>
-          <h3 className="mt-6 text-xl font-semibold">Toilet locations</h3>
+          <h3 className="mt-6 text-xl font-semibold">Travel between floors</h3>
+          <p className="mt-3 leading-8">{visitGuidance.betweenFloors}</p>
+          <h3 className="mt-6 text-xl font-semibold">Toilets and access</h3>
           <ul className="mt-3 list-disc space-y-2 pl-5">
             <li><strong>Women’s toilet:</strong> {visitGuidance.womensToilet}</li>
             <li><strong>Men’s toilet:</strong> {visitGuidance.mensToilet}</li>
