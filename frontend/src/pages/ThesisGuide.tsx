@@ -54,7 +54,7 @@ export default function ThesisGuide() {
   const [destination, setDestination] = useState("panel-formation");
   const initialStage = typeof window !== "undefined" ? window.location.hash.slice(1) : "";
   const [current, setCurrent] = useState(thesisStages.some(stage => stage.id === initialStage) ? initialStage : "panel-formation");
-  const [openStages, setOpenStages] = useState(new Set([current]));
+  const [openStages, setOpenStages] = useState(new Set(thesisStages.some(stage => stage.id === initialStage) ? [initialStage] : []));
   const [query, setQuery] = useState("");
   const headingRefs = useRef<Record<string, HTMLHeadingElement | null>>({});
   const detailsRefs = useRef<Record<string, HTMLDetailsElement | null>>({});
@@ -94,18 +94,18 @@ export default function ThesisGuide() {
         </div>
       </section>
       <p className="my-6 leading-7" role="status">Showing <strong>{program}</strong> guidance. <strong>Selected step:</strong> {thesisStages.find(stage => stage.id === current)?.title}. Your place is a navigation aid, not an official progress record.</p>
-      <ol aria-label={`${program} thesis process`} className="space-y-6">
+      <ol aria-label={`${program} thesis process`} className="thesis-timeline space-y-6">
         {thesisStages.map((stage, index) => <li key={stage.id} className={`relative rounded-md border bg-card p-5 sm:p-7 ${current === stage.id ? "border-primary" : "border-border"}`}>
-          <div className="flex items-start gap-3"><span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-muted font-semibold">{String(index + 1).padStart(2, "0")}</span><div className="min-w-0"><p className="mb-1 text-sm font-semibold text-muted-foreground">Step {index + 1} of 8{current === stage.id ? " · Selected step" : ""}</p><h2 id={stage.id} ref={element => { headingRefs.current[stage.id] = element; }} tabIndex={-1} className="scroll-mt-28 text-xl font-semibold leading-7 text-primary sm:text-2xl">{stage.title}</h2></div></div>
+          <div className="flex items-start gap-3"><span aria-hidden="true" className="thesis-stage-number flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-muted font-semibold">{String(index + 1).padStart(2, "0")}</span><div className="min-w-0"><p className="mb-1 text-sm font-semibold text-muted-foreground">Step {index + 1} of 8{current === stage.id ? " · Selected step" : ""}</p><h2 id={stage.id} ref={element => { headingRefs.current[stage.id] = element; }} tabIndex={-1} className="scroll-mt-28 text-xl font-semibold leading-7 text-primary sm:text-2xl">{stage.title}</h2></div></div>
           <p className="mt-4 leading-7">{stage.description}</p>
-          <p className="mt-3 font-medium">{stage.forms.length ? stage.forms.map(id => id === "submission" ? "Final requirements submission" : `Form ${id}`).join(" · ") : "Conditional revisions · no separate numbered form"}</p>
+          <p className="mt-3 font-medium">{stage.forms.length ? stage.forms.map(id => id === "submission" ? "Final requirements submission" : `Form ${id}`).join(" · ") : "If revisions are required · no separate form"}</p>
           {stage.deadline && <aside aria-label="Deadline" className="mt-4 rounded-md border-l-4 border-accent bg-muted p-4 leading-7"><strong className="block">Deadline</strong>{stage.deadline}</aside>}
           <details ref={element => { detailsRefs.current[stage.id] = element; }} open={openStages.has(stage.id)} onToggle={event => { const isOpen = event.currentTarget.open; setOpenStages(previous => { if (previous.has(stage.id) === isOpen) return previous; const next = new Set(previous); if (isOpen) next.add(stage.id); else next.delete(stage.id); return next; }); }} className="mt-4 border-t border-border pt-2">
             <summary className="min-h-12 cursor-pointer py-3 font-semibold text-primary">View requirements <span className="sr-only">for {stage.title}</span></summary>
             <div className="mt-3 space-y-5">
               {stage.forms.map(id => <FormCard key={`${program}-${id}`} form={thesisForms[id]} program={program} />)}
               {stage.notes?.map(note => <p key={note} className="leading-7">{note}</p>)}
-              {stage.conditional && <details className="rounded-md border border-border p-4"><summary className="min-h-12 cursor-pointer py-3 font-semibold">Need to change your Adviser or a Panel Member? <span className="block font-normal">Conditional · Form 018</span></summary><div className="mt-4"><FormCard key={`${program}-018`} form={thesisForms[stage.conditional]} program={program} /></div></details>}
+              {stage.conditional && <details className="rounded-md border border-border p-4"><summary className="min-h-12 cursor-pointer py-3 font-semibold">Need to change your Adviser or a Panel Member? <span className="block font-normal">Only if a replacement is needed · Form 018</span></summary><div className="mt-4"><FormCard key={`${program}-018`} form={thesisForms[stage.conditional]} program={program} /></div></details>}
             </div>
           </details>
           <p className="mt-5 border-t border-border pt-4 leading-7"><strong>What happens next?</strong> {stage.next}</p>

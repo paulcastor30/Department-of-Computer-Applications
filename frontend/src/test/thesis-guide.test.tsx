@@ -63,3 +63,15 @@ it.each(["BSCA", "MSCA"])("shows department photo requirements for both %s heari
   expect(thesisForms["019"].requirements.join(" ")).not.toMatch(/photo/i);
   expect(thesisForms["022"].requirements.join(" ")).not.toMatch(/photo/i);
 });
+
+it("presents one concise workflow with closed details until a student chooses a step", () => {
+  window.history.replaceState({}, "", "/thesis-guide");
+  guide();
+  const workflows = screen.getAllByRole("list", { name: "BSCA thesis process" });
+  expect(workflows).toHaveLength(1);
+  const stages = Array.from(workflows[0].children);
+  expect(stages).toHaveLength(8);
+  expect(stages.every(stage => !stage.querySelector("details")?.open)).toBe(true);
+  const sourceNotes = screen.getByText("Source notes and items requiring verification").closest("details");
+  expect(sourceNotes).not.toHaveAttribute("open");
+});

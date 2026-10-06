@@ -554,3 +554,28 @@ footer h2 { color: white; }
 .home-contact-details { display: grid; gap: .65rem; margin-top: 1rem; }
 .home-contact-details dt { font-weight: 600; }
 .home-contact-details dd a { display: inline-flex; align-items: center; min-height: 44px; }
+
+/* A single student-facing thesis timeline. Keep full-width cards on phones. */
+@media (min-width: 640px) {
+  .thesis-timeline {
+    padding-left: 4rem;
+  }
+
+  .thesis-timeline .thesis-stage-number {
+    position: absolute;
+    left: -4rem;
+    top: 1.5rem;
+    z-index: 1;
+  }
+
+  .thesis-timeline > li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: -2.75rem;
+    top: 4rem;
+    bottom: -3rem;
+    width: 1px;
+    background: hsl(var(--border));
+    pointer-events: none;
+  }
+}

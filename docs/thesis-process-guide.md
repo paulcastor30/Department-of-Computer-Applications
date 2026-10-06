@@ -32,3 +32,7 @@ Run frontend lint, TypeScript validation, tests and production build. Verify eve
 ## Public hearing announcements
 
 On 6 October 2026, the department instructed that each student supply a personal photo with the proposal/final-defense booking and approval materials, for the department’s public Facebook announcements. This applies to BSCA and MSCA. `publicAnnouncementPhotos` centrally maintains the requirement and is attached to Forms 019 and 022 through `departmentRequirements`; it is not attributed to the forms themselves. Photo format, resolution, delivery channel, staff recipient and an additional photo deadline were not specified, so none are invented. Students are directed to confirm the format and submission method with the department. No website photo-upload feature, Facebook publishing action or additional policy is introduced.
+
+## Timeline presentation
+
+There is one eight-step workflow. Requirements start collapsed on a normal visit; choosing a step or following a stage link opens the relevant details. Desktop uses connected numbered markers; phones retain full-width cards with inline numbers. Form 018 stays inside an optional disclosure, and document-code issues remain under expandable document information/source notes. Do not add a second summary timeline that repeats this sequence.
