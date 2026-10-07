@@ -12,9 +12,9 @@ The backend is responsible for:
 
 ## Current stack
 
-The backend uses Django 6.0.3 together with Django REST framework and `django-cors-headers`.【turn189303view0†L0-L0】【turn837861view2†L0-L2】
+The backend uses Django 6.0 (pinned by `constraints-ci.txt`) together with Django REST framework and `django-cors-headers`.
 
-The settings currently show domain apps under `apps.core`, `apps.academics`, `apps.people`, `apps.research`, `apps.extension`, `apps.communications`, and `apps.quality`.【turn837861view2†L1-L2】
+The settings currently show domain apps under `apps.core`, `apps.academics`, `apps.people`, `apps.research`, `apps.extension`, `apps.communications`, and `apps.quality`.
 
 ## Backend structure
 
@@ -68,7 +68,7 @@ python -m venv .venv
 .venv\Scripts\activate
 # macOS/Linux
 source .venv/bin/activate
-pip install -r ../requirements.txt
+python -m pip install -r requirements.txt -c constraints-ci.txt
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
@@ -161,4 +161,6 @@ This backend is being built incrementally. Some modules may still be in transiti
 
 Store department-level activity in `ResearchProject`, `PublicationRecord`, `ConferenceRecord` or `ExtensionProject`, then link faculty using `FacultyContribution`. Do not duplicate those facts in faculty-specific activity models. Historical activity models are deprecated for new institutional entries, retained for review, and editable for corrections. Education, expertise, supervised work, creative work, professional development and achievements remain faculty-specific.
 
-See [institutional contributions and CI](../docs/institutional-contributions-and-ci.md) for reconciliation commands, editor permissions, migrations and the backend quality gate. Install this folder's requirements with `python -m pip install -r requirements.txt`.
+See [institutional contributions and CI](../docs/institutional-contributions-and-ci.md) for reconciliation commands, editor permissions, migrations and the backend quality gate. Install this folder's requirements with `python -m pip install -r requirements.txt -c constraints-ci.txt`.
+
+See the [main quick start](../README.md#getting-started), [local development notes](../docs/local-development.md), and [contribution guide](../CONTRIBUTING.md) for setup, troubleshooting, and review checks.
