@@ -1,166 +1,62 @@
-# Backend README
+# Backend
 
-This folder contains the **Django backend** for the Department of Computer Applications website.
+Django stores the website content and provides the admin screens. Django REST Framework exposes data for the React frontend.
 
-The backend is responsible for:
+Follow the [main setup instructions](../README.md#getting-started) first. Settings are in `dca_site/settings.py`; API routes start in `dca_site/api_urls.py`.
 
-- content management through Django admin
-- public API endpoints for the React frontend
-- media and file handling
-- editorial roles and permissions
-- structured data for accreditation and quality related content
+## Where to edit
 
-## Current stack
+Apps are under `apps/`:
 
-The backend uses Django 6.0 (pinned by `constraints-ci.txt`) together with Django REST framework and `django-cors-headers`.
+- `core`: site settings, homepage sections, and project prototypes.
+- `academics`: programs, curriculum information, and the SOJT guide.
+- `people`: faculty profiles and links to their department activities.
+- `communications`: news, events, and resources.
+- `research`: projects, publications, and conference records.
+- `extension`: extension projects.
+- `quality`: evidence documents.
 
-The settings currently show domain apps under `apps.core`, `apps.academics`, `apps.people`, `apps.research`, `apps.extension`, `apps.communications`, and `apps.quality`.
+Within each app, `models.py` defines the database records, `admin.py` configures their editing screens, `serializers.py` defines the API fields, and `views.py` handles requests. `api_urls.py` maps URLs to views; `tests.py` contains tests.
 
-## Backend structure
+## Local admin
 
-A typical backend layout in this project is:
-
-```text
-backend/
-├── apps/
-│   ├── core/
-│   ├── academics/
-│   ├── people/
-│   ├── research/
-│   ├── extension/
-│   ├── communications/
-│   └── quality/
-├── dca_site/
-├── manage.py
-└── db.sqlite3
-```
-
-## Responsibilities by app
-
-### `apps.core`
-Cross cutting content such as site settings, homepage data, department profile, hero sections, and quick stats.
-
-### `apps.academics`
-Programs, curriculum related data, educational objectives, student outcomes, and academic FAQs.
-
-### `apps.people`
-Faculty and staff directory data, profile content, qualifications, and achievements.
-
-### `apps.research`
-Research areas, projects, publications, laboratories, and metrics.
-
-### `apps.extension`
-Community extension programs, partnerships, outcomes, and service impact.
-
-### `apps.communications`
-News, events, downloadable resources, and public contact related content.
-
-### `apps.quality`
-Evidence documents, accreditation ready structures, and quality support metadata.
-
-## Local setup
-
-From the `backend` folder:
+With your Python environment active, run from this folder:
 
 ```bash
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-source .venv/bin/activate
-python -m pip install -r requirements.txt -c constraints-ci.txt
-python manage.py migrate
 python manage.py createsuperuser
-python manage.py runserver
 ```
 
-## Useful commands
+Start Django and open `http://127.0.0.1:8000/admin/`. The account you create belongs to your local database.
 
-```bash
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py collectstatic --noinput
-python manage.py shell
-```
-
-If the project includes custom management commands such as role setup, run them after migrations:
+To create the existing editorial permission groups:
 
 ```bash
 python manage.py setup_roles
 ```
 
-## API design direction
+## Model changes
 
-The backend is moving toward:
+After editing a model, create and apply its migration:
 
-- serializers per app
-- read only public endpoints for public content
-- admin driven content editing
-- explicit permissions and editorial roles
-- incremental replacement of hardcoded placeholders
-
-Examples of API namespaces expected in this structure:
-
-```text
-/api/core/
-/api/academics/
-/api/people/
-/api/communications/
-/api/quality/
+```bash
+python manage.py makemigrations
+python manage.py migrate
 ```
 
-## Admin and editorial workflow
+Include the generated migration file in your pull request. Add a new migration for a new change rather than rewriting an old applied migration.
 
-Django admin is the internal editorial interface. The intent is to support roles such as:
+## Faculty and department activities
 
-- site_admin
-- qa_editor
-- program_editor
-- faculty_editor
-- research_editor
-- communications_editor
+Research projects, publications, conference records, and extension projects are stored as department records. `FacultyContribution` links people to those records. See [the content workflow](../docs/institutional-contributions-and-ci.md) before changing these relationships.
 
-These roles should be permission based, not superuser based.
+## Checks
 
-## Backend contribution ideas
+Run from this folder with your Python environment active:
 
-### Good first issues
-- improve admin labels and help text
-- add `verbose_name` and `verbose_name_plural`
-- add serializer tests
-- clean up duplicated logic
-- improve docstrings and comments
+```bash
+python manage.py check
+python manage.py makemigrations --check --dry-run
+python manage.py test
+```
 
-### Intermediate issues
-- add list and detail endpoints for remaining models
-- improve queryset filtering and ordering
-- add pagination to public endpoints
-- add media previews in admin
-- strengthen validation for important models
-
-### Advanced issues
-- add structured accreditation mapping support
-- implement custom publish permissions
-- improve search across models
-- add CI checks for backend code quality
-
-## Development expectations
-
-- keep models explicit and well named
-- add migrations for all model changes
-- prefer small, reviewable pull requests
-- avoid mixing unrelated schema and API changes
-- keep admin usability in mind when designing models
-
-## Notes for contributors
-
-This backend is being built incrementally. Some modules may still be in transition while the repository moves from a thin Django shell to a fuller content and API backend. Contributions that improve structure, readability, and maintainability are valuable.
-
-## Institutional source of truth
-
-Store department-level activity in `ResearchProject`, `PublicationRecord`, `ConferenceRecord` or `ExtensionProject`, then link faculty using `FacultyContribution`. Do not duplicate those facts in faculty-specific activity models. Historical activity models are deprecated for new institutional entries, retained for review, and editable for corrections. Education, expertise, supervised work, creative work, professional development and achievements remain faculty-specific.
-
-See [institutional contributions and CI](../docs/institutional-contributions-and-ci.md) for reconciliation commands, editor permissions, migrations and the backend quality gate. Install this folder's requirements with `python -m pip install -r requirements.txt -c constraints-ci.txt`.
-
-See the [main quick start](../README.md#getting-started), [local development notes](../docs/local-development.md), and [contribution guide](../CONTRIBUTING.md) for setup, troubleshooting, and review checks.
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for submitting a change.

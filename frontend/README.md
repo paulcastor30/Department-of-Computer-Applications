@@ -1,154 +1,49 @@
-# Frontend README
+# Frontend
 
-This folder contains the **React frontend** for the Department of Computer Applications website.
+React and TypeScript render the website pages. Vite runs the development server and builds the files for deployment.
 
-The frontend is responsible for:
+Follow the [main setup instructions](../README.md#getting-started) first.
 
-- the public facing website experience
-- responsive layout and navigation
-- page templates and reusable UI components
-- API integration with the Django backend
-- fast, readable, student friendly presentation
+## Where to edit
 
-## Current stack
+- `src/pages/`: page components, grouped by section.
+- `src/components/`: components used across pages.
+- `src/hooks/`: functions that load API data using TanStack Query.
+- `src/lib/api.ts`: the shared helper for API requests.
+- `src/types/api.ts`: TypeScript definitions for API data.
+- `src/test/`: tests.
+- `public/`: files served directly, including downloadable documents.
 
-The frontend uses Vite with React and TypeScript, with scripts for `dev`, `build`, `build:dev`, `lint`, `preview`, `test`, and `test:watch` already defined in `package.json`. It also includes React Router, TanStack Query, Tailwind CSS, Vitest, and a Radix based component ecosystem.
+## Example: the BSCA page
 
-## Frontend goals
+`src/pages/programs/BSCA.tsx` calls `usePrograms()` from `src/hooks/useAcademics.ts` to load program records from Django. It selects BSCA and passes the data to `src/pages/programs/ProgramDetailPage.tsx`, which renders the page. `programData.ts` in the same folder contains reference text used when fields are missing.
 
-This site should be:
+To change the shared page layout, look in `ProgramDetailPage.tsx`. To change an official program record, check the Django model and admin instead of adding a second copy of the content to the page.
 
-- modern and professional
-- warm and welcoming
-- fast to scan
-- accessible and responsive
-- credible for academic and accreditation contexts
-- easy for contributors to extend without rewriting the whole app
+## API address
 
-## Local setup
+For local development, copy `.env.example` to `.env.local`. It sets:
 
-From the `frontend` folder:
-
-```bash
-npm ci
-# macOS/Linux; on PowerShell use Copy-Item .env.example .env.local
-cp .env.example .env.local
-npm run dev
+```text
+VITE_API_BASE_URL=http://127.0.0.1:8000
 ```
 
-Useful commands:
+Restart Vite after editing it. These values are included in browser code, so do not put secrets here.
+
+For separate frontend/backend deployments, set the backend URL in the frontend hosting environment. For a build served by Django on the same origin, leave `VITE_API_BASE_URL` empty. See [deployment instructions](../DEPLOYMENT.md).
+
+## Checks
+
+Run from this folder:
 
 ```bash
-npm run build
-npm run build:dev
+npm run typecheck
 npm run lint
-npm run preview
-npm run test
+npm test
+npm run build
+npm run check:sharing
 ```
 
-## Suggested frontend structure
+`npm run test:watch` reruns tests as you edit. `npm run preview` serves the production build locally.
 
-```text
-frontend/
-├── src/
-│   ├── components/
-│   ├── hooks/
-│   ├── lib/
-│   ├── pages/
-│   ├── types/
-│   └── assets/
-├── public/
-├── package.json
-└── vite.config.ts
-```
-
-## Frontend architecture direction
-
-The preferred pattern in this project is:
-
-- reusable layout and section components
-- one shared API helper
-- app specific hooks for backend data
-- page by page replacement of hardcoded content
-- React Query for data fetching and caching
-
-Typical flow:
-
-```text
-Django API -> frontend hook -> page component -> reusable UI sections
-```
-
-## Production API configuration
-
-Set `VITE_API_BASE_URL` in the frontend deployment when the React app is served separately from Django.
-
-Examples:
-
-```text
-VITE_API_BASE_URL=https://your-django-backend.example.com
-VITE_API_BASE_URL=https://your-django-backend.example.com/api
-```
-
-The shared API helper accepts either form. Program routes use `/api/academics/programs/` and `/api/academics/programs/:slug/`; if the API is unavailable, the Program pages render restrained placeholder structure until official Django-backed content is reachable.
-
-## Contribution ideas
-
-### Good first issues
-- improve spacing and alignment
-- refine mobile responsiveness
-- add loading, empty, and error states
-- improve accessibility and semantics
-- update placeholder imagery and alt text
-- clean up minor UI inconsistencies
-
-### Intermediate issues
-- connect pages to live API endpoints
-- improve search and filtering UX
-- add reusable content cards and evidence blocks
-- improve page level metadata and breadcrumbs
-- add test coverage for shared components and hooks
-
-### Advanced issues
-- refactor large pages into smaller sections
-- improve data fetching patterns and cache strategy
-- optimize bundle size and image loading
-- improve route level code organization
-- build a stronger design token and theme system
-
-## Frontend contribution rules
-
-- do not rewrite whole pages unless necessary
-- prefer incremental replacement of static placeholders
-- keep existing routes stable when possible
-- use shared hooks and helpers instead of repeated raw `fetch` calls
-- keep accessibility in scope for every UI change
-- preserve the visual direction of a modern academic website
-
-## Recommended integration order
-
-When connecting backend data, do it incrementally:
-
-1. Home
-2. About
-3. Programs
-4. Faculty
-5. News and Events
-6. Research later, after backend models are ready
-
-This keeps the site usable while the backend evolves.
-
-## Testing mindset
-
-Frontend changes should be checked for:
-
-- layout integrity on mobile and desktop
-- accessible headings and labels
-- graceful behavior when API data is empty
-- consistent typography and color usage
-- no broken internal links
-
-## Notes for contributors
-
-This frontend started from a strong static UI foundation and is being migrated toward a CMS backed experience. That means not every page is fully dynamic yet, and that is expected. Useful contributions include both visual polish and data integration.
-
-See the [main quick start](../README.md#getting-started), [local development notes](../docs/local-development.md), and [contribution guide](../CONTRIBUTING.md) for setup, troubleshooting, and review checks.
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for submitting a change.

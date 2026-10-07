@@ -39,19 +39,12 @@ Use:
 - “To be provided by the Department” for missing official content.
 - “To be validated by the Department” for content requiring confirmation.
 
-## Design Direction
+## Page layout
 
-The Programs section must look like a formal global top-200 university department website:
-- academic
-- restrained
-- evidence-aware
-- student-facing
-- accessible
-- responsive
-- maintainable
-- not promotional
-- not a student-organization page
-- not an accreditation binder
+- Keep headings, spacing, and navigation consistent with the existing pages.
+- Use labelled form controls, visible keyboard focus, and readable contrast.
+- Check layouts on narrow and wide screens.
+- Present program information and documents without unsupported claims.
 
 ## Technical Direction
 

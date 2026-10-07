@@ -1,4 +1,4 @@
-# Institutional contributions and repository quality gates
+# Institutional contributions and CI checks
 
 Department-level activity is stored once in the appropriate institutional model and linked to faculty using `FacultyContribution`. Faculty profiles read the shared record at request time; correcting its title, year, DOI, withdrawal or publishing status updates every profile presentation.
 

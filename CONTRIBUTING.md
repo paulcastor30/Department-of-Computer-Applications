@@ -1,60 +1,45 @@
 # Contributing
 
-BSCA and MSCA students and graduates are welcome, including first-time contributors. You can help with documentation, accessibility, testing, bug reports, frontend work, or backend work. Choose tasks by interest and experience, rather than degree level. No university email address, student ID, transcript, or proof of graduation is required for a public contribution.
+BSCA and MSCA students and graduates are welcome. You do not need to know the whole project to make your first change.
 
-Before submitting code, check the [license status](README.md#license). The project is preparing for an open-source release; licensing is still pending. Do not assume permission to reuse institutional assets.
+## Choose a change
 
-## Find a task and get help
+Start with a problem you can describe: an unclear instruction, a broken link, a page that does not fit your phone, or a bug you can reproduce. Check [existing issues](https://github.com/paulcastor30/Department-of-Computer-Applications/issues) to see whether someone is already working on it.
 
-Start with an issue labelled `good first issue` or `help wanted`. If none are available, open a task proposal describing a small improvement. Comment on an existing issue before starting so maintainers can help avoid duplicate work. You can ask basic questions in an issue or a draft pull request. Never post passwords, student records, or private reports there.
+If you need help choosing, open an issue and tell us what you would like to work on. For a larger feature, explain your idea in an issue before writing the code.
 
-Discuss new features, dependencies, schema changes, and changes to official academic information before implementing them. A small documentation or bug fix can go straight to a pull request. Participation does not guarantee acceptance, academic credit, or official department endorsement.
+## Get your own copy
 
-## Set up locally
+On GitHub, click **Fork** on this repository. A fork is a copy under your account where you can save your changes.
 
-Follow the [README quick start](README.md#getting-started), then [local development notes](docs/local-development.md). You do not need production credentials, a paid hosting account, or access to the live admin. Keep your database and local credentials out of Git.
-
-## Your first pull request
-
-1. Sign in to GitHub and fork this repository.
-2. Clone **your fork**, replacing `YOUR-USERNAME` below.
+Clone your fork, replacing `YOUR-USERNAME` with your GitHub username:
 
 ```bash
 git clone https://github.com/YOUR-USERNAME/Department-of-Computer-Applications.git
 cd Department-of-Computer-Applications
-git remote add upstream https://github.com/paulcastor30/Department-of-Computer-Applications.git
-git switch -c docs/my-first-change
 ```
 
-3. Make one focused change. Use `fix/`, `feature/`, or `docs/` in branch names as appropriate.
-4. Run the checks relevant to your change below. For UI work, inspect desktop and narrow-screen layouts and keyboard navigation.
-5. Review your changes before committing. Ensure no local files or private data are included.
+Follow the [setup instructions](README.md#getting-started) to run the website.
+
+Create a branch for your change. A branch keeps this work separate from `main`:
 
 ```bash
-git diff
-git status --short
-git add path/to/changed-file
-git commit -m "Describe the change"
-git push -u origin docs/my-first-change
+git switch -c fix/describe-your-change
 ```
 
-6. On GitHub, open a pull request from your branch to this repository's `main`. Complete the template: explain the problem, change, and verification. Link an issue if one exists; include screenshots for visible changes without personal data.
-7. Open a **draft** pull request if you need help before finishing. Maintainers may request changes. Push updates to the same branch; a new pull request is unnecessary.
+## Find the code
 
-Before starting another task, update your fork's main branch:
+For a page change, start in `frontend/src/pages/`. For example, the BSCA page is `frontend/src/pages/programs/BSCA.tsx`; it uses the shared layout in `ProgramDetailPage.tsx` beside it.
 
-```bash
-git switch main
-git fetch upstream
-git merge --ff-only upstream/main
-git push origin main
-```
+For a backend change, start in the relevant folder under `backend/apps/`. For example, program records are defined in `backend/apps/academics/models.py`. The [frontend](frontend/README.md) and [backend](backend/README.md) guides explain the other files.
 
-If Git reports a conflict or refuses the update, ask for help in your pull request before using reset or force push.
+Keep your first pull request to one change so it is easier to explain and review.
 
-## Checks before review
+## Check your change
 
-For frontend changes, run from `frontend/`:
+For documentation, read the edited text and check its links and commands.
+
+For frontend code, run these from `frontend/`:
 
 ```bash
 npm run typecheck
@@ -64,7 +49,9 @@ npm run build
 npm run check:sharing
 ```
 
-For backend changes, activate your environment and run from `backend/`:
+These check TypeScript errors, code rules, tests, the production build, and page-sharing metadata. For a visible change, also check the page on a narrow screen and try its controls with the keyboard.
+
+For backend code, activate your Python environment and run these from `backend/`:
 
 ```bash
 python manage.py check
@@ -72,22 +59,32 @@ python manage.py makemigrations --check --dry-run
 python manage.py test
 ```
 
-If you deliberately change models, first generate and inspect migrations with `python manage.py makemigrations`, then run `python manage.py migrate`. Commit the migration files. Never edit already-applied migrations to introduce a new change.
+These check Django configuration, missing migration files, and backend tests. If you changed a model, run `python manage.py makemigrations` and `python manage.py migrate` first, then include the new migration in your submission.
 
-For documentation-only changes, check links, command paths, spelling, and formatting. You do not need new tests for prose edits. For behavior changes, add or update tests that demonstrate the behavior. Explain checks you could not run and include the actual error; do not mark an unrun check as passed. GitHub CI runs frontend and backend checks on pull requests to `main`.
+If a check fails and you cannot work out why, include the error in your pull request and ask for help.
 
-## Project conventions
+## Send your change for review
 
-- Preserve Django-backed content and the existing API → hook → page → component flow. See the [frontend](frontend/README.md) and [backend](backend/README.md) guides.
-- Preserve accessibility, responsive layouts, and public routes. Avoid unnecessary dependencies and unrelated formatting changes.
-- Do not invent accreditation, rankings, statistics, faculty details, curricula, admission rules, or thesis policies. Missing official information is “To be provided by the Department”; information needing confirmation is “To be validated by the Department”.
-- Use **Undergraduate Thesis** for BSCA and **Master’s Thesis or Graduate Thesis** for MSCA. Official content changes need department validation as well as code review.
-- Use synthetic local examples; never commit database dumps, completed student forms, private evidence, access tokens, or uploads containing personal data.
-- Only submit material you have permission to contribute. Identify sources and third-party licensing when adding assets or copied code.
-- If you use an AI assistant, review its output, verify factual claims, and run applicable checks yourself. Do not send confidential department or student data to it.
+Check which files changed, then save and upload your work. Replace `path/to/changed-file` with the file you edited; repeat `git add` for each file you want to include.
 
-## Review and community
+```bash
+git diff
+git status --short
+git add path/to/changed-file
+git commit -m "Describe what you changed"
+git push -u origin fix/describe-your-change
+```
 
-The repository owner, [@paulcastor30](https://github.com/paulcastor30), coordinates code review. Contributors use forks and pull requests; production access is not part of normal contribution. Maintainers decide whether a change fits the project, and authorized department reviewers validate institutional facts. A code merge does not establish academic policy approval.
+On GitHub, open your fork and click **Compare & pull request**. Set the destination to this repository's `main` branch. A pull request asks the maintainer to review and merge your change.
 
-Be patient while reviews are pending; no response-time guarantee is currently offered. Give specific, respectful feedback and credit contributors in merged pull requests. Follow the [code of conduct](CODE_OF_CONDUCT.md). Use the [security policy](SECURITY.md) for vulnerabilities, rather than public bug reports.
+Explain what was wrong, what you changed, and how you checked it. Add a screenshot if the page looks different. You can open a **draft pull request** to ask for help with unfinished work.
+
+If the reviewer asks for an update, edit the files, commit, and push to the same branch. The existing pull request will update automatically.
+
+## Working with department content
+
+Get department confirmation before changing admission rules, curricula, thesis requirements, accreditation claims, or other official information. Keep content that is managed in Django connected to Django.
+
+Use **Undergraduate Thesis** for BSCA and **Master’s Thesis or Graduate Thesis** for MSCA. For missing official information, use “To be provided by the Department”; for information awaiting confirmation, use “To be validated by the Department”.
+
+Keep passwords, student records, completed forms, and database backups out of commits and screenshots. Check permission before adding someone else's code, photos, or documents.
