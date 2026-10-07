@@ -12,7 +12,7 @@ The frontend is responsible for:
 
 ## Current stack
 
-The frontend uses Vite with React and TypeScript, with scripts for `dev`, `build`, `build:dev`, `lint`, `preview`, `test`, and `test:watch` already defined in `package.json`. It also includes React Router, TanStack Query, Tailwind CSS, Vitest, and a Radix based component ecosystem.【turn663442view0†L0-L0】
+The frontend uses Vite with React and TypeScript, with scripts for `dev`, `build`, `build:dev`, `lint`, `preview`, `test`, and `test:watch` already defined in `package.json`. It also includes React Router, TanStack Query, Tailwind CSS, Vitest, and a Radix based component ecosystem.
 
 ## Frontend goals
 
@@ -30,7 +30,9 @@ This site should be:
 From the `frontend` folder:
 
 ```bash
-npm install
+npm ci
+# macOS/Linux; on PowerShell use Copy-Item .env.example .env.local
+cp .env.example .env.local
 npm run dev
 ```
 
@@ -148,3 +150,5 @@ Frontend changes should be checked for:
 ## Notes for contributors
 
 This frontend started from a strong static UI foundation and is being migrated toward a CMS backed experience. That means not every page is fully dynamic yet, and that is expected. Useful contributions include both visual polish and data integration.
+
+See the [main quick start](../README.md#getting-started), [local development notes](../docs/local-development.md), and [contribution guide](../CONTRIBUTING.md) for setup, troubleshooting, and review checks.

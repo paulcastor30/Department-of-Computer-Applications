@@ -12,3 +12,12 @@
 
 # Temporary document extracts
 /tmp/
+
+# Local credentials and databases (examples are safe to commit)
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+*.sqlite3
+*.sqlite3.bak

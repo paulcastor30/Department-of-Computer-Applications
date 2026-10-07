@@ -50,7 +50,7 @@ A CMS-backed, accreditation-aware department website built with a **Django REST*
 
 This repository powers the public website of the **Department of Computer Applications (DCA)** at **MSU–IIT**. It is designed to read like a formal, student-facing academic department site while giving department staff a structured, permission-controlled way to manage content, including evidence artefacts used for accreditation and quality-assurance work.
 
-The project is developed as an **open-source, contributor-friendly codebase**. The frontend began as a polished static UI and is being migrated, page by page, to Django-backed content. Some pages are already fully dynamic; others remain placeholder-driven until their backend models land. That incremental state is expected.
+The project is being prepared for an **open-source release and student contributions**; the [license decision](#license) is still pending. The frontend began as a polished static UI and is being migrated, page by page, to Django-backed content. Some pages are already fully dynamic; others remain placeholder-driven until their backend models land. That incremental state is expected.
 
 ### Design Principles
 
@@ -122,11 +122,15 @@ Department-of-Computer-Applications/
 
 ## Getting Started
 
+BSCA and MSCA students and graduates are welcome, including first-time contributors. Documentation, accessibility, testing, and bug reports are useful contributions alongside code. No university email address or proof of graduation is required. Start with the [contribution guide](CONTRIBUTING.md) and [code of conduct](CODE_OF_CONDUCT.md).
+
 ### Prerequisites
 
-- **Python** 3.12
-- **Node.js** and **npm**
-- **Git**
+- **Python 3.12** (repository pin: 3.12.13)
+- **Node.js 22** and **npm**, matching CI
+- **Git** and a GitHub account to submit contributions
+
+Local development uses SQLite. Production accounts and credentials are unnecessary.
 
 ### 1. Clone the repository
 
@@ -135,38 +139,73 @@ git clone https://github.com/paulcastor30/Department-of-Computer-Applications.gi
 cd Department-of-Computer-Applications
 ```
 
+To submit changes, clone your own fork instead; see [your first pull request](CONTRIBUTING.md#your-first-pull-request).
+
 ### 2. Run the backend
 
 ```bash
 cd backend
 python -m venv .venv
+```
 
-# Windows
-.venv\Scripts\activate
+Activate the environment using the command for your shell:
+
+```bash
 # macOS / Linux
 source .venv/bin/activate
+```
 
-pip install -r ../requirements.txt
+```powershell
+# Windows PowerShell
+.\.venv\Scripts\Activate.ps1
+```
+
+Then install the same dependency constraints used by CI and start Django:
+
+```bash
+python -m pip install -r requirements.txt -c constraints-ci.txt
 python manage.py migrate
+python manage.py check
 python manage.py runserver
 ```
 
+Backend: `http://127.0.0.1:8000`. Public API: `http://127.0.0.1:8000/api/academics/programs/`.
+For local admin access, run `python manage.py createsuperuser` and open `http://127.0.0.1:8000/admin/`.
+
+The backend reads shell environment variables; it does not automatically load `.env`. Its existing `.env.example` describes production configuration. See [local development notes](docs/local-development.md) if production variables are already set in your terminal.
+
 ### 3. Run the frontend
 
-In a second terminal:
+In a second terminal, from the repository root:
 
 ```bash
 cd frontend
-npm install
+npm ci
+```
+
+Copy the safe local API example:
+
+```bash
+# macOS / Linux
+cp .env.example .env.local
+```
+
+```powershell
+# Windows PowerShell
+Copy-Item .env.example .env.local
+```
+
+```bash
 npm run dev
 ```
 
-> [!TIP]
-> See `frontend/package.json` for the full list of scripts, including linting, preview, and tests.
+Open `http://localhost:8080`. Keep Django running in the first terminal. Restart Vite after changing `.env.local`; `VITE_` variables are public and must never contain secrets.
+
+A new local database will not contain all live-site content. See [local sample content and troubleshooting](docs/local-development.md) to practice without production data. See [contribution checks](CONTRIBUTING.md#checks-before-review) before submitting changes.
 
 ### 4. Production-style local test
 
-To have Django serve the built frontend (single-origin mode):
+To have Django serve the built frontend (single-origin mode), temporarily set `VITE_API_BASE_URL=` in `frontend/.env.local` before building so requests use the same origin. Restore the local API address when returning to split development:
 
 ```bash
 cd frontend
@@ -202,7 +241,7 @@ See the [Deployment Guide](DEPLOYMENT.md) for full instructions.
 
 ## Contributing
 
-Contributions at all levels are welcome.
+Contributions at all levels are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the full fork-to-pull-request walkthrough and required checks, [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community expectations, and [SECURITY.md](SECURITY.md) for vulnerability handling. Private reporting contacts are still pending confirmation before launch.
 
 ### Where to Start
 
@@ -247,7 +286,9 @@ docs/update-readme
 
 ## License
 
-A license has not yet been selected for this project. Until one is added, all rights are reserved by default.
+A license has not yet been selected for this project. Until one is added, all rights are reserved by default. MIT is proposed for original project code, subject to authorization from its copyright holder. University logos, photographs, forms, prospectuses, and third-party material require separate ownership and permission review. Public availability is not confirmation that these assets may be freely reused.
+
+Maintainers: complete the [open-source launch checklist](docs/open-source-launch.md) before announcing the release. Five [starter issue drafts](docs/starter-issues.md) are prepared for review.
 
 ---
 
