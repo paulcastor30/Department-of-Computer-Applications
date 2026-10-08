@@ -68,6 +68,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
         <div><dt className="font-semibold">Study sequence</dt><dd className="mt-2 leading-7 text-muted-foreground">{program.duration}</dd></div>
         <div><dt className="font-semibold">Study load</dt><dd className="mt-2 leading-7 text-muted-foreground">{program.units.replace(" Confirm your applicable plan with the department.", "")}</dd></div>
       </dl>
+      <Link className="text-link mt-4 inline-flex min-h-11 items-center" to="/#computer-applications">Understand embedded systems, firmware, connected systems and edge intelligence</Link>
       <nav aria-label={`${program.code} page sections`} className="mt-8 flex flex-wrap gap-3">
         {(areas.length > 0 || structure.length > 0) && <a className="outline-link" href="#study">What you will study</a>}
         <a className="outline-link" href="#requirements">Key requirements</a>

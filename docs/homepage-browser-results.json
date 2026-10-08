@@ -1,0 +1,125 @@
+{
+  "api": {
+    "/api/academics/programs/": {
+      "publishedRecords": 2
+    },
+    "/api/core/prototypes/": {
+      "publishedRecords": 22
+    },
+    "/api/research/projects/": {
+      "publishedRecords": 15
+    },
+    "/api/communications/news/": {
+      "publishedRecords": 3
+    },
+    "/api/core/site-settings/": {
+      "loaded": true
+    }
+  },
+  "viewports": [
+    {
+      "width": 320,
+      "closed": 320,
+      "expanded": 320,
+      "sections": [
+        "Department of Computer Applications",
+        "Explore Our Academic Programs",
+        "What is Computer Applications?",
+        "Discover Our Work",
+        "Research and International Collaboration",
+        "Department News",
+        "Connect With Us"
+      ],
+      "accessibility": {
+        "violations": [],
+        "incomplete": []
+      }
+    },
+    {
+      "width": 390,
+      "closed": 390,
+      "expanded": 390,
+      "sections": [
+        "Department of Computer Applications",
+        "Explore Our Academic Programs",
+        "What is Computer Applications?",
+        "Discover Our Work",
+        "Research and International Collaboration",
+        "Department News",
+        "Connect With Us"
+      ],
+      "accessibility": {
+        "violations": [],
+        "incomplete": []
+      }
+    },
+    {
+      "width": 768,
+      "closed": 768,
+      "expanded": 768,
+      "sections": [
+        "Department of Computer Applications",
+        "Explore Our Academic Programs",
+        "What is Computer Applications?",
+        "Discover Our Work",
+        "Research and International Collaboration",
+        "Department News",
+        "Connect With Us"
+      ],
+      "accessibility": {
+        "violations": [],
+        "incomplete": []
+      }
+    },
+    {
+      "width": 1280,
+      "closed": 1280,
+      "expanded": 1280,
+      "sections": [
+        "Department of Computer Applications",
+        "Explore Our Academic Programs",
+        "What is Computer Applications?",
+        "Discover Our Work",
+        "Research and International Collaboration",
+        "Department News",
+        "Connect With Us"
+      ],
+      "accessibility": {
+        "violations": [],
+        "incomplete": []
+      }
+    }
+  ],
+  "navigation": [
+    "/programs/bsca",
+    "/programs/msca",
+    "/programs",
+    "/research",
+    "/admissions",
+    "/projects#real-time-full-stack-ai-wearable-activity-tracker",
+    "/research/projects#aphids-detection",
+    "/projects",
+    "/research/projects",
+    "/research/publications",
+    "/extension",
+    "/facilities",
+    "/research/labs",
+    "/international-linkages",
+    "/research/collaborations",
+    "/about",
+    "/about#purpose",
+    "/news",
+    "/news/computer-applications-students-win-awards-adxp-2026",
+    "/news/vermisense-rcite-2026",
+    "/news/my-comapps-workshop-2024",
+    "/about/contact",
+    "/about/location#access",
+    "/alumni",
+    "/accessibility"
+  ],
+  "errors": [],
+  "focus": {
+    "style": "solid",
+    "width": "3px"
+  }
+}
