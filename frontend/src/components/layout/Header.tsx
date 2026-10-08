@@ -28,7 +28,7 @@ export function Header() {
       <div className="border-b border-border bg-muted/40"><div className="container py-2 text-sm text-muted-foreground">MSU–Iligan Institute of Technology · {departmentIdentity.college}</div></div>
       <div className="container flex flex-wrap items-center justify-between gap-4 py-5">
         <Link to="/" className="flex w-full min-w-0 items-center gap-3 font-semibold text-primary sm:w-auto sm:flex-1" aria-label="Department of Computer Applications home">
-          <img src="/ca-logo.png" alt="" width="52" height="52" className="h-12 w-12 shrink-0 object-contain" />
+          <img src="/ca-logo.png" alt="" width="52" height="52" className="h-8 w-8 shrink-0 object-contain" />
           <span className="max-w-sm text-base leading-snug sm:text-xl">{departmentIdentity.name}</span>
         </Link>
         <div className="flex flex-wrap gap-2">
