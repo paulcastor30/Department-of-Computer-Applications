@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import Logo from "@/assets/ccs-logo.png";
 import { Spinner } from "@/components/ui/spinner"; 
 
 interface PageLoadingProps {
