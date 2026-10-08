@@ -63,7 +63,7 @@ const bscaFallback: ProgramProfile = {
   degreeLevelCode: "UNDERGRAD",
   duration: "Four-year study sequence in the BSCA prospectus.",
   units: "147 units excluding NSTP; 153 units including the six NSTP units.",
-  recognition: "",
+  recognition: "BS in Computer Applications is AACCUP Level III Re-accredited for October 16, 2025 to October 15, 2029",
   summary: "Computer Applications bridges computing and the physical world. BSCA brings together software, firmware, and hardware to develop embedded, connected, and intelligent systems for real-world applications.",
   route: "/programs/bsca",
   academicOrientation: "Software, firmware, and hardware integration",
