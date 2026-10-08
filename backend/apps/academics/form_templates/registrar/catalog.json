@@ -1,0 +1,4837 @@
+{
+  "001": {
+    "title": "Application for advance credit",
+    "source_filename": "FM-MSU-IIT-RGTR-001 Application for Advance Credit.docx",
+    "source_sha256": "46d57847eea18f8e3b09a9dc7d7781437e9e498df267620c9e7c6be9f53701ec",
+    "pdf_sha256": "93e56ead166d6d034c5e78058eb9c17d2fca2535456f44ea9df3852dcad5627a",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 453.4,
+            "baseline": 183.9,
+            "width": 65.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "department",
+        "label": "Department",
+        "slots": [
+          {
+            "x": 154.7,
+            "baseline": 218.6,
+            "width": 155.0,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "slots": [
+          {
+            "x": 262.0,
+            "baseline": 241.7,
+            "width": 195.0,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "school",
+        "label": "Previous school name",
+        "slots": [
+          {
+            "x": 136.4,
+            "baseline": 322.5,
+            "width": 350.0,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "school_address",
+        "label": "Previous school address",
+        "slots": [
+          {
+            "x": 134.4,
+            "baseline": 334.1,
+            "width": 350.0,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_1_number",
+        "label": "Completed course 1 — Course number",
+        "slots": [
+          {
+            "x": 53,
+            "baseline": 372,
+            "width": 108,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_1_title",
+        "label": "Completed course 1 — Course title",
+        "slots": [
+          {
+            "x": 163,
+            "baseline": 372,
+            "width": 304,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_1_credits",
+        "label": "Completed course 1 — Credits",
+        "slots": [
+          {
+            "x": 469,
+            "baseline": 372,
+            "width": 73,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_2_number",
+        "label": "Completed course 2 — Course number",
+        "slots": [
+          {
+            "x": 53,
+            "baseline": 384.3,
+            "width": 108,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_2_title",
+        "label": "Completed course 2 — Course title",
+        "slots": [
+          {
+            "x": 163,
+            "baseline": 384.3,
+            "width": 304,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_2_credits",
+        "label": "Completed course 2 — Credits",
+        "slots": [
+          {
+            "x": 469,
+            "baseline": 384.3,
+            "width": 73,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_3_number",
+        "label": "Completed course 3 — Course number",
+        "slots": [
+          {
+            "x": 53,
+            "baseline": 396.6,
+            "width": 108,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_3_title",
+        "label": "Completed course 3 — Course title",
+        "slots": [
+          {
+            "x": 163,
+            "baseline": 396.6,
+            "width": 304,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_3_credits",
+        "label": "Completed course 3 — Credits",
+        "slots": [
+          {
+            "x": 469,
+            "baseline": 396.6,
+            "width": 73,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 9
+      }
+    ]
+  },
+  "002": {
+    "title": "Application for leave of absence",
+    "source_filename": "FM-MSU-IIT-RGTR-002 Application for Leave of Absence.docx",
+    "source_sha256": "a0175e9d229edd04779c18d869a8dce7027ce680869b8f237bbd52e7fcde65e2",
+    "pdf_sha256": "128c808708f6e05fd2eea8ad241ee64b22ad38a99069f3d83aed4ea408e51261",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "last_name",
+        "label": "Family / last name",
+        "slots": [
+          {
+            "x": 118.6,
+            "baseline": 181.4,
+            "width": 177.375,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "first_name",
+        "label": "Given / first name",
+        "slots": [
+          {
+            "x": 295.975,
+            "baseline": 181.4,
+            "width": 185.625,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "middle_initial",
+        "label": "Middle initial",
+        "slots": [
+          {
+            "x": 481.6,
+            "baseline": 181.4,
+            "width": 49.5,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_id",
+        "label": "Student ID number",
+        "slots": [
+          {
+            "x": 162.0,
+            "baseline": 215.9,
+            "width": 88.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "college",
+        "label": "College / school",
+        "slots": [
+          {
+            "x": 329.1,
+            "baseline": 215.9,
+            "width": 71.5,
+            "page": 0
+          }
+        ],
+        "max_length": 35,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course",
+        "label": "Course",
+        "slots": [
+          {
+            "x": 440.2,
+            "baseline": 215.9,
+            "width": 93.5,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "email",
+        "label": "Email address",
+        "slots": [
+          {
+            "x": 155.7,
+            "baseline": 253.8,
+            "width": 181.5,
+            "page": 0
+          }
+        ],
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "contact",
+        "label": "Contact number",
+        "slots": [
+          {
+            "x": 415.0,
+            "baseline": 253.8,
+            "width": 121.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "last_attended",
+        "label": "Semester and academic year last attended",
+        "slots": [
+          {
+            "x": 287.3,
+            "baseline": 266.5,
+            "width": 247.5,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "units",
+        "label": "Total units taken",
+        "slots": [
+          {
+            "x": 223.0,
+            "baseline": 279.1,
+            "width": 88.0,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "failed_units",
+        "label": "Total failure (units)",
+        "slots": [
+          {
+            "x": 477.8,
+            "baseline": 279.1,
+            "width": 60.5,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "gpa",
+        "label": "Cumulative GPA (from your records)",
+        "slots": [
+          {
+            "x": 168.3,
+            "baseline": 291.8,
+            "width": 104.5,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "leave_period",
+        "label": "Period covered by leave of absence",
+        "slots": [
+          {
+            "x": 256.8,
+            "baseline": 304.4,
+            "width": 247.5,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "printed_name",
+        "label": "Student printed name (sign after printing)",
+        "slots": [
+          {
+            "x": 81.5,
+            "baseline": 380.3,
+            "width": 176.0,
+            "page": 0
+          }
+        ],
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 380.8,
+            "baseline": 380.3,
+            "width": 126.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "address",
+        "label": "Mailing address",
+        "slots": [
+          {
+            "x": 163.1,
+            "baseline": 228.5,
+            "width": 374.0,
+            "page": 0
+          },
+          {
+            "x": 164.8,
+            "baseline": 241.2,
+            "width": 368.5,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "reasons",
+        "label": "Reasons for leave of absence",
+        "slots": [
+          {
+            "x": 92.8,
+            "baseline": 329.7,
+            "width": 445.5,
+            "page": 0
+          },
+          {
+            "x": 92.8,
+            "baseline": 342.4,
+            "width": 445.5,
+            "page": 0
+          },
+          {
+            "x": 92.8,
+            "baseline": 355.0,
+            "width": 445.5,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      }
+    ]
+  },
+  "003": {
+    "title": "Request form",
+    "source_filename": "FM-MSU-IIT-RGTR-003 Request Form.docx",
+    "source_sha256": "bb1b6ac8fee9b839cafbb9a861033875890eb397d55fc12d46de5e7abd496f30",
+    "pdf_sha256": "ae8880f706bd6c06d3d37d7dade7a404981e98e4ea913b64ab1e4cc2769ca96a",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date of request",
+        "slots": [
+          {
+            "x": 139.7,
+            "baseline": 169.2,
+            "width": 63.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "request_type",
+        "label": "Document type (choose one)",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "type_1",
+            "label": "Authentication"
+          },
+          {
+            "value": "type_2",
+            "label": "Evaluation"
+          },
+          {
+            "value": "type_3",
+            "label": "Diploma"
+          },
+          {
+            "value": "type_4",
+            "label": "Reprinting of Misspelled/Damaged Diploma"
+          },
+          {
+            "value": "type_5",
+            "label": "12.1a Current Student (Summer)"
+          },
+          {
+            "value": "type_6",
+            "label": "12.1b Current Student, units earned"
+          },
+          {
+            "value": "type_7",
+            "label": "12.1c Current Student, GSIS"
+          },
+          {
+            "value": "type_8",
+            "label": "12.1d Current Student without GPA"
+          },
+          {
+            "value": "type_9",
+            "label": "12.1e Former Student, units earned"
+          },
+          {
+            "value": "type_10",
+            "label": "12.2 Current Student with GPA"
+          },
+          {
+            "value": "type_11",
+            "label": "12.3a Former Student with GPA"
+          },
+          {
+            "value": "type_12",
+            "label": "12.3b Former Student without GPA"
+          },
+          {
+            "value": "type_13",
+            "label": "12.4a English as Medium of Instruction, student"
+          },
+          {
+            "value": "type_14",
+            "label": "12.4b English as Medium of Instruction, Alumnus (Undergraduate)"
+          },
+          {
+            "value": "type_15",
+            "label": "12.4c English as Medium of Instruction, Alumnus (Graduate & Undergraduate)"
+          },
+          {
+            "value": "type_16",
+            "label": "12.4f English as Medium of Instruction, Foreign Affairs"
+          },
+          {
+            "value": "type_17",
+            "label": "12.5a English Units Earned, Student"
+          },
+          {
+            "value": "type_18",
+            "label": "12.5b Education Units Earned, Former Student"
+          },
+          {
+            "value": "type_19",
+            "label": "12.5c Education Units Earned, Current Student"
+          },
+          {
+            "value": "type_20",
+            "label": "12.5d Education Subjects and Units Earned with GPA, Current Student"
+          },
+          {
+            "value": "type_21",
+            "label": "12.5e Education Subjects and Units Earned with GPA, Former Student"
+          },
+          {
+            "value": "type_22",
+            "label": "12.5f Education Subjects and Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_23",
+            "label": "12.6a English Units Earned, Alumnus"
+          },
+          {
+            "value": "type_24",
+            "label": "12.6b Education Units Earned, Alumnus"
+          },
+          {
+            "value": "type_25",
+            "label": "12.6c Social Science Subjects and Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_26",
+            "label": "12.6d Language Subjects and Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_27",
+            "label": "12.6e Liberal Arts Subjects and Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_28",
+            "label": "12.6f Language/Liberal Arts, Social Science Subjects and Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_29",
+            "label": "12.6g English Subjects and Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_30",
+            "label": "12.6h English Subjects and Units Earned with GPA, Student"
+          },
+          {
+            "value": "type_31",
+            "label": "12.6i Field Study Subjects and Units Earned with GPA, Student"
+          },
+          {
+            "value": "type_32",
+            "label": "12.6j Field Study Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_33",
+            "label": "12.7 Current Student with Subjects Taken"
+          },
+          {
+            "value": "type_34",
+            "label": "12.8a Graduating with GPA"
+          },
+          {
+            "value": "type_35",
+            "label": "12.8b Graduating without GPA"
+          },
+          {
+            "value": "type_36",
+            "label": "12.9a CAR Pending BOR Resolution"
+          },
+          {
+            "value": "type_37",
+            "label": "12.9b CAR without Thesis/Dissertation"
+          },
+          {
+            "value": "type_38",
+            "label": "12.10 Graduation without GPA"
+          },
+          {
+            "value": "type_39",
+            "label": "12.11 Graduation with GPA"
+          },
+          {
+            "value": "type_40",
+            "label": "12.11A Graduation with GPA and Equivalent Grade"
+          },
+          {
+            "value": "type_41",
+            "label": "12.12 Academic Honors"
+          },
+          {
+            "value": "type_42",
+            "label": "12.12A Academic Honors with number of graduates in respective program"
+          },
+          {
+            "value": "type_43",
+            "label": "12.13 Valedictorian/Salutatorian"
+          },
+          {
+            "value": "type_44",
+            "label": "12.14 Grade Equivalency"
+          },
+          {
+            "value": "type_45",
+            "label": "12.15 Lost Diploma"
+          },
+          {
+            "value": "type_46",
+            "label": "12.16 No Objection"
+          },
+          {
+            "value": "type_47",
+            "label": "12.18 Acceptance Notice"
+          },
+          {
+            "value": "type_48",
+            "label": "12.19 Affirmation on Diploma Reprinting"
+          },
+          {
+            "value": "type_49",
+            "label": "12.20 Diploma Correction"
+          },
+          {
+            "value": "type_50",
+            "label": "12.21 Practice Teaching Units Earned with GPA, Alumnus"
+          },
+          {
+            "value": "type_51",
+            "label": "12.22 Practice Teaching Units Earned with GPA, CPRT"
+          },
+          {
+            "value": "type_52",
+            "label": "12.23 Academic Honors with Ranking"
+          },
+          {
+            "value": "type_53",
+            "label": "12.25 Units earned (particular subject), Alumnus"
+          },
+          {
+            "value": "type_54",
+            "label": "12.26 Bonafide Student of MSU-IIT with ID"
+          },
+          {
+            "value": "type_55",
+            "label": "12.27 Graduate with Tadman"
+          },
+          {
+            "value": "type_56",
+            "label": "12.28 Legal Education Board with Notary Public (Honors)"
+          },
+          {
+            "value": "type_57",
+            "label": "12.29 Foreign Affairs, Consular Section, Alumnus (Undergraduate)"
+          },
+          {
+            "value": "type_58",
+            "label": "12.30 Dissertation Grant (CHED)"
+          },
+          {
+            "value": "type_59",
+            "label": "Permit to Cross-Enroll"
+          },
+          {
+            "value": "type_60",
+            "label": "Report of Grades"
+          },
+          {
+            "value": "type_61",
+            "label": "COR Reprinting"
+          },
+          {
+            "value": "type_62",
+            "label": "Other document"
+          },
+          {
+            "value": "type_63",
+            "label": "Transfer Credential"
+          },
+          {
+            "value": "type_64",
+            "label": "Transcript of Records"
+          },
+          {
+            "value": "type_65",
+            "label": "Second School Request"
+          },
+          {
+            "value": "type_66",
+            "label": "Certification, Authentication and Verification"
+          }
+        ],
+        "choice_slots": {
+          "type_1": [
+            {
+              "x": 39.15,
+              "baseline": 216.75076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_2": [
+            {
+              "x": 39.15,
+              "baseline": 242.35076377952805,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_3": [
+            {
+              "x": 39.15,
+              "baseline": 255.75076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_4": [
+            {
+              "x": 39.15,
+              "baseline": 269.25076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_5": [
+            {
+              "x": 39.15,
+              "baseline": 282.650763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_6": [
+            {
+              "x": 39.15,
+              "baseline": 296.150763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_7": [
+            {
+              "x": 39.15,
+              "baseline": 309.550763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_8": [
+            {
+              "x": 39.15,
+              "baseline": 323.050763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_9": [
+            {
+              "x": 39.15,
+              "baseline": 336.4507637795281,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_10": [
+            {
+              "x": 39.15,
+              "baseline": 349.950763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_11": [
+            {
+              "x": 39.15,
+              "baseline": 363.35076377952805,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_12": [
+            {
+              "x": 39.15,
+              "baseline": 376.85076377952805,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_13": [
+            {
+              "x": 39.15,
+              "baseline": 390.25076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_14": [
+            {
+              "x": 39.15,
+              "baseline": 403.75076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_15": [
+            {
+              "x": 39.15,
+              "baseline": 425.25076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_16": [
+            {
+              "x": 39.15,
+              "baseline": 446.75076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_17": [
+            {
+              "x": 39.15,
+              "baseline": 468.25076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_18": [
+            {
+              "x": 39.15,
+              "baseline": 481.65076377952806,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_19": [
+            {
+              "x": 39.15,
+              "baseline": 495.15076377952806,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_20": [
+            {
+              "x": 39.15,
+              "baseline": 508.55076377952804,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_21": [
+            {
+              "x": 39.15,
+              "baseline": 530.0507637795281,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_22": [
+            {
+              "x": 39.15,
+              "baseline": 551.5507637795281,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_23": [
+            {
+              "x": 223.15,
+              "baseline": 216.75076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_24": [
+            {
+              "x": 223.15,
+              "baseline": 230.150763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_25": [
+            {
+              "x": 223.15,
+              "baseline": 243.650763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_26": [
+            {
+              "x": 223.15,
+              "baseline": 265.150763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_27": [
+            {
+              "x": 223.15,
+              "baseline": 286.650763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_28": [
+            {
+              "x": 223.15,
+              "baseline": 308.150763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_29": [
+            {
+              "x": 223.15,
+              "baseline": 329.650763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_30": [
+            {
+              "x": 223.15,
+              "baseline": 351.15076377952806,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_31": [
+            {
+              "x": 223.15,
+              "baseline": 372.65076377952806,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_32": [
+            {
+              "x": 223.15,
+              "baseline": 394.15076377952806,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_33": [
+            {
+              "x": 223.15,
+              "baseline": 415.65076377952806,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_34": [
+            {
+              "x": 223.15,
+              "baseline": 429.05076377952804,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_35": [
+            {
+              "x": 223.15,
+              "baseline": 442.55076377952804,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_36": [
+            {
+              "x": 223.15,
+              "baseline": 455.950763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_37": [
+            {
+              "x": 223.15,
+              "baseline": 469.450763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_38": [
+            {
+              "x": 224.95,
+              "baseline": 482.85076377952805,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_39": [
+            {
+              "x": 224.95,
+              "baseline": 496.35076377952805,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_40": [
+            {
+              "x": 224.95,
+              "baseline": 509.75076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_41": [
+            {
+              "x": 224.95,
+              "baseline": 523.250763779528,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_42": [
+            {
+              "x": 410.95,
+              "baseline": 216.75076377952803,
+              "width": 14.5,
+              "page": 0
+            }
+          ],
+          "type_43": [
+            {
+              "x": 409.15,
+              "baseline": 236.95076377952807,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_44": [
+            {
+              "x": 409.15,
+              "baseline": 250.35076377952805,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_45": [
+            {
+              "x": 409.15,
+              "baseline": 263.85076377952805,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_46": [
+            {
+              "x": 409.15,
+              "baseline": 277.25076377952803,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_47": [
+            {
+              "x": 409.15,
+              "baseline": 306.85076377952805,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_48": [
+            {
+              "x": 409.15,
+              "baseline": 320.25076377952803,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_49": [
+            {
+              "x": 409.15,
+              "baseline": 333.75076377952803,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_50": [
+            {
+              "x": 409.15,
+              "baseline": 347.15076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_51": [
+            {
+              "x": 409.15,
+              "baseline": 368.65076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_52": [
+            {
+              "x": 409.15,
+              "baseline": 390.15076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_53": [
+            {
+              "x": 409.15,
+              "baseline": 403.65076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_54": [
+            {
+              "x": 409.15,
+              "baseline": 425.15076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_55": [
+            {
+              "x": 409.15,
+              "baseline": 446.65076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_56": [
+            {
+              "x": 409.15,
+              "baseline": 468.15076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_57": [
+            {
+              "x": 409.15,
+              "baseline": 489.65076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_58": [
+            {
+              "x": 409.15,
+              "baseline": 511.15076377952806,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_59": [
+            {
+              "x": 409.15,
+              "baseline": 524.5507637795281,
+              "width": 14.600000000000023,
+              "page": 0
+            }
+          ],
+          "type_60": [
+            {
+              "x": 43.65,
+              "baseline": 573.05,
+              "width": 14,
+              "page": 0
+            }
+          ],
+          "type_61": [
+            {
+              "x": 42.65,
+              "baseline": 586.55,
+              "width": 14,
+              "page": 0
+            }
+          ],
+          "type_62": [
+            {
+              "x": 338.65,
+              "baseline": 586.55,
+              "width": 14,
+              "page": 0
+            }
+          ],
+          "type_63": [
+            {
+              "x": 104.65,
+              "baseline": 607.25,
+              "width": 14,
+              "page": 0
+            }
+          ],
+          "type_64": [
+            {
+              "x": 104.65,
+              "baseline": 619.45,
+              "width": 14,
+              "page": 0
+            }
+          ],
+          "type_65": [
+            {
+              "x": 284.65,
+              "baseline": 607.25,
+              "width": 14,
+              "page": 0
+            }
+          ],
+          "type_66": [
+            {
+              "x": 284.65,
+              "baseline": 619.45,
+              "width": 14,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "student_id",
+        "label": "Student ID number",
+        "slots": [
+          {
+            "x": 81,
+            "baseline": 643.4,
+            "width": 119,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "slots": [
+          {
+            "x": 243,
+            "baseline": 643.4,
+            "width": 208,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "contact",
+        "label": "Contact number",
+        "slots": [
+          {
+            "x": 93,
+            "baseline": 663.5,
+            "width": 179,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "email",
+        "label": "Email address",
+        "slots": [
+          {
+            "x": 314,
+            "baseline": 663.5,
+            "width": 209,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "home_address",
+        "label": "Home address",
+        "slots": [
+          {
+            "x": 100,
+            "baseline": 671.6,
+            "width": 422,
+            "page": 0
+          }
+        ],
+        "max_length": 180,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "mailing_address",
+        "label": "Mailing address",
+        "slots": [
+          {
+            "x": 106,
+            "baseline": 679.6,
+            "width": 416,
+            "page": 0
+          }
+        ],
+        "max_length": 180,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "degree",
+        "label": "Degree / course",
+        "slots": [
+          {
+            "x": 100,
+            "baseline": 687.7,
+            "width": 138,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "major",
+        "label": "Major / option",
+        "slots": [
+          {
+            "x": 278,
+            "baseline": 687.7,
+            "width": 113,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "honors",
+        "label": "Honors / academic distinction (from your records)",
+        "slots": [
+          {
+            "x": 475,
+            "baseline": 687.7,
+            "width": 48,
+            "page": 0
+          }
+        ],
+        "max_length": 25,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "graduation_date",
+        "label": "Date of graduation",
+        "slots": [
+          {
+            "x": 113,
+            "baseline": 695.7,
+            "width": 123,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "last_attended",
+        "label": "Last semester and academic year attended at IIT",
+        "slots": [
+          {
+            "x": 357,
+            "baseline": 695.7,
+            "width": 175,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "high_school",
+        "label": "High school graduated",
+        "slots": [
+          {
+            "x": 124,
+            "baseline": 703.8,
+            "width": 204,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "high_school_address",
+        "label": "High school address",
+        "slots": [
+          {
+            "x": 354,
+            "baseline": 703.8,
+            "width": 169,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "previous_school",
+        "label": "If transferee, last school / university attended",
+        "slots": [
+          {
+            "x": 180,
+            "baseline": 711.8,
+            "width": 343,
+            "page": 0
+          }
+        ],
+        "max_length": 140,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "purpose",
+        "label": "Purpose of request",
+        "slots": [
+          {
+            "x": 112,
+            "baseline": 719.9,
+            "width": 411,
+            "page": 0
+          }
+        ],
+        "max_length": 160,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "sex",
+        "label": "Sex",
+        "slots": [
+          {
+            "x": 69,
+            "baseline": 741.1,
+            "width": 23,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "birth_date",
+        "label": "Date of birth",
+        "slots": [
+          {
+            "x": 131,
+            "baseline": 741.1,
+            "width": 118,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "religion",
+        "label": "Religion",
+        "slots": [
+          {
+            "x": 264,
+            "baseline": 741.1,
+            "width": 66,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "birth_place",
+        "label": "Place of birth",
+        "slots": [
+          {
+            "x": 97,
+            "baseline": 754.2,
+            "width": 233,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "citizenship",
+        "label": "Citizenship",
+        "slots": [
+          {
+            "x": 90,
+            "baseline": 146.1,
+            "width": 52,
+            "page": 1
+          }
+        ],
+        "max_length": 25,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "civil_status",
+        "label": "Civil status",
+        "slots": [
+          {
+            "x": 176,
+            "baseline": 146.1,
+            "width": 154,
+            "page": 1
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "spouse",
+        "label": "Spouse (if married)",
+        "slots": [
+          {
+            "x": 115,
+            "baseline": 167.3,
+            "width": 215,
+            "page": 1
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "father",
+        "label": "Name of father",
+        "slots": [
+          {
+            "x": 104,
+            "baseline": 180.4,
+            "width": 226,
+            "page": 1
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "mother",
+        "label": "Name of mother (maiden name)",
+        "slots": [
+          {
+            "x": 151,
+            "baseline": 201.6,
+            "width": 179,
+            "page": 1
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "parents_address",
+        "label": "Address of parents",
+        "slots": [
+          {
+            "x": 126,
+            "baseline": 222.8,
+            "width": 204,
+            "page": 1
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "authorized_person",
+        "label": "Name of authorized person",
+        "slots": [
+          {
+            "x": 138,
+            "baseline": 236.0,
+            "width": 192,
+            "page": 1
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "requested_by",
+        "label": "Requested by — printed name (sign after printing)",
+        "slots": [
+          {
+            "x": 57,
+            "baseline": 283.8,
+            "width": 129,
+            "page": 1
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 8
+      },
+      {
+        "key": "student_status",
+        "label": "Student status",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "student",
+            "label": "Student"
+          },
+          {
+            "value": "alumnus",
+            "label": "Alumnus"
+          }
+        ],
+        "choice_slots": {
+          "student": [
+            {
+              "x": 462,
+              "baseline": 640,
+              "width": 13,
+              "page": 0
+            }
+          ],
+          "alumnus": [
+            {
+              "x": 67,
+              "baseline": 652,
+              "width": 13,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "requesting_school",
+        "label": "No Objection: requesting school name and address",
+        "slots": [
+          {
+            "x": 397.3,
+            "baseline": 297.1,
+            "width": 87.5,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "report_semester",
+        "label": "Report of Grades: semester",
+        "slots": [
+          {
+            "x": 120.9,
+            "baseline": 575.5,
+            "width": 70.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "report_year",
+        "label": "Report of Grades: academic year",
+        "slots": [
+          {
+            "x": 231.9,
+            "baseline": 575.5,
+            "width": 84.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "cor_semester",
+        "label": "COR reprinting: semester",
+        "slots": [
+          {
+            "x": 117.8,
+            "baseline": 588.9,
+            "width": 73.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "cor_year",
+        "label": "COR reprinting: academic year",
+        "slots": [
+          {
+            "x": 232.2,
+            "baseline": 588.9,
+            "width": 84.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "other_request",
+        "label": "Other document requested",
+        "slots": [
+          {
+            "x": 386.4,
+            "baseline": 588.9,
+            "width": 101.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "authentication_document",
+        "label": "For authentication only: document",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "certificate",
+            "label": "Certificate"
+          },
+          {
+            "value": "tor",
+            "label": "TOR"
+          },
+          {
+            "value": "diploma",
+            "label": "Diploma"
+          }
+        ],
+        "choice_slots": {
+          "certificate": [
+            {
+              "x": 122,
+              "baseline": 216.8,
+              "width": 12,
+              "page": 0
+            }
+          ],
+          "tor": [
+            {
+              "x": 56.6,
+              "baseline": 230.2,
+              "width": 12,
+              "page": 0
+            }
+          ],
+          "diploma": [
+            {
+              "x": 176.6,
+              "baseline": 216.8,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      }
+    ],
+    "note": "Choose one document type per request form. Leave fee assessments, due date and staff remarks for the Registrar."
+  },
+  "004": {
+    "title": "OTR and F137-A request form",
+    "source_filename": "FM-MSU-IIT-RGTR-004 OTR and F137A Request Form.docx",
+    "source_sha256": "16c80d2fdbd9e4ee0e3fed2355d2c8c8891cb066b06ccda6bfd7d943f0b4b428",
+    "pdf_sha256": "213cdafb915273dae080c9c212f73cfdc6e232ed6b436294604e53bb0c53b099",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 380.8,
+            "baseline": 171.0,
+            "width": 148.5,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "school_address",
+        "label": "Previous school / registrar and address",
+        "slots": [
+          {
+            "x": 56.8,
+            "baseline": 218.2,
+            "width": 231.0,
+            "page": 0
+          },
+          {
+            "x": 56.8,
+            "baseline": 230.8,
+            "width": 231.0,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "slots": [
+          {
+            "x": 130.7,
+            "baseline": 279.8,
+            "width": 382.9,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "degree",
+        "label": "Degree / diploma",
+        "slots": [
+          {
+            "x": 131.6,
+            "baseline": 336.0,
+            "width": 382.9,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "college",
+        "label": "College / school",
+        "slots": [
+          {
+            "x": 163.8,
+            "baseline": 358.1,
+            "width": 350.1,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "otr",
+        "label": "Request Official Transcript of Records",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 103,
+              "baseline": 441,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "f137",
+        "label": "Request Form 137-A",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 103,
+              "baseline": 476.3,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "degree_type",
+        "label": "Degree or diploma",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 8,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "degree",
+            "label": "Degree"
+          },
+          {
+            "value": "diploma",
+            "label": "Diploma"
+          }
+        ],
+        "choice_slots": {
+          "degree": [
+            {
+              "page": 0,
+              "x": 67,
+              "baseline": 332.5,
+              "width": 12
+            }
+          ],
+          "diploma": [
+            {
+              "page": 0,
+              "x": 67,
+              "baseline": 345.9,
+              "width": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "college_type",
+        "label": "College or school",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 8,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "college",
+            "label": "College"
+          },
+          {
+            "value": "school",
+            "label": "School"
+          }
+        ],
+        "choice_slots": {
+          "college": [
+            {
+              "page": 0,
+              "x": 100,
+              "baseline": 359.4,
+              "width": 12
+            }
+          ],
+          "school": [
+            {
+              "page": 0,
+              "x": 100,
+              "baseline": 372,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "005": {
+    "title": "Returnee’s application form",
+    "source_filename": "FM-MSU-IIT-RGTR-005 Returnees Application Form.docx",
+    "source_sha256": "73855ca7ea5b1c3b0cf89926744ab4012997f23b4a1dfd6c1232bdbd465a9953",
+    "pdf_sha256": "e0f85ce82f3df02b38d5abb9f5f32579ae12b1e0b9c83bd65c568706e7d15977",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "last_name",
+        "label": "Family / last name",
+        "slots": [
+          {
+            "x": 127.3,
+            "baseline": 171.9,
+            "width": 175.01,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "first_name",
+        "label": "Given / first name",
+        "slots": [
+          {
+            "x": 302.31,
+            "baseline": 171.9,
+            "width": 183.15,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "middle_initial",
+        "label": "Middle initial",
+        "slots": [
+          {
+            "x": 485.46000000000004,
+            "baseline": 171.9,
+            "width": 48.839999999999996,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "address",
+        "label": "Mailing address",
+        "slots": [
+          {
+            "x": 177.4,
+            "baseline": 198.4,
+            "width": 357.5,
+            "page": 0
+          },
+          {
+            "x": 98.0,
+            "baseline": 211.3,
+            "width": 143.0,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "contact",
+        "label": "Contact number",
+        "slots": [
+          {
+            "x": 305.2,
+            "baseline": 211.3,
+            "width": 71.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "email",
+        "label": "Email address",
+        "slots": [
+          {
+            "x": 416.0,
+            "baseline": 211.3,
+            "width": 121.0,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_id",
+        "label": "Student ID number",
+        "slots": [
+          {
+            "x": 176.2,
+            "baseline": 224.8,
+            "width": 82.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "previous_course",
+        "label": "Previous course and major at IIT",
+        "slots": [
+          {
+            "x": 431.8,
+            "baseline": 224.8,
+            "width": 104.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "last_attended",
+        "label": "Semester and academic year last attended",
+        "slots": [
+          {
+            "x": 356.5,
+            "baseline": 238.6,
+            "width": 181.5,
+            "page": 0
+          }
+        ],
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "units",
+        "label": "Total units taken",
+        "slots": [
+          {
+            "x": 234.5,
+            "baseline": 252.4,
+            "width": 115.5,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "failed_units",
+        "label": "Units failed",
+        "slots": [
+          {
+            "x": 440.6,
+            "baseline": 252.4,
+            "width": 93.5,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "gpa",
+        "label": "Cumulative GPA (from your records)",
+        "slots": [
+          {
+            "x": 177.1,
+            "baseline": 266.2,
+            "width": 170.5,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "college",
+        "label": "College / school for readmission",
+        "slots": [
+          {
+            "x": 344.8,
+            "baseline": 370.9,
+            "width": 181.5,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "printed_name",
+        "label": "Student printed name (sign after printing)",
+        "slots": [
+          {
+            "x": 92.8,
+            "baseline": 447.0,
+            "width": 209.0,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 332.1,
+            "baseline": 447.0,
+            "width": 126.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "reasons",
+        "label": "Reasons for leave of absence",
+        "slots": [
+          {
+            "x": 98.5,
+            "baseline": 292.9,
+            "width": 440.0,
+            "page": 0
+          },
+          {
+            "x": 98.5,
+            "baseline": 305.6,
+            "width": 440.0,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "other_school",
+        "label": "Other school, semesters and school years (if applicable)",
+        "slots": [
+          {
+            "x": 98.0,
+            "baseline": 344.7,
+            "width": 429.0,
+            "page": 0
+          }
+        ],
+        "max_length": 150,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "enrolled_elsewhere",
+        "label": "During leave of absence",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "yes",
+            "label": "Enrolled in another school"
+          },
+          {
+            "value": "no",
+            "label": "Not enrolled in another school"
+          }
+        ],
+        "choice_slots": {
+          "yes": [
+            {
+              "x": 101,
+              "baseline": 332,
+              "width": 12,
+              "page": 0
+            }
+          ],
+          "no": [
+            {
+              "x": 101,
+              "baseline": 357,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "006": {
+    "title": "Shifter’s application form",
+    "source_filename": "FM-MSU-IIT-RGTR-006 Shifters Application Form.docx",
+    "source_sha256": "f6860ff17aadb52af23556c30116b94722c3fe5c52a812c09412de08db0b59c7",
+    "pdf_sha256": "16a024cbaeb91a80c098420ffa325cb550b384edb4cc45ea8e18fa09e6105b0d",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "last_name",
+        "label": "Family / last name",
+        "slots": [
+          {
+            "x": 130.1,
+            "baseline": 171.9,
+            "width": 170.28,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "first_name",
+        "label": "Given / first name",
+        "slots": [
+          {
+            "x": 300.38,
+            "baseline": 171.9,
+            "width": 178.20000000000002,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "middle_initial",
+        "label": "Middle initial",
+        "slots": [
+          {
+            "x": 478.58000000000004,
+            "baseline": 171.9,
+            "width": 47.519999999999996,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_id",
+        "label": "Student ID number",
+        "slots": [
+          {
+            "x": 176.2,
+            "baseline": 198.4,
+            "width": 137.5,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "semester",
+        "label": "Semester and academic year",
+        "slots": [
+          {
+            "x": 414.8,
+            "baseline": 198.4,
+            "width": 110.0,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "email",
+        "label": "Email address",
+        "slots": [
+          {
+            "x": 382.4,
+            "baseline": 225.1,
+            "width": 137.5,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "present_course",
+        "label": "Present course and major at MSU-IIT",
+        "slots": [
+          {
+            "x": 270.8,
+            "baseline": 237.7,
+            "width": 247.5,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "gpa",
+        "label": "GPA (from your records)",
+        "slots": [
+          {
+            "x": 125.8,
+            "baseline": 289.2,
+            "width": 77.0,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "units",
+        "label": "Units earned",
+        "slots": [
+          {
+            "x": 333.5,
+            "baseline": 289.2,
+            "width": 60.5,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "failed_units",
+        "label": "Units failed",
+        "slots": [
+          {
+            "x": 476.6,
+            "baseline": 289.2,
+            "width": 55.0,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "college",
+        "label": "College / school to shift to",
+        "slots": [
+          {
+            "x": 306.3,
+            "baseline": 303.0,
+            "width": 225.5,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course",
+        "label": "Proposed course",
+        "slots": [
+          {
+            "x": 135.0,
+            "baseline": 316.8,
+            "width": 115.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "major",
+        "label": "Proposed major",
+        "slots": [
+          {
+            "x": 285.9,
+            "baseline": 316.8,
+            "width": 148.5,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "year",
+        "label": "Year level",
+        "slots": [
+          {
+            "x": 492.0,
+            "baseline": 316.8,
+            "width": 38.5,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "income",
+        "label": "Total family monthly income",
+        "slots": [
+          {
+            "x": 240.0,
+            "baseline": 330.6,
+            "width": 291.5,
+            "page": 0
+          }
+        ],
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "printed_name",
+        "label": "Student printed name (sign after printing)",
+        "slots": [
+          {
+            "x": 92.8,
+            "baseline": 491.9,
+            "width": 209.0,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 332.1,
+            "baseline": 491.9,
+            "width": 126.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "address",
+        "label": "Mailing address",
+        "slots": [
+          {
+            "x": 180.1,
+            "baseline": 212.2,
+            "width": 346.5,
+            "page": 0
+          },
+          {
+            "x": 147.8,
+            "baseline": 225.1,
+            "width": 198.0,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "present_reasons",
+        "label": "Reasons for enrolling in present course",
+        "slots": [
+          {
+            "x": 99.3,
+            "baseline": 263.0,
+            "width": 429.0,
+            "page": 0
+          },
+          {
+            "x": 99.3,
+            "baseline": 275.7,
+            "width": 429.0,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "shift_reasons",
+        "label": "Reasons for shifting",
+        "slots": [
+          {
+            "x": 194.2,
+            "baseline": 344.4,
+            "width": 335.5,
+            "page": 0
+          },
+          {
+            "x": 92.8,
+            "baseline": 357.3,
+            "width": 440.0,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "history_1_term",
+        "label": "Previous shift 1 — Term and school year",
+        "slots": [
+          {
+            "x": 139.2,
+            "baseline": 390.7,
+            "width": 159.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "history_1_from",
+        "label": "Previous shift 1 — From course",
+        "slots": [
+          {
+            "x": 308.8,
+            "baseline": 390.7,
+            "width": 82.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "history_1_to",
+        "label": "Previous shift 1 — To course",
+        "slots": [
+          {
+            "x": 402.3,
+            "baseline": 390.7,
+            "width": 77.0,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "history_2_term",
+        "label": "Previous shift 2 — Term and school year",
+        "slots": [
+          {
+            "x": 139.8,
+            "baseline": 416.0,
+            "width": 159.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "history_2_from",
+        "label": "Previous shift 2 — From course",
+        "slots": [
+          {
+            "x": 307.6,
+            "baseline": 416.0,
+            "width": 82.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "history_2_to",
+        "label": "Previous shift 2 — To course",
+        "slots": [
+          {
+            "x": 403.8,
+            "baseline": 416.0,
+            "width": 77.0,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "first_shift",
+        "label": "Is this your first time to shift?",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
+        "choice_slots": {
+          "yes": [
+            {
+              "x": 225,
+              "baseline": 375,
+              "width": 12,
+              "page": 0
+            }
+          ],
+          "no": [
+            {
+              "x": 273.7,
+              "baseline": 375,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "007": {
+    "title": "Promissory note",
+    "source_filename": "FM-MSU-IIT-RGTR-007 Promissory Note.docx",
+    "source_sha256": "017d2b5847e8d3b4cb375bcc44ed313d75d639eda689aefab366ea523e8985d3",
+    "pdf_sha256": "1d3da5cb4dce5678d75d418c99b2bbb236db4b624ffb1e28ce86f0f374c177dc",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 430.5,
+            "baseline": 171.0,
+            "width": 82.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "deadline",
+        "label": "Submission deadline (month and day)",
+        "slots": [
+          {
+            "x": 378.6,
+            "baseline": 269.4,
+            "width": 60.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "year",
+        "label": "Deadline year — digits after printed “20”",
+        "slots": [
+          {
+            "x": 455.6,
+            "baseline": 269.4,
+            "width": 16.5,
+            "page": 0
+          }
+        ],
+        "max_length": 2,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "other_requirements",
+        "label": "Other requirements",
+        "slots": [
+          {
+            "x": 245.0,
+            "baseline": 345.3,
+            "width": 264.0,
+            "page": 0
+          }
+        ],
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_name",
+        "label": "Student printed name (sign after printing)",
+        "slots": [
+          {
+            "x": 380.8,
+            "baseline": 383.3,
+            "width": 143.0,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "contact",
+        "label": "Contact number",
+        "slots": [
+          {
+            "x": 438.0,
+            "baseline": 402.4,
+            "width": 76.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "email",
+        "label": "Email address",
+        "slots": [
+          {
+            "x": 429.6,
+            "baseline": 414.3,
+            "width": 104.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_id",
+        "label": "Student ID number",
+        "slots": [
+          {
+            "x": 442.5,
+            "baseline": 427.0,
+            "width": 93.5,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course",
+        "label": "Course",
+        "slots": [
+          {
+            "x": 417.6,
+            "baseline": 439.6,
+            "width": 115.5,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "requirement_1",
+        "label": "Good Moral Character",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 129.5,
+              "baseline": 291.4,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "requirement_2",
+        "label": "Transfer Credential / Honorable Dismissal",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 129.5,
+              "baseline": 305.3,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "requirement_3",
+        "label": "Copy of NSO-authenticated birth certificate",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 129.5,
+              "baseline": 319.3,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "requirement_4",
+        "label": "One picture",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 129.5,
+              "baseline": 333.3,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "requirement_5",
+        "label": "Other requirements",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 129.5,
+              "baseline": 347.3,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "008": {
+    "title": "Academic load revision permit",
+    "source_filename": "FM-MSU-IIT-RGTR-008 Academic Load Revision Permit.docx",
+    "source_sha256": "024c8a443dae676d8a4a470533ce2e26852f86a1dceb06e57843249381eb93fa",
+    "pdf_sha256": "dba08732e3f575c79fd6f17d71107bd8a2d5ef5eabfc0ad4849c9ec07afc4447",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "school_year",
+        "label": "School year",
+        "slots": [
+          {
+            "x": 371.1,
+            "baseline": 176.8,
+            "width": 65.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_name",
+        "label": "Full name (Family, Given, Middle)",
+        "slots": [
+          {
+            "x": 64,
+            "baseline": 205,
+            "width": 266,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_id",
+        "label": "Student ID number",
+        "slots": [
+          {
+            "x": 334,
+            "baseline": 205,
+            "width": 119,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 456,
+            "baseline": 205,
+            "width": 100,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "college",
+        "label": "College / school",
+        "slots": [
+          {
+            "x": 64,
+            "baseline": 229,
+            "width": 200,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "department",
+        "label": "Department",
+        "slots": [
+          {
+            "x": 270,
+            "baseline": 229,
+            "width": 150,
+            "page": 0
+          }
+        ],
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_year",
+        "label": "Course and year",
+        "slots": [
+          {
+            "x": 424,
+            "baseline": 229,
+            "width": 134,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "semester",
+        "label": "Semester / term",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "first",
+            "label": "1st Semester"
+          },
+          {
+            "value": "second",
+            "label": "2nd Semester"
+          },
+          {
+            "value": "summer",
+            "label": "Summer Term"
+          }
+        ],
+        "choice_slots": {
+          "first": [
+            {
+              "x": 66,
+              "baseline": 174,
+              "width": 12,
+              "page": 0
+            }
+          ],
+          "second": [
+            {
+              "x": 138,
+              "baseline": 174,
+              "width": 12,
+              "page": 0
+            }
+          ],
+          "summer": [
+            {
+              "x": 210,
+              "baseline": 174,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "withdraw_1_number",
+        "label": "Withdraw subject 1 — Course number and section",
+        "slots": [
+          {
+            "x": 65,
+            "baseline": 280,
+            "width": 77,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_1_title",
+        "label": "Withdraw subject 1 — Course title",
+        "slots": [
+          {
+            "x": 143,
+            "baseline": 280,
+            "width": 212,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_1_units",
+        "label": "Withdraw subject 1 — Units",
+        "slots": [
+          {
+            "x": 356,
+            "baseline": 280,
+            "width": 36,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_2_number",
+        "label": "Withdraw subject 2 — Course number and section",
+        "slots": [
+          {
+            "x": 65,
+            "baseline": 294,
+            "width": 77,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_2_title",
+        "label": "Withdraw subject 2 — Course title",
+        "slots": [
+          {
+            "x": 143,
+            "baseline": 294,
+            "width": 212,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_2_units",
+        "label": "Withdraw subject 2 — Units",
+        "slots": [
+          {
+            "x": 356,
+            "baseline": 294,
+            "width": 36,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_3_number",
+        "label": "Withdraw subject 3 — Course number and section",
+        "slots": [
+          {
+            "x": 65,
+            "baseline": 308,
+            "width": 77,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_3_title",
+        "label": "Withdraw subject 3 — Course title",
+        "slots": [
+          {
+            "x": 143,
+            "baseline": 308,
+            "width": 212,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_3_units",
+        "label": "Withdraw subject 3 — Units",
+        "slots": [
+          {
+            "x": 356,
+            "baseline": 308,
+            "width": 36,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_4_number",
+        "label": "Withdraw subject 4 — Course number and section",
+        "slots": [
+          {
+            "x": 65,
+            "baseline": 322,
+            "width": 77,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_4_title",
+        "label": "Withdraw subject 4 — Course title",
+        "slots": [
+          {
+            "x": 143,
+            "baseline": 322,
+            "width": 212,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_4_units",
+        "label": "Withdraw subject 4 — Units",
+        "slots": [
+          {
+            "x": 356,
+            "baseline": 322,
+            "width": 36,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_5_number",
+        "label": "Withdraw subject 5 — Course number and section",
+        "slots": [
+          {
+            "x": 65,
+            "baseline": 336,
+            "width": 77,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_5_title",
+        "label": "Withdraw subject 5 — Course title",
+        "slots": [
+          {
+            "x": 143,
+            "baseline": 336,
+            "width": 212,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_5_units",
+        "label": "Withdraw subject 5 — Units",
+        "slots": [
+          {
+            "x": 356,
+            "baseline": 336,
+            "width": 36,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_6_number",
+        "label": "Withdraw subject 6 — Course number and section",
+        "slots": [
+          {
+            "x": 65,
+            "baseline": 350,
+            "width": 77,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_6_title",
+        "label": "Withdraw subject 6 — Course title",
+        "slots": [
+          {
+            "x": 143,
+            "baseline": 350,
+            "width": 212,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "withdraw_6_units",
+        "label": "Withdraw subject 6 — Units",
+        "slots": [
+          {
+            "x": 356,
+            "baseline": 350,
+            "width": 36,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_1_number",
+        "label": "Add subject 1 — Course number and section",
+        "slots": [
+          {
+            "x": 91,
+            "baseline": 420,
+            "width": 102,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_1_title",
+        "label": "Add subject 1 — Course title",
+        "slots": [
+          {
+            "x": 194,
+            "baseline": 420,
+            "width": 228,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_1_units",
+        "label": "Add subject 1 — Units",
+        "slots": [
+          {
+            "x": 422,
+            "baseline": 420,
+            "width": 37,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_2_number",
+        "label": "Add subject 2 — Course number and section",
+        "slots": [
+          {
+            "x": 91,
+            "baseline": 434,
+            "width": 102,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_2_title",
+        "label": "Add subject 2 — Course title",
+        "slots": [
+          {
+            "x": 194,
+            "baseline": 434,
+            "width": 228,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_2_units",
+        "label": "Add subject 2 — Units",
+        "slots": [
+          {
+            "x": 422,
+            "baseline": 434,
+            "width": 37,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_3_number",
+        "label": "Add subject 3 — Course number and section",
+        "slots": [
+          {
+            "x": 91,
+            "baseline": 449,
+            "width": 102,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_3_title",
+        "label": "Add subject 3 — Course title",
+        "slots": [
+          {
+            "x": 194,
+            "baseline": 449,
+            "width": 228,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_3_units",
+        "label": "Add subject 3 — Units",
+        "slots": [
+          {
+            "x": 422,
+            "baseline": 449,
+            "width": 37,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_4_number",
+        "label": "Add subject 4 — Course number and section",
+        "slots": [
+          {
+            "x": 91,
+            "baseline": 463,
+            "width": 102,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_4_title",
+        "label": "Add subject 4 — Course title",
+        "slots": [
+          {
+            "x": 194,
+            "baseline": 463,
+            "width": 228,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "add_4_units",
+        "label": "Add subject 4 — Units",
+        "slots": [
+          {
+            "x": 422,
+            "baseline": 463,
+            "width": 37,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "before_units",
+        "label": "Total load before revision — units",
+        "slots": [
+          {
+            "x": 64.7,
+            "baseline": 553.7,
+            "width": 45.0,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "before_hours",
+        "label": "Total load before revision — hours per week",
+        "slots": [
+          {
+            "x": 136.9,
+            "baseline": 553.7,
+            "width": 30.0,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "after_units",
+        "label": "Total load after revision — units",
+        "slots": [
+          {
+            "x": 389.8,
+            "baseline": 553.7,
+            "width": 45.0,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "after_hours",
+        "label": "Total load after revision — hours per week",
+        "slots": [
+          {
+            "x": 462.0,
+            "baseline": 553.7,
+            "width": 30.0,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "other_reason",
+        "label": "Other reasons for load revision",
+        "slots": [
+          {
+            "x": 338.9,
+            "baseline": 593.4,
+            "width": 180.0,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "printed_name",
+        "label": "Student printed name (sign after printing)",
+        "slots": [
+          {
+            "x": 339.7,
+            "baseline": 613.2,
+            "width": 180.0,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "conflict",
+        "label": "Reason: conflict of schedule",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 66,
+              "baseline": 591,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      },
+      {
+        "key": "dissolved",
+        "label": "Reason: subjects dissolved",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 9,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "marked",
+            "label": "Mark this box"
+          }
+        ],
+        "choice_slots": {
+          "marked": [
+            {
+              "x": 173,
+              "baseline": 591,
+              "width": 12,
+              "page": 0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "009": {
+    "title": "Permit to cross-enroll",
+    "source_filename": "FM-MSU-IIT-RGTR-009 Permit to Cross Enroll.docx",
+    "source_sha256": "dc5290e9cf290be4ae70f126ae78a1764eedd954e6caadb06afea9808529d1ab",
+    "pdf_sha256": "3388a1bd23f70c5d9a5dc3b6804d04d1f9dc7a8e518850398639c382ed2d0506",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 416.8,
+            "baseline": 177.9,
+            "width": 121.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "school_address",
+        "label": "Receiving school / registrar and address",
+        "slots": [
+          {
+            "x": 56.8,
+            "baseline": 226.2,
+            "width": 236.5,
+            "page": 0
+          },
+          {
+            "x": 56.8,
+            "baseline": 250.4,
+            "width": 236.5,
+            "page": 0
+          }
+        ],
+        "max_length": 350,
+        "multiline": true,
+        "font_size": 10
+      },
+      {
+        "key": "year",
+        "label": "Year classification",
+        "slots": [
+          {
+            "x": 286.3,
+            "baseline": 310.2,
+            "width": 49.5,
+            "page": 0
+          }
+        ],
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course",
+        "label": "Degree / diploma course",
+        "slots": [
+          {
+            "x": 202.1,
+            "baseline": 322.9,
+            "width": 253.0,
+            "page": 0
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "semester",
+        "label": "Current semester",
+        "slots": [
+          {
+            "x": 56.8,
+            "baseline": 335.5,
+            "width": 110.0,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "academic_year",
+        "label": "Current academic year",
+        "slots": [
+          {
+            "x": 239.9,
+            "baseline": 335.5,
+            "width": 71.6,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "cross_term",
+        "label": "Cross-enrollment semester / term",
+        "slots": [
+          {
+            "x": 56.8,
+            "baseline": 360.8,
+            "width": 82.5,
+            "page": 0
+          }
+        ],
+        "max_length": 35,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "cross_year",
+        "label": "Cross-enrollment academic year",
+        "slots": [
+          {
+            "x": 243.7,
+            "baseline": 360.8,
+            "width": 66.0,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "end_date",
+        "label": "End of permitted period",
+        "slots": [
+          {
+            "x": 56.8,
+            "baseline": 373.5,
+            "width": 110.0,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "start_date",
+        "label": "Start of permitted period",
+        "slots": [
+          {
+            "x": 340,
+            "baseline": 361,
+            "width": 184,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_1_number",
+        "label": "Course 1 — Course number",
+        "slots": [
+          {
+            "x": 37,
+            "baseline": 439,
+            "width": 67,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_1_title",
+        "label": "Course 1 — Course title",
+        "slots": [
+          {
+            "x": 105,
+            "baseline": 439,
+            "width": 264,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_1_units",
+        "label": "Course 1 — Units",
+        "slots": [
+          {
+            "x": 370,
+            "baseline": 439,
+            "width": 35,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_2_number",
+        "label": "Course 2 — Course number",
+        "slots": [
+          {
+            "x": 37,
+            "baseline": 460,
+            "width": 67,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_2_title",
+        "label": "Course 2 — Course title",
+        "slots": [
+          {
+            "x": 105,
+            "baseline": 460,
+            "width": 264,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_2_units",
+        "label": "Course 2 — Units",
+        "slots": [
+          {
+            "x": 370,
+            "baseline": 460,
+            "width": 35,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_3_number",
+        "label": "Course 3 — Course number",
+        "slots": [
+          {
+            "x": 37,
+            "baseline": 481,
+            "width": 67,
+            "page": 0
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_3_title",
+        "label": "Course 3 — Course title",
+        "slots": [
+          {
+            "x": 105,
+            "baseline": 481,
+            "width": 264,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 9
+      },
+      {
+        "key": "course_3_units",
+        "label": "Course 3 — Units",
+        "slots": [
+          {
+            "x": 370,
+            "baseline": 481,
+            "width": 35,
+            "page": 0
+          }
+        ],
+        "max_length": 8,
+        "multiline": false,
+        "font_size": 9
+      }
+    ],
+    "note": "The supplied form has a very short student-name blank. Have the Registrar complete that blank, or use the original Word form if it needs adjustment. Permit number, certification, signatures and approvals are completed by the responsible offices."
+  },
+  "010": {
+    "title": "Request for validation of prerequisite courses",
+    "source_filename": "FM-MSU-IIT-RGTR-010 Request for Validation.docx",
+    "source_sha256": "95c8cf44a781b82a7242c6af13539eb4278313b4eae2c712e27ac9e2c00677c7",
+    "pdf_sha256": "eb37eb238fd1aeb11d084242e463b032cc4c6a161126c238acbea8c69a374298",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 404.8,
+            "baseline": 200.7,
+            "width": 132.0,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_name",
+        "label": "Student printed name (sign after printing)",
+        "slots": [
+          {
+            "x": 56.8,
+            "baseline": 600.0,
+            "width": 192.0,
+            "page": 0
+          }
+        ],
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "college",
+        "label": "College / school",
+        "slots": [
+          {
+            "x": 287.8,
+            "baseline": 600.0,
+            "width": 108.0,
+            "page": 0
+          }
+        ],
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_year",
+        "label": "Course and year",
+        "slots": [
+          {
+            "x": 422.8,
+            "baseline": 600.0,
+            "width": 132.0,
+            "page": 0
+          }
+        ],
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_1_number",
+        "label": "Prerequisite course 1 — Course number",
+        "slots": [
+          {
+            "x": 58,
+            "baseline": 354,
+            "width": 87,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_1_title",
+        "label": "Prerequisite course 1 — Course title",
+        "slots": [
+          {
+            "x": 148,
+            "baseline": 354,
+            "width": 347,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_1_units",
+        "label": "Prerequisite course 1 — Units",
+        "slots": [
+          {
+            "x": 497,
+            "baseline": 354,
+            "width": 47,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_2_number",
+        "label": "Prerequisite course 2 — Course number",
+        "slots": [
+          {
+            "x": 58,
+            "baseline": 375,
+            "width": 87,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_2_title",
+        "label": "Prerequisite course 2 — Course title",
+        "slots": [
+          {
+            "x": 148,
+            "baseline": 375,
+            "width": 347,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_2_units",
+        "label": "Prerequisite course 2 — Units",
+        "slots": [
+          {
+            "x": 497,
+            "baseline": 375,
+            "width": 47,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_3_number",
+        "label": "Prerequisite course 3 — Course number",
+        "slots": [
+          {
+            "x": 58,
+            "baseline": 396,
+            "width": 87,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_3_title",
+        "label": "Prerequisite course 3 — Course title",
+        "slots": [
+          {
+            "x": 148,
+            "baseline": 396,
+            "width": 347,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_3_units",
+        "label": "Prerequisite course 3 — Units",
+        "slots": [
+          {
+            "x": 497,
+            "baseline": 396,
+            "width": 47,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_4_number",
+        "label": "Prerequisite course 4 — Course number",
+        "slots": [
+          {
+            "x": 58,
+            "baseline": 417,
+            "width": 87,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_4_title",
+        "label": "Prerequisite course 4 — Course title",
+        "slots": [
+          {
+            "x": 148,
+            "baseline": 417,
+            "width": 347,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_4_units",
+        "label": "Prerequisite course 4 — Units",
+        "slots": [
+          {
+            "x": 497,
+            "baseline": 417,
+            "width": 47,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_5_number",
+        "label": "Prerequisite course 5 — Course number",
+        "slots": [
+          {
+            "x": 58,
+            "baseline": 438,
+            "width": 87,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_5_title",
+        "label": "Prerequisite course 5 — Course title",
+        "slots": [
+          {
+            "x": 148,
+            "baseline": 438,
+            "width": 347,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_5_units",
+        "label": "Prerequisite course 5 — Units",
+        "slots": [
+          {
+            "x": 497,
+            "baseline": 438,
+            "width": 47,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_6_number",
+        "label": "Prerequisite course 6 — Course number",
+        "slots": [
+          {
+            "x": 58,
+            "baseline": 459,
+            "width": 87,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_6_title",
+        "label": "Prerequisite course 6 — Course title",
+        "slots": [
+          {
+            "x": 148,
+            "baseline": 459,
+            "width": 347,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_6_units",
+        "label": "Prerequisite course 6 — Units",
+        "slots": [
+          {
+            "x": 497,
+            "baseline": 459,
+            "width": 47,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_7_number",
+        "label": "Prerequisite course 7 — Course number",
+        "slots": [
+          {
+            "x": 58,
+            "baseline": 479,
+            "width": 87,
+            "page": 0
+          }
+        ],
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_7_title",
+        "label": "Prerequisite course 7 — Course title",
+        "slots": [
+          {
+            "x": 148,
+            "baseline": 479,
+            "width": 347,
+            "page": 0
+          }
+        ],
+        "max_length": 110,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_7_units",
+        "label": "Prerequisite course 7 — Units",
+        "slots": [
+          {
+            "x": 497,
+            "baseline": 479,
+            "width": 47,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      }
+    ]
+  },
+  "011": {
+    "title": "Removal examination / grade completion form",
+    "source_filename": "FM-MSU-IIT-RGTR-011-Completion-Form.doc",
+    "source_sha256": "e22bed395f7827173490f17c6ce25afc7da6abdd8a92032b253d8969abc5f85c",
+    "pdf_sha256": "baabafd5b9e895dfef28f1df5f17ead8cbe9996b5006ed2787d18bc6cb041be6",
+    "font": "serif",
+    "paper_size": "Letter (8.5 × 11 inches)",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "slots": [
+          {
+            "x": 438.2,
+            "baseline": 156.5,
+            "width": 102.0,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_name",
+        "label": "Student name (Family, Given, Middle initial)",
+        "slots": [
+          {
+            "x": 139,
+            "baseline": 181.1,
+            "width": 203.9,
+            "page": 0
+          },
+          {
+            "x": 147.3,
+            "baseline": 531,
+            "width": 364.2,
+            "page": 0,
+            "repeat": true
+          }
+        ],
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "student_id",
+        "label": "Student ID number",
+        "slots": [
+          {
+            "x": 420.8,
+            "baseline": 181.1,
+            "width": 102.0,
+            "page": 0
+          }
+        ],
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "college",
+        "label": "College / school",
+        "slots": [
+          {
+            "x": 145.5,
+            "baseline": 210.9,
+            "width": 165.1,
+            "page": 0
+          }
+        ],
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_section",
+        "label": "Course number and section",
+        "slots": [
+          {
+            "x": 194.2,
+            "baseline": 286.1,
+            "width": 68,
+            "page": 0
+          },
+          {
+            "x": 142.5,
+            "baseline": 565.2,
+            "width": 160.3,
+            "page": 0,
+            "repeat": true
+          }
+        ],
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "semester",
+        "label": "Semester (number)",
+        "slots": [
+          {
+            "x": 334.9,
+            "baseline": 286.1,
+            "width": 19.4,
+            "page": 0
+          },
+          {
+            "x": 323.6,
+            "baseline": 565.2,
+            "width": 43.7,
+            "page": 0,
+            "repeat": true
+          }
+        ],
+        "max_length": 3,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "school_year",
+        "label": "School year",
+        "slots": [
+          {
+            "x": 447,
+            "baseline": 286.1,
+            "width": 53.4,
+            "page": 0
+          },
+          {
+            "x": 427.1,
+            "baseline": 565.2,
+            "width": 72.8,
+            "page": 0,
+            "repeat": true
+          }
+        ],
+        "max_length": 12,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "course_title",
+        "label": "Course title",
+        "slots": [
+          {
+            "x": 124.4,
+            "baseline": 588.0,
+            "width": 378.8,
+            "page": 0
+          }
+        ],
+        "max_length": 170,
+        "multiline": false,
+        "font_size": 10
+      },
+      {
+        "key": "credits",
+        "label": "Course credits",
+        "slots": [
+          {
+            "x": 385.9,
+            "baseline": 610.8,
+            "width": 58.3,
+            "page": 0
+          }
+        ],
+        "max_length": 10,
+        "multiline": false,
+        "font_size": 10
+      }
+    ],
+    "note": "The examination / completion selection, assessment, permission and report of grade are completed by the responsible offices. No grade or approval is entered online."
+  }
+}

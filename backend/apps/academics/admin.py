@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Program, ProgramDocument
+from .models import Program, ProgramDocument, RegistrarForm
 
 
 @admin.action(description="Mark selected programs as published")
@@ -123,3 +123,11 @@ class SOJTGuideAdmin(admin.ModelAdmin):
     list_display = ("slug", "is_published", "reviewed_on", "updated_at")
     readonly_fields = ("created_at", "updated_at")
     fields = ("slug", "content", "internal_notes", "reviewed_on", "approval_reference", "is_published", "created_at", "updated_at")
+
+
+@admin.register(RegistrarForm)
+class RegistrarFormAdmin(admin.ModelAdmin):
+    list_display = ("form_id", "title", "is_public", "sort_order", "updated_at")
+    list_filter = ("is_public",)
+    search_fields = ("form_id", "title", "note")
+    readonly_fields = ("created_at", "updated_at")

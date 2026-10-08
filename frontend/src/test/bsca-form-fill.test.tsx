@@ -101,3 +101,16 @@ it("clears the editor and prepared PDF when switching between programs with the 
   expect(await screen.findByLabelText("Student 1 full name")).toHaveValue("");
   expect(fetchJSON).toHaveBeenLastCalledWith("/api/academics/forms/msca/019/");
 });
+
+
+it("uses the registrar endpoint and Letter paper guidance for completion forms", async () => {
+  vi.mocked(fetchJSON).mockResolvedValue({ ...schema, id: "011", paper_size: "Letter (8.5 × 11 inches)", filename: "REGISTRAR-011-filled.pdf" });
+  render(<ThesisFormFill programCode="REGISTRAR" formId="011" label="Grade completion form" />);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  fireEvent.change(await screen.findByLabelText("Student 1 full name"), { target: { value: "Maria Santos" } });
+  expect(fetchJSON).toHaveBeenCalledWith("/api/academics/forms/registrar/011/");
+  expect(screen.getByText(/Print on Letter/)).toBeInTheDocument();
+  fireEvent.click(screen.getByRole("button", { name: "Prepare filled PDF" }));
+  expect(await screen.findByRole("link", { name: "Download filled PDF" })).toHaveAttribute("download", "REGISTRAR-011-filled.pdf");
+  expect(prepareFormPDF).toHaveBeenCalledWith("/api/academics/forms/registrar/011/", { student_1: "Maria Santos" });
+});

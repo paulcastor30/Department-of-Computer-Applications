@@ -1,13 +1,15 @@
 from django.http import HttpResponse
 from rest_framework.exceptions import NotFound
+from rest_framework.generics import ListAPIView
 from rest_framework.parsers import JSONParser
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.throttling import SimpleRateThrottle
 from rest_framework.views import APIView
 
-from .form_filling import catalog, fill_pdf, FormInputError, public_schema, supported_form
-from .models import ProgramDocument
+from .form_filling import catalog, fill_pdf, FormInputError, public_schema, supported_form, supported_registrar_form
+from .models import ProgramDocument, RegistrarForm
+from .serializers import RegistrarFormSerializer
 
 
 class FormDownloadThrottle(SimpleRateThrottle):
@@ -61,3 +63,21 @@ class BSCAFormView(APIView):
 
 class MSCAFormView(BSCAFormView):
     program_code = "MSCA"
+
+
+class RegistrarFormListView(ListAPIView):
+    authentication_classes = []
+    permission_classes = [AllowAny]
+    serializer_class = RegistrarFormSerializer
+    pagination_class = None
+    queryset = RegistrarForm.objects.filter(is_public=True)
+
+
+class RegistrarFormView(BSCAFormView):
+    program_code = "REGISTRAR"
+
+    def get_form(self, form_id):
+        document = RegistrarForm.objects.filter(form_id=form_id, is_public=True).first()
+        if not document or supported_registrar_form(document) != form_id:
+            raise NotFound("This form is not available for online filling.")
+        return public_schema(form_id, self.program_code)

@@ -111,3 +111,20 @@ class SOJTGuide(TimeStampedModel):
 
     def __str__(self):
         return f"{self.slug.upper()} SOJT Process Guide"
+
+
+class RegistrarForm(TimeStampedModel):
+    """Public downloadable student-service documents; never student submissions."""
+    form_id = models.SlugField(unique=True)
+    title = models.CharField(max_length=255)
+    file = models.FileField(upload_to="registrar/forms/", blank=True, null=True)
+    url = models.URLField(blank=True)
+    note = models.CharField(max_length=255, blank=True)
+    is_public = models.BooleanField(default=True)
+    sort_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["sort_order", "title"]
+
+    def __str__(self):
+        return f"RGTR-{self.form_id} — {self.title}"

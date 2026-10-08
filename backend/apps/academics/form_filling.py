@@ -1,4 +1,4 @@
-"""Fill reviewed thesis PDF templates in memory without reflowing source pages."""
+"""Fill reviewed official PDF templates in memory without reflowing source pages."""
 from functools import lru_cache
 from hashlib import sha256
 from io import BytesIO
@@ -18,12 +18,12 @@ FONTS = {"serif": ("BSCAFormSerif", "LiberationSerif-Regular.ttf"), "sans": ("BS
 
 
 def assets_for(program_code="BSCA"):
-    if program_code not in ("BSCA", "MSCA"):
+    if program_code not in ("BSCA", "MSCA", "REGISTRAR"):
         raise ValueError("Unsupported form collection")
-    return ASSETS if program_code == "BSCA" else ASSETS.parent / "msca"
+    return ASSETS.parent / program_code.lower()
 
 
-@lru_cache(maxsize=2)
+@lru_cache(maxsize=3)
 def catalog(program_code="BSCA"):
     return json.loads((assets_for(program_code) / "catalog.json").read_text())
 
@@ -46,7 +46,7 @@ def template_is_current(form_id, program_code="BSCA"):
     form = catalog(program_code)[form_id]
     assets = assets_for(program_code)
     source = assets / "originals" / form["source_filename"]
-    frontend_source = settings.REPO_DIR / "frontend" / "public" / "thesis-forms" / program_code.lower() / form["source_filename"]
+    frontend_source = settings.REPO_DIR / "frontend" / "public" / source_folder(program_code) / form["source_filename"]
     if frontend_source.is_file() and sha256(frontend_source.read_bytes()).hexdigest() != form["source_sha256"]:
         return False
     pdf = assets / (form_id + ".pdf")
@@ -182,3 +182,17 @@ def fill_pdf(form_id, values, program_code="BSCA"):
     output = BytesIO()
     writer.write(output)
     return output.getvalue()
+
+
+def source_folder(program_code):
+    return "registar-forms" if program_code == "REGISTRAR" else f"thesis-forms/{program_code.lower()}"
+
+
+def supported_registrar_form(document):
+    if not document.is_public or document.file or document.form_id not in catalog("REGISTRAR"):
+        return None
+    url = urlsplit(document.url)
+    form = catalog("REGISTRAR")[document.form_id]
+    if url.netloc not in ("", "msuiit-comapps.vercel.app") or unquote(url.path) != "/registar-forms/" + form["source_filename"]:
+        return None
+    return document.form_id if template_is_current(document.form_id, "REGISTRAR") else None

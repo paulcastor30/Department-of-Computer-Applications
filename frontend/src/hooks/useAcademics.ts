@@ -15,3 +15,13 @@ export function useProgram(slug: string) {
     queryFn: () => fetchJSON<Program>(`/api/academics/programs/${slug}/`),
   });
 }
+
+
+export type RegistrarForm = { form_id: string; title: string; href: string; note: string; fillable_form_id: string | null };
+
+export function useRegistrarForms() {
+  return useQuery<RegistrarForm[]>({
+    queryKey: ["academics", "registrar-forms"],
+    queryFn: () => fetchJSON<RegistrarForm[]>("/api/academics/forms/registrar/"),
+  });
+}

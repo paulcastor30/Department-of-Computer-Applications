@@ -1,6 +1,8 @@
 from rest_framework import serializers
-from .models import Program, ProgramDocument
-from .form_filling import supported_form
+from urllib.parse import urlsplit
+
+from .models import Program, ProgramDocument, RegistrarForm
+from .form_filling import supported_form, supported_registrar_form
 
 
 class ProgramDocumentSerializer(serializers.ModelSerializer):
@@ -199,3 +201,21 @@ class SOJTGuideSerializer(serializers.ModelSerializer):
     class Meta:
         model = SOJTGuide
         fields = ("slug", "content", "reviewed_on", "updated_at")
+
+
+class RegistrarFormSerializer(serializers.ModelSerializer):
+    href = serializers.SerializerMethodField()
+    fillable_form_id = serializers.SerializerMethodField()
+
+    class Meta:
+        model = RegistrarForm
+        fields = ("form_id", "title", "href", "note", "fillable_form_id")
+
+    def get_href(self, obj):
+        if obj.file:
+            return self.context["request"].build_absolute_uri(obj.file.url)
+        url = urlsplit(obj.url)
+        return url.path if url.netloc == "msuiit-comapps.vercel.app" else obj.url
+
+    def get_fillable_form_id(self, obj):
+        return supported_registrar_form(obj)

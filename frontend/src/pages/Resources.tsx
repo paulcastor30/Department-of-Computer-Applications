@@ -5,6 +5,7 @@ import { PageHero } from "@/components/ui/hero-section";
 import { Section, SectionHeader } from "@/components/ui/section";
 import { usePrograms } from "@/hooks/useAcademics";
 import { normalizePrograms } from "./programs/programData";
+import { RegistrarForms } from "@/components/RegistrarForms";
 import { ProgramFormPicker } from "@/components/ProgramForms";
 import { ProgramInquiry } from "./programs/ProgramInquiry";
 
@@ -15,6 +16,10 @@ export default function Resources() {
     <Seo canonicalUrl="https://msuiit-comapps.vercel.app/resources" title="Student & faculty resources" description="Find program documents, thesis checklists, academic contacts and learning-support enquiries for the Department of Computer Applications." />
     <PageHero title="Student & faculty resources" subtitle="Quick access to study documents, thesis guidance and people who can help." />
     <Section id="program-documents">
+      <nav aria-label="Student forms" className="mb-6 flex flex-wrap gap-x-6 gap-y-2">
+        <a className="text-link inline-flex min-h-11 items-center" href="#student-forms">Thesis and program forms</a>
+        <a className="text-link inline-flex min-h-11 items-center" href="#registrar-forms">Registrar forms and student services</a>
+      </nav>
       {isError && <p className="notice mb-6" role="status">The latest program documents could not be loaded. Reference links are shown; contact the department for current guidance.</p>}
       <SectionHeader title="Program documents and thesis guidance" className="mb-6" />
       <div className="grid gap-6 md:grid-cols-2">{programs.map(program => <article key={program.code} className="rounded-md border border-border p-6">
@@ -34,6 +39,10 @@ export default function Resources() {
     <Section id="student-forms" variant="muted">
       <SectionHeader title="Download student forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
       <ProgramFormPicker programs={programs} />
+    </Section>
+    <Section id="registrar-forms">
+      <SectionHeader title="Registrar forms and student services" subtitle="Forms for academic records, enrollment changes and other student requests." className="mb-5" />
+      <RegistrarForms />
     </Section>
     <Section variant="muted">
       <SectionHeader title="Contacts and announcements" className="mb-5" />

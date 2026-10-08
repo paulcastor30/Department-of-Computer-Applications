@@ -10,6 +10,10 @@ urlpatterns = [
     re_path(r"^(?!(api|admin|assets|media)(/|$)).*$", FrontendAppView.as_view(), name="frontend"),
 ]
 
+if settings.DEBUG:
+    # Public registrar originals must resolve before the local SPA fallback.
+    urlpatterns = static("/registar-forms/", document_root=settings.REPO_DIR / "frontend" / "public" / "registar-forms") + urlpatterns
+
 if settings.DEBUG and settings.STATICFILES_DIRS:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
 

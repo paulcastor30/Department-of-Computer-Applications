@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 type FormField = { key: string; label: string; max_length: number; multiline: boolean; choices?: { value: string; label: string }[] };
 type FormSchema = { id: string; title: string; paper_size: string; filename: string; note?: string; fields: FormField[] };
 
-export function ThesisFormFill({ programCode, formId, label }: { programCode: "BSCA" | "MSCA"; formId: string; label: string }) {
+export function DocumentFormFill({ programCode, formId, label }: { programCode: "BSCA" | "MSCA" | "REGISTRAR"; formId: string; label: string }) {
   const id = useId();
   const [open, setOpen] = useState(false);
   const [schema, setSchema] = useState<FormSchema>();
@@ -99,3 +99,5 @@ export function ThesisFormFill({ programCode, formId, label }: { programCode: "B
     </section>}
   </div>;
 }
+
+export const ThesisFormFill = DocumentFormFill;
