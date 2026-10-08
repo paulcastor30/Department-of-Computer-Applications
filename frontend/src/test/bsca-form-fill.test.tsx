@@ -1,6 +1,8 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, expect, it, vi } from "vitest";
 import { ThesisFormFill } from "@/components/ThesisFormFill";
+import { MemoryRouter } from "react-router-dom";
+import { FormVisitProvider } from "@/components/FormVisitProvider";
 import { ProgramForms } from "@/components/ProgramForms";
 import { normalizeProgram } from "@/pages/programs/programData";
 import type { Program } from "@/types/api";
@@ -68,8 +70,8 @@ it.each(["BSCA", "MSCA"])("offers online filling only for supported documents in
     { title: "Form 019 — Approval for proposal hearing", href: "/proposal.docx", form_group: "PROPOSAL", fillable_form_id: "019" },
     { title: "Form 018 — Request for change of adviser", href: "/change.docx", form_group: "PROPOSAL" },
   ] } as Program);
-  render(<ProgramForms program={program} />);
-  expect(screen.getByRole("link", { name: /proposal hearing/ })).toHaveAttribute("href", "/proposal.docx");
+  render(<MemoryRouter><ProgramForms program={program} /></MemoryRouter>);
+  expect(screen.getByRole("link", { name: /Download form:.*proposal hearing/ })).toHaveAttribute("href", "/proposal.docx");
   expect(screen.queryAllByRole("button", { name: /Fill out online/ })).toHaveLength(1);
 });
 
@@ -89,12 +91,12 @@ it("clears the editor and prepared PDF when switching between programs with the 
   const program = (code: string) => normalizeProgram({ code, documents: [
     { title: "Form 019 — Approval for proposal hearing", href: "/proposal.docx", form_group: "PROPOSAL", fillable_form_id: "019" },
   ] } as Program);
-  const view = render(<ProgramForms program={program("BSCA")} />);
+  const view = render(<MemoryRouter><ProgramForms program={program("BSCA")} /></MemoryRouter>);
   fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
   fireEvent.change(await screen.findByLabelText("Student 1 full name"), { target: { value: "Maria Santos" } });
   fireEvent.click(screen.getByRole("button", { name: "Prepare filled PDF" }));
   await screen.findByRole("link", { name: "Download filled PDF" });
-  view.rerender(<ProgramForms program={program("MSCA")} />);
+  view.rerender(<MemoryRouter><ProgramForms program={program("MSCA")} /></MemoryRouter>);
   expect(screen.queryByRole("link", { name: "Download filled PDF" })).not.toBeInTheDocument();
   expect(URL.revokeObjectURL).toHaveBeenCalledWith("blob:filled-form");
   fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
@@ -113,4 +115,54 @@ it("uses the registrar endpoint and Letter paper guidance for completion forms",
   fireEvent.click(screen.getByRole("button", { name: "Prepare filled PDF" }));
   expect(await screen.findByRole("link", { name: "Download filled PDF" })).toHaveAttribute("download", "REGISTRAR-011-filled.pdf");
   expect(prepareFormPDF).toHaveBeenCalledWith("/api/academics/forms/registrar/011/", { student_1: "Maria Santos" });
+});
+
+
+it("groups printed signatory names and links an error directly to the affected field", async () => {
+  vi.mocked(fetchJSON).mockResolvedValue({ ...schema, fields: [...schema.fields, { key: "college_dean_name", label: "College Dean — printed name", section: "Signatory names", max_length: 90, multiline: false }] });
+  vi.mocked(prepareFormPDF).mockRejectedValue(new FormDownloadError("Check the highlighted entries.", { college_dean_name: "This name is too wide for the printed blank." }));
+  render(<ThesisFormFill programCode="BSCA" formId="019" label="Proposal hearing" />);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  const name = await screen.findByLabelText("College Dean — printed name");
+  expect(screen.getByRole("group", { name: "2. Signatory names (optional)" })).toContainElement(name);
+  fireEvent.change(name, { target: { value: "Dr. Ana Cruz" } });
+  fireEvent.click(screen.getByRole("button", { name: "Prepare filled PDF" }));
+  expect(await screen.findByRole("alert")).toHaveFocus();
+  fireEvent.click(screen.getByRole("button", { name: "Fix College Dean — printed name" }));
+  expect(name).toHaveFocus();
+  expect(name).toHaveAccessibleDescription("This name is too wide for the printed blank.");
+});
+
+it("reuses common details only with consent, keeps programs separate, and forgets them when disabled", async () => {
+  vi.mocked(fetchJSON).mockResolvedValue({ ...schema, fields: [{ key: "student_name", label: "Student full name", max_length: 100, multiline: false }, { key: "service_course_department_chair_name", label: "Service-course chairperson", max_length: 90, multiline: false, section: "Signatory names" }] });
+  function Forms({ second = false, programCode = "BSCA" }: { second?: boolean; programCode?: "BSCA" | "MSCA" }) {
+    return <><ThesisFormFill key={`${programCode}-${second}`} programCode={programCode} formId={second ? "022" : "019"} label="Test form" /></>;
+  }
+  const view = render(<FormVisitProvider><Forms /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  fireEvent.change(await screen.findByLabelText("Student full name"), { target: { value: "Maria Santos" } });
+  fireEvent.change(screen.getByLabelText("Service-course chairperson"), { target: { value: "Dr. Ana Cruz" } });
+  fireEvent.click(screen.getByRole("checkbox", { name: /Reuse common details/ }));
+  view.rerender(<FormVisitProvider><Forms second /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  expect(await screen.findByLabelText("Student full name")).toHaveValue("Maria Santos");
+  expect(screen.getByLabelText("Service-course chairperson")).toHaveValue("");
+  view.rerender(<FormVisitProvider><Forms programCode="MSCA" /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  expect(await screen.findByLabelText("Student full name")).toHaveValue("");
+  view.rerender(<FormVisitProvider><Forms /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  expect(await screen.findByLabelText("Student full name")).toHaveValue("Maria Santos");
+  fireEvent.click(screen.getByRole("checkbox", { name: /Reuse common details/ }));
+  view.rerender(<FormVisitProvider><Forms second /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  expect(await screen.findByLabelText("Student full name")).toHaveValue("");
+});
+
+it("retries loading without requiring students to close and reopen the editor", async () => {
+  vi.mocked(fetchJSON).mockRejectedValueOnce(new Error("Unavailable"));
+  render(<ThesisFormFill programCode="REGISTRAR" formId="011" label="Completion" />);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  fireEvent.click(await screen.findByRole("button", { name: "Try loading the form again" }));
+  expect(await screen.findByLabelText("Student 1 full name")).toBeInTheDocument();
 });

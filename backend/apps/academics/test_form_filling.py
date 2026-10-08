@@ -216,3 +216,27 @@ class MSCAFormFillingTests(TestCase):
             original.write_bytes(b"different template version")
             with self.settings(REPO_DIR=Path(root)):
                 self.assertFalse(template_is_current("019", "MSCA"))
+
+
+class PrintedSignatoryNameTests(TestCase):
+    def test_names_in_all_supported_collections_are_printable_without_authorizing_decisions(self):
+        from .form_filling import public_schema
+        for code in ("BSCA", "MSCA", "REGISTRAR"):
+            for form_id, form in catalog(code).items():
+                with self.subTest(collection=code, form=form_id):
+                    names = [f for f in form["fields"] if f.get("section") == "Signatory names"]
+                    if not names:
+                        continue  # Some request forms contain no official signatory name blank.
+                    self.assertTrue(all(not f.get("choices") for f in names))
+                    result = fill_pdf(form_id, {f["key"]: "Dr. Ana Cruz" for f in names}, code)
+                    reader = PdfReader(BytesIO(result))
+                    self.assertIn("Dr. Ana Cruz", "\n".join(p.extract_text() for p in reader.pages))
+                    for f in names:
+                        for slot in f["slots"]:
+                            page = reader.pages[slot["page"]]
+                            self.assertGreaterEqual(slot["x"], 0)
+                            self.assertLessEqual(slot["x"] + slot["width"], float(page.mediabox.width))
+                            self.assertLess(slot["baseline"], float(page.mediabox.height))
+                    self.assertTrue(any(f.get("section") == "Signatory names" for f in public_schema(form_id, code)["fields"]))
+                    with self.assertRaises(FormInputError):
+                        fill_pdf(form_id, {"approval_decision": "Approved", "signature": "signed"}, code)

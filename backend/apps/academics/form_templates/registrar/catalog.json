@@ -216,6 +216,64 @@
         "max_length": 10,
         "multiline": false,
         "font_size": 9
+      },
+      {
+        "key": "college_dean_name",
+        "label": "College Dean — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 422.1,
+            "baseline": 286.9,
+            "width": 110.0,
+            "align": "center"
+          },
+          {
+            "page": 0,
+            "x": 421.5,
+            "baseline": 623.8,
+            "width": 110.0,
+            "repeat": true,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "department_chair_name",
+        "label": "Department Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 451.6,
+            "baseline": 566.0,
+            "width": 85.0,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 346.6,
+            "baseline": 719.4,
+            "width": 160.0
+          }
+        ]
       }
     ]
   },
@@ -499,6 +557,72 @@
         "max_length": 350,
         "multiline": true,
         "font_size": 10
+      },
+      {
+        "key": "adviser",
+        "label": "Adviser — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 97.4,
+            "baseline": 440.3,
+            "width": 154.0
+          }
+        ]
+      },
+      {
+        "key": "department_chair_name",
+        "label": "Department Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 116.3,
+            "baseline": 486.3,
+            "width": 137.5,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "college_dean_name",
+        "label": "College Dean — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 85.8,
+            "baseline": 532.3,
+            "width": 165.0,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 328.1,
+            "baseline": 619.2,
+            "width": 104.0
+          }
+        ]
       }
     ]
   },
@@ -2147,6 +2271,22 @@
             }
           ]
         }
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 344.8,
+            "baseline": 613.0,
+            "width": 137.5
+          }
+        ]
       }
     ]
   },
@@ -2464,6 +2604,72 @@
             }
           ]
         }
+      },
+      {
+        "key": "adviser",
+        "label": "Adviser — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 186.9,
+            "baseline": 521.1,
+            "width": 104.5
+          }
+        ]
+      },
+      {
+        "key": "department_chair_name",
+        "label": "Department Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 186.8,
+            "baseline": 556.7,
+            "width": 104.5,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "college_dean_name",
+        "label": "College Dean — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 180.8,
+            "baseline": 592.4,
+            "width": 104.5,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 184.1,
+            "baseline": 648.7,
+            "width": 104.5
+          }
+        ]
       }
     ]
   },
@@ -2922,6 +3128,105 @@
             }
           ]
         }
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 380.8,
+            "baseline": 754.3,
+            "width": 132.0
+          }
+        ]
+      },
+      {
+        "key": "previous_adviser_name",
+        "label": "Previous department — Adviser — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 153.1,
+            "baseline": 547.7,
+            "width": 104.5
+          }
+        ]
+      },
+      {
+        "key": "previous_department_chair_name",
+        "label": "Previous department — Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 152.8,
+            "baseline": 578.8,
+            "width": 104.5,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "new_adviser_name",
+        "label": "New department — Adviser — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 164.8,
+            "baseline": 629.4,
+            "width": 104.5
+          }
+        ]
+      },
+      {
+        "key": "new_department_chair_name",
+        "label": "New department — Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 164.7,
+            "baseline": 660.5,
+            "width": 104.5,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "new_college_dean_name",
+        "label": "New college — Dean — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 156.0,
+            "baseline": 691.5,
+            "width": 115.5,
+            "align": "center"
+          }
+        ]
       }
     ]
   },
@@ -3207,6 +3512,22 @@
             }
           ]
         }
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 92.8,
+            "baseline": 426.0,
+            "width": 137.5
+          }
+        ]
       }
     ]
   },
@@ -3970,6 +4291,136 @@
             }
           ]
         }
+      },
+      {
+        "key": "adviser",
+        "label": "Adviser — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 100.5,
+            "baseline": 657.5,
+            "width": 140.0
+          }
+        ]
+      },
+      {
+        "key": "department_chair_name",
+        "label": "Department Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 121.0,
+            "baseline": 684.0,
+            "width": 120.0,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "college_dean_name",
+        "label": "College Dean — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 89.4,
+            "baseline": 710.5,
+            "width": 150.0,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 107.7,
+            "baseline": 748.6,
+            "width": 130.0
+          }
+        ]
+      },
+      {
+        "key": "closed_subject_instructor_1",
+        "label": "Closed subject 1 — Instructor — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 65,
+            "baseline": 491,
+            "width": 105
+          }
+        ]
+      },
+      {
+        "key": "closed_subject_instructor_2",
+        "label": "Closed subject 2 — Instructor — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 175,
+            "baseline": 491,
+            "width": 110
+          }
+        ]
+      },
+      {
+        "key": "closed_subject_instructor_3",
+        "label": "Closed subject 3 — Instructor — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 290,
+            "baseline": 491,
+            "width": 110
+          }
+        ]
+      },
+      {
+        "key": "closed_subject_instructor_4",
+        "label": "Closed subject 4 — Instructor — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 407,
+            "baseline": 491,
+            "width": 110
+          }
+        ]
       }
     ]
   },
@@ -4271,9 +4722,75 @@
         "max_length": 8,
         "multiline": false,
         "font_size": 9
+      },
+      {
+        "key": "adviser",
+        "label": "Adviser — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 214.1,
+            "baseline": 595.9,
+            "width": 175.0
+          }
+        ]
+      },
+      {
+        "key": "department_chair_name",
+        "label": "Department Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 234.7,
+            "baseline": 639.7,
+            "width": 160.0,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "college_dean_name",
+        "label": "Dean / Director — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 241.8,
+            "baseline": 685.8,
+            "width": 145.0,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 223.3,
+            "baseline": 725.4,
+            "width": 166
+          }
+        ]
       }
     ],
-    "note": "The supplied form has a very short student-name blank. Have the Registrar complete that blank, or use the original Word form if it needs adjustment. Permit number, certification, signatures and approvals are completed by the responsible offices."
+    "note": "The supplied form has a very short student-name blank. Complete that blank manually or use the original Word form. Printed signatory names can be entered below; permit numbers, signatures, certification and decisions are completed by the responsible offices."
   },
   "010": {
     "title": "Request for validation of prerequisite courses",
@@ -4657,6 +5174,72 @@
         "max_length": 10,
         "multiline": false,
         "font_size": 10
+      },
+      {
+        "key": "registrar_name",
+        "label": "Institute Registrar — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 221.8,
+            "baseline": 750.8,
+            "width": 150.0
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Program Adviser — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 56.8,
+            "baseline": 668.0,
+            "width": 138.0
+          }
+        ]
+      },
+      {
+        "key": "service_course_department_chair_name",
+        "label": "Service-course Department Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 221.8,
+            "baseline": 668.0,
+            "width": 150.0,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "service_course_dean_name",
+        "label": "Service-course Dean / Director — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 410.8,
+            "baseline": 668.0,
+            "width": 144.0,
+            "align": "center"
+          }
+        ]
       }
     ]
   },
@@ -4830,6 +5413,46 @@
         "max_length": 10,
         "multiline": false,
         "font_size": 10
+      },
+      {
+        "key": "department_chair_name",
+        "label": "Department Chairperson — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 90.1,
+            "baseline": 330.7,
+            "width": 121.4,
+            "align": "center"
+          }
+        ]
+      },
+      {
+        "key": "faculty_name",
+        "label": "Faculty member administering / rating the completion — printed name",
+        "max_length": 90,
+        "multiline": false,
+        "font_size": 10,
+        "section": "Signatory names",
+        "slots": [
+          {
+            "page": 0,
+            "x": 90.1,
+            "baseline": 412.9,
+            "width": 145.7
+          },
+          {
+            "page": 0,
+            "x": 120.1,
+            "baseline": 655.4,
+            "width": 131.1,
+            "repeat": true
+          }
+        ]
       }
     ],
     "note": "The examination / completion selection, assessment, permission and report of grade are completed by the responsible offices. No grade or approval is entered online."

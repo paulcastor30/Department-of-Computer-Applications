@@ -1,13 +1,18 @@
 import { cleanup, fireEvent, render, screen, within } from "@testing-library/react";
-import { afterEach, expect, it } from "vitest";
+import { afterEach, beforeEach, expect, it, vi } from "vitest";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { fetchJSON } from "@/lib/api";
+import { FormVisitProvider } from "@/components/FormVisitProvider";
 import { MemoryRouter } from "react-router-dom";
 import ThesisGuide from "@/pages/ThesisGuide";
 import { formUrl, getThesisForm, getThesisFormSource, thesisForms, thesisFormSources, thesisStages } from "@/content/thesisProcess";
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
 
-afterEach(cleanup);
-function guide(program = "BSCA") { return render(<MemoryRouter initialEntries={[`/thesis-guide?program=${program}`]}><ThesisGuide /></MemoryRouter>); }
+vi.mock("@/lib/api", async original => ({ ...await original<typeof import("@/lib/api")>(), fetchJSON: vi.fn() }));
+beforeEach(() => { vi.mocked(fetchJSON).mockResolvedValue([]); });
+afterEach(() => { cleanup(); vi.clearAllMocks(); });
+function guide(program = "BSCA") { return render(<QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><FormVisitProvider><MemoryRouter initialEntries={[`/thesis-guide?program=${program}`]}><ThesisGuide /></MemoryRouter></FormVisitProvider></QueryClientProvider>); }
 it("separates mandatory stages, conditional panel changes and graduate examinations", () => {
   guide();
   expect(thesisStages).toHaveLength(8);
@@ -139,4 +144,19 @@ it.each(["BSCA", "MSCA"])("requires three %s hardbound thesis copies with signed
   expect(screen.getByLabelText("Required for clearance")).toHaveTextContent("three printed hardbound thesis copies");
   expect(screen.getByText("Three hard copies of the abstract.")).toBeInTheDocument();
   expect(screen.getByText("Two hard copies of the research article / journal-type paper.")).toBeInTheDocument();
+});
+
+
+it("offers the shared editor inside the matching thesis step only for published matching templates", async () => {
+  const source = getThesisFormSource("BSCA", "019")!;
+  vi.mocked(fetchJSON).mockImplementation(async url => url === "/api/academics/programs/" ? [{ code: "BSCA", documents: [
+    { href: formUrl(source), fillable_form_id: "019" },
+    { href: "/unreviewed.docx", fillable_form_id: "020" },
+  ] }] : { id: "019", title: "Approval for proposal hearing", paper_size: "A4", fields: [{ key: "department_chair_name", label: "Department Chairperson — printed name", section: "Signatory names", max_length: 90, multiline: false }] });
+  guide();
+  const fill = await screen.findByRole("button", { name: /Fill out online.*Approval for Proposal Hearing/ });
+  fireEvent.click(fill);
+  expect(await screen.findByLabelText("Department Chairperson — printed name")).toBeInTheDocument();
+  expect(vi.mocked(fetchJSON)).toHaveBeenCalledWith("/api/academics/forms/bsca/019/");
+  expect(screen.getAllByRole("button", { name: /Close online form|Fill out online/ })).toHaveLength(1);
 });

@@ -1,6 +1,8 @@
 import { ThesisFormFill } from "@/components/ThesisFormFill";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useFormVisit } from "@/components/formVisitContext";
+import { thesisStepForForm } from "@/lib/formNavigation";
+import { Link, useLocation } from "react-router-dom";
 import type { ProgramDocumentLink, ProgramProfile } from "@/pages/programs/programData";
 
 const groups = [
@@ -69,6 +71,7 @@ export function ProgramForms({ program }: { program: ProgramProfile }) {
                   <span className="sr-only"> — {program.code}{variants.length > 1 ? `: ${purpose}` : reference ? `, ${reference}` : ""}</span>
                 </a>
                 {(program.code === "BSCA" || program.code === "MSCA") && document.fillableFormId && <ThesisFormFill key={`${program.code}-${document.fillableFormId}`} programCode={program.code} formId={document.fillableFormId} label={purpose} />}
+                {document.fillableFormId && thesisStepForForm(document.fillableFormId) && <Link className="text-link mt-2 inline-flex min-h-11 items-center" to={`/thesis-guide?program=${program.code}#${thesisStepForForm(document.fillableFormId)}`}>View the related thesis step<span className="sr-only"> — {purpose}</span></Link>}
                 <p className="text-sm leading-6 text-muted-foreground">{program.code}{reference && variants.length === 1 ? ` · ${reference}` : ""} · {extension === "DOC" || extension === "DOCX" ? "Word document" : extension === "PDF" ? "PDF document" : "Image template"}</p>
                 {document.note && document.note !== "Department-supplied form. Confirm the applicable version before use." && <p className="mt-1 text-sm leading-6 text-muted-foreground">{document.note}</p>}
               </div>;
@@ -81,9 +84,11 @@ export function ProgramForms({ program }: { program: ProgramProfile }) {
 }
 
 export function ProgramFormPicker({ programs }: { programs: ProgramProfile[] }) {
-  const { hash } = useLocation();
+  const { hash, search } = useLocation();
+  const visit = useFormVisit();
+  const requested = new URLSearchParams(search).get("program");
   const fromHash = (value: string) => value === "#bsca-forms" ? "BSCA" : value === "#msca-forms" ? "MSCA" : "";
-  const [selected, setSelected] = useState(() => fromHash(hash));
+  const [selected, setSelected] = useState<string>(() => fromHash(hash) || (requested === "BSCA" || requested === "MSCA" ? requested : visit.program));
   useEffect(() => { const code = fromHash(hash); if (code) setSelected(code); }, [hash]);
   const program = programs.find(item => item.code === selected);
   const hasForms = Boolean(program?.documents.some(item => item.formGroup && item.href));
@@ -94,7 +99,7 @@ export function ProgramFormPicker({ programs }: { programs: ProgramProfile[] }) 
     <fieldset>
       <legend className="font-semibold text-primary">Which program are you enrolled in?</legend>
       <div className="mt-4 grid gap-3 sm:grid-cols-2">{programs.map(item => <label key={item.code} className={`flex min-h-14 cursor-pointer items-start gap-3 rounded-md border p-4 ${selected === item.code ? "border-primary bg-background" : "border-border"}`}>
-        <input className="mt-1 h-5 w-5 shrink-0 accent-primary" type="radio" name="form-program" value={item.code} checked={selected === item.code} onChange={() => setSelected(item.code)} />
+        <input className="mt-1 h-5 w-5 shrink-0 accent-primary" type="radio" name="form-program" value={item.code} checked={selected === item.code} onChange={() => { setSelected(item.code); if (item.code === "BSCA" || item.code === "MSCA") visit.chooseProgram(item.code); }} />
         <span><span className="block font-semibold text-primary">{item.code} · {item.level}</span><span className="mt-1 block text-sm leading-6 text-muted-foreground">{item.title}</span></span>
       </label>)}</div>
     </fieldset>

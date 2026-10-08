@@ -60,7 +60,7 @@ def public_schema(form_id, program_code="BSCA"):
     return {
         "id": form_id, "title": form["title"], "paper_size": form.get("paper_size", "A4"), "note": form.get("note", ""),
         "filename": f"{program_code}-{form_id}-filled.pdf",
-        "fields": [{key: field[key] for key in ("key", "label", "max_length", "multiline", "choices") if key in field} for field in form["fields"]],
+        "fields": [{key: field[key] for key in ("key", "label", "max_length", "multiline", "choices", "section") if key in field} for field in form["fields"]],
     }
 
 
@@ -176,7 +176,11 @@ def fill_pdf(form_id, values, program_code="BSCA"):
         canvas = Canvas(stream, pagesize=(float(page.mediabox.width), float(page.mediabox.height)), pageCompression=1)
         for slot, text, size in page_placements:
             canvas.setFont(font_name, size)
-            canvas.drawString(slot["x"] + 2, float(page.mediabox.height) - slot["baseline"], text)
+            baseline = float(page.mediabox.height) - slot["baseline"]
+            if slot.get("align") == "center":
+                canvas.drawCentredString(slot["x"] + slot["width"] / 2, baseline, text)
+            else:
+                canvas.drawString(slot["x"] + 2, baseline, text)
         canvas.save()
         page.merge_page(PdfReader(stream).pages[0])
     output = BytesIO()
