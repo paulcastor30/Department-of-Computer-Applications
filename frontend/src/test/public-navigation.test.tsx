@@ -19,8 +19,8 @@ it('shows the department and degree routes without waiting for news', async () =
   render(<App />);
   expect(screen.getByRole('heading', { level: 1, name: 'Department of Computer Applications' })).toBeInTheDocument();
   const main = within(screen.getByRole('main'));
-  expect(main.getByRole('link', { name: 'Explore programs' })).toHaveAttribute('href', '/programs');
-  expect(main.getByRole('link', { name: 'Contact us' })).toHaveAttribute('href', '/about/contact');
+  expect(main.getByRole('link', { name: 'Explore Our Programs' })).toHaveAttribute('href', '/programs');
+  expect(main.getByRole('link', { name: 'Discover Our Research' })).toHaveAttribute('href', '/research');
   expect(main.getByRole('link', { name: /Undergraduate.*BSCA/ })).toHaveAttribute('href', '/programs/bsca');
   expect(main.getByRole('link', { name: /Graduate.*MSCA/ })).toHaveAttribute('href', '/programs/msca');
   expect(await screen.findByText('Official department overview')).toBeInTheDocument();
@@ -78,12 +78,12 @@ it('takes the college vision link directly to the purpose section', async () => 
 
 it('gives the public a help route as well as an application route on Home', () => {
   render(<App />);
-  expect(screen.getByRole('link', { name: 'Contact us' })).toHaveAttribute('href', '/about/contact');
-  expect(screen.getByRole('link', { name: 'Directions and access assistance' })).toHaveAttribute('href', '/about/location#access');
-  expect(within(screen.getByRole('region', { name: 'Study with us' })).getByRole('link', { name: 'How to apply' })).toHaveAttribute('href', '/admissions');
-  expect(screen.getByRole('link', { name: 'Help using this website' })).toHaveAttribute('href', '/accessibility');
-  const people = screen.getByRole('navigation', { name: 'People and work' });
-  const study = screen.getByRole('heading', { name: 'Study with us' });
+  expect(screen.getByRole('link', { name: 'Contact the department' })).toHaveAttribute('href', '/about/contact');
+  expect(screen.getByRole('link', { name: 'Location and Directions' })).toHaveAttribute('href', '/about/location#access');
+  expect(within(screen.getByRole('region', { name: 'Explore Our Academic Programs' })).getByRole('link', { name: 'How to apply' })).toHaveAttribute('href', '/admissions');
+  expect(screen.getByRole('link', { name: 'Website Accessibility Assistance' })).toHaveAttribute('href', '/accessibility');
+  const people = screen.getByRole('navigation', { name: 'Research and international engagement' });
+  const study = screen.getByRole('heading', { name: 'Explore Our Academic Programs' });
   expect(study.compareDocumentPosition(people) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 });
 
@@ -215,7 +215,7 @@ it('provides thesis and learning-support routes for both degrees on the resource
 
 it('takes a visitor from Home to both authoritative application routes', async () => {
   render(<App />);
-  fireEvent.click(within(screen.getByRole('region', { name: 'Study with us' })).getByRole('link', { name: 'How to apply' }));
+  fireEvent.click(within(screen.getByRole('region', { name: 'Explore Our Academic Programs' })).getByRole('link', { name: 'How to apply' }));
   const main = within(screen.getByRole('main'));
   expect(await main.findByRole('heading', { level: 1, name: 'How to apply' })).toBeInTheDocument();
   expect(main.queryByText('Information to come')).not.toBeInTheDocument();
@@ -257,10 +257,12 @@ it('introduces existing research and community examples without claiming an appr
   expect(main.getByRole('link', { name: 'Find community information' })).toHaveAttribute('href', '/extension');
 });
 
-it('puts beginner understanding before program choice and deeper institutional information', () => {
+it('follows the seven-section brief and immediately identifies both degrees', () => {
   render(<App />);
   const main = within(screen.getByRole('main'));
   const titles = main.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent);
-  expect(titles).toEqual(['What is Computer Applications?', 'Study with us', 'What will you learn to build?', 'Computer Applications in practice', 'Is BSCA for me?', 'Get to know the department', 'News and announcements', 'Visit or get in touch']);
-  expect(main.getByText(/Study with us:/)).toHaveTextContent('BSCA (bachelor’s degree) and MSCA (master’s degree)');
+  expect(titles).toEqual(['Explore Our Academic Programs', 'What is Computer Applications?', 'Discover Our Work', 'Research and International Collaboration', 'Department News', 'Connect With Us']);
+  const intro = within(screen.getByRole('region', { name: 'Department of Computer Applications' }));
+  expect(intro.getByRole('link', { name: 'Bachelor of Science in Computer Applications (BSCA)' })).toHaveAttribute('href', '/programs/bsca');
+  expect(intro.getByRole('link', { name: 'Master of Science in Computer Applications (MSCA)' })).toHaveAttribute('href', '/programs/msca');
 });
