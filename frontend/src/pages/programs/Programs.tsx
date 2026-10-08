@@ -32,6 +32,14 @@ export default function Programs() {
       <SectionHeader title="Program prospectuses" className="mb-5" />
       {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.code}-${document.label}-${document.href}`}><a className="outline-link" href={document.href}>Open {document.label.startsWith(document.code) ? document.label : `${document.code}: ${document.label}`}</a></li>)}</ul> : <p className="max-w-3xl leading-7 text-muted-foreground">Official program prospectuses: {placeholder} Contact the department for current documents.</p>}
     </Section>
+    <Section variant="muted">
+      <SectionHeader title="Admissions and program support" className="mb-5" />
+      <nav aria-label="Program support" className="flex flex-wrap gap-3">
+        <Link className="outline-link" to="/admissions">How to apply</Link>
+        <Link className="outline-link" to="/facilities">Facilities</Link>
+        <Link className="outline-link" to="/accreditation">Accreditation &amp; Quality Assurance</Link>
+      </nav>
+    </Section>
     <Section id="program-inquiries">
       <SectionHeader title="Need help choosing or applying?" className="mb-5" />
       <ProgramInquiry compact />

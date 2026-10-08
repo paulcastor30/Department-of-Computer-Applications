@@ -228,8 +228,8 @@ it('does not promote unfinished pages through the footer or search', () => {
   render(<App />);
   expect(screen.queryByRole('link', { name: 'International partnerships' })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
-  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'facilities' } });
-  expect(within(screen.getByRole('search')).queryByRole('link', { name: 'Facilities' })).not.toBeInTheDocument();
+  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'international' } });
+  expect(within(screen.getByRole('search')).queryByRole('link', { name: 'International Linkages' })).not.toBeInTheDocument();
   expect(screen.getByRole('status')).toHaveTextContent('0 matching pages');
 });
 
@@ -263,4 +263,44 @@ it('puts beginner understanding before program choice and deeper institutional i
   const titles = main.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent);
   expect(titles).toEqual(['What is Computer Applications?', 'Study with us', 'What will you learn to build?', 'Computer Applications in practice', 'Is BSCA for me?', 'Get to know the department', 'News and announcements', 'Visit or get in touch']);
   expect(main.getByText(/Study with us:/)).toHaveTextContent('BSCA (bachelor’s degree) and MSCA (master’s degree)');
+});
+
+
+it('offers seven primary destinations and returns Home through the department identity', () => {
+  render(<App />);
+  const nav = within(screen.getByRole('navigation', { name: 'Main navigation' }));
+  expect(nav.getAllByRole('link').map(link => link.textContent)).toEqual(['About', 'Programs', 'Faculty & Staff', 'Research', 'Extension', 'Students', 'Contact']);
+  expect(screen.getByRole('link', { name: 'Department of Computer Applications home' })).toHaveAttribute('href', '/');
+  fireEvent.click(nav.getByRole('link', { name: 'Students' }));
+  expect(screen.getByRole('heading', { level: 1, name: 'Student & faculty resources' })).toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Students', current: 'page' })).toBeInTheDocument();
+  fireEvent.click(screen.getByRole('link', { name: 'Department of Computer Applications home' }));
+  expect(screen.getByRole('heading', { level: 1, name: 'Department of Computer Applications' })).toBeInTheDocument();
+});
+
+it.each([
+  ['/about/contact', 'Contact'],
+  ['/about/location', 'Contact'],
+  ['/resources', 'Students'],
+  ['/sojt-guide', 'Students'],
+  ['/thesis-guide', 'Students'],
+  ['/programs/msca', 'Programs'],
+  ['/faculty/qualifications', 'Faculty & Staff'],
+])('highlights only the owning primary section for %s', (path, section) => {
+  window.history.replaceState({}, '', path);
+  render(<App />);
+  const nav = within(screen.getByRole('navigation', { name: 'Main navigation' }));
+  expect(nav.getAllByRole('link', { current: 'page' })).toHaveLength(1);
+  expect(nav.getByRole('link', { name: section, current: 'page' })).toBeInTheDocument();
+});
+
+it('makes ready supporting pages discoverable through footer and search', () => {
+  render(<App />);
+  const footer = within(screen.getByRole('contentinfo'));
+  for (const [label, href] of [['News & Events', '/news'], ['Facilities', '/facilities'], ['Accreditation & Quality Assurance', '/accreditation'], ['SOJT Process Guide', '/sojt-guide'], ['Accessibility Help', '/accessibility']]) {
+    expect(footer.getByRole('link', { name: label })).toHaveAttribute('href', href);
+  }
+  fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
+  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'facilities' } });
+  expect(within(screen.getByRole('search')).getByRole('link', { name: 'Facilities' })).toHaveAttribute('href', '/facilities');
 });

@@ -79,6 +79,8 @@ export default function Index() {
             <div className="home-about-links">
               <Link className="text-link" to="/about">About the department</Link>
               <Link className="text-link" to="/about#purpose">Our college’s vision and mission</Link>
+              <Link className="text-link" to="/facilities">Facilities</Link>
+              <Link className="text-link" to="/accreditation">Accreditation &amp; Quality Assurance</Link>
             </div>
           </div>
           <nav aria-label="People and work">

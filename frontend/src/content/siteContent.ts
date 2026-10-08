@@ -21,14 +21,24 @@ export const departmentIdentity = {
 export const placeholder = "To be provided by the Department";
 
 export const primaryNavigation = [
-  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Programs", href: "/programs" },
-  { label: "People", href: "/faculty" },
+  { label: "Faculty & Staff", href: "/faculty" },
   { label: "Research", href: "/research" },
-  { label: "News and Events", href: "/news" },
-  { label: "Contact & visit", href: "/about/contact" },
+  { label: "Extension", href: "/extension" },
+  { label: "Students", href: "/students/current" },
+  { label: "Contact", href: "/about/contact" },
 ];
+
+// Existing URLs are retained; supporting pages belong to their parent section.
+export function primarySectionFor(pathname: string) {
+  if (pathname === "/about/contact" || pathname === "/about/location" || pathname === "/accessibility") return "/about/contact";
+  if (pathname.startsWith("/students/") || ["/resources", "/thesis-guide", "/sojt-guide"].includes(pathname)) return "/students/current";
+  if (pathname.startsWith("/admissions")) return "/programs";
+  if (pathname === "/about/faculty-staff" || pathname.startsWith("/faculty")) return "/faculty";
+  if (["/facilities", "/accreditation", "/alumni", "/international-linkages"].some(route => pathname === route || pathname.startsWith(`${route}/`))) return "/about";
+  return primaryNavigation.find(item => pathname === item.href || pathname.startsWith(`${item.href}/`))?.href;
+}
 
 export const homepageSections = [
   {
@@ -301,5 +311,5 @@ const allSearchPages = [
 
 
 // Keep saved links working, but do not promote unfinished destinations in search.
-const availableSearchRoutes = new Set(["/sojt-guide", "/thesis-guide", "/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
+const availableSearchRoutes = new Set(["/facilities", "/accreditation", "/sojt-guide", "/thesis-guide", "/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
 export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href.split("#")[0]));

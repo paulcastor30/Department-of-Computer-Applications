@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, Search, X } from "lucide-react";
-import { departmentIdentity, primaryNavigation, searchPages } from "@/content/siteContent";
+import { departmentIdentity, primaryNavigation, primarySectionFor, searchPages } from "@/content/siteContent";
 
 export function Header() {
   const { pathname } = useLocation();
@@ -38,7 +38,7 @@ export function Header() {
         </div>
       </div>
       <nav id="primary-nav" aria-label="Main navigation" className={`container ${menuOpen ? "flex" : "hidden"} flex-col gap-1 pb-4 md:flex md:flex-row md:flex-wrap md:gap-2`}>
-        {primaryNavigation.map(item => <Link key={item.href} to={item.href} aria-current={pathname === item.href || (item.href !== "/" && pathname.startsWith(`${item.href}/`)) ? "page" : undefined} className="nav-item">{item.label}</Link>)}
+        {primaryNavigation.map(item => <Link key={item.href} to={item.href} aria-current={primarySectionFor(pathname) === item.href ? "page" : undefined} className="nav-item">{item.label}</Link>)}
       </nav>
       {searchOpen && <div id="site-search" className="border-t border-border bg-muted/30"><div className="container py-5">
         <form role="search" onSubmit={event => { event.preventDefault(); if (results[0]) navigate(results[0].href); }} className="max-w-2xl">

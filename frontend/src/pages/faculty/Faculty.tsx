@@ -38,9 +38,9 @@ export default function Faculty() {
     { title: "Department staff", members: filtered.filter(p => ["academic_staff", "laboratory_personnel"].includes(p.service_classification)) },
   ];
   return <>
-    <Seo title="Faculty" description="Meet the faculty of the Department of Computer Applications, MSU-IIT. Explore their qualifications, specialization areas and institutional contact details." />
+    <Seo title="Faculty & Staff" description="Meet the faculty of the Department of Computer Applications, MSU-IIT. Explore their qualifications, specialization areas and institutional contact details." />
     <Section>
-      <SectionHeader as="h1" title="Meet our faculty" subtitle="Find a teacher, explore their specialization, or ask about their academic work." />
+      <SectionHeader as="h1" title="Faculty & Staff" subtitle="Find faculty and department staff, explore their specialization, or ask about their academic work." />
       <p className="mb-8 max-w-3xl leading-7 text-muted-foreground">The profiles introduce the people behind Computer Applications. Open a profile for educational background and available professional information.</p>
       <div className="mb-8 max-w-xl"><label htmlFor="faculty-search" className="mb-2 block font-semibold">Search faculty</label>
         <input id="faculty-search" type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Name or specialization, such as embedded systems" className="min-h-12 w-full rounded-md border border-border bg-background px-4 text-base" />
