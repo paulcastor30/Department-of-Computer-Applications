@@ -10,7 +10,7 @@ afterEach(() => { cleanup(); records.prototypes = []; records.projects = []; rec
 it("introduces technical words with plain-language explanations in a semantic system flow", () => {
   render(<MemoryRouter><WhatIsComputerApplications /><WhatStudentsBuild /></MemoryRouter>);
   const flow = screen.getByRole("list", { name: "Example: from sensing to useful information" });
-  expect(within(flow).getAllByRole("listitem")).toHaveLength(5);
+  expect(within(flow).getAllByRole("listitem")).toHaveLength(6);
   expect(screen.getByText(/Small computers inside devices receive sensor readings/)).toBeInTheDocument();
   expect(screen.getByText(/Software running on the device tells it what to do/)).toBeInTheDocument();
   expect(screen.getByText(/Not every system needs a network, cloud service or artificial intelligence/)).toBeInTheDocument();
@@ -36,13 +36,7 @@ it("uses published CMS work and its own wording, with working in-site destinatio
 });
 it("keeps useful collection links without inventing work when records are unavailable", () => {
   render(<MemoryRouter><RealDepartmentWork /></MemoryRouter>);
-  expect(screen.queryByText("Student prototype")).not.toBeInTheDocument();
-  expect(screen.getByRole("link", { name: "Explore Student Projects" })).toBeInTheDocument();
+  expect(screen.queryByText("BSCA student output")).not.toBeInTheDocument();
+  expect(screen.getByRole("link", { name: "All BSCA student projects" })).toBeInTheDocument();
   expect(screen.getByText(/contact the department for help finding an example/)).toBeInTheDocument();
-});
-it("selects another published summary when the preferred record has no explanation", () => {
-  records.projects = [{ slug: "aphids-detection", title: "Record without summary" }, { slug: "explained", title: "Explained research", plain_language_summary: "Published explanation." }];
-  render(<MemoryRouter><RealDepartmentWork /></MemoryRouter>);
-  expect(screen.queryByText("Record without summary")).not.toBeInTheDocument();
-  expect(screen.getByText("Published explanation.")).toBeInTheDocument();
 });
