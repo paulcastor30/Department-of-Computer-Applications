@@ -1,0 +1,2359 @@
+{
+  "017": {
+    "title": "Nomination of members of advisory panel",
+    "source_filename": "FORM 017 Nomination of Members of Advisory Panel.docx",
+    "source_sha256": "5cc184a86a13c97e222cf6bd246136c0a8563ea105e425d853b0e8da5788512a",
+    "pdf_sha256": "567d84b4665325ed9119f4131fd04f7dba5bcff1e7af46ab5675c04e75ff4957",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 97,
+            "baseline": 260.6,
+            "width": 348
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 194,
+            "baseline": 279.6,
+            "width": 333
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Chairperson / Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 336.8,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_1",
+        "label": "Panel member 1 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 358.9,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_2",
+        "label": "Panel member 2 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 381.0,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_3",
+        "label": "Panel member 3 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 403.1,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_4",
+        "label": "Panel member 4 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 425.2,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 186.03,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "019": {
+    "title": "Approval for proposal hearing",
+    "source_filename": "FORM 019 Approval for Proposal Hearing.docx",
+    "source_sha256": "9af83d322faf88233525704e9db3afff57bd29d330f37ef6267bd8a7af8b6cbd",
+    "pdf_sha256": "7ef99966f95647e8384c9addffa39b9707c03952638e11ddef0a3d76fd7052f1",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 290,
+            "baseline": 229.5,
+            "width": 246
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "hearing_date",
+        "label": "Proposed hearing date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 103,
+            "baseline": 460.2,
+            "width": 125
+          }
+        ]
+      },
+      {
+        "key": "hearing_time",
+        "label": "Proposed hearing time",
+        "max_length": 25,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 287,
+            "baseline": 460.2,
+            "width": 74
+          }
+        ]
+      },
+      {
+        "key": "hearing_place",
+        "label": "Proposed hearing place",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 429,
+            "baseline": 460.2,
+            "width": 109
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 183.98,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "020": {
+    "title": "Approval of proposal",
+    "source_filename": "FORM 020 Approval of Proposal.docx",
+    "source_sha256": "c4979b96088bda3f64d0a5d9c356e271bf3d494026ab499b7fa2e1ef49caa6c4",
+    "pdf_sha256": "0cd949d38197e5d0d4c18737c5d8ad25cf7244eea3ff85828dc8eee98f9e80a1",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "date_filed",
+        "label": "Date filed",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 434,
+            "baseline": 226.7,
+            "width": 94
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          },
+          {
+            "page": 1,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 140,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 103,
+            "baseline": 254.5,
+            "width": 435
+          },
+          {
+            "page": 1,
+            "x": 103,
+            "baseline": 226.9,
+            "width": 435,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 103,
+            "baseline": 273.0,
+            "width": 203
+          }
+        ]
+      },
+      {
+        "key": "specialization",
+        "label": "Specialization (if applicable)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 386,
+            "baseline": 273.0,
+            "width": 152
+          }
+        ]
+      },
+      {
+        "key": "thesis_title",
+        "label": "Thesis title",
+        "max_length": 240,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 249,
+            "baseline": 291.0,
+            "width": 289
+          },
+          {
+            "page": 0,
+            "x": 62,
+            "baseline": 309.0,
+            "width": 476
+          },
+          {
+            "page": 1,
+            "x": 249,
+            "baseline": 244.9,
+            "width": 289,
+            "flow": 1
+          },
+          {
+            "page": 1,
+            "x": 62,
+            "baseline": 262.9,
+            "width": 476,
+            "flow": 1
+          },
+          {
+            "page": 1,
+            "x": 62,
+            "baseline": 281.4,
+            "width": 476,
+            "flow": 1
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 190.93,
+              "width": 12
+            },
+            {
+              "page": 1,
+              "x": 203.8,
+              "baseline": 182.88,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "021": {
+    "title": "Nomination of members of oral examination panel",
+    "source_filename": "FORM 021-Nomination-of-Members-of-Oral-Exam-Panel.docx",
+    "source_sha256": "e499f13f450ffab0dea6635c9c2005b1b680ef8a91dafa4196d64cdc2fc10c86",
+    "pdf_sha256": "2816faeed516a38a98773ea5fb56dc12b29383ec60733e5c24b3b3ffa7b7dd95",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 110,
+            "baseline": 240.0,
+            "width": 302
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 160,
+            "baseline": 253.8,
+            "width": 372
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Chairperson / Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 304.1,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_1",
+        "label": "Panel member 1 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 326.2,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_2",
+        "label": "Panel member 2 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 348.3,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_3",
+        "label": "Panel member 3 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 370.4,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_4",
+        "label": "Panel member 4 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 392.5,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 239.8,
+              "baseline": 186.03,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "022": {
+    "title": "Approval for final defense",
+    "source_filename": "FORM 022-Approval-for-Final-Defense.docx",
+    "source_sha256": "ca7f28a9eef5ed451f2393195fbdbb91a9b55e07ed64418ffcdf1545aadc5a37",
+    "pdf_sha256": "b6762ee48ec8d8cd970e59082db8318a3152d81c732d5982f29f0f245f4aec2a",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 232.3,
+            "width": 177
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "thesis_title",
+        "label": "Thesis title",
+        "max_length": 240,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 246.6,
+            "width": 468
+          },
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 259.2,
+            "width": 468
+          }
+        ]
+      },
+      {
+        "key": "defense_date",
+        "label": "Proposed defense date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 103,
+            "baseline": 498.2,
+            "width": 125
+          }
+        ]
+      },
+      {
+        "key": "defense_time",
+        "label": "Proposed defense time",
+        "max_length": 25,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 287,
+            "baseline": 498.2,
+            "width": 74
+          }
+        ]
+      },
+      {
+        "key": "defense_place",
+        "label": "Proposed defense place",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 429,
+            "baseline": 498.2,
+            "width": 109
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 240.0,
+              "baseline": 181.63,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "023": {
+    "title": "Oral examination report in final defense",
+    "source_filename": "FORM 023-Oral-Exam-Report-on-Final-Defense.docx",
+    "source_sha256": "4f2f28fa99e5e38c6ab0dd50549e78b76e06a19181e3db595fc4e68bcb7d8464",
+    "pdf_sha256": "460daced06711edfb54cb89441e008729afb6a18ab252425b7d3f7eae10560cc",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 140,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 169,
+            "baseline": 257.1,
+            "width": 369
+          },
+          {
+            "page": 1,
+            "x": 169,
+            "baseline": 188.6,
+            "width": 369,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          },
+          {
+            "page": 1,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "thesis_title",
+        "label": "Thesis title",
+        "max_length": 280,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 299,
+            "width": 481
+          },
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 313.3,
+            "width": 481
+          },
+          {
+            "page": 1,
+            "x": 57,
+            "baseline": 230.5,
+            "width": 481,
+            "flow": 1
+          },
+          {
+            "page": 1,
+            "x": 57,
+            "baseline": 244.8,
+            "width": 481,
+            "flow": 1
+          }
+        ]
+      },
+      {
+        "key": "examination_date",
+        "label": "Examination date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 106,
+            "baseline": 341.4,
+            "width": 171
+          },
+          {
+            "page": 1,
+            "x": 394,
+            "baseline": 146.7,
+            "width": 144,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 200.19,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "024": {
+    "title": "Panel oral examination report",
+    "source_filename": "FORM 024-Panel-Oral-Exam-Report.docx",
+    "source_sha256": "20da022996f3feb15cbe749d9e85446d0faa0d2c2422c8d3e3fe9f251a987fa7",
+    "pdf_sha256": "c9bb28fb7751ee901692b6767836d9cb1c1c3489ad5eb005e1e472ab36b47261",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 206,
+            "baseline": 234.1,
+            "width": 180
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          },
+          {
+            "page": 1,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "examination_date",
+        "label": "Examination date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 420,
+            "baseline": 160.9,
+            "width": 103
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 324.04,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "025": {
+    "title": "Approval for binding",
+    "source_filename": "FORM 025-Approval-for-Binding.docx",
+    "source_sha256": "acac91e3298fe38dbc166681473b5f8a8e915ad7f35c493e6e2df1aa816f1146",
+    "pdf_sha256": "0b017d1de904b65d06f33679b1409e61f8899315cc263cd3cf7c4f96b848696e",
+    "font": "serif",
+    "paper_size": "A4",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 62,
+            "baseline": 293.2,
+            "width": 271
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name (after “College of”)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 183,
+            "baseline": 103.8,
+            "width": 177,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "date",
+        "label": "Date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 420,
+            "baseline": 145.6,
+            "width": 108
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Chairperson / Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 440.9,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_1",
+        "label": "Panel member 1 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 463.0,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_2",
+        "label": "Panel member 2 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 485.1,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_3",
+        "label": "Panel member 3 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 507.2,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_4",
+        "label": "Panel member 4 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 113,
+            "baseline": 529.3,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 239.8,
+              "baseline": 233.68,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ccs-13": {
+    "title": "Application for intention to graduate",
+    "source_filename": "CCS FORM 13 - APPLICATION FOR INTENTION TO GRADUATE SCS .docx",
+    "source_sha256": "a12673daaac734c916b530b6cdaac27bd8ea3bc9388e52b3f8045f2dbab2ed8b",
+    "pdf_sha256": "b603fc071cbaa694ca15212b9a1e6019de17fbcdd09b2d1b8deb1b53e6182f48",
+    "font": "serif",
+    "paper_size": "Legal (8.5 × 14 inches)",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 152,
+            "baseline": 193.6,
+            "width": 171
+          }
+        ]
+      },
+      {
+        "key": "date_filed",
+        "label": "Date filed",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 398,
+            "baseline": 202.6,
+            "width": 140
+          }
+        ]
+      },
+      {
+        "key": "home_address",
+        "label": "Home address",
+        "max_length": 150,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 153,
+            "baseline": 214.3,
+            "width": 170
+          },
+          {
+            "page": 0,
+            "x": 147,
+            "baseline": 245.9,
+            "width": 179
+          }
+        ]
+      },
+      {
+        "key": "local_address",
+        "label": "Local address",
+        "max_length": 70,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 412,
+            "baseline": 223.3,
+            "width": 116
+          }
+        ]
+      },
+      {
+        "key": "home_phone",
+        "label": "Home telephone number",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 136,
+            "baseline": 265.8,
+            "width": 182
+          }
+        ]
+      },
+      {
+        "key": "local_phone",
+        "label": "Local telephone number",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 401,
+            "baseline": 265.8,
+            "width": 140
+          }
+        ]
+      },
+      {
+        "key": "previous_degree",
+        "label": "Previous BS or MS degree",
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 217,
+            "baseline": 286.4,
+            "width": 320
+          }
+        ]
+      },
+      {
+        "key": "year_obtained",
+        "label": "Year previous degree was obtained",
+        "max_length": 15,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 155,
+            "baseline": 307.1,
+            "width": 143
+          }
+        ]
+      },
+      {
+        "key": "institution",
+        "label": "Institution where previous degree was obtained",
+        "max_length": 120,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 408,
+            "baseline": 307.1,
+            "width": 133
+          },
+          {
+            "page": 0,
+            "x": 315,
+            "baseline": 329.2,
+            "width": 222
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree sought",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 156,
+            "baseline": 347,
+            "width": 141
+          }
+        ]
+      },
+      {
+        "key": "major",
+        "label": "Major",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 341,
+            "baseline": 348.9,
+            "width": 198
+          }
+        ]
+      },
+      {
+        "key": "minor",
+        "label": "Minor (if applicable)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 345,
+            "baseline": 369.7,
+            "width": 194
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 334,
+              "baseline": 412.4,
+              "width": 11
+            }
+          ]
+        }
+      },
+      {
+        "key": "thesis_title",
+        "label": "Research title",
+        "max_length": 400,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 426.4,
+            "width": 468
+          },
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 447.1,
+            "width": 468
+          },
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 467.7,
+            "width": 468
+          },
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 488.4,
+            "width": 468
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Research adviser name",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 163,
+            "baseline": 527.1,
+            "width": 242
+          }
+        ]
+      },
+      {
+        "key": "comprehensive_date",
+        "label": "Date of comprehensive exam (if any)",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 259,
+            "baseline": 554.7,
+            "width": 104
+          }
+        ]
+      },
+      {
+        "key": "cross_registered",
+        "label": "Did you cross-register in other schools?",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
+        "choice_slots": {
+          "yes": [
+            {
+              "page": 0,
+              "x": 315,
+              "baseline": 582.3,
+              "width": 12
+            }
+          ],
+          "no": [
+            {
+              "page": 0,
+              "x": 379,
+              "baseline": 582.3,
+              "width": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "cross_registration_1_school",
+        "label": "Cross-registration, row 1 — School",
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 625.0,
+            "width": 96
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_1_course",
+        "label": "Cross-registration, row 1 — Course taken",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 192.2,
+            "baseline": 625.0,
+            "width": 72
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_1_units",
+        "label": "Cross-registration, row 1 — Units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 270.2,
+            "baseline": 625.0,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_1_grade",
+        "label": "Cross-registration, row 1 — Grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 300.2,
+            "baseline": 625.0,
+            "width": 29.7
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_1_equivalent",
+        "label": "Cross-registration, row 1 — Confirmed MSU equivalent",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 378.1,
+            "baseline": 625.0,
+            "width": 84
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_1_msu_grade",
+        "label": "Cross-registration, row 1 — Confirmed MSU grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 474,
+            "baseline": 625.0,
+            "width": 30
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_1_msu_units",
+        "label": "Cross-registration, row 1 — Confirmed MSU units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 516,
+            "baseline": 625.0,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_2_school",
+        "label": "Cross-registration, row 2 — School",
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 639.0,
+            "width": 96
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_2_course",
+        "label": "Cross-registration, row 2 — Course taken",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 192.2,
+            "baseline": 639.0,
+            "width": 72
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_2_units",
+        "label": "Cross-registration, row 2 — Units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 270.2,
+            "baseline": 639.0,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_2_grade",
+        "label": "Cross-registration, row 2 — Grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 300.2,
+            "baseline": 639.0,
+            "width": 29.7
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_2_equivalent",
+        "label": "Cross-registration, row 2 — Confirmed MSU equivalent",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 378.1,
+            "baseline": 639.0,
+            "width": 84
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_2_msu_grade",
+        "label": "Cross-registration, row 2 — Confirmed MSU grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 474,
+            "baseline": 639.0,
+            "width": 30
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_2_msu_units",
+        "label": "Cross-registration, row 2 — Confirmed MSU units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 516,
+            "baseline": 639.0,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_3_school",
+        "label": "Cross-registration, row 3 — School",
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 652.6,
+            "width": 96
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_3_course",
+        "label": "Cross-registration, row 3 — Course taken",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 192.2,
+            "baseline": 652.6,
+            "width": 72
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_3_units",
+        "label": "Cross-registration, row 3 — Units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 270.2,
+            "baseline": 652.6,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_3_grade",
+        "label": "Cross-registration, row 3 — Grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 300.2,
+            "baseline": 652.6,
+            "width": 29.7
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_3_equivalent",
+        "label": "Cross-registration, row 3 — Confirmed MSU equivalent",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 378.1,
+            "baseline": 652.6,
+            "width": 84
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_3_msu_grade",
+        "label": "Cross-registration, row 3 — Confirmed MSU grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 474,
+            "baseline": 652.6,
+            "width": 30
+          }
+        ]
+      },
+      {
+        "key": "cross_registration_3_msu_units",
+        "label": "Cross-registration, row 3 — Confirmed MSU units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 516,
+            "baseline": 652.6,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "transfer_applied",
+        "label": "Have you applied for transfer of credits?",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ],
+        "choice_slots": {
+          "yes": [
+            {
+              "page": 0,
+              "x": 382,
+              "baseline": 677.4,
+              "width": 12
+            }
+          ],
+          "no": [
+            {
+              "page": 0,
+              "x": 448,
+              "baseline": 677.4,
+              "width": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "transfer_credits_1_school",
+        "label": "Transfer of credits, row 1 — School",
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 720.4,
+            "width": 96
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_1_course",
+        "label": "Transfer of credits, row 1 — Course taken",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 192.2,
+            "baseline": 720.4,
+            "width": 72
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_1_units",
+        "label": "Transfer of credits, row 1 — Units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 270.2,
+            "baseline": 720.4,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_1_grade",
+        "label": "Transfer of credits, row 1 — Grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 300.2,
+            "baseline": 720.4,
+            "width": 29.7
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_1_equivalent",
+        "label": "Transfer of credits, row 1 — Confirmed MSU equivalent",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 378.1,
+            "baseline": 720.4,
+            "width": 84
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_1_msu_grade",
+        "label": "Transfer of credits, row 1 — Confirmed MSU grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 474,
+            "baseline": 720.4,
+            "width": 30
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_1_msu_units",
+        "label": "Transfer of credits, row 1 — Confirmed MSU units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 516,
+            "baseline": 720.4,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_2_school",
+        "label": "Transfer of credits, row 2 — School",
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 734.1,
+            "width": 96
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_2_course",
+        "label": "Transfer of credits, row 2 — Course taken",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 192.2,
+            "baseline": 734.1,
+            "width": 72
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_2_units",
+        "label": "Transfer of credits, row 2 — Units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 270.2,
+            "baseline": 734.1,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_2_grade",
+        "label": "Transfer of credits, row 2 — Grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 300.2,
+            "baseline": 734.1,
+            "width": 29.7
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_2_equivalent",
+        "label": "Transfer of credits, row 2 — Confirmed MSU equivalent",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 378.1,
+            "baseline": 734.1,
+            "width": 84
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_2_msu_grade",
+        "label": "Transfer of credits, row 2 — Confirmed MSU grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 474,
+            "baseline": 734.1,
+            "width": 30
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_2_msu_units",
+        "label": "Transfer of credits, row 2 — Confirmed MSU units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 516,
+            "baseline": 734.1,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_3_school",
+        "label": "Transfer of credits, row 3 — School",
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 748.0,
+            "width": 96
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_3_course",
+        "label": "Transfer of credits, row 3 — Course taken",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 192.2,
+            "baseline": 748.0,
+            "width": 72
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_3_units",
+        "label": "Transfer of credits, row 3 — Units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 270.2,
+            "baseline": 748.0,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_3_grade",
+        "label": "Transfer of credits, row 3 — Grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 300.2,
+            "baseline": 748.0,
+            "width": 29.7
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_3_equivalent",
+        "label": "Transfer of credits, row 3 — Confirmed MSU equivalent",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 378.1,
+            "baseline": 748.0,
+            "width": 84
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_3_msu_grade",
+        "label": "Transfer of credits, row 3 — Confirmed MSU grade",
+        "max_length": 6,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 474,
+            "baseline": 748.0,
+            "width": 30
+          }
+        ]
+      },
+      {
+        "key": "transfer_credits_3_msu_units",
+        "label": "Transfer of credits, row 3 — Confirmed MSU units",
+        "max_length": 5,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [
+          {
+            "page": 0,
+            "x": 516,
+            "baseline": 748.0,
+            "width": 24
+          }
+        ]
+      },
+      {
+        "key": "graduation_december",
+        "label": "Intended December graduation year (leave other months blank)",
+        "max_length": 4,
+        "multiline": false,
+        "font_size": 8.5,
+        "slots": [
+          {
+            "page": 0,
+            "x": 299,
+            "baseline": 772.8,
+            "width": 21.7
+          }
+        ]
+      },
+      {
+        "key": "graduation_may",
+        "label": "Intended May graduation year (leave other months blank)",
+        "max_length": 4,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 376,
+            "baseline": 777.3,
+            "width": 35.7
+          }
+        ]
+      },
+      {
+        "key": "graduation_summer",
+        "label": "Intended summer graduation year (leave other months blank)",
+        "max_length": 4,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 489,
+            "baseline": 777.3,
+            "width": 32.3
+          }
+        ]
+      }
+    ],
+    "note": "The supplied CCS Form 13 is headed OGS Form 13 (March 2018). Its wording is preserved. Enter MSU equivalents only if officially confirmed, and confirm the applicable version with your graduate coordinator."
+  },
+  "ccs-14": {
+    "title": "Requirements submission",
+    "source_filename": "CCS FORM 14 - ReQUIREMENTS SUBMISSION.docx",
+    "source_sha256": "dd22a4999f1ae1ee5c16040cccd71427259e75ef91277c57ff343dad31a7cf06",
+    "pdf_sha256": "6b6abb85063025bddcbc0badbd9e5e85229f0ac45c954788eb525180803e0255",
+    "font": "sans",
+    "paper_size": "Letter (8.5 × 11 inches)",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student printed name (sign after printing)",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 72,
+            "baseline": 700.8,
+            "width": 170
+          }
+        ]
+      },
+      {
+        "key": "date",
+        "label": "Date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 439,
+            "baseline": 172.5,
+            "width": 109
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (MSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 182.5,
+              "baseline": 329.7,
+              "width": 11
+            }
+          ]
+        }
+      },
+      {
+        "key": "publication_intention",
+        "label": "Publication intention",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "publish",
+            "label": "Intend to publish"
+          },
+          {
+            "value": "do_not_publish",
+            "label": "Do not intend to publish"
+          }
+        ],
+        "choice_slots": {
+          "publish": [
+            {
+              "page": 0,
+              "x": 117.5,
+              "baseline": 493.5,
+              "width": 11
+            }
+          ],
+          "do_not_publish": [
+            {
+              "page": 0,
+              "x": 117.5,
+              "baseline": 591.5,
+              "width": 11
+            }
+          ]
+        }
+      },
+      {
+        "key": "thesis_title",
+        "label": "Research title",
+        "max_length": 220,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 228,
+            "baseline": 529.1,
+            "width": 306
+          },
+          {
+            "page": 0,
+            "x": 226,
+            "baseline": 541.7,
+            "width": 312
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 120,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 194,
+            "baseline": 554.2,
+            "width": 342
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Research adviser name",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 194,
+            "baseline": 566.8,
+            "width": 342
+          }
+        ]
+      },
+      {
+        "key": "publication_reason",
+        "label": "Reason for not intending to publish (if applicable)",
+        "max_length": 180,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 139,
+            "baseline": 604.4,
+            "width": 397
+          }
+        ]
+      }
+    ],
+    "note": "The supplied CCS Form 14 is headed OGS Form 14 (Revised March 2018) and names the College of Arts & Social Sciences in the addressee. Its wording is preserved; confirm the applicable version with your graduate coordinator."
+  }
+}

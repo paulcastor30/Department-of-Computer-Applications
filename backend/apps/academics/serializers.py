@@ -1,11 +1,13 @@
 from rest_framework import serializers
 from .models import Program, ProgramDocument
+from .form_filling import supported_form
 
 
 class ProgramDocumentSerializer(serializers.ModelSerializer):
     document_type_display = serializers.CharField(source="get_document_type_display", read_only=True)
     file_url = serializers.SerializerMethodField()
     href = serializers.SerializerMethodField()
+    fillable_form_id = serializers.SerializerMethodField()
 
     class Meta:
         model = ProgramDocument
@@ -18,10 +20,14 @@ class ProgramDocumentSerializer(serializers.ModelSerializer):
             "file_url",
             "url",
             "href",
+            "fillable_form_id",
             "note",
             "sort_order",
             "updated_at",
         ]
+
+    def get_fillable_form_id(self, obj):
+        return supported_form(obj)
 
     def get_file_url(self, obj):
         if obj.file:

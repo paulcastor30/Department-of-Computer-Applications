@@ -1,3 +1,4 @@
+import { ThesisFormFill } from "@/components/ThesisFormFill";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import type { ProgramDocumentLink, ProgramProfile } from "@/pages/programs/programData";
@@ -54,7 +55,7 @@ export function ProgramForms({ program }: { program: ProgramProfile }) {
       if (!items.length) return null;
       const tasks = Array.from(new Set(items.map(document => formLabel(document).purpose)));
       return <details key={key} className="rounded-md border border-border p-5" open={key === "PROPOSAL" || key === "DEFENSE"}>
-        <summary className="min-h-11 cursor-pointer font-semibold text-primary">{label}</summary>
+        <summary className="min-h-11 cursor-pointer font-semibold text-primary">{program.code === "BSCA" && key === "EXAMINATION" ? "Additional supplied examination form" : label}</summary>
         <ul className="mt-3 space-y-5">{tasks.map(purpose => {
           const variants = items.filter(document => formLabel(document).purpose === purpose);
           return <li key={purpose}>
@@ -67,6 +68,7 @@ export function ProgramForms({ program }: { program: ProgramProfile }) {
                   {variants.length > 1 ? "Download " : "Download form: "}{variants.length > 1 ? reference || purpose : purpose} ({extension})
                   <span className="sr-only"> — {program.code}{variants.length > 1 ? `: ${purpose}` : reference ? `, ${reference}` : ""}</span>
                 </a>
+                {(program.code === "BSCA" || program.code === "MSCA") && document.fillableFormId && <ThesisFormFill key={`${program.code}-${document.fillableFormId}`} programCode={program.code} formId={document.fillableFormId} label={purpose} />}
                 <p className="text-sm leading-6 text-muted-foreground">{program.code}{reference && variants.length === 1 ? ` · ${reference}` : ""} · {extension === "DOC" || extension === "DOCX" ? "Word document" : extension === "PDF" ? "PDF document" : "Image template"}</p>
                 {document.note && document.note !== "Department-supplied form. Confirm the applicable version before use." && <p className="mt-1 text-sm leading-6 text-muted-foreground">{document.note}</p>}
               </div>;

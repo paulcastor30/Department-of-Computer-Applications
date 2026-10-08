@@ -121,6 +121,7 @@ export interface Program {
 }
 
 export interface ProgramDocument {
+  fillable_form_id?: string | null;
   form_group?: string;
   id: number;
   title: string;

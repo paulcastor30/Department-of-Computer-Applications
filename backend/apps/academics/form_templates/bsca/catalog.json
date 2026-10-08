@@ -1,0 +1,1705 @@
+{
+  "017": {
+    "title": "Nomination of members of advisory panel",
+    "source_filename": "FM-MSU-IIT-ACAD-017 - NOMINATION OF MEMBERS OF ADVISORY PANEL.docx",
+    "source_sha256": "d79e9aa05971b8c0e400af2ef8b8adb7011382a5bd29e5d1524fe587f613235c",
+    "pdf_sha256": "d7438f6d00b9b30f540d7b9a045e222060dfa16fe733676821f0d2cb36d9b612",
+    "fields": [
+      {
+        "key": "student_1",
+        "label": "Student 1 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 310,
+            "baseline": 239.8,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_2",
+        "label": "Student 2 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 253.6,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_3",
+        "label": "Student 3 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 319,
+            "baseline": 253.6,
+            "width": 180
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 276,
+            "baseline": 267.4,
+            "width": 250
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Chairperson / Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 312.7,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "co_adviser",
+        "label": "Co-Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 334.8,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "member_1",
+        "label": "Panel member 1 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 356.9,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "member_2",
+        "label": "Panel member 2 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 379,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "member_3",
+        "label": "Panel member 3 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 401.1,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 239.8,
+              "baseline": 186.03,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "021": {
+    "title": "Nomination of members of oral examination panel",
+    "source_filename": "FM-MSU-IIT-ACAD-021 - NOMINATION OF MEMBERS OF ORAL EXAMINATION PANEL.docx",
+    "source_sha256": "c66188e527f3a207cea87c57b1372c8bebbb4b9a40d1da6a8635d70d76eb24bd",
+    "pdf_sha256": "db91a7b141bcb1ad80e7934761910872cbdc59bf3c4858a1dcc11df6d6a74fac",
+    "fields": [
+      {
+        "key": "student_1",
+        "label": "Student 1 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 310,
+            "baseline": 239.8,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_2",
+        "label": "Student 2 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 253.6,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_3",
+        "label": "Student 3 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 319,
+            "baseline": 253.6,
+            "width": 180
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 276,
+            "baseline": 267.4,
+            "width": 250
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Chairperson / Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 312.7,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "co_adviser",
+        "label": "Co-Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 334.8,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "member_1",
+        "label": "Panel member 1 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 356.9,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "member_2",
+        "label": "Panel member 2 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 379,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "member_3",
+        "label": "Panel member 3 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 85,
+            "baseline": 401.1,
+            "width": 160
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 239.8,
+              "baseline": 186.03,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "018": {
+    "title": "Request for change of adviser / panel member",
+    "source_filename": "FM-MSU-IIT-ACAD-018  - REQUEST OF ADVISER PANEL MEMBER.docx",
+    "source_sha256": "9ab567da41049d25fba08c9ff98d04c0e80d3c0469ae6174957789597427ce8a",
+    "pdf_sha256": "4adc0072f85f97f64c18320f562f0259d22a358e3a93e82e1f5f670e4a380e72",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 443,
+            "baseline": 241.5,
+            "width": 89
+          }
+        ]
+      },
+      {
+        "key": "student_name",
+        "label": "Student / group name",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 98,
+            "baseline": 287.5,
+            "width": 214
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 354,
+            "baseline": 287.5,
+            "width": 171
+          }
+        ]
+      },
+      {
+        "key": "replaced_adviser",
+        "label": "Adviser / panel member to be replaced",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 73,
+            "baseline": 378.5,
+            "width": 192
+          }
+        ]
+      },
+      {
+        "key": "proposed_adviser",
+        "label": "Proposed adviser / panel member",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 361,
+            "baseline": 378.5,
+            "width": 174
+          }
+        ]
+      },
+      {
+        "key": "reason",
+        "label": "Reason(s) for replacement",
+        "max_length": 300,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 62,
+            "baseline": 420,
+            "width": 470
+          },
+          {
+            "page": 0,
+            "x": 62,
+            "baseline": 434,
+            "width": 470
+          }
+        ]
+      },
+      {
+        "key": "representative",
+        "label": "Student group representative name",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 145,
+            "baseline": 490.3,
+            "width": 186
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 149.5,
+              "baseline": 197,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "019": {
+    "title": "Approval for proposal hearing",
+    "source_filename": "FM-MSU-IIT-ACAD-019 - APPROVAL FOR PROPOSAL HEARING.docx",
+    "source_sha256": "1705127b3c17fcd4e39328a3a04882f5a1740ed04446cf335840b1cfaa368df7",
+    "pdf_sha256": "668be502332c692b0ad5b36325f6a4c1399a25ee4031929d658de57492f7c529",
+    "fields": [
+      {
+        "key": "student_1",
+        "label": "Student 1 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 243,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_2",
+        "label": "Student 2 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 290,
+            "baseline": 243,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_3",
+        "label": "Student 3 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 57,
+            "baseline": 256.8,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "hearing_date",
+        "label": "Proposed hearing date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 100,
+            "baseline": 507.2,
+            "width": 130
+          }
+        ]
+      },
+      {
+        "key": "hearing_time",
+        "label": "Proposed hearing time",
+        "max_length": 25,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 291,
+            "baseline": 507.2,
+            "width": 81
+          }
+        ]
+      },
+      {
+        "key": "hearing_place",
+        "label": "Proposed hearing place",
+        "max_length": 50,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 431,
+            "baseline": 507.2,
+            "width": 87
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 183.98,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "020": {
+    "title": "Approval of proposal",
+    "source_filename": "FM-MSU-IIT-ACAD-020 - APPROVAL OF PROPOSAL.docx",
+    "source_sha256": "90d250fe2de5b8a8e4978984514f00621c853d713f084065cdd18722b37f62c6",
+    "pdf_sha256": "647a79655345ef97f5f001167d054746f9db9d1d3f2a117a7337a17798d0d66f",
+    "fields": [
+      {
+        "key": "date_filed",
+        "label": "Date filed",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 435,
+            "baseline": 226.5,
+            "width": 91
+          }
+        ]
+      },
+      {
+        "key": "student_name",
+        "label": "Student / group name",
+        "max_length": 150,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 138,
+            "baseline": 247.2,
+            "width": 384
+          },
+          {
+            "page": 1,
+            "x": 91,
+            "baseline": 220.4,
+            "width": 430,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 138,
+            "baseline": 266.2,
+            "width": 207
+          }
+        ]
+      },
+      {
+        "key": "specialization",
+        "label": "Specialization (if applicable)",
+        "max_length": 40,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 426,
+            "baseline": 266.2,
+            "width": 97
+          }
+        ]
+      },
+      {
+        "key": "thesis_title",
+        "label": "Thesis title",
+        "max_length": 220,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 175,
+            "baseline": 285.1,
+            "width": 347
+          },
+          {
+            "page": 0,
+            "x": 135,
+            "baseline": 304.1,
+            "width": 382
+          },
+          {
+            "page": 1,
+            "x": 247,
+            "baseline": 234.9,
+            "width": 274,
+            "flow": 1
+          },
+          {
+            "page": 1,
+            "x": 63,
+            "baseline": 249.4,
+            "width": 469,
+            "flow": 1
+          },
+          {
+            "page": 1,
+            "x": 63,
+            "baseline": 263.9,
+            "width": 469,
+            "flow": 1
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 190.93,
+              "width": 12
+            },
+            {
+              "page": 1,
+              "x": 203.8,
+              "baseline": 182.88,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "022": {
+    "title": "Approval for final defense",
+    "source_filename": "FM-MSU-IIT-ACAD-022 - APPROVAL FOR FINAL DEFENSE.docx",
+    "source_sha256": "65ccaee53e2066374bf57b78de3dd6af3df4c15f998febdf1e3aa04c21010bba",
+    "pdf_sha256": "952feb3332302e6401dfc9b24679314c1d1aba3f01ba515c53988483c982d1d9",
+    "fields": [
+      {
+        "key": "student_1",
+        "label": "Student 1 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 301,
+            "baseline": 233,
+            "width": 165
+          }
+        ]
+      },
+      {
+        "key": "student_2",
+        "label": "Student 2 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 58,
+            "baseline": 245.6,
+            "width": 164
+          }
+        ]
+      },
+      {
+        "key": "student_3",
+        "label": "Student 3 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 287,
+            "baseline": 245.6,
+            "width": 164
+          }
+        ]
+      },
+      {
+        "key": "thesis_title",
+        "label": "Thesis title",
+        "max_length": 220,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 58,
+            "baseline": 270.9,
+            "width": 350
+          },
+          {
+            "page": 0,
+            "x": 58,
+            "baseline": 283.6,
+            "width": 465
+          }
+        ]
+      },
+      {
+        "key": "defense_date",
+        "label": "Proposed defense date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 104,
+            "baseline": 499.6,
+            "width": 123
+          }
+        ]
+      },
+      {
+        "key": "defense_time",
+        "label": "Proposed defense time",
+        "max_length": 25,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 289,
+            "baseline": 499.6,
+            "width": 70
+          }
+        ]
+      },
+      {
+        "key": "defense_place",
+        "label": "Proposed defense place",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 430,
+            "baseline": 499.6,
+            "width": 106
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 240.0,
+              "baseline": 181.63,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "023": {
+    "title": "Oral examination report in final defense",
+    "source_filename": "FM-MSU-IIT-ACAD-023 - ORAL EXAMINATION REPORT IN FINAL DEFENSE.docx",
+    "source_sha256": "e936ff5fad2082d1398465c92c4784c4b458a359d668abf5965e4522cdb85b81",
+    "pdf_sha256": "c278044d6742b0edba50828e1944adb0a55b71b876b74cc10387f40fdcda367c",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student / group name",
+        "max_length": 150,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 170,
+            "baseline": 256.9,
+            "width": 366
+          },
+          {
+            "page": 1,
+            "x": 170,
+            "baseline": 188.4,
+            "width": 366,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "thesis_title",
+        "label": "Thesis title",
+        "max_length": 280,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 58,
+            "baseline": 298.8,
+            "width": 478
+          },
+          {
+            "page": 0,
+            "x": 58,
+            "baseline": 313.1,
+            "width": 478
+          },
+          {
+            "page": 1,
+            "x": 58,
+            "baseline": 230.3,
+            "width": 478,
+            "flow": 1
+          },
+          {
+            "page": 1,
+            "x": 58,
+            "baseline": 244.6,
+            "width": 478,
+            "flow": 1
+          }
+        ]
+      },
+      {
+        "key": "examination_date",
+        "label": "Examination date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 108,
+            "baseline": 341.2,
+            "width": 167
+          },
+          {
+            "page": 1,
+            "x": 396,
+            "baseline": 146.5,
+            "width": 140,
+            "repeat": true
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 200.19,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "024": {
+    "title": "Panel oral examination report",
+    "source_filename": "FM-MSU-IIT-ACAD-024 - PANEL ORAL EXAMINATION REPORT.docx",
+    "source_sha256": "f1be6cd21a28e3bceee0b4c5b7b95930bdcc83a4503bc11f06ef3d59b7d555b2",
+    "pdf_sha256": "094b9f9f5eb6e9546ed0b820fd104b035ace72586ed72df8ed31fc08562e1416",
+    "fields": [
+      {
+        "key": "student_1",
+        "label": "Student 1 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 103,
+            "baseline": 220.9,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_2",
+        "label": "Student 2 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 331,
+            "baseline": 220.9,
+            "width": 181
+          }
+        ]
+      },
+      {
+        "key": "student_3",
+        "label": "Student 3 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 227,
+            "baseline": 241.6,
+            "width": 180
+          }
+        ]
+      },
+      {
+        "key": "examination_date",
+        "label": "Examination date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 421,
+            "baseline": 146.2,
+            "width": 100
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 203.8,
+              "baseline": 330.94,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "025": {
+    "title": "Approval for binding",
+    "source_filename": "FM-MSU-IIT-ACAD-025 - APPROVAL FOR BINDING.docx",
+    "source_sha256": "4ebea1105a4dec88a91a4d500f484df080d9e7ef2c32a01bf8bf25eb0028c66e",
+    "pdf_sha256": "1810c12f007e189fbf3c4027cb04a54e16c1b034a28099640f653d7287493983",
+    "fields": [
+      {
+        "key": "student_1",
+        "label": "Student 1 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 232,
+            "baseline": 293.8,
+            "width": 180
+          }
+        ]
+      },
+      {
+        "key": "student_2",
+        "label": "Student 2 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 99,
+            "baseline": 307.6,
+            "width": 179
+          }
+        ]
+      },
+      {
+        "key": "student_3",
+        "label": "Student 3 full name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 350,
+            "baseline": 307.6,
+            "width": 178
+          }
+        ]
+      },
+      {
+        "key": "date",
+        "label": "Date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 422,
+            "baseline": 145.4,
+            "width": 104
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Chairperson / Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 110,
+            "baseline": 463.3,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "co_adviser",
+        "label": "Co-Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 110,
+            "baseline": 485.4,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_1",
+        "label": "Panel member 1 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 110,
+            "baseline": 507.5,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_2",
+        "label": "Panel member 2 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 110,
+            "baseline": 529.6,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "member_3",
+        "label": "Panel member 3 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 110,
+            "baseline": 551.7,
+            "width": 135
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 239.8,
+              "baseline": 233.68,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "025-submission": {
+    "title": "Requirements submission",
+    "source_filename": "FM-MSU-IIT-ACAD-025 - REQUIREMENTS SUBMISSION.docx",
+    "source_sha256": "15c0fde4534798a490d0ab54430ee9ed7b584949c183cce964c101f013816ce8",
+    "pdf_sha256": "c65972a9dd6aa95bb4ab9c1d08fcfaacfb482f2ad26efbc679e7c74818d3c6e0",
+    "fields": [
+      {
+        "key": "date",
+        "label": "Date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 421,
+            "baseline": 147.2,
+            "width": 106
+          }
+        ]
+      },
+      {
+        "key": "dean_name",
+        "label": "Dean’s name / salutation",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 82,
+            "baseline": 227.7,
+            "width": 140
+          }
+        ]
+      },
+      {
+        "key": "research_title",
+        "label": "Research title",
+        "max_length": 200,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 220,
+            "baseline": 542.2,
+            "width": 301
+          },
+          {
+            "page": 0,
+            "x": 218,
+            "baseline": 555.5,
+            "width": 308
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 185,
+            "baseline": 569.6,
+            "width": 338
+          }
+        ]
+      },
+      {
+        "key": "adviser",
+        "label": "Thesis adviser name",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 186,
+            "baseline": 582.9,
+            "width": 338
+          }
+        ]
+      },
+      {
+        "key": "researchers",
+        "label": "Researchers’ names",
+        "max_length": 120,
+        "multiline": true,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 68,
+            "baseline": 680,
+            "width": 140
+          },
+          {
+            "page": 0,
+            "x": 68,
+            "baseline": 693,
+            "width": 140
+          }
+        ]
+      },
+      {
+        "key": "thesis_selection",
+        "label": "Thesis selection",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "thesis",
+            "label": "Mark Thesis (BSCA)"
+          }
+        ],
+        "choice_slots": {
+          "thesis": [
+            {
+              "page": 0,
+              "x": 170,
+              "baseline": 291,
+              "width": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "publication_intention",
+        "label": "Publication intention",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "publish",
+            "label": "Intend to publish"
+          },
+          {
+            "value": "do_not_publish",
+            "label": "Do not intend to publish"
+          }
+        ],
+        "choice_slots": {
+          "publish": [
+            {
+              "page": 0,
+              "x": 105.5,
+              "baseline": 504.7,
+              "width": 12
+            }
+          ],
+          "do_not_publish": [
+            {
+              "page": 0,
+              "x": 105.5,
+              "baseline": 608.7,
+              "width": 12
+            }
+          ]
+        }
+      },
+      {
+        "key": "publication_reason",
+        "label": "Reason for not intending to publish (if applicable)",
+        "max_length": 160,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 133,
+            "baseline": 622.6,
+            "width": 394
+          }
+        ]
+      }
+    ],
+    "font": "sans"
+  },
+  "027": {
+    "title": "Nomination of members of written examination committee",
+    "source_filename": "FM-MSU-IIT-ACAD-027 Nomination of Written Exam.docx",
+    "source_sha256": "8a9cb77869f26f734263b8a738e9be7aca66aab56f032edfd31e1d84d6f6d384",
+    "pdf_sha256": "7b0cd239ffe9c5d0415599c9f71ff46ec9fe2ac72e52dd35c46cc00a989c2568",
+    "fields": [
+      {
+        "key": "student_name",
+        "label": "Student full name",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 170,
+            "baseline": 246.1,
+            "width": 273
+          }
+        ]
+      },
+      {
+        "key": "degree",
+        "label": "Degree",
+        "max_length": 100,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 95,
+            "baseline": 258.8,
+            "width": 348
+          }
+        ]
+      },
+      {
+        "key": "examination_date",
+        "label": "Proposed examination date",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 97,
+            "baseline": 462.3,
+            "width": 104
+          }
+        ]
+      },
+      {
+        "key": "examination_time",
+        "label": "Proposed examination time",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 245,
+            "baseline": 461.5,
+            "width": 98
+          }
+        ]
+      },
+      {
+        "key": "examination_place",
+        "label": "Proposed examination place",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 418,
+            "baseline": 462.3,
+            "width": 110
+          }
+        ]
+      },
+      {
+        "key": "committee_1",
+        "label": "Chairperson / Adviser name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 117,
+            "baseline": 310.2,
+            "width": 117
+          }
+        ]
+      },
+      {
+        "key": "committee_2",
+        "label": "Committee member 1 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 117,
+            "baseline": 335.8,
+            "width": 117
+          }
+        ]
+      },
+      {
+        "key": "committee_3",
+        "label": "Committee member 2 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 117,
+            "baseline": 361.2,
+            "width": 117
+          }
+        ]
+      },
+      {
+        "key": "committee_4",
+        "label": "Committee member 3 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 117,
+            "baseline": 386.6,
+            "width": 117
+          }
+        ]
+      },
+      {
+        "key": "committee_5",
+        "label": "Committee member 4 name",
+        "max_length": 60,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 117,
+            "baseline": 412.2,
+            "width": 117
+          }
+        ]
+      },
+      {
+        "key": "college_name",
+        "label": "College name",
+        "max_length": 80,
+        "multiline": false,
+        "font_size": 11,
+        "slots": [
+          {
+            "page": 0,
+            "x": 184,
+            "baseline": 103.8,
+            "width": 174
+          }
+        ]
+      },
+      {
+        "key": "examination_type",
+        "label": "Examination type (as printed in the supplied template)",
+        "max_length": 30,
+        "multiline": false,
+        "font_size": 10,
+        "slots": [],
+        "choices": [
+          {
+            "value": "",
+            "label": "Leave unmarked"
+          },
+          {
+            "value": "comprehensive",
+            "label": "Comprehensive Exam"
+          },
+          {
+            "value": "preliminary",
+            "label": "Preliminary Exam (SDS)"
+          }
+        ],
+        "choice_slots": {
+          "comprehensive": [
+            {
+              "page": 0,
+              "x": 149.5,
+              "baseline": 184.8,
+              "width": 12
+            }
+          ],
+          "preliminary": [
+            {
+              "page": 0,
+              "x": 149.5,
+              "baseline": 197.5,
+              "width": 12
+            }
+          ]
+        }
+      }
+    ],
+    "note": "The supplied Form 027 refers to graduate studies. Its original wording is preserved; confirm its applicability with the department before use."
+  }
+}

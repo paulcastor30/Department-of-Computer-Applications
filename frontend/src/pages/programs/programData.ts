@@ -3,6 +3,7 @@ import type { Program } from "@/types/api";
 export const placeholder = "To be provided by the Department.";
 
 export type ProgramDocumentLink = {
+  fillableFormId?: string;
   documentType?: string;
   formGroup?: string;
   label: string;
@@ -275,6 +276,7 @@ function documentsFor(program: Program | undefined, fallback: ProgramProfile): P
       label: document.title,
       documentType: document.document_type,
       formGroup: document.form_group || undefined,
+      fillableFormId: document.fillable_form_id || undefined,
       href: document.href || undefined,
       note: hasProgramContent(document.note) ? document.note : (document.href ? undefined : placeholder),
     })) || [];

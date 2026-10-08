@@ -25,3 +25,27 @@ export async function fetchJSON<T>(url: string): Promise<T> {
 
   return res.json() as Promise<T>;
 }
+
+export class FormDownloadError extends Error {
+  constructor(message: string, public fields: Record<string, string> = {}) {
+    super(message);
+  }
+}
+
+export async function prepareFormPDF(url: string, values: Record<string, string>): Promise<Blob> {
+  const response = await fetch(resolveAPIUrl(url), {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(values),
+    cache: "no-store",
+    credentials: "omit",
+  });
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    throw new FormDownloadError(error.detail || "The PDF could not be prepared. Please try again.", error.fields || {});
+  }
+  if (!response.headers.get("Content-Type")?.startsWith("application/pdf")) {
+    throw new FormDownloadError("The PDF could not be prepared. Please try again.");
+  }
+  return response.blob();
+}
