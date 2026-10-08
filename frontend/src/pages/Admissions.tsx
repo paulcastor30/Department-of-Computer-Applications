@@ -1,3 +1,4 @@
+import { TransferEvaluation } from "@/components/TransferEvaluation";
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
@@ -22,7 +23,7 @@ export default function Admissions() {
           <li>{program.admissionsUrl ? <a className="text-link" href={program.admissionsUrl}>{program.code === "BSCA" ? "Read the official undergraduate admission requirements" : "Read the CCS graduate application and admission guide"}</a> : "Ask the department for the current official admissions guide."}</li>
           <li>{program.admissionsPortalUrl ? <><a className="text-link" href={program.admissionsPortalUrl}>Visit the MSU-IIT Admission Portal</a> when applications open.</> : "Follow the graduate guide for program acceptance, university admission and enrolment."}</li>
         </ol>
-        {program.code === "BSCA" && <p className="mt-5 leading-7 text-muted-foreground">Transfer and second-degree applicants should follow the university’s applicable instructions and ask the department about program evaluation.</p>}
+        <TransferEvaluation program={program} />
       </article>)}</div>
       <p className="mt-6 max-w-3xl leading-7 text-muted-foreground">Use the official university or college guide for current eligibility, documents, fees and dates. This website does not accept applications or guarantee admission.</p>
     </Section>

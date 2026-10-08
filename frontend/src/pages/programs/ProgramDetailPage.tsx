@@ -1,3 +1,4 @@
+import { TransferEvaluation } from "@/components/TransferEvaluation";
 import { DocumentAccessHelp } from "@/components/DocumentAccessHelp";
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
@@ -117,6 +118,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
           <p className="mt-4 leading-7 text-muted-foreground">Contact {program.degreeLevelCode === "GRAD" ? "the graduate coordinator" : "the department"} to confirm current fees, application dates, and available support before applying.</p>
           {hasProgramContent(program.contactInformation) && <p className="mt-4 whitespace-pre-line leading-7">{program.contactInformation}</p>}
       </div>
+      <TransferEvaluation program={program} />
       <section id="program-documents" className="mt-10 border-t border-border pt-8">
         <h3 className="mb-4 text-xl font-semibold text-primary">Program documents</h3>
         {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.label}-${document.href}`}>

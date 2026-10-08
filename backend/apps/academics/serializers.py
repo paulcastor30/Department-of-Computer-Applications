@@ -102,6 +102,8 @@ class ProgramSerializer(serializers.ModelSerializer):
             "admission_requirements",
             "admissions_url",
             "admissions_portal_url",
+            "transfer_evaluation_email",
+            "transfer_evaluation_instructions",
             "admission_requirements_list",
             "progression_requirements",
             "progression_requirements_list",

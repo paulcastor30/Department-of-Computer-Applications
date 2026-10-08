@@ -37,6 +37,8 @@ export type ProgramProfile = {
   admissions: string[];
   admissionsUrl: string;
   admissionsPortalUrl: string;
+  transferEvaluationEmail: string;
+  transferEvaluationInstructions: string;
   progression: string[];
   pathways: string[];
   historicalNotes: string[];
@@ -126,6 +128,8 @@ const bscaFallback: ProgramProfile = {
   ],
   admissionsUrl: "https://www.msuiit.edu.ph/offices/admissions/requirements.php",
   admissionsPortalUrl: "https://admission.msuiit.edu.ph/",
+  transferEvaluationEmail: "ccs.ca@g.msuiit.edu.ph",
+  transferEvaluationInstructions: "Prospective shiftees and transferees interested in BSCA should email their Evaluation of Grades for departmental evaluation.\nUse the subject “BSCA Shifting/Transfer Evaluation – Full Name”. Include your full name, current school and program, and intended semester of entry. Attach a clear, readable copy of your Evaluation of Grades.\nThe department will review your submission and provide guidance on the next steps. Submission does not guarantee admission to BSCA.",
   progression: [placeholder],
   pathways: [placeholder],
   historicalNotes: [],
@@ -212,6 +216,8 @@ const mscaFallback: ProgramProfile = {
   admissions: ['MSCA applicants should follow the College of Computer Studies graduate application and admission procedures. Review the official guide for eligibility, required documents, program acceptance, university admission and enrolment steps.'],
   admissionsUrl: "https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission",
   admissionsPortalUrl: "",
+  transferEvaluationEmail: "",
+  transferEvaluationInstructions: "",
   progression: [placeholder],
   pathways: [placeholder],
   historicalNotes: [],
@@ -335,6 +341,8 @@ export function normalizeProgram(program: Program | undefined, fallback?: Progra
     admissions: lines(program.admission_requirements_list, base.admissions),
     admissionsUrl: text(program.admissions_url, base.admissionsUrl),
     admissionsPortalUrl: text(program.admissions_portal_url, base.admissionsPortalUrl),
+    transferEvaluationEmail: text(program.transfer_evaluation_email, base.transferEvaluationEmail),
+    transferEvaluationInstructions: text(program.transfer_evaluation_instructions, base.transferEvaluationInstructions),
     progression: lines(program.progression_requirements_list, base.progression),
     pathways: lines(program.career_opportunities_list, base.pathways),
     historicalNotes: lines(program.historical_notes_list, base.historicalNotes),

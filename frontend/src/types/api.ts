@@ -98,6 +98,8 @@ export interface Program {
   career_opportunities_list: string[];
   admissions_url?: string;
   admissions_portal_url?: string;
+  transfer_evaluation_email?: string;
+  transfer_evaluation_instructions?: string;
   admission_requirements: string;
   admission_requirements_list: string[];
   progression_requirements: string;

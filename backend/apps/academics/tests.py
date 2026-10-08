@@ -248,3 +248,22 @@ class BSCAReferenceContentTests(TransactionTestCase):
         self.assertEqual(guide.note, "College-reviewed instructions")
         self.assertFalse(guide.is_public)
         self.assertEqual(msca.contact_information, "Updated coordinator contact")
+
+
+class TransferEvaluationTests(TransactionTestCase):
+    def test_bsca_submission_guidance_is_seeded_and_exposed_without_changing_msca(self):
+        from .serializers import ProgramSerializer
+        Program.objects.all().delete()
+        bsca = Program.objects.create(code="BSCA", title="BSCA", slug="bsca")
+        msca = Program.objects.create(code="MSCA", title="MSCA", slug="msca")
+        migration = import_module("apps.academics.migrations.0025_program_transfer_evaluation")
+        with connection.schema_editor() as editor:
+            migration.add_transfer_evaluation(apps, editor)
+        bsca.refresh_from_db()
+        msca.refresh_from_db()
+        payload = ProgramSerializer(bsca).data
+        self.assertEqual(payload["transfer_evaluation_email"], "ccs.ca@g.msuiit.edu.ph")
+        self.assertIn("Attach a clear, readable copy", payload["transfer_evaluation_instructions"])
+        self.assertIn("does not guarantee admission", payload["transfer_evaluation_instructions"])
+        self.assertEqual(msca.transfer_evaluation_email, "")
+        self.assertEqual(msca.transfer_evaluation_instructions, "")
