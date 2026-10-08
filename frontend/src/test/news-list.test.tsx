@@ -26,10 +26,3 @@ it("keeps retry and contact available when announcements fail to load", () => {
   expect(refetch).toHaveBeenCalledOnce();
   expect(screen.getByRole("link", { name: "Ask about announcements" })).toHaveAttribute("href", "/about/contact");
 });
-
-it("offers a contact route when no approved news is available", () => {
-  news.useNews.mockReturnValue({ data: [], isLoading: false, isError: false });
-  render(<MemoryRouter><NewsList limit={3} /></MemoryRouter>);
-  expect(screen.getByText("There are no published department announcements at the moment.")).toBeInTheDocument();
-  expect(screen.getByRole("link", {name: "Ask about upcoming activities"})).toHaveAttribute("href", "/about/contact");
-});

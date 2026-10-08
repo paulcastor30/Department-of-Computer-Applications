@@ -19,9 +19,6 @@ export default function Research() {
       <p className="mb-6 max-w-3xl leading-7">Find projects, publications and conference papers involving department faculty and collaborators. Explore the work below, meet its researchers, or contact us about collaboration.</p>
       <nav aria-label="Research sections" className="flex flex-wrap gap-3">
         <Link className="outline-link" to="/research/projects">All research projects</Link>
-        <Link className="outline-link" to="/research/labs">Research groups and laboratories</Link>
-        <Link className="outline-link" to="/international-linkages">International engagement</Link>
-        <Link className="outline-link" to="/#computer-applications">Understand our specialization areas</Link>
         <Link className="outline-link" to="/research/conferences">Conference records</Link>
         <Link className="outline-link" to="/research/publications">Publications</Link>
         <Link className="outline-link" to="/projects">BSCA student projects</Link>

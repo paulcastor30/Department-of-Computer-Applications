@@ -18,8 +18,6 @@ export function WhatIsComputerApplications() {
       </ol>
       <p className="mt-4 max-w-prose leading-7 text-muted-foreground">Software can also send commands back to a device. Not every system needs a network, cloud service or artificial intelligence.</p>
     </div>
-    <AcademicSpecializations />
-    <DisciplineComparison />
   </section>;
 }
 
@@ -61,19 +59,4 @@ export function ChoosingComputerApplications() {
       <Link className="text-link inline-flex min-h-11 items-center mt-3" to="/programs/bsca">Read the BSCA program information</Link>
     </details>
   </section>;
-}
-
-/** Educational orientation, not a list of approved research groups or faculty expertise. */
-export function AcademicSpecializations() {
-  return <div className="mt-6">
-    <h3 className="text-xl font-semibold text-primary">Four areas of specialization</h3>
-    <dl className="home-specializations mt-4">{homeOrientation.specializations.map(area => <div key={area.title} className="rounded-md border border-border bg-background p-5"><dt className="font-semibold text-primary">{area.title}</dt><dd className="mt-2 leading-7">{area.text}</dd></div>)}</dl>
-  </div>;
-}
-
-export function DisciplineComparison() {
-  return <details className="home-disclosure mt-5"><summary>How does Computer Applications compare with related disciplines?</summary>
-    <p className="mt-3 leading-7">These fields overlap. Differences reflect academic emphasis and curriculum, rather than absolute boundaries. Compare the actual study plans when choosing a degree.</p>
-    <dl className="home-term-list">{homeOrientation.comparisons.map(item => <div key={item.title}><dt>{item.title}</dt><dd>{item.text}</dd></div>)}</dl>
-  </details>;
 }
