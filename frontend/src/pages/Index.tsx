@@ -33,8 +33,7 @@ export default function Index() {
             <h1 id="home-title"><span className="home-title-prefix">Department of </span>Computer Applications</h1>
             <p className="home-tagline">{homeOrientation.tagline}</p>
             <p className="text-sm text-muted-foreground mt-2">{homeOrientation.positioningNote}</p>
-            <p className="home-lead">{departmentProfileText(profile?.overview) || departmentIntroduction.lead}</p>
-            <p className="mt-3 max-w-prose leading-7 text-muted-foreground">Think of software reading a sensor, controlling a device or connecting equipment to a network.</p>
+            <p className="home-lead">{departmentIntroduction.lead}</p>
             <p className="mt-3 max-w-prose leading-7"><Link className="text-link" to="/programs/bsca">Bachelor of Science in Computer Applications (BSCA)</Link><br /><Link className="text-link" to="/programs/msca">Master of Science in Computer Applications (MSCA)</Link></p>
             <div className="home-intro-actions">
               <Link className="action-link" to="/programs">Explore Our Programs <ArrowRight size={18} aria-hidden="true" /></Link>
@@ -73,6 +72,7 @@ export default function Index() {
       <section className="home-about" aria-labelledby="home-research-title">
         <div className="container home-content home-section">
           <h2 id="home-research-title">Research and International Collaboration</h2>
+          {departmentProfileText(profile?.overview) && <details className="home-disclosure mt-4"><summary>About the department</summary><p className="mt-3 max-w-prose whitespace-pre-line leading-7">{departmentProfileText(profile?.overview)}</p></details>}
           <p className="home-section-description mt-3">Explore published records of applied computing research involving the department, including embedded, connected and intelligent systems. Each record identifies its own focus and contributors.</p>
           <nav aria-label="Research and international engagement" className="home-about-links">
             <Link className="text-link" to="/research/projects">Research projects</Link>

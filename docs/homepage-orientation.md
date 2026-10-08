@@ -45,7 +45,7 @@ These checks are developer verification, not WCAG certification or a measured be
 
 The homepage now follows this sequence:
 
-1. **Institutional introduction**: MSU-Iligan Institute of Technology, College of Computer Studies, Department of Computer Applications; the proposed tagline “Where Computing Meets the Physical World”; both full degree names and links; program and research actions. The department overview remains CMS-authoritative, with the existing reference explanation as fallback.
+1. **Institutional introduction**: MSU-Iligan Institute of Technology, College of Computer Studies, Department of Computer Applications; the proposed tagline “Where Computing Meets the Physical World”; both full degree names and links; program and research actions. The introduction uses the existing short reference explanation; the CMS department overview remains available in an optional disclosure in section 5 to keep the first screen concise.
 2. **Explore Our Academic Programs**: BSCA and MSCA cards render normalized Django descriptions, preserving approved reference fallback and both thesis requirements.
 3. **What is Computer Applications?**: reused `HomeOrientation` with a five-step illustrative sensor → microcontroller → firmware → processing → application or connected system flow, four specialization explanations, and an optional fair comparison with CS, IT, IS and Computer Engineering. Internet, cloud and AI are optional.
 4. **Discover Our Work**: at most one published student prototype and one published institutional research project, with original CMS titles/summaries and record anchors. A research record needs an available plain-language summary. Publications remain a separate collection.

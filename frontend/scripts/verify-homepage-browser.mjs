@@ -48,10 +48,10 @@ try {
     await page.locator('.home-page details').evaluateAll(items => items.forEach(item => item.open = false));
     evidence.viewports.push(layout);
   }
-  const summary = page.locator('.home-page summary');
+  const summary = page.locator('.home-page summary').first();
   await summary.focus();
   await page.keyboard.press('Space');
-  check(await page.locator('.home-page details').evaluate(el => el.open), 'Keyboard disclosure did not expand');
+  check(await page.locator('.home-page details').first().evaluate(el => el.open), 'Keyboard disclosure did not expand');
   evidence.focus = await summary.evaluate(el => ({ style: getComputedStyle(el).outlineStyle, width: getComputedStyle(el).outlineWidth }));
   check(evidence.focus.style !== 'none' && evidence.focus.width !== '0px', 'Focus indicator missing');
   const links = await page.locator('.home-page a[href^="/"]').evaluateAll(items => [...new Set(items.map(a => a.getAttribute('href')))]);
