@@ -15,6 +15,26 @@ export default function Resources() {
   return <>
     <Seo canonicalUrl="https://msuiit-comapps.vercel.app/resources" title="Student & faculty resources" description="Find program documents, thesis checklists, academic contacts and learning-support enquiries for the Department of Computer Applications." />
     <PageHero title="Student & faculty resources" subtitle="Quick access to study documents, thesis guidance and people who can help." />
+    <section className="container py-8" aria-labelledby="resource-tasks-title">
+      <h2 id="resource-tasks-title" className="text-2xl font-semibold">What do you need to do?</h2>
+      <nav aria-label="Student tasks" className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <a className="outline-link justify-start" href="#student-forms">Fill or download thesis forms</a>
+        <a className="outline-link justify-start" href="#registrar-forms">Find a registrar form</a>
+        <a className="outline-link justify-start" href="#program-documents">Follow the thesis process</a>
+        <Link className="outline-link justify-start" to="/sojt-guide">Follow the BSCA internship process</Link>
+        <a className="outline-link justify-start" href="#learning-support">Find learning-support contacts</a>
+        <Link className="outline-link justify-start" to="/about/contact">Contact the department</Link>
+      </nav>
+      <p className="mt-4 max-w-prose leading-7 text-muted-foreground">Choose a task to go straight to it. For supported forms, select “Fill out online”, enter the details you know, then review and print the PDF. You can also download the blank Word version.</p>
+    </section>
+    <Section id="student-forms" variant="muted">
+      <SectionHeader title="Fill or download thesis and program forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
+      <ProgramFormPicker programs={programs} />
+    </Section>
+    <Section id="registrar-forms">
+      <SectionHeader title="Registrar forms and student services" subtitle="Forms for academic records, enrollment changes and other student requests." className="mb-5" />
+      <RegistrarForms />
+    </Section>
     <Section id="program-documents">
       <nav aria-label="Student forms" className="mb-6 flex flex-wrap gap-x-6 gap-y-2">
         <a className="text-link inline-flex min-h-11 items-center" href="#student-forms">Thesis and program forms</a>
@@ -35,14 +55,6 @@ export default function Resources() {
       <SectionHeader title="BSCA SOJT Process Guide" subtitle="Understand eligibility, orientation, HTE approval, your Internship Plan, deployment safeguards and completion." />
       <p className="max-w-prose leading-7">Follow the ten internship stages and find the SOJT Coordinator. Check the guide’s verification status and confirm current institutional requirements before applying or starting training.</p>
       <Link className="action-link mt-4" to="/sojt-guide">View SOJT Process Guide</Link>
-    </Section>
-    <Section id="student-forms" variant="muted">
-      <SectionHeader title="Download student forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
-      <ProgramFormPicker programs={programs} />
-    </Section>
-    <Section id="registrar-forms">
-      <SectionHeader title="Registrar forms and student services" subtitle="Forms for academic records, enrollment changes and other student requests." className="mb-5" />
-      <RegistrarForms />
     </Section>
     <Section variant="muted">
       <SectionHeader title="Contacts and announcements" className="mb-5" />

@@ -56,3 +56,20 @@ it("distinguishes shared form numbers and explains alternative examination versi
   expect(screen.getByText(/Download CCS Form 10/)).toBeInTheDocument();
   expect(screen.getByText(/Download Form 026/)).toBeInTheDocument();
 });
+
+it("finds completion forms by number and recovers from no results", () => {
+  const program = normalizeProgram({ code: "BSCA", documents: [
+    { title: "Form 019 — Proposal hearing", href: "/proposal.docx", form_group: "PROPOSAL" },
+    { title: "Form 025 — Approval for binding", href: "/binding.docx", form_group: "COMPLETION" },
+  ] } as Program);
+  render(<ProgramForms program={program} />);
+  const search = screen.getByLabelText("Find a BSCA form");
+  fireEvent.change(search, { target: { value: "form 025" } });
+  expect(screen.getByRole("link", { name: /Download form: Request approval to bind/ })).toBeVisible();
+  expect(screen.queryByRole("link", { name: /proposal hearing/ })).not.toBeInTheDocument();
+  fireEvent.change(search, { target: { value: "no such form" } });
+  expect(screen.getByRole("status")).toHaveTextContent("No matching forms");
+  fireEvent.click(screen.getByRole("button", { name: "Clear search" }));
+  expect(search).toHaveFocus();
+  expect(screen.getByRole("link", { name: /proposal hearing/ })).toBeVisible();
+});

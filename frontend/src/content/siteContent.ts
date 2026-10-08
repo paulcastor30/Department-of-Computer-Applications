@@ -90,6 +90,7 @@ export const missingOfficialContent = [
 ];
 
 const allSearchPages = [
+  { title: "Registrar forms and student services", keywords: ["registrar", "RGTR", "student services", "advance credit", "leave of absence", "LOA", "transcript", "OTR", "F137A", "returnees", "shifters", "promissory note", "load revision", "cross enroll", "validation", "completion", "removal examination", "001", "002", "003", "004", "005", "006", "007", "008", "009", "010", "011"], href: "/resources#registrar-forms" },
   { title: "SOJT Process Guide", keywords: ["SOJT", "OJT", "internship", "practicum", "Host Training Establishment", "HTE", "MOA", "Internship Plan", "training hours", "SOJT Coordinator", "Excel Van Jondonero"], href: "/sojt-guide" },
   { title: "BSCA student projects and prototypes", keywords: ["BSCA", "student outputs", "student projects", "projects", "prototypes", "creative works", "games", "hardware", "firmware", "Hackster"], href: "/projects" },
   { title: "Student & faculty resources", keywords: ["resources", "forms", "thesis", "defense", "advising", "support", "current students"], href: "/resources" },

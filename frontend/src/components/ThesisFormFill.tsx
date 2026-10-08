@@ -8,11 +8,14 @@ type FormSchema = { id: string; title: string; paper_size: string; filename: str
 
 export function DocumentFormFill({ programCode, formId, label }: { programCode: FormCollection; formId: string; label: string }) {
   const id = useId();
+  const visit = useFormVisit();
+  const draftKey = `${programCode}:${formId}`;
+  const [restored, setRestored] = useState(() => Boolean(visit.drafts[draftKey]));
   const [open, setOpen] = useState(false);
   const [schema, setSchema] = useState<FormSchema>();
   const [loading, setLoading] = useState(false);
   const [retry, setRetry] = useState(0);
-  const [values, setValues] = useState<Record<string, string>>({});
+  const [values, setValues] = useState<Record<string, string>>(() => visit.drafts[draftKey] || {});
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState(false);
@@ -21,7 +24,8 @@ export function DocumentFormFill({ programCode, formId, label }: { programCode: 
   const headingRef = useRef<HTMLHeadingElement>(null);
   const errorRef = useRef<HTMLDivElement>(null);
   const readyRef = useRef<HTMLHeadingElement>(null);
-  const visit = useFormVisit();
+  const mounted = useRef(true);
+  useEffect(() => { mounted.current = true; return () => { mounted.current = false; }; }, []);
   const visitRef = useRef(visit);
   visitRef.current = visit;
   const saved = visit.collections[programCode];
@@ -56,7 +60,7 @@ export function DocumentFormFill({ programCode, formId, label }: { programCode: 
     setError(""); setFieldErrors({}); setPdfUrl(""); setBusy(true);
     try {
       const pdf = await prepareFormPDF(endpoint, values);
-      setPdfUrl(URL.createObjectURL(pdf));
+      if (mounted.current) setPdfUrl(URL.createObjectURL(pdf));
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "The PDF could not be prepared. Please try again.");
       if (cause instanceof FormDownloadError) setFieldErrors(cause.fields);
@@ -66,9 +70,16 @@ export function DocumentFormFill({ programCode, formId, label }: { programCode: 
   function change(key: string, value: string) {
     const next = { ...values, [key]: value };
     setValues(next);
+    visit.saveDraft(draftKey, next);
     if (saved?.enabled) visit.remember(programCode, next);
     setPdfUrl("");
     setFieldErrors(current => { const next = { ...current }; delete next[key]; return next; });
+  }
+
+  function goToSection(section: string) {
+    const target = document.getElementById(`${id}-${section}`);
+    target?.focus();
+    target?.scrollIntoView({ block: "start" });
   }
 
   function renderField(field: FormField) {
@@ -94,8 +105,9 @@ export function DocumentFormFill({ programCode, formId, label }: { programCode: 
     {open && <section id={`${id}-editor`} aria-labelledby={`${id}-title`} className="mt-4 rounded-md border border-border bg-background p-4 sm:p-6">
       <h4 ref={headingRef} tabIndex={-1} id={`${id}-title`} className="text-lg font-semibold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">Fill out {schema?.title || label}</h4>
       <p className="mt-3 leading-7">Enter details → Review PDF → Download and print.</p>
-      <p className="mt-2 text-sm leading-6 text-muted-foreground">The original wording and layout stay fixed. You may enter printed signatory names. The named officials sign and make approval decisions after printing.</p>
-      <p className="mt-2 text-sm leading-6 text-muted-foreground">Your entries are sent to the website only to prepare the PDF and are not saved by the server. Downloading does not submit the form. {schema ? `Print on ${schema.paper_size} at actual size (100%).` : "The paper size will appear when the form loads."} Existing images retain the quality of the original file.</p>
+      <p className="mt-2 text-sm leading-6 text-muted-foreground">The original wording and layout stay fixed. You may enter the officials’ printed names. The named officials sign and make approval decisions after printing.</p>
+      <details className="mt-3 text-sm leading-6 text-muted-foreground"><summary className="min-h-11 cursor-pointer py-2 font-semibold text-primary">Privacy and printing information</summary><p className="mt-2">Your entries are sent to the website only to prepare the PDF and are not saved by the server. Downloading does not submit the form. {schema ? `Print on ${schema.paper_size} at actual size (100%).` : "The paper size will appear when the form loads."} Existing images retain the quality of the original file. Your form entries stay in this tab while you browse the website; refreshing or closing the tab clears them.</p></details>
+      <p className="mt-2 text-sm leading-6 text-muted-foreground">Your entries stay in this tab while you browse. Refreshing or closing the tab clears them.</p>
       {schema?.note && <p className="notice mt-4">{schema.note}</p>}
       {loading && <p className="mt-4" role="status">Loading form fields…</p>}
       {error && <div ref={errorRef} tabIndex={-1} role="alert" className="notice mt-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
@@ -104,7 +116,13 @@ export function DocumentFormFill({ programCode, formId, label }: { programCode: 
         {!schema && !loading && <button type="button" className="outline-link mt-3" onClick={() => setRetry(current => current + 1)}>Try loading the form again</button>}
       </div>}
       {schema && <form onSubmit={prepare} className="mt-5" aria-busy={busy}>
-        <p className="mb-4 text-sm leading-6 text-muted-foreground">All fields are optional. Leave unknown details blank. You can return to any entry before printing.</p>
+        <nav aria-label="Sections in this form" className="mb-5 flex flex-wrap gap-2">
+          <button type="button" className="outline-link" onClick={() => goToSection("details")}>Form details</button>
+          {signatories.length > 0 && <button type="button" className="outline-link" onClick={() => goToSection("names")}>Officials’ names</button>}
+          <button type="button" className="outline-link" onClick={() => goToSection("review")}>Review and print</button>
+        </nav>
+        {restored && <p role="status" className="notice mb-4">Your entries in this form were kept while you browsed this tab. Check them and prepare a new PDF when ready.</p>}
+        <p className="mb-4 text-sm leading-6 text-muted-foreground">All fields are optional. Leave unknown details blank. Enter at least one detail to prepare a filled PDF, or download the blank form.</p>
         <label className="mb-2 flex min-h-11 cursor-pointer items-start gap-3 rounded-md border border-border p-3 text-sm leading-6">
           <input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-primary" checked={saved?.enabled || false} disabled={busy} onChange={event => visit.remember(programCode, values, event.target.checked)} />
           <span>Reuse common details in other {programCode === "REGISTRAR" ? "registrar" : programCode} forms during this visit.</span>
@@ -112,20 +130,20 @@ export function DocumentFormFill({ programCode, formId, label }: { programCode: 
         <p className="mb-5 text-sm leading-6 text-muted-foreground">Optional. Only names, student ID, degree and thesis details are reused in this tab. Turn this off to forget the reusable details. Refreshing or closing the tab clears them.</p>
         {reused && <p role="status" className="notice mb-5">Common details from this visit have been filled in. Check them before preparing your PDF.</p>}
         <fieldset disabled={busy} className="space-y-6">
-          <legend className="mb-4 text-lg font-semibold text-primary">1. Form details</legend>
+          <legend id={`${id}-details`} tabIndex={-1} className="mb-4 scroll-mt-6 text-lg font-semibold text-primary">1. Form details</legend>
           {details.map(renderField)}
         </fieldset>
         {signatories.length > 0 && <fieldset disabled={busy} className="mt-8 space-y-6 border-t border-border pt-5">
-          <legend className="px-1 text-lg font-semibold text-primary">2. Signatory names (optional)</legend>
+          <legend id={`${id}-names`} tabIndex={-1} className="scroll-mt-6 px-1 text-lg font-semibold text-primary">2. Officials’ names (optional)</legend>
           <p className="text-sm leading-6 text-muted-foreground">Enter the names you know, including titles if needed. Typing a name is not a signature or approval. Leave signing dates, decisions, grades and fee assessments for the responsible people.</p>
           {signatories.map(renderField)}
         </fieldset>}
         <div className="mt-8 border-t border-border pt-5">
-          <h5 className="text-lg font-semibold text-primary">{signatories.length ? "3" : "2"}. Review and print</h5>
+          <h5 id={`${id}-review`} tabIndex={-1} className="scroll-mt-6 text-lg font-semibold text-primary">{signatories.length ? "3" : "2"}. Review and print</h5>
           <p className="mt-2 text-sm leading-6 text-muted-foreground">Prepare your PDF, open it to check every page, then download or print from your PDF viewer.</p>
           <div className="mt-4 flex flex-wrap gap-3">
             <button className="action-link" type="submit" disabled={busy || !Object.values(values).some(value => value.trim())}>{busy ? "Preparing PDF…" : "Prepare filled PDF"}</button>
-            <button className="outline-link" type="button" disabled={busy} onClick={() => { setValues({}); setFieldErrors({}); setError(""); setPdfUrl(""); setReused(false); visit.remember(programCode, {}, false); }}>Clear entries</button>
+            <button className="outline-link" type="button" disabled={busy} onClick={() => { setValues({}); setFieldErrors({}); setError(""); setPdfUrl(""); setReused(false); setRestored(false); visit.saveDraft(draftKey, {}); visit.remember(programCode, {}, false); }}>Clear entries</button>
           </div>
         </div>
         {pdfUrl && <div className="mt-5 border-t border-border pt-5">

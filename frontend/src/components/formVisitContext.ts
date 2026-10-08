@@ -10,10 +10,12 @@ export const commonDetailKeys = new Set([
 ]);
 export type VisitState = { enabled: boolean; values: CommonDetails };
 export type FormVisit = {
+  drafts: Record<string, CommonDetails>;
+  saveDraft: (key: string, values: CommonDetails) => void;
   program: "BSCA" | "MSCA" | "";
   chooseProgram: (program: "BSCA" | "MSCA") => void;
   collections: Partial<Record<FormCollection, VisitState>>;
   remember: (collection: FormCollection, values: CommonDetails, enabled?: boolean) => void;
 };
-export const FormVisitContext = createContext<FormVisit>({ program: "", chooseProgram: () => {}, collections: {}, remember: () => {} });
+export const FormVisitContext = createContext<FormVisit>({ drafts: {}, saveDraft: () => {}, program: "", chooseProgram: () => {}, collections: {}, remember: () => {} });
 export function useFormVisit() { return useContext(FormVisitContext); }

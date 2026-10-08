@@ -45,6 +45,16 @@ export default function Index() {
         </div>
       </section>
 
+      <section className="container home-content py-6" aria-labelledby="quick-tasks-title">
+        <h2 id="quick-tasks-title">What would you like to do?</h2>
+        <nav aria-label="Quick tasks" className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <Link className="outline-link justify-start" to="/resources#student-forms">Fill or download thesis forms</Link>
+          <Link className="outline-link justify-start" to="/resources#registrar-forms">Find registrar services</Link>
+          <Link className="outline-link justify-start" to="/admissions">Apply, shift or transfer</Link>
+          <Link className="outline-link justify-start" to="/accessibility">Get help using this website</Link>
+        </nav>
+      </section>
+
       <WhatIsComputerApplications />
 
       <section className="container home-content home-section home-study" aria-labelledby="home-study-title">

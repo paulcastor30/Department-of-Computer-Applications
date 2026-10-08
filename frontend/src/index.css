@@ -24,7 +24,7 @@
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - DCA teal/cyan accent */
-    --secondary: 187 62% 40%;
+    --secondary: 187 62% 30%;
     --secondary-foreground: 0 0% 100%;
 
     /* Muted - Soft steel tint */
@@ -35,11 +35,11 @@
     --accent: 209 78% 31%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 42%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 206 22% 86%;
-    --input: 206 22% 86%;
+    --input: 206 18% 52%;
     --ring: 187 62% 40%;
 
     --radius: 0.75rem;

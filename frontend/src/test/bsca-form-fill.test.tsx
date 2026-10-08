@@ -124,7 +124,7 @@ it("groups printed signatory names and links an error directly to the affected f
   render(<ThesisFormFill programCode="BSCA" formId="019" label="Proposal hearing" />);
   fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
   const name = await screen.findByLabelText("College Dean — printed name");
-  expect(screen.getByRole("group", { name: "2. Signatory names (optional)" })).toContainElement(name);
+  expect(screen.getByRole("group", { name: "2. Officials’ names (optional)" })).toContainElement(name);
   fireEvent.change(name, { target: { value: "Dr. Ana Cruz" } });
   fireEvent.click(screen.getByRole("button", { name: "Prepare filled PDF" }));
   expect(await screen.findByRole("alert")).toHaveFocus();
@@ -165,4 +165,31 @@ it("retries loading without requiring students to close and reopen the editor", 
   fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
   fireEvent.click(await screen.findByRole("button", { name: "Try loading the form again" }));
   expect(await screen.findByLabelText("Student 1 full name")).toBeInTheDocument();
+});
+
+it("keeps each draft across page changes, isolates other forms and programs, and clears explicitly", async () => {
+  Element.prototype.scrollIntoView = vi.fn();
+  function Page({ formId = "019", programCode = "BSCA", elsewhere = false }: { formId?: string; programCode?: "BSCA" | "MSCA"; elsewhere?: boolean }) {
+    return elsewhere ? <p>Instructions page</p> : <ThesisFormFill key={`${programCode}-${formId}`} programCode={programCode} formId={formId} label="Test form" />;
+  }
+  const view = render(<FormVisitProvider><Page /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  fireEvent.change(await screen.findByLabelText("Student 1 full name"), { target: { value: "Maria Santos" } });
+  view.rerender(<FormVisitProvider><Page elsewhere /></FormVisitProvider>);
+  for (const props of [{ formId: "022" }, { programCode: "MSCA" as const }]) {
+    view.rerender(<FormVisitProvider><Page {...props} /></FormVisitProvider>);
+    fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+    expect(await screen.findByLabelText("Student 1 full name")).toHaveValue("");
+  }
+  view.rerender(<FormVisitProvider><Page /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  expect(await screen.findByLabelText("Student 1 full name")).toHaveValue("Maria Santos");
+  fireEvent.click(screen.getByRole("button", { name: "Review and print" }));
+  expect(screen.getByRole("heading", { name: "2. Review and print" })).toHaveFocus();
+  fireEvent.click(screen.getByRole("button", { name: "Clear entries" }));
+  expect(screen.queryByText(/Your entries in this form were kept/)).not.toBeInTheDocument();
+  view.rerender(<FormVisitProvider><Page elsewhere /></FormVisitProvider>);
+  view.rerender(<FormVisitProvider><Page /></FormVisitProvider>);
+  fireEvent.click(screen.getByRole("button", { name: /Fill out online/ }));
+  expect(await screen.findByLabelText("Student 1 full name")).toHaveValue("");
 });

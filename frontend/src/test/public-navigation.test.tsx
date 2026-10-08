@@ -261,7 +261,7 @@ it('puts beginner understanding before program choice and deeper institutional i
   render(<App />);
   const main = within(screen.getByRole('main'));
   const titles = main.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent);
-  expect(titles).toEqual(['What is Computer Applications?', 'Study with us', 'What will you learn to build?', 'Computer Applications in practice', 'Is BSCA for me?', 'Get to know the department', 'News and announcements', 'Visit or get in touch']);
+  expect(titles).toEqual(['What would you like to do?', 'What is Computer Applications?', 'Study with us', 'What will you learn to build?', 'Computer Applications in practice', 'Is BSCA for me?', 'Get to know the department', 'News and announcements', 'Visit or get in touch']);
   expect(main.getByText(/Study with us:/)).toHaveTextContent('BSCA (bachelor’s degree) and MSCA (master’s degree)');
 });
 
@@ -303,4 +303,17 @@ it('makes ready supporting pages discoverable through footer and search', () => 
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
   fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'facilities' } });
   expect(within(screen.getByRole('search')).getByRole('link', { name: 'Facilities' })).toHaveAttribute('href', '/facilities');
+});
+
+it('finds registrar services with multiple words and closes search on a same-page destination', async () => {
+  window.history.replaceState({}, '', '/resources');
+  render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
+  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'registrar leave' } });
+  const search = screen.getByRole('search');
+  fireEvent.submit(search);
+  expect(within(search).getByRole('heading', { name: 'Search results' })).toHaveFocus();
+  fireEvent.click(within(search).getByRole('link', { name: 'Registrar forms and student services' }));
+  await waitFor(() => expect(screen.queryByLabelText('Find a page')).not.toBeInTheDocument());
+  expect(window.location.hash).toBe('#registrar-forms');
 });
