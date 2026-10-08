@@ -605,3 +605,11 @@ footer h2 { color: white; }
 .sojt-guide select { width: 100%; }
 .sojt-guide .thesis-timeline > li:not(:last-child)::after { content: ""; position: absolute; left: 1.5rem; bottom: -1.5rem; height: 1.5rem; width: 1px; background: hsl(var(--border)); }
 @media (min-width: 640px) { .sojt-guide .thesis-timeline > li::after { display: none; } }
+
+/* Restrained maroon accents for the proposed positioning; retain the existing site palette. */
+.home-page { --academic-maroon: #7b1e3a; }
+.home-page .home-degree-link { border-top-color: var(--academic-maroon); }
+.home-tagline { margin-top: 1rem; font-size: clamp(1.25rem, 2vw, 1.6rem); line-height: 1.4; font-weight: 600; color: var(--academic-maroon); }
+.home-specializations { display: grid; gap: 1rem; }
+@media (min-width: 640px) { .home-specializations { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 768px) { .home-computing-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
