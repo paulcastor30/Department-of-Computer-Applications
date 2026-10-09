@@ -37,6 +37,15 @@ from .serializers import SOJTGuideSerializer
 
 
 class SOJTGuideDetailView(generics.RetrieveAPIView):
+    def get_object(self):
+        from django.core.exceptions import ValidationError
+        guide = super().get_object()
+        try:
+            guide.full_clean()
+        except ValidationError:
+            raise Http404("Internship guidance is unavailable.")
+        return guide
+
     queryset = SOJTGuide.objects.filter(is_published=True)
     serializer_class = SOJTGuideSerializer
     lookup_field = "slug"

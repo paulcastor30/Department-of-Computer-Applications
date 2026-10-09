@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from apps.core.base_models import PublishableModel
 from apps.core.base_models import TimeStampedModel
@@ -48,7 +49,7 @@ class FacultyMember(PublishableModel):
     position = models.CharField(max_length=255, blank=True)
     profile_summary = models.TextField(
         blank=True,
-        help_text="Concise official academic profile overview. Use the Department placeholder when not yet provided.",
+        help_text="Optional approved biography. Leave blank when unavailable; do not repeat rank or expertise fields.",
     )
     employment_classification = models.CharField(max_length=255, blank=True)
     faculty_category = models.CharField(max_length=255, blank=True)
@@ -124,6 +125,15 @@ class FacultyProfileRecord(TimeStampedModel):
 
 
 class FacultyEducation(FacultyProfileRecord):
+    class AcademicStatus(models.TextChoices):
+        REVIEW = "review", "Internal review"
+        COMPLETED = "completed", "Completed"
+        ONGOING = "ongoing", "Ongoing"
+        EXPERIENCE = "experience", "Academic experience"
+
+    is_published = models.BooleanField(default=False)
+    academic_status = models.CharField(max_length=16, choices=AcademicStatus.choices, default=AcademicStatus.REVIEW)
+    verification_reference = models.TextField(blank=True, help_text="Internal source/approval reference supporting the academic status and public wording.")
     class DegreeLevel(models.TextChoices):
         DOCTORATE = "doctorate", "Doctorate"
         MASTERS = "masters", "Master's Degree"
@@ -136,7 +146,21 @@ class FacultyEducation(FacultyProfileRecord):
     field_or_specialization = models.CharField(max_length=255, blank=True)
     institution = models.CharField(max_length=255, blank=True)
     year_completed = models.PositiveIntegerField(blank=True, null=True)
-    notes = models.TextField(blank=True)
+    notes = models.TextField(blank=True, help_text="Internal editorial notes; never exposed by the public API.")
+
+    def clean(self):
+        super().clean()
+        errors = {}
+        if self.is_published and (self.academic_status == self.AcademicStatus.REVIEW or not self.verification_reference.strip()):
+            errors["is_published"] = "Publishing requires a confirmed academic status and an internal verification reference."
+        if self.academic_status == self.AcademicStatus.ONGOING and self.year_completed is not None:
+            errors["year_completed"] = "Ongoing study cannot have a completion year."
+        if self.academic_status == self.AcademicStatus.EXPERIENCE and self.degree_level != self.DegreeLevel.OTHER:
+            errors["degree_level"] = "Academic experience must use the Other category."
+        if self.degree_level == self.DegreeLevel.OTHER and self.academic_status in (self.AcademicStatus.COMPLETED, self.AcademicStatus.ONGOING):
+            errors["academic_status"] = "Fellowships and internships are academic experience, not qualifications."
+        if errors:
+            raise ValidationError(errors)
 
     class Meta:
         ordering = ["sort_order", "degree_level", "degree_name"]

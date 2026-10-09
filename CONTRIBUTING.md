@@ -85,6 +85,6 @@ If the reviewer asks for an update, edit the files, commit, and push to the same
 
 Get department confirmation before changing admission rules, curricula, thesis requirements, accreditation claims, or other official information. Keep content that is managed in Django connected to Django.
 
-Use **Undergraduate Thesis** for BSCA and **Master’s Thesis or Graduate Thesis** for MSCA. For missing official information, use “To be provided by the Department”; for information awaiting confirmation, use “To be validated by the Department”.
+Use **Undergraduate Thesis** for BSCA and **Master’s Thesis or Graduate Thesis** for MSCA. Follow AGENTS.md for public-content and verification rules.
 
 Keep passwords, student records, completed forms, and database backups out of commits and screenshots. Check permission before adding someone else's code, photos, or documents.

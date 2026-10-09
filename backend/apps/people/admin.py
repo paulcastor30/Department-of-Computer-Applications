@@ -50,6 +50,8 @@ class FacultyEducationInline(admin.StackedInline):
         "field_or_specialization",
         "institution",
         "year_completed",
+        "academic_status",
+        "verification_reference",
         "notes",
         "is_published",
         "sort_order",
@@ -319,8 +321,8 @@ class FacultyRecordAdmin(admin.ModelAdmin):
 
 @admin.register(FacultyEducation)
 class FacultyEducationAdmin(admin.ModelAdmin):
-    list_display = ("faculty", "degree_level", "degree_name", "institution", "year_completed", "is_published", "sort_order")
-    list_filter = ("degree_level", "year_completed", "is_published")
+    list_display = ("faculty", "degree_level", "degree_name", "institution", "year_completed", "academic_status", "is_published", "sort_order")
+    list_filter = ("degree_level", "academic_status", "year_completed", "is_published")
     search_fields = ("faculty__title", "degree_name", "field_or_specialization", "institution")
     ordering = ("faculty__title", "sort_order", "degree_level")
     readonly_fields = ("created_at", "updated_at")

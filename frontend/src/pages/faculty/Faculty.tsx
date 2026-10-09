@@ -41,14 +41,13 @@ export default function Faculty() {
     <Seo title="Faculty & Staff" description="Meet the faculty of the Department of Computer Applications, MSU-IIT. Explore their qualifications, specialization areas and institutional contact details." />
     <Section>
       <SectionHeader as="h1" title="Faculty & Staff" subtitle="Find faculty and department staff, explore their specialization, or ask about their academic work." />
-      <p className="mb-8 max-w-3xl leading-7 text-muted-foreground">The profiles introduce the people behind Computer Applications. Open a profile for educational background and available professional information.</p>
       <div className="mb-8 max-w-xl"><label htmlFor="faculty-search" className="mb-2 block font-semibold">Search faculty</label>
         <input id="faculty-search" type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Name or specialization, such as embedded systems" className="min-h-12 w-full rounded-md border border-border bg-background px-4 text-base" />
         {query && <button className="text-link mt-2 min-h-11" onClick={() => setQuery("")}>Clear search</button>}
       </div>
       {isLoading ? <p role="status">Loading faculty profiles…</p> : isError ? <div role="status"><p>Faculty profiles could not be loaded. Please try again or contact the department.</p><button className="outline-link mt-4" onClick={() => refetch()}>Try again</button></div> : <>
         <p role="status" className="mb-6 text-sm text-muted-foreground">{filtered.length} {filtered.length === 1 ? "profile" : "profiles"}{query ? " match your search." : " available."}</p>
-        {!filtered.length && <p className="mb-8">{query ? "Try another name or a broader specialization." : "Faculty profiles: To be provided by the Department."}</p>}
+        {!filtered.length && <p className="mb-8">{query ? "Try another name or a broader specialization." : "No faculty profiles are currently available. Contact the department for assistance."}</p>}
         <div className="space-y-12">{groups.filter(g => g.members.length).map(group => <section key={group.title}><h2 className="mb-6 text-2xl font-semibold text-primary">{group.title}</h2>{group.intro && <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">{group.intro}</p>}<div className="grid gap-6 lg:grid-cols-2">{group.members.map(member => <FacultyCard key={member.id} member={member} />)}</div></section>)}</div>
       </>}
       <div className="mt-12 border-t border-border pt-8"><p className="mb-4 leading-7">For general enquiries or help reaching a faculty member, contact the department.</p><Link className="outline-link" to="/about/contact">Department contact details</Link></div>

@@ -49,8 +49,21 @@ def activity_count(legacy_relation, kind):
     return historical + shared
 
 
+def public_education_queryset():
+    return FacultyEducation.objects.filter(
+        is_published=True,
+    ).filter(
+        (Q(academic_status="completed") & ~Q(degree_level="other"))
+        | (Q(academic_status="ongoing", year_completed__isnull=True) & ~Q(degree_level="other"))
+        | Q(academic_status="experience", degree_level="other")
+    ).exclude(verification_reference__regex=r"^\s*$")
+
+
 def published_faculty_queryset():
-    return FacultyMember.objects.filter(is_published=True).annotate(
+    return FacultyMember.objects.filter(is_published=True).prefetch_related(
+        Prefetch("education_records", queryset=public_education_queryset()),
+        "expertise_records",
+    ).annotate(
         supervised_works_count=Count("supervised_works", filter=Q(supervised_works__is_published=True), distinct=True),
         publications_count=activity_count("publications", "publication"),
         research_projects_count=activity_count("research_projects", "research"),
@@ -93,8 +106,6 @@ class FacultyDetailView(generics.RetrieveAPIView):
         return published_faculty_queryset().prefetch_related(
             "evidence_documents",
             Prefetch("department_contributions", queryset=FacultyContribution.objects.filter(is_published=True).select_related("research", "publication", "conference", "extension")),
-            Prefetch("education_records", queryset=FacultyEducation.objects.filter(is_published=True)),
-            Prefetch("expertise_records", queryset=FacultyExpertise.objects.filter(is_published=True)),
             Prefetch("supervised_works", queryset=FacultySupervisedWork.objects.filter(is_published=True)),
             Prefetch("publications", queryset=FacultyPublication.objects.filter(is_published=True)),
             Prefetch("conferences", queryset=FacultyConference.objects.filter(is_published=True)),

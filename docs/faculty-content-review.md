@@ -16,7 +16,7 @@ No individual portraits are currently available in the project or live directory
 
 ## Education maintenance
 
-Use the existing Education records in admin. Record completion years only when confirmed. Mark ongoing study explicitly in Notes. For unresolved entries retain “Completion status to be validated by the Department.” The website groups completed, ongoing and unconfirmed records separately. Update Highest degree to the highest completed qualification rather than a degree in progress.
+Maintain education records in Django admin. Publish only department-confirmed qualifications or explicitly confirmed ongoing study. Set Academic status and retain the source/approval in Verification reference. Notes remain internal. Keep unresolved records unpublished and retain their evidence internally. Missing years do not establish completion status; omit an unknown year from an otherwise confirmed qualification. Highest degree must describe the highest confirmed completed qualification. Follow AGENTS.md for public presentation.
 
 ## Selected professional work
 

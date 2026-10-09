@@ -40,7 +40,7 @@ class FacultyImportTests(TransactionTestCase):
             degree_name="PhD in Artificial Intelligence of Things", institution="National Taiwan University and Academia Sinica",
             notes="Ongoing study; degree not yet completed.")
         unknown = FacultyEducation.objects.create(faculty=member, degree_level="doctorate",
-            degree_name=doctorate.degree_name, institution="National Taiwan University, Taiwan & Academia Sinica, Taiwan")
+            degree_name=doctorate.degree_name, institution="National Taiwan University, Taiwan & Academia Sinica, Taiwan", is_published=True)
         old_expertise = FacultyExpertise.objects.create(faculty=member, title="asdf", expertise_type="expertise")
         interest = FacultyExpertise.objects.create(faculty=member, title="Existing research interest", expertise_type="research_interest")
         other = FacultyMember.objects.create(title="Other Faculty", slug="other")
@@ -275,3 +275,75 @@ class SharedContributionTests(TestCase):
     def test_requires_exactly_one_shared_source(self):
         with self.assertRaises(ValidationError):
             FacultyContribution(faculty=self.person, role="Member").clean()
+
+
+class AcademicPublicationTests(TestCase):
+    def setUp(self):
+        FacultyMember.objects.all().delete()
+        self.member = FacultyMember.objects.create(title="Reviewed Faculty", slug="reviewed", is_published=True,
+            highest_degree="Doctoral Degree", educational_background="Unconfirmed doctorate", last_updated_note="Internal editorial marker")
+
+    def test_new_education_is_internal_and_admin_rejects_unverified_publication(self):
+        record = FacultyEducation(faculty=self.member, degree_level="doctorate", degree_name="Unverified doctorate", year_completed=2025)
+        self.assertFalse(record.is_published)
+        record.is_published = True
+        with self.assertRaises(ValidationError):
+            record.full_clean()
+        record.academic_status = "ongoing"
+        record.verification_reference = "Confirmed enrollment fixture"
+        with self.assertRaises(ValidationError):
+            record.full_clean()
+        record.year_completed = None
+        record.full_clean()
+
+    def test_public_api_filters_review_records_and_never_exposes_internal_evidence(self):
+        FacultyEducation.objects.create(faculty=self.member, degree_level="doctorate", degree_name="Held doctorate", year_completed=2025, is_published=True)
+        FacultyEducation.objects.create(faculty=self.member, degree_level="masters", degree_name="Approved master’s", academic_status="completed", verification_reference="Private approval fixture", notes="Private review note", is_published=True)
+        response = self.client.get("/api/people/faculty/reviewed/")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual([r["degree_name"] for r in data["education_records"]], ["Approved master’s"])
+        self.assertEqual(data["highest_degree"], "Master’s Degree")
+        self.assertEqual(data["educational_background"], "")
+        self.assertNotIn("last_updated_note", data)
+        for term in ("Held doctorate", "Unconfirmed doctorate", "Private review note", "Private approval fixture", "Internal editorial marker"):
+            self.assertNotIn(term, response.content.decode())
+        directory = self.client.get("/api/people/faculty/").json()
+        self.assertEqual(directory[0]["highest_degree"], "Master’s Degree")
+
+    def test_structured_expertise_is_shared_and_hidden_entries_do_not_reappear(self):
+        from .models import FacultyExpertise
+        self.member.specialization_areas = "Obsolete free text"
+        self.member.save()
+        record = FacultyExpertise.objects.create(faculty=self.member, title="Reviewed specialization")
+        for url in ("/api/people/faculty/", "/api/people/faculty/reviewed/"):
+            data = self.client.get(url).json()
+            if isinstance(data, list): data = data[0]
+            self.assertEqual(data["specialization_areas"], "Reviewed specialization")
+        record.is_published = False
+        record.save()
+        self.assertEqual(self.client.get("/api/people/faculty/reviewed/").json()["specialization_areas"], "")
+
+    def test_correction_retains_confirmed_duplicates_internally_and_preserves_editor_content(self):
+        self.member.title = "Apple Rose B. Alce"
+        self.member.email = "applerose.alce@g.msuiit.edu.ph"
+        self.member.profile_summary = "An approved authored biography."
+        self.member.save()
+        canonical = FacultyEducation.objects.create(faculty=self.member, degree_level="masters", degree_name="Master of Science in Computer Applications", institution="MSU - Iligan Institute of Technology", year_completed=2020, is_published=True)
+        duplicate = FacultyEducation.objects.create(faculty=self.member, degree_level="masters", degree_name="Master of Science in Computer Applications, Philippines", institution="Mindanao State University - Iligan Institute of Technology, Philippines", year_completed=2020, is_published=True)
+        ongoing = FacultyEducation.objects.create(faculty=self.member, degree_level="doctorate", degree_name="PhD in Artificial Intelligence of Things", institution="National Taiwan University and Academia Sinica", notes="Ongoing", is_published=True)
+        old_doctorate = FacultyEducation.objects.create(faculty=self.member, degree_level="doctorate", degree_name=ongoing.degree_name, institution="National Taiwan University, Taiwan & Academia Sinica, Taiwan", is_published=True)
+        unrelated = FacultyEducation.objects.create(faculty=self.member, degree_level="masters", degree_name="Separately reviewed award", academic_status="completed", verification_reference="Existing review", is_published=False)
+        migration = import_module("apps.people.migrations.0019_public_academic_content_corrections")
+        from types import SimpleNamespace
+        for _ in range(2): migration.correct_public_records(apps, SimpleNamespace(connection=connection))
+        canonical.refresh_from_db(); duplicate.refresh_from_db(); ongoing.refresh_from_db(); old_doctorate.refresh_from_db(); unrelated.refresh_from_db(); self.member.refresh_from_db()
+        self.assertTrue(canonical.is_published)
+        self.assertTrue(ongoing.is_published)
+        self.assertFalse(duplicate.is_published)
+        self.assertFalse(old_doctorate.is_published)
+        self.assertFalse(unrelated.is_published)
+        self.assertEqual(self.member.education_records.count(), 5)
+        self.assertIn(str(canonical.pk), duplicate.verification_reference)
+        self.assertEqual(self.member.profile_summary, "An approved authored biography.")
+        self.assertEqual(len(self.client.get("/api/people/faculty/reviewed/").json()["education_records"]), 2)

@@ -7,7 +7,7 @@ export function useSOJTGuide() {
     queryKey: ["academics", "sojt-guide", "bsca"],
     queryFn: async () => {
       const response = await fetchJSON<SOJTResponse>("/api/academics/sojt-guide/bsca/");
-      if (!response?.reviewed_on || !isSOJTContent(response.content) || response.content.sources.some(s => s.status !== "verified")) throw new Error("Approved SOJT guidance is unavailable.");
+      if (!response?.reviewed_on || !isSOJTContent(response.content)) throw new Error("Approved SOJT guidance is unavailable.");
       return response;
     },
     retry: false,

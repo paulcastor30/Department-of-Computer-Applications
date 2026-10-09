@@ -29,6 +29,29 @@ class DepartmentRoleSerializer(serializers.ModelSerializer):
 
 
 class FacultyDirectorySerializer(serializers.ModelSerializer):
+    highest_degree = serializers.SerializerMethodField()
+    specialization_areas = serializers.SerializerMethodField()
+
+    def get_highest_degree(self, member):
+        levels = {row.degree_level for row in member.education_records.all() if row.is_published and row.academic_status == "completed" and row.verification_reference.strip()}
+        for level, label in [("doctorate", "Doctoral Degree"), ("masters", "Master’s Degree"), ("bachelors", "Bachelor’s Degree")]:
+            if level in levels:
+                return label
+        return ""
+
+    def get_specialization_areas(self, member):
+        records = [row for row in member.expertise_records.all() if row.expertise_type == "expertise"]
+        if records:
+            return "\n".join(row.title for row in records if row.is_published)
+        return member.specialization_areas
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        for field in ("phone", "office"):
+            if str(data.get(field, "")).strip().casefold() in {"n/a", "n/a n/a", "na", "---"}:
+                data[field] = ""
+        return data
+
     personnel_type_display = serializers.CharField(source="get_personnel_type_display", read_only=True)
     faculty_status_display = serializers.CharField(source="get_faculty_status_display", read_only=True)
     service_classification_display = serializers.CharField(source="get_service_classification_display", read_only=True)
@@ -76,7 +99,6 @@ class FacultyDirectorySerializer(serializers.ModelSerializer):
             "is_published",
             "sort_order",
             "updated_at",
-            "last_updated_note",
             "supervised_works_count",
             "publications_count",
             "research_projects_count",
@@ -89,7 +111,7 @@ class FacultyEducationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacultyEducation
-        exclude = ["faculty"]
+        fields = ["id", "degree_level", "degree_level_display", "degree_name", "field_or_specialization", "institution", "year_completed", "academic_status"]
 
 
 class FacultyExpertiseSerializer(serializers.ModelSerializer):
@@ -167,7 +189,16 @@ class FacultyMemberSerializer(FacultyDirectorySerializer):
 
     evidence_documents = serializers.StringRelatedField(many=True, read_only=True)
     education_records = FacultyEducationSerializer(many=True, read_only=True)
-    expertise_records = FacultyExpertiseSerializer(many=True, read_only=True)
+    educational_background = serializers.SerializerMethodField()
+    expertise_records = serializers.SerializerMethodField()
+
+    def get_educational_background(self, member):
+        # Legacy free text cannot bypass the approved structured education boundary.
+        return ""
+
+    def get_expertise_records(self, member):
+        records = [row for row in member.expertise_records.all() if row.is_published]
+        return FacultyExpertiseSerializer(records, many=True, context=self.context).data
     supervised_works = FacultySupervisedWorkSerializer(many=True, read_only=True)
     publications = serializers.SerializerMethodField()
 

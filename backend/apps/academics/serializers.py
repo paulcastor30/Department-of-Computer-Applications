@@ -207,6 +207,18 @@ from .models import SOJTGuide
 
 
 class SOJTGuideSerializer(serializers.ModelSerializer):
+    content = serializers.SerializerMethodField()
+
+    def get_content(self, guide):
+        # Reference status, editorial notes and proposed risk registers remain in admin.
+        fields = ("version", "coordinator", "intro", "warning", "warningSources", "steps", "checklist")
+        content = {field: guide.content[field] for field in fields}
+        content["sources"] = [
+            {field: source[field] for field in ("id", "title", "level", "url")}
+            for source in guide.content["sources"]
+        ]
+        return content
+
     class Meta:
         model = SOJTGuide
         fields = ("slug", "content", "reviewed_on", "updated_at")

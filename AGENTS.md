@@ -1,61 +1,63 @@
-# AGENTS.md
+## Official Website Content Standards
 
-## Project Context
+This is an official university website intended for
+students, faculty, researchers, international collaborators,
+and the general public.
 
-This is the official website of the Department of Computer Applications, College of Computer Studies, MSU-Iligan Institute of Technology.
+All public-facing content must be accurate, concise,
+professional, accessible, and institutionally appropriate.
 
-The website uses Django-backed data. Program content must not be implemented as static-only frontend content unless the current architecture explicitly requires it.
+### Public Content
 
-## Important Program Facts
+- Display only approved and verified academic information.
+- Never invent qualifications, appointments, affiliations,
+  research specializations, achievements, or partnerships.
+- Never expose internal verification statuses, administrative
+  placeholders, or content-management instructions.
+- Never display "To be provided by the Department" or
+  "To be validated by the Department" on public pages.
+- Never generate unnecessary disclaimers, defensive statements,
+  or bureaucratic explanations.
+- Never fabricate content to fill missing information.
+- Omit optional information that is unavailable or unapproved.
+- Maintain consistent terminology across all pages.
+- Avoid duplication, repetition, and unnecessary verbosity.
 
-Programs:
-1. Bachelor of Science in Computer Applications (BSCA)
-2. Master of Science in Computer Applications (MSCA)
+### Faculty Profiles
 
-Culminating academic requirements:
-- BSCA: Undergraduate Thesis
-- MSCA: Master’s Thesis or Graduate Thesis
+- Display each academic qualification only once.
+- Use official academic degree titles.
+- Display only confirmed educational qualifications.
+- Keep unconfirmed study records unpublished.
+- Use approved research specializations consistently.
+- Avoid redundant labels, classifications, and status fields.
+- Present professional contact information clearly.
+- Display publications and research projects with accurate
+  titles, dates, roles, and statuses.
+- Do not generate biographical claims from incomplete records.
 
-Do not use capstone, project, or capstone/project as the culminating requirement.
+### Internal Administration
 
-## Content Rules
+- Keep unverified information in the administrative interface.
+- Use existing CMS publication controls to keep drafts and unverified
+  records unpublished; record approval before publication.
+- Require approval before publishing new academic records.
+- Do not expose administrative metadata on public pages.
 
-Do not invent:
-- accreditation status
-- CHED COE status
-- AUN-QA status
-- AACCUP status
-- rankings
-- statistics
-- employment rates
-- faculty counts
-- laboratory names
-- international partnerships
-- course lists
-- admission requirements
-- thesis policies
+### User Interface
 
-Use:
-- “To be provided by the Department” for missing official content.
-- “To be validated by the Department” for content requiring confirmation.
+- Prioritize clarity over decorative components.
+- Avoid excessive cards, borders, and whitespace.
+- Use consistent typography and spacing.
+- Ensure email addresses wrap appropriately on narrow screens.
+- Maintain responsive layouts and accessible navigation.
+- Eliminate redundant descriptions and unnecessary text.
 
-## Page layout
+### Content Governance
 
-- Keep headings, spacing, and navigation consistent with the existing pages.
-- Use labelled form controls, visible keyboard focus, and readable contrast.
-- Check layouts on narrow and wide screens.
-- Present program information and documents without unsupported claims.
-
-## Technical Direction
-
-Before coding:
-- inspect Django models, admin, serializers, views, URLs, templates, frontend components, API clients, and existing content flow;
-- preserve existing architecture where reasonable;
-- avoid unnecessary dependencies.
-
-After coding:
-- generate migrations if models change;
-- run Django checks;
-- run backend tests if available;
-- run frontend lint/build/type checks if available;
-- report commands that fail and why.
+- Django is the authoritative source for dynamic content.
+- Do not introduce duplicate frontend records.
+- Do not automatically infer credentials or expertise
+  from publications, biographies, or research projects.
+- Do not replace missing information with generated prose.
+- Preserve verified existing records during modifications.

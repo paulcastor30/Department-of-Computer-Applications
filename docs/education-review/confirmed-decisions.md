@@ -32,3 +32,8 @@ Local migration applied successfully. Verified all 65 local education rows again
 ## Approved wording update
 
 The owner requested “Ongoing” instead of “Ongoing study; degree not yet completed.” Migration 0017 shortens only that exact existing note, without changing qualification status, dates, publication flags, or unknown doctoral records. Applied locally to Alce and Caparida (two notes). The public group heading is also changed from “Ongoing study” to “Ongoing.” The original import migration and audit evidence remain unchanged. Production is not deployed. All 18 people tests and Django system checks passed.
+
+
+## Public-content corrections — 9 October 2026
+
+The owner confirmed that Alce’s two MSCA entries describe one awarded degree and the two doctoral entries describe one study program. Migration 0019 retains the current MSCA entry and explicitly ongoing doctoral entry; older exact variants remain internally unpublished. No source row is deleted or renamed. Migration 0018 adds explicit academic status and an internal verification reference, with new education unpublished by default. Migration 0019 retains existing publication choices only for exact resolved department-supplied source assertions; unmatched or unresolved records remain internal. Original notes and historical migrations are preserved. Public APIs omit editorial notes, verification references and legacy education text. The exact seeded biographies and conference-role verification phrase are removed from public presentation. Production application remains a separate deployment step.

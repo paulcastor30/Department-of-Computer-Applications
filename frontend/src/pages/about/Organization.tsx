@@ -12,7 +12,7 @@ export default function Organization() {
       <section aria-labelledby="organization-heading">
         <h2 id="organization-heading" className="section-title">Leadership and support staff</h2>
         <p className="mt-4 leading-7">Contact the chairperson for department matters, the administrative aide for office assistance, or the laboratory technicians for laboratory support.</p>
-        {isPending ? <p className="mt-6" role="status">Loading department contacts…</p> : isError ? <div className="notice mt-6" role="status"><p>Department contacts could not be loaded.</p><button className="outline-link mt-3" onClick={() => void refetch()}>Try again</button></div> : !data?.length ? <p className="notice mt-6">Current leadership and staff contacts: To be provided by the Department.</p> : <ul className="mt-7 grid gap-5 sm:grid-cols-2">
+        {isPending ? <p className="mt-6" role="status">Loading department contacts…</p> : isError ? <div className="notice mt-6" role="status"><p>Department contacts could not be loaded.</p><button className="outline-link mt-3" onClick={() => void refetch()}>Try again</button></div> : !data?.length ? <p className="notice mt-6">Contact the department for current leadership and staff enquiries.</p> : <ul className="mt-7 grid gap-5 sm:grid-cols-2">
           {data.map(person => <li key={person.id} className={`rounded-xl border bg-card p-6 ${person.role === "chairperson" ? "sm:col-span-2" : ""}`}>
             <p className="text-sm font-semibold text-primary">{person.role_display}</p>
             <h3 className="mt-2 text-xl font-semibold">{person.name}</h3>

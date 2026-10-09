@@ -39,7 +39,16 @@ class SOJTGuideTests(TestCase):
         self.assertNotIn("Private editorial note", response.content.decode())
         self.assertNotIn("Internal approval fixture", response.content.decode())
         self.assertEqual(response.json()["content"]["coordinator"], "Excel Van Jondonero")
+        self.assertNotIn("confirmations", response.json()["content"])
+        self.assertNotIn("risks", response.json()["content"])
+        for source in response.json()["content"]["sources"]:
+            self.assertNotIn("status", source)
+            self.assertNotIn("note", source)
         self.assertEqual(self.client.post("/api/academics/sojt-guide/bsca/", {}).status_code, 405)
+
+    def test_bulk_publication_cannot_bypass_source_approval(self):
+        SOJTGuide.objects.filter(pk=self.guide.pk).update(is_published=True, reviewed_on=date(2026, 10, 6), approval_reference="Bulk update fixture")
+        self.assertEqual(self.client.get("/api/academics/sojt-guide/bsca/").status_code, 404)
 
     def test_schema_rejects_private_fields_missing_stages_and_unsafe_links(self):
         for mutation in [

@@ -197,11 +197,7 @@ export interface FacultyEducation {
   field_or_specialization: string;
   institution: string;
   year_completed: number | null;
-  notes: string;
-  is_published: boolean;
-  sort_order: number;
-  created_at: string;
-  updated_at: string;
+  academic_status: "completed" | "ongoing" | "experience";
 }
 
 export interface FacultyExpertise {

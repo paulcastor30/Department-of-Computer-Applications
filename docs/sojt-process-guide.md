@@ -6,7 +6,7 @@ Implementation reviewed: 6 October 2026. This is a website implementation review
 
 Route: `/sojt-guide`. Local preview: `http://127.0.0.1:8080/sojt-guide` while the development server runs. The change has not been deployed or pushed.
 
-The page displays a **Draft for Department validation** when an approved CMS guide is unavailable. National policy text was checked against the official CHED-hosted scanned memorandum, including visual confirmation of the eligibility and safeguard clauses. The University/CCS SOJT manual and local authorization procedure were not supplied or located. The draft does not claim CHED compliance or establish eligibility, approval, deployment or clearance.
+Publish institutional SOJT procedures only after Department approval. Keep the reference draft and unresolved local requirements internal. When no approved guide is available, provide a concise department contact route without rendering the proposed procedure.
 
 ## 2. Final workflow and national mapping
 
@@ -43,7 +43,7 @@ A single `SOJTGuide` editorial document in Django stores structured public conte
 
 Ordinary admin/model saves validate the ten ordered stages, required gate/checklist structure, source references, permitted links and qualitative risk scale. Publication requires a review date, approval reference and verified source statuses. This protects the editorial workflow; it cannot authenticate documentary evidence or replace human institutional review. Editors must update the actual wording and sources, not simply flip statuses. Internal notes and approval references are excluded from API responses.
 
-React loads published CMS content. If unavailable or structurally invalid, it shows a clearly labelled reference draft. The reference snapshot is not the source of approved institutional wording. Checkboxes and statuses exist only in component memory; no student tracking tables, complaint forms, uploads, localStorage records or student database workflow were introduced.
+React renders published, validated CMS guidance. Loading, unavailable or invalid responses must not substitute the reference draft. Keep reminder checkboxes in component memory; they do not record institutional decisions.
 
 The page reuses PageHero, Seo, existing website styles, the thesis connector pattern, native details/summary, visible focus and heading focus on navigation. There is one ten-step sequence. Resources and `/students/current` share the resource page, which now includes the guide. BSCA current-student guidance links it; MSCA is not assigned an undergraduate SOJT requirement. Search includes SOJT/OJT/internship/practicum/HTE/MOA/Internship Plan/training hours/coordinator. Breadcrumbs, production rewrites and crawler metadata include the route. The homepage and main navigation were not redesigned; the Thesis Guide remains available.
 
@@ -60,7 +60,7 @@ The page reuses PageHero, Seo, existing website styles, the thesis connector pat
 
 Also retain documentary evidence of program authorization/COPC where applicable under 14.1.1, HEI/HTE approvals, medical/dental provision, insurance, actual monitoring and authorized reporting. No compliance or accreditation claim is inferred from having a website guide.
 
-Keep unpublished as approved instructions: the exact local deployment authorization wording, make-up procedure, applicability of the supplied hours/curriculum, additional local documents and signatures, grade/clearance procedure and grievance/reporting channels until validated. Never publish completed MOAs, student lists, medical records, individual evaluations or complaints. CHED sample annexes are reference material and are not fabricated CCS download forms.
+Keep unapproved local procedures, unresolved applicability questions and editorial confirmation notes internal until validated. Never publish completed MOAs, student lists, medical records, individual evaluations or complaints. CHED sample annexes are reference material and are not fabricated CCS download forms.
 
 ## 6. Verification results
 
@@ -87,7 +87,7 @@ The repeatable browser script is `frontend/scripts/verify-sojt-browser.mjs`. Run
 3. Obtain the applicable University/College manual, official forms, curriculum confirmation, designation and Department approval. Update proposed/missing wording and source metadata with actual evidence. Resolve or remove resolved confirmation notes.
 4. Record `reviewed_on` and an internal `approval_reference`, then publish only when the requirements and applicability have been reviewed. Merely changing source status flags does not verify a policy.
 5. Approved CMS content takes precedence. Do not repurpose the guide as storage for private individual records. Future form downloads should extend the schema with stage/purpose/completer/version metadata and use verified public documents only; none are fabricated now.
-6. The migration-owned v1 snapshot is immutable after release. For a future reference-policy revision, add a new snapshot/migration and update the labelled frontend fallback deliberately; never overwrite editor content. The synchronization test protects this initial reference pair.
+6. Preserve the migration-owned reference snapshot as historical review material. Revise reference material through a new version without overwriting editor content. Do not bundle it as a public fallback.
 
 ## 8. Strict CHED monitoring perspective
 

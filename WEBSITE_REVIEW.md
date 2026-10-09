@@ -1,6 +1,6 @@
 # Department website review
 
-Updated 5 October 2026. The latest refinements are local; this task has not deployed them to Vercel.
+Historical implementation log, 5–6 October 2026. Retained as archived evidence; deployment notes, earlier layouts and unresolved checklists describe their dated execution and are not current instructions. Use AGENTS.md and the current maintenance guides for changes.
 
 ## Public purpose and design
 

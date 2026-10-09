@@ -18,7 +18,7 @@ const pages = {
   '/research': ['Research', 'Explore department research projects, reporting years, leaders, teams and funding, alongside computing study areas and collaboration enquiries.'],
   '/extension': ['Community work', 'Explore extension programs and community projects involving DCA faculty, their leaders and participants, and collaboration enquiries.'],
   '/news': ['News and events', 'Find published department announcements, activity information and where to ask about dates.'],
-  '/sojt-guide': ['SOJT Process Guide', 'Explore the ten BSCA internship stages: eligibility, orientation, HTE approval, Internship Plan, deployment safeguards, monitoring, evaluation and clearance.'],
+  '/sojt-guide': ['SOJT Process Guide', 'BSCA internship guidance and department contact information.'],
   '/thesis-guide': ['Thesis Process Guide', 'Follow BSCA and MSCA thesis steps, find the right forms, prepare requirements and understand proposal, defense and submission deadlines.'],
   '/resources': ['Student & faculty resources', 'Find program documents, thesis checklists, faculty contacts and learning-support enquiries.'],
   '/alumni': ['Alumni Connections & Career Updates', 'Stay connected as a BSCA or MSCA alumnus, explore opportunities, and privately update your contact and career information.'],

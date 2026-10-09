@@ -15,6 +15,14 @@ const evidence={viewports:[],keyboard:{},discovery:[],accessibility:[],contrast:
 const contrastSource = "(() => {\n const rgb = value => { const v=value.match(/[\\d.]+/g)?.map(Number); return v && v.length>=3 ? [v[0],v[1],v[2],v[3]??1] : null; };\n const lum = c => c.slice(0,3).map(v=>v/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4).reduce((s,v,i)=>s+v*[.2126,.7152,.0722][i],0);\n const pairs = new Map();let minimum=Infinity;\n const walker=document.createTreeWalker(document.querySelector('.sojt-guide'),NodeFilter.SHOW_TEXT);\n while(walker.nextNode()){\n  const node=walker.currentNode;if(!node.textContent.trim())continue;\n  const el=node.parentElement;if(!el.getClientRects().length || el.tagName==='OPTION')continue;\n  const style=getComputedStyle(el);const foreground=rgb(style.color); if(!foreground || foreground[3]!==1)throw Error('Manual alpha foreground check required');\n  let background=[255,255,255];const ancestors=[];for(let p=el;p;p=p.parentElement)ancestors.unshift(p);\n  for(const p of ancestors){const color=rgb(getComputedStyle(p).backgroundColor);if(color)background=background.map((v,i)=>color[i]*color[3]+v*(1-color[3]));}\n  const l1=lum(foreground),l2=lum(background),ratio=(Math.max(l1,l2)+.05)/(Math.min(l1,l2)+.05);\n  const font=parseFloat(style.fontSize),weight=parseInt(style.fontWeight)||400,required=font>=24 || font>=18.66&&weight>=700?3:4.5;\n  if(ratio<required)throw Error(`Text contrast ${ratio} below ${required}: ${node.textContent.slice(0,60)}`);\n  minimum=Math.min(minimum,ratio);pairs.set(foreground.slice(0,3).join(',')+' / '+background.join(','),Math.round(ratio*100)/100);\n }\n return {minimumRatio:Math.round(minimum*100)/100,pairs:Object.fromEntries(pairs),pseudoConnectors:'Visual review: lines are outside text areas; number backgrounds are opaque.'};\n})()\n";
 
 call('open',origin+'/sojt-guide');
+call('wait','ol[aria-label="BSCA SOJT process"], main a.action-link[href="/about/contact"]');
+if (!evaluate(`!!document.querySelector('ol[aria-label="BSCA SOJT process"]')`)) {
+ call('wait','main a.action-link[href="/about/contact"]');
+ check(evaluate(`!document.querySelector('.sojt-guide ol') && !document.body.innerText.includes('Draft for Department validation')`), 'Unavailable guidance exposed a review draft');
+ console.log('SOJT unavailable state verified; approved-guide interaction checks require published CMS content.');
+ process.exit(0);
+}
+
 check(evaluate('document.querySelector("ol[aria-label=\\"BSCA SOJT process\\"]").children.length')===10,'Ten steps missing');
 for(const [width,height] of [[320,800],[390,844],[768,1024],[1440,1000]]){
  call('set','viewport',String(width),String(height));
@@ -37,7 +45,7 @@ call('select','#sojt-status','Internship Plan approved');call('focus','.sojt-gui
 const jump=evaluate(`({focused:document.activeElement.id,open:document.getElementById('pre-deployment').closest('li').querySelector('details').open})`);check(jump.focused==='pre-deployment' && jump.open,'Status navigation failed');evidence.keyboard.statusJump=jump;
 call('check','.sojt-guide fieldset input[type=checkbox]');
 call('reload');check(!evaluate(`document.querySelector('.sojt-guide fieldset input[type=checkbox]')?.checked`),'Reminder persisted unexpectedly');
-check(evaluate(`document.body.innerText.includes('Draft for Department validation')`),'Draft label missing');
+check(!evaluate(`document.body.innerText.includes('Draft for Department validation')`),'Review draft exposed publicly');
 call('open',origin+'/resources');call('wait','a[href="/sojt-guide"]');call('click','a[href="/sojt-guide"]');check(call('get','url').url?.includes('/sojt-guide') || evaluate('location.pathname')==='/sojt-guide','Resource guide link failed');
 call('open',origin+'/programs/bsca');call('wait','a[href="/sojt-guide"]');evidence.discovery.push('Resources and BSCA link present');
 call('open',origin+'/sojt-guide');call('click','button[aria-label="Search site"]');
