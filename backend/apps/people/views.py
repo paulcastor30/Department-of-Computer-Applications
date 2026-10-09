@@ -1,6 +1,7 @@
 from django.db.models import Count, Prefetch, Q
 from rest_framework import generics
 from .models import (
+    DepartmentRole,
     FacultyContribution,
     FacultyAchievement,
     FacultyConference,
@@ -14,7 +15,12 @@ from .models import (
     FacultySupervisedWork,
     FacultyTrainingSeminar,
 )
-from .serializers import FacultyDirectorySerializer, FacultyMemberSerializer
+from .serializers import DepartmentRoleSerializer, FacultyDirectorySerializer, FacultyMemberSerializer
+
+
+class DepartmentOrganizationView(generics.ListAPIView):
+    serializer_class = DepartmentRoleSerializer
+    queryset = DepartmentRole.objects.filter(is_published=True, person__is_published=True, person__active_affiliation=True).select_related("person")
 
 
 CLASSIFICATION_ORDER = {

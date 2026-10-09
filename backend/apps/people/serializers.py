@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import (
+    DepartmentRole,
     FacultyAchievement,
     FacultyConference,
     FacultyCreativeWork,
@@ -12,6 +13,19 @@ from .models import (
     FacultySupervisedWork,
     FacultyTrainingSeminar,
 )
+
+
+class DepartmentRoleSerializer(serializers.ModelSerializer):
+    role_display = serializers.CharField(source="get_role_display", read_only=True)
+    name = serializers.CharField(source="person.title", read_only=True)
+    slug = serializers.CharField(source="person.slug", read_only=True)
+    email = serializers.EmailField(source="person.email", read_only=True)
+    phone = serializers.CharField(source="person.phone", read_only=True)
+    office = serializers.CharField(source="person.office", read_only=True)
+
+    class Meta:
+        model = DepartmentRole
+        fields = ["id", "role", "role_display", "name", "slug", "email", "phone", "office"]
 
 
 class FacultyDirectorySerializer(serializers.ModelSerializer):

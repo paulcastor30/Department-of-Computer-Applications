@@ -24,6 +24,7 @@ const pages = {
   '/alumni': ['Alumni Connections & Career Updates', 'Stay connected as a BSCA or MSCA alumnus, explore opportunities, and privately update your contact and career information.'],
   '/admissions/transfer-evaluation': ['BSCA shifting and transfer evaluation', 'Compare completed subjects, submit academic records, and follow department review.'],
   '/admissions': ['How to apply', 'Choose BSCA undergraduate or MSCA graduate study and follow official MSU-IIT admission guidance.'],
+  '/about/organization': ['Department organization', 'Meet the department chairperson, administrative aide, and laboratory technicians and find their official contact details.'],
   '/about/contact': ['Contact & visit', 'Contact the Department of Computer Applications and find office hours, the address and visiting assistance.'],
   '/about/location': ['Location & directions', 'Find the College of Computer Studies at MSU-IIT and plan your visit to the department.'],
   '/accessibility': ['Using this website', 'Get help with keyboard navigation, reading, finding information and asking for assistance.'],

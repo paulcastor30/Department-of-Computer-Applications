@@ -30,11 +30,12 @@ and ensure the proxy sanitizes forwarded client headers.
 
 ## Department decisions and activation
 
-The contact role is **Department chairperson**, as requested. No individual
-chair email address or official retention policy has been assumed.
+The designated contact is **Paul Rodolf P. Castor, Department chairperson**, at
+**paulrodolf.castor@g.msuiit.edu.ph**, using the existing faculty contact as
+requested. The official retention period and privacy notice remain pending.
 Public submissions start closed. In Django admin → Alumni update settings:
 
-- Supply the chairperson's designated mailbox.
+- Confirm the configured chairperson's mailbox remains current.
 - Supply the approved privacy notice and version, stating purposes, staff
   access, correction/deletion contact, and retention.
 - Set the retention period in days after the last update by the alumnus.

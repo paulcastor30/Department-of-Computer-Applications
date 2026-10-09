@@ -127,8 +127,8 @@ const allSearchPages = [
     href: "/about/chair-message",
   },
   {
-    title: "Organization",
-    keywords: ["organization", "structure"],
+    title: "Department organization",
+    keywords: ["organization", "structure", "chairperson", "Castor", "Odvina", "Bicada", "Origenes", "administrative aide", "laboratory technician"],
     href: "/about/organization",
   },
   {
@@ -313,5 +313,5 @@ const allSearchPages = [
 
 
 // Keep saved links working, but do not promote unfinished destinations in search.
-const availableSearchRoutes = new Set(["/facilities", "/accreditation", "/sojt-guide", "/thesis-guide", "/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
+const availableSearchRoutes = new Set(["/about/organization", "/facilities", "/accreditation", "/sojt-guide", "/thesis-guide", "/", "/about", "/about/vmgo", "/our-work", "/projects", "/programs", "/programs/bsca", "/programs/msca", "/faculty", "/research", "/research/projects", "/research/conferences", "/research/publications", "/extension", "/news", "/news/events", "/admissions", "/admissions/apply", "/admissions/request-info", "/resources", "/students/current", "/about/contact", "/about/location", "/accessibility"]);
 export const searchPages = allSearchPages.filter(page => availableSearchRoutes.has(page.href.split("#")[0]));

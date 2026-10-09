@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import (
+    DepartmentRole,
     FacultyContribution,
     FacultyAchievement,
     FacultyConference,
@@ -13,6 +14,15 @@ from .models import (
     FacultySupervisedWork,
     FacultyTrainingSeminar,
 )
+
+
+@admin.register(DepartmentRole)
+class DepartmentRoleAdmin(admin.ModelAdmin):
+    list_display = ("person", "role", "is_published", "sort_order")
+    list_filter = ("role", "is_published")
+    search_fields = ("person__title", "person__email")
+    autocomplete_fields = ("person",)
+    readonly_fields = ("created_at", "updated_at")
 
 
 @admin.action(description="Mark selected faculty members as published")

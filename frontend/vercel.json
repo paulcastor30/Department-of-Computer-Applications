@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    {"source": "/about/organization", "destination": "/about/organization/index.html"},
     {
       "source": "/alumni",
       "destination": "/alumni/index.html"

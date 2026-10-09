@@ -2,12 +2,41 @@ from importlib import import_module
 from django.apps import apps
 from django.db import connection
 from django.test import TransactionTestCase
-from .models import FacultyMember, FacultyEducation, FacultyPublication
+from .models import DepartmentRole, FacultyMember, FacultyEducation, FacultyPublication
 
 
 class FacultyImportTests(TransactionTestCase):
     def setUp(self):
         FacultyMember.objects.all().delete()
+
+    def test_organization_import_preserves_profile_and_does_not_create_accounts(self):
+        from django.contrib.auth import get_user_model
+        before_accounts = get_user_model().objects.count()
+        chair = FacultyMember.objects.create(title="Paul Rodolf Castor", slug="existing-chair", email="paulrodolf.castor@g.msuiit.edu.ph", position="Assistant Professor III")
+        FacultyPublication.objects.create(faculty=chair, title="Existing publication")
+        migration = import_module("apps.people.migrations.0015_department_organization")
+        with connection.schema_editor() as editor:
+            migration.record_organization(apps, editor)
+            migration.record_organization(apps, editor)
+        chair.refresh_from_db()
+        self.assertEqual(chair.slug, "existing-chair")
+        self.assertEqual(chair.position, "Assistant Professor III")
+        self.assertEqual(chair.publications.count(), 1)
+        self.assertEqual(chair.department_role.role, "chairperson")
+        self.assertEqual(FacultyMember.objects.count(), 4)
+        self.assertEqual(DepartmentRole.objects.count(), 4)
+        self.assertEqual(get_user_model().objects.count(), before_accounts)
+        response = self.client.get("/api/people/organization/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual([p["role"] for p in response.json()], ["chairperson", "admin_aide", "lab_technician", "lab_technician"])
+        self.assertEqual(response.json()[1]["email"], "cendylou.odvina@g.msuiit.edu.ph")
+
+    def test_organization_excludes_unpublished_and_inactive_records(self):
+        for index in range(4):
+            person = FacultyMember.objects.create(title=f"Person {index}", slug=f"person-{index}", is_published=index != 1, active_affiliation=index != 2)
+            DepartmentRole.objects.create(person=person, role="lab_technician", is_published=index != 3)
+        response = self.client.get("/api/people/organization/")
+        self.assertEqual([p["slug"] for p in response.json()], ["person-0"])
 
     def test_import_keeps_existing_links_and_professional_records(self):
         member = FacultyMember.objects.create(title="Paul Rodolf Castor", slug="existing-castor",

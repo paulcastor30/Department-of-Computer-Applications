@@ -56,7 +56,7 @@ export function AlumniUpdateForm({ config }: { config: AlumniConfiguration }) {
   return <div id="alumni-update" className="scroll-mt-24 rounded-md border border-border bg-background p-5 sm:p-7">
     <h2 className="text-2xl font-semibold">Update my alumni details</h2>
     <p className="mt-3 max-w-prose leading-7 text-muted-foreground">For BSCA and MSCA graduates, including alumni of both programs. Use an email address you can still access. Your profile is private; your contact details and career information will not appear on the public website.</p>
-    {!config.accepting_updates && <p className="notice mt-5" role="status">Online alumni updates are not open yet. For contact updates or questions, contact the {config.contact_label.toLowerCase()}.</p>}
+    {!config.accepting_updates && <p className="notice mt-5" role="status">Online alumni updates are not open yet. For contact updates or questions, contact {config.contact_label}.</p>}
     {error && <p className="notice mt-4" role="alert">{error}</p>}
     {message && <p className="notice mt-4" role="status">{message}</p>}
     {completed ? <p className="mt-4 leading-7">Thank you for staying connected. To make another change, request a new email link. Contact the department chairperson if you need to correct your verified email address or request deletion.</p> : session ? <VerifiedAlumniForm config={config} email={verifiedEmail} profile={profile} session={session} onSaved={detail => { setMessage(detail); setCompleted(true); setSession(""); setProfile(null); }} /> : emailToken ? <div className="mt-5">
@@ -73,7 +73,7 @@ export function AlumniUpdateForm({ config }: { config: AlumniConfiguration }) {
       <summary className="cursor-pointer font-semibold">Privacy notice and contact</summary>
       {config.privacy_notice ? <p className="mt-3 whitespace-pre-line leading-7">{config.privacy_notice}</p> : <p className="mt-3 leading-7">The department’s alumni privacy and retention notice is being prepared. Online submissions will remain closed until it is available.</p>}
       {config.retention_days && <p className="mt-3 text-sm">Configured retention: {config.retention_days} days after your last alumni update.</p>}
-      <p className="mt-3 leading-7">Contact: {config.contact_label}. {config.contact_email ? <a className="text-link" href={`mailto:${config.contact_email}?subject=Alumni%20contact%20or%20privacy%20request`}>{config.contact_email}</a> : <Link className="text-link" to="/about/contact">Contact the department and ask for the chairperson</Link>}.</p>
+      <p className="mt-3 leading-7">Contact: {config.contact_label}. {config.contact_email ? <a className="text-link break-all" href={`mailto:${config.contact_email}?subject=Alumni%20contact%20or%20privacy%20request`}>{config.contact_email}</a> : <Link className="text-link" to="/about/contact">Contact the department and ask for the chairperson</Link>}.</p>
     </details>
   </div>;
 }

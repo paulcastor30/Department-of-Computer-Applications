@@ -96,6 +96,24 @@ class FacultyMember(PublishableModel):
         return self.title
 
 
+class DepartmentRole(TimeStampedModel):
+    class Role(models.TextChoices):
+        CHAIRPERSON = "chairperson", "Department chairperson"
+        ADMIN_AIDE = "admin_aide", "Department administrative aide"
+        LAB_TECHNICIAN = "lab_technician", "Laboratory technician"
+
+    person = models.OneToOneField(FacultyMember, on_delete=models.CASCADE, related_name="department_role")
+    role = models.CharField(max_length=32, choices=Role.choices)
+    is_published = models.BooleanField(default=False)
+    sort_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["sort_order", "person__title"]
+
+    def __str__(self):
+        return f"{self.person} — {self.get_role_display()}"
+
+
 class FacultyProfileRecord(TimeStampedModel):
     faculty = models.ForeignKey(FacultyMember, on_delete=models.CASCADE)
     is_published = models.BooleanField(default=True)
