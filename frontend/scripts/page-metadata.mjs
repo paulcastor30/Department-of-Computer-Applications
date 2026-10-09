@@ -21,6 +21,7 @@ const pages = {
   '/sojt-guide': ['SOJT Process Guide', 'Explore the ten BSCA internship stages: eligibility, orientation, HTE approval, Internship Plan, deployment safeguards, monitoring, evaluation and clearance.'],
   '/thesis-guide': ['Thesis Process Guide', 'Follow BSCA and MSCA thesis steps, find the right forms, prepare requirements and understand proposal, defense and submission deadlines.'],
   '/resources': ['Student & faculty resources', 'Find program documents, thesis checklists, faculty contacts and learning-support enquiries.'],
+  '/alumni': ['Alumni Connections & Career Updates', 'Stay connected as a BSCA or MSCA alumnus, explore opportunities, and privately update your contact and career information.'],
   '/admissions/transfer-evaluation': ['BSCA shifting and transfer evaluation', 'Compare completed subjects, submit academic records, and follow department review.'],
   '/admissions': ['How to apply', 'Choose BSCA undergraduate or MSCA graduate study and follow official MSU-IIT admission guidance.'],
   '/about/contact': ['Contact & visit', 'Contact the Department of Computer Applications and find office hours, the address and visiting assistance.'],

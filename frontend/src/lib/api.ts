@@ -32,6 +32,25 @@ export class FormDownloadError extends Error {
   }
 }
 
+export async function alumniRequest<T>(endpoint: string, body: object, sessionToken?: string): Promise<T> {
+  const response = await fetch(resolveAPIUrl(`/api/alumni/${endpoint}/`), {
+    method: "POST", credentials: "omit", cache: "no-store",
+    headers: { "Content-Type": "application/json", ...(sessionToken ? { Authorization: `Bearer ${sessionToken}` } : {}) },
+    body: JSON.stringify(body),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const describe = (value: unknown): string => {
+      if (typeof value === "string") return value;
+      if (Array.isArray(value)) return value.map(describe).join(" ");
+      if (value && typeof value === "object") return Object.entries(value).map(([key, item]) => `${key === "detail" ? "" : `${key}: `}${describe(item)}`).join(" ");
+      return "";
+    };
+    throw new Error(response.status === 429 ? "Too many requests. Please try again later." : describe(data) || "Your request could not be completed. Please try again.");
+  }
+  return data as T;
+}
+
 export async function prepareFormPDF(url: string, values: Record<string, string>): Promise<Blob> {
   const response = await fetch(resolveAPIUrl(url), {
     method: "POST",

@@ -71,6 +71,7 @@ INSTALLED_APPS = [
     "apps.quality.apps.QualityConfig",
     "apps.research.apps.ResearchConfig",
     "apps.extension.apps.ExtensionConfig",
+    "apps.alumni.apps.AlumniConfig",
 
 
 ]
@@ -204,3 +205,16 @@ if not DEBUG:
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# Alumni email links are disabled until outbound mail and department settings are supplied.
+ALUMNI_EMAIL_ENABLED = os.getenv("ALUMNI_EMAIL_ENABLED", "False").lower() == "true"
+ALUMNI_PUBLIC_URL = os.getenv("ALUMNI_PUBLIC_URL", "https://msuiit-comapps.vercel.app")
+EMAIL_BACKEND = os.getenv("EMAIL_BACKEND", "django.core.mail.backends.dummy.EmailBackend")
+EMAIL_HOST = os.getenv("EMAIL_HOST", "")
+EMAIL_PORT = int(os.getenv("EMAIL_PORT", "587"))
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS", "True").lower() == "true"
+EMAIL_USE_SSL = os.getenv("EMAIL_USE_SSL", "False").lower() == "true"
+EMAIL_TIMEOUT = 10
+DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", "")

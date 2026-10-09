@@ -1,6 +1,7 @@
 from django.urls import include, path
 
 urlpatterns = [
+    path("alumni/", include("apps.alumni.api_urls")),
     path("extension/", include("apps.extension.api_urls")),
     path("core/", include("apps.core.api_urls")),
     path("academics/", include("apps.academics.api_urls")),

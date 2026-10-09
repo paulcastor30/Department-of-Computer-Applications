@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/alumni",
+      "destination": "/alumni/index.html"
+    },
+    {
       "source": "/sojt-guide",
       "destination": "/sojt-guide/index.html"
     },
