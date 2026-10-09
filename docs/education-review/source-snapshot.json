@@ -1,0 +1,2296 @@
+{
+  "audit_date": "2026-10-09 Asia/Manila",
+  "live_source": "https://department-of-computer-applications-production.up.railway.app/api/people/faculty/",
+  "scope": "Public live API and all local personnel/education rows; unpublished production CMS rows are not accessible through the public API. Snapshot is evidence, not replacement CMS data.",
+  "live_profiles": [
+    {
+      "id": 1,
+      "title": "Apple Rose B. Alce",
+      "slug": "apple-rose-alce",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "vbv",
+      "education_records": [
+        {
+          "id": 3,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-07-05T10:11:32.343533+08:00",
+          "updated_at": "2026-07-05T10:11:32.343551+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology (Major in Embedded Systems)",
+          "field_or_specialization": "",
+          "institution": "Mindanao State University - Iligan Institute of Technology, Philippines",
+          "year_completed": 2016,
+          "notes": ""
+        },
+        {
+          "id": 1,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-07-05T10:00:45.967819+08:00",
+          "updated_at": "2026-07-05T10:14:31.768818+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "PhD in Artificial Intelligence of Things",
+          "field_or_specialization": "",
+          "institution": "National Taiwan University, Taiwan & Academia Sinica, Taiwan",
+          "year_completed": null,
+          "notes": ""
+        },
+        {
+          "id": 4,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-05T09:09:53.633197+08:00",
+          "updated_at": "2026-10-05T09:09:53.633220+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "PhD in Artificial Intelligence of Things",
+          "field_or_specialization": "",
+          "institution": "National Taiwan University and Academia Sinica",
+          "year_completed": null,
+          "notes": "Ongoing study; degree not yet completed."
+        },
+        {
+          "id": 2,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-07-05T10:00:45.972764+08:00",
+          "updated_at": "2026-07-05T10:02:40.455206+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications, Philippines",
+          "field_or_specialization": "",
+          "institution": "Mindanao State University - Iligan Institute of Technology, Philippines",
+          "year_completed": 2021,
+          "notes": ""
+        },
+        {
+          "id": 5,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.654783+08:00",
+          "updated_at": "2026-10-05T09:09:53.654804+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2020,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Leah A. Alindayo",
+      "slug": "leah-a-alindayo",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 7,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-05T09:09:53.678388+08:00",
+          "updated_at": "2026-10-05T09:09:53.678408+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Engineering in Mechanical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2020,
+          "notes": ""
+        },
+        {
+          "id": 8,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.686681+08:00",
+          "updated_at": "2026-10-05T09:09:53.686698+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2013,
+          "notes": ""
+        },
+        {
+          "id": 9,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.696289+08:00",
+          "updated_at": "2026-10-05T09:09:53.696307+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Engineering",
+          "field_or_specialization": "",
+          "institution": "St. Peter’s College",
+          "year_completed": 1999,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Maria Fe P. Bahinting",
+      "slug": "maria-fe-p-bahinting",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 10,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-05T09:09:53.713704+08:00",
+          "updated_at": "2026-10-05T09:09:53.713723+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor in Information Technology",
+          "field_or_specialization": "",
+          "institution": "University of Southern Philippines",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department."
+        },
+        {
+          "id": 11,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-05T09:09:53.721131+08:00",
+          "updated_at": "2026-10-05T09:09:53.721151+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Engineering in Mechanical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department."
+        },
+        {
+          "id": 12,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.728788+08:00",
+          "updated_at": "2026-10-05T09:09:53.728807+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "masters",
+          "degree_name": "Master of Information Technology",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2009,
+          "notes": ""
+        },
+        {
+          "id": 13,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.743206+08:00",
+          "updated_at": "2026-10-05T09:09:53.743227+08:00",
+          "is_published": true,
+          "sort_order": 3,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Communications Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1995,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Stefany Mae V. Caparida",
+      "slug": "stefany-mae-v-caparida",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 14,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-05T09:09:53.760643+08:00",
+          "updated_at": "2026-10-05T09:09:53.760657+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Information Technology",
+          "field_or_specialization": "",
+          "institution": "Cebu Institute of Technology - University",
+          "year_completed": null,
+          "notes": "Ongoing study; degree not yet completed."
+        },
+        {
+          "id": 15,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.774356+08:00",
+          "updated_at": "2026-10-05T09:09:53.774378+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2021,
+          "notes": ""
+        },
+        {
+          "id": 16,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.781952+08:00",
+          "updated_at": "2026-10-05T09:09:53.781971+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Information Technology, Major in Database Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2018,
+          "notes": ""
+        },
+        {
+          "id": 17,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.790463+08:00",
+          "updated_at": "2026-10-05T09:09:53.790481+08:00",
+          "is_published": true,
+          "sort_order": 3,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Engineering Technology Management",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2014,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Paul Rodolf P. Castor",
+      "slug": "paul-rodolf-p-castor",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 18,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.803100+08:00",
+          "updated_at": "2026-10-05T09:09:53.803118+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": ""
+        },
+        {
+          "id": 19,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.809427+08:00",
+          "updated_at": "2026-10-05T09:09:53.809444+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Industrial Automation and Mechatronics",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": ""
+        },
+        {
+          "id": 20,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.815808+08:00",
+          "updated_at": "2026-10-05T09:09:53.815827+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Embedded Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2018,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Jerry B. Halibas",
+      "slug": "jerry-b-halibas",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 21,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-05T09:09:53.829216+08:00",
+          "updated_at": "2026-10-05T09:09:53.829236+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Energy Engineering",
+          "field_or_specialization": "",
+          "institution": "University of Science and Technology of Southern Philippines",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department."
+        },
+        {
+          "id": 22,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.838315+08:00",
+          "updated_at": "2026-10-05T09:09:53.838335+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2024,
+          "notes": ""
+        },
+        {
+          "id": 23,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.845329+08:00",
+          "updated_at": "2026-10-05T09:09:53.845345+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Communications Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1999,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Excel Van O. Jondonero",
+      "slug": "excel-van-o-jondonero",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 24,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.858018+08:00",
+          "updated_at": "2026-10-05T09:09:53.858037+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": ""
+        },
+        {
+          "id": 25,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.864523+08:00",
+          "updated_at": "2026-10-05T09:09:53.864543+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Communications Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Antonio S. Marajas",
+      "slug": "antonio-s-marajas",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 26,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.880552+08:00",
+          "updated_at": "2026-10-05T09:09:53.880573+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Teaching Technology",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1996,
+          "notes": ""
+        },
+        {
+          "id": 27,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.888085+08:00",
+          "updated_at": "2026-10-05T09:09:53.888102+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics Engineering, Major in Industrial Electronics",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1986,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Juffil B. Papolonias",
+      "slug": "juffil-b-papolonias",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 28,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.903532+08:00",
+          "updated_at": "2026-10-05T09:09:53.903549+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": ""
+        },
+        {
+          "id": 29,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.911316+08:00",
+          "updated_at": "2026-10-05T09:09:53.911336+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Communications Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Phoebe Ruth Alithea B. Sudaria",
+      "slug": "phoebe-ruth-alithea-b-sudaria",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 30,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-05T09:09:53.925693+08:00",
+          "updated_at": "2026-10-05T09:09:53.925723+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Information Technology",
+          "field_or_specialization": "",
+          "institution": "St. Paul University",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department."
+        },
+        {
+          "id": 31,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.933367+08:00",
+          "updated_at": "2026-10-05T09:09:53.933387+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2020,
+          "notes": ""
+        },
+        {
+          "id": 32,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.940998+08:00",
+          "updated_at": "2026-10-05T09:09:53.941017+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Embedded Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2015,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Jomari Francis B. Villanueva",
+      "slug": "jomari-francis-b-villanueva",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 33,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.955112+08:00",
+          "updated_at": "2026-10-05T09:09:53.955132+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": ""
+        },
+        {
+          "id": 34,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.962809+08:00",
+          "updated_at": "2026-10-05T09:09:53.962828+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Communications Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Leonhel V. Fortin",
+      "slug": "leonhel-v-fortin",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 35,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:53.986594+08:00",
+          "updated_at": "2026-10-05T09:09:53.986613+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2026,
+          "notes": ""
+        },
+        {
+          "id": 36,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:53.996262+08:00",
+          "updated_at": "2026-10-05T09:09:53.996281+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2024,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Collien Princess C. Pepito",
+      "slug": "collien-princess-c-pepito",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 37,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-05T09:09:54.015177+08:00",
+          "updated_at": "2026-10-05T09:09:54.015196+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2024,
+          "notes": ""
+        },
+        {
+          "id": 38,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-05T09:09:54.024121+08:00",
+          "updated_at": "2026-10-05T09:09:54.024141+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2022,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Adrian P. Galido",
+      "slug": "adrian-p-galido",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 42,
+          "degree_level_display": "Other",
+          "created_at": "2026-10-06T06:17:26.061019+08:00",
+          "updated_at": "2026-10-06T06:17:26.061024+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "other",
+          "degree_name": "NUS Fellows Programme (Southeast Asia)",
+          "field_or_specialization": "",
+          "institution": "Lee Kuan Yew School of Public Policy, National University of Singapore, Singapore",
+          "year_completed": 2024,
+          "notes": "Academic fellowship; not a degree."
+        },
+        {
+          "id": 43,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.063920+08:00",
+          "updated_at": "2026-10-06T06:17:26.063925+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Data Science",
+          "field_or_specialization": "",
+          "institution": "Asian Institute of Management, Makati",
+          "year_completed": 2019,
+          "notes": ""
+        },
+        {
+          "id": 44,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.067331+08:00",
+          "updated_at": "2026-10-06T06:17:26.067336+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Management",
+          "field_or_specialization": "",
+          "institution": "University of San Carlos, Cebu",
+          "year_completed": 2012,
+          "notes": ""
+        },
+        {
+          "id": 45,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.070056+08:00",
+          "updated_at": "2026-10-06T06:17:26.070062+08:00",
+          "is_published": true,
+          "sort_order": 3,
+          "degree_level": "masters",
+          "degree_name": "Master in Technology Management",
+          "field_or_specialization": "",
+          "institution": "University of the Philippines Diliman, Quezon City",
+          "year_completed": 2005,
+          "notes": ""
+        },
+        {
+          "id": 46,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.072503+08:00",
+          "updated_at": "2026-10-06T06:17:26.072507+08:00",
+          "is_published": true,
+          "sort_order": 4,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Science",
+          "field_or_specialization": "",
+          "institution": "University of the Philippines Diliman, Quezon City",
+          "year_completed": 2000,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Arnel D. Zamayla",
+      "slug": "arnel-d-zamayla",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 65,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.133405+08:00",
+          "updated_at": "2026-10-06T06:17:26.133409+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Mathematics and Computer Science (Artificial Intelligence)",
+          "field_or_specialization": "",
+          "institution": "Università della Calabria, Italy",
+          "year_completed": 2022,
+          "notes": ""
+        },
+        {
+          "id": 66,
+          "degree_level_display": "Other",
+          "created_at": "2026-10-06T06:17:26.136055+08:00",
+          "updated_at": "2026-10-06T06:17:26.136060+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "other",
+          "degree_name": "PhD internship",
+          "field_or_specialization": "",
+          "institution": "Curtin University, Perth, Western Australia",
+          "year_completed": 2021,
+          "notes": "Research internship; not a separate awarded degree."
+        },
+        {
+          "id": 67,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.138264+08:00",
+          "updated_at": "2026-10-06T06:17:26.138268+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2013,
+          "notes": ""
+        },
+        {
+          "id": 68,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.140545+08:00",
+          "updated_at": "2026-10-06T06:17:26.140549+08:00",
+          "is_published": true,
+          "sort_order": 3,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2011,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Carl John O. Salaan",
+      "slug": "carl-john-o-salaan",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 59,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.115935+08:00",
+          "updated_at": "2026-10-06T06:17:26.115940+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Information Science",
+          "field_or_specialization": "",
+          "institution": "Tohoku University",
+          "year_completed": null,
+          "notes": "Completed qualification; year not supplied by the Department."
+        },
+        {
+          "id": 60,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.118689+08:00",
+          "updated_at": "2026-10-06T06:17:26.118693+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Electrical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2011,
+          "notes": ""
+        },
+        {
+          "id": 61,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.120934+08:00",
+          "updated_at": "2026-10-06T06:17:26.120938+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electrical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2007,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Cherry Mae G. Villame",
+      "slug": "cherry-mae-g-villame",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 62,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.124784+08:00",
+          "updated_at": "2026-10-06T06:17:26.124789+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2021,
+          "notes": ""
+        },
+        {
+          "id": 63,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.127396+08:00",
+          "updated_at": "2026-10-06T06:17:26.127400+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2014,
+          "notes": ""
+        },
+        {
+          "id": 64,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.129896+08:00",
+          "updated_at": "2026-10-06T06:17:26.129900+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Engineering",
+          "field_or_specialization": "",
+          "institution": "University of Science and Technology of Southern Philippines",
+          "year_completed": 2011,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Ernesto E. Empig",
+      "slug": "ernesto-e-empig",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 39,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.046153+08:00",
+          "updated_at": "2026-10-06T06:17:26.046165+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor in Sustainable Development Studies (Sustainable Environmental Education)",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": ""
+        },
+        {
+          "id": 40,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.053355+08:00",
+          "updated_at": "2026-10-06T06:17:26.053362+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Information Technology",
+          "field_or_specialization": "",
+          "institution": "Ateneo de Davao University",
+          "year_completed": 2005,
+          "notes": ""
+        },
+        {
+          "id": 41,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.056138+08:00",
+          "updated_at": "2026-10-06T06:17:26.056143+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Industrial Education (Electronics)",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 1993,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Hareez V. Quimque",
+      "slug": "hareez-v-quimque",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 53,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.096440+08:00",
+          "updated_at": "2026-10-06T06:17:26.096447+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Electrical Engineering and Computer Science",
+          "field_or_specialization": "",
+          "institution": "National Taipei University (NTPU)",
+          "year_completed": 2022,
+          "notes": ""
+        },
+        {
+          "id": 54,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.099919+08:00",
+          "updated_at": "2026-10-06T06:17:26.099924+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Electrical Engineering (Integrated Circuits Design)",
+          "field_or_specialization": "",
+          "institution": "National Taipei University (NTPU)",
+          "year_completed": 2010,
+          "notes": ""
+        },
+        {
+          "id": 55,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.102432+08:00",
+          "updated_at": "2026-10-06T06:17:26.102438+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Communications Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2006,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Orven E. Llantos",
+      "slug": "llantos-orven-e",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 50,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.085810+08:00",
+          "updated_at": "2026-10-06T06:17:26.085816+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Computer Science",
+          "field_or_specialization": "",
+          "institution": "Ateneo de Manila University, Manila, Philippines",
+          "year_completed": 2021,
+          "notes": ""
+        },
+        {
+          "id": 51,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.088208+08:00",
+          "updated_at": "2026-10-06T06:17:26.088212+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2007,
+          "notes": ""
+        },
+        {
+          "id": 52,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.092677+08:00",
+          "updated_at": "2026-10-06T06:17:26.092681+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Science",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2000,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Rabby Q. Lavilles",
+      "slug": "rabby-q-lavilles",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 47,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.076262+08:00",
+          "updated_at": "2026-10-06T06:17:26.076268+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor in Information Technology",
+          "field_or_specialization": "",
+          "institution": "De La Salle University, Manila",
+          "year_completed": 2018,
+          "notes": ""
+        },
+        {
+          "id": 48,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.078364+08:00",
+          "updated_at": "2026-10-06T06:17:26.078369+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Information Technology",
+          "field_or_specialization": "",
+          "institution": "De La Salle University, Manila",
+          "year_completed": 2010,
+          "notes": ""
+        },
+        {
+          "id": 49,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.080197+08:00",
+          "updated_at": "2026-10-06T06:17:26.080201+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Business Administration (Information Systems)",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2002,
+          "notes": ""
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Sherwin A. Guirnaldo",
+      "slug": "sherwin-a-guirnaldo",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 56,
+          "degree_level_display": "Doctorate",
+          "created_at": "2026-10-06T06:17:26.107822+08:00",
+          "updated_at": "2026-10-06T06:17:26.107828+08:00",
+          "is_published": true,
+          "sort_order": 0,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Robotics and Intelligent Systems",
+          "field_or_specialization": "",
+          "institution": "Saga University",
+          "year_completed": 2004,
+          "notes": ""
+        },
+        {
+          "id": 57,
+          "degree_level_display": "Master's Degree",
+          "created_at": "2026-10-06T06:17:26.109988+08:00",
+          "updated_at": "2026-10-06T06:17:26.109992+08:00",
+          "is_published": true,
+          "sort_order": 1,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": null,
+          "notes": "Completed qualification; year not supplied by the Department."
+        },
+        {
+          "id": 58,
+          "degree_level_display": "Bachelor's Degree",
+          "created_at": "2026-10-06T06:17:26.111957+08:00",
+          "updated_at": "2026-10-06T06:17:26.111961+08:00",
+          "is_published": true,
+          "sort_order": 2,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Mechanical Engineering",
+          "field_or_specialization": "",
+          "institution": "Mindanao State University, Marawi",
+          "year_completed": null,
+          "notes": "Completed qualification; year not supplied by the Department."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Alexander Gaw",
+      "slug": "alexander-gaw",
+      "personnel_type": "faculty",
+      "service_classification": "retired_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 13,
+      "title": "Danilo Adlaon",
+      "slug": "danilo-adlaon",
+      "personnel_type": "faculty",
+      "service_classification": "retired_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 18,
+      "title": "Joseph Allan Y. Mascardo",
+      "slug": "joseph-allan-y-mascardo",
+      "personnel_type": "faculty",
+      "service_classification": "retired_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 16,
+      "title": "Michael A. Nabua",
+      "slug": "michael-a-nabua",
+      "personnel_type": "faculty",
+      "service_classification": "retired_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 14,
+      "title": "Nerissa Adlaon",
+      "slug": "nerissa-adlaon",
+      "personnel_type": "faculty",
+      "service_classification": "retired_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 17,
+      "title": "Ofelia Mendoza",
+      "slug": "ofelia-mendoza",
+      "personnel_type": "faculty",
+      "service_classification": "retired_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 19,
+      "title": "Rolando L. Galucan",
+      "slug": "rolando-l-galucan",
+      "personnel_type": "faculty",
+      "service_classification": "retired_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 30,
+      "title": "Joel I. Miano",
+      "slug": "joel-i-miano",
+      "personnel_type": "faculty",
+      "service_classification": "resigned_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 31,
+      "title": "Cendy Lou O. Odvina",
+      "slug": "cendy-lou-o-odvina",
+      "personnel_type": "academic_staff",
+      "service_classification": "academic_staff",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 32,
+      "title": "Allan P. Bicada",
+      "slug": "allan-p-bicada",
+      "personnel_type": "laboratory_technician",
+      "service_classification": "laboratory_personnel",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 33,
+      "title": "Kristian Kirk L. Origenes",
+      "slug": "kristian-kirk-l-origenes",
+      "personnel_type": "laboratory_technician",
+      "service_classification": "laboratory_personnel",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    }
+  ],
+  "local_profiles": [
+    {
+      "id": 1,
+      "title": "Apple Rose B. Alce",
+      "slug": "apple-rose-b-alce",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 1,
+          "degree_level": "doctorate",
+          "degree_name": "PhD in Artificial Intelligence of Things",
+          "field_or_specialization": "",
+          "institution": "National Taiwan University and Academia Sinica",
+          "year_completed": null,
+          "notes": "Ongoing study; degree not yet completed.",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 2,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2020,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 3,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Embedded Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2017,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Leah A. Alindayo",
+      "slug": "leah-a-alindayo",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 4,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Engineering in Mechanical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2020,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 5,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2013,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 6,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Engineering",
+          "field_or_specialization": "",
+          "institution": "St. Peter’s College",
+          "year_completed": 1999,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Maria Fe P. Bahinting",
+      "slug": "maria-fe-p-bahinting",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 7,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor in Information Technology",
+          "field_or_specialization": "",
+          "institution": "University of Southern Philippines",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department.",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 8,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Engineering in Mechanical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department.",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 9,
+          "degree_level": "masters",
+          "degree_name": "Master of Information Technology",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2009,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        },
+        {
+          "id": 10,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Communications Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1995,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Stefany Mae V. Caparida",
+      "slug": "stefany-mae-v-caparida",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 11,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Information Technology",
+          "field_or_specialization": "",
+          "institution": "Cebu Institute of Technology - University",
+          "year_completed": null,
+          "notes": "Ongoing study; degree not yet completed.",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 12,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2021,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 13,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Information Technology, Major in Database Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2018,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        },
+        {
+          "id": 14,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Engineering Technology Management",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2014,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Paul Rodolf P. Castor",
+      "slug": "paul-rodolf-p-castor",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 15,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 16,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Industrial Automation and Mechatronics",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 17,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Embedded Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2018,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Jerry B. Halibas",
+      "slug": "jerry-b-halibas",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 18,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Energy Engineering",
+          "field_or_specialization": "",
+          "institution": "University of Science and Technology of Southern Philippines",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department.",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 19,
+          "degree_level": "masters",
+          "degree_name": "Master of Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2024,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 20,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Communications Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1999,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Excel Van O. Jondonero",
+      "slug": "excel-van-o-jondonero",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 21,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 22,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Communications Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Antonio S. Marajas",
+      "slug": "antonio-s-marajas",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 23,
+          "degree_level": "masters",
+          "degree_name": "Master of Teaching Technology",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1996,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 24,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics Engineering, Major in Industrial Electronics",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 1986,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Juffil B. Papolonias",
+      "slug": "juffil-b-papolonias",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 25,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 26,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Communications Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Phoebe Ruth Alithea B. Sudaria",
+      "slug": "phoebe-ruth-alithea-b-sudaria",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 27,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Information Technology",
+          "field_or_specialization": "",
+          "institution": "St. Paul University",
+          "year_completed": null,
+          "notes": "Completion status to be validated by the Department.",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 28,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2020,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 29,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Embedded Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2015,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Jomari Francis B. Villanueva",
+      "slug": "jomari-francis-b-villanueva",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 30,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 31,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Computer Technology, Major in Communications Systems",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2019,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Leonhel V. Fortin",
+      "slug": "leonhel-v-fortin",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 32,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2026,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 33,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2024,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Collien Princess C. Pepito",
+      "slug": "collien-princess-c-pepito",
+      "personnel_type": "faculty",
+      "service_classification": "active_dca_faculty",
+      "highest_degree": "Master’s Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 34,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2024,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 35,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU - Iligan Institute of Technology",
+          "year_completed": 2022,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Ernesto E. Empig",
+      "slug": "ernesto-e-empig",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 36,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor in Sustainable Development Studies (Sustainable Environmental Education)",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2023,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 37,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Information Technology",
+          "field_or_specialization": "",
+          "institution": "Ateneo de Davao University",
+          "year_completed": 2005,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 38,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Industrial Education (Electronics)",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 1993,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Adrian P. Galido",
+      "slug": "adrian-p-galido",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 39,
+          "degree_level": "other",
+          "degree_name": "NUS Fellows Programme (Southeast Asia)",
+          "field_or_specialization": "",
+          "institution": "Lee Kuan Yew School of Public Policy, National University of Singapore, Singapore",
+          "year_completed": 2024,
+          "notes": "Academic fellowship; not a degree.",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 40,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Data Science",
+          "field_or_specialization": "",
+          "institution": "Asian Institute of Management, Makati",
+          "year_completed": 2019,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 41,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Management",
+          "field_or_specialization": "",
+          "institution": "University of San Carlos, Cebu",
+          "year_completed": 2012,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        },
+        {
+          "id": 42,
+          "degree_level": "masters",
+          "degree_name": "Master in Technology Management",
+          "field_or_specialization": "",
+          "institution": "University of the Philippines Diliman, Quezon City",
+          "year_completed": 2005,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 3
+        },
+        {
+          "id": 43,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Science",
+          "field_or_specialization": "",
+          "institution": "University of the Philippines Diliman, Quezon City",
+          "year_completed": 2000,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 4
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Rabby Q. Lavilles",
+      "slug": "rabby-q-lavilles",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 44,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor in Information Technology",
+          "field_or_specialization": "",
+          "institution": "De La Salle University, Manila",
+          "year_completed": 2018,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 45,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Information Technology",
+          "field_or_specialization": "",
+          "institution": "De La Salle University, Manila",
+          "year_completed": 2010,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 46,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Business Administration (Information Systems)",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2002,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Orven E. Llantos",
+      "slug": "orven-e-llantos",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 47,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Computer Science",
+          "field_or_specialization": "",
+          "institution": "Ateneo de Manila University, Manila, Philippines",
+          "year_completed": 2021,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 48,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2007,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 49,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Science",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2000,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Hareez V. Quimque",
+      "slug": "hareez-v-quimque",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 50,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Electrical Engineering and Computer Science",
+          "field_or_specialization": "",
+          "institution": "National Taipei University (NTPU)",
+          "year_completed": 2022,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 51,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Electrical Engineering (Integrated Circuits Design)",
+          "field_or_specialization": "",
+          "institution": "National Taipei University (NTPU)",
+          "year_completed": 2010,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 52,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electronics and Communications Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2006,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Sherwin A. Guirnaldo",
+      "slug": "sherwin-a-guirnaldo",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 53,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Robotics and Intelligent Systems",
+          "field_or_specialization": "",
+          "institution": "Saga University",
+          "year_completed": 2004,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 54,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": null,
+          "notes": "Completed qualification; year not supplied by the Department.",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 55,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Mechanical Engineering",
+          "field_or_specialization": "",
+          "institution": "Mindanao State University, Marawi",
+          "year_completed": null,
+          "notes": "Completed qualification; year not supplied by the Department.",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Carl John O. Salaan",
+      "slug": "carl-john-o-salaan",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 56,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Information Science",
+          "field_or_specialization": "",
+          "institution": "Tohoku University",
+          "year_completed": null,
+          "notes": "Completed qualification; year not supplied by the Department.",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 57,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Electrical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2011,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 58,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Electrical Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2007,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Cherry Mae G. Villame",
+      "slug": "cherry-mae-g-villame",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 59,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2021,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 60,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2014,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 61,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Engineering",
+          "field_or_specialization": "",
+          "institution": "University of Science and Technology of Southern Philippines",
+          "year_completed": 2011,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Arnel D. Zamayla",
+      "slug": "arnel-d-zamayla",
+      "personnel_type": "faculty",
+      "service_classification": "affiliated_msca_faculty",
+      "highest_degree": "Doctoral Degree",
+      "educational_background": "",
+      "education_records": [
+        {
+          "id": 62,
+          "degree_level": "doctorate",
+          "degree_name": "Doctor of Philosophy in Mathematics and Computer Science (Artificial Intelligence)",
+          "field_or_specialization": "",
+          "institution": "Università della Calabria, Italy",
+          "year_completed": 2022,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 0
+        },
+        {
+          "id": 63,
+          "degree_level": "other",
+          "degree_name": "PhD internship",
+          "field_or_specialization": "",
+          "institution": "Curtin University, Perth, Western Australia",
+          "year_completed": 2021,
+          "notes": "Research internship; not a separate awarded degree.",
+          "is_published": 1,
+          "sort_order": 1
+        },
+        {
+          "id": 64,
+          "degree_level": "masters",
+          "degree_name": "Master of Science in Computer Applications",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2013,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 2
+        },
+        {
+          "id": 65,
+          "degree_level": "bachelors",
+          "degree_name": "Bachelor of Science in Computer Engineering",
+          "field_or_specialization": "",
+          "institution": "MSU-Iligan Institute of Technology",
+          "year_completed": 2011,
+          "notes": "",
+          "is_published": 1,
+          "sort_order": 3
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Joel I. Miano",
+      "slug": "joel-i-miano",
+      "personnel_type": "faculty",
+      "service_classification": "resigned_dca_faculty",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 24,
+      "title": "Cendy Lou O. Odvina",
+      "slug": "cendy-lou-o-odvina",
+      "personnel_type": "academic_staff",
+      "service_classification": "academic_staff",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 25,
+      "title": "Allan P. Bicada",
+      "slug": "allan-p-bicada",
+      "personnel_type": "laboratory_technician",
+      "service_classification": "laboratory_personnel",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    },
+    {
+      "id": 26,
+      "title": "Kristian Kirk L. Origenes",
+      "slug": "kristian-kirk-l-origenes",
+      "personnel_type": "laboratory_technician",
+      "service_classification": "laboratory_personnel",
+      "highest_degree": "",
+      "educational_background": "",
+      "education_records": []
+    }
+  ]
+}

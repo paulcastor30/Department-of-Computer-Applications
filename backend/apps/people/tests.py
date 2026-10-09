@@ -9,6 +9,69 @@ class FacultyImportTests(TransactionTestCase):
     def setUp(self):
         FacultyMember.objects.all().delete()
 
+    def test_concise_ongoing_note_does_not_reclassify_unknown_records(self):
+        member = FacultyMember.objects.create(title="Example Faculty", slug="example")
+        ongoing = FacultyEducation.objects.create(faculty=member, degree_level="doctorate",
+            notes="Ongoing study; degree not yet completed.")
+        unknown = FacultyEducation.objects.create(faculty=member, degree_level="doctorate",
+            notes="Completion status to be validated by the Department.")
+        migration = import_module("apps.people.migrations.0017_concise_ongoing_label")
+        with connection.schema_editor() as editor:
+            migration.shorten_ongoing_note(apps, editor)
+        ongoing.refresh_from_db()
+        unknown.refresh_from_db()
+        self.assertEqual(ongoing.notes, "Ongoing")
+        self.assertIsNone(ongoing.year_completed)
+        self.assertEqual(unknown.notes, "Completion status to be validated by the Department.")
+
+    def test_alce_confirmations_preserve_unresolved_education_and_replace_public_expertise(self):
+        from .models import FacultyExpertise
+        member = FacultyMember.objects.create(title="Apple Rose B. Alce", slug="apple-rose-alce",
+            email="applerose.alce@g.msuiit.edu.ph", is_published=True)
+        institution = "Mindanao State University - Iligan Institute of Technology, Philippines"
+        bachelor = FacultyEducation.objects.create(faculty=member, degree_level="bachelors",
+            degree_name="Bachelor of Science in Electronics and Computer Technology (Major in Embedded Systems)",
+            institution=institution, year_completed=2016)
+        old_master = FacultyEducation.objects.create(faculty=member, degree_level="masters",
+            degree_name="Master of Science in Computer Applications, Philippines", institution=institution, year_completed=2021)
+        new_master = FacultyEducation.objects.create(faculty=member, degree_level="masters",
+            degree_name="Master of Science in Computer Applications", institution="MSU - Iligan Institute of Technology", year_completed=2020)
+        doctorate = FacultyEducation.objects.create(faculty=member, degree_level="doctorate",
+            degree_name="PhD in Artificial Intelligence of Things", institution="National Taiwan University and Academia Sinica",
+            notes="Ongoing study; degree not yet completed.")
+        unknown = FacultyEducation.objects.create(faculty=member, degree_level="doctorate",
+            degree_name=doctorate.degree_name, institution="National Taiwan University, Taiwan & Academia Sinica, Taiwan")
+        old_expertise = FacultyExpertise.objects.create(faculty=member, title="asdf", expertise_type="expertise")
+        interest = FacultyExpertise.objects.create(faculty=member, title="Existing research interest", expertise_type="research_interest")
+        other = FacultyMember.objects.create(title="Other Faculty", slug="other")
+        other_degree = FacultyEducation.objects.create(faculty=other, degree_level="masters",
+            degree_name=new_master.degree_name, institution=new_master.institution, year_completed=2021)
+        migration = import_module("apps.people.migrations.0016_alce_confirmed_education_and_expertise")
+        with connection.schema_editor() as editor:
+            migration.apply_confirmations(apps, editor)
+            migration.apply_confirmations(apps, editor)
+        for row, year in ((bachelor, 2017), (old_master, 2020), (new_master, 2020), (other_degree, 2021)):
+            row.refresh_from_db()
+            self.assertEqual(row.year_completed, year)
+        self.assertEqual(member.education_records.count(), 5)
+        doctorate.refresh_from_db()
+        unknown.refresh_from_db()
+        self.assertEqual(doctorate.notes, "Ongoing study; degree not yet completed.")
+        self.assertEqual(unknown.notes, "")
+        self.assertIsNone(doctorate.year_completed)
+        self.assertTrue(unknown.is_published)
+        old_expertise.refresh_from_db()
+        interest.refresh_from_db()
+        self.assertFalse(old_expertise.is_published)
+        self.assertTrue(interest.is_published)
+        self.assertEqual(list(member.expertise_records.filter(expertise_type="expertise", is_published=True)
+            .values_list("title", flat=True)), list(migration.EXPERTISE))
+        member.refresh_from_db()
+        self.assertEqual(member.specialization_areas, "\n".join(migration.EXPERTISE))
+        response = self.client.get("/api/people/faculty/apple-rose-alce/")
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn("asdf", [row["title"] for row in response.json()["expertise_records"]])
+
     def test_organization_import_preserves_profile_and_does_not_create_accounts(self):
         from django.contrib.auth import get_user_model
         before_accounts = get_user_model().objects.count()

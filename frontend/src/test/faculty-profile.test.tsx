@@ -8,7 +8,7 @@ vi.mock('@/hooks/usePeople', () => ({ useFacultyMember: () => ({ data: {
   title: 'Example Faculty', position: 'Professor', service_classification: 'retired_dca_faculty', service_classification_display: 'Retired DCA Faculty', faculty_status_display: 'Active', email: 'example@g.msuiit.edu.ph', profile_summary: 'Academic profile.', highest_degree: 'Master’s Degree',
   education_records: [
     { id: 1, degree_name: 'Master of Science', institution: 'University', year_completed: 2020, notes: '' },
-    { id: 2, degree_name: 'Doctor of Philosophy', institution: 'University', year_completed: null, notes: 'Ongoing study; degree not yet completed.' },
+    { id: 2, degree_name: 'Doctor of Philosophy', institution: 'University', year_completed: null, notes: 'Ongoing' },
     { id: 4, degree_level: 'other', degree_name: 'Academic fellowship', institution: 'University', year_completed: 2024, notes: 'Academic fellowship; not a degree.' },
     { id: 5, degree_level: 'doctorate', degree_name: 'Completed doctorate with year unspecified', institution: 'University', year_completed: null, notes: 'Completed qualification; year not supplied by the Department.' },
     { id: 3, degree_name: 'Doctor of Engineering', institution: 'University', year_completed: null, notes: 'Completion status to be validated by the Department.' },
@@ -20,7 +20,7 @@ it('distinguishes completed qualifications, ongoing study and unconfirmed record
   const completed = screen.getByRole('heading', { name: 'Completed qualifications' }).parentElement!;
   expect(within(completed).getByText('Master of Science')).toBeInTheDocument();
   expect(within(completed).queryByText('Doctor of Philosophy')).not.toBeInTheDocument();
-  expect(screen.getByRole('heading', { name: 'Ongoing study' })).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: 'Ongoing' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { name: 'Study records awaiting confirmation' })).toBeInTheDocument();
   expect(screen.getByText('Retired', { selector: 'dd' })).toBeInTheDocument();
   expect(screen.queryByText('Active', { selector: 'dd' })).not.toBeInTheDocument();

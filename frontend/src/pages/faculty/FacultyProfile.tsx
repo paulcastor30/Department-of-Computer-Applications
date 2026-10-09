@@ -136,7 +136,7 @@ export default function FacultyProfile() {
   };
   const educationGroups = [
     { title: "Completed qualifications", records: member.education_records.filter(record => record.degree_level !== "other" && (record.year_completed != null || /Completed qualification; year not supplied/i.test(record.notes)) && !/ongoing|on-going|not yet completed|completion status/i.test(record.notes)) },
-    { title: "Ongoing study", records: member.education_records.filter(record => record.degree_level !== "other" && /ongoing|on-going|not yet completed/i.test(record.notes)) },
+    { title: "Ongoing", records: member.education_records.filter(record => record.degree_level !== "other" && /ongoing|on-going|not yet completed/i.test(record.notes)) },
     { title: "Study records awaiting confirmation", records: member.education_records.filter(record => record.degree_level !== "other" && !/Completed qualification; year not supplied/i.test(record.notes) && !/ongoing|on-going|not yet completed/i.test(record.notes) && (record.year_completed == null || /completion status/i.test(record.notes))) },
   ];
   educationGroups.push({ title: "Fellowships and other academic experience", records: member.education_records.filter(record => record.degree_level === "other") });
