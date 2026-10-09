@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ProgramListView, ProgramDetailView, SOJTGuideDetailView
+from .views import ProgramListView, ProgramDetailView, SOJTGuideDetailView, LearningResourceListView
 
 from .form_views import BSCAFormView, MSCAFormView, RegistrarFormListView, RegistrarFormView
 
@@ -7,6 +7,7 @@ from .evaluation_views import (EvaluationConfigurationView, EvaluationExtractVie
     EvaluationCompareView, EvaluationSubmitView, EvaluationStatusView)
 
 urlpatterns = [
+    path("learning-resources/", LearningResourceListView.as_view(), name="learning-resources"),
     path("evaluations/configuration/", EvaluationConfigurationView.as_view()),
     path("evaluations/extract/", EvaluationExtractView.as_view()),
     path("evaluations/compare/", EvaluationCompareView.as_view()),

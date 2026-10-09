@@ -1,5 +1,14 @@
 from django.contrib import admin
-from .models import Program, ProgramDocument, RegistrarForm
+from .models import Program, ProgramDocument, RegistrarForm, LearningResource
+
+
+@admin.register(LearningResource)
+class LearningResourceAdmin(admin.ModelAdmin):
+    list_display = ("title", "topic", "level", "start_here", "is_published", "sort_order")
+    list_filter = ("topic", "level", "source_collection", "start_here", "is_published")
+    search_fields = ("title", "provider", "description", "source_section")
+    prepopulated_fields = {"slug": ("title",)}
+    readonly_fields = ("created_at", "updated_at")
 
 
 @admin.action(description="Mark selected programs as published")

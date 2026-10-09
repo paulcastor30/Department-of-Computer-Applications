@@ -3,11 +3,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path, re_path
 from apps.core.frontend_views import FrontendAppView
+from apps.academics.views import LearningCollectionDownloadView
 from django.views.static import serve
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("dca_site.api_urls")),
+    path("learning-resources/<str:filename>", LearningCollectionDownloadView.as_view(), name="learning-collection-download"),
     re_path(r"^(?!(api|admin|assets|media)(/|$)).*$", FrontendAppView.as_view(), name="frontend"),
 ]
 

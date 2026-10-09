@@ -1,7 +1,22 @@
 from django.db import models
+from django.core.validators import URLValidator
 from apps.core.base_models import PublishableModel, TimeStampedModel
 from apps.quality.models import EvidenceDocument
 from .sojt_schema import validate_guide
+
+class LearningResource(PublishableModel):
+    topic = models.CharField(max_length=40, choices=[("FOUNDATIONS", "Foundations"), ("PROGRAMMING", "Programming"), ("EMBEDDED", "Devices & embedded systems"), ("IOT", "IoT & connectivity"), ("DATA", "Data, signals & AI"), ("SOFTWARE", "Software tools, testing & security"), ("EXPLORE", "Projects & learning support"), ("ADVANCED", "Optional specialist topics")])
+    provider = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
+    url = models.URLField(max_length=1000, validators=[URLValidator(schemes=["http", "https"])])
+    level = models.CharField(max_length=30, choices=[("BEGINNER", "Beginner"), ("INTERMEDIATE", "Intermediate"), ("ALL", "All levels")])
+    resource_type = models.CharField(max_length=40, default="Reading guide")
+    access_note = models.CharField(max_length=255)
+    activity = models.CharField(max_length=500, blank=True)
+    start_here = models.BooleanField(default=False)
+    source_collection = models.CharField(max_length=40, blank=True, help_text="ROADMAP identifies material adapted under CC BY-SA 4.0; blank identifies department-added entries.")
+    source_section = models.CharField(max_length=500, blank=True)
+    source_url = models.URLField(max_length=1000, blank=True, validators=[URLValidator(schemes=["http", "https"])])
 
 class Program(PublishableModel):
     DEGREE_LEVELS = [

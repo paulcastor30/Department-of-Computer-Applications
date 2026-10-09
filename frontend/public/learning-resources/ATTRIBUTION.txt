@@ -1,0 +1,37 @@
+Embedded Systems & IoT Learning Resources — adapted BSCA collection
+
+Based on Embedded Systems Engineering Roadmap by m3y54m and contributors.
+Original source:
+https://github.com/m3y54m/Embedded-Engineering-Roadmap/blob/0738fcbd8fa3f3382d6958cc851829543475cdba/README.md
+Source version: 0738fcbd8fa3f3382d6958cc851829543475cdba
+Imported: October 9, 2026
+
+Original and adapted collection: Creative Commons Attribution-ShareAlike
+4.0 International (CC BY-SA 4.0).
+https://creativecommons.org/licenses/by-sa/4.0/
+Full license: LICENSE.txt alongside this file.
+
+Changes: all 788 bullet-linked learning-resource entries were extracted from
+the learning sections and regrouped into BSCA study topics. Original titles,
+URLs, and source topic paths were retained; emoji symbols became text format
+and beginner labels. One source URL missing a scheme received an HTTPS
+prefix. Search, filtering, and pagination were added. Additional starter
+guidance and IoT references are identified separately. The original diagram,
+engineering career narrative, and third-party quoted definitions are not
+reproduced. Duplicate entries in the original collection remain available.
+
+Original repository disclaimer retained:
+This repository is not affiliated with or financially supported by any content
+creator, publisher, or organization. We do not endorse or recommend any
+specific paid resources. Both free and paid resources are included to provide
+a range of options, allowing you to choose what best suits your needs and
+preferences.
+
+The original authors do not endorse or sponsor this adaptation or department
+website. Licensed material is provided without warranties; see section 5 of
+the full license. Original repository history credits inspiration from:
+https://github.com/vazeri/Embedded-Engineering-RoadMap-2018
+
+The license covers this adapted collection, not university branding or
+unrelated website content. Linked books, articles, videos, and courses retain
+their owners' rights and access terms. No linked provider content is hosted.

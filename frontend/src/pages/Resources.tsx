@@ -8,16 +8,18 @@ import { normalizePrograms } from "./programs/programData";
 import { RegistrarForms } from "@/components/RegistrarForms";
 import { ProgramFormPicker } from "@/components/ProgramForms";
 import { ProgramInquiry } from "./programs/ProgramInquiry";
+import { LearningResources } from "@/components/LearningResources";
 
 export default function Resources() {
   const { data, isError } = usePrograms();
   const programs = normalizePrograms(data);
   return <>
-    <Seo canonicalUrl="https://msuiit-comapps.vercel.app/resources" title="Student & faculty resources" description="Find program documents, thesis checklists, academic contacts and learning-support enquiries for the Department of Computer Applications." />
+    <Seo canonicalUrl="https://msuiit-comapps.vercel.app/resources" title="Student & faculty resources" description="Explore embedded systems and IoT learning resources, program documents, thesis guidance and learning support for the Department of Computer Applications." />
     <PageHero title="Student & faculty resources" subtitle="Quick access to study documents, thesis guidance and people who can help." />
     <section className="container py-8" aria-labelledby="resource-tasks-title">
       <h2 id="resource-tasks-title" className="text-2xl font-semibold">What do you need to do?</h2>
       <nav aria-label="Student tasks" className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <a className="outline-link justify-start" href="#learning-resources">Explore embedded systems & IoT</a>
         <a className="outline-link justify-start" href="#student-forms">Fill or download thesis forms</a>
         <a className="outline-link justify-start" href="#registrar-forms">Find a registrar form</a>
         <a className="outline-link justify-start" href="#program-documents">Follow the thesis process</a>
@@ -27,6 +29,7 @@ export default function Resources() {
       </nav>
       <p className="mt-4 max-w-prose leading-7 text-muted-foreground">Choose a task to go straight to it. For supported forms, select “Fill out online”, enter the details you know, then review and print the PDF. You can also download the blank Word version.</p>
     </section>
+    <LearningResources />
     <Section id="student-forms" variant="muted">
       <SectionHeader title="Fill or download thesis and program forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
       <ProgramFormPicker programs={programs} />

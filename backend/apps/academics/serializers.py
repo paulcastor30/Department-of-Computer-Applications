@@ -1,7 +1,16 @@
 from rest_framework import serializers
 from urllib.parse import urlsplit
 
-from .models import Program, ProgramDocument, RegistrarForm
+from .models import Program, ProgramDocument, RegistrarForm, LearningResource
+
+
+class LearningResourceSerializer(serializers.ModelSerializer):
+    topic_label = serializers.CharField(source="get_topic_display", read_only=True)
+    level_label = serializers.CharField(source="get_level_display", read_only=True)
+
+    class Meta:
+        model = LearningResource
+        fields = ("slug", "title", "topic", "topic_label", "provider", "description", "url", "level_label", "resource_type", "access_note", "activity", "start_here", "source_collection", "source_section", "source_url")
 from .form_filling import supported_form, supported_registrar_form
 
 
