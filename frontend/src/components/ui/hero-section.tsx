@@ -55,14 +55,15 @@ export function HeroSection({
 }
 
 interface PageHeroProps {
+  className?: string;
   title: string;
   subtitle?: string;
   children?: ReactNode;
 }
 
-export function PageHero({ title, subtitle, children }: PageHeroProps) {
+export function PageHero({ title, subtitle, children, className }: PageHeroProps) {
   return (
-    <section className="page-header-formal brand-network-subtle">
+    <section className={cn("page-header-formal brand-network-subtle", className)}>
       <div className="container relative z-10">
         <div className="max-w-4xl">
           <div className="page-header-accent" />

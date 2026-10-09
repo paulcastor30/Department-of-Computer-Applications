@@ -3,6 +3,7 @@ from django.db import models
 from apps.core.base_models import PublishableModel
 from apps.core.base_models import TimeStampedModel
 from apps.quality.models import EvidenceDocument
+from .institutions import normalize_education_institution
 
 class FacultyMember(PublishableModel):
     class PersonnelType(models.TextChoices):
@@ -150,6 +151,7 @@ class FacultyEducation(FacultyProfileRecord):
 
     def clean(self):
         super().clean()
+        self.institution = normalize_education_institution(self.institution)
         errors = {}
         if self.is_published and (self.academic_status == self.AcademicStatus.REVIEW or not self.verification_reference.strip()):
             errors["is_published"] = "Publishing requires a confirmed academic status and an internal verification reference."

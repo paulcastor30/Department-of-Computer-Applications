@@ -30,7 +30,7 @@ const routeLabels: Record<string, string> = {
   "tech-transfer": "Tech Transfer",
   "service-projects": "Service Projects",
   impact: "Impact & Outcomes",
-  faculty: "Faculty",
+  faculty: "Faculty & Staff",
   qualifications: "Qualifications",
   achievements: "Achievements",
   development: "Development",

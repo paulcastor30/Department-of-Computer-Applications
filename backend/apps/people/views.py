@@ -1,4 +1,4 @@
-from django.db.models import Count, Prefetch, Q
+from django.db.models import Count, F, Prefetch, Q
 from rest_framework import generics
 from .models import (
     DepartmentRole,
@@ -56,7 +56,7 @@ def public_education_queryset():
         (Q(academic_status="completed") & ~Q(degree_level="other"))
         | (Q(academic_status="ongoing", year_completed__isnull=True) & ~Q(degree_level="other"))
         | Q(academic_status="experience", degree_level="other")
-    ).exclude(verification_reference__regex=r"^\s*$")
+    ).exclude(verification_reference__regex=r"^\s*$").order_by(F("year_completed").desc(nulls_last=True), "sort_order", "degree_name", "pk")
 
 
 def published_faculty_queryset():

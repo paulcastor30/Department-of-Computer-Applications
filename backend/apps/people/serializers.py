@@ -1,3 +1,4 @@
+from .institutions import normalize_education_institution
 from rest_framework import serializers
 from .models import (
     DepartmentRole,
@@ -107,6 +108,11 @@ class FacultyDirectorySerializer(serializers.ModelSerializer):
 
 
 class FacultyEducationSerializer(serializers.ModelSerializer):
+    institution = serializers.SerializerMethodField()
+
+    def get_institution(self, record):
+        return normalize_education_institution(record.institution)
+
     degree_level_display = serializers.CharField(source="get_degree_level_display", read_only=True)
 
     class Meta:

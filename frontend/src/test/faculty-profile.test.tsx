@@ -2,7 +2,7 @@ import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, expect, it, vi } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import FacultyProfile from '../pages/faculty/FacultyProfile';
-const shared = vi.hoisted(() => ({ records: [] as import('../types/api').DepartmentContribution[], publications: [] as import('../types/api').FacultyPublication[] }));
+const shared = vi.hoisted(() => ({ override: {} as Record<string, unknown>, records: [] as import('../types/api').DepartmentContribution[], publications: [] as import('../types/api').FacultyPublication[] }));
 vi.mock('@/hooks/usePeople', () => ({ useFacultyMember: () => ({ data: {
   department_contributions: shared.records,
   title: 'Example Faculty', position: 'Professor', service_classification: 'retired_dca_faculty', service_classification_display: 'Retired DCA Faculty', faculty_status_display: 'Active', email: 'example@g.msuiit.edu.ph', profile_summary: 'Academic profile.', highest_degree: 'Master’s Degree',
@@ -13,8 +13,9 @@ vi.mock('@/hooks/usePeople', () => ({ useFacultyMember: () => ({ data: {
     { id: 5, degree_level: 'doctorate', degree_name: 'Completed doctorate with year unspecified', institution: 'University', year_completed: null, academic_status: 'completed' },
     { id: 3, degree_name: 'Doctor of Engineering', institution: 'University', year_completed: 2025, academic_status: 'review', notes: 'Completion status to be validated by the Department.' },
   ], expertise_records: [], supervised_works: [], publications: shared.publications, conferences: [], research_projects: [], extension_projects: [], creative_works: [], training_seminars: [], achievements: [],
+  ...shared.override,
 }, isLoading: false, isError: false }) }));
-afterEach(() => { cleanup(); shared.records = []; shared.publications = []; });
+afterEach(() => { cleanup(); shared.records = []; shared.publications = []; shared.override = {}; });
 it('shows approved academic statuses and excludes unconfirmed credentials even with a year', () => {
   render(<MemoryRouter><FacultyProfile /></MemoryRouter>);
   const completed = screen.getByRole('heading', { name: 'Completed qualifications' }).parentElement!;
@@ -30,7 +31,7 @@ it('shows approved academic statuses and excludes unconfirmed credentials even w
 it('offers a consultation enquiry without inventing consultation hours', () => {
   render(<MemoryRouter><FacultyProfile /></MemoryRouter>);
   expect(screen.getByRole('link', { name: 'Email Example Faculty' })).toHaveAttribute('href', 'mailto:example@g.msuiit.edu.ph?subject=Academic%20enquiry%20for%20Example%20Faculty');
-  expect(screen.getByText(/confirm availability and the meeting location before visiting/)).toBeInTheDocument();
+  expect(screen.getByText(/confirm availability and the meeting location before visiting/i)).toBeInTheDocument();
   expect(screen.queryByRole('heading', { name: 'Publications' })).not.toBeInTheDocument();
 });
 
@@ -66,4 +67,24 @@ it('preserves an API-approved unmatched item with the same title in another year
   expect(screen.getByText('2020')).toBeInTheDocument();
   expect(screen.queryByText(/legacy/i)).not.toBeInTheDocument();
   expect(screen.queryByText(/2025.*Author/)).not.toBeInTheDocument();
+});
+
+it('orders dated qualifications newest first and places unknown years last', () => {
+  shared.override = { education_records: [
+    { id: 1, degree_name: 'Bachelor degree', year_completed: 2017, academic_status: 'completed' },
+    { id: 2, degree_name: 'Year unknown', year_completed: null, academic_status: 'completed' },
+    { id: 3, degree_name: 'Master degree', year_completed: 2020, academic_status: 'completed' },
+  ] };
+  render(<MemoryRouter><FacultyProfile /></MemoryRouter>);
+  const section = screen.getByRole('heading', { name: 'Completed qualifications' }).parentElement!;
+  expect(within(section).getAllByRole('heading', { level: 4 }).map(element => element.textContent)).toEqual(['Master degree', 'Bachelor degree', 'Year unknown']);
+});
+
+it('uses staff contact wording and omits single-section navigation', () => {
+  shared.override = { title: 'Example Staff', position: 'Administrative aide', service_classification: 'academic_staff', education_records: [], profile_summary: '' };
+  render(<MemoryRouter><FacultyProfile /></MemoryRouter>);
+  expect(screen.getByRole('heading', { name: 'Contact' })).toBeInTheDocument();
+  expect(screen.queryByRole('navigation', { name: 'Profile sections' })).not.toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Email Example Staff' })).toHaveAttribute('href', 'mailto:example@g.msuiit.edu.ph?subject=Department%20enquiry%20for%20Example%20Staff');
+  expect(screen.queryByText(/faculty member/)).not.toBeInTheDocument();
 });

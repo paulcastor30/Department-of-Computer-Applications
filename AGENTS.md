@@ -27,6 +27,10 @@ professional, accessible, and institutionally appropriate.
 
 - Display each academic qualification only once.
 - Use official academic degree titles.
+- Use "Mindanao State University - Iligan Institute of Technology"
+  consistently for MSU-IIT education records; distinguish other campuses.
+- Sort dated educational attainments by year, newest first; place
+  unknown years last and keep ongoing studies separate.
 - Display only confirmed educational qualifications.
 - Keep unconfirmed study records unpublished.
 - Use approved research specializations consistently.

@@ -347,3 +347,28 @@ class AcademicPublicationTests(TestCase):
         self.assertIn(str(canonical.pk), duplicate.verification_reference)
         self.assertEqual(self.member.profile_summary, "An approved authored biography.")
         self.assertEqual(len(self.client.get("/api/people/faculty/reviewed/").json()["education_records"]), 2)
+
+    def test_public_education_is_newest_first_with_unknown_years_last(self):
+        for title, year in [("Bachelor degree", 2017), ("Year unknown", None), ("Master degree", 2020)]:
+            FacultyEducation.objects.create(faculty=self.member, degree_level="masters", degree_name=title, year_completed=year, academic_status="completed", verification_reference="Department confirmation", is_published=True)
+        response = self.client.get(f"/api/people/faculty/{self.member.slug}/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual([row["degree_name"] for row in response.data["education_records"]], ["Master degree", "Bachelor degree", "Year unknown"])
+
+    def test_institution_aliases_are_uniform_without_changing_other_campuses(self):
+        from .institutions import MSU_IIT_NAME
+        names = ["MSU-Iligan Institute of Technology", "MSU - Iligan Institute of Technology", "Mindanao State University - Iligan Institute of Technology, Philippines", "Mindanao State University, Marawi"]
+        for name in names:
+            FacultyEducation.objects.create(faculty=self.member, degree_level="masters", degree_name=name, institution=name, academic_status="completed", verification_reference="Confirmed", is_published=True)
+        public = self.client.get(f"/api/people/faculty/{self.member.slug}/").json()["education_records"]
+        self.assertEqual({row["institution"] for row in public}, {MSU_IIT_NAME, names[-1]})
+        from types import SimpleNamespace
+        migration = import_module("apps.people.migrations.0020_uniform_msu_iit_institution")
+        for _ in range(2):
+            migration.normalize_institutions(apps, SimpleNamespace(connection=connection))
+        self.assertEqual(self.member.education_records.filter(institution=MSU_IIT_NAME).count(), 3)
+        self.assertTrue(self.member.education_records.filter(institution=names[-1]).exists())
+        self.assertEqual(self.member.education_records.count(), 4)
+        record = FacultyEducation(faculty=self.member, degree_level="masters", degree_name="Approved degree", institution=names[0])
+        record.full_clean()
+        self.assertEqual(record.institution, MSU_IIT_NAME)

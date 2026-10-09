@@ -50,13 +50,13 @@ function RecordList<T>({ records, render }: { records: T[]; render: (record: T) 
 
 function TimelineItem({ title, meta, children, evidenceUrl }: { title: string; meta?: ReactNode; children?: ReactNode; evidenceUrl?: string }) {
   return (
-    <article className="rounded-md border border-border bg-background p-4">
+    <article className="border-b border-border py-4">
       <h3 className="text-base font-semibold text-primary">{title}</h3>
       {meta && <div className="mt-1 text-sm text-muted-foreground">{meta}</div>}
       {children && <div className="mt-3 text-sm leading-7 text-muted-foreground">{children}</div>}
       {evidenceUrl && (
         <a href={evidenceUrl} className="mt-3 inline-block text-sm font-semibold text-accent hover:text-secondary">
-          Evidence link
+          View source
         </a>
       )}
     </article>
@@ -68,6 +68,7 @@ const navItems = [
   ["education", "Education"],
   ["contact", "Contact"],
   ["expertise", "Expertise"],
+  ["responsibilities", "Teaching and supervision"],
   ["supervised-work", "Supervised Work"],
   ["publications", "Publications"],
   ["conferences", "Conferences"],
@@ -85,10 +86,10 @@ export default function FacultyProfile() {
   if (isLoading) {
     return (
       <>
-        <Seo title="Faculty Profile" description="Faculty profile information." />
-        <PageHero title="Faculty profile" subtitle="Loading the department directory." />
+        <Seo title="Personnel Profile" description="Department personnel profile." />
+        <PageHero title="Personnel profile" />
         <Section>
-          <p role="status" className="text-sm text-muted-foreground">Loading faculty profile...</p>
+          <p role="status" className="text-sm text-muted-foreground">Loading profile...</p>
         </Section>
       </>
     );
@@ -97,28 +98,31 @@ export default function FacultyProfile() {
   if (isError || !member) {
     return (
       <>
-        <Seo title="Faculty Profile Unavailable" description="Faculty profile information could not be loaded." />
-        <PageHero title="Faculty Profile Unavailable" subtitle="The requested faculty profile could not be loaded from the Department directory." />
+        <Seo title="Profile Unavailable" description="Faculty profile information could not be loaded." />
+        <PageHero title="Profile Unavailable" subtitle="The requested faculty profile could not be loaded from the Department directory." />
         <Section>
           <p className="rounded-md border border-border bg-muted/30 p-5 text-sm text-muted-foreground">
             This profile could not be loaded. Return to the faculty directory or contact the department.
           </p>
           <Link to="/faculty" className="mt-6 inline-block text-sm font-semibold text-accent hover:text-secondary">
-            Back to Faculty Directory
+            Back to Faculty & Staff
           </Link>
         </Section>
       </>
     );
   }
 
-  const seoTitle = member.seo_title || `${member.title} | Faculty Profile`;
+  const isStaff = ["academic_staff", "laboratory_personnel"].includes(member.service_classification);
+  const profileLabel = isStaff ? "Staff Profile" : "Faculty Profile";
+  const seoTitle = member.seo_title || `${member.title} | ${profileLabel}`;
   const seoDescription =
     member.seo_description ||
-    `${member.title}${member.position ? `, ${member.position}` : ""}, Department of Computer Applications faculty profile.`;
+    `${member.title}${member.position ? `, ${member.position}` : ""}, Department of Computer Applications profile.`;
   const credits = member.department_contributions || [];
   const shared = (kind: DepartmentContribution["kind"]) => credits.filter(record => record.kind === kind);
   const sectionAvailable: Record<string, boolean> = {
     contact: true,
+    responsibilities: Boolean(!isStaff && (member.supporting_programs || member.msca_roles)),
     overview: Boolean(member.profile_summary || member.appointment_or_assignment_note),
     education: member.education_records.some(record => ["completed", "ongoing", "experience"].includes(record.academic_status)),
     expertise: Boolean(member.expertise_records.length || member.specialization_areas || member.research_interests || member.teaching_areas),
@@ -128,53 +132,51 @@ export default function FacultyProfile() {
     training: Boolean(member.training_seminars.length), achievements: Boolean(member.achievements.length),
   };
   const educationGroups = [
-    { title: "Completed qualifications", records: member.education_records.filter(record => record.academic_status === "completed") },
+    { title: "Completed qualifications", records: member.education_records.filter(record => record.academic_status === "completed").slice().sort((a, b) => (b.year_completed ?? -1) - (a.year_completed ?? -1)) },
     { title: "Ongoing", records: member.education_records.filter(record => record.academic_status === "ongoing") },
-    { title: "Fellowships and other academic experience", records: member.education_records.filter(record => record.academic_status === "experience") },
+    { title: "Fellowships and other academic experience", records: member.education_records.filter(record => record.academic_status === "experience").slice().sort((a, b) => (b.year_completed ?? -1) - (a.year_completed ?? -1)) },
   ];
-  const hasSidebar = Boolean(member.photo || member.transferred_from_dca || member.home_unit || member.prc_license_number || member.supporting_programs || member.msca_roles || member.service_classification === "retired_dca_faculty" || !["Active", "Active Full-Time", ""].includes(member.faculty_status_display || ""));
+  const hasSidebar = Boolean(member.photo || member.transferred_from_dca || (member.home_unit && member.service_classification === "affiliated_msca_faculty") || member.service_classification === "retired_dca_faculty" || !["Active", "Active Full-Time", ""].includes(member.faculty_status_display || ""));
   const internalResearch = member.research_projects.filter((record) => record.funding_type === "internal");
   const externalResearch = member.research_projects.filter((record) => record.funding_type === "external");
 
   return (
     <>
       <Seo title={seoTitle} description={seoDescription} ogTitle={member.og_title || seoTitle} ogDescription={member.og_description || seoDescription} />
-      <PageHero title={member.title} subtitle={[member.position ? `${member.faculty_status === "resigned" ? "Former position: " : ""}${member.position}` : "", member.service_classification_display].filter(Boolean).join(" | ")} />
+      <PageHero className="!py-6" title={member.title} subtitle={member.position ? `${member.faculty_status === "resigned" ? "Former appointment: " : ""}${member.position}` : undefined} />
 
-      <Section>
+      <Section className="!py-6">
         <div className={hasSidebar ? "grid gap-8 lg:grid-cols-[18rem_1fr]" : "max-w-4xl"}>
           {hasSidebar && <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
             {member.photo && <div className="aspect-square w-full overflow-hidden rounded-md border border-border bg-muted">
               <img src={member.photo} alt="" className="h-full w-full object-cover" />
             </div>}
 
-            <div className="space-y-4 rounded-md border border-border p-4">
+            {(member.transferred_from_dca || (member.home_unit && member.service_classification === "affiliated_msca_faculty") || member.service_classification === "retired_dca_faculty" || !["Active", "Active Full-Time", ""].includes(member.faculty_status_display || "")) && <div className="space-y-4 border-l border-border pl-4">
               <dl className="space-y-3">
                 {member.transferred_from_dca && <Field label="Department relationship" value="Transferred from DCA" />}
                 {!["Active", "Active Full-Time"].includes(member.faculty_status_display) && member.service_classification !== "retired_dca_faculty" && <Field label="Status" value={member.faculty_status_display} />}
                 {member.service_classification === "retired_dca_faculty" && <Field label="Status" value="Retired" />}
-                <Field label="Home Unit" value={member.home_unit} />
-                <Field label="PRC license number (as supplied)" value={member.prc_license_number} />
-                <Field label="Supporting Program" value={member.supporting_programs} />
-                <Field label="MSCA Role" value={member.msca_roles} />
+                {member.service_classification === "affiliated_msca_faculty" && <Field label="Home unit" value={member.home_unit} />}
+
               </dl>
-            </div>
+            </div>}
           </aside>}
 
           <div>
-            <nav aria-label="Faculty profile sections" className="mb-8 flex flex-wrap gap-2">
+            {Object.values(sectionAvailable).filter(Boolean).length > 1 && <nav aria-label="Profile sections" className="mb-6 flex flex-wrap gap-x-5 gap-y-1 pb-3">
               {navItems.filter(([id]) => sectionAvailable[id]).map(([id, label]) => (
-                <a key={id} href={`#${id}`} className="outline-link">
+                <a key={id} href={`#${id}`} className="text-link inline-flex min-h-11 items-center text-sm">
                   {label}
                 </a>
               ))}
-            </nav>
+            </nav>}
 
             <div className="space-y-8">
-              {sectionAvailable["overview"] && <FacultyProfileSection id="overview" title="Profile Overview">
+              {sectionAvailable["overview"] && <FacultyProfileSection id="overview" title="Overview">
                 {member.profile_summary && <p className="max-w-3xl text-sm leading-7 text-muted-foreground">{member.profile_summary}</p>}
                 <dl className="mt-5 grid gap-4 md:grid-cols-2">
-                  <Field label="Appointment / Assignment Note" value={member.appointment_or_assignment_note} />
+                  <Field label="Appointment" value={member.appointment_or_assignment_note} />
                 </dl>
               </FacultyProfileSection>}
 
@@ -188,20 +190,19 @@ export default function FacultyProfile() {
                 </section>)}
               </FacultyProfileSection>}
 
-              <FacultyProfileSection id="contact" title="Contact and consultation enquiries">
-                <p className="max-w-3xl leading-7 text-muted-foreground">For a consultation, include your name, enquiry and proposed meeting times. Ask the faculty member to confirm availability and the meeting location before visiting.</p>
+              <FacultyProfileSection id="contact" title={isStaff ? "Contact" : "Contact and consultation"}>
+                {!isStaff && <p className="max-w-3xl text-sm leading-6 text-muted-foreground">For consultations, confirm availability and the meeting location before visiting.</p>}
                 {member.email ? <>
-                  <a className="action-link mt-5" href={`mailto:${member.email}?subject=${encodeURIComponent(`Academic enquiry for ${member.title}`)}`}>Email {member.title}</a>
-                  <p className="mt-3 break-all text-sm leading-6 text-muted-foreground">This opens your email app. You can also copy the address: {member.email}</p>
+                  <a className="text-link mt-2 inline-flex min-h-11 max-w-full items-center break-all" href={`mailto:${member.email}?subject=${encodeURIComponent(`${isStaff ? "Department" : "Academic"} enquiry for ${member.title}`)}`} aria-label={`Email ${member.title}`}>{member.email}</a>
                 </> : null}
-                <p className="mt-4 leading-7 text-muted-foreground">For accessible meeting arrangements, describe the assistance you would like to discuss.</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">You may request accessible meeting arrangements when contacting the department.</p>
                 {member.phone && <p className="mt-3 text-sm">{member.phone}</p>}
                 {member.office && <p className="mt-2 text-sm">{member.office}</p>}
-                <Link className="outline-link mt-5" to="/about/contact">Department contact and visiting details</Link>
+                <Link className="text-link mt-3 inline-flex min-h-11 items-center text-sm" to="/about/contact">Department contact and visiting details</Link>
               </FacultyProfileSection>
 
               {sectionAvailable["expertise"] && <FacultyProfileSection id="expertise" title="Expertise">
-                {!member.expertise_records.length && <p className="whitespace-pre-line leading-7 text-muted-foreground">{[member.specialization_areas, member.research_interests, member.teaching_areas].filter(Boolean).join("\n")}</p>}
+                {!member.expertise_records.length && <p className="whitespace-pre-line leading-7 text-muted-foreground">{[member.specialization_areas, member.research_interests, member.teaching_areas].filter(Boolean).join("\n").split(/\n|;/).map(value => value.trim()).filter(Boolean).join("; ")}</p>}
                 {member.expertise_records.length > 0 && <ul className="space-y-3">
                   {member.expertise_records.map(record => <li key={record.id}>
                     <span className="font-semibold">{record.title}</span>
@@ -209,6 +210,13 @@ export default function FacultyProfile() {
                     {record.description && <p className="mt-1 text-sm leading-6 text-muted-foreground">{record.description}</p>}
                   </li>)}
                 </ul>}
+              </FacultyProfileSection>}
+
+              {sectionAvailable.responsibilities && <FacultyProfileSection id="responsibilities" title="Teaching and supervision">
+                <dl className="space-y-3">
+                  <Field label="Programs" value={member.supporting_programs?.split(",").map(value => value.trim()).join(", ")} />
+                  <Field label="Graduate supervision" value={member.msca_roles} />
+                </dl>
               </FacultyProfileSection>}
 
               {sectionAvailable["supervised-work"] && <FacultyProfileSection id="supervised-work" title="Supervised Work">
@@ -331,7 +339,7 @@ export default function FacultyProfile() {
             </div>
 
             <Link to="/faculty" className="mt-8 inline-block text-sm font-semibold text-accent hover:text-secondary">
-              Back to Faculty Directory
+              Back to Faculty & Staff
             </Link>
           </div>
         </div>
@@ -360,13 +368,13 @@ function ResearchRecords({ records }: { records: FacultyResearchProject[] }) {
 
 function SharedContributions({ records }: { records: DepartmentContribution[] }) {
   if (!records.length) return null;
-  const render = (record: DepartmentContribution) => <article key={record.id} className="rounded-md border border-border p-4">
+  const render = (record: DepartmentContribution) => <article key={record.id} className="border-b border-border py-4">
     <h3 className="font-semibold text-primary">{record.title}</h3>
     <p className="mt-2 text-sm leading-6 text-muted-foreground">{record.kind === "research" || record.kind === "extension" ? `Reporting year: ${record.year}` : record.year}{record.role ? ` · ${record.role}` : ""}{record.withdrawn ? " · Withdrawn" : ""}</p>
     <Link className="text-link mt-2 inline-flex min-h-11 items-center" to={record.href}>View full record<span className="sr-only"> for {record.title}</span></Link>
   </article>;
   return <div className="mb-6 space-y-4">
     {records.slice(0, 3).map(render)}
-    {records.length > 3 && <details className="rounded-md border border-border p-4"><summary className="min-h-11 cursor-pointer font-semibold">View all {records.length} records</summary><div className="mt-4 space-y-4">{records.slice(3).map(render)}</div></details>}
+    {records.length > 3 && <details className="border-b border-border py-3"><summary className="min-h-11 cursor-pointer font-semibold">View all {records.length} records</summary><div className="mt-4 space-y-4">{records.slice(3).map(render)}</div></details>}
   </div>;
 }
