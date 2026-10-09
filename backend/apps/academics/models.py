@@ -128,3 +128,7 @@ class RegistrarForm(TimeStampedModel):
 
     def __str__(self):
         return f"RGTR-{self.form_id} — {self.title}"
+
+# Separate private student evaluations from public program documents.
+from .evaluation_models import (EvaluationCurriculum, EvaluationCourse, EvaluationCampus,
+                                EvaluationCapacity, EvaluationRequest, EvaluationSubject)  # noqa: F401,E402

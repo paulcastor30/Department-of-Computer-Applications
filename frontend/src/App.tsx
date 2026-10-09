@@ -56,6 +56,7 @@ import Development from "./pages/faculty/Development";
 // Students Pages
 import Resources from "./pages/Resources";
 const SOJTGuide = lazy(() => import("./pages/SOJTGuide"));
+const TransferEvaluationPortal = lazy(() => import("./pages/TransferEvaluationPortal"));
 const ThesisGuide = lazy(() => import("./pages/ThesisGuide"));
 import CurrentStudents from "./pages/students/CurrentStudents";
 import ProspectiveStudents from "./pages/students/ProspectiveStudents";
@@ -150,6 +151,7 @@ const App = () => (
             
             {/* Other Routes */}
             <Route path="/admissions" element={<Admissions />} />
+            <Route path="/admissions/transfer-evaluation" element={<Suspense fallback={<p role="status" className="p-8">Loading evaluation portal…</p>}><TransferEvaluationPortal /></Suspense>} />
             <Route path="/admissions/apply" element={<Admissions />} />
             <Route path="/admissions/request-info" element={<Admissions />} />
             <Route path="/alumni" element={<Alumni />} />

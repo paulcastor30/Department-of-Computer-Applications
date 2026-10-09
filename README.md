@@ -103,6 +103,7 @@ For code details, see the [frontend guide](frontend/README.md) or [backend guide
 
 ## Page and content notes
 
+- [Shifting and transfer evaluation](docs/transfer-evaluation.md)
 - [Thesis guide](docs/thesis-process-guide.md)
 - [SOJT guide](docs/sojt-process-guide.md)
 - [Homepage content](docs/homepage-orientation.md)

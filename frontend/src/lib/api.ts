@@ -49,3 +49,24 @@ export async function prepareFormPDF(url: string, values: Record<string, string>
   }
   return response.blob();
 }
+
+export async function evaluationRequest<T>(endpoint: string, body?: object | FormData): Promise<T> {
+  const response = await fetch(resolveAPIUrl(`/api/academics/evaluations/${endpoint}/`), {
+    method: body ? "POST" : "GET",
+    headers: body && !(body instanceof FormData) ? { "Content-Type": "application/json" } : undefined,
+    body: body instanceof FormData ? body : body ? JSON.stringify(body) : undefined,
+    credentials: "omit",
+    cache: "no-store",
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const describe = (value: unknown): string => {
+      if (typeof value === "string") return value;
+      if (Array.isArray(value)) return value.map(describe).filter(Boolean).join(" ");
+      if (value && typeof value === "object") return Object.entries(value).map(([key, val]) => `${key}: ${describe(val)}`).join(" ");
+      return "";
+    };
+    throw new Error(response.status === 429 ? "Too many requests. Please try again later." : describe(payload) || "The request could not be completed. Please try again.");
+  }
+  return payload as T;
+}

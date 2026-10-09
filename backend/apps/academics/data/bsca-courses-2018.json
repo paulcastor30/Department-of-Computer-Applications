@@ -1,0 +1,442 @@
+[
+  {
+    "code": "GEC101",
+    "title": "Understanding The Self",
+    "units": 3,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "GEC104",
+    "title": "Mathematics in the Modern World",
+    "units": 3,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "MAT051",
+    "title": "Calculus 1",
+    "units": 5,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA111",
+    "title": "Fundamentals of Computer Applications 1",
+    "units": 3,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "CCC100",
+    "title": "Fundamentals of Computing",
+    "units": 3,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "CCC101",
+    "title": "Computer Programming 1",
+    "units": 3,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "PED001",
+    "title": "Exercise Prescription and Management",
+    "units": 2,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "NST001",
+    "title": "National Service Training Program 1",
+    "units": 3,
+    "year": 1,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "GEC102",
+    "title": "Purposive Communication",
+    "units": 3,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "MAT061",
+    "title": "Calculus 2",
+    "units": 5,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA121",
+    "title": "Fundamentals of Computer Applications 2",
+    "units": 3,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA122",
+    "title": "Digital Techniques Fundamentals",
+    "units": 3,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA123",
+    "title": "Basic Computer Instrumentation and Measurement",
+    "units": 3,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "CCC102",
+    "title": "Computer Programming 2",
+    "units": 3,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "PED002",
+    "title": "Dance/Martial Arts",
+    "units": 2,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "NST002",
+    "title": "National Service Training Program 2",
+    "units": 3,
+    "year": 1,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "FIL101",
+    "title": "Wika at Kultura sa Mapayapang Lipunan",
+    "units": 3,
+    "year": 2,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "MAT071",
+    "title": "Calculus 3",
+    "units": 5,
+    "year": 2,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA131",
+    "title": "Advanced Computer Circuits",
+    "units": 3,
+    "year": 2,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA132",
+    "title": "Advanced Digital Techniques",
+    "units": 3,
+    "year": 2,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA133",
+    "title": "Data Communication",
+    "units": 3,
+    "year": 2,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "CCC121",
+    "title": "Computer Structures and Algorithms",
+    "units": 3,
+    "year": 2,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "PED003",
+    "title": "Individual/Dual Sports/Traditional/Recreational Games",
+    "units": 2,
+    "year": 2,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "FPE101",
+    "title": "Fundamentals of Peace Education",
+    "units": 3,
+    "year": 2,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA141",
+    "title": "Computer Organization and Architecture",
+    "units": 4,
+    "year": 2,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "MAT103",
+    "title": "Discrete Mathematics",
+    "units": 3,
+    "year": 2,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA143",
+    "title": "Firmware Programming",
+    "units": 3,
+    "year": 2,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA144",
+    "title": "Introduction to Internet of Things",
+    "units": 3,
+    "year": 2,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "CCC151",
+    "title": "Information Management",
+    "units": 3,
+    "year": 2,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "PED004",
+    "title": "Team Sports",
+    "units": 2,
+    "year": 2,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "FIL102",
+    "title": "Ekokritisismo at Pagpapahalaga sa Kalikasan",
+    "units": 3,
+    "year": 3,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "GEC106",
+    "title": "Art Appreciation",
+    "units": 3,
+    "year": 3,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA151",
+    "title": "Introduction to Operating Systems",
+    "units": 3,
+    "year": 3,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA152",
+    "title": "Microcontrollers",
+    "units": 3,
+    "year": 3,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA153",
+    "title": "Computer Applications in Industry",
+    "units": 3,
+    "year": 3,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "CCC181",
+    "title": "Application Development and Emerging Technologies",
+    "units": 3,
+    "year": 3,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "GEC103",
+    "title": "The Contemporary World",
+    "units": 3,
+    "year": 3,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "GEC107",
+    "title": "Ethics",
+    "units": 3,
+    "year": 3,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "GEC109",
+    "title": "Life and Works of Rizal",
+    "units": 3,
+    "year": 3,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA161",
+    "title": "Numerical Methods for Computer Applications",
+    "units": 3,
+    "year": 3,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "HIS003",
+    "title": "History of Filipino Muslims and Indigenous People of MINSUPALA",
+    "units": 3,
+    "year": 3,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA198",
+    "title": "Research Methods",
+    "units": 3,
+    "year": 3,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "GEC108",
+    "title": "Science, Technology and Society",
+    "units": 3,
+    "year": 4,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "GEC105",
+    "title": "Readings in Philippine History",
+    "units": 3,
+    "year": 4,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA172",
+    "title": "Technopreneurship",
+    "units": 3,
+    "year": 4,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA199",
+    "title": "Undergraduate Thesis",
+    "units": 3,
+    "year": 4,
+    "semester": 1,
+    "is_elective": false
+  },
+  {
+    "code": "BCA197",
+    "title": "On-The-Job-Training",
+    "units": 6,
+    "year": 4,
+    "semester": 2,
+    "is_elective": false
+  },
+  {
+    "code": "BCA180",
+    "title": "Introduction of Computer Vision",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  },
+  {
+    "code": "BCA181",
+    "title": "HDL Programming",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  },
+  {
+    "code": "BCA182",
+    "title": "Embedded Systems Programming",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  },
+  {
+    "code": "BCA183",
+    "title": "Digital Signal Processing",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  },
+  {
+    "code": "BCA188",
+    "title": "Programming For Internet of Things",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  },
+  {
+    "code": "BCA189",
+    "title": "Applied Internet of Things",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  },
+  {
+    "code": "BCA190",
+    "title": "Artificial Intelligence in Internet of Things",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  },
+  {
+    "code": "BCA191",
+    "title": "Fundamentals of Robotics Systems",
+    "units": 3,
+    "year": 0,
+    "semester": 0,
+    "is_elective": true
+  }
+]

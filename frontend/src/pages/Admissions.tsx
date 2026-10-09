@@ -25,7 +25,7 @@ export default function Admissions() {
         </ol>
         <TransferEvaluation program={program} />
       </article>)}</div>
-      <p className="mt-6 max-w-3xl leading-7 text-muted-foreground">Use the official university or college guide for current eligibility, documents, fees and dates. This website does not accept applications or guarantee admission.</p>
+      <p className="mt-6 max-w-3xl leading-7 text-muted-foreground">Use the official university or college guide for current eligibility, documents, fees and dates. BSCA shifting and transfer evaluation requests can be submitted here. University admission and enrollment follow the official process; an evaluation request does not guarantee admission.</p>
     </Section>
     <Section variant="muted">
       <SectionHeader title="Need help choosing your next step?" className="mb-5" />

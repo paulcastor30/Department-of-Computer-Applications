@@ -131,3 +131,5 @@ class RegistrarFormAdmin(admin.ModelAdmin):
     list_filter = ("is_public",)
     search_fields = ("form_id", "title", "note")
     readonly_fields = ("created_at", "updated_at")
+
+from . import evaluation_admin  # noqa: F401,E402

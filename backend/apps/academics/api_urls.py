@@ -3,7 +3,15 @@ from .views import ProgramListView, ProgramDetailView, SOJTGuideDetailView
 
 from .form_views import BSCAFormView, MSCAFormView, RegistrarFormListView, RegistrarFormView
 
+from .evaluation_views import (EvaluationConfigurationView, EvaluationExtractView,
+    EvaluationCompareView, EvaluationSubmitView, EvaluationStatusView)
+
 urlpatterns = [
+    path("evaluations/configuration/", EvaluationConfigurationView.as_view()),
+    path("evaluations/extract/", EvaluationExtractView.as_view()),
+    path("evaluations/compare/", EvaluationCompareView.as_view()),
+    path("evaluations/submit/", EvaluationSubmitView.as_view()),
+    path("evaluations/status/", EvaluationStatusView.as_view()),
     path("forms/registrar/", RegistrarFormListView.as_view(), name="registrar-forms"),
     path("forms/registrar/<slug:form_id>/", RegistrarFormView.as_view(), name="registrar-form-fill"),
     path("forms/bsca/<slug:form_id>/", BSCAFormView.as_view(), name="bsca-form-fill"),

@@ -130,7 +130,7 @@ const bscaFallback: ProgramProfile = {
   admissionsUrl: "https://www.msuiit.edu.ph/offices/admissions/requirements.php",
   admissionsPortalUrl: "https://admission.msuiit.edu.ph/",
   transferEvaluationEmail: "ccs.ca@g.msuiit.edu.ph",
-  transferEvaluationInstructions: "Prospective shiftees and transferees interested in BSCA should email their Evaluation of Grades for departmental evaluation.\nUse the subject “BSCA Shifting/Transfer Evaluation – Full Name”. Include your full name, current school and program, and intended semester of entry. Attach a clear, readable copy of your Evaluation of Grades.\nThe department will review your submission and provide guidance on the next steps. Submission does not guarantee admission to BSCA.",
+  transferEvaluationInstructions: "Prospective shiftees and transferees interested in BSCA can submit their Evaluation of Grades or Transcript of Records through the online evaluation portal.\nUpload a clear, readable PDF, check the course entries, and generate a draft comparison against the applicable BSCA prospectus. Within the MSU system, exact course matches with recognized passing grades are proposed for credit, subject to review.\nThe year-level adviser evaluates the records, then the department chairperson reviews the recommendation and available slots. Save your reference and private access key to check the final feedback. Submission does not guarantee admission to BSCA.",
   progression: [placeholder],
   pathways: [placeholder],
   historicalNotes: [],
