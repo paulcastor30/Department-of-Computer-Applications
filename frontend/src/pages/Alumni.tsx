@@ -15,7 +15,7 @@ export default function Alumni() {
       <nav aria-label="Alumni tasks" className="flex flex-wrap gap-3"><a className="outline-link" href="#alumni-update">Update my details</a><a className="outline-link" href="#alumni-opportunities">Explore opportunities</a><Link className="outline-link" to="/resources#learning-resources">Keep learning</Link><Link className="outline-link" to="/about/contact">Contact the chairperson</Link></nav>
       <div className="mt-7 grid gap-5 md:grid-cols-3">{[
         ["Stay connected", "Keep an email or phone contact current so the department can reach you according to your preferences."],
-        ["Share your next step", "Employment, self-employment, further study, and other activities all help the department understand alumni experiences."],
+        ["Share your next step", "Tell us where you work, what you do, and which skills you use. Add new roles while keeping your earlier career history."],
         ["Support future graduates", "Choose whether you would like to hear about opportunities to mentor or support students."],
       ].map(([title, description]) => <article key={title} className="rounded-md border border-border p-5"><h2 className="text-xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-muted-foreground">{description}</p></article>)}</div>
       <p className="mt-5 max-w-prose leading-7 text-muted-foreground">Your update helps the department maintain alumni connections and understand career and study experiences. Participation is voluntary. Your personal details are available only to authorized staff, and will not be published as an alumni directory.</p>

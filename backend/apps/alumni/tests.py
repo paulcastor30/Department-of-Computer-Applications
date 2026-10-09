@@ -22,6 +22,8 @@ class AlumniWorkflowTests(TestCase):
         self.config.privacy_notice = "Test notice: private department records; contact the chair to correct or delete; retention is 365 days."
         self.config.notice_version = "test-v1"
         self.config.retention_days = 365
+        self.config.retain_indefinitely = False
+        self.config.access_keys_enabled = False
         self.config.accepting_updates = True
         self.config.save()
 
@@ -171,3 +173,172 @@ class AlumniWorkflowTests(TestCase):
         self.assertFalse(AlumniEmailLink.objects.exists())
         self.assertFalse(AlumniUpdateSession.objects.exists())
         self.assertEqual(self.post("profile", self.payload(), pending_session).status_code, 403)
+
+
+@override_settings(DEBUG=True, ALUMNI_EMAIL_ENABLED=False, ALUMNI_PUBLIC_URL="http://127.0.0.1:8082")
+class AlumniAccessKeyTests(TestCase):
+    def setUp(self):
+        cache.clear()
+        self.config = AlumniSettings.objects.get(pk=1)
+        self.notice = self.config.notice_version
+
+    def post(self, path, data, token=None):
+        return self.client.post(f"/api/alumni/{path}/", data, content_type="application/json", **({"HTTP_AUTHORIZATION": f"Bearer {token}"} if token else {}))
+
+    def payload(self, **changes):
+        return {"email": "private@example.org", "full_name": "Private Graduate", "bsca_year": 2024, "career_status": "EMPLOYED", "employer": "Fictional employer", "job_title": "First role", "duties": "Maintain sensors", "work_city": "Iligan", "work_country": "Philippines", "further_study": True, "study_program": "MSCA", "consent": True, "notice_version": self.notice, **changes}
+
+    def register(self):
+        response = self.post("register", self.payload())
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response["Cache-Control"], "no-store")
+        return response.json()["access_key"]
+
+    def access(self, key):
+        response = self.post("access", {"email": "private@example.org", "access_key": key})
+        self.assertEqual(response.status_code, 200)
+        return response.json()
+
+    def test_registration_opens_without_email_and_returns_key_only_once(self):
+        self.assertTrue(self.client.get("/api/alumni/configuration/").json()["accepting_updates"])
+        key = self.register()
+        profile = AlumniProfile.objects.get()
+        self.assertNotEqual(profile.access_key_hash, key)
+        self.assertIsNone(profile.email_verified_at)
+        self.assertEqual(profile.verification_status, "PENDING")
+        self.assertEqual(profile.career_history.count(), 1)
+        self.assertFalse(profile.receive_updates)
+        self.assertTrue(profile.further_study)
+        result = self.access(key)
+        self.assertNotIn("access_key_hash", result["profile"])
+        self.assertNotIn("access_key", result)
+        self.assertEqual(self.post("request-link", {"email": "private@example.org"}).status_code, 503)
+
+    def test_new_role_appends_and_previous_role_does_not_replace_current(self):
+        key = self.register()
+        token = self.access(key)["session_token"]
+        self.assertEqual(self.post("profile", self.payload(job_title="Second role", duties="Design networks"), token).status_code, 200)
+        token = self.access(key)["session_token"]
+        self.assertEqual(self.post("profile", self.payload(job_title="Earlier internship", career_entry_mode="HISTORICAL"), token).status_code, 200)
+        profile = AlumniProfile.objects.get()
+        self.assertEqual(profile.job_title, "Second role")
+        self.assertIsNone(profile.email_verified_at)
+        self.assertEqual(list(profile.career_history.values_list("job_title", flat=True)), ["Earlier internship", "Second role", "First role"])
+        self.assertEqual(profile.career_history.last().duties, "Maintain sensors")
+        token = self.access(key)["session_token"]
+        self.assertEqual(self.post("profile", self.payload(phone="09123456789", career_entry_mode="NO_CHANGE"), token).status_code, 200)
+        profile.refresh_from_db()
+        self.assertEqual(profile.career_history.count(), 3)
+        self.assertEqual(profile.job_title, "Second role")
+
+    def test_wrong_key_and_cross_account_email_cannot_access_records(self):
+        key = self.register()
+        for email, candidate in [("private@example.org", "x" * 43), ("other@example.org", key)]:
+            response = self.post("access", {"email": email, "access_key": candidate})
+            self.assertEqual(response.status_code, 403)
+            self.assertNotIn("profile", response.json())
+        self.assertEqual(self.post("register", self.payload()).status_code, 400)
+        self.assertEqual(AlumniProfile.objects.count(), 1)
+
+    def test_indefinite_policy_preserves_accounts_and_history_during_cleanup(self):
+        self.register()
+        AlumniProfile.objects.update(alumni_updated_at=timezone.now() - timedelta(days=5000))
+        self.config.retention_days = 1
+        self.config.save()
+        call_command("purge_alumni_records", apply=True, stdout=StringIO())
+        self.assertEqual(AlumniProfile.objects.count(), 1)
+        self.assertEqual(AlumniProfile.objects.get().career_history.count(), 1)
+
+    def test_registration_requires_current_notice_consent_and_valid_dates(self):
+        for changes in ({"consent": False}, {"notice_version": "old"}, {"career_start": "2025-01-01", "career_end": "2024-01-01"}, {"career_start": "2099-01-01"}):
+            self.assertEqual(self.post("register", self.payload(**changes)).status_code, 400)
+        self.assertFalse(AlumniProfile.objects.exists())
+
+    def test_roster_is_not_public_and_export_is_private_and_spreadsheet_safe(self):
+        from .models import GraduateRecord
+        from .admin import private_csv
+        GraduateRecord.objects.create(source_key="test", family_name="Private", first_name="Graduate", program="BSCA", graduation_year=2024)
+        self.assertEqual(self.client.get("/api/alumni/graduates/").status_code, 404)
+        self.assertEqual(self.client.get("/admin/alumni/graduaterecord/").status_code, 302)
+        response = private_csv("test.csv", ["Name"], [["=HYPERLINK(\"https://example.org\")"]])
+        self.assertIn("'=HYPERLINK", response.content.decode())
+        self.assertEqual(response["Cache-Control"], "no-store")
+
+    def test_staff_reset_needs_separate_permission_and_revokes_old_access(self):
+        from .admin import AlumniProfileAdmin, reset_access
+        from django.contrib.admin import site
+        from django.test import RequestFactory
+        key = self.register()
+        result = self.access(key)
+        user = get_user_model().objects.create_user(username="reset-reviewer", is_staff=True)
+        user.user_permissions.add(Permission.objects.get(codename="change_alumniprofile"))
+        request = RequestFactory().post("/admin/alumni/alumniprofile/")
+        request.user = user
+        modeladmin = AlumniProfileAdmin(AlumniProfile, site)
+        self.assertFalse(modeladmin.has_reset_access_permission(request))
+        user.user_permissions.add(Permission.objects.get(codename="reset_alumni_access"))
+        request.user = get_user_model().objects.get(pk=user.pk)
+        self.assertTrue(modeladmin.has_reset_access_permission(request))
+        response = reset_access(modeladmin, request, AlumniProfile.objects.all())
+        replacement = response.context_data["access_key"]
+        self.assertEqual(response["Cache-Control"], "no-store")
+        self.assertEqual(self.post("access", {"email": "private@example.org", "access_key": key}).status_code, 403)
+        self.assertEqual(self.post("profile", self.payload(), result["session_token"]).status_code, 403)
+        self.assertEqual(self.access(replacement)["profile"]["full_name"], "Private Graduate")
+
+
+class GraduateImportTests(TestCase):
+    def test_source_layout_preserves_overlap_blank_marks_and_program_scope(self):
+        from tempfile import TemporaryDirectory
+        from pathlib import Path
+        from .workbook_import import extract_workbook
+        rows = [(8, {0: "Period of Rating:", 1: "1st Quarter 2026"}), (9, {0: "Batch being Traced:", 1: "Batch 2024"}),
+            (12, {0: "BACHELOR OF SCIENCE IN COMPUTER APPLICATIONS"}),
+            (13, {0: "Example", 1: "Graduate", 2: "9123456789.0", 3: "1", 5: "1", 7: "1", 8: "1", 10: "0", 11: "1", 14: "Work and study"}),
+            (15, {0: "TOTAL", 1: "1"}), (16, {0: "BACHELOR OF SCIENCE IN COMPUTER SCIENCE"}), (17, {0: "Other", 1: "Program"})]
+        with TemporaryDirectory() as folder:
+            source = Path(folder) / "example.xlsx"
+            source.write_bytes(b"synthetic fixture")
+            with patch("apps.alumni.workbook_import.rows_by_sheet", return_value=[("Computer Applications", rows)]):
+                result = extract_workbook(source)
+        self.assertEqual(len(result), 1)
+        graduate, observation = result[0]
+        self.assertEqual(graduate["phone"], "09123456789")
+        self.assertEqual(graduate["graduation_year"], 2024)
+        self.assertTrue(observation["employed"])
+        self.assertTrue(observation["further_study"])
+        self.assertFalse(observation["aligned"])
+        self.assertIsNone(observation["exam_passed"])
+
+    def test_roster_uses_alumni_email_not_school_contact_and_ignores_other_programs(self):
+        from tempfile import TemporaryDirectory
+        from pathlib import Path
+        from .workbook_import import extract_workbook
+        rows = [(9, {0: "Example", 1: "Graduate", 3: "2021-0001", 7: "alumnus@example.org", 8: "institution@example.org", 9: "Graduated: 2nd Sem of 2024-2025 Course: MASTER OF SCIENCE IN COMPUTER APPLICATIONS"}),
+            (10, {0: "Other", 1: "Program", 9: "Graduated: 2024-2025 Course: BACHELOR OF SCIENCE IN COMPUTER SCIENCE"})]
+        with TemporaryDirectory() as folder:
+            source = Path(folder) / "roster.xlsx"
+            source.write_bytes(b"synthetic fixture")
+            with patch("apps.alumni.workbook_import.rows_by_sheet", return_value=[("Sheet1", rows)]):
+                result = extract_workbook(source)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0][0]["email"], "alumnus@example.org")
+        self.assertEqual(result[0][0]["program"], "MSCA")
+        self.assertEqual(result[0][0]["graduation_year"], 2025)
+
+    def test_repeated_import_is_idempotent_preserves_staff_corrections_and_creates_no_accounts(self):
+        from .models import GraduateRecord, GraduateObservation
+        source = ({"source_key": "test-source", "family_name": "Example", "first_name": "Graduate", "program": "BSCA", "graduation_year": 2024, "phone": "09123456789"},
+            {"source_file": "test.xlsx", "source_sheet": "Computer Applications", "source_row": 13, "source_digest": "fixture", "reporting_period": "1st Quarter 2026", "traced": True, "remarks": "Synthetic role"})
+        accounts = get_user_model().objects.count()
+        with patch("apps.alumni.management.commands.import_alumni_workbooks.extract_workbook", return_value=[source]):
+            call_command("import_alumni_workbooks", "fixture.xlsx", stdout=StringIO())
+            self.assertFalse(GraduateRecord.objects.exists())
+            call_command("import_alumni_workbooks", "fixture.xlsx", apply=True, stdout=StringIO())
+            GraduateRecord.objects.update(phone="Staff corrected contact")
+            call_command("import_alumni_workbooks", "fixture.xlsx", apply=True, stdout=StringIO())
+        self.assertEqual(GraduateRecord.objects.count(), 1)
+        self.assertEqual(GraduateObservation.objects.count(), 1)
+        self.assertEqual(GraduateRecord.objects.get().phone, "Staff corrected contact")
+        self.assertFalse(AlumniProfile.objects.exists())
+        self.assertEqual(get_user_model().objects.count(), accounts)

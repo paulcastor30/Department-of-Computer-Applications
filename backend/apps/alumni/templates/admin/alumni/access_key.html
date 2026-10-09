@@ -1,0 +1,11 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<div class="module" style="padding: 20px;">
+  <h2>{{ profile.full_name }}</h2>
+  <p>Registered email: {{ profile.email }}</p>
+  <p>Provide this replacement key only to the person whose identity you confirmed, through an agreed private channel. Previous access keys and sessions are revoked.</p>
+  <p><strong>Key — shown only now:</strong> <code style="overflow-wrap: anywhere;">{{ access_key }}</code></p>
+  <p>The key is stored as a hash. It cannot be retrieved later. Never put it in public notes or the alumni career record.</p>
+  <a href="{% url 'admin:alumni_alumniprofile_changelist' %}">Return to private alumni records</a>
+</div>
+{% endblock %}

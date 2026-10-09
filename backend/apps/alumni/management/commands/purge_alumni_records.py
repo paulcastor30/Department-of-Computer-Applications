@@ -14,7 +14,7 @@ class Command(BaseCommand):
         now = timezone.now()
         config = AlumniSettings.objects.filter(pk=1).first()
         profiles = AlumniProfile.objects.none()
-        if config and config.retention_days:
+        if config and config.retention_days and not config.retain_indefinitely:
             profiles = AlumniProfile.objects.filter(alumni_updated_at__lt=now - timedelta(days=config.retention_days))
         links = AlumniEmailLink.objects.filter(created_at__lt=now - timedelta(hours=48))
         sessions = AlumniUpdateSession.objects.filter(expires_at__lt=now)

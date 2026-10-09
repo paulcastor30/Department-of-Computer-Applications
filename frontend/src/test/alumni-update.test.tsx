@@ -70,3 +70,43 @@ it("accepts an email link opened in the already-visible alumni page", async () =
   expect(window.location.hash).toBe("#alumni-update");
   expect(alumniRequest).not.toHaveBeenCalled();
 });
+
+it("registers with consent and displays a private key without browser storage", async () => {
+  const key = "k".repeat(43);
+  vi.mocked(alumniRequest).mockResolvedValue({ detail: "Created privately.", access_key: key, email: "graduate@example.org" });
+  render(<MemoryRouter><AlumniUpdateForm config={{ ...config, access_keys_enabled: true, retain_indefinitely: true, retention_days: null }} /></MemoryRouter>);
+  fireEvent.change(screen.getByLabelText("Your email address"), { target: { value: "graduate@example.org" } });
+  fireEvent.change(screen.getByLabelText("Full name"), { target: { value: "Test Graduate" } });
+  fireEvent.click(screen.getByLabelText("BSCA graduate"));
+  fireEvent.change(screen.getByLabelText("BSCA graduation year"), { target: { value: "2024" } });
+  expect(screen.getByRole("button", { name: "Create my private alumni account" })).toBeDisabled();
+  fireEvent.click(screen.getByLabelText(/I have read the privacy notice/));
+  fireEvent.click(screen.getByRole("button", { name: "Create my private alumni account" }));
+  await screen.findByText(key);
+  expect(alumniRequest).toHaveBeenCalledWith("register", expect.objectContaining({ email: "graduate@example.org", consent: true, career_entry_mode: "CURRENT" }), "");
+  expect(screen.getByRole("button", { name: "Download my access key" })).toBeInTheDocument();
+  expect(window.localStorage.length).toBe(0);
+  expect(window.sessionStorage.length).toBe(0);
+  expect(window.location.href).not.toContain(key);
+});
+
+it("opens a private account and adds a past role while keeping the current activity", async () => {
+  vi.mocked(alumniRequest).mockResolvedValueOnce({ session_token: "private-session", email: "graduate@example.org", profile: {
+    full_name: "Test Graduate", bsca_year: 2024, msca_year: null, career_status: "EMPLOYED", job_title: "Current developer", employer: "Example workplace", interests: "", phone: "", preferred_contact: "EMAIL", receive_updates: false, willing_to_mentor: false,
+    career_history: [{ id: 1, reported_at: "2026-10-09T00:00:00Z", entry_kind: "CURRENT", career_status: "EMPLOYED", job_title: "Current developer", employer: "Example workplace", duties: "Build applications", work_city: "Iligan", work_country: "Philippines" }],
+  }}).mockResolvedValueOnce({ detail: "History added privately." });
+  render(<MemoryRouter><AlumniUpdateForm config={{ ...config, access_keys_enabled: true, retain_indefinitely: true }} /></MemoryRouter>);
+  fireEvent.click(screen.getByRole("button", { name: "Return to my account" }));
+  fireEvent.change(screen.getByLabelText("Registered email address"), { target: { value: "graduate@example.org" } });
+  fireEvent.change(screen.getByLabelText("Private access key"), { target: { value: "k".repeat(43) } });
+  fireEvent.click(screen.getByRole("button", { name: "Open my private account" }));
+  await screen.findByLabelText("Full name");
+  expect(screen.getByLabelText("Career history update")).toHaveValue("NO_CHANGE");
+  fireEvent.change(screen.getByLabelText("Career history update"), { target: { value: "HISTORICAL" } });
+  fireEvent.change(screen.getByLabelText("Job title or role (optional)"), { target: { value: "Previous internship" } });
+  fireEvent.change(screen.getByLabelText("What work do you actually do? (optional)"), { target: { value: "Maintain laboratory equipment" } });
+  fireEvent.click(screen.getByLabelText(/I have read the privacy notice/));
+  fireEvent.click(screen.getByRole("button", { name: "Save my private alumni update" }));
+  await screen.findByText("History added privately.");
+  expect(alumniRequest).toHaveBeenLastCalledWith("profile", expect.objectContaining({ career_entry_mode: "HISTORICAL", job_title: "Previous internship", duties: "Maintain laboratory equipment" }), "private-session");
+});

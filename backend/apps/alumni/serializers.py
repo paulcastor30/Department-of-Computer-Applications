@@ -1,6 +1,6 @@
 from django.utils import timezone
 from rest_framework import serializers
-from .models import AlumniProfile, AlumniOpportunity
+from .models import AlumniCareerEntry, AlumniProfile, AlumniOpportunity, CAREER_FIELDS
 
 
 class EmailInput(serializers.Serializer):
@@ -20,10 +20,11 @@ class ProfileInput(serializers.ModelSerializer):
     willing_to_mentor = serializers.BooleanField(default=False)
     bsca_year = serializers.IntegerField(required=False, allow_null=True, min_value=1900)
     msca_year = serializers.IntegerField(required=False, allow_null=True, min_value=1900)
+    career_entry_mode = serializers.ChoiceField(choices=["CURRENT", "HISTORICAL", "NO_CHANGE"], default="CURRENT", write_only=True)
 
     class Meta:
         model = AlumniProfile
-        fields = ("full_name", "bsca_year", "msca_year", "career_status", "employer", "job_title", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "notice_version", "consent")
+        fields = ("full_name", "bsca_year", "msca_year", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "notice_version", "consent", "student_id", "family_name", "first_name", "middle_name", "permanent_address", "landline", "bsca_period", "msca_period", "sex", "residence_city", "residence_country", "network_interests", "professional_url", "career_entry_mode", *CAREER_FIELDS)
 
     def validate(self, data):
         if not data.get("consent"):
@@ -38,14 +39,50 @@ class ProfileInput(serializers.ModelSerializer):
         if data.get("career_status") not in {"EMPLOYED", "SELF_EMPLOYED"}:
             data["employer"] = ""
             data["job_title"] = ""
+        start, end = data.get("career_start"), data.get("career_end")
+        today = timezone.localdate()
+        if (start and start > today) or (end and end > today):
+            raise serializers.ValidationError({"career_start": "Use dates up to today for recorded career history."})
+        if start and end and end < start:
+            raise serializers.ValidationError({"career_end": "The end date must be on or after the start date."})
+        if data.get("career_entry_mode") == "HISTORICAL" and not (data.get("job_title") or data.get("employer") or data.get("study_program") or data.get("duties")):
+            raise serializers.ValidationError({"career_entry_mode": "Describe the previous role or activity before adding it to your history."})
         data.pop("consent")
         return data
 
 
+class CareerEntryOutput(serializers.ModelSerializer):
+    class Meta:
+        model = AlumniCareerEntry
+        fields = ("id", "reported_at", "entry_kind", *CAREER_FIELDS)
+
+
 class ProfileOutput(serializers.ModelSerializer):
+    career_history = CareerEntryOutput(many=True, read_only=True)
+
     class Meta:
         model = AlumniProfile
-        fields = ("email", "full_name", "bsca_year", "msca_year", "career_status", "employer", "job_title", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "alumni_updated_at")
+        fields = ("email", "full_name", "bsca_year", "msca_year", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "alumni_updated_at", "email_verified_at", "student_id", "family_name", "first_name", "middle_name", "permanent_address", "landline", "bsca_period", "msca_period", "sex", "residence_city", "residence_country", "network_interests", "professional_url", "career_history", *CAREER_FIELDS)
+
+
+class AccessKeyInput(EmailInput):
+    access_key = serializers.RegexField(r"^[A-Za-z0-9_-]{40,100}$", max_length=100, write_only=True)
+
+
+class RegistrationInput(ProfileInput):
+    email = serializers.EmailField(max_length=254)
+
+    class Meta(ProfileInput.Meta):
+        fields = ("email", *ProfileInput.Meta.fields)
+
+    def validate_email(self, value):
+        return value.strip().lower()
+
+    def validate(self, data):
+        data = super().validate(data)
+        if data.get("career_entry_mode") != "CURRENT":
+            raise serializers.ValidationError({"career_entry_mode": "Start with your current activity. You can add past roles after registering."})
+        return data
 
 
 class OpportunitySerializer(serializers.ModelSerializer):

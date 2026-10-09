@@ -1,81 +1,124 @@
 # Alumni Connections & Career Updates
 
-The public `/alumni` page serves BSCA and MSCA graduates, including alumni of
-both programs. It includes a private update flow, learning links, department
-announcements, and staff-managed opportunities. There is no public profile
-directory or public career-outcome API.
+The `/alumni` page is open for BSCA/MSCA registration using private access keys,
+as requested. Email-link verification remains available when real email delivery
+is configured; it is not required for access-key registration. No bulk outreach,
+public directory, public stories, or automatic staff accounts are created.
 
-## Update flow
+## Alumni workflow
 
-1. Request a link using an accessible email address. The email request alone
-   does not create a profile or subscribe anyone to announcements.
-2. Follow the email link and explicitly confirm verification. Links expire
-   after 30 minutes and can only be used once. Tokens are stored as SHA-256
-   hashes; the URL fragment avoids placing tokens in server request logs.
-3. A 30-minute bearer session exists only in browser memory. Refreshing requires
-   a new link. Sessions authorize only the verified mailbox's own update and
-   become unusable after a successful save.
-4. Alumni provide name and at least one graduation year, with optional career
-   details, employer/role, interests, and phone. Announcements and mentoring
-   choices are separate, unchecked for new profiles, and editable later.
-5. Saving requires fresh agreement to the current notice version. Email
-   ownership is distinct from affiliation verification. Staff review BSCA/MSCA
-   status against department records. Changes to name/degree years reset review.
+1. Create an account using an email address, full name, program/year, and fresh
+   agreement to the current notice. Optional questions collect structured names,
+   former student ID, graduation semester, sex, contact information and residence.
+2. Record current employment, self-employment, further study, or other activity.
+   Details include employer/business, title, industry, work city/country, work
+   arrangement, actual duties, skills/tools, degree alignment and explanation,
+   dates, concurrent study, exams/eligibility, and program feedback. Work and study
+   can overlap. Dates and optional details are not inferred from blank answers.
+3. Save the one-time access key in a password manager or download the private key
+   file. The server stores only its password hash. Keys never appear in URLs,
+   browser storage, source notes, public APIs, or normal staff record forms.
+4. Return using the registered email and key. A 30-minute single-save session is
+   held only in memory. Refreshing requires signing in again.
+5. Choose to keep the current career activity, add a new current activity, or add
+   a previous role. Career entries are appended. Historical additions do not
+   replace current employment. Contact-only edits do not duplicate roles. Old
+   entries show reporting dates separately from alumni-provided employment dates.
+6. Network opportunities and mentoring permissions are separate optional choices.
+   Public stories or disclosure to partners require separate permission.
 
-Sensitive responses use `Cache-Control: no-store`. No profile details are
-returned by a public GET endpoint. Browser rendering does not store tokens or
-profiles in local/session storage. Limits apply by mailbox and client identity,
-with an additional DRF throttle. Configure trusted proxy handling in production
-and ensure the proxy sanitizes forwarded client headers.
+Access-key registration proves possession of a credential, not email ownership
+or alumni affiliation. Neither imported records nor matching names automatically
+verify affiliation. Email verification has its own timestamp. Staff review the
+person against department records separately. Changes to identity reset review.
 
-## Department decisions and activation
+## Long-term policy and opening
 
-The designated contact is **Paul Rodolf P. Castor, Department chairperson**, at
-**paulrodolf.castor@g.msuiit.edu.ph**, using the existing faculty contact as
-requested. The official retention period and privacy notice remain pending.
-Public submissions start closed. In Django admin → Alumni update settings:
+The user explicitly selected retention without automatic expiry, career history
+preservation, and opening with private access keys. Migration 0007 activates these
+settings and a notice describing program evaluation and alumni networking. The
+contact is Paul Rodolf P. Castor, Department chairperson, at
+paulrodolf.castor@g.msuiit.edu.ph. Correction/deletion requests remain possible;
+indefinite retention means no automatic age-based deletion, not guaranteed storage
+regardless of infrastructure or an irrevocable refusal to delete a record.
 
-- Confirm the configured chairperson's mailbox remains current.
-- Supply the approved privacy notice and version, stating purposes, staff
-  access, correction/deletion contact, and retention.
-- Set the retention period in days after the last update by the alumnus.
-- Configure and test outbound SMTP using the variables in `backend/.env.example`.
-  Set `ALUMNI_EMAIL_ENABLED=True` and the public frontend origin in
-  `ALUMNI_PUBLIC_URL`. Do not use dummy, console, file-based, or in-memory mail
-  for production. Use a durable production database and HTTPS.
-- Schedule `python manage.py purge_alumni_records --apply` daily in the hosting
-  scheduler before opening submissions. Running without `--apply` previews only.
-  It removes stale profiles under the selected period, link-request records
-  older than 48 hours, and expired sessions. It prints counts, not personal data.
-- Enable “Accepting updates” once these are supplied. The API stays closed if
-  notice/contact/retention or mail configuration is missing.
+`purge_alumni_records --apply` respects indefinite retention and does not delete
+accounts or career history, even if a numeric retention period is also present.
+It still removes old transient email-link requests and expired sessions. Schedule
+it daily on the production host. Without `--apply` it reports only counts.
 
-Tests use synthetic `example.org` addresses and in-memory mail. Local browser
-verification uses a separate disposable database and file-based mail; no real
-alumni or external recipients are used.
+## Supplied graduate files
 
-## Staff access
+The supplied tracer workbooks contain the Computer Applications 2024 batch,
+reported in 1st Quarter 2026 and 3rd Quarter 2026. The 2025 workbook contains an
+all-program roster; only explicit BSCA/MSCA rows are imported. The initial local
+import contains 120 graduate records and 120 source observations (118 BSCA, 2
+MSCA). Original files are unchanged and are not copied into the repository or
+public website assets.
 
-Give only authorized staff Django `view_alumniprofile` permission; add change
-and delete permissions according to their role. Access is checked by Django
-admin, not by hiding frontend links. The private dashboard filters by program,
-graduation year, primary career activity, mentoring preference, and last alumni
-update. BSCA/MSCA totals overlap for dual-program graduates.
+Use the private import command:
 
-The affiliation-verification action records staff reviewer and date. Career
-information remains self-reported. Staff edits do not reset the alumni update
-date used for retention. Do not treat respondent counts as employment rates or
-a graduating-class census. There are no bulk mail/reminder sends or public
-story publication features in this version.
+```sh
+python manage.py import_alumni_workbooks /private/path/first.xlsx /private/path/second.xlsx /private/path/roster.xlsx
+python manage.py import_alumni_workbooks /private/path/first.xlsx /private/path/second.xlsx /private/path/roster.xlsx --apply
+```
 
-Manage opportunities in Django admin. Only published entries appear publicly;
-closed opportunities are excluded. No jobs, partnerships, or events are seeded.
+The first command previews counts only. Imports are transactional and repeatable;
+source digest/sheet/row prevents duplicate observations. Name/program/batch keys
+identify source records; conflicting student IDs stop the import for private
+review. Distinct people with the same name should be reconciled by staff using
+student IDs before evaluation. Staff corrections are not overwritten by repeated
+imports. All original reporting periods and remarks are retained. Blank marks
+remain unknown; work and study flags can overlap. Numeric Philippine mobile
+numbers recover their leading zero when the source is a ten-digit mobile number.
+The roster's institutional `School Email` column is not substituted for a
+student's `Email Address`. Other programs and total rows are excluded.
 
-Deletion/correction requests go to the chairperson via the configured mailbox.
-Staff can delete the profile in admin; associated email-link requests and
-update sessions are deleted automatically. Email-address changes require staff handling
-and renewed ownership verification, not an unchecked form edit.
+Imports do not create alumni accounts, subscriptions, messages, or verified email
+claims. Staff must confirm ownership before linking a graduate source record to
+an alumni account. Private source observations remain separate from self-reports.
 
-Deployment: apply the alumni migrations, configure mail/privacy settings,
-build the frontend, and publish `/alumni` metadata. Existing staff accounts,
-program records, and student resources remain in their existing systems.
+## Staff workflow
+
+Run `python manage.py configure_alumni_roles` after migrations to create limited
+Alumni coordinators and Alumni chairperson groups. This creates no users and
+assigns nobody. Give individual staff accounts only their required permissions.
+Coordinators can review accounts and source records, link confirmed matches,
+inspect history, and maintain opportunities. The chairperson group additionally
+controls configuration, account deletion, and identity-confirmed key recovery.
+Neither group grants all-site superuser or admissions-decision powers.
+
+The private dashboard filters program, graduation year, review, career activity,
+work country, alignment, further study, exams, and networking choices. Search
+supports employer, role, actual duties, city, industry, and skills. It shows
+self-report counts and, when authorized, source-roster linkage counts. These are
+not whole-cohort employment rates. Dual-program alumni count in both programs;
+work and study counts can overlap. Earlier source reports do not establish a
+person's present employment without an updated response.
+
+Private admin exports cover current alumni details, all retained career entries,
+and graduate source observations. CSV responses are uncached and escape formula
+prefixes. Keep exported files private; spreadsheet exports may require text import
+for phone numbers or IDs with leading zeros.
+
+For lost keys, confirm the requester against departmental records and a known
+private contact. Staff with `reset_alumni_access` plus change permission select
+one account and issue a replacement. The key is shown only once in an uncached
+staff response; prior keys and sessions are revoked. The staff action is logged
+without the key. Provide it through an agreed private channel. This feature sends
+no automatic email. For deletion requests, the authorized chairperson can delete
+the account; career entries and access records are removed and source links are
+cleared. Separately review source-roster records if a request covers those too.
+
+## Verification and deployment
+
+Production requires the existing durable database, HTTPS frontend/backend,
+correct origins, a non-default secret, restricted staff accounts, and database
+backups consistent with the department's long-term policy. Do not expose local
+SQLite files or commit graduate files, credentials, keys, or exports. Apply the
+alumni migrations, import the supplied files privately on the production backend,
+configure staff groups, build the frontend, and deploy both services together.
+Local SQLite imports do not automatically migrate to the deployed database.
+
+Tests use synthetic addresses and records. Full browser checks use an isolated
+throwaway database, not the real imported graduate roster. No alumni were emailed.

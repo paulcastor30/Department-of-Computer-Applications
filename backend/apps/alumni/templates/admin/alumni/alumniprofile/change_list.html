@@ -4,6 +4,8 @@
   <h2>Private alumni records</h2>
   <p>{{ alumni_summary.total }} record{{ alumni_summary.total|pluralize }} in this selection · {{ alumni_summary.verified }} affiliation{{ alumni_summary.verified|pluralize }} reviewed and verified · {{ alumni_summary.mentors }} willing mentor{{ alumni_summary.mentors|pluralize }}</p>
   <p>BSCA: {{ alumni_summary.bsca }} · MSCA: {{ alumni_summary.msca }} · {{ alumni_summary.outdated }} not updated by the alumnus in the last year</p>
+  <p>Currently working: {{ alumni_summary.working }} · Pursuing further study: {{ alumni_summary.studying }} · Work country provided: {{ alumni_summary.work_location }}</p>
+  {% if graduate_summary %}<p>Private imported graduate roster: {{ graduate_summary.total }} records · {{ graduate_summary.linked }} linked by staff to alumni accounts. <a href="{% url 'admin:alumni_graduaterecord_changelist' %}">Review graduate roster and source observations</a></p>{% endif %}
   <p>Both-program alumni count in each program. Career information is self-reported. These records are not a graduating-class census or an employment-rate report.</p>
   <p>Contact alumni only according to their recorded preferences. Do not publish personal details or stories without separate permission.</p>
 </div>

@@ -4,7 +4,8 @@ import secrets
 from urllib.parse import urlsplit
 from django.conf import settings
 from django.core.mail import send_mail
-from django.db import transaction
+from django.contrib.auth.hashers import make_password, check_password
+from django.db import IntegrityError, transaction
 from django.db.models import Q
 from django.utils import timezone
 from rest_framework import generics
@@ -14,7 +15,8 @@ from rest_framework.response import Response
 from rest_framework.throttling import AnonRateThrottle
 from rest_framework.views import APIView
 from .models import AlumniSettings, AlumniProfile, AlumniEmailLink, AlumniUpdateSession, AlumniOpportunity
-from .serializers import EmailInput, TokenInput, ProfileInput, ProfileOutput, OpportunitySerializer
+from .serializers import AccessKeyInput, RegistrationInput, EmailInput, TokenInput, ProfileInput, ProfileOutput, OpportunitySerializer
+from .service import record_update
 
 
 def digest(token):
@@ -25,15 +27,19 @@ def configuration():
     return AlumniSettings.objects.filter(pk=1).first()
 
 
-def ready(config):
+def email_ready():
     mail_ready = settings.ALUMNI_EMAIL_ENABLED and settings.EMAIL_BACKEND not in {"django.core.mail.backends.dummy.EmailBackend", "django.core.mail.backends.console.EmailBackend"}
     if settings.EMAIL_BACKEND == "django.core.mail.backends.smtp.EmailBackend":
         mail_ready = mail_ready and bool(settings.EMAIL_HOST and settings.DEFAULT_FROM_EMAIL)
     if not settings.DEBUG and settings.EMAIL_BACKEND in {"django.core.mail.backends.locmem.EmailBackend", "django.core.mail.backends.filebased.EmailBackend"}:
         mail_ready = False
+    return bool(mail_ready)
+
+
+def ready(config):
     origin = urlsplit(settings.ALUMNI_PUBLIC_URL)
     origin_ready = origin.scheme == "https" or (settings.DEBUG and origin.scheme == "http" and origin.hostname in {"localhost", "127.0.0.1"})
-    return bool(config and config.accepting_updates and config.contact_email and config.privacy_notice and config.notice_version and config.retention_days and mail_ready and origin_ready)
+    return bool(config and config.accepting_updates and config.contact_email and config.privacy_notice and config.notice_version and (config.retention_days or config.retain_indefinitely) and (config.access_keys_enabled or email_ready()) and origin_ready)
 
 
 class AlumniThrottle(AnonRateThrottle):
@@ -64,12 +70,63 @@ class AlumniConfigurationView(PrivateAlumniView):
         config = configuration()
         return Response({"accepting_updates": ready(config), "contact_label": config.contact_label if config else "Department chairperson",
             "contact_email": config.contact_email if config else "", "privacy_notice": config.privacy_notice if config else "",
-            "notice_version": config.notice_version if config else "", "retention_days": config.retention_days if config else None})
+            "notice_version": config.notice_version if config else "", "retention_days": config.retention_days if config else None,
+            "retain_indefinitely": config.retain_indefinitely if config else False, "access_keys_enabled": config.access_keys_enabled if config else False,
+            "email_links_available": email_ready()})
+
+
+class AccessKeyThrottle(AlumniThrottle):
+    rate = "10/hour"
+    scope = "alumni_access"
+
+
+class RegisterAlumniView(PrivateAlumniView):
+    throttle_classes = [AccessKeyThrottle]
+
+    def post(self, request):
+        config = self.require_open()
+        if not config or not config.access_keys_enabled:
+            return Response({"detail": "Alumni registration is currently unavailable."}, status=503)
+        serializer = RegistrationInput(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        values = dict(serializer.validated_data)
+        if values["notice_version"] != config.notice_version:
+            raise ValidationError({"detail": "The privacy notice has changed. Reload before saving."})
+        email = values.pop("email")
+        key = secrets.token_urlsafe(32)
+        try:
+            with transaction.atomic():
+                if AlumniProfile.objects.filter(email=email).exists():
+                    raise IntegrityError("Existing account")
+                profile = AlumniProfile(email=email, access_key_hash=make_password(key))
+                record_update(profile, values)
+        except IntegrityError:
+            raise ValidationError({"detail": "Registration could not be completed. If you previously registered, use your private access key; otherwise contact the chairperson for assistance."})
+        return Response({"detail": "Your private alumni account has been created. Save your access key now; it will not be shown again. Email ownership and alumni affiliation have not been verified.", "access_key": key, "email": email}, status=201)
+
+
+class AccessAlumniView(PrivateAlumniView):
+    throttle_classes = [AccessKeyThrottle]
+
+    def post(self, request):
+        config = self.require_open()
+        if not config or not config.access_keys_enabled:
+            return Response({"detail": "Alumni account access is currently unavailable."}, status=503)
+        serializer = AccessKeyInput(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        profile = AlumniProfile.objects.filter(email=serializer.validated_data["email"]).first()
+        stored = profile.access_key_hash if profile and profile.access_key_hash else make_password(None)
+        valid = check_password(serializer.validated_data["access_key"], stored)
+        if not valid:
+            raise PermissionDenied("The email and access key could not be verified. Try again or contact the chairperson for recovery assistance.")
+        token = secrets.token_urlsafe(32)
+        AlumniUpdateSession.objects.create(email=profile.email, email_verified=False, token_hash=digest(token), expires_at=timezone.now() + timedelta(minutes=30))
+        return Response({"session_token": token, "email": profile.email, "profile": ProfileOutput(profile).data, "expires_in_minutes": 30})
 
 
 class RequestUpdateLinkView(PrivateAlumniView):
     def post(self, request):
-        if not self.require_open():
+        if not self.require_open() or not email_ready():
             return Response({"detail": "Alumni updates are currently unavailable. Please contact the department chairperson."}, status=503)
         serializer = EmailInput(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -97,7 +154,7 @@ class RequestUpdateLinkView(PrivateAlumniView):
 
 class VerifyUpdateLinkView(PrivateAlumniView):
     def post(self, request):
-        if not self.require_open():
+        if not self.require_open() or not email_ready():
             return Response({"detail": "Alumni updates are currently unavailable."}, status=503)
         serializer = TokenInput(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -121,7 +178,7 @@ class SaveAlumniProfileView(PrivateAlumniView):
             return Response({"detail": "Alumni updates are currently unavailable."}, status=503)
         header = request.headers.get("Authorization", "")
         if not header.startswith("Bearer ") or len(header) > 110:
-            raise PermissionDenied("Request a secure email link before saving your details.")
+            raise PermissionDenied("Open your private alumni account or verify an email link before saving your details.")
         serializer = ProfileInput(data=request.data)
         serializer.is_valid(raise_exception=True)
         values = serializer.validated_data
@@ -133,21 +190,12 @@ class SaveAlumniProfileView(PrivateAlumniView):
             if not session:
                 raise PermissionDenied("Your update session has expired or was already used. Please request a new link.")
             profile = AlumniProfile.objects.select_for_update().filter(email=session.email).first()
-            if profile and any(getattr(profile, key) != values.get(key) for key in ("full_name", "bsca_year", "msca_year")):
-                profile.verification_status = "PENDING"
-                profile.reviewed_by = None
-                profile.reviewed_at = None
             if not profile:
                 profile = AlumniProfile(email=session.email)
-            for key, value in values.items():
-                setattr(profile, key, value)
-            profile.email_verified_at = now
-            profile.consented_at = now
-            profile.alumni_updated_at = now
-            profile.save()
+            record_update(profile, values, email_verified=session.email_verified)
             session.used_at = now
             session.save(update_fields=["used_at"])
-        return Response({"detail": "Your alumni details have been saved privately. Email ownership is verified; alumni affiliation is reviewed separately by the department."})
+        return Response({"detail": "Your details have been saved privately. Earlier career entries are retained. Alumni affiliation is reviewed separately by the department."})
 
 
 class AlumniOpportunityListView(generics.ListAPIView):
