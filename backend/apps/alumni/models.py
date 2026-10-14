@@ -34,12 +34,12 @@ class AlumniSettings(TimeStampedModel):
 
 
 class AlumniProfile(TimeStampedModel):
-    STATUS_CHOICES = [("EMPLOYED", "Employed"), ("SELF_EMPLOYED", "Self-employed"), ("FURTHER_STUDY", "Further study"), ("SEEKING_WORK", "Seeking work"), ("OTHER", "Other activities"), ("PREFER_NOT_TO_SAY", "Prefer not to say")]
+    STATUS_CHOICES = [("", "Not answered"), ("EMPLOYED", "Employed"), ("SELF_EMPLOYED", "Self-employed"), ("FURTHER_STUDY", "Further study"), ("SEEKING_WORK", "Seeking work"), ("OTHER", "Other activities"), ("PREFER_NOT_TO_SAY", "Prefer not to say")]
     email = models.EmailField(unique=True)
     full_name = models.CharField(max_length=150)
     bsca_year = models.PositiveIntegerField(null=True, blank=True)
     msca_year = models.PositiveIntegerField(null=True, blank=True)
-    career_status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="PREFER_NOT_TO_SAY")
+    career_status = models.CharField(max_length=30, choices=STATUS_CHOICES, blank=True, default="")
     employer = models.CharField(max_length=150, blank=True)
     job_title = models.CharField(max_length=150, blank=True)
     interests = models.CharField(max_length=500, blank=True)
@@ -118,7 +118,7 @@ class AlumniCareerEntry(models.Model):
     reported_at = models.DateTimeField(default=timezone.now)
     entry_kind = models.CharField(max_length=20, choices=[("CURRENT", "Current activity update"), ("HISTORICAL", "Previous role or activity")], default="CURRENT")
     # A complete, immutable snapshot; later roles append instead of replacing this record.
-    career_status = models.CharField(max_length=30, choices=AlumniProfile.STATUS_CHOICES)
+    career_status = models.CharField(max_length=30, choices=AlumniProfile.STATUS_CHOICES, blank=True)
     employer = models.CharField(max_length=150, blank=True)
     job_title = models.CharField(max_length=150, blank=True)
     industry = models.CharField(max_length=150, blank=True)

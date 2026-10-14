@@ -9,16 +9,12 @@ export default function Alumni() {
   const config = useAlumniConfiguration();
   const opportunities = useAlumniOpportunities();
   return <>
-    <Seo title="Alumni Connections & Career Updates" canonicalUrl="https://msuiit-comapps.vercel.app/alumni" description="Stay connected as a BSCA or MSCA alumnus, explore opportunities, and privately update your contact and career information." />
-    <PageHero title="Alumni Connections & Career Updates" subtitle="For BSCA and MSCA graduates: stay connected, keep learning, and help the next generation." />
+    <Seo title="Alumni tracer & connections" canonicalUrl="https://msuiit-comapps.vercel.app/alumni" description="Stay connected as a BSCA or MSCA alumnus, explore opportunities, and privately update your contact and career information." />
+    <PageHero title="Alumni tracer & connections" subtitle="A few minutes to reconnect and help improve BSCA and MSCA." />
     <Section>
       <nav aria-label="Alumni tasks" className="flex flex-wrap gap-3"><a className="outline-link" href="#alumni-update">Update my details</a><a className="outline-link" href="#alumni-opportunities">Explore opportunities</a><Link className="outline-link" to="/resources#learning-resources">Keep learning</Link><Link className="outline-link" to="/about/contact">Contact the chairperson</Link></nav>
-      <div className="mt-7 grid gap-5 md:grid-cols-3">{[
-        ["Stay connected", "Keep an email or phone contact current so the department can reach you according to your preferences."],
-        ["Share your next step", "Tell us where you work, what you do, and which skills you use. Add new roles while keeping your earlier career history."],
-        ["Support future graduates", "Choose whether you would like to hear about opportunities to mentor or support students."],
-      ].map(([title, description]) => <article key={title} className="rounded-md border border-border p-5"><h2 className="text-xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-muted-foreground">{description}</p></article>)}</div>
-      <p className="mt-5 max-w-prose leading-7 text-muted-foreground">Your update helps the department maintain alumni connections and understand career and study experiences. Participation is voluntary. Your personal details are available only to authorized staff, and will not be published as an alumni directory.</p>
+      <p className="mt-5 max-w-prose leading-7">Let us know how to reach you and what you are doing now. Your response helps the Department of Computer Applications reconnect with graduates, understand graduate outcomes, and improve its programs for quality assurance.</p>
+      <p className="mt-3 text-sm leading-6 text-muted-foreground">Basic update: about 3–5 minutes. Detailed questions are optional. Your individual record stays private.</p>
     </Section>
     <Section variant="muted">
       {config.isPending ? <p role="status">Loading alumni update information…</p> : config.isError ? <div role="status"><p>Alumni update information could not be loaded.</p><button className="outline-link mt-3" onClick={() => void config.refetch()}>Try again</button><Link className="text-link ml-4" to="/about/contact">Contact the department chairperson</Link></div> : config.data && <AlumniUpdateForm config={config.data} />}

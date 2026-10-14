@@ -58,7 +58,7 @@ export function AlumniUpdateForm({ config }: { config: AlumniConfiguration }) {
   }
 
   function saved(result: AlumniSaved) {
-    setMessage(result.detail); setCompleted(true); setSession(""); setProfile(null);
+    setMessage(result.access_key ? "Thank you. Your alumni tracer has been saved. Your response helps us reconnect and improve our programs." : result.detail); setCompleted(true); setSession(""); setProfile(null);
     if (result.access_key && result.email) setIssuedKey({ key: result.access_key, email: result.email });
   }
 
@@ -80,20 +80,20 @@ export function AlumniUpdateForm({ config }: { config: AlumniConfiguration }) {
   }
 
   return <div id="alumni-update" className="scroll-mt-24 rounded-md border border-border bg-background p-5 sm:p-7">
-    <h2 className="text-2xl font-semibold">Update my alumni details</h2>
-    <p className="mt-3 max-w-prose leading-7 text-muted-foreground">For BSCA and MSCA graduates, including alumni of both programs. Use an email address you can still access. Your profile is private; your contact details and career information will not appear on the public website.</p>
+    <h2 className="text-2xl font-semibold">Alumni tracer</h2>
+    <p className="mt-3 max-w-prose leading-7 text-muted-foreground">For BSCA and MSCA graduates. Share a quick update below; you can leave optional questions blank and add more details later.</p>
     {!config.accepting_updates && <p className="notice mt-5" role="status">Online alumni updates are not open yet. For contact updates or questions, contact {config.contact_label}.</p>}
     {error && <p className="notice mt-4" role="alert">{error}</p>}
     {message && <p className="notice mt-4" role="status">{message}</p>}
     {completed ? <div className="mt-5 space-y-4">
-      {issuedKey && <div className="rounded-md border-2 border-primary p-5"><h3 className="text-xl font-semibold">Save your private access key now</h3><p className="mt-3 leading-7">It is shown only once. Keep it in a password manager or download the private file. Anyone with your email and key can access your record.</p><code className="mt-4 block break-all rounded-md bg-muted p-4">{issuedKey.key}</code><button className="outline-link mt-4" onClick={downloadKey}>Download my access key</button></div>}
-      <p className="leading-7">Your account and earlier career entries are retained without automatic expiry under the department's selected policy. Contact the chairperson for corrections, recovery, or deletion requests.</p>
+      {issuedKey && <div className="rounded-md border-2 border-primary p-5"><h3 className="text-xl font-semibold">Save your private access key now</h3><p className="mt-3 leading-7">Download this key and keep the file somewhere private. Use it with your email address when you return to update your response. This key is shown only once.</p><code className="mt-4 block break-all rounded-md bg-muted p-4">{issuedKey.key}</code><button className="outline-link mt-4" onClick={downloadKey}>Download my access key</button></div>}
+      <p className="leading-7">You can return whenever your contact details or current activity change.</p>
       <button className="outline-link" onClick={() => { setCompleted(false); setIssuedKey(null); setMessage(""); setAccessMode("access"); }}>Return to my account</button>
     </div> : session ? <AlumniTraceForm config={config} email={verifiedEmail} profile={profile} session={session} onSaved={saved} /> : emailToken ? <div className="mt-5">
       <p className="leading-7">Your email link is ready. Continue to open your private update form. It can be used once and expires 30 minutes after it was requested.</p>
       <button className="action-link mt-4 disabled:opacity-50" disabled={busy || !config.accepting_updates} onClick={() => void verifyLink()}>{busy ? "Opening your form…" : "Verify email and continue"}</button>
     </div> : config.access_keys_enabled && config.accepting_updates && accessMode !== "email" ? <div className="mt-6">
-      <div className="flex flex-wrap gap-3" aria-label="Alumni account options"><button className="outline-link" aria-pressed={accessMode === "register"} onClick={() => { setAccessMode("register"); setError(""); }}>New alumni account</button><button className="outline-link" aria-pressed={accessMode === "access"} onClick={() => { setAccessMode("access"); setError(""); }}>Return to my account</button>{config.email_links_available && <button className="outline-link" onClick={() => setAccessMode("email")}>Use an email link</button>}</div>
+      <div className="flex flex-wrap gap-3" aria-label="Alumni account options"><button className="outline-link" aria-pressed={accessMode === "register"} onClick={() => { setAccessMode("register"); setError(""); }}>First time filling this out</button><button className="outline-link" aria-pressed={accessMode === "access"} onClick={() => { setAccessMode("access"); setError(""); }}>Update my previous response</button>{config.email_links_available && <button className="outline-link" onClick={() => setAccessMode("email")}>Use an email link</button>}</div>
       {accessMode === "register" ? <AlumniTraceForm config={config} email="" profile={null} session="" registration onSaved={saved} /> : <form className="mt-5 max-w-xl space-y-4" onSubmit={event => void accessAccount(event)}>
         <div><label htmlFor="access-email" className="mb-2 block font-medium">Registered email address</label><input id="access-email" className={control} type="email" autoComplete="email" required value={email} onChange={event => setEmail(event.target.value)} /></div>
         <div><label htmlFor="access-key" className="mb-2 block font-medium">Private access key</label><input id="access-key" className={control} type="password" autoComplete="current-password" required minLength={40} maxLength={100} value={accessKey} onChange={event => setAccessKey(event.target.value)} /></div>
@@ -107,12 +107,12 @@ export function AlumniUpdateForm({ config }: { config: AlumniConfiguration }) {
       <button className="action-link mt-5 disabled:opacity-50" type="submit" disabled={busy || !emailConsent || !config.accepting_updates}>{busy ? "Requesting your link…" : "Email me a secure update link"}</button>
       <p className="mt-3 text-sm leading-6 text-muted-foreground">No new password is needed. Never share your link. After verification, you have 30 minutes to save your update; refreshing the form requires a new link.</p>
     </form>}
-    <details className="mt-6 rounded-md border border-border p-4">
+    {!(session || (!emailToken && !completed && config.access_keys_enabled && config.accepting_updates && accessMode === "register")) && <details className="mt-6 rounded-md border border-border p-4">
       <summary className="cursor-pointer font-semibold">Privacy notice and contact</summary>
       {config.privacy_notice ? <p className="mt-3 whitespace-pre-line leading-7">{config.privacy_notice}</p> : <p className="mt-3 leading-7">The department’s alumni privacy and retention notice is being prepared. Online submissions will remain closed until it is available.</p>}
       {!config.retain_indefinitely && config.retention_days && <p className="mt-3 text-sm">Configured retention: {config.retention_days} days after your last alumni update.</p>}
       {config.retain_indefinitely && <p className="mt-3 leading-7">Accounts and career history are retained with no automatic expiry. You may contact the chairperson about correction or deletion.</p>}
       <p className="mt-3 leading-7">Contact: {config.contact_label}. {config.contact_email ? <a className="text-link break-all" href={`mailto:${config.contact_email}?subject=Alumni%20contact%20or%20privacy%20request`}>{config.contact_email}</a> : <Link className="text-link" to="/about/contact">Contact the department and ask for the chairperson</Link>}.</p>
-    </details>
+    </details>}
   </div>;
 }

@@ -68,6 +68,18 @@ def export_history(modeladmin, request, queryset):
     return private_csv("private-alumni-career-history.csv", ["full_name", "email", *fields], rows)
 
 
+@admin.action(description="Export outcome summary by program and graduation year", permissions=["view"])
+def export_outcomes(modeladmin, request, queryset):
+    from .reporting import OUTCOME_HEADERS, outcome_rows
+    return private_csv("private-alumni-outcome-summary.csv", OUTCOME_HEADERS, outcome_rows(queryset))
+
+
+@admin.action(description="Export linked-response coverage of selected graduate roster", permissions=["view"])
+def export_coverage(modeladmin, request, queryset):
+    from .reporting import COVERAGE_HEADERS, coverage_rows
+    return private_csv("private-alumni-roster-coverage.csv", COVERAGE_HEADERS, coverage_rows(queryset))
+
+
 class DegreeFilter(admin.SimpleListFilter):
     title = "program"
     parameter_name = "program"
@@ -98,7 +110,7 @@ class AlumniProfileAdmin(admin.ModelAdmin):
     search_fields = ("full_name", "email", "student_id", "employer", "job_title", "duties", "industry", "work_city", "residence_city", "interests", "skills_used", "network_interests")
     readonly_fields = ("email", "email_verified_at", "consented_at", "notice_version", "reviewed_by", "reviewed_at", "alumni_updated_at", "created_at", "updated_at", *CAREER_FIELDS)
     exclude = ("access_key_hash",)
-    actions = [verify_affiliation, export_alumni, export_history, reset_access]
+    actions = [verify_affiliation, export_alumni, export_history, export_outcomes, reset_access]
     inlines = [CareerHistoryInline]
     date_hierarchy = "alumni_updated_at"
 
@@ -120,6 +132,10 @@ class AlumniProfileAdmin(admin.ModelAdmin):
                 "working": records.filter(career_status__in=["EMPLOYED", "SELF_EMPLOYED"]).count(),
                 "studying": records.filter(further_study=True).count() + records.filter(career_status="FURTHER_STUDY", further_study=False).count(),
                 "work_location": records.exclude(work_country="").count(),
+                "activity_missing": records.filter(career_status="").count(),
+                "activity_withheld": records.filter(career_status="PREFER_NOT_TO_SAY").count(),
+                "email_verified": records.filter(email_verified_at__isnull=False).count(),
+                "alignment_missing": records.filter(career_status__in=["EMPLOYED", "SELF_EMPLOYED"], work_alignment="").count(),
             }
             if request.user.has_perm("alumni.view_graduaterecord"):
                 response.context_data["graduate_summary"] = {"total": GraduateRecord.objects.count(), "linked": GraduateRecord.objects.filter(alumni_profile__isnull=False).count()}
@@ -174,7 +190,7 @@ class GraduateRecordAdmin(admin.ModelAdmin):
     readonly_fields = ("source_key", "created_at", "updated_at")
     autocomplete_fields = ("alumni_profile",)
     inlines = [GraduateObservationInline]
-    actions = [export_graduates]
+    actions = [export_graduates, export_coverage]
 
     def has_add_permission(self, request):
         return False

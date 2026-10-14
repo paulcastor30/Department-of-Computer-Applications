@@ -122,3 +122,56 @@ Local SQLite imports do not automatically migrate to the deployed database.
 
 Tests use synthetic addresses and records. Full browser checks use an isolated
 throwaway database, not the real imported graduate roster. No alumni were emailed.
+
+## Tracer acceptance and remaining field test
+
+The quick form starts with no activity selected. Alumni choose a current activity
+or explicitly choose “Prefer not to say”; contact-only updates require no new
+activity answer. Optional detailed questions remain collapsed. New API records
+with an omitted activity retain a blank answer, separate from “Prefer not to say”.
+Existing stored answers and career history are preserved. Earlier default
+“Prefer not to say” responses cannot retrospectively be identified as deliberate
+choices. Do not reclassify those as missing or as explicit refusals.
+
+Staff can export an outcome summary from selected alumni accounts grouped by
+program, graduation year, latest reported activity, and work-degree alignment.
+Blank activity/alignment is reported separately. Alignment for non-working
+respondents is marked not applicable. Both-program graduates count once in each
+program; the sum is not a unique-person total. Supplied contacts, verified email
+ownership, affiliation review, and contact permissions remain separate.
+
+Graduate roster coverage export counts linked responses against the selected
+roster records in each program/year. It separately counts unlinked graduates and
+program/year mismatches; mismatches do not count as linked responses. Select the
+complete intended cohort before using its percentage. This measures roster
+linkage, not successful outreach, current reachability, whole-population employment,
+or representativeness. Staff must confirm identities before linking records.
+Source tracing observations remain separate from these account summaries.
+
+### Human usability trial (pending)
+
+Record the trial in `alumni-usability-trial.csv`; its empty rows are a worksheet,
+not results. Use `alumni-campaign-plan.csv` to record department-selected coverage
+targets and follow-up dates.
+
+Recruit ten consenting alumni spanning BSCA/MSCA where available, mobile/desktop,
+and different levels of technical confidence. Use a test environment and synthetic
+or participant-approved information. Do not send invitations automatically.
+
+Ask each participant to complete a basic tracer, save their access key, then
+return and update one contact detail. Record elapsed time from opening the page
+through saving the key, completion, help needed, confusing wording, ability to
+return, device, and whether they understood the optional questions. Avoid storing
+keys or personal answers in the trial notes. The 3–5-minute estimate is provisional.
+
+Suggested stopping targets: eight of ten finish the basic task in five minutes;
+nine of ten finish without help; all completed updates save accurately without
+losing history or changing contact choices. If return access is a repeated
+obstacle, resolve it and retest before signing off. A small usability sample is
+not evidence of representative graduate outcomes or accreditation compliance.
+
+For the tracing campaign, department staff must document intended program/year
+cohorts, eligible roster counts, response targets, follow-up dates, and treatment
+of nonresponse. No response-rate target is invented or automatically approved.
+Use cohort coverage and outcome summaries together, with their missing-answer
+counts and selection scope, when preparing quality-assurance reports.
