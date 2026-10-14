@@ -16,7 +16,7 @@ urlpatterns = [
 if settings.DEBUG:
     # Public originals and identity images must resolve before the local SPA fallback.
     public = settings.REPO_DIR / "frontend" / "public"
-    public_patterns = [path(filename, serve, {"path": filename, "document_root": public}) for filename in ("ca-logo.png", "ccs-logo.png", "favicon.ico")]
+    public_patterns = [path(filename, serve, {"path": filename, "document_root": public}) for filename in ("MSU-IIT Logo.png", "ca-logo.png", "ccs-logo.png", "favicon.ico")]
     for folder in ("registar-forms", "thesis-forms", "curricula"):
         public_patterns += static(f"/{folder}/", document_root=public / folder)
     urlpatterns = public_patterns + urlpatterns
