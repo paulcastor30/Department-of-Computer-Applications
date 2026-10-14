@@ -58,3 +58,24 @@ class TracerReportingTests(TestCase):
         self.assertNotIn("report@example.org", response.content.decode())
         self.assertEqual(response["Cache-Control"], "no-store")
         self.assertEqual(self.client.get("/admin/alumni/alumniprofile/").status_code, 302)
+
+    def test_dropdown_reference_and_new_location_fields_preserve_history(self):
+        from .location_options import location_options
+        from .serializers import ProfileInput
+        from .service import record_update
+        data = location_options()
+        self.assertIn("Philippines", data["countries"])
+        groups = {group["name"]: group["cities"] for group in data["philippine_groups"]}
+        self.assertIn("Tubod", groups["Lanao del Norte"])
+        self.assertIn("City of Iligan", groups["Cities outside provinces"])
+        self.assertIn("City of Manila", groups["Metro Manila (NCR)"])
+        profile = self.profile(career_status="EMPLOYED", work_province="Lanao del Norte")
+        record_update(profile, {"career_entry_mode": "CURRENT", "career_status": "EMPLOYED"})
+        self.assertEqual(profile.career_history.get().work_province, "Lanao del Norte")
+        serializer = ProfileInput(data={"full_name": profile.full_name, "bsca_year": 2024, "career_entry_mode": "NO_CHANGE", "residence_country": "Philippines", "residence_province": "Lanao del Norte", "residence_city": "Tubod", "bsca_period": "After 1st semester", "consent": True, "notice_version": "test"})
+        self.assertTrue(serializer.is_valid(), serializer.errors)
+        record_update(profile, serializer.validated_data)
+        self.assertEqual(profile.residence_province, "Lanao del Norte")
+        self.assertEqual(profile.bsca_period, "After 1st semester")
+        self.assertEqual(profile.career_history.count(), 1)
+        self.assertEqual(profile.career_history.get().work_province, "Lanao del Norte")

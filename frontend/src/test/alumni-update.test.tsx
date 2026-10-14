@@ -194,3 +194,15 @@ it("requires a deliberate activity choice while allowing prefer not to say", asy
   fireEvent.submit(activity.closest('form')!);
   await waitFor(() => expect(alumniRequest).toHaveBeenCalledWith("register", expect.objectContaining({career_status: "PREFER_NOT_TO_SAY"}), ""));
 });
+
+it("offers calendar years and both semester options separately for each degree", () => {
+  render(<MemoryRouter><AlumniUpdateForm config={{...config, access_keys_enabled:true}}/></MemoryRouter>);
+  fireEvent.click(screen.getByLabelText('BSCA graduate'));
+  fireEvent.click(screen.getByLabelText('MSCA graduate'));
+  expect(screen.getByLabelText('BSCA graduation year').tagName).toBe('SELECT');
+  expect(screen.getByLabelText('MSCA graduation year').tagName).toBe('SELECT');
+  fireEvent.change(screen.getByLabelText('BSCA graduation semester (optional)'), {target:{value:'After 1st semester'}});
+  fireEvent.change(screen.getByLabelText('MSCA graduation semester (optional)'), {target:{value:'After 2nd semester'}});
+  expect(screen.getByLabelText('BSCA graduation semester (optional)')).toHaveValue('After 1st semester');
+  expect(screen.getByLabelText('MSCA graduation semester (optional)')).toHaveValue('After 2nd semester');
+});

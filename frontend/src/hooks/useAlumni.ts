@@ -2,13 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchJSON } from "@/lib/api";
 
 export type AlumniConfiguration = {
+  location_options?: { countries: string[]; philippine_groups: {name: string; cities: string[]}[] };
   accepting_updates: boolean; contact_label: string; contact_email: string;
   privacy_notice: string; notice_version: string; retention_days: number | null;
   retain_indefinitely?: boolean; access_keys_enabled?: boolean; email_links_available?: boolean;
 };
 export type AlumniCareerEntry = {
   id: number; reported_at: string; entry_kind: string; career_status: string;
-  employer: string; job_title: string; industry: string; work_city: string; work_country: string;
+  employer: string; job_title: string; industry: string; work_city: string; work_province?: string; work_country: string;
   work_arrangement: string; duties: string; skills_used: string; work_alignment: string;
   alignment_explanation: string; career_start: string | null; career_end: string | null;
   further_study: boolean; study_program: string; study_institution: string; exam_status: string;
@@ -21,8 +22,8 @@ export type AlumniProfile = {
   career_history?: AlumniCareerEntry[]; email_verified_at?: string | null;
   student_id?: string; family_name?: string; first_name?: string; middle_name?: string;
   permanent_address?: string; landline?: string; bsca_period?: string; msca_period?: string;
-  sex?: string; residence_city?: string; residence_country?: string; industry?: string;
-  work_city?: string; work_country?: string; work_arrangement?: string; duties?: string;
+  sex?: string; residence_city?: string; residence_province?: string; residence_country?: string; industry?: string;
+  work_city?: string; work_province?: string; work_country?: string; work_arrangement?: string; duties?: string;
   skills_used?: string; work_alignment?: string; alignment_explanation?: string;
   career_start?: string | null; career_end?: string | null; further_study?: boolean;
   study_program?: string; study_institution?: string; exam_status?: string; exam_details?: string;

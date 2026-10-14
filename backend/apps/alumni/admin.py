@@ -39,7 +39,7 @@ class CareerHistoryInline(admin.StackedInline):
 
 @admin.action(description="Export selected private alumni tracing details", permissions=["view"])
 def export_alumni(modeladmin, request, queryset):
-    fields = ("full_name", "family_name", "first_name", "middle_name", "email", "phone", "landline", "student_id", "sex", "bsca_year", "bsca_period", "msca_year", "msca_period", "residence_city", "residence_country", "permanent_address", *CAREER_FIELDS, "interests", "network_interests", "professional_url", "receive_updates", "willing_to_mentor", "verification_status", "alumni_updated_at")
+    fields = ("full_name", "family_name", "first_name", "middle_name", "email", "phone", "landline", "student_id", "sex", "bsca_year", "bsca_period", "msca_year", "msca_period", "residence_city", "residence_province", "residence_country", "permanent_address", *CAREER_FIELDS, "interests", "network_interests", "professional_url", "receive_updates", "willing_to_mentor", "verification_status", "alumni_updated_at")
     return private_csv("private-alumni-tracing.csv", fields, ([getattr(profile, field) for field in fields] for profile in queryset))
 
 

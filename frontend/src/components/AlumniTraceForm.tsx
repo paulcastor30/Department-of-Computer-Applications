@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AlumniLocationFields } from "@/components/AlumniLocationFields";
 import { alumniRequest } from "@/lib/api";
 import type { AlumniConfiguration, AlumniProfile } from "@/hooks/useAlumni";
 
@@ -9,7 +10,7 @@ const contactFields = [["family_name", "Family name"], ["first_name", "First nam
 const workFields = [["industry", "Industry or sector"], ["work_city", "Work city or province"], ["work_country", "Work country"], ["duties", "What work do you actually do?", "textarea"], ["skills_used", "Skills and tools used", "textarea"], ["alignment_explanation", "How does your work relate to your degree?", "textarea"], ["career_start", "Role or activity start date", "date"], ["career_end", "End date (leave blank if ongoing)", "date"]];
 const studyFields = [["study_program", "Further-study program"], ["study_institution", "Institution or university"], ["exam_details", "Exam name, eligibility, and details"], ["program_feedback", "What prepared you well, and what should BSCA or MSCA improve?", "textarea"]];
 const networkFields = [["network_interests", "Ways you would like to connect", "textarea"], ["professional_url", "Professional profile or portfolio", "url"]];
-const extraFields = [...contactFields, ...workFields, ...studyFields, ...networkFields, ["sex"], ["work_alignment"], ["work_arrangement"], ["exam_status"]];
+const extraFields = [...contactFields, ...workFields, ["residence_province"], ["work_province"], ...studyFields, ...networkFields, ["sex"], ["work_alignment"], ["work_arrangement"], ["exam_status"]];
 const limits: Record<string, number> = { family_name: 150, first_name: 150, middle_name: 150, student_id: 40, bsca_period: 100, msca_period: 100, residence_city: 150, residence_country: 100, permanent_address: 1500, landline: 40, industry: 150, work_city: 150, work_country: 100, duties: 3000, skills_used: 1000, alignment_explanation: 1500, study_program: 200, study_institution: 200, exam_details: 500, program_feedback: 3000, network_interests: 1000, professional_url: 500 };
 
 function ExtraControls({ fields, values, onChange }: { fields: string[][]; values: Record<string, string>; onChange: (key: string, value: string) => void }) {
@@ -17,7 +18,7 @@ function ExtraControls({ fields, values, onChange }: { fields: string[][]; value
 }
 
 function ExtraSelect({ field, label, values, choices, onChange }: { field: string; label: string; values: Record<string, string>; choices: string[][]; onChange: (key: string, value: string) => void }) {
-  return <div><label className="mb-2 block" htmlFor={`trace-${field}`}>{label} (optional)</label><select id={`trace-${field}`} className={control} value={values[field]} onChange={event => onChange(field, event.target.value)}><option value="">Not provided</option>{choices.map(([value, text]) => <option key={value} value={value}>{text}</option>)}</select></div>;
+  return <div><label className="mb-2 block" htmlFor={`trace-${field}`}>{label} (optional)</label><select id={`trace-${field}`} className={control} value={values[field]} onChange={event => onChange(field, event.target.value)}><option value="">Not provided</option>{values[field] && !choices.some(([value]) => value === values[field]) && <option value={values[field]}>{values[field]}</option>}{choices.map(([value, text]) => <option key={value} value={value}>{text}</option>)}</select></div>;
 }
 export function AlumniTraceForm({ config, email, profile, session, registration = false, onSaved }: { config: AlumniConfiguration; email: string; profile: AlumniProfile | null; session: string; registration?: boolean; onSaved: (result: AlumniSaved) => void }) {
   const [accountEmail, setAccountEmail] = useState(email);
@@ -32,7 +33,7 @@ export function AlumniTraceForm({ config, email, profile, session, registration 
     setMode(next);
     if (next !== "NO_CHANGE") {
       setStatus(""); setEmployer(""); setJob(""); setFurtherStudy(false);
-      setExtra(previous => ({ ...previous, ...Object.fromEntries([...workFields, ...studyFields, ["work_alignment"], ["work_arrangement"], ["exam_status"]].map(([key]) => [key, ""])) }));
+      setExtra(previous => ({ ...previous, ...Object.fromEntries([...workFields, ...studyFields, ["work_province"], ["work_alignment"], ["work_arrangement"], ["exam_status"]].map(([key]) => [key, ""])) }));
     }
   }
   const [name, setName] = useState(profile?.full_name || "");
@@ -51,6 +52,9 @@ export function AlumniTraceForm({ config, email, profile, session, registration 
   const [consent, setConsent] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+  const currentYear = new Date().getFullYear();
+  const graduationYears = Array.from({length: currentYear - 1900 + 1}, (_, index) => String(currentYear - index));
+  const semesterChoices = [["After 1st semester", "After 1st semester"], ["After 2nd semester", "After 2nd semester"]];
   const employed = status === "EMPLOYED" || status === "SELF_EMPLOYED";
   const studying = status === "FURTHER_STUDY" || furtherStudy;
 
@@ -66,6 +70,7 @@ export function AlumniTraceForm({ config, email, profile, session, registration 
         full_name: name, bsca_year: bsca ? Number(bscaYear) : null, msca_year: msca ? Number(mscaYear) : null,
         career_status: status, employer: employed ? employer : "", job_title: employed ? job : "", interests,
         preferred_contact: contact, phone, receive_updates: updates, willing_to_mentor: mentor,
+        bsca_period: bsca ? extra.bsca_period : "", msca_period: msca ? extra.msca_period : "",
         consent, notice_version: config.notice_version,
       }, session);
       onSaved(result);
@@ -85,13 +90,13 @@ export function AlumniTraceForm({ config, email, profile, session, registration 
     <fieldset className="rounded-md border border-border p-4">
       <legend className="px-2 font-semibold">Graduated program — choose one or both</legend>
       <div className="grid gap-4 sm:grid-cols-2">
-        <div><label className="flex min-h-11 items-center gap-2"><input type="checkbox" className="h-5 w-5 accent-primary" checked={bsca} onChange={event => setBsca(event.target.checked)} />BSCA graduate</label>{bsca && <><label className="mb-2 block" htmlFor="bsca-year">BSCA graduation year</label><input id="bsca-year" type="number" min={1900} max={new Date().getFullYear()} required className={control} value={bscaYear} onChange={event => setBscaYear(event.target.value)} /></>}</div>
-        <div><label className="flex min-h-11 items-center gap-2"><input type="checkbox" className="h-5 w-5 accent-primary" checked={msca} onChange={event => setMsca(event.target.checked)} />MSCA graduate</label>{msca && <><label className="mb-2 block" htmlFor="msca-year">MSCA graduation year</label><input id="msca-year" type="number" min={1900} max={new Date().getFullYear()} required className={control} value={mscaYear} onChange={event => setMscaYear(event.target.value)} /></>}</div>
+        <div><label className="flex min-h-11 items-center gap-2"><input type="checkbox" className="h-5 w-5 accent-primary" checked={bsca} onChange={event => setBsca(event.target.checked)} />BSCA graduate</label>{bsca && <><label className="mb-2 block" htmlFor="bsca-year">BSCA graduation year</label><select id="bsca-year" required className={control} value={bscaYear} onChange={event => setBscaYear(event.target.value)}><option value="">Choose the calendar year</option>{graduationYears.map(year => <option key={year} value={year}>{year}</option>)}</select><div className="mt-3"><ExtraSelect field="bsca_period" label="BSCA graduation semester" values={extra} choices={semesterChoices} onChange={changeExtra} /></div></>}</div>
+        <div><label className="flex min-h-11 items-center gap-2"><input type="checkbox" className="h-5 w-5 accent-primary" checked={msca} onChange={event => setMsca(event.target.checked)} />MSCA graduate</label>{msca && <><label className="mb-2 block" htmlFor="msca-year">MSCA graduation year</label><select id="msca-year" required className={control} value={mscaYear} onChange={event => setMscaYear(event.target.value)}><option value="">Choose the calendar year</option>{graduationYears.map(year => <option key={year} value={year}>{year}</option>)}</select><div className="mt-3"><ExtraSelect field="msca_period" label="MSCA graduation semester" values={extra} choices={semesterChoices} onChange={changeExtra} /></div></>}</div>
       </div>
     </fieldset>
     <h3 className="text-lg font-semibold">2. How we can reach you</h3>
     <div className="grid gap-4 sm:grid-cols-2"><div><label className="mb-2 block font-medium" htmlFor="alumni-contact">Preferred contact method</label><select id="alumni-contact" className={control} value={contact} onChange={event => setContact(event.target.value)}><option value="EMAIL">Email</option><option value="PHONE">Phone</option></select></div><div><label className="mb-2 block font-medium" htmlFor="alumni-phone">Phone number ({contact === "PHONE" ? "required for phone contact" : "optional"})</label><input id="alumni-phone" type="tel" autoComplete="tel" required={contact === "PHONE"} className={control} maxLength={40} value={phone} onChange={event => setPhone(event.target.value)} /></div></div>
-    <ExtraControls fields={contactFields.filter(([key]) => ["residence_city", "residence_country"].includes(key))} values={extra} onChange={changeExtra} />
+    <AlumniLocationFields prefix="residence" options={config.location_options} values={extra} onChange={changeExtra} />
     {profile?.career_history?.length ? <details className="rounded-md border border-border p-4"><summary className="cursor-pointer font-semibold">My retained career history ({profile.career_history.length})</summary><p className="my-4 text-sm leading-6">Earlier entries are retained as reported. Reporting dates do not imply employment end dates. Contact the chairperson to correct an earlier entry.</p><ol className="space-y-4">{profile.career_history.map(entry => <li key={entry.id} className="rounded-md bg-muted p-4"><h3 className="font-semibold">{entry.job_title || statuses.find(([key]) => key === entry.career_status)?.[1] || entry.career_status}{entry.employer && ` · ${entry.employer}`}</h3><p className="mt-2 text-sm">{entry.entry_kind === "HISTORICAL" ? "Previous role" : "Activity update"} · Reported {new Date(entry.reported_at).toLocaleDateString()}</p><p className="mt-2">{[entry.work_city, entry.work_country].filter(Boolean).join(", ")}</p>{entry.duties && <p className="mt-2 whitespace-pre-line leading-7">{entry.duties}</p>}{(entry.career_start || entry.career_end) && <p className="mt-2 text-sm">Dates: {entry.career_start || "Not provided"} to {entry.career_end || "No end date provided"}</p>}</li>)}</ol></details> : null}
     {profile && <div><label className="mb-2 block font-medium" htmlFor="career-entry-mode">Career history update</label><select id="career-entry-mode" className={control} value={mode} onChange={event => changeMode(event.target.value)}><option value="NO_CHANGE">Keep my current activity; update contact or network details</option><option value="CURRENT">Add my new current role or activity</option><option value="HISTORICAL">Add a previous role without changing my current activity</option></select><p className="mt-2 text-sm leading-6">New entries are added to your history. Earlier roles are kept.</p></div>}
     {mode !== "NO_CHANGE" && <fieldset className="space-y-5 rounded-md border border-border p-4"><legend className="px-2 font-semibold">{mode === "HISTORICAL" ? "Previous role or activity" : "3. What you are doing now"}</legend>
@@ -100,10 +105,10 @@ export function AlumniTraceForm({ config, email, profile, session, registration 
     {employed && <ExtraSelect field="work_alignment" label="Does your work relate to your degree?" values={extra} onChange={changeExtra} choices={[["ALIGNED", "Yes"], ["PARTLY", "Partly"], ["NOT_ALIGNED", "No"], ["UNSURE", "Unsure / not applicable"]]} />}
     {status && status !== "PREFER_NOT_TO_SAY" && status !== "FURTHER_STUDY" && <label className="flex items-start gap-3 leading-6"><input type="checkbox" className="mt-1 h-5 w-5" checked={furtherStudy} onChange={event => setFurtherStudy(event.target.checked)} />I am also pursuing further study.</label>}
     {studying && <ExtraControls fields={studyFields.filter(([key]) => ["study_program", "study_institution"].includes(key))} values={extra} onChange={changeExtra} />}
-    {employed && <details className="rounded-md border border-border p-4"><summary className="cursor-pointer font-semibold">More about this role (optional)</summary><div className="mt-4 space-y-4"><ExtraControls fields={workFields} values={extra} onChange={changeExtra} /><ExtraSelect field="work_arrangement" label="Work arrangement" values={extra} onChange={changeExtra} choices={[["ONSITE", "On-site"], ["REMOTE", "Remote"], ["HYBRID", "Hybrid"]]} /></div></details>}
+    {employed && <details className="rounded-md border border-border p-4"><summary className="cursor-pointer font-semibold">More about this role (optional)</summary><div className="mt-4 space-y-4"><AlumniLocationFields prefix="work" options={config.location_options} values={extra} onChange={changeExtra} /><ExtraControls fields={workFields.filter(([key]) => !["work_city", "work_country"].includes(key))} values={extra} onChange={changeExtra} /><ExtraSelect field="work_arrangement" label="Work arrangement" values={extra} onChange={changeExtra} choices={[["ONSITE", "On-site"], ["REMOTE", "Remote"], ["HYBRID", "Hybrid"]]} /></div></details>}
     <details className="rounded-md border border-border p-4"><summary className="cursor-pointer font-semibold">Program feedback and exams (optional)</summary><div className="mt-4 space-y-4"><ExtraControls fields={studyFields.filter(([key]) => ["exam_details", "program_feedback"].includes(key))} values={extra} onChange={changeExtra} /><ExtraSelect field="exam_status" label="Licensure or eligibility exam status" values={extra} onChange={changeExtra} choices={[["PASSED", "Passed"], ["NOT_PASSED", "Not passed"], ["NOT_TAKEN", "Not taken / not applicable"]]} /></div></details>
     </fieldset>}
-    <details className="rounded-md border border-border p-4"><summary className="cursor-pointer font-semibold">More graduate details (optional)</summary><p className="my-4 text-sm leading-6">Add these only if you wish; your full name and graduation year are enough for the basic update.</p><ExtraControls fields={contactFields.filter(([key]) => !["residence_city", "residence_country"].includes(key))} values={extra} onChange={changeExtra} /><div className="mt-4"><ExtraSelect field="sex" label="Sex (for the graduate tracing form)" values={extra} onChange={changeExtra} choices={[["M", "Male"], ["F", "Female"], ["OTHER", "Another description"], ["UNDISCLOSED", "Prefer not to say"]]} /></div></details>
+    <details className="rounded-md border border-border p-4"><summary className="cursor-pointer font-semibold">More graduate details (optional)</summary><p className="my-4 text-sm leading-6">Add these only if you wish; your full name and graduation year are enough for the basic update.</p><ExtraControls fields={contactFields.filter(([key]) => !["residence_city", "residence_country", "bsca_period", "msca_period"].includes(key))} values={extra} onChange={changeExtra} /><div className="mt-4"><ExtraSelect field="sex" label="Sex (for the graduate tracing form)" values={extra} onChange={changeExtra} choices={[["M", "Male"], ["F", "Female"], ["OTHER", "Another description"], ["UNDISCLOSED", "Prefer not to say"]]} /></div></details>
     <fieldset className="space-y-3 rounded-md border border-border p-4"><legend className="px-2 font-semibold">Stay connected — optional choices</legend>
 
       <label className="flex items-start gap-3 leading-6"><input type="checkbox" className="mt-1 h-5 w-5 shrink-0 accent-primary" checked={updates} onChange={event => setUpdates(event.target.checked)} />The department may contact me about alumni opportunities, events, and occasional career updates.</label>

@@ -175,3 +175,25 @@ cohorts, eligible roster counts, response targets, follow-up dates, and treatmen
 of nonresponse. No response-rate target is invented or automatically approved.
 Use cohort coverage and outcome summaries together, with their missing-answer
 counts and selection scope, when preparing quality-assurance reports.
+
+## Dropdowns and graduation periods
+
+Graduation year is the calendar year, paired separately with `After 1st semester`
+or `After 2nd semester`, as clarified by the user. Each BSCA/MSCA qualification has
+its own year and optional semester. Existing free-text semester answers remain
+selectable unchanged; no old periods are guessed or normalized. Years use the
+existing accepted range (1900 through the current year), descending.
+
+Django's configuration response supplies bundled country/territory and Philippine
+province/city reference choices. See `backend/apps/alumni/data/README.md` for
+sources, snapshot limitations, attribution and update procedure. No live provider
+call occurs during completion. Current and work locations use the same controls.
+Changing country/area clears incompatible dependent answers. Independent cities
+and Metro Manila are selectable without assigning them a false province; their
+province field stays blank. Foreign state/province and city names, and unlisted
+locations, retain text entry. Saved nonmatching answers are retained unchanged.
+
+Migration 0009 adds optional residence/work province fields and preserves existing
+records. Work province is included in immutable career snapshots and exports.
+Location reference data are choices only; alumni are not automatically assigned
+a country, province, city, semester or academic qualification.

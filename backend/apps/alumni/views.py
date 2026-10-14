@@ -17,6 +17,7 @@ from rest_framework.views import APIView
 from .models import AlumniSettings, AlumniProfile, AlumniEmailLink, AlumniUpdateSession, AlumniOpportunity
 from .serializers import AccessKeyInput, RegistrationInput, EmailInput, TokenInput, ProfileInput, ProfileOutput, OpportunitySerializer
 from .service import record_update
+from .location_options import location_options
 
 
 def digest(token):
@@ -72,7 +73,7 @@ class AlumniConfigurationView(PrivateAlumniView):
             "contact_email": config.contact_email if config else "", "privacy_notice": config.privacy_notice if config else "",
             "notice_version": config.notice_version if config else "", "retention_days": config.retention_days if config else None,
             "retain_indefinitely": config.retain_indefinitely if config else False, "access_keys_enabled": config.access_keys_enabled if config else False,
-            "email_links_available": email_ready()})
+            "email_links_available": email_ready(), "location_options": location_options()})
 
 
 class AccessKeyThrottle(AlumniThrottle):

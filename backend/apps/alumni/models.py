@@ -55,9 +55,11 @@ class AlumniProfile(TimeStampedModel):
     msca_period = models.CharField(max_length=100, blank=True)
     sex = models.CharField(max_length=20, choices=[("", "Not provided"), ("M", "Male"), ("F", "Female"), ("OTHER", "Another description"), ("UNDISCLOSED", "Prefer not to say")], blank=True)
     residence_city = models.CharField(max_length=150, blank=True)
+    residence_province = models.CharField(max_length=150, blank=True)
     residence_country = models.CharField(max_length=100, blank=True)
     industry = models.CharField(max_length=150, blank=True)
     work_city = models.CharField(max_length=150, blank=True)
+    work_province = models.CharField(max_length=150, blank=True)
     work_country = models.CharField(max_length=100, blank=True)
     work_arrangement = models.CharField(max_length=20, choices=[("", "Not provided"), ("ONSITE", "On-site"), ("REMOTE", "Remote"), ("HYBRID", "Hybrid")], blank=True)
     duties = models.TextField(blank=True, max_length=3000)
@@ -110,7 +112,7 @@ class AlumniUpdateSession(models.Model):
     used_at = models.DateTimeField(null=True, blank=True)
 
 
-CAREER_FIELDS = ("career_status", "employer", "job_title", "industry", "work_city", "work_country", "work_arrangement", "duties", "skills_used", "work_alignment", "alignment_explanation", "career_start", "career_end", "further_study", "study_program", "study_institution", "exam_status", "exam_details", "program_feedback")
+CAREER_FIELDS = ("career_status", "employer", "job_title", "industry", "work_city", "work_province", "work_country", "work_arrangement", "duties", "skills_used", "work_alignment", "alignment_explanation", "career_start", "career_end", "further_study", "study_program", "study_institution", "exam_status", "exam_details", "program_feedback")
 
 
 class AlumniCareerEntry(models.Model):
@@ -123,6 +125,7 @@ class AlumniCareerEntry(models.Model):
     job_title = models.CharField(max_length=150, blank=True)
     industry = models.CharField(max_length=150, blank=True)
     work_city = models.CharField(max_length=150, blank=True)
+    work_province = models.CharField(max_length=150, blank=True)
     work_country = models.CharField(max_length=100, blank=True)
     work_arrangement = models.CharField(max_length=20, blank=True)
     duties = models.TextField(blank=True)

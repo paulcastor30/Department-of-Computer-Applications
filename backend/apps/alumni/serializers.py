@@ -24,7 +24,7 @@ class ProfileInput(serializers.ModelSerializer):
 
     class Meta:
         model = AlumniProfile
-        fields = ("full_name", "bsca_year", "msca_year", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "notice_version", "consent", "student_id", "family_name", "first_name", "middle_name", "permanent_address", "landline", "bsca_period", "msca_period", "sex", "residence_city", "residence_country", "network_interests", "professional_url", "career_entry_mode", *CAREER_FIELDS)
+        fields = ("full_name", "bsca_year", "msca_year", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "notice_version", "consent", "student_id", "family_name", "first_name", "middle_name", "permanent_address", "landline", "bsca_period", "msca_period", "sex", "residence_city", "residence_province", "residence_country", "network_interests", "professional_url", "career_entry_mode", *CAREER_FIELDS)
 
     def validate(self, data):
         if not data.get("consent"):
@@ -62,7 +62,7 @@ class ProfileOutput(serializers.ModelSerializer):
 
     class Meta:
         model = AlumniProfile
-        fields = ("email", "full_name", "bsca_year", "msca_year", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "alumni_updated_at", "email_verified_at", "student_id", "family_name", "first_name", "middle_name", "permanent_address", "landline", "bsca_period", "msca_period", "sex", "residence_city", "residence_country", "network_interests", "professional_url", "career_history", *CAREER_FIELDS)
+        fields = ("email", "full_name", "bsca_year", "msca_year", "interests", "preferred_contact", "phone", "receive_updates", "willing_to_mentor", "alumni_updated_at", "email_verified_at", "student_id", "family_name", "first_name", "middle_name", "permanent_address", "landline", "bsca_period", "msca_period", "sex", "residence_city", "residence_province", "residence_country", "network_interests", "professional_url", "career_history", *CAREER_FIELDS)
 
 
 class AccessKeyInput(EmailInput):
