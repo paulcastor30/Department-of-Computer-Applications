@@ -7,7 +7,7 @@ import type { FacultyDirectoryMember } from "@/types/api";
 
 function FacultyCard({ member, former = false }: { member: FacultyDirectoryMember; former?: boolean }) {
   const expertise = (member.specialization_areas || member.research_interests || "").split(/\n|;/).map(value => value.trim().replace(/,\s*/g, ", ")).filter(Boolean);
-  return <article className="flex gap-4 border-b border-border py-5">
+  return <article className="flex gap-4 rounded-md border border-border p-5 md:p-6">
     {member.photo && <img src={member.photo} alt="" className="h-20 w-20 shrink-0 rounded-sm object-cover" loading="lazy" />}
     <div className="min-w-0 flex-1">
       <h3 className="text-lg font-semibold leading-snug text-primary"><Link className="text-link" to={`/faculty/${member.slug}`}>{member.title}</Link></h3>
@@ -47,7 +47,7 @@ export default function Faculty() {
       {isLoading ? <p role="status">Loading directory…</p> : isError ? <div role="status"><p>The directory could not be loaded. Please try again or contact the department.</p><button className="outline-link mt-4" onClick={() => refetch()}>Try again</button></div> : <>
         <p role="status" className="mb-6 text-sm text-muted-foreground">{filtered.length} {filtered.length === 1 ? "profile" : "profiles"}{query ? " match your search." : " available."}</p>
         {!filtered.length && <p className="mb-8">{query ? "Try another name or a broader specialization." : "No profiles are currently available. Contact the department for assistance."}</p>}
-        <div className="space-y-8">{groups.filter(g => g.members.length).map(group => <section key={group.title}><h2 className="mb-2 text-xl font-semibold text-primary">{group.title}</h2>{group.title === "Graduate affiliates" && <p className="text-sm leading-6 text-muted-foreground">Faculty from other units affiliated with the graduate program.</p>}<div className="grid gap-x-8 lg:grid-cols-2">{group.members.map(member => <FacultyCard key={member.id} member={member} former={group.title === "Former faculty"} />)}</div></section>)}</div>
+        <div className="space-y-8">{groups.filter(g => g.members.length).map(group => <section key={group.title}><h2 className="mb-2 text-xl font-semibold text-primary">{group.title}</h2>{group.title === "Graduate affiliates" && <p className="text-sm leading-6 text-muted-foreground">Faculty from other units affiliated with the graduate program.</p>}<div className="mt-4 grid gap-5 lg:grid-cols-2">{group.members.map(member => <FacultyCard key={member.id} member={member} former={group.title === "Former faculty"} />)}</div></section>)}</div>
       </>}
       <div className="mt-12 border-t border-border pt-8"><p className="mb-4 leading-7">For general enquiries, contact the department.</p><Link className="outline-link" to="/about/contact">Department contact details</Link></div>
     </Section>
