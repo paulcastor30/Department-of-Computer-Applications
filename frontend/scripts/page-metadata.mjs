@@ -21,6 +21,8 @@ const pages = {
   '/news/events': ['Events and deadlines', 'Upcoming department activities, submission deadlines and research conference dates.'],
   '/sojt-guide': ['SOJT Process Guide', 'Follow the BSCA internship process, from eligibility and orientation to placement, monitoring and clearance.'],
   '/thesis-guide': ['Thesis Process Guide', 'Follow BSCA and MSCA thesis steps, find the right forms, prepare requirements and understand proposal, defense and submission deadlines.'],
+  '/students/current': ['Current student services', 'Find BSCA and MSCA forms, thesis and internship guides, program documents, academic contacts and department dates.'],
+  '/students/prospective': ['Thinking of studying here?', 'Understand Computer Applications, explore BSCA and MSCA programs, and find official admission guidance.'],
   '/resources': ['Student & faculty resources', 'Find program documents, thesis checklists, faculty contacts and learning-support enquiries.'],
   '/alumni': ['Alumni tracer & connections', 'Complete a quick, private BSCA or MSCA alumni update to reconnect with the department and support program improvement.'],
   '/admissions/transfer-evaluation': ['BSCA shifting and transfer evaluation', 'Compare completed subjects, submit academic records, and follow department review.'],

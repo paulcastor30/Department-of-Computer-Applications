@@ -102,7 +102,11 @@
     },
     {
       "source": "/students/current",
-      "destination": "/resources/index.html"
+      "destination": "/students/current/index.html"
+    },
+    {
+      "source": "/students/prospective",
+      "destination": "/students/prospective/index.html"
     },
     {
       "source": "/(.*)",

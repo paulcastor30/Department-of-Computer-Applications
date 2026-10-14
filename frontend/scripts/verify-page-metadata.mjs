@@ -17,7 +17,7 @@ for (const code of ['bsca', 'msca']) {
 assert.notEqual(titles[0], titles[1]);
 assert.notEqual(descriptions[0], descriptions[1]);
 const config = JSON.parse(await readFile('vercel.json', 'utf8'));
-for (const route of ['/programs/bsca', '/programs/msca', '/admissions', '/resources', '/research/publications', '/projects', '/thesis-guide', '/sojt-guide', '/news/events']) {
+for (const route of ['/programs/bsca', '/programs/msca', '/admissions', '/resources', '/research/publications', '/projects', '/thesis-guide', '/sojt-guide', '/news/events', '/students/current', '/students/prospective']) {
   assert.ok(config.rewrites.some(rewrite => rewrite.source === route && rewrite.destination === `${route}/index.html`));
 }
 const thesis = await readFile('dist/thesis-guide/index.html', 'utf8');

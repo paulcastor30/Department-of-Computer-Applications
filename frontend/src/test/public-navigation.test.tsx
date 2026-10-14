@@ -266,22 +266,22 @@ it('introduces existing research and community examples without claiming an appr
   expect(main.getByRole('link', { name: 'Find community information' })).toHaveAttribute('href', '/extension');
 });
 
-it('puts beginner understanding before program choice and deeper institutional information', async () => {
+it('puts tasks and current information before programs and deeper information', async () => {
   await renderReadyApp();
   const main = within(screen.getByRole('main'));
   const titles = main.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent);
-  expect(titles).toEqual(['What would you like to do?', 'What is Computer Applications?', 'Study with us', 'What will you learn to build?', 'Computer Applications in practice', 'Is BSCA for me?', 'Get to know the department', 'News and announcements', 'Visit or get in touch']);
+  expect(titles).toEqual(['What would you like to do?', 'News and announcements', 'Study with us', 'Computer Applications in practice', 'Get to know the department', 'Visit or get in touch']);
   expect(main.getByText(/Study with us:/)).toHaveTextContent('BSCA (bachelor’s degree) and MSCA (master’s degree)');
 });
 
 
-it('offers seven primary destinations and returns Home through the department identity', async () => {
+it('offers eight primary destinations and returns Home through the department identity', async () => {
   await renderReadyApp();
   const nav = within(screen.getByRole('navigation', { name: 'Main navigation' }));
-  expect(nav.getAllByRole('link').map(link => link.textContent)).toEqual(['About', 'Programs', 'Faculty & Staff', 'Research', 'Extension', 'Students', 'Contact']);
+  expect(nav.getAllByRole('link').map(link => link.textContent)).toEqual(['About', 'Programs', 'Faculty & Staff', 'Research', 'Extension', 'Students', 'News & Events', 'Contact']);
   expect(screen.getByRole('link', { name: 'Department of Computer Applications home' })).toHaveAttribute('href', '/');
   fireEvent.click(nav.getByRole('link', { name: 'Students' }));
-  expect(await screen.findByRole('heading', { level: 1, name: 'Student & faculty resources' })).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { level: 1, name: 'Current student services' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Students', current: 'page' })).toBeInTheDocument();
   fireEvent.click(screen.getByRole('link', { name: 'Department of Computer Applications home' }));
   expect(screen.getByRole('heading', { level: 1, name: 'Department of Computer Applications' })).toBeInTheDocument();
@@ -334,4 +334,28 @@ it('opens a closed document section and focuses a linked record after asynchrono
   render(<QueryClientProvider client={new QueryClient()}><MemoryRouter initialEntries={['/resources#program-document-42']}><Layout><details><summary>Completion forms</summary><div id="program-document-42">Specific published form</div></details></Layout></MemoryRouter></QueryClientProvider>);
   await waitFor(() => expect(screen.getByText('Completion forms').closest('details')).toHaveAttribute('open'));
   expect(document.getElementById('program-document-42')).toHaveFocus();
+});
+
+it('makes alumni and admissions directly accessible and provides a dedicated student hub', async () => {
+  await renderReadyApp();
+  const quick = within(screen.getByRole('navigation',{name:'Quick access'}));
+  expect(quick.getByRole('link',{name:'Apply'})).toHaveAttribute('href','/admissions');
+  expect(quick.getByRole('link',{name:'Alumni'})).toHaveAttribute('href','/alumni');
+  const tasks=within(screen.getByRole('navigation',{name:'Quick tasks'}));
+  fireEvent.click(tasks.getByRole('link',{name:'Find student services'}));
+  const main=within(screen.getByRole('main'));
+  await main.findByRole('heading',{level:1,name:'Current student services'});
+  expect(main.getByRole('link',{name:/Fill or download thesis and program forms/})).toHaveAttribute('href','/resources#student-forms');
+  expect(main.getByRole('link',{name:/Arrange your BSCA internship/})).toHaveAttribute('href','/sojt-guide');
+  expect(main.getByRole('link',{name:'MSCA Thesis Process Guide'})).toHaveAttribute('href','/thesis-guide?program=MSCA');
+});
+
+it('preserves beginner explanations on the prospective-students page',async()=>{
+  window.history.replaceState({},'', '/students/prospective');
+  await renderReadyApp();
+  const main=within(screen.getByRole('main'));
+  expect(main.getByRole('heading',{name:'What is Computer Applications?'})).toBeInTheDocument();
+  expect(main.getByRole('heading',{name:'What will you learn to build?'})).toBeInTheDocument();
+  expect(main.getByRole('heading',{name:'Is BSCA for me?'})).toBeInTheDocument();
+  expect(within(main.getByRole('navigation',{name:'Prospective student tasks'})).getByRole('link',{name:'How to apply'})).toHaveAttribute('href','/admissions');
 });

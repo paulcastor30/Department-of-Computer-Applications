@@ -9,7 +9,7 @@ import { departmentIdentity } from "@/content/siteContent";
 import { normalizePrograms } from "./programs/programData";
 import { NewsList } from "./News";
 import { homeOrientation } from "@/content/homeOrientation";
-import { WhatIsComputerApplications, WhatStudentsBuild, ChoosingComputerApplications } from "@/components/HomeOrientation";
+import { UpcomingDatesPreview } from "@/components/UpcomingDatesPreview";
 import { RealDepartmentWork } from "@/components/RealDepartmentWork";
 import departmentBanner from "@/assets/department-home-web.webp";
 
@@ -45,14 +45,22 @@ export default function Index() {
       <section className="container home-content py-6" aria-labelledby="quick-tasks-title">
         <h2 id="quick-tasks-title">What would you like to do?</h2>
         <nav aria-label="Quick tasks" className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <Link className="outline-link justify-start" to="/resources#student-forms">Fill or download thesis forms</Link>
-          <Link className="outline-link justify-start" to="/resources#registrar-forms">Find registrar services</Link>
           <Link className="outline-link justify-start" to="/admissions">Apply, shift or transfer</Link>
-          <Link className="outline-link justify-start" to="/accessibility">Get help using this website</Link>
+          <Link className="outline-link justify-start" to="/students/current">Find student services</Link>
+          <Link className="outline-link justify-start" to="/alumni">Complete the alumni tracer</Link>
+          <Link className="outline-link justify-start" to="/about/contact">Discuss research or community work</Link>
         </nav>
       </section>
 
-      <WhatIsComputerApplications />
+      <section className="container home-content home-section" aria-labelledby="home-news-title">
+        <div className="home-section-heading">
+          <h2 id="home-news-title">News and announcements</h2>
+          <div className="flex flex-wrap gap-4"><Link className="text-link" to="/news/events">Upcoming events and deadlines</Link><Link className="text-link" to="/news">All news and events</Link></div>
+        </div>
+        <div className="mt-6 grid gap-8 lg:grid-cols-[2fr_1fr]"><NewsList limit={3} compact /><UpcomingDatesPreview /></div>
+      </section>
+
+
 
       <section className="container home-content home-section home-study" aria-labelledby="home-study-title">
         <div className="home-section-heading">
@@ -60,6 +68,7 @@ export default function Index() {
           <Link className="text-link" to="/admissions">How to apply</Link>
         </div>
         <p className="home-section-description">Choose undergraduate foundations or advanced graduate study. Each program page provides subjects, the prospectus and official admission guidance.</p>
+        <Link className="text-link mt-4 inline-flex min-h-11 items-center" to="/students/prospective">Understand Computer Applications and explore what you can build</Link>
         <ul className="home-degree-grid">
           {programs.map(program => (
             <li key={program.code}>
@@ -74,9 +83,7 @@ export default function Index() {
         </ul>
       </section>
 
-      <WhatStudentsBuild />
       <RealDepartmentWork />
-      <ChoosingComputerApplications />
 
       <section className="home-about" aria-labelledby="home-about-title">
         <div className="container home-content home-section home-about-layout">
@@ -99,14 +106,6 @@ export default function Index() {
             </ul>
           </nav>
         </div>
-      </section>
-
-      <section className="container home-content home-section" aria-labelledby="home-news-title">
-        <div className="home-section-heading">
-          <h2 id="home-news-title">News and announcements</h2>
-          <div className="flex flex-wrap gap-4"><Link className="text-link" to="/news/events">Upcoming events and deadlines</Link><Link className="text-link" to="/news">All news and events</Link></div>
-        </div>
-        <NewsList limit={3} />
       </section>
 
       <section className="home-visit" aria-labelledby="home-help-title">

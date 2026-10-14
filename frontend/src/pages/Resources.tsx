@@ -19,17 +19,16 @@ export default function Resources() {
     <section className="container py-8" aria-labelledby="resource-tasks-title">
       <h2 id="resource-tasks-title" className="text-2xl font-semibold">What do you need to do?</h2>
       <nav aria-label="Student tasks" className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        <a className="outline-link justify-start" href="#learning-resources">Explore embedded systems & IoT</a>
         <a className="outline-link justify-start" href="#student-forms">Fill or download thesis forms</a>
         <a className="outline-link justify-start" href="#registrar-forms">Find a registrar form</a>
         <Link className="outline-link justify-start" to="/thesis-guide">Follow the thesis process</Link>
         <Link className="outline-link justify-start" to="/sojt-guide">Follow the BSCA internship process</Link>
         <a className="outline-link justify-start" href="#learning-support">Find learning-support contacts</a>
+        <a className="outline-link justify-start" href="#learning-resources">Explore embedded systems & IoT</a>
         <Link className="outline-link justify-start" to="/about/contact">Contact the department</Link>
       </nav>
       <p className="mt-4 max-w-prose leading-7 text-muted-foreground">Choose a task to go straight to it. For supported forms, select “Fill out online”, enter the details you know, then review and print the PDF. You can also download the blank Word version.</p>
     </section>
-    <LearningResources />
     <Section id="student-forms" variant="muted">
       <SectionHeader title="Fill or download thesis and program forms" subtitle="Choose your degree: undergraduate and graduate forms are different." className="mb-5" />
       <ProgramFormPicker programs={programs} />
@@ -59,6 +58,7 @@ export default function Resources() {
       <p className="max-w-prose leading-7">Find each stage, its preparation requirements, responsible people and the next step.</p>
       <Link className="action-link mt-4" to="/sojt-guide">View SOJT Process Guide</Link>
     </Section>
+    <LearningResources />
     <Section variant="muted">
       <SectionHeader title="Contacts and announcements" className="mb-5" />
       <nav aria-label="Academic contacts and updates" className="flex flex-wrap gap-x-6 gap-y-2">

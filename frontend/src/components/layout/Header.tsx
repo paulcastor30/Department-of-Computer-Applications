@@ -39,7 +39,7 @@ export function Header() {
           <span className="max-w-sm text-base leading-snug sm:text-xl">{departmentIdentity.name}</span>
         </Link>
         <div className="flex flex-wrap gap-2">
-          <Link className="outline-link text-sm" to="/resources">Student &amp; faculty resources</Link>
+          <nav aria-label="Quick access" className="flex flex-wrap gap-2"><Link className="outline-link text-sm" to="/admissions">Apply</Link><Link className="outline-link text-sm" to="/alumni">Alumni</Link></nav>
           <button ref={searchButtonRef} aria-label="Search site" type="button" className="control-button" aria-expanded={searchOpen} aria-controls="site-search" onClick={() => { setSearchOpen(value => !value); setMenuOpen(false); }}><Search aria-hidden="true" size={18}/><span>Search</span></button>
           <button ref={menuButtonRef} type="button" className="control-button md:hidden" aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => { setMenuOpen(value => !value); setSearchOpen(false); }}>{menuOpen ? <X aria-hidden="true" size={18}/> : <Menu aria-hidden="true" size={18}/>}<span>Menu</span></button>
         </div>
