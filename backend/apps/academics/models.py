@@ -108,6 +108,7 @@ class SOJTGuide(TimeStampedModel):
     is_published = models.BooleanField(default=False)
     reviewed_on = models.DateField(null=True, blank=True)
     approval_reference = models.CharField(max_length=255, blank=True, help_text="Internal reference to the Department's approval and applicability review; never exposed by the API.")
+    approved_content_hash = models.CharField(max_length=64, blank=True, help_text="Digest of exact guide text explicitly authorized for publication. Source statuses remain unchanged.")
     internal_notes = models.TextField(blank=True, help_text="Internal editorial notes only. Never put student, medical, complaint or agreement records in the guide.")
 
     def clean(self):
@@ -117,7 +118,12 @@ class SOJTGuide(TimeStampedModel):
         if self.is_published:
             if not self.reviewed_on or not self.approval_reference.strip():
                 raise ValidationError("Publishing requires a review date and Department approval reference.")
-            if any(source["status"] != "verified" for source in self.content["sources"]):
+            from .sojt_schema import guide_content_hash
+            actual_hash = guide_content_hash(self.content)
+            if self.approved_content_hash and self.approved_content_hash != actual_hash:
+                raise ValidationError("The authorized guide text has changed. Unpublish it to edit, then explicitly approve the updated wording before publication.")
+            exact_text_authorized = bool(self.approved_content_hash and self.approved_content_hash == actual_hash)
+            if any(source["status"] != "verified" for source in self.content["sources"]) and not exact_text_authorized:
                 raise ValidationError("Resolve and verify all source statuses before publishing approved guidance.")
 
     def save(self, *args, **kwargs):

@@ -70,7 +70,7 @@ export function ProgramForms({ program }: { program: ProgramProfile }) {
             {variants.map(document => {
               const reference = formLabel(document).reference;
               const extension = document.href!.split("?")[0].split(".").pop()?.toUpperCase() || "file";
-              return <div key={document.href} hidden={!matches(document)} className={variants.length > 1 ? "mt-3" : undefined}>
+              return <div key={document.href} id={document.recordId ? `program-document-${document.recordId}` : undefined} hidden={!matches(document)} className={variants.length > 1 ? "mt-3" : undefined}>
                 <a className="text-link inline-flex min-h-11 items-center" href={document.href} download>
                   {variants.length > 1 ? "Download " : "Download form: "}{variants.length > 1 ? reference || purpose : purpose} ({extension})
                   <span className="sr-only"> — {program.code}{variants.length > 1 ? `: ${purpose}` : reference ? `, ${reference}` : ""}</span>

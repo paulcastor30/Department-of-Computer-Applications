@@ -119,7 +119,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
       <TransferEvaluation program={program} />
       {documents.length > 0 && <section id="program-documents" className="mt-10 border-t border-border pt-8">
         <h3 className="mb-4 text-xl font-semibold text-primary">Program documents</h3>
-        {documents.length ? <ul className="space-y-3">{documents.map(document => <li key={`${document.label}-${document.href}`}>
+        {documents.length ? <ul className="space-y-3">{documents.map(document => <li id={document.recordId ? `program-document-${document.recordId}` : undefined} key={`${document.label}-${document.href}`}>
           {document.href ? <><a className="outline-link" href={document.href}>Open {document.label}</a>{hasProgramContent(document.note) && <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">{document.note}</p>}</> : <p className="leading-7"><strong>{document.label}:</strong> {document.note}</p>}
         </li>)}</ul> : null}
         <DocumentAccessHelp context={`${program.code} documents and forms`} />
@@ -130,7 +130,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
       <SectionHeader title="For current students" subtitle="Thesis preparation and submission guidance for enrolled students." className="mb-6" />
       <h3 className="mb-3 text-xl font-semibold text-primary">{thesisTitle}</h3>
       {guides.length > 0 && <div className="mb-6 max-w-4xl space-y-3">
-        {guides.map(guide => <div key={guide.href}>
+        {guides.map(guide => <div id={guide.recordId ? `program-document-${guide.recordId}` : undefined} key={guide.href}>
           <a className="action-link" href={guide.href}>View {guide.label}</a>
           {hasProgramContent(guide.note) && <p className="mt-3 leading-7 text-muted-foreground">{guide.note}</p>}
         </div>)}
@@ -145,7 +145,7 @@ export function ProgramDetailPage({ program, isError, pageSubtitle, goalsTitle, 
     <Section id="program-inquiries">
       <SectionHeader title={`Questions about ${program.code}?`} />
       <ProgramInquiry code={program.code} compact contactInformation={program.degreeLevelCode === "GRAD" ? program.contactInformation : undefined} />
-      {contacts.map(contact => <a key={contact.href} className="text-link mt-4 inline-flex min-h-11 items-center" href={contact.href}>View {contact.label}</a>)}
+      {contacts.map(contact => <a id={contact.recordId ? `program-document-${contact.recordId}` : undefined} key={contact.href} className="text-link mt-4 inline-flex min-h-11 items-center" href={contact.href}>View {contact.label}</a>)}
     </Section>
   </>;
 }

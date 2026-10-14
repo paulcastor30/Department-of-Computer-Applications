@@ -127,11 +127,27 @@ class ProgramDocumentAdmin(admin.ModelAdmin):
 from .models import SOJTGuide
 
 
+@admin.action(description="Approve exact selected guide wording and publish", permissions=["change"])
+def approve_guide_wording(modeladmin, request, queryset):
+    from zoneinfo import ZoneInfo
+    from django.utils import timezone
+    from .sojt_schema import guide_content_hash
+    approved_on = timezone.localdate(timezone=ZoneInfo("Asia/Manila"))
+    for guide in queryset:
+        guide.reviewed_on = approved_on
+        guide.approval_reference = f"Django admin {request.user.get_username()} approved exact guide wording for publication on {approved_on}."
+        guide.approved_content_hash = guide_content_hash(guide.content)
+        guide.is_published = True
+        guide.save()
+        modeladmin.log_change(request, guide, "Approved exact supplied guide wording for publication; source-review metadata unchanged.")
+
+
 @admin.register(SOJTGuide)
 class SOJTGuideAdmin(admin.ModelAdmin):
+    actions = [approve_guide_wording]
     list_display = ("slug", "is_published", "reviewed_on", "updated_at")
-    readonly_fields = ("created_at", "updated_at")
-    fields = ("slug", "content", "internal_notes", "reviewed_on", "approval_reference", "is_published", "created_at", "updated_at")
+    readonly_fields = ("created_at", "updated_at", "approved_content_hash")
+    fields = ("slug", "content", "internal_notes", "reviewed_on", "approval_reference", "approved_content_hash", "is_published", "created_at", "updated_at")
 
 
 @admin.register(RegistrarForm)

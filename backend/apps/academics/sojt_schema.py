@@ -80,3 +80,9 @@ def validate_guide(content):
         refs(risk["sources"])
     for value in sequence(content["confirmations"]):
         text(value)
+
+
+def guide_content_hash(content):
+    import hashlib
+    import json
+    return hashlib.sha256(json.dumps(content, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")).hexdigest()

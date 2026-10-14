@@ -381,6 +381,7 @@ export interface FacultyMember extends FacultyDirectoryMember {
 }
 
 export interface NewsPost {
+  starts_on?: string | null; ends_on?: string | null; starts_at?: string | null; deadline_on?: string | null; location?: string; event_status?: string;
   source_url?: string;
   id: number;
   title: string;

@@ -1,6 +1,9 @@
 {
   "rewrites": [
-    {"source": "/about/organization", "destination": "/about/organization/index.html"},
+    {
+      "source": "/about/organization",
+      "destination": "/about/organization/index.html"
+    },
     {
       "source": "/alumni",
       "destination": "/alumni/index.html"
@@ -60,6 +63,10 @@
     {
       "source": "/extension",
       "destination": "/extension/index.html"
+    },
+    {
+      "source": "/news/events",
+      "destination": "/news/events/index.html"
     },
     {
       "source": "/news",

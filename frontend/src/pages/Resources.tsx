@@ -22,7 +22,7 @@ export default function Resources() {
         <a className="outline-link justify-start" href="#learning-resources">Explore embedded systems & IoT</a>
         <a className="outline-link justify-start" href="#student-forms">Fill or download thesis forms</a>
         <a className="outline-link justify-start" href="#registrar-forms">Find a registrar form</a>
-        <a className="outline-link justify-start" href="#program-documents">Follow the thesis process</a>
+        <Link className="outline-link justify-start" to="/thesis-guide">Follow the thesis process</Link>
         <Link className="outline-link justify-start" to="/sojt-guide">Follow the BSCA internship process</Link>
         <a className="outline-link justify-start" href="#learning-support">Find learning-support contacts</a>
         <Link className="outline-link justify-start" to="/about/contact">Contact the department</Link>
@@ -55,8 +55,8 @@ export default function Resources() {
       <DocumentAccessHelp context="program documents and student forms" />
     </Section>
     <Section id="sojt-guide">
-      <SectionHeader title="BSCA SOJT Process Guide" subtitle="Guidance and contacts for BSCA internships." />
-      <p className="max-w-prose leading-7">Find internship guidance and contact the department about requirements, forms and placements.</p>
+      <SectionHeader title="BSCA SOJT Process Guide" subtitle="Follow the internship process from eligibility and orientation to placement, monitoring and clearance." />
+      <p className="max-w-prose leading-7">Find each stage, its preparation requirements, responsible people and the next step.</p>
       <Link className="action-link mt-4" to="/sojt-guide">View SOJT Process Guide</Link>
     </Section>
     <Section variant="muted">

@@ -104,7 +104,7 @@ export default function Index() {
       <section className="container home-content home-section" aria-labelledby="home-news-title">
         <div className="home-section-heading">
           <h2 id="home-news-title">News and announcements</h2>
-          <Link className="text-link" to="/news">All news and events</Link>
+          <div className="flex flex-wrap gap-4"><Link className="text-link" to="/news/events">Upcoming events and deadlines</Link><Link className="text-link" to="/news">All news and events</Link></div>
         </div>
         <NewsList limit={3} />
       </section>

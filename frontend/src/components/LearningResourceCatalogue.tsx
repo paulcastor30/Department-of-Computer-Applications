@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import type { LearningResource } from "@/hooks/useAcademics";
 
 const PAGE_SIZE = 24;
@@ -14,11 +15,15 @@ const topics = [
 ] as const;
 
 export function LearningResourceCatalogue({ data }: { data: LearningResource[] }) {
-  const [search, setSearch] = useState("");
+  const {search: locationSearch} = useLocation();
+  const requested = new URLSearchParams(locationSearch).get("learning");
+  const selectedResource = data.find(resource => resource.slug === requested);
+  const [search, setSearch] = useState(() => selectedResource?.title || "");
   const [topic, setTopic] = useState("");
   const [format, setFormat] = useState("");
   const [beginners, setBeginners] = useState(false);
   const [page, setPage] = useState(0);
+  useEffect(() => { if (selectedResource) { setSearch(selectedResource.title); setTopic(""); setFormat(""); setBeginners(false); setPage(0); } }, [selectedResource]);
   const query = search.trim().toLowerCase();
   const resources = data.filter(resource =>
     (!topic || resource.topic === topic) && (!format || resource.resource_type === format) &&

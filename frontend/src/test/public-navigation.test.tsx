@@ -38,12 +38,12 @@ it('searches Home correctly and returns focus when Escape closes search', async 
   await renderReadyApp();
   const toggle = screen.getByRole('button', { name: 'Search site' });
   fireEvent.click(toggle);
-  const input = screen.getByLabelText('Find a page');
+  const input = screen.getByLabelText('Search the website');
   expect(input).toHaveFocus();
   fireEvent.change(input, { target: { value: '  home  ' } });
   expect(screen.getByRole('status')).toHaveTextContent('1 matching page');
   fireEvent.keyDown(input, { key: 'Escape' });
-  expect(screen.queryByLabelText('Find a page')).not.toBeInTheDocument();
+  expect(screen.queryByLabelText('Search the website')).not.toBeInTheDocument();
   expect(toggle).toHaveFocus();
 });
 it('moves focus to the new heading after a route change', async () => {
@@ -125,7 +125,7 @@ it('distinguishes publication dates from activity dates and links to visiting he
 it('finds a public question by its full wording in site search', async () => {
   await renderReadyApp();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
-  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'What do we do' } });
+  fireEvent.change(screen.getByLabelText('Search the website'), { target: { value: 'What do we do' } });
   expect(within(screen.getByRole('search')).getByRole('link', { name: 'What do we do?' })).toHaveAttribute('href', '/our-work');
 });
 
@@ -237,7 +237,7 @@ it('does not promote unfinished pages through the footer or search', async () =>
   await renderReadyApp();
   expect(screen.queryByRole('link', { name: 'International partnerships' })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
-  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'international' } });
+  fireEvent.change(screen.getByLabelText('Search the website'), { target: { value: 'international' } });
   expect(within(screen.getByRole('search')).queryByRole('link', { name: 'International Linkages' })).not.toBeInTheDocument();
   expect(screen.getByRole('status')).toHaveTextContent('0 matching pages');
 });
@@ -252,7 +252,7 @@ it.each([
 ])('finds the relevant public guidance for %s', async (query, label, href) => {
   await renderReadyApp();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
-  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: query } });
+  fireEvent.change(screen.getByLabelText('Search the website'), { target: { value: query } });
   expect(within(screen.getByRole('search')).getByRole('link', { name: label })).toHaveAttribute('href', href);
 });
 
@@ -310,7 +310,7 @@ it('makes ready supporting pages discoverable through footer and search', async 
     expect(footer.getByRole('link', { name: label })).toHaveAttribute('href', href);
   }
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
-  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'facilities' } });
+  fireEvent.change(screen.getByLabelText('Search the website'), { target: { value: 'facilities' } });
   expect(within(screen.getByRole('search')).getByRole('link', { name: 'Facilities' })).toHaveAttribute('href', '/facilities');
 });
 
@@ -318,11 +318,20 @@ it('finds registrar services with multiple words and closes search on a same-pag
   window.history.replaceState({}, '', '/resources');
   await renderReadyApp();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
-  fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'registrar leave' } });
+  fireEvent.change(screen.getByLabelText('Search the website'), { target: { value: 'registrar leave' } });
   const search = screen.getByRole('search');
   fireEvent.submit(search);
   expect(within(search).getByRole('heading', { name: 'Search results' })).toHaveFocus();
   fireEvent.click(within(search).getByRole('link', { name: 'Registrar forms and student services' }));
-  await waitFor(() => expect(screen.queryByLabelText('Find a page')).not.toBeInTheDocument());
+  await waitFor(() => expect(screen.queryByLabelText('Search the website')).not.toBeInTheDocument());
   expect(window.location.hash).toBe('#registrar-forms');
+});
+
+it('opens a closed document section and focuses a linked record after asynchronous rendering', async () => {
+  const { Layout } = await import('@/components/layout/Layout');
+  const { QueryClient, QueryClientProvider } = await import('@tanstack/react-query');
+  const { MemoryRouter } = await import('react-router-dom');
+  render(<QueryClientProvider client={new QueryClient()}><MemoryRouter initialEntries={['/resources#program-document-42']}><Layout><details><summary>Completion forms</summary><div id="program-document-42">Specific published form</div></details></Layout></MemoryRouter></QueryClientProvider>);
+  await waitFor(() => expect(screen.getByText('Completion forms').closest('details')).toHaveAttribute('open'));
+  expect(document.getElementById('program-document-42')).toHaveFocus();
 });

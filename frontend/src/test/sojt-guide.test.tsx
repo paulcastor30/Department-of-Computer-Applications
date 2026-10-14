@@ -90,9 +90,9 @@ it.each(["unavailable", "invalid", "unapproved"])("keeps %s CMS guidance interna
   expect(screen.queryByText(/Completion gate:/)).not.toBeInTheDocument();
 });
 it.each(["SOJT", "OJT", "internship", "practicum", "HTE", "MOA", "Internship Plan", "training hours", "SOJT Coordinator"])("discovers the guide in actual site search for %s", term => {
-  render(<MemoryRouter><Header /></MemoryRouter>);
+  render(<QueryClientProvider client={new QueryClient()}><MemoryRouter><Header /></MemoryRouter></QueryClientProvider>);
   fireEvent.click(screen.getByRole("button", { name: "Search site" }));
-  fireEvent.change(screen.getByLabelText("Find a page"), { target: { value: term } });
+  fireEvent.change(screen.getByLabelText("Search the website"), { target: { value: term } });
   expect(screen.getByRole("link", { name: "SOJT Process Guide" })).toHaveAttribute("href", "/sojt-guide");
   expect(searchPages.some(p => p.href === "/sojt-guide")).toBe(true);
 });

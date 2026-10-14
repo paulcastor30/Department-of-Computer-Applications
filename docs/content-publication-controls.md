@@ -12,7 +12,7 @@ Run `python manage.py migrate` when deploying the backend before serving request
 
 ## Internship guidance
 
-Resource and program links describe internship guidance and department contacts. The full SOJT guide appears only when Django supplies published, reviewed guidance. No content is automatically approved by the frontend, and public pages do not ask visitors to assess internal verification status.
+Resource and program links describe internship guidance and department contacts. The full SOJT guide appears only when Django supplies published, authorized guidance. The project user authorized the existing text unchanged on 2026-10-15; a migration records that authorization and exact content digest without relabelling source-review statuses. No content is automatically approved by the frontend, and public pages do not ask visitors to assess internal verification status.
 
 ## Checks
 

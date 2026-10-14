@@ -285,7 +285,7 @@ const allSearchPages = [
   },
   { title: "Alumni Connections & Career Updates", keywords: ["alumni", "graduates", "career", "mentoring", "contact update", "BSCA", "MSCA"], href: "/alumni" },
   { title: "News and Events", keywords: ["news", "events"], href: "/news" },
-  { title: "Events", keywords: ["events", "calendar"], href: "/news/events" },
+  { title: "Events and deadlines", keywords: ["events", "calendar", "upcoming", "deadlines", "dates"], href: "/news/events" },
   {
     title: "Facilities",
     keywords: ["facilities", "labs"],

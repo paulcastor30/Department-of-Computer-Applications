@@ -17,6 +17,7 @@ class NewsPostSerializer(serializers.ModelSerializer):
             "source_url",
             "featured_image",
             "published_at",
+            "starts_on", "ends_on", "starts_at", "deadline_on", "location", "event_status",
             "featured",
             "is_published",
             "updated_at",

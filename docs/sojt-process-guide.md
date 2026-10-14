@@ -2,11 +2,17 @@
 
 Implementation reviewed: 6 October 2026. This is a website implementation review, not a policy approval date.
 
+## Current publication authorization — 15 October 2026
+
+The project user instructed: “use it as is for now.” Migration `0038_authorized_existing_sojt_guide` records that authorization and publishes only the exact existing supplied guide snapshot. Its content, source statuses, risks and internal confirmations are not rewritten. A stored content digest binds the authorization to that exact JSON document. Previously edited drafts and existing published documents are preserved.
+
+The publication reference and digest remain internal. This authorization records use of the supplied wording; it does not claim that pending/proposed source-review entries became verified. Ordinary publication still requires a date and reference plus verified sources, or authorization of the exact supplied text. Changes to an authorized guide invalidate its digest and require renewed approval before publication. Admin displays the digest read-only. To update an authorized guide, unpublish it, edit its wording, and use the explicit “Approve exact selected guide wording and publish” action. This records the approving admin account, Philippine date and content digest in the internal approval reference and admin log; it does not relabel source metadata.
+
 ## 1. Location and publication state
 
-Route: `/sojt-guide`. Local preview: `http://127.0.0.1:8080/sojt-guide` while the development server runs. The change has not been deployed or pushed.
+Route: `/sojt-guide`. Local preview: `http://127.0.0.1:8080/sojt-guide` while the development server runs. Publication takes effect when the new academics migrations are deployed.
 
-Publish institutional SOJT procedures only after Department approval. Keep the reference draft and unresolved local requirements internal. When no approved guide is available, provide a concise department contact route without rendering the proposed procedure.
+Record explicit authorization before publishing guide wording. Keep unresolved source-review metadata internal. When no approved guide is available, provide a concise department contact route without rendering the proposed procedure.
 
 ## 2. Final workflow and national mapping
 
@@ -41,7 +47,7 @@ The ten-step gates, status labels, make-up procedure and checklist reminder beha
 
 A single `SOJTGuide` editorial document in Django stores structured public content with source references. Admin supports editing, an internal approval reference, review date and publication status. Migrations create the schema and seed an unpublished reference without overwriting existing editor content. The public read-only endpoint is `/api/academics/sojt-guide/bsca/`; unpublished guides return 404.
 
-Ordinary admin/model saves validate the ten ordered stages, required gate/checklist structure, source references, permitted links and qualitative risk scale. Publication requires a review date, approval reference and verified source statuses. This protects the editorial workflow; it cannot authenticate documentary evidence or replace human institutional review. Editors must update the actual wording and sources, not simply flip statuses. Internal notes and approval references are excluded from API responses.
+Ordinary admin/model saves validate the ten ordered stages, required gate/checklist structure, source references, permitted links and qualitative risk scale. Publication requires a date and approval reference, plus verified source statuses or explicit authorization bound to the exact supplied content digest. This protects the editorial workflow; it cannot authenticate documentary evidence or replace human institutional review. Editors must update the actual wording and sources, not simply flip statuses. Internal notes and approval references are excluded from API responses.
 
 React renders published, validated CMS guidance. Loading, unavailable or invalid responses must not substitute the reference draft. Keep reminder checkboxes in component memory; they do not record institutional decisions.
 

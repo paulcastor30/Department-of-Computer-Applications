@@ -28,7 +28,7 @@ export default function News() {
     <PageHero title="News and events" subtitle="Read current announcements. Open an announcement for its activity dates and participation details." />
     <section className="container py-10" aria-labelledby="news-dates"><h2 id="news-dates" className="text-xl font-semibold">Looking for a date?</h2>
       <p className="mt-3 mb-4 max-w-3xl">Dates marked “Posted” show when an announcement was published. Check its full text for event dates, times, and location. Confirm arrangements with the department before travelling.</p>
-      <nav aria-label="Find application and visiting dates" className="flex flex-wrap gap-3"><Link className="outline-link" to="/admissions">Application dates and steps</Link><Link className="outline-link" to="/about/contact#visit">Ask about visiting hours</Link></nav>
+      <nav aria-label="Find application and visiting dates" className="flex flex-wrap gap-3"><Link className="action-link" to="/news/events">Upcoming events and deadlines</Link><Link className="outline-link" to="/admissions">Application dates and steps</Link><Link className="outline-link" to="/about/contact#visit">Ask about visiting hours</Link></nav>
     </section>
     <section className="container pb-12" aria-labelledby="news-announcements"><h2 id="news-announcements" className="mb-5 text-2xl font-semibold">Department announcements</h2><NewsList /></section>
   </>;

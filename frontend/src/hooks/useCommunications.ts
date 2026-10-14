@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchJSON } from "@/lib/api";
+import type { CalendarResponse } from "@/types/calendar";
 import type { NewsPost } from "@/types/api";
 
 export function useNews() {
@@ -9,9 +10,9 @@ export function useNews() {
   });
 }
 
-export function useEvents() {
-  return useQuery<NewsPost[]>({
-    queryKey: ["communications", "events"],
-    queryFn: () => fetchJSON<NewsPost[]>("/api/communications/events/"),
+export function useEvents(view = "upcoming", kind = "all") {
+  return useQuery<CalendarResponse>({
+    queryKey: ["communications", "events", view, kind],
+    queryFn: () => fetchJSON<CalendarResponse>(`/api/communications/events/?view=${view}&kind=${kind}`),
   });
 }

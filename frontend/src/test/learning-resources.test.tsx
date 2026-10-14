@@ -1,3 +1,4 @@
+import { MemoryRouter } from "react-router-dom";
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, expect, it } from "vitest";
 import { LearningResourceCatalogue } from "@/components/LearningResourceCatalogue";
@@ -14,7 +15,7 @@ const data: LearningResource[] = Array.from({ length: 30 }, (_, index) => ({
 }));
 
 it("lets students reach the entire collection and resets pagination when narrowing to IoT", () => {
-  render(<LearningResourceCatalogue data={data} />);
+  render(<MemoryRouter><LearningResourceCatalogue data={data} /></MemoryRouter>);
   expect(screen.getByRole("status")).toHaveTextContent("30 resources found · Showing 1–24");
   fireEvent.click(screen.getByRole("button", { name: "Next" }));
   expect(screen.getByRole("link", { name: "Learning item 29 (external resource)" })).toBeInTheDocument();
@@ -24,7 +25,7 @@ it("lets students reach the entire collection and resets pagination when narrowi
 });
 
 it("searches original subtopics, combines format and beginner filters, and recovers from no matches", () => {
-  render(<LearningResourceCatalogue data={data} />);
+  render(<MemoryRouter><LearningResourceCatalogue data={data} /></MemoryRouter>);
   fireEvent.change(screen.getByLabelText("Search learning resources"), { target: { value: "MQTT" } });
   fireEvent.click(screen.getByLabelText("Show beginner resources"));
   expect(screen.getByRole("status")).toHaveTextContent("5 resources found");
@@ -39,4 +40,11 @@ it("provides source attribution, adaptation terms, and local license downloads",
   expect(screen.getByRole("link", { name: /by m3y54m and contributors/ })).toHaveAttribute("href", expect.stringContaining("0738fcbd"));
   expect(screen.getByRole("link", { name: "Read the full license" })).toHaveAttribute("href", "/learning-resources/LICENSE.txt");
   expect(screen.getByText(/This adaptation is also available under CC BY-SA/)).toBeInTheDocument();
+});
+
+it("opens a requested resource from a record search even when it would normally be on a later page", () => {
+  render(<MemoryRouter initialEntries={["/resources?learning=item-29#resource-catalogue"]}><LearningResourceCatalogue data={data} /></MemoryRouter>);
+  expect(screen.getByLabelText("Search learning resources")).toHaveValue("Learning item 29");
+  expect(screen.getByRole("status")).toHaveTextContent("1 resource found");
+  expect(screen.getByRole("link", {name: "Learning item 29 (external resource)"})).toBeInTheDocument();
 });

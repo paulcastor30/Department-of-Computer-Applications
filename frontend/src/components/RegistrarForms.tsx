@@ -18,7 +18,7 @@ export function RegistrarForms() {
     {isError && <div className="notice mt-5"><p role="alert">Registrar forms could not be loaded. Please try again.</p><button type="button" className="outline-link mt-3" onClick={() => void refetch()}>Retry loading registrar forms</button></div>}
     {data?.length === 0 && <p role="status" className="mt-5">Registrar forms are currently unavailable. Contact the department for assistance.</p>}
     {Boolean(data?.length) && <FormSearch label="Find a registrar form" hint="Search by task or form number, such as leave, shifters, transcript or 006." query={query} onChange={setQuery} count={data?.filter(form => matchesFormQuery(`RGTR ${form.form_id} ${form.title}`, query)).length || 0} />}
-    <ul className="mt-6 space-y-5">{data?.map(form => <li key={form.form_id} hidden={!matchesFormQuery(`RGTR ${form.form_id} ${form.title}`, query)} className="rounded-md border border-border bg-background p-5 sm:p-6">
+    <ul className="mt-6 space-y-5">{data?.map(form => <li id={`registrar-form-${form.form_id}`} key={form.form_id} hidden={!matchesFormQuery(`RGTR ${form.form_id} ${form.title}`, query)} className="rounded-md border border-border bg-background p-5 sm:p-6">
       <h3 className="text-lg font-semibold text-primary">{form.title}</h3>
       <p className="mt-2 text-sm text-muted-foreground">Registrar · RGTR-{form.form_id}</p>
       {form.note && <p className="mt-3 text-sm leading-6 text-muted-foreground">{form.note}</p>}

@@ -1,7 +1,10 @@
 from django.urls import path
 from .views import SiteSettingsView, DepartmentProfileView, HomePayloadView, ProjectPrototypeListView
 
+from .search import PublicSearchView
+
 urlpatterns = [
+    path("search/", PublicSearchView.as_view(), name="public-search"),
     path("prototypes/", ProjectPrototypeListView.as_view(), name="project-prototypes"),
     path("site-settings/", SiteSettingsView.as_view(), name="site-settings"),
     path("department-profile/", DepartmentProfileView.as_view(), name="department-profile"),

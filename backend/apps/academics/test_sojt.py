@@ -11,6 +11,12 @@ from .sojt_schema import validate_guide
 class SOJTGuideTests(TestCase):
     def setUp(self):
         self.guide = SOJTGuide.objects.get(slug="bsca")
+        # Each publication-boundary test starts with an ordinary unapproved draft.
+        self.guide.is_published = False
+        self.guide.reviewed_on = None
+        self.guide.approval_reference = ""
+        self.guide.approved_content_hash = ""
+        self.guide.save()
 
     def test_seed_is_unpublished_and_public_api_hides_draft(self):
         self.assertFalse(self.guide.is_published)
@@ -71,3 +77,47 @@ class SOJTGuideTests(TestCase):
         migration.seed_reference(apps, None)
         self.guide.refresh_from_db()
         self.assertEqual(self.guide.content["intro"], "Editor revised introduction")
+
+    def test_user_authorized_exact_guide_is_published_without_rewriting_sources(self):
+        from types import SimpleNamespace
+        from django.db import connection
+        before = deepcopy(self.guide.content)
+        migration = import_module("apps.academics.migrations.0038_authorized_existing_sojt_guide")
+        migration.publish_authorized_guide(apps, SimpleNamespace(connection=connection))
+        self.guide.refresh_from_db()
+        self.assertTrue(self.guide.is_published)
+        self.assertEqual(self.guide.content, before)
+        self.assertEqual(self.client.get("/api/academics/sojt-guide/bsca/").status_code, 200)
+        self.assertNotIn("approved_content_hash", self.client.get("/api/academics/sojt-guide/bsca/").json())
+        self.guide.content["intro"] = "Changed guide wording outside the authorization"
+        with self.assertRaises(ValidationError): self.guide.save()
+        SOJTGuide.objects.filter(pk=self.guide.pk).update(content=self.guide.content)
+        self.assertEqual(self.client.get("/api/academics/sojt-guide/bsca/").status_code, 404)
+
+    def test_publication_migration_preserves_edited_draft(self):
+        from types import SimpleNamespace
+        from django.db import connection
+        self.guide.content["intro"] = "Editor maintained wording"
+        self.guide.save()
+        migration = import_module("apps.academics.migrations.0038_authorized_existing_sojt_guide")
+        migration.publish_authorized_guide(apps, SimpleNamespace(connection=connection))
+        self.guide.refresh_from_db()
+        self.assertFalse(self.guide.is_published)
+        self.assertEqual(self.guide.content["intro"], "Editor maintained wording")
+
+    def test_explicit_admin_approval_records_actor_and_exact_text_without_relabelling_sources(self):
+        from django.contrib import admin
+        from django.contrib.auth import get_user_model
+        from django.test import RequestFactory
+        from .admin import SOJTGuideAdmin, approve_guide_wording
+        self.guide.content["intro"] = "Reviewed revised wording"
+        self.guide.save()
+        before = deepcopy(self.guide.content)
+        request = RequestFactory().post("/admin/academics/sojtguide/")
+        request.user = get_user_model().objects.create_superuser(username="guide-reviewer", email="reviewer@example.invalid", password="test-password")
+        approve_guide_wording(SOJTGuideAdmin(SOJTGuide, admin.site), request, SOJTGuide.objects.filter(pk=self.guide.pk))
+        self.guide.refresh_from_db()
+        self.assertTrue(self.guide.is_published)
+        self.assertEqual(self.guide.content, before)
+        self.assertIn("guide-reviewer", self.guide.approval_reference)
+        self.assertEqual(self.client.get("/api/academics/sojt-guide/bsca/").status_code, 200)

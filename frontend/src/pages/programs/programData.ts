@@ -1,6 +1,7 @@
 import type { Program } from "@/types/api";
 
 export type ProgramDocumentLink = {
+  recordId?: number;
   fillableFormId?: string;
   documentType?: string;
   formGroup?: string;
@@ -68,7 +69,7 @@ export function normalizeProgram(program: Program): ProgramProfile {
   const route = code === "BSCA" ? "/programs/bsca" : code === "MSCA" ? "/programs/msca" : `/programs/${program.slug}`;
   const documents: ProgramDocumentLink[] = (program.documents || [])
     .filter(document => hasProgramContent(document.title) && document.href)
-    .map(document => ({ label: document.title, href: document.href,
+    .map(document => ({ ...(document.id ? {recordId: document.id} : {}), label: document.title, href: document.href,
       documentType: document.document_type, formGroup: document.form_group || undefined,
       fillableFormId: document.fillable_form_id || undefined, note: text(document.note) || undefined }));
   // A curriculum attached directly to the published CMS program is also authoritative.

@@ -64,6 +64,7 @@ const Organizations = lazy(() => import("./pages/students/Organizations"));
 
 // Other Pages
 const Admissions = lazy(() => import("./pages/Admissions"));
+const Events = lazy(() => import("./pages/Events"));
 const Alumni = lazy(() => import("./pages/Alumni"));
 import News from "./pages/News";
 const Accreditation = lazy(() => import("./pages/Accreditation"));
@@ -157,7 +158,7 @@ const App = () => (
             <Route path="/admissions/request-info" element={<Admissions />} />
             <Route path="/alumni" element={<Alumni />} />
             <Route path="/news" element={<News />} />
-            <Route path="/news/events" element={<News />} />
+            <Route path="/news/events" element={<Events />} />
             <Route path="/news/:slug" element={<NewsDetail />} />
             <Route path="/accessibility" element={<Accessibility />} />
             <Route path="/facilities" element={<Facilities />} />
