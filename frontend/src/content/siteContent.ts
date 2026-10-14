@@ -18,7 +18,6 @@ export const departmentIdentity = {
   officeHours: "Monday to Friday, 8:00 AM–5:00 PM (Philippine time)",
 };
 
-export const placeholder = "To be provided by the Department";
 
 export const primaryNavigation = [
   { label: "About", href: "/about" },

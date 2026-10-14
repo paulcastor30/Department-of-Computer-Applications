@@ -55,8 +55,8 @@ export default function Resources() {
       <DocumentAccessHelp context="program documents and student forms" />
     </Section>
     <Section id="sojt-guide">
-      <SectionHeader title="BSCA SOJT Process Guide" subtitle="Understand eligibility, orientation, HTE approval, your Internship Plan, deployment safeguards and completion." />
-      <p className="max-w-prose leading-7">Follow the ten internship stages and find the SOJT Coordinator. Check the guide’s verification status and confirm current institutional requirements before applying or starting training.</p>
+      <SectionHeader title="BSCA SOJT Process Guide" subtitle="Guidance and contacts for BSCA internships." />
+      <p className="max-w-prose leading-7">Find internship guidance and contact the department about requirements, forms and placements.</p>
       <Link className="action-link mt-4" to="/sojt-guide">View SOJT Process Guide</Link>
     </Section>
     <Section variant="muted">

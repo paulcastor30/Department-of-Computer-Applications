@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
 import { useNews } from "@/hooks/useCommunications";
-import { placeholder } from "@/content/siteContent";
+import { hasProgramContent } from "./programs/programData";
 
 const categoryLabels: Record<string, string> = { NEWS: "News", ANNOUNCEMENT: "Announcement", EVENT: "Event announcement" };
 
@@ -15,9 +15,9 @@ export function NewsList({ limit }: { limit?: number }) {
   return <div className="grid gap-5 md:grid-cols-3">{posts.map(post => <article key={post.id} className="overflow-hidden rounded-lg border border-border bg-background">
     {post.featured_image && <img src={post.featured_image} alt="" loading="lazy" decoding="async" width="640" height="360" className="aspect-video w-full object-cover" onError={event => { event.currentTarget.hidden = true; }} />}
     <div className="p-6"><p className="mb-2 text-sm font-semibold text-secondary">{categoryLabels[post.category] || "Department update"}</p>
-      <p className="mb-3 text-sm text-muted-foreground">{post.published_at ? <time dateTime={post.published_at}>Posted {new Date(post.published_at).toLocaleDateString("en-PH", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Manila" })}</time> : "Publication date to be provided"}</p>
+      {post.published_at && <p className="mb-3 text-sm text-muted-foreground">{post.published_at ? <time dateTime={post.published_at}>Posted {new Date(post.published_at).toLocaleDateString("en-PH", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Manila" })}</time> : null}</p>}
       <h3 className="mb-3 text-xl font-semibold text-primary"><Link className="underline underline-offset-4" to={`/news/${post.slug}`}>{post.title}</Link></h3>
-      <p className="mb-4 leading-7 text-muted-foreground">{post.summary || placeholder}</p>
+      {hasProgramContent(post.summary) && <p className="mb-4 leading-7 text-muted-foreground">{post.summary}</p>}
       <Link className="text-link inline-flex min-h-11 items-center" to={`/news/${post.slug}`}>Read announcement<span className="sr-only">: {post.title}</span></Link>
     </div>
   </article>)}</div>;

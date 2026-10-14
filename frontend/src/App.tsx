@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
-import Accessibility from "./pages/Accessibility";
-import NewsDetail from "./pages/NewsDetail";
+const Accessibility = lazy(() => import("./pages/Accessibility"));
+const NewsDetail = lazy(() => import("./pages/NewsDetail"));
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,68 +9,68 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import { Layout } from "@/components/layout/Layout";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 // About Pages
-import About from "./pages/about/About";
-import VMGO from "./pages/about/VMGO";
-import History from "./pages/about/History";
-import ChairMessage from "./pages/about/ChairMessage";
-import Organization from "./pages/about/Organization";
-import FacultyStaff from "./pages/about/FacultyStaff";
-import Contact from "./pages/about/Contact";
-import Location from "./pages/about/Location";
+const About = lazy(() => import("./pages/about/About"));
+const VMGO = lazy(() => import("./pages/about/VMGO"));
+const History = lazy(() => import("./pages/about/History"));
+const ChairMessage = lazy(() => import("./pages/about/ChairMessage"));
+const Organization = lazy(() => import("./pages/about/Organization"));
+const FacultyStaff = lazy(() => import("./pages/about/FacultyStaff"));
+const Contact = lazy(() => import("./pages/about/Contact"));
+const Location = lazy(() => import("./pages/about/Location"));
 
 // Programs Pages
-import Programs from "./pages/programs/Programs";
-import BSCA from "./pages/programs/BSCA";
-import MSCA from "./pages/programs/MSCA";
+const Programs = lazy(() => import("./pages/programs/Programs"));
+const BSCA = lazy(() => import("./pages/programs/BSCA"));
+const MSCA = lazy(() => import("./pages/programs/MSCA"));
 
 // Research Pages
-import ResearchConferences from "./pages/research/Conferences";
-import Research from "./pages/research/Research";
-import ResearchFocusAreas from "./pages/research/FocusAreas";
-import ResearchFacultyProfiles from "./pages/research/FacultyProfiles";
-import ResearchProjects from "./pages/research/Projects";
-import Publications from "./pages/research/Publications";
-import Labs from "./pages/research/Labs";
-import StudentResearch from "./pages/research/StudentResearch";
-import Collaborations from "./pages/research/Collaborations";
-import ResearchMetrics from "./pages/research/Metrics";
+const ResearchConferences = lazy(() => import("./pages/research/Conferences"));
+const Research = lazy(() => import("./pages/research/Research"));
+const ResearchFocusAreas = lazy(() => import("./pages/research/FocusAreas"));
+const ResearchFacultyProfiles = lazy(() => import("./pages/research/FacultyProfiles"));
+const ResearchProjects = lazy(() => import("./pages/research/Projects"));
+const Publications = lazy(() => import("./pages/research/Publications"));
+const Labs = lazy(() => import("./pages/research/Labs"));
+const StudentResearch = lazy(() => import("./pages/research/StudentResearch"));
+const Collaborations = lazy(() => import("./pages/research/Collaborations"));
+const ResearchMetrics = lazy(() => import("./pages/research/Metrics"));
 
 // Extension Pages
-import Extension from "./pages/extension/Extension";
-import ExtensionPrograms from "./pages/extension/Programs";
-import Partnerships from "./pages/extension/Partnerships";
-import TechTransfer from "./pages/extension/TechTransfer";
-import ServiceProjects from "./pages/extension/ServiceProjects";
-import Impact from "./pages/extension/Impact";
+const Extension = lazy(() => import("./pages/extension/Extension"));
+const ExtensionPrograms = lazy(() => import("./pages/extension/Programs"));
+const Partnerships = lazy(() => import("./pages/extension/Partnerships"));
+const TechTransfer = lazy(() => import("./pages/extension/TechTransfer"));
+const ServiceProjects = lazy(() => import("./pages/extension/ServiceProjects"));
+const Impact = lazy(() => import("./pages/extension/Impact"));
 
 // Faculty Pages
-import Faculty from "./pages/faculty/Faculty";
-import FacultyProfile from "./pages/faculty/FacultyProfile";
-import Qualifications from "./pages/faculty/Qualifications";
-import Achievements from "./pages/faculty/Achievements";
-import Development from "./pages/faculty/Development";
+const Faculty = lazy(() => import("./pages/faculty/Faculty"));
+const FacultyProfile = lazy(() => import("./pages/faculty/FacultyProfile"));
+const Qualifications = lazy(() => import("./pages/faculty/Qualifications"));
+const Achievements = lazy(() => import("./pages/faculty/Achievements"));
+const Development = lazy(() => import("./pages/faculty/Development"));
 
 // Students Pages
-import Resources from "./pages/Resources";
+const Resources = lazy(() => import("./pages/Resources"));
 const SOJTGuide = lazy(() => import("./pages/SOJTGuide"));
 const TransferEvaluationPortal = lazy(() => import("./pages/TransferEvaluationPortal"));
 const ThesisGuide = lazy(() => import("./pages/ThesisGuide"));
-import CurrentStudents from "./pages/students/CurrentStudents";
-import ProspectiveStudents from "./pages/students/ProspectiveStudents";
-import Organizations from "./pages/students/Organizations";
+const CurrentStudents = lazy(() => import("./pages/students/CurrentStudents"));
+const ProspectiveStudents = lazy(() => import("./pages/students/ProspectiveStudents"));
+const Organizations = lazy(() => import("./pages/students/Organizations"));
 
 // Other Pages
-import Admissions from "./pages/Admissions";
-import Alumni from "./pages/Alumni";
+const Admissions = lazy(() => import("./pages/Admissions"));
+const Alumni = lazy(() => import("./pages/Alumni"));
 import News from "./pages/News";
-import Accreditation from "./pages/Accreditation";
-import Facilities from "./pages/Facilities";
-import Projects from "./pages/Projects";
-import OurWork from "./pages/OurWork";
-import InternationalLinkages from "./pages/InternationalLinkages";
+const Accreditation = lazy(() => import("./pages/Accreditation"));
+const Facilities = lazy(() => import("./pages/Facilities"));
+const Projects = lazy(() => import("./pages/Projects"));
+const OurWork = lazy(() => import("./pages/OurWork"));
+const InternationalLinkages = lazy(() => import("./pages/InternationalLinkages"));
 
 const queryClient = new QueryClient();
 
@@ -94,6 +94,7 @@ const App = () => (
       <BrowserRouter>
         <SiteAnalytics />
         <Layout>
+          <Suspense fallback={<p className="container py-12" role="status">Loading page…</p>}>
           <Routes>
             <Route path="/" element={<Index />} />
             
@@ -169,6 +170,7 @@ const App = () => (
             {/* Catch-all */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
         </Layout>
       </BrowserRouter>
     </TooltipProvider>

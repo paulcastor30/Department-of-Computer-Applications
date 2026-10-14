@@ -1,32 +1,41 @@
 import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import App from '../App';
+import { publishedPrograms } from './program-fixtures';
 
 vi.mock('@/lib/api', () => ({ fetchJSON: vi.fn(async (url: string) => {
+  if (url.includes('/academics/programs/')) return publishedPrograms;
   if (url.includes('department-profile')) return { overview: 'Official department overview', mission: 'Official mission' };
   if (url.includes('/news/example/')) return { id: 1, slug: 'example', title: 'Department open day', summary: 'Meet the department', body: 'Visit details from the official announcement.', published_at: '2026-10-05T01:00:00Z' };
   if (url.includes('site-settings')) return { primary_email: 'department@example.edu' };
   return [];
 }) }));
-beforeEach(() => {
+beforeEach(async () => {
   window.history.replaceState({}, '', '/');
   window.scrollTo = vi.fn();
   Element.prototype.scrollIntoView = vi.fn();
 });
 afterEach(cleanup);
+async function renderReadyApp() {
+  render(<App />);
+  await screen.findByRole('heading', { level: 1 });
+  await waitFor(() => expect(screen.queryByText(/Loading program information/)).not.toBeInTheDocument());
+  if (window.location.pathname === '/') await screen.findByRole('link', { name: /Undergraduate.*BSCA/ });
+}
+
 
 it('shows the department and degree routes without waiting for news', async () => {
-  render(<App />);
+  await renderReadyApp();
   expect(screen.getByRole('heading', { level: 1, name: 'Department of Computer Applications' })).toBeInTheDocument();
   const main = within(screen.getByRole('main'));
   expect(main.getByRole('link', { name: 'Explore programs' })).toHaveAttribute('href', '/programs');
   expect(main.getByRole('link', { name: 'Contact us' })).toHaveAttribute('href', '/about/contact');
   expect(main.getByRole('link', { name: /Undergraduate.*BSCA/ })).toHaveAttribute('href', '/programs/bsca');
   expect(main.getByRole('link', { name: /Graduate.*MSCA/ })).toHaveAttribute('href', '/programs/msca');
-  expect(await screen.findByText('Official department overview')).toBeInTheDocument();
+  expect(screen.getByText(/The Department of Computer Applications is part of the/)).toBeInTheDocument();
 });
 it('searches Home correctly and returns focus when Escape closes search', async () => {
-  render(<App />);
+  await renderReadyApp();
   const toggle = screen.getByRole('button', { name: 'Search site' });
   fireEvent.click(toggle);
   const input = screen.getByLabelText('Find a page');
@@ -38,7 +47,7 @@ it('searches Home correctly and returns focus when Escape closes search', async 
   expect(toggle).toHaveFocus();
 });
 it('moves focus to the new heading after a route change', async () => {
-  render(<App />);
+  await renderReadyApp();
   fireEvent.click(screen.getByRole('link', { name: 'About the department' }));
   const heading = await screen.findByRole('heading', { level: 1, name: 'About the department' });
   await waitFor(() => expect(heading).toHaveFocus());
@@ -46,13 +55,13 @@ it('moves focus to the new heading after a route change', async () => {
 });
 it('shows CMS contact information and a practical help route', async () => {
   window.history.replaceState({}, '', '/about/contact');
-  render(<App />);
+  await renderReadyApp();
   expect((await screen.findAllByRole('link', { name: 'department@example.edu' }))[0]).toHaveAttribute('href', 'mailto:department@example.edu');
   expect(screen.getByText('Step-free access and assistance')).toBeInTheDocument();
 });
 
-it('closes the mobile menu with Escape and restores focus', () => {
-  render(<App />);
+it('closes the mobile menu with Escape and restores focus', async () => {
+  await renderReadyApp();
   const toggle = screen.getByRole('button', { name: 'Menu' });
   fireEvent.click(toggle);
   expect(toggle).toHaveAttribute('aria-expanded', 'true');
@@ -62,7 +71,7 @@ it('closes the mobile menu with Escape and restores focus', () => {
 });
 it('opens a complete CMS news article with a clearly labelled publication date', async () => {
   window.history.replaceState({}, '', '/news/example');
-  render(<App />);
+  await renderReadyApp();
   expect(await screen.findByRole('heading', { level: 1, name: 'Department open day' })).toBeInTheDocument();
   expect(screen.getByText(/Posted.*October.*2026/)).toHaveAttribute('datetime', '2026-10-05T01:00:00Z');
   expect(screen.getByText('Visit details from the official announcement.')).toBeInTheDocument();
@@ -70,14 +79,14 @@ it('opens a complete CMS news article with a clearly labelled publication date',
 });
 
 it('takes the college vision link directly to the purpose section', async () => {
-  render(<App />);
+  await renderReadyApp();
   fireEvent.click(screen.getByRole('link', { name: 'Our college’s vision and mission' }));
   await screen.findByRole('heading', { name: 'Why we do this work' });
   await waitFor(() => expect(document.getElementById('purpose')).toHaveFocus());
 });
 
-it('gives the public a help route as well as an application route on Home', () => {
-  render(<App />);
+it('gives the public a help route as well as an application route on Home', async () => {
+  await renderReadyApp();
   expect(screen.getByRole('link', { name: 'Contact us' })).toHaveAttribute('href', '/about/contact');
   expect(screen.getByRole('link', { name: 'Directions and access assistance' })).toHaveAttribute('href', '/about/location#access');
   expect(within(screen.getByRole('region', { name: 'Study with us' })).getByRole('link', { name: 'How to apply' })).toHaveAttribute('href', '/admissions');
@@ -88,7 +97,7 @@ it('gives the public a help route as well as an application route on Home', () =
 });
 
 it('explains teaching, research, and community work through main navigation', async () => {
-  render(<App />);
+  await renderReadyApp();
   fireEvent.click(screen.getByRole('link', { name: 'What we do' }));
   expect(await screen.findByRole('heading', { level: 1, name: 'What we do' })).toBeInTheDocument();
   for (const title of ['Teaching and learning', 'Research', 'Community work']) {
@@ -100,21 +109,21 @@ it('explains teaching, research, and community work through main navigation', as
 });
 it('offers direct email subjects for study, collaboration, and access questions', async () => {
   window.history.replaceState({}, '', '/about/contact');
-  render(<App />);
+  await renderReadyApp();
   const study = await screen.findByRole('link', { name: 'Study or application question' });
   await waitFor(() => expect(study).toHaveAttribute('href', 'mailto:department@example.edu?subject=Study%20or%20application%20enquiry'));
   expect(screen.getByRole('link', { name: 'Research or community enquiry' })).toHaveAttribute('href', 'mailto:department@example.edu?subject=Research%20or%20community%20enquiry');
   expect(screen.getByRole('link', { name: 'Visit or access assistance' })).toHaveAttribute('href', 'mailto:department@example.edu?subject=Visit%20or%20access%20assistance%20enquiry');
 });
-it('distinguishes publication dates from activity dates and links to visiting help', () => {
+it('distinguishes publication dates from activity dates and links to visiting help', async () => {
   window.history.replaceState({}, '', '/news');
-  render(<App />);
+  await renderReadyApp();
   expect(screen.getByText(/Dates marked.*Posted.*show when an announcement was published/)).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Ask about visiting hours' })).toHaveAttribute('href', '/about/contact#visit');
 });
 
-it('finds a public question by its full wording in site search', () => {
-  render(<App />);
+it('finds a public question by its full wording in site search', async () => {
+  await renderReadyApp();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
   fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'What do we do' } });
   expect(within(screen.getByRole('search')).getByRole('link', { name: 'What do we do?' })).toHaveAttribute('href', '/our-work');
@@ -122,7 +131,7 @@ it('finds a public question by its full wording in site search', () => {
 
 it('identifies the supplied statements as college content rather than department statements', async () => {
   window.history.replaceState({}, '', '/about/vmgo');
-  render(<App />);
+  await renderReadyApp();
   expect(screen.getByRole('heading', { level: 1, name: 'College vision and mission' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { level: 2, name: 'CCS vision' })).toBeInTheDocument();
   expect(screen.getByRole('heading', { level: 2, name: 'CCS mission' })).toBeInTheDocument();
@@ -134,16 +143,16 @@ it('identifies the supplied statements as college content rather than department
 
 it('makes both programs discoverable without unavailable download controls', async () => {
   window.history.replaceState({}, '', '/programs');
-  render(<App />);
+  await renderReadyApp();
   const main = within(screen.getByRole('main'));
-  expect(main.getByRole('link', { name: 'Explore BSCA' })).toHaveAttribute('href', '/programs/bsca');
+  expect(await main.findByRole('link', { name: 'Explore BSCA' })).toHaveAttribute('href', '/programs/bsca');
   expect(main.getByRole('link', { name: 'Explore MSCA' })).toHaveAttribute('href', '/programs/msca');
   expect(main.queryByText(/Download Curriculum/)).not.toBeInTheDocument();
 });
 
 it('explains BSCA learning areas and keeps detailed outcomes accessible', async () => {
   window.history.replaceState({}, '', '/programs/bsca');
-  render(<App />);
+  await renderReadyApp();
   const main = within(screen.getByRole('main'));
   expect(main.getByRole('heading', { name: 'What you will study' })).toBeInTheDocument();
   expect(main.getByText(/Firmware: software that controls/)).toBeInTheDocument();
@@ -153,9 +162,9 @@ it('explains BSCA learning areas and keeps detailed outcomes accessible', async 
   expect((await main.findByRole('link', { name: 'Email about BSCA' })).getAttribute('href')).toContain('subject=BSCA%20program%20enquiry');
 });
 
-it('explains curriculum-supported MSCA study and flags current requirements for validation', () => {
+it('explains curriculum-supported MSCA study and flags current requirements for validation', async () => {
   window.history.replaceState({}, '', '/programs/msca');
-  render(<App />);
+  await renderReadyApp();
   const main = within(screen.getByRole('main'));
   expect(main.getByRole('heading', { name: 'What you will study' })).toBeInTheDocument();
   expect(main.getByText(/Advanced embedded systems: computing/)).toBeInTheDocument();
@@ -169,20 +178,20 @@ it('explains curriculum-supported MSCA study and flags current requirements for 
 
 it('explains study terms and offers advising support without replacing university admissions', async () => {
   window.history.replaceState({}, '', '/programs/msca');
-  render(<App />);
+  await renderReadyApp();
   const main = within(screen.getByRole('main'));
   expect(main.getByRole('link', { name: 'Key requirements' })).toHaveAttribute('href', '#requirements');
   expect(main.getByText('Bridging courses')).toBeInTheDocument();
   expect(main.getByText(/Publication requirement: follow/)).toBeInTheDocument();
   expect(main.getByRole('link', { name: 'Advising and learning support' })).toHaveAttribute('href', '/resources#learning-support');
-  expect(main.getByText(/Website summary reviewed:/)).toHaveTextContent('5 October 2026');
+  expect(main.queryByText(/Website summary reviewed:/)).not.toBeInTheDocument();
   expect(within(document.getElementById('before-applying')!).getByRole('link', { name: 'View graduate application and admission guide' })).toHaveAttribute('href', 'https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission');
 });
 
 
-it('provides undergraduate requirements and portal links without copying unconfirmed cutoffs', () => {
+it('provides undergraduate requirements and portal links without copying unconfirmed cutoffs', async () => {
   window.history.replaceState({}, '', '/programs/bsca');
-  render(<App />);
+  await renderReadyApp();
   const admission = within(document.getElementById('before-applying')!);
   expect(admission.getByRole('link', { name: 'View official admission requirements' })).toHaveAttribute('href', 'https://www.msuiit.edu.ph/offices/admissions/requirements.php');
   expect(admission.getByRole('link', { name: 'Visit the MSU-IIT Admission Portal' })).toHaveAttribute('href', 'https://admission.msuiit.edu.ph/');
@@ -191,9 +200,9 @@ it('provides undergraduate requirements and portal links without copying unconfi
 });
 
 
-it('separates applicant tasks from enrolled-student procedures and provides a resource route', () => {
+it('separates applicant tasks from enrolled-student procedures and provides a resource route', async () => {
   window.history.replaceState({}, '', '/programs/bsca');
-  render(<App />);
+  await renderReadyApp();
   const admission = within(document.getElementById('before-applying')!);
   expect(admission.queryByText('Thesis procedure checklist')).not.toBeInTheDocument();
   const enrolled = within(document.getElementById('current-students')!);
@@ -201,9 +210,9 @@ it('separates applicant tasks from enrolled-student procedures and provides a re
   expect(enrolled.getByRole('link', { name: 'Student & faculty resources' })).toHaveAttribute('href', '/resources');
 });
 
-it('provides thesis and learning-support routes for both degrees on the resources page', () => {
+it('provides thesis and learning-support routes for both degrees on the resources page', async () => {
   window.history.replaceState({}, '', '/resources');
-  render(<App />);
+  await renderReadyApp();
   const main = within(screen.getByRole('main'));
   expect(main.getByRole('heading', { level: 1, name: 'Student & faculty resources' })).toBeInTheDocument();
   expect(main.getByRole('link', { name: 'View BSCA Thesis Process Guide' })).toHaveAttribute('href', '/thesis-guide?program=BSCA');
@@ -214,7 +223,7 @@ it('provides thesis and learning-support routes for both degrees on the resource
 
 
 it('takes a visitor from Home to both authoritative application routes', async () => {
-  render(<App />);
+  await renderReadyApp();
   fireEvent.click(within(screen.getByRole('region', { name: 'Study with us' })).getByRole('link', { name: 'How to apply' }));
   const main = within(screen.getByRole('main'));
   expect(await main.findByRole('heading', { level: 1, name: 'How to apply' })).toBeInTheDocument();
@@ -224,8 +233,8 @@ it('takes a visitor from Home to both authoritative application routes', async (
   expect(main.getByRole('link', { name: 'Read the CCS graduate application and admission guide' })).toHaveAttribute('href', 'https://sites.google.com/g.msuiit.edu.ph/ccsg/applicationadmission');
 });
 
-it('does not promote unfinished pages through the footer or search', () => {
-  render(<App />);
+it('does not promote unfinished pages through the footer or search', async () => {
+  await renderReadyApp();
   expect(screen.queryByRole('link', { name: 'International partnerships' })).not.toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
   fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'international' } });
@@ -240,16 +249,16 @@ it.each([
   ['thesis forms', 'Thesis forms and preparation guidance', '/resources#student-forms'],
   ['application steps', 'How to apply', '/admissions'],
   ['wheelchair', 'Campus directions and physical access', '/about/location#access'],
-])('finds the relevant public guidance for %s', (query, label, href) => {
-  render(<App />);
+])('finds the relevant public guidance for %s', async (query, label, href) => {
+  await renderReadyApp();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
   fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: query } });
   expect(within(screen.getByRole('search')).getByRole('link', { name: label })).toHaveAttribute('href', href);
 });
 
-it('introduces existing research and community examples without claiming an approved agenda', () => {
+it('introduces existing research and community examples without claiming an approved agenda', async () => {
   window.history.replaceState({}, '', '/our-work');
-  render(<App />);
+  await renderReadyApp();
   const main = within(screen.getByRole('main'));
   expect(main.queryByText(/to be provided/i)).not.toBeInTheDocument();
   expect(main.getByText(/past my.ComApps workshop/)).toBeInTheDocument();
@@ -257,8 +266,8 @@ it('introduces existing research and community examples without claiming an appr
   expect(main.getByRole('link', { name: 'Find community information' })).toHaveAttribute('href', '/extension');
 });
 
-it('puts beginner understanding before program choice and deeper institutional information', () => {
-  render(<App />);
+it('puts beginner understanding before program choice and deeper institutional information', async () => {
+  await renderReadyApp();
   const main = within(screen.getByRole('main'));
   const titles = main.getAllByRole('heading', { level: 2 }).map(heading => heading.textContent);
   expect(titles).toEqual(['What would you like to do?', 'What is Computer Applications?', 'Study with us', 'What will you learn to build?', 'Computer Applications in practice', 'Is BSCA for me?', 'Get to know the department', 'News and announcements', 'Visit or get in touch']);
@@ -266,13 +275,13 @@ it('puts beginner understanding before program choice and deeper institutional i
 });
 
 
-it('offers seven primary destinations and returns Home through the department identity', () => {
-  render(<App />);
+it('offers seven primary destinations and returns Home through the department identity', async () => {
+  await renderReadyApp();
   const nav = within(screen.getByRole('navigation', { name: 'Main navigation' }));
   expect(nav.getAllByRole('link').map(link => link.textContent)).toEqual(['About', 'Programs', 'Faculty & Staff', 'Research', 'Extension', 'Students', 'Contact']);
   expect(screen.getByRole('link', { name: 'Department of Computer Applications home' })).toHaveAttribute('href', '/');
   fireEvent.click(nav.getByRole('link', { name: 'Students' }));
-  expect(screen.getByRole('heading', { level: 1, name: 'Student & faculty resources' })).toBeInTheDocument();
+  expect(await screen.findByRole('heading', { level: 1, name: 'Student & faculty resources' })).toBeInTheDocument();
   expect(screen.getByRole('link', { name: 'Students', current: 'page' })).toBeInTheDocument();
   fireEvent.click(screen.getByRole('link', { name: 'Department of Computer Applications home' }));
   expect(screen.getByRole('heading', { level: 1, name: 'Department of Computer Applications' })).toBeInTheDocument();
@@ -286,16 +295,16 @@ it.each([
   ['/thesis-guide', 'Students'],
   ['/programs/msca', 'Programs'],
   ['/faculty/qualifications', 'Faculty & Staff'],
-])('highlights only the owning primary section for %s', (path, section) => {
+])('highlights only the owning primary section for %s', async (path, section) => {
   window.history.replaceState({}, '', path);
-  render(<App />);
+  await renderReadyApp();
   const nav = within(screen.getByRole('navigation', { name: 'Main navigation' }));
   expect(nav.getAllByRole('link', { current: 'page' })).toHaveLength(1);
   expect(nav.getByRole('link', { name: section, current: 'page' })).toBeInTheDocument();
 });
 
-it('makes ready supporting pages discoverable through footer and search', () => {
-  render(<App />);
+it('makes ready supporting pages discoverable through footer and search', async () => {
+  await renderReadyApp();
   const footer = within(screen.getByRole('contentinfo'));
   for (const [label, href] of [['News & Events', '/news'], ['Facilities', '/facilities'], ['Accreditation & Quality Assurance', '/accreditation'], ['SOJT Process Guide', '/sojt-guide'], ['Accessibility Help', '/accessibility']]) {
     expect(footer.getByRole('link', { name: label })).toHaveAttribute('href', href);
@@ -307,7 +316,7 @@ it('makes ready supporting pages discoverable through footer and search', () => 
 
 it('finds registrar services with multiple words and closes search on a same-page destination', async () => {
   window.history.replaceState({}, '', '/resources');
-  render(<App />);
+  await renderReadyApp();
   fireEvent.click(screen.getByRole('button', { name: 'Search site' }));
   fireEvent.change(screen.getByLabelText('Find a page'), { target: { value: 'registrar leave' } });
   const search = screen.getByRole('search');

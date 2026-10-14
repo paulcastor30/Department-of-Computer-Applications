@@ -26,3 +26,11 @@ it("keeps retry and contact available when announcements fail to load", () => {
   expect(refetch).toHaveBeenCalledOnce();
   expect(screen.getByRole("link", { name: "Ask about announcements" })).toHaveAttribute("href", "/about/contact");
 });
+
+it("omits unavailable dates and summaries without showing administrative placeholders", () => {
+  news.useNews.mockReturnValue({data: [{id: 1, title: "Published announcement", slug: "published", summary: "To be provided by the Department"}], isLoading: false, isError: false});
+  const {container} = render(<MemoryRouter><NewsList /></MemoryRouter>);
+  expect(container.textContent).not.toMatch(/to be provided|publication date to be/i);
+  expect(container.querySelector("time")).toBeNull();
+  expect(screen.getByRole("link", {name: /Read announcement/})).toBeInTheDocument();
+});

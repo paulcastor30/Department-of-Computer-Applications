@@ -61,7 +61,7 @@ class FacultyEducationInline(admin.StackedInline):
 class FacultyExpertiseInline(admin.TabularInline):
     model = FacultyExpertise
     extra = 0
-    fields = ("expertise_type", "title", "description", "is_published", "sort_order")
+    fields = ("expertise_type", "title", "description", "approval_reference", "is_published", "sort_order")
 
 
 class FacultySupervisedWorkInline(admin.StackedInline):
@@ -79,7 +79,7 @@ class FacultySupervisedWorkInline(admin.StackedInline):
         "completion_year",
         "faculty_role",
         "evidence_url",
-        "is_published",
+        "approval_reference", "is_published",
         "sort_order",
     )
 
@@ -97,7 +97,7 @@ class FacultyContributionInline(admin.TabularInline):
     model = FacultyContribution
     extra = 0
     autocomplete_fields = ("research", "publication", "conference", "extension")
-    fields = ("research", "publication", "conference", "extension", "role", "is_published")
+    fields = ("research", "publication", "conference", "extension", "role", "approval_reference", "is_published")
     verbose_name_plural = "Department contributions — select exactly one shared institutional record"
 
 
@@ -115,7 +115,7 @@ class FacultyPublicationInline(HistoricalActivityInline):
         "url",
         "indexing_note",
         "citation_text",
-        "is_published",
+        "approval_reference", "is_published",
         "sort_order",
     )
 

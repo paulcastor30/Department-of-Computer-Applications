@@ -17,22 +17,21 @@ export function Layout({ children }: { children: ReactNode }) {
     const frame = requestAnimationFrame(() => {
       let anchor = hash.slice(1);
       try { anchor = decodeURIComponent(anchor); } catch { /* Keep a malformed anchor as plain text. */ }
-      const target = hash ? document.getElementById(anchor) : document.querySelector<HTMLElement>("main h1");
+      const findTarget = () => hash ? document.getElementById(anchor) : Array.from(document.querySelectorAll<HTMLElement>("main h1")).find(heading => !heading.closest('[hidden], [style*="display: none"]'));
+      const target = findTarget();
       if (!hash) window.scrollTo({ top: 0, behavior: "instant" });
       if (target) { target.setAttribute("tabindex", "-1"); target.focus({ preventScroll: true }); if (hash) target.scrollIntoView(); }
       else {
         document.getElementById("main-content")?.focus();
-        if (hash) {
-          observer = new MutationObserver(() => {
-            const loadedTarget = document.getElementById(anchor);
-            if (!loadedTarget) return;
-            loadedTarget.setAttribute("tabindex", "-1");
-            loadedTarget.focus({ preventScroll: true });
-            loadedTarget.scrollIntoView();
-            observer?.disconnect();
-          });
-          observer.observe(document.getElementById("main-content") || document.body, { childList: true, subtree: true });
-        }
+        observer = new MutationObserver(() => {
+          const loadedTarget = findTarget();
+          if (!loadedTarget) return;
+          loadedTarget.setAttribute("tabindex", "-1");
+          loadedTarget.focus({ preventScroll: true });
+          if (hash) loadedTarget.scrollIntoView();
+          observer?.disconnect();
+        });
+        observer.observe(document.getElementById("main-content") || document.body, { childList: true, subtree: true });
       }
     });
     return () => { cancelAnimationFrame(frame); observer?.disconnect(); };

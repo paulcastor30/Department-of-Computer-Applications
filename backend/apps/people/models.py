@@ -118,7 +118,7 @@ class DepartmentRole(TimeStampedModel):
 
 class FacultyProfileRecord(TimeStampedModel):
     faculty = models.ForeignKey(FacultyMember, on_delete=models.CASCADE)
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=False)
     sort_order = models.PositiveIntegerField(default=0)
 
     class Meta:
@@ -171,7 +171,25 @@ class FacultyEducation(FacultyProfileRecord):
         return f"{self.faculty} - {self.get_degree_level_display()}"
 
 
-class FacultyExpertise(FacultyProfileRecord):
+class PublicationApproval(models.Model):
+    """Internal approval reference required by CMS publication controls."""
+    approval_reference = models.TextField(blank=True, help_text="Record the approving authority, approval date and supporting source before publication.")
+
+    class Meta:
+        abstract = True
+
+    def clean(self):
+        super().clean()
+        if self.is_published and not self.approval_reference.strip():
+            raise ValidationError({"is_published": "Record an internal approval reference before publishing."})
+
+
+class ApprovedFacultyRecord(PublicationApproval, FacultyProfileRecord):
+    class Meta:
+        abstract = True
+
+
+class FacultyExpertise(ApprovedFacultyRecord):
     class ExpertiseType(models.TextChoices):
         EXPERTISE = "expertise", "Expertise Area"
         RESEARCH_INTEREST = "research_interest", "Research Interest"
@@ -190,7 +208,7 @@ class FacultyExpertise(FacultyProfileRecord):
         return self.title
 
 
-class FacultySupervisedWork(FacultyProfileRecord):
+class FacultySupervisedWork(ApprovedFacultyRecord):
     class ProgramLevel(models.TextChoices):
         BSCA = "BSCA", "BSCA"
         MSCA = "MSCA", "MSCA"
@@ -215,7 +233,7 @@ class FacultySupervisedWork(FacultyProfileRecord):
         return self.title
 
 
-class HistoricalActivity(FacultyProfileRecord):
+class HistoricalActivity(ApprovedFacultyRecord):
     """Preserved faculty activity; institutional metadata belongs in shared records."""
     reconciled_contribution = models.ForeignKey(
         "FacultyContribution", null=True, blank=True, on_delete=models.PROTECT,
@@ -317,7 +335,7 @@ class FacultyExtensionProject(HistoricalActivity):
         return self.title
 
 
-class FacultyCreativeWork(FacultyProfileRecord):
+class FacultyCreativeWork(ApprovedFacultyRecord):
     faculty = models.ForeignKey(FacultyMember, related_name="creative_works", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     category = models.CharField(max_length=100, blank=True)
@@ -334,7 +352,7 @@ class FacultyCreativeWork(FacultyProfileRecord):
         return self.title
 
 
-class FacultyTrainingSeminar(FacultyProfileRecord):
+class FacultyTrainingSeminar(ApprovedFacultyRecord):
     faculty = models.ForeignKey(FacultyMember, related_name="training_seminars", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     organizer = models.CharField(max_length=255, blank=True)
@@ -351,7 +369,7 @@ class FacultyTrainingSeminar(FacultyProfileRecord):
         return self.title
 
 
-class FacultyAchievement(FacultyProfileRecord):
+class FacultyAchievement(ApprovedFacultyRecord):
     faculty = models.ForeignKey(FacultyMember, related_name="achievements", on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     awarding_body = models.CharField(max_length=255, blank=True)
@@ -368,7 +386,7 @@ class FacultyAchievement(FacultyProfileRecord):
         return self.title
 
 
-class FacultyContribution(models.Model):
+class FacultyContribution(PublicationApproval):
     """A confirmed credit linking a faculty profile to one shared department record."""
     faculty = models.ForeignKey(FacultyMember, on_delete=models.CASCADE, related_name="department_contributions")
     research = models.ForeignKey("research.ResearchProject", null=True, blank=True, on_delete=models.CASCADE)
@@ -377,7 +395,7 @@ class FacultyContribution(models.Model):
     extension = models.ForeignKey("extension.ExtensionProject", null=True, blank=True, on_delete=models.CASCADE)
     role = models.CharField(max_length=100, blank=True, help_text="Use only a role established by the source; conference author does not mean presenter.")
     credited_name = models.CharField(max_length=255, blank=True)
-    is_published = models.BooleanField(default=True)
+    is_published = models.BooleanField(default=False)
 
     class Meta:
         constraints = [
@@ -391,6 +409,7 @@ class FacultyContribution(models.Model):
         ]
 
     def clean(self):
+        super().clean()
         from django.core.exceptions import ValidationError
         if sum(bool(getattr(self, field + "_id")) for field in ("research", "publication", "conference", "extension")) != 1:
             raise ValidationError("Select exactly one department record.")

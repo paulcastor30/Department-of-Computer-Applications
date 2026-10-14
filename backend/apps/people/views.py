@@ -33,17 +33,21 @@ CLASSIFICATION_ORDER = {
 }
 
 
+def approved_records(model):
+    return model.objects.filter(is_published=True).exclude(approval_reference__regex=r"^\s*$")
+
+
 def activity_count(legacy_relation, kind):
     historical = Count(
         legacy_relation,
         filter=Q(**{legacy_relation + "__is_published": True,
-                    legacy_relation + "__reconciled_contribution__isnull": True}),
+                    legacy_relation + "__reconciled_contribution__isnull": True}) & ~Q(**{legacy_relation + "__approval_reference__regex": r"^\s*$"}),
         distinct=True,
     )
     shared = Count(
         "department_contributions",
         filter=Q(department_contributions__is_published=True,
-                 **{"department_contributions__" + kind + "__is_published": True}),
+                 **{"department_contributions__" + kind + "__is_published": True}) & ~Q(department_contributions__approval_reference__regex=r"^\s*$"),
         distinct=True,
     )
     return historical + shared
@@ -64,7 +68,7 @@ def published_faculty_queryset():
         Prefetch("education_records", queryset=public_education_queryset()),
         "expertise_records",
     ).annotate(
-        supervised_works_count=Count("supervised_works", filter=Q(supervised_works__is_published=True), distinct=True),
+        supervised_works_count=Count("supervised_works", filter=Q(supervised_works__is_published=True) & ~Q(supervised_works__approval_reference__regex=r"^\s*$"), distinct=True),
         publications_count=activity_count("publications", "publication"),
         research_projects_count=activity_count("research_projects", "research"),
         extension_projects_count=activity_count("extension_projects", "extension"),
@@ -89,7 +93,7 @@ class FacultyListView(generics.ListAPIView):
                 Q(specialization_areas__icontains=expertise)
                 | Q(research_interests__icontains=expertise)
                 | Q(teaching_areas__icontains=expertise)
-                | Q(expertise_records__title__icontains=expertise, expertise_records__is_published=True)
+                | Q(expertise_records__title__icontains=expertise, expertise_records__is_published=True, expertise_records__approval_reference__regex=r"\S")
             ).distinct()
 
         return sorted(
@@ -105,13 +109,13 @@ class FacultyDetailView(generics.RetrieveAPIView):
     def get_queryset(self):
         return published_faculty_queryset().prefetch_related(
             "evidence_documents",
-            Prefetch("department_contributions", queryset=FacultyContribution.objects.filter(is_published=True).select_related("research", "publication", "conference", "extension")),
-            Prefetch("supervised_works", queryset=FacultySupervisedWork.objects.filter(is_published=True)),
-            Prefetch("publications", queryset=FacultyPublication.objects.filter(is_published=True)),
-            Prefetch("conferences", queryset=FacultyConference.objects.filter(is_published=True)),
-            Prefetch("research_projects", queryset=FacultyResearchProject.objects.filter(is_published=True)),
-            Prefetch("extension_projects", queryset=FacultyExtensionProject.objects.filter(is_published=True)),
-            Prefetch("creative_works", queryset=FacultyCreativeWork.objects.filter(is_published=True)),
-            Prefetch("training_seminars", queryset=FacultyTrainingSeminar.objects.filter(is_published=True)),
-            Prefetch("achievements", queryset=FacultyAchievement.objects.filter(is_published=True)),
+            Prefetch("department_contributions", queryset=approved_records(FacultyContribution).select_related("research", "publication", "conference", "extension")),
+            Prefetch("supervised_works", queryset=approved_records(FacultySupervisedWork)),
+            Prefetch("publications", queryset=approved_records(FacultyPublication)),
+            Prefetch("conferences", queryset=approved_records(FacultyConference)),
+            Prefetch("research_projects", queryset=approved_records(FacultyResearchProject)),
+            Prefetch("extension_projects", queryset=approved_records(FacultyExtensionProject)),
+            Prefetch("creative_works", queryset=approved_records(FacultyCreativeWork)),
+            Prefetch("training_seminars", queryset=approved_records(FacultyTrainingSeminar)),
+            Prefetch("achievements", queryset=approved_records(FacultyAchievement)),
         )

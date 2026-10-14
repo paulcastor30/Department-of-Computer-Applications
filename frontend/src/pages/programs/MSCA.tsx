@@ -1,11 +1,13 @@
 import { usePrograms } from "@/hooks/useAcademics";
 import { ProgramDetailPage } from "./ProgramDetailPage";
-import { mscaProgram, normalizeProgram } from "./programData";
+import { normalizeProgram } from "./programData";
+import { ProgramContentState } from "./ProgramContentState";
 
 export default function MSCA() {
-  const { data: programs, isError } = usePrograms();
+  const { data: programs, isError, isLoading } = usePrograms();
   const data = programs?.find(program => program.code === "MSCA" || program.slug === "msca");
-  const program = normalizeProgram(data, mscaProgram);
+  if (!data || data.is_published !== true) return <ProgramContentState isLoading={isLoading} isError={isError} />;
+  const program = normalizeProgram(data);
 
   return (
     <ProgramDetailPage

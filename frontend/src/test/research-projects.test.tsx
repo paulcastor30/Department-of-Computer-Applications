@@ -11,7 +11,7 @@ afterEach(() => { cleanup(); query.data = [...original]; query.isError = false; 
 it("separates reporting years from status and identifies the leader, funding and team", () => {
   render(<MemoryRouter><ResearchProjectList /></MemoryRouter>);
   expect(screen.getByRole("heading", { name: "Reporting year: 2026" })).toBeInTheDocument();
-  expect(screen.getByText(/do not indicate whether a project is ongoing or completed/)).toBeInTheDocument();
+  expect(screen.getByText(/Browse projects by reporting year/)).toBeInTheDocument();
   expect(screen.getByText("A tool for understanding natural hazards.")).toBeInTheDocument();
   expect(screen.queryByText("Intended users or audience:")).not.toBeInTheDocument();
   expect(screen.getByText("Research leader", { selector: "dd" })).toBeInTheDocument();

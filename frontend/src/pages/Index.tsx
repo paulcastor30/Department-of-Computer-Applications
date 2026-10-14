@@ -1,8 +1,7 @@
-import { departmentProfileText } from "@/lib/departmentProfileText";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Seo } from "@/components/Seo";
-import { useDepartmentProfile, useSiteSettings } from "@/hooks/useCore";
+import { useSiteSettings } from "@/hooks/useCore";
 import { usePrograms } from "@/hooks/useAcademics";
 import { visitGuidance } from "@/content/visitGuidance";
 import { departmentIntroduction } from "@/content/departmentIntroduction";
@@ -12,10 +11,9 @@ import { NewsList } from "./News";
 import { homeOrientation } from "@/content/homeOrientation";
 import { WhatIsComputerApplications, WhatStudentsBuild, ChoosingComputerApplications } from "@/components/HomeOrientation";
 import { RealDepartmentWork } from "@/components/RealDepartmentWork";
-import departmentBanner from "@/assets/department-home-web.png";
+import departmentBanner from "@/assets/department-home-web.webp";
 
 export default function Index() {
-  const { data } = useDepartmentProfile();
   const { data: settings } = useSiteSettings();
   const email = settings?.primary_email || departmentIdentity.email;
   const address = settings?.address || departmentIdentity.address;
@@ -32,7 +30,6 @@ export default function Index() {
             <p className="home-eyebrow">{departmentIdentity.college} · MSU-IIT</p>
             <h1 id="home-title"><span className="home-title-prefix">Department of </span>Computer Applications</h1>
             <p className="home-lead">{departmentIntroduction.lead}</p>
-            <p className="mt-3 max-w-prose leading-7 text-muted-foreground">Think of software reading a sensor, controlling a device or connecting equipment to a network.</p>
             <p className="mt-3 max-w-prose leading-7">Study with us: <strong>BSCA</strong> (bachelor’s degree) and <strong>MSCA</strong> (master’s degree).</p>
             <div className="home-intro-actions">
               <Link className="action-link" to="/programs">Explore programs <ArrowRight size={18} aria-hidden="true" /></Link>
@@ -69,7 +66,7 @@ export default function Index() {
               <Link className="home-degree-link" to={program.route}>
                 <p className="home-degree-level">{program.level} · {program.code}</p>
                 <h3>{program.title}</h3>
-                <p className="mt-3 leading-7 text-muted-foreground">{program.degreeLevelCode === "UNDERGRAD" ? "Learn programming and how software, firmware and hardware work together in embedded and connected devices." : "Advanced study and research in Computer Applications, including embedded and connected systems. Check the official graduate admission requirements."}</p>
+                <p className="mt-3 leading-7 text-muted-foreground">{program.summary}</p>
                 <span className="home-degree-action">View program <ArrowRight size={18} aria-hidden="true" /></span>
               </Link>
             </li>
@@ -85,7 +82,7 @@ export default function Index() {
         <div className="container home-content home-section home-about-layout">
           <div>
             <h2 id="home-about-title">Get to know the department</h2>
-            <p className="home-overview">{departmentProfileText(data?.overview) || departmentIntroduction.overview}</p>
+            <p className="home-overview">The Department of Computer Applications is part of the {departmentIdentity.college} at {departmentIdentity.institution}.</p>
             <div className="home-about-links">
               <Link className="text-link" to="/about">About the department</Link>
               <Link className="text-link" to="/about#purpose">Our college’s vision and mission</Link>

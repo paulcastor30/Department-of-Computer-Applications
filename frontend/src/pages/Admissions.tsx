@@ -14,7 +14,7 @@ export default function Admissions() {
     <Seo canonicalUrl="https://msuiit-comapps.vercel.app/admissions" title="How to apply" description="Choose BSCA undergraduate or MSCA graduate study and follow the official MSU-IIT application and admission guidance." />
     <PageHero title="How to apply" subtitle="Choose your degree, review the official requirements, then follow the university application process." />
     <Section>
-      {isError && <p className="notice mb-6" role="status">The latest program updates could not be loaded. Reference admissions links are shown; confirm current instructions with the university.</p>}
+      {isError && <p className="notice mb-6" role="status">The latest program updates could not be loaded. Contact the department for admissions assistance.</p>}
       <div className="grid gap-6 md:grid-cols-2">{programs.map(program => <article key={program.code} className="rounded-md border border-border p-6 md:p-8">
         <p className="mb-2 text-sm font-semibold text-secondary">{program.level} · {program.code}</p>
         <h2 className="text-2xl font-semibold leading-snug text-primary">{program.title}</h2>

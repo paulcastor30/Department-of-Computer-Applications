@@ -19,7 +19,7 @@ export function ResearchProjectList({ preview = false }: { preview?: boolean }) 
   const visibleYears = [...new Set(records.map(project => project.reporting_year))];
   return <Section id="department-projects">
     <SectionHeader title={preview ? "Research project highlights" : "Department research projects"} subtitle={preview ? "A short selection from the latest reporting years. Explore the complete list for more projects and their teams." : "Research involving department researchers and their collaborators."} className="mb-5" />
-    <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Years below are reporting years and do not indicate whether a project is ongoing or completed. Plain-language summaries describe the intended focus, not measured results.</p>
+    <p className="mb-6 max-w-3xl leading-7 text-muted-foreground">Browse projects by reporting year, research team and funding category.</p>
     {isLoading ? <p role="status">Loading research projects…</p> : isError ? <p role="status">Research projects could not be loaded. <Link className="text-link" to="/about/contact">Contact the department for research information.</Link></p> : !data.length ? <p>No research projects are currently listed.</p> : <>
       {!preview && <div className="mb-6 max-w-xs">
         <label htmlFor="research-reporting-year" className="mb-2 block font-semibold">Reporting year</label>

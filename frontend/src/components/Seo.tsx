@@ -26,10 +26,8 @@ export function Seo({ title, description, keywords, ogTitle, ogDescription, cano
       meta.content = value;
     };
 
-    if (description) {
-      setMeta('meta[name="description"]', "name", "description", description);
-      setMeta('meta[property="og:description"]', "property", "og:description", description);
-    }
+    setMeta('meta[name="description"]', "name", "description", description || "Department information and contacts.");
+    setMeta('meta[property="og:description"]', "property", "og:description", description || "Department information and contacts.");
 
     if (ogDescription) {
       setMeta('meta[property="og:description"]', "property", "og:description", ogDescription);

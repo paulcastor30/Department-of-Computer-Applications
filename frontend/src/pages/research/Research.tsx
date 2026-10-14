@@ -31,7 +31,7 @@ export default function Research() {
     <PublicationRecordList preview />
     <ConferenceRecordList preview />
     <Section>
-      <SectionHeader title="Computing areas in our programs" subtitle="These are curriculum-based learning areas, rather than a statement of an approved departmental research agenda." className="mb-6" />
+      <SectionHeader title="Computing areas in our programs" subtitle="Learning areas from our academic programs." className="mb-6" />
       <div className="grid gap-8 md:grid-cols-2">{programs.map(program => <section key={program.code}>
         <h3 className="mb-4 text-xl font-semibold text-primary">{program.code}</h3>
         <ul className="list-disc space-y-3 pl-5 leading-7 text-muted-foreground">{availableProgramItems(program.academicAreas).map(area => <li key={area}>{area}</li>)}</ul>

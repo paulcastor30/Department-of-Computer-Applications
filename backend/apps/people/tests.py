@@ -42,7 +42,7 @@ class FacultyImportTests(TransactionTestCase):
         unknown = FacultyEducation.objects.create(faculty=member, degree_level="doctorate",
             degree_name=doctorate.degree_name, institution="National Taiwan University, Taiwan & Academia Sinica, Taiwan", is_published=True)
         old_expertise = FacultyExpertise.objects.create(faculty=member, title="asdf", expertise_type="expertise")
-        interest = FacultyExpertise.objects.create(faculty=member, title="Existing research interest", expertise_type="research_interest")
+        interest = FacultyExpertise.objects.create(is_published=True, approval_reference="Existing test approval", faculty=member, title="Existing research interest", expertise_type="research_interest")
         other = FacultyMember.objects.create(title="Other Faculty", slug="other")
         other_degree = FacultyEducation.objects.create(faculty=other, degree_level="masters",
             degree_name=new_master.degree_name, institution=new_master.institution, year_completed=2021)
@@ -231,7 +231,7 @@ class SharedContributionTests(TestCase):
         self.project = ResearchProject.objects.create(title="Shared research", slug="shared", reporting_year="2025", research_leader="Joel I. Miano", team_members="Other Person", funding="INTERNAL", is_published=True)
 
     def test_shared_source_edits_visibility_and_historical_credit(self):
-        credit = FacultyContribution.objects.create(faculty=self.person, research=self.project, role="Research leader")
+        credit = FacultyContribution.objects.create(faculty=self.person, research=self.project, role="Research leader", is_published=True, approval_reference="Approved test credit")
         url = "/api/people/faculty/joel-i-miano/"
         payload = self.client.get(url).json()["department_contributions"]
         self.assertEqual(payload[0]["role"], "Research leader")
@@ -266,6 +266,7 @@ class SharedContributionTests(TestCase):
         self.assertEqual(FacultyContribution.objects.filter(faculty=ambiguous).count(), 0)
         self.assertEqual(FacultyContribution.objects.get(faculty=member, research=self.project).role, "Research team member")
         self.assertEqual(FacultyContribution.objects.get(faculty=member, extension=extension).role, "Extension leader")
+        FacultyContribution.objects.filter(faculty__in=[self.person, member]).update(is_published=True, approval_reference="Reviewed imported test credits")
         credits = self.client.get("/api/people/faculty/joel-i-miano/").json()["department_contributions"]
         conference_credit = next(item for item in credits if item["kind"] == "conference")
         self.assertTrue(conference_credit["withdrawn"])
@@ -315,7 +316,7 @@ class AcademicPublicationTests(TestCase):
         from .models import FacultyExpertise
         self.member.specialization_areas = "Obsolete free text"
         self.member.save()
-        record = FacultyExpertise.objects.create(faculty=self.member, title="Reviewed specialization")
+        record = FacultyExpertise.objects.create(faculty=self.member, title="Reviewed specialization", is_published=True, approval_reference="Approved test specialization")
         for url in ("/api/people/faculty/", "/api/people/faculty/reviewed/"):
             data = self.client.get(url).json()
             if isinstance(data, list): data = data[0]

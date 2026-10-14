@@ -9,8 +9,8 @@ const pages = {
   '/projects': ['BSCA student projects and prototypes', 'Explore BSCA student outputs: embedded games, sensors, displays and controllers, with reporting years and public Hackster project links.'],
   '/our-work': ['What we do', 'Explore Computer Applications teaching, research information and community enquiries.'],
   '/programs': ['Academic Programs', 'Compare BSCA and MSCA: undergraduate foundations and advanced study and research in Computer Applications.'],
-  '/programs/bsca': ['Bachelor of Science in Computer Applications', 'Explore BSCA at MSU-IIT: software, firmware and hardware foundations for embedded, connected and intelligent systems.'],
-  '/programs/msca': ['Master of Science in Computer Applications', 'Explore MSCA at MSU-IIT: advanced study and research in Computer Applications, with program information and admissions guidance.'],
+  '/programs/bsca': ['Bachelor of Science in Computer Applications', 'BSCA program information and department contacts.'],
+  '/programs/msca': ['Master of Science in Computer Applications', 'MSCA program information and department contacts.'],
   '/faculty': ['Faculty', 'Meet the Computer Applications faculty, explore their expertise and find academic contacts.'],
   '/research/publications': ['Publications', 'Research publications involving DCA faculty and collaborators, with authors, publication dates, journal and conference details, and publisher links.'],
   '/research/conferences': ['Research conferences', 'Conference research involving DCA faculty, students and collaborators: authors, titles, dates, locations and withdrawn entries.'],
@@ -46,7 +46,7 @@ try {
     if (available(program.og_description)) pages[route][1] = program.og_description;
   }
 } catch {
-  console.warn('Public program metadata was unavailable; approved reference descriptions are used.');
+  console.warn('Public program metadata was unavailable; general contact descriptions are used.');
 }
 
 const template = await readFile('dist/index.html', 'utf8');

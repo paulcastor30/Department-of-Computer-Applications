@@ -8,7 +8,7 @@ export function WhatIsComputerApplications() {
     <p className="home-section-description">{homeOrientation.meaning}</p>
     <div className="mt-6">
       <h3 className="text-xl font-semibold text-primary">How computing connects to the physical world</h3>
-      <p className="mt-2 max-w-prose leading-7">Follow a sensor reading from a device to useful information. This is one possible system, rather than a required design for every project.</p>
+      <p className="mt-2 max-w-prose leading-7">An example: follow a sensor reading from a device to useful information.</p>
       <ol className="home-computing-flow mt-5" aria-label="Example: from sensing to useful information">
         {homeOrientation.flow.map((step, index) => <li key={step.term}>
           <span className="home-flow-number" aria-hidden="true">{index + 1}</span>

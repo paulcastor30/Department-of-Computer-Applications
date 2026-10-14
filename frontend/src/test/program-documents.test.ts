@@ -1,51 +1,34 @@
 import { expect, it } from "vitest";
-import { normalizeProgram } from "../pages/programs/programData";
+import { normalizeProgram, normalizePrograms } from "../pages/programs/programData";
 import type { Program } from "../types/api";
-
-it("removes the BSCA curriculum link from CMS files and documents while retaining the prospectus", () => {
-  const program = normalizeProgram({
-    code: "BSCA", slug: "bsca", curriculum_pdf_url: "/media/curriculum.pdf",
-    documents: [{ title: "BSCA curriculum", href: "/media/old-curriculum.pdf", note: "" }],
-  } as Program);
-  expect(program.documents.some(document => /curriculum/i.test(document.label))).toBe(false);
-  expect(program.documents.find(document => document.href)?.href).toBe("/curricula/bsca-prospectus.pdf");
+it("does not restore missing, empty or unpublished programs", () => {
+  expect(normalizePrograms(undefined)).toEqual([]);
+  expect(normalizePrograms([])).toEqual([]);
+  expect(normalizePrograms([{code: "BSCA", is_published: false} as Program])).toEqual([]);
 });
-
-it("keeps program links on supported pages when an editor changes the CMS slug", () => {
-  const program = normalizeProgram({ code: "MSCA", slug: "masters-in-computer-applications" } as Program);
-  expect(program.route).toBe("/programs/msca");
+it("keeps route identity when the CMS slug changes", () => {
+  expect(normalizeProgram({code: "MSCA", slug: "masters"} as Program).route).toBe("/programs/msca");
 });
-
-
-it("uses the supplied BSCA reference when CMS fields contain only placeholders", () => {
-  const program = normalizeProgram({ code: "BSCA", overview: "To be provided by the Department.",
-    formal_description: "To be provided by the Department", academic_areas_list: ["To be provided by the Department."],
-  } as Program);
-  expect(program.summary).toContain("software, firmware, and hardware");
-  expect(program.academicAreas[0]).toContain("Software");
+it("omits placeholders and blank academic fields without inserting claims", () => {
+  const program = normalizeProgram({code: "BSCA", formal_description: "To be provided by the Department.",
+    academic_areas_list: ["To be validated by the Department"], recognition: "", documents: []} as Program);
+  expect(program.summary).toBe(""); expect(program.academicAreas).toEqual([]);
+  expect(program.recognition).toBe(""); expect(program.documents).toEqual([]);
 });
-
-it("preserves substantive CMS content ahead of the BSCA reference", () => {
-  const program = normalizeProgram({ code: "BSCA", formal_description: "Updated department introduction",
-    academic_areas_list: ["Department-approved learning area"], outcomes_list: ["Updated official outcome"],
-  } as Program);
-  expect(program.summary).toBe("Updated department introduction");
-  expect(program.academicAreas).toEqual(["Department-approved learning area"]);
-  expect(program.outcomes).toEqual(["Updated official outcome"]);
-});
-
-
-it("makes the supplied prospectus available while CMS documents are still placeholders", () => {
-  const program = normalizeProgram({ code: "BSCA", documents: [
-    { title: "BSCA curriculum", document_type: "CURRICULUM", href: "", note: "To be provided by the Department." },
-  ] } as Program);
-  expect(program.documents.find(document => document.label.includes("prospectus"))?.href).toBe("/curricula/bsca-prospectus.pdf");
-});
-
-it("keeps a newer published CMS curriculum ahead of the supplied fallback prospectus", () => {
-  const program = normalizeProgram({ code: "MSCA", documents: [
-    { title: "Updated curriculum", document_type: "CURRICULUM", href: "/media/current.pdf", note: "Current department version" },
-  ] } as Program);
-  expect(program.documents).toHaveLength(1);
+it("preserves approved CMS wording and usable documents", () => {
+  const program = normalizeProgram({code: "BSCA", formal_description: "Approved introduction", outcomes_list: ["Approved outcome"],
+    documents: [{title: "Current prospectus", href: "/media/current.pdf", note: "Approved guide"}]} as Program);
+  expect(program.summary).toBe("Approved introduction"); expect(program.outcomes).toEqual(["Approved outcome"]);
   expect(program.documents[0].href).toBe("/media/current.pdf");
+});
+it("does not resurrect a removed prospectus or promote unavailable documents", () => {
+  const program = normalizeProgram({code: "BSCA", documents: [{title: "Prospectus", href: "", note: "To be provided by the Department"}]} as Program);
+  expect(program.documents).toEqual([]);
+});
+
+it("retains a curriculum attached directly to the published CMS program without duplication", () => {
+  const program = normalizeProgram({code: "MSCA", curriculum_pdf_url: "/media/curriculum.pdf", documents: []} as Program);
+  expect(program.documents).toEqual([{label: "MSCA curriculum", documentType: "CURRICULUM", href: "/media/curriculum.pdf"}]);
+  const withDocument = normalizeProgram({code: "MSCA", curriculum_pdf_url: "/media/curriculum.pdf", documents: [{title: "Published curriculum", href: "/media/curriculum.pdf"}]} as Program);
+  expect(withDocument.documents).toHaveLength(1);
 });

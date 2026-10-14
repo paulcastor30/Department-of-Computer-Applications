@@ -43,7 +43,7 @@ class FacultyDirectorySerializer(serializers.ModelSerializer):
     def get_specialization_areas(self, member):
         records = [row for row in member.expertise_records.all() if row.expertise_type == "expertise"]
         if records:
-            return "\n".join(row.title for row in records if row.is_published)
+            return "\n".join(row.title for row in records if row.is_published and row.approval_reference.strip())
         return member.specialization_areas
 
     def to_representation(self, instance):
@@ -125,7 +125,7 @@ class FacultyExpertiseSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacultyExpertise
-        exclude = ["faculty"]
+        exclude = ["faculty", "approval_reference"]
 
 
 class FacultySupervisedWorkSerializer(serializers.ModelSerializer):
@@ -133,19 +133,19 @@ class FacultySupervisedWorkSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacultySupervisedWork
-        exclude = ["faculty"]
+        exclude = ["faculty", "approval_reference"]
 
 
 class FacultyPublicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyPublication
-        exclude = ["faculty", "reconciled_contribution"]
+        exclude = ["faculty", "reconciled_contribution", "approval_reference"]
 
 
 class FacultyConferenceSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyConference
-        exclude = ["faculty", "reconciled_contribution"]
+        exclude = ["faculty", "reconciled_contribution", "approval_reference"]
 
 
 class FacultyResearchProjectSerializer(serializers.ModelSerializer):
@@ -153,31 +153,31 @@ class FacultyResearchProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = FacultyResearchProject
-        exclude = ["faculty", "reconciled_contribution"]
+        exclude = ["faculty", "reconciled_contribution", "approval_reference"]
 
 
 class FacultyExtensionProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyExtensionProject
-        exclude = ["faculty", "reconciled_contribution"]
+        exclude = ["faculty", "reconciled_contribution", "approval_reference"]
 
 
 class FacultyCreativeWorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyCreativeWork
-        exclude = ["faculty"]
+        exclude = ["faculty", "approval_reference"]
 
 
 class FacultyTrainingSeminarSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyTrainingSeminar
-        exclude = ["faculty"]
+        exclude = ["faculty", "approval_reference"]
 
 
 class FacultyAchievementSerializer(serializers.ModelSerializer):
     class Meta:
         model = FacultyAchievement
-        exclude = ["faculty"]
+        exclude = ["faculty", "approval_reference"]
 
 
 class FacultyMemberSerializer(FacultyDirectorySerializer):
@@ -203,7 +203,7 @@ class FacultyMemberSerializer(FacultyDirectorySerializer):
         return ""
 
     def get_expertise_records(self, member):
-        records = [row for row in member.expertise_records.all() if row.is_published]
+        records = [row for row in member.expertise_records.all() if row.is_published and row.approval_reference.strip()]
         return FacultyExpertiseSerializer(records, many=True, context=self.context).data
     supervised_works = FacultySupervisedWorkSerializer(many=True, read_only=True)
     publications = serializers.SerializerMethodField()

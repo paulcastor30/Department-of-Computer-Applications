@@ -9,7 +9,7 @@ export function ConferenceRecordList({ preview = false }: { preview?: boolean })
   const years = [...new Set(data.map(record => record.year))].sort((a, b) => b - a);
   const records = preview ? data.filter(record => !record.withdrawn).slice(0, 3) : data.filter(record => year === "all" || String(record.year) === year);
   return <Section id="conference-records" variant="muted">
-    <SectionHeader title="Research at conferences" subtitle="Conference research involving DCA faculty, students and collaborators. Records include future-dated conferences and withdrawn entries; listing does not establish completed presentation or publication." className="mb-6" />
+    <SectionHeader title="Research at conferences" subtitle="Conference research involving DCA faculty, students and collaborators. Event dates and withdrawn entries are identified in each record." className="mb-6" />
     {isLoading ? <p role="status">Loading conference records…</p> : isError ? <p role="status">Conference records could not be loaded. <Link className="text-link" to="/about/contact">Contact the department for conference information.</Link></p> : !data.length ? <p>No conference records are currently listed.</p> : <>
       {!preview && <div className="mb-6 max-w-xs">
         <label className="mb-2 block font-semibold" htmlFor="conference-year">Conference year</label>

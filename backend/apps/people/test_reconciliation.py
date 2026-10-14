@@ -23,7 +23,7 @@ class ReconciliationTests(TestCase):
             source_url="https://example.org/paper", is_published=True, source_note="PRIVATE PROVENANCE")
 
     def old_paper(self, **kwargs):
-        fields = dict(faculty=self.faculty, title=self.paper.title, year=2025, doi="https://doi.org/10.1234/EXACT")
+        fields = dict(is_published=True, approval_reference="Approved historical test record", faculty=self.faculty, title=self.paper.title, year=2025, doi="https://doi.org/10.1234/EXACT")
         fields.update(kwargs)
         return FacultyPublication.objects.create(**fields)
 
@@ -39,6 +39,7 @@ class ReconciliationTests(TestCase):
         editor = SimpleNamespace(connection=connection)
         migration.link_historical_records(apps, editor)
         migration.link_historical_records(apps, editor)
+        FacultyContribution.objects.filter(faculty=self.faculty).update(is_published=True, approval_reference="Reviewed reconciled test credit")
         old.refresh_from_db()
         credit = old.reconciled_contribution
         self.assertEqual(credit.role, "")  # No inferred author/presenter role.
@@ -81,11 +82,12 @@ class ReconciliationTests(TestCase):
         extension = ExtensionProject.objects.create(title="Service", reporting_year=2025, extension_leader="Named person", is_published=True)
         conference = ConferenceRecord.objects.create(title="Event paper", year=2025, conference="Exact event", starts_on="2025-01-01", ends_on="2025-01-02", withdrawn=True, is_published=True)
         self.old_paper()
-        FacultyResearchProject.objects.create(faculty=self.faculty, title=research.title, start_year=2024, end_year=2025, role="Research team member")
-        FacultyExtensionProject.objects.create(faculty=self.faculty, title=extension.title, start_year=2025, end_year=2025, role="Participant")
-        FacultyConference.objects.create(faculty=self.faculty, title=conference.title, conference_name="Exact event", year=2025, role="Participant")
-        weak = FacultyResearchProject.objects.create(faculty=self.faculty, title=research.title, end_year=2025)
+        FacultyResearchProject.objects.create(is_published=True, approval_reference="Approved historical test record", faculty=self.faculty, title=research.title, start_year=2024, end_year=2025, role="Research team member")
+        FacultyExtensionProject.objects.create(is_published=True, approval_reference="Approved historical test record", faculty=self.faculty, title=extension.title, start_year=2025, end_year=2025, role="Participant")
+        FacultyConference.objects.create(is_published=True, approval_reference="Approved historical test record", faculty=self.faculty, title=conference.title, conference_name="Exact event", year=2025, role="Participant")
+        weak = FacultyResearchProject.objects.create(is_published=True, approval_reference="Approved historical test record", faculty=self.faculty, title=research.title, end_year=2025)
         reconcile(apps, apply=True)
+        FacultyContribution.objects.filter(faculty=self.faculty).update(is_published=True, approval_reference="Reviewed reconciled test credits")
         weak.refresh_from_db()
         self.assertIsNone(weak.reconciled_contribution_id)
         data = self.profile()
