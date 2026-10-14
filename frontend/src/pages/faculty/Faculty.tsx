@@ -40,6 +40,7 @@ export default function Faculty() {
     <Seo title="Faculty & Staff" description="Meet the faculty and staff of the Department of Computer Applications, MSU-IIT. Explore their qualifications, specialization areas and institutional contact details." />
     <Section className="!py-8">
       <SectionHeader as="h1" title="Faculty & Staff" className="!mb-6" />
+      <Link className="outline-link mb-6" to="/about/organization">Department organizational chart</Link>
       <div className="mb-8 max-w-xl"><label htmlFor="faculty-search" className="mb-2 block font-semibold">Search faculty and staff</label>
         <input id="faculty-search" type="search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Name, role or expertise" className="min-h-12 w-full rounded-md border border-border bg-background px-4 text-base" />
         {query && <button className="text-link mt-2 min-h-11" onClick={() => setQuery("")}>Clear search</button>}
