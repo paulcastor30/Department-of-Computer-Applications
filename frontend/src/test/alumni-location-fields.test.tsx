@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {render, screen, fireEvent, cleanup} from '@testing-library/react';
 import {afterEach, expect, it} from 'vitest';
 import {AlumniLocationFields} from '@/components/AlumniLocationFields';
-const options = {countries:['Canada','Philippines'], philippine_groups:[{name:'Lanao del Norte', cities:['Tubod']}, {name:'Cities outside provinces', cities:['City of Iligan']}, {name:'Metro Manila (NCR)',cities:['City of Manila']}]};
+const options = {countries:['Canada','Philippines'], philippine_groups:[{name:'Lanao del Norte', cities:['Tubod','Iligan City']}, {name:'Cities outside provinces', cities:['City of Iligan']}, {name:'Metro Manila (NCR)',cities:['City of Manila']}]};
 function Example({initial={}}:{initial?:Record<string,string>}) {
   const [values,setValues]=useState(initial);
   return <AlumniLocationFields prefix="residence" options={options} values={values} onChange={(key,value)=>setValues(previous=>({...previous,[key]:value}))}/>;
@@ -14,6 +14,7 @@ it('filters Philippine cities, handles independent cities and clears mismatched 
   expect(screen.getByLabelText('Current city or municipality (optional)')).toBeDisabled();
   fireEvent.change(screen.getByLabelText('Current province or region (optional)'),{target:{value:'Lanao del Norte'}});
   expect(screen.getByRole('option',{name:'Tubod'})).toBeInTheDocument();
+  expect(screen.getByRole('option',{name:'Iligan City'})).toBeInTheDocument();
   expect(screen.queryByRole('option',{name:'City of Iligan'})).not.toBeInTheDocument();
   fireEvent.change(screen.getByLabelText('Current city or municipality (optional)'),{target:{value:'Tubod'}});
   fireEvent.change(screen.getByLabelText('Current province or region (optional)'),{target:{value:'Cities outside provinces'}});

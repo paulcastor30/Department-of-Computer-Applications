@@ -67,6 +67,7 @@ class TracerReportingTests(TestCase):
         self.assertIn("Philippines", data["countries"])
         groups = {group["name"]: group["cities"] for group in data["philippine_groups"]}
         self.assertIn("Tubod", groups["Lanao del Norte"])
+        self.assertIn("Iligan City", groups["Lanao del Norte"])
         self.assertIn("City of Iligan", groups["Cities outside provinces"])
         self.assertIn("City of Manila", groups["Metro Manila (NCR)"])
         profile = self.profile(career_status="EMPLOYED", work_province="Lanao del Norte")
