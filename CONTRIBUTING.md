@@ -19,7 +19,7 @@ git clone https://github.com/YOUR-USERNAME/Department-of-Computer-Applications.g
 cd Department-of-Computer-Applications
 ```
 
-Follow the [setup instructions](README.md#getting-started) to run the website.
+You have already cloned the repository. Continue with [running the backend](README.md#2-run-the-backend), then run the frontend in a second terminal.
 
 Create a branch for your change. A branch keeps this work separate from `main`:
 
@@ -29,39 +29,20 @@ git switch -c fix/describe-your-change
 
 ## Find the code
 
-For a page change, start in `frontend/src/pages/`. For example, the BSCA page is `frontend/src/pages/programs/BSCA.tsx`; it uses the shared layout in `ProgramDetailPage.tsx` beside it.
+Use the [task and file map](docs/README.md#find-the-right-file) to find the part you need. The [frontend](frontend/README.md) and [backend](backend/README.md) guides explain how those files work together.
 
-For a backend change, start in the relevant folder under `backend/apps/`. For example, program records are defined in `backend/apps/academics/models.py`. The [frontend](frontend/README.md) and [backend](backend/README.md) guides explain the other files.
-
-Keep your first pull request to one change so it is easier to explain and review.
+Keep your first pull request to one change so it is easier to explain and review. For content managed in Django, edit the local admin records to try the change; do not add duplicate records to React.
 
 ## Check your change
 
-For documentation, read the edited text and check its links and commands.
+| Changed files | Run | Folder |
+| --- | --- | --- |
+| Documentation | `python scripts/check_docs.py`, then read the edited instructions | Repository root |
+| Frontend code or dependencies | `npm run check` | `frontend/` |
+| Backend code or dependencies | `python scripts/check.py` with your Python environment active | `backend/` |
+| Visible page behavior | Build, then `npm run test:e2e`; also check keyboard use and a narrow screen | `frontend/` |
 
-For frontend code, run these from `frontend/`:
-
-```bash
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run check:sharing
-```
-
-These check TypeScript errors, code rules, tests, the production build, and page-sharing metadata. For a visible change, also check the page on a narrow screen and try its controls with the keyboard.
-
-For backend code, activate your Python environment and run these from `backend/`:
-
-```bash
-python manage.py check
-python manage.py makemigrations --check --dry-run
-python manage.py test
-```
-
-These check Django configuration, missing migration files, and backend tests. If you changed a model, run `python manage.py makemigrations` and `python manage.py migrate` first, then include the new migration in your submission.
-
-If a check fails and you cannot work out why, include the error in your pull request and ask for help.
+The [testing guide](docs/testing.md) explains browser installation, visual comparisons, focused tests, and migrations. If a check fails and you need help, include the error in a draft pull request.
 
 ## Send your change for review
 
@@ -80,6 +61,25 @@ On GitHub, open your fork and click **Compare & pull request**. Set the destinat
 Explain what was wrong, what you changed, and how you checked it. Add a screenshot if the page looks different. You can open a **draft pull request** to ask for help with unfinished work.
 
 If the reviewer asks for an update, edit the files, commit, and push to the same branch. The existing pull request will update automatically.
+
+## Keep your fork up to date
+
+Do this with a clean working tree before starting another change. Add the original repository once:
+
+```bash
+git remote add upstream https://github.com/paulcastor30/Department-of-Computer-Applications.git
+```
+
+Then update your local `main` and fork:
+
+```bash
+git switch main
+git fetch upstream
+git merge --ff-only upstream/main
+git push origin main
+```
+
+Start a new branch for the next change. If the fast-forward merge fails, stop and ask for help; keep your commits intact. After a pull request is merged, see [branch cleanup](docs/maintenance.md#after-a-pull-request-is-merged).
 
 ## Working with department content
 

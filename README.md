@@ -12,14 +12,15 @@ The site has two parts. React displays the pages in the browser. Django stores c
 
 - `frontend/`: React, TypeScript, and Vite. Pages are in `src/pages/`; shared components are in `src/components/`.
 - `backend/`: Django and Django REST Framework. Models, admin screens, and APIs are grouped under `apps/`.
-- `docs/`: notes for specific pages and content workflows.
+- `docs/`: [task guides and a file map](docs/README.md). Earlier reviews are in `docs/archive/`.
+- `scripts/`: repository checks; backend and frontend scripts live with their applications.
 
 ## Getting Started
 
 ### Prerequisites
 
 - **Python 3.12** (repository pin: 3.12.13)
-- **Node.js 22** and **npm**, matching CI
+- **Node.js 22** and **npm**, matching CI (`.nvmrc` is included for nvm users)
 - **Git** and a GitHub account to submit contributions
 
 You can run the website on your own computer with SQLite. You do not need a hosting account.
@@ -39,6 +40,8 @@ To submit changes, clone your own fork instead; see [how to get your own copy](C
 cd backend
 python -m venv .venv
 ```
+
+If your system has no `python` command, use `python3` on macOS/Linux or `py -3.12` on Windows to create the environment. After activation, use `python` as shown below.
 
 Activate the environment using the command for your shell:
 
@@ -101,17 +104,18 @@ Read [CONTRIBUTING.md](CONTRIBUTING.md) for the steps to submit your first chang
 
 For code details, see the [frontend guide](frontend/README.md) or [backend guide](backend/README.md). The [code of conduct](CODE_OF_CONDUCT.md) covers discussions and reviews. See [SECURITY.md](SECURITY.md) for security reports.
 
-## Page and content notes
+## Find your next step
 
-- [Shifting and transfer evaluation](docs/transfer-evaluation.md)
-- [Thesis guide](docs/thesis-process-guide.md)
-- [SOJT guide](docs/sojt-process-guide.md)
-- [Homepage content](docs/homepage-orientation.md)
-- [Research, publications, and faculty contributions](docs/institutional-contributions-and-ci.md)
+| Task | Guide |
+| --- | --- |
+| Find the files for a change | [Documentation and file map](docs/README.md) |
+| Check your work | [Testing](docs/testing.md) |
+| Fix a setup problem | [Local development](docs/local-development.md) |
+| Maintain branches | [Branches and releases](docs/maintenance.md) |
 
 ## Deployment
 
-See [DEPLOYMENT.md](DEPLOYMENT.md) for Vercel/Railway deployment and serving the frontend through Django.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for Vercel/Railway deployment. To serve the frontend through Django locally, see [local development](docs/local-development.md#serving-the-frontend-through-django).
 
 ## License
 

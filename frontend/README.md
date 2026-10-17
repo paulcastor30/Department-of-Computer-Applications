@@ -16,7 +16,7 @@ Follow the [main setup instructions](../README.md#getting-started) first.
 
 ## Example: the BSCA page
 
-`src/pages/programs/BSCA.tsx` calls `usePrograms()` from `src/hooks/useAcademics.ts` to load program records from Django. It selects BSCA and passes the data to `src/pages/programs/ProgramDetailPage.tsx`, which renders the page. `programData.ts` in the same folder contains reference text used when fields are missing.
+`src/pages/programs/BSCA.tsx` calls `usePrograms()` from `src/hooks/useAcademics.ts` to load program records from Django. It selects BSCA and passes the data to `src/pages/programs/ProgramDetailPage.tsx`, which renders the page. `programData.ts` converts the API record into the shape used by the page. Empty optional fields stay empty; unpublished or unavailable programs use `ProgramContentState.tsx`.
 
 To change the shared page layout, look in `ProgramDetailPage.tsx`. To change an official program record, check the Django model and admin instead of adding a second copy of the content to the page.
 
@@ -34,18 +34,12 @@ For separate frontend/backend deployments, set the backend URL in the frontend h
 
 ## Checks
 
-Run from this folder:
+Run from this folder after installing dependencies:
 
 ```bash
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run check:sharing
+npm run check
 ```
 
-For browser navigation, accessibility and visual regression checks, run `npx playwright install chromium`, then `npm run test:e2e` after building. See [browser test setup and baseline policy](e2e/README.md). With the production preview running, `npm run audit:lighthouse` saves mobile/desktop reports for Home and Students.
+This runs type checks, lint, unit tests, the build, and page metadata checks. `npm run test:watch` is useful while editing; `npm run preview` serves the production build.
 
-`npm run test:watch` reruns tests as you edit. `npm run preview` serves the production build locally.
-
-See [CONTRIBUTING.md](../CONTRIBUTING.md) for submitting a change.
+For browser checks, visual comparisons, and CI behavior, see [Testing](../docs/testing.md). See [CONTRIBUTING.md](../CONTRIBUTING.md) for submitting a change.

@@ -1,11 +1,2 @@
-Django~=6.0.0
-djangorestframework
-django-cors-headers
-Pillow
-dj-database-url
-gunicorn
-psycopg[binary]
-whitenoise
-
-reportlab>=4.4,<5
-pypdf>=6,<7
+# Root deployments use the same dependencies as backend deployments.
+-r backend/requirements.txt
