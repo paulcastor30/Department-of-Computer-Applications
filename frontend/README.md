@@ -44,6 +44,8 @@ npm run build
 npm run check:sharing
 ```
 
+For browser navigation, accessibility and visual regression checks, run `npx playwright install chromium`, then `npm run test:e2e` after building. See [browser test setup and baseline policy](e2e/README.md). With the production preview running, `npm run audit:lighthouse` saves mobile/desktop reports for Home and Students.
+
 `npm run test:watch` reruns tests as you edit. `npm run preview` serves the production build locally.
 
 See [CONTRIBUTING.md](../CONTRIBUTING.md) for submitting a change.

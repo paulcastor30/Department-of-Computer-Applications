@@ -1,0 +1,16 @@
+{
+  "brokenCrumb": {
+    "path": "/students",
+    "heading": "Page not found"
+  },
+  "textSpacing": {
+    "overflow": false,
+    "width": 320,
+    "scrollWidth": 320
+  },
+  "forcedColors": {
+    "border": "solid",
+    "outline": "none"
+  },
+  "note": "Text-spacing and forced-colors sampled on current student services only; not a full manual accessibility review."
+}

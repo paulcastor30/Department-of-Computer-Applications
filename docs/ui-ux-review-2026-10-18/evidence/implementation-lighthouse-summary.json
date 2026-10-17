@@ -1,0 +1,50 @@
+[
+  {
+    "name": "home",
+    "formFactor": "mobile",
+    "scores": {
+      "performance": 0.67,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "lcp": 3995.566500000001,
+    "cls": 0.2138531589501464
+  },
+  {
+    "name": "home",
+    "formFactor": "desktop",
+    "scores": {
+      "performance": 0.96,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "lcp": 1367.0321,
+    "cls": 0.0006169753816069813
+  },
+  {
+    "name": "students",
+    "formFactor": "mobile",
+    "scores": {
+      "performance": 0.86,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "lcp": 3212.9122,
+    "cls": 0.01072506977973031
+  },
+  {
+    "name": "students",
+    "formFactor": "desktop",
+    "scores": {
+      "performance": 0.97,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    },
+    "lcp": 1283.69225,
+    "cls": 0.00019313558904649332
+  }
+]

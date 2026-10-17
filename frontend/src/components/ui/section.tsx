@@ -33,8 +33,8 @@ interface SectionHeaderProps {
 
 export function SectionHeader({ title, subtitle, align = "left", className, children, as: Heading = "h2" }: SectionHeaderProps) {
   return (
-    <div className={cn("mb-12", align === "center" && "text-center max-w-3xl mx-auto", className)}>
-      <Heading className="section-title">{title}</Heading>
+    <div className={cn("mb-6", align === "center" && "text-center max-w-3xl mx-auto", className)}>
+      <Heading className={Heading === "h1" ? "page-title" : "section-title"}>{title}</Heading>
       {subtitle && <p className="section-subtitle">{subtitle}</p>}
       {children}
     </div>

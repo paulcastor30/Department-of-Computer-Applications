@@ -32,19 +32,19 @@ export function Header() {
         else if (menuOpen) { setMenuOpen(false); menuButtonRef.current?.focus(); }
       }
     }}>
-      <div className="border-b border-border bg-muted/40"><div className="container py-2 text-sm text-muted-foreground">MSU–Iligan Institute of Technology · {departmentIdentity.college}</div></div>
-      <div className="container flex flex-wrap items-center justify-between gap-4 py-5">
-        <Link to="/" className="flex w-full min-w-0 items-center gap-3 font-semibold text-primary lg:w-auto lg:flex-1" aria-label="Department of Computer Applications home">
-          <img src="/MSU-IIT%20Logo.png" alt="" width="64" height="64" className="h-12 w-12 shrink-0 object-contain sm:h-16 sm:w-16" />
-          <span className="max-w-sm text-base leading-snug sm:text-xl">{departmentIdentity.name}</span>
+      <div className="site-institution"><div className="container">MSU–Iligan Institute of Technology · {departmentIdentity.college}</div></div>
+      <div className="container site-identity-row">
+        <Link to="/" className="site-identity" aria-label="Department of Computer Applications home">
+          <img src="/MSU-IIT%20Logo.png" alt="" width="48" height="48" />
+          <span>{departmentIdentity.name}</span>
         </Link>
-        <div className="flex flex-wrap gap-2">
-          <nav aria-label="Quick access" className="flex flex-wrap gap-2"><Link className="outline-link text-sm" to="/admissions">Apply</Link><Link className="outline-link text-sm" to="/alumni">Alumni</Link></nav>
-          <button ref={searchButtonRef} aria-label="Search site" type="button" className="control-button" aria-expanded={searchOpen} aria-controls="site-search" onClick={() => { setSearchOpen(value => !value); setMenuOpen(false); }}><Search aria-hidden="true" size={18}/><span>Search</span></button>
-          <button ref={menuButtonRef} type="button" className="control-button md:hidden" aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => { setMenuOpen(value => !value); setSearchOpen(false); }}>{menuOpen ? <X aria-hidden="true" size={18}/> : <Menu aria-hidden="true" size={18}/>}<span>Menu</span></button>
+        <div className="site-utilities">
+          <nav aria-label="Quick access" className="flex"><Link className="header-control" to="/admissions">Apply</Link><Link className="header-control" to="/alumni">Alumni</Link></nav>
+          <button ref={searchButtonRef} aria-label="Search site" type="button" className="header-control" aria-expanded={searchOpen} aria-controls="site-search" onClick={() => { setSearchOpen(value => !value); setMenuOpen(false); }}><Search aria-hidden="true" size={18}/><span>Search</span></button>
+          <button ref={menuButtonRef} type="button" className="header-control menu-toggle" aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => { setMenuOpen(value => !value); setSearchOpen(false); }}>{menuOpen ? <X aria-hidden="true" size={18}/> : <Menu aria-hidden="true" size={18}/>}<span>Menu</span></button>
         </div>
       </div>
-      <nav id="primary-nav" aria-label="Main navigation" className={`container ${menuOpen ? "flex" : "hidden"} flex-col gap-1 pb-4 md:flex md:flex-row md:flex-wrap md:gap-2`}>
+      <nav id="primary-nav" aria-label="Main navigation" className={`container primary-nav ${menuOpen ? "is-open" : ""}`}>
         {primaryNavigation.map(item => <Link key={item.href} to={item.href} aria-current={primarySectionFor(pathname) === item.href ? "page" : undefined} className="nav-item">{item.label}</Link>)}
       </nav>
       {searchOpen && <div id="site-search" className="border-t border-border bg-muted/30"><div className="container py-5">

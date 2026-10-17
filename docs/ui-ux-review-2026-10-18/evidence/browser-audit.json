@@ -1,0 +1,4561 @@
+{
+  "context": "Unmodified production build; Django unavailable; real local fallback/error states; no API fixtures",
+  "browser": "141.0.7390.37",
+  "axe": "4.10.3",
+  "results": [
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 3022,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Department of Computer Applications",
+          "size": "56px",
+          "left": 136
+        },
+        {
+          "tag": "H2",
+          "text": "What would you like to do?",
+          "size": "24px",
+          "left": 136
+        },
+        {
+          "tag": "H2",
+          "text": "News and announcements",
+          "size": "24px",
+          "left": 136
+        },
+        {
+          "tag": "H3",
+          "text": "Upcoming dates",
+          "size": "20px",
+          "left": 950
+        },
+        {
+          "tag": "H2",
+          "text": "Study with us",
+          "size": "24px",
+          "left": 136
+        },
+        {
+          "tag": "H2",
+          "text": "Computer Applications in practice",
+          "size": "24px",
+          "left": 136
+        },
+        {
+          "tag": "H2",
+          "text": "Get to know the department",
+          "size": "24px",
+          "left": 136
+        },
+        {
+          "tag": "H2",
+          "text": "Visit or get in touch",
+          "size": "24px",
+          "left": 136
+        }
+      ],
+      "mainTop": 205,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 4260,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Department of Computer Applications",
+          "size": "56px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "What would you like to do?",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "News and announcements",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Upcoming dates",
+          "size": "20px",
+          "left": 41
+        },
+        {
+          "tag": "H2",
+          "text": "Study with us",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Computer Applications in practice",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Get to know the department",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Visit or get in touch",
+          "size": "24px",
+          "left": 16
+        }
+      ],
+      "mainTop": 325,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 5484,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Department of Computer Applications",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "What would you like to do?",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "News and announcements",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Upcoming dates",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Study with us",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Computer Applications in practice",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Get to know the department",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Visit or get in touch",
+          "size": "24px",
+          "left": 16
+        }
+      ],
+      "mainTop": 283,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 5906,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Department of Computer Applications",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "What would you like to do?",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "News and announcements",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Upcoming dates",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Study with us",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Computer Applications in practice",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Get to know the department",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Visit or get in touch",
+          "size": "24px",
+          "left": 16
+        }
+      ],
+      "mainTop": 267,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/events/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/prototypes/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "programs",
+      "route": "/programs",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 1889,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Academic Programs",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Admissions and program support",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Need help choosing or applying?",
+          "size": "36px",
+          "left": 36
+        }
+      ],
+      "mainTop": 250,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "programs",
+      "route": "/programs",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 2045,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Academic Programs",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Admissions and program support",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Need help choosing or applying?",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 370,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "programs",
+      "route": "/programs",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 3071,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Academic Programs",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Admissions and program support",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Need help choosing or applying?",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 328,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "programs",
+      "route": "/programs",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 3207,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Academic Programs",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Admissions and program support",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Need help choosing or applying?",
+          "size": "30px",
+          "left": 16
+        }
+      ],
+      "mainTop": 312,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "students",
+      "route": "/students/current",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 1999,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Current student services",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Forms, guides and assistance",
+          "size": "24px",
+          "left": 224
+        },
+        {
+          "tag": "H3",
+          "text": "Fill or download thesis and program forms",
+          "size": "18px",
+          "left": 245
+        },
+        {
+          "tag": "H3",
+          "text": "Find registrar forms",
+          "size": "18px",
+          "left": 749
+        },
+        {
+          "tag": "H3",
+          "text": "Follow the thesis process",
+          "size": "18px",
+          "left": 245
+        },
+        {
+          "tag": "H3",
+          "text": "Arrange your BSCA internship",
+          "size": "18px",
+          "left": 749
+        },
+        {
+          "tag": "H3",
+          "text": "Find program documents",
+          "size": "18px",
+          "left": 245
+        },
+        {
+          "tag": "H3",
+          "text": "Ask for academic or learning support",
+          "size": "18px",
+          "left": 749
+        },
+        {
+          "tag": "H2",
+          "text": "Dates and department contacts",
+          "size": "24px",
+          "left": 224
+        },
+        {
+          "tag": "H2",
+          "text": "Learning resources",
+          "size": "20px",
+          "left": 224
+        }
+      ],
+      "mainTop": 250,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "students",
+      "route": "/students/current",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 2272,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Current student services",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Forms, guides and assistance",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Fill or download thesis and program forms",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Find registrar forms",
+          "size": "18px",
+          "left": 413
+        },
+        {
+          "tag": "H3",
+          "text": "Follow the thesis process",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Arrange your BSCA internship",
+          "size": "18px",
+          "left": 413
+        },
+        {
+          "tag": "H3",
+          "text": "Find program documents",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Ask for academic or learning support",
+          "size": "18px",
+          "left": 413
+        },
+        {
+          "tag": "H2",
+          "text": "Dates and department contacts",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Learning resources",
+          "size": "20px",
+          "left": 16
+        }
+      ],
+      "mainTop": 370,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "students",
+      "route": "/students/current",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 3585,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Current student services",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Forms, guides and assistance",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Fill or download thesis and program forms",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Find registrar forms",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Follow the thesis process",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Arrange your BSCA internship",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Find program documents",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Ask for academic or learning support",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Dates and department contacts",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Learning resources",
+          "size": "20px",
+          "left": 16
+        }
+      ],
+      "mainTop": 328,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "students",
+      "route": "/students/current",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 3798,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Current student services",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Forms, guides and assistance",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Fill or download thesis and program forms",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Find registrar forms",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Follow the thesis process",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Arrange your BSCA internship",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Find program documents",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Ask for academic or learning support",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Dates and department contacts",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Learning resources",
+          "size": "20px",
+          "left": 16
+        }
+      ],
+      "mainTop": 312,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "faculty",
+      "route": "/faculty",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 1433,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Faculty & Staff",
+          "size": "36px",
+          "left": 36
+        }
+      ],
+      "mainTop": 250,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "faculty",
+      "route": "/faculty",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 1562,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Faculty & Staff",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 370,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "faculty",
+      "route": "/faculty",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 2220,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Faculty & Staff",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 328,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "faculty",
+      "route": "/faculty",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 2302,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Faculty & Staff",
+          "size": "30px",
+          "left": 16
+        }
+      ],
+      "mainTop": 312,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/faculty/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "contact",
+      "route": "/about/contact",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 2071,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Contact & visit",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "How can we help?",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H3",
+          "text": "Chairperson and office assistance",
+          "size": "20px",
+          "left": 57
+        },
+        {
+          "tag": "H3",
+          "text": "Email the department",
+          "size": "20px",
+          "left": 36
+        },
+        {
+          "tag": "H3",
+          "text": "What to include",
+          "size": "18px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Plan your visit",
+          "size": "36px",
+          "left": 740
+        }
+      ],
+      "mainTop": 250,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "contact",
+      "route": "/about/contact",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 2791,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Contact & visit",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "How can we help?",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Chairperson and office assistance",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Email the department",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "What to include",
+          "size": "18px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Plan your visit",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 370,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "contact",
+      "route": "/about/contact",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 3908,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Contact & visit",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "How can we help?",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Chairperson and office assistance",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Email the department",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "What to include",
+          "size": "18px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Plan your visit",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 328,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "contact",
+      "route": "/about/contact",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 4129,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Contact & visit",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "How can we help?",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Chairperson and office assistance",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Email the department",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "What to include",
+          "size": "18px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Plan your visit",
+          "size": "30px",
+          "left": 16
+        }
+      ],
+      "mainTop": 312,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 28
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/people/organization/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 5154,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Student & faculty resources",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "What do you need to do?",
+          "size": "24px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Fill or download thesis and program forms",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Registrar forms and student services",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Program documents and thesis guidance",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "BSCA SOJT Process Guide",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Embedded Systems & IoT Learning Resources",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H3",
+          "text": "Start with one reading",
+          "size": "20px",
+          "left": 57
+        },
+        {
+          "tag": "H3",
+          "text": "Source, attribution & reuse",
+          "size": "18px",
+          "left": 57
+        },
+        {
+          "tag": "H2",
+          "text": "Contacts and announcements",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Advising and learning support",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H3",
+          "text": "Academic advising",
+          "size": "20px",
+          "left": 36
+        },
+        {
+          "tag": "H3",
+          "text": "Request information about learning support",
+          "size": "20px",
+          "left": 36
+        }
+      ],
+      "mainTop": 250,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 5581,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Student & faculty resources",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "What do you need to do?",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Fill or download thesis and program forms",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Registrar forms and student services",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Program documents and thesis guidance",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "BSCA SOJT Process Guide",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Embedded Systems & IoT Learning Resources",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Start with one reading",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Source, attribution & reuse",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Contacts and announcements",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Advising and learning support",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Academic advising",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Request information about learning support",
+          "size": "20px",
+          "left": 16
+        }
+      ],
+      "mainTop": 370,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 8559,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Student & faculty resources",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "What do you need to do?",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Fill or download thesis and program forms",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Registrar forms and student services",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Program documents and thesis guidance",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "BSCA SOJT Process Guide",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Embedded Systems & IoT Learning Resources",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Start with one reading",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Source, attribution & reuse",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Contacts and announcements",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Advising and learning support",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Academic advising",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Request information about learning support",
+          "size": "20px",
+          "left": 16
+        }
+      ],
+      "mainTop": 328,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "resources",
+      "route": "/resources",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 9443,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Student & faculty resources",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "What do you need to do?",
+          "size": "24px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Fill or download thesis and program forms",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Registrar forms and student services",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Program documents and thesis guidance",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "BSCA SOJT Process Guide",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Embedded Systems & IoT Learning Resources",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Start with one reading",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H3",
+          "text": "Source, attribution & reuse",
+          "size": "18px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Contacts and announcements",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Advising and learning support",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Academic advising",
+          "size": "20px",
+          "left": 16
+        },
+        {
+          "tag": "H3",
+          "text": "Request information about learning support",
+          "size": "20px",
+          "left": 16
+        }
+      ],
+      "mainTop": 312,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/forms/registrar/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/learning-resources/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "research",
+      "route": "/research",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 2803,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Research",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Research project highlights",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Publications",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Research at conferences",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Computing areas in our programs",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Research enquiries",
+          "size": "36px",
+          "left": 36
+        }
+      ],
+      "mainTop": 250,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "research",
+      "route": "/research",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 3130,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Research",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research project highlights",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Publications",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research at conferences",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Computing areas in our programs",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research enquiries",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 370,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "research",
+      "route": "/research",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 4626,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Research",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research project highlights",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Publications",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research at conferences",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Computing areas in our programs",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research enquiries",
+          "size": "36px",
+          "left": 16
+        }
+      ],
+      "mainTop": 328,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "research",
+      "route": "/research",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 4953,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Research",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research project highlights",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Publications",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research at conferences",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Computing areas in our programs",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Research enquiries",
+          "size": "30px",
+          "left": 16
+        }
+      ],
+      "mainTop": 312,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 26
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/projects/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/communications/news/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/conferences/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/research/publications/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "thesis",
+      "route": "/thesis-guide",
+      "width": 1440,
+      "overflow": false,
+      "scrollWidth": 1440,
+      "height": 6777,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Thesis Process Guide",
+          "size": "36px",
+          "left": 36
+        },
+        {
+          "tag": "H2",
+          "text": "Where are you in the process?",
+          "size": "20px",
+          "left": 253
+        },
+        {
+          "tag": "H2",
+          "text": "Panel formation",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Advisory Panel",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H3",
+          "text": "Request for Change of Adviser / Panel Member",
+          "size": "20px",
+          "left": 359
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing application",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Proposal Hearing",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing and approval",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H3",
+          "text": "Approval of Proposal",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H2",
+          "text": "Preparation for final defense",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Oral Examination Panel",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Final Defense",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H2",
+          "text": "Final defense",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H3",
+          "text": "Oral Examination Report in Final Defense",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H3",
+          "text": "Panel Oral Examination Report",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H2",
+          "text": "Post-defense revisions",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H2",
+          "text": "Approval for binding",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Binding",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H2",
+          "text": "Final requirements submission",
+          "size": "24px",
+          "left": 317
+        },
+        {
+          "tag": "H3",
+          "text": "Required for clearance",
+          "size": "16px",
+          "left": 337
+        },
+        {
+          "tag": "H3",
+          "text": "Final requirements submission",
+          "size": "20px",
+          "left": 342
+        },
+        {
+          "tag": "H2",
+          "text": "Completion: Submission accepted and thesis liability cleared",
+          "size": "20px",
+          "left": 245
+        },
+        {
+          "tag": "H2",
+          "text": "Need help with a form?",
+          "size": "24px",
+          "left": 224
+        }
+      ],
+      "mainTop": 250,
+      "navRows": [
+        141
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "nodes": 2
+          }
+        ],
+        "passes": 30
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "thesis",
+      "route": "/thesis-guide",
+      "width": 768,
+      "overflow": false,
+      "scrollWidth": 768,
+      "height": 7492,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Thesis Process Guide",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Where are you in the process?",
+          "size": "20px",
+          "left": 45
+        },
+        {
+          "tag": "H2",
+          "text": "Panel formation",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Advisory Panel",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H3",
+          "text": "Request for Change of Adviser / Panel Member",
+          "size": "20px",
+          "left": 151
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing application",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Proposal Hearing",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing and approval",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H3",
+          "text": "Approval of Proposal",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Preparation for final defense",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Oral Examination Panel",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Final Defense",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Final defense",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H3",
+          "text": "Oral Examination Report in Final Defense",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H3",
+          "text": "Panel Oral Examination Report",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Post-defense revisions",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H2",
+          "text": "Approval for binding",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Binding",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Final requirements submission",
+          "size": "24px",
+          "left": 109
+        },
+        {
+          "tag": "H3",
+          "text": "Required for clearance",
+          "size": "16px",
+          "left": 129
+        },
+        {
+          "tag": "H3",
+          "text": "Final requirements submission",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Completion: Submission accepted and thesis liability cleared",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Need help with a form?",
+          "size": "24px",
+          "left": 16
+        }
+      ],
+      "mainTop": 370,
+      "navRows": [
+        205,
+        261
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "color-contrast",
+            "nodes": 6
+          }
+        ],
+        "passes": 30
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "thesis",
+      "route": "/thesis-guide",
+      "width": 390,
+      "overflow": false,
+      "scrollWidth": 390,
+      "height": 11027,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Thesis Process Guide",
+          "size": "36px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Where are you in the process?",
+          "size": "20px",
+          "left": 45
+        },
+        {
+          "tag": "H2",
+          "text": "Panel formation",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Advisory Panel",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H3",
+          "text": "Request for Change of Adviser / Panel Member",
+          "size": "20px",
+          "left": 151
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing application",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Proposal Hearing",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing and approval",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H3",
+          "text": "Approval of Proposal",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Preparation for final defense",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Oral Examination Panel",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Final Defense",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Final defense",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H3",
+          "text": "Oral Examination Report in Final Defense",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H3",
+          "text": "Panel Oral Examination Report",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Post-defense revisions",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H2",
+          "text": "Approval for binding",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Binding",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Final requirements submission",
+          "size": "24px",
+          "left": 161
+        },
+        {
+          "tag": "H3",
+          "text": "Required for clearance",
+          "size": "16px",
+          "left": 129
+        },
+        {
+          "tag": "H3",
+          "text": "Final requirements submission",
+          "size": "20px",
+          "left": 134
+        },
+        {
+          "tag": "H2",
+          "text": "Completion: Submission accepted and thesis liability cleared",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Need help with a form?",
+          "size": "24px",
+          "left": 16
+        }
+      ],
+      "mainTop": 328,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 30
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    },
+    {
+      "name": "thesis",
+      "route": "/thesis-guide",
+      "width": 320,
+      "overflow": false,
+      "scrollWidth": 320,
+      "height": 10980,
+      "headings": [
+        {
+          "tag": "H1",
+          "text": "Thesis Process Guide",
+          "size": "30px",
+          "left": 16
+        },
+        {
+          "tag": "H2",
+          "text": "Where are you in the process?",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Panel formation",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Advisory Panel",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H3",
+          "text": "Request for Change of Adviser / Panel Member",
+          "size": "20px",
+          "left": 79
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing application",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Proposal Hearing",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H2",
+          "text": "Proposal hearing and approval",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H3",
+          "text": "Approval of Proposal",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H2",
+          "text": "Preparation for final defense",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H3",
+          "text": "Nomination of Members of Oral Examination Panel",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Final Defense",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H2",
+          "text": "Final defense",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H3",
+          "text": "Oral Examination Report in Final Defense",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H3",
+          "text": "Panel Oral Examination Report",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H2",
+          "text": "Post-defense revisions",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H2",
+          "text": "Approval for binding",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H3",
+          "text": "Approval for Binding",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H2",
+          "text": "Final requirements submission",
+          "size": "20px",
+          "left": 89
+        },
+        {
+          "tag": "H3",
+          "text": "Required for clearance",
+          "size": "16px",
+          "left": 57
+        },
+        {
+          "tag": "H3",
+          "text": "Final requirements submission",
+          "size": "20px",
+          "left": 62
+        },
+        {
+          "tag": "H2",
+          "text": "Completion: Submission accepted and thesis liability cleared",
+          "size": "20px",
+          "left": 37
+        },
+        {
+          "tag": "H2",
+          "text": "Need help with a form?",
+          "size": "24px",
+          "left": 16
+        }
+      ],
+      "mainTop": 312,
+      "navRows": [
+        0
+      ],
+      "font": "\"Plus Jakarta Sans\", system-ui, sans-serif",
+      "axe": {
+        "violations": [],
+        "incomplete": [],
+        "passes": 30
+      },
+      "errors": [],
+      "api": [
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/core/site-settings/",
+          "status": 200,
+          "type": "text/html"
+        },
+        {
+          "path": "/api/academics/programs/",
+          "status": 200,
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

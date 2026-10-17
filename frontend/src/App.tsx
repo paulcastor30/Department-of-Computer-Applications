@@ -95,7 +95,7 @@ const App = () => (
       <BrowserRouter>
         <SiteAnalytics />
         <Layout>
-          <Suspense fallback={<p className="container py-12" role="status">Loading page…</p>}>
+          <Suspense fallback={<p className="container route-loading" role="status">Loading page…</p>}>
           <Routes>
             <Route path="/" element={<Index />} />
             
@@ -145,15 +145,15 @@ const App = () => (
             
             {/* Students Routes */}
             <Route path="/resources" element={<Resources />} />
-            <Route path="/sojt-guide" element={<Suspense fallback={<p className="container py-12" role="status">Loading the SOJT Process Guide…</p>}><SOJTGuide /></Suspense>} />
-            <Route path="/thesis-guide" element={<Suspense fallback={<p className="container py-12" role="status">Loading the Thesis Process Guide…</p>}><ThesisGuide /></Suspense>} />
+            <Route path="/sojt-guide" element={<Suspense fallback={<p className="container route-loading" role="status">Loading the SOJT Process Guide…</p>}><SOJTGuide /></Suspense>} />
+            <Route path="/thesis-guide" element={<Suspense fallback={<p className="container route-loading" role="status">Loading the Thesis Process Guide…</p>}><ThesisGuide /></Suspense>} />
             <Route path="/students/current" element={<CurrentStudents />} />
             <Route path="/students/prospective" element={<ProspectiveStudents />} />
             <Route path="/students/organizations" element={<Organizations />} />
             
             {/* Other Routes */}
             <Route path="/admissions" element={<Admissions />} />
-            <Route path="/admissions/transfer-evaluation" element={<Suspense fallback={<p role="status" className="p-8">Loading evaluation portal…</p>}><TransferEvaluationPortal /></Suspense>} />
+            <Route path="/admissions/transfer-evaluation" element={<Suspense fallback={<p role="status" className="container route-loading">Loading evaluation portal…</p>}><TransferEvaluationPortal /></Suspense>} />
             <Route path="/admissions/apply" element={<Admissions />} />
             <Route path="/admissions/request-info" element={<Admissions />} />
             <Route path="/alumni" element={<Alumni />} />

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Seo } from "@/components/Seo";
 import { PageHero } from "@/components/ui/hero-section";
+import { TaskList } from "@/components/ui/task-list";
 
 const tasks = [
   {title:"Fill or download thesis and program forms", description:"Select BSCA or MSCA and the form you need.", href:"/resources#student-forms"},
@@ -14,12 +15,18 @@ export default function CurrentStudents() {
   return <>
     <Seo title="Current student services" description="Find BSCA and MSCA forms, thesis and internship guides, program documents, academic contacts and department dates." />
     <PageHero title="Current student services" subtitle="Choose the task you need to complete." />
-    <section className="container max-w-5xl py-10" aria-labelledby="student-tasks-heading">
-      <h2 id="student-tasks-heading" className="text-2xl font-semibold">Forms, guides and assistance</h2>
-      <ul className="mt-6 grid gap-4 md:grid-cols-2">{tasks.map(task => <li key={task.href}><Link className="block h-full rounded-md border border-border p-5 hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring" to={task.href}><h3 className="text-lg font-semibold text-primary underline underline-offset-4">{task.title}</h3><p className="mt-2 leading-7 text-muted-foreground">{task.description}</p></Link></li>)}</ul>
-      <nav aria-label="Thesis guides by degree" className="mt-6 flex flex-wrap gap-3"><Link className="outline-link" to="/thesis-guide?program=BSCA">BSCA Thesis Process Guide</Link><Link className="outline-link" to="/thesis-guide?program=MSCA">MSCA Thesis Process Guide</Link></nav>
-      <section className="mt-10 border-t border-border pt-8" aria-labelledby="student-dates-heading"><h2 id="student-dates-heading" className="text-2xl font-semibold">Dates and department contacts</h2><nav aria-label="Student dates and contacts" className="mt-4 flex flex-wrap gap-3"><Link className="outline-link" to="/news/events">Upcoming events and deadlines</Link><Link className="outline-link" to="/news">Department announcements</Link><Link className="outline-link" to="/faculty">Faculty and staff contacts</Link><Link className="outline-link" to="/about/contact">Department office</Link></nav></section>
-      <section className="mt-8" aria-labelledby="student-learning-heading"><h2 id="student-learning-heading" className="text-xl font-semibold">Learning resources</h2><p className="mt-3 leading-7">Explore materials for embedded systems, IoT and related study areas.</p><Link className="text-link mt-3 inline-flex min-h-11 items-center" to="/resources#learning-resources">Browse learning resources</Link></section>
-    </section>
+    <div className="container student-services">
+      <div className="service-width">
+        <section aria-labelledby="student-tasks-heading">
+          <h2 id="student-tasks-heading" className="section-title">Forms, guides and assistance</h2>
+          <TaskList tasks={tasks} />
+          <nav aria-label="Thesis guides by degree" className="related-links"><Link className="text-link" to="/thesis-guide?program=BSCA">BSCA Thesis Process Guide</Link><Link className="text-link" to="/thesis-guide?program=MSCA">MSCA Thesis Process Guide</Link></nav>
+        </section>
+        <div className="student-support-grid">
+          <section aria-labelledby="student-dates-heading"><h2 id="student-dates-heading" className="section-title">Dates and department contacts</h2><nav aria-label="Student dates and contacts" className="mt-4 flex flex-col items-start gap-2"><Link className="action-link" to="/news/events">Upcoming events and deadlines</Link><Link className="text-link inline-flex min-h-11 items-center" to="/news">Department announcements</Link><Link className="text-link inline-flex min-h-11 items-center" to="/faculty">Faculty and staff contacts</Link><Link className="text-link inline-flex min-h-11 items-center" to="/about/contact">Department office</Link></nav></section>
+          <section aria-labelledby="student-learning-heading"><h2 id="student-learning-heading" className="section-title">Learning resources</h2><p className="mt-3 reading-width">Explore materials for embedded systems, IoT and related study areas.</p><Link className="text-link mt-3 inline-flex min-h-11 items-center" to="/resources#learning-resources">Browse learning resources</Link></section>
+        </div>
+      </div>
+    </div>
   </>;
 }

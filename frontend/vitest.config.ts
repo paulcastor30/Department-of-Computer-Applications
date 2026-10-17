@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig({
-  test: { environment: "jsdom", setupFiles: ["./src/test/setup.ts"] },
+  test: { environment: "jsdom", setupFiles: ["./src/test/setup.ts"], include: ["src/**/*.test.{ts,tsx}"] },
   server: {
     host: "::",
     port: 8080,
