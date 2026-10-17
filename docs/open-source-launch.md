@@ -7,4 +7,4 @@
 - Configure GitHub to require a pull request review and the existing `frontend-quality` and `backend-quality` checks before merging to `main`.
 - Have a student try the setup from a fresh clone and record where they get stuck.
 
-These GitHub settings have not been configured by the documentation changes. The CI workflow is in [`.github/workflows/ci.yml`](../.github/workflows/ci.yml).
+These GitHub settings have not been configured by the documentation changes. Branch cleanup and merge checks are explained in [repository maintenance](maintenance.md). The CI workflow is in [`.github/workflows/ci.yml`](../.github/workflows/ci.yml).

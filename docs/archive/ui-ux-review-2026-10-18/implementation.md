@@ -52,4 +52,4 @@ The browser suite uses deterministic test-only API fixtures; the local runtime s
 
 The homepage content arrangement, decorative banner, original logo file and remote production font delivery are retained for the separate performance/homepage increment. Faculty, collection and form layouts remain separate template migrations, apart from their inherited shared shell, page headers, tokens and controls. The large footer is also retained for a later layout increment.
 
-Run instructions and baseline-review policy are in [the browser-test README](../../frontend/e2e/README.md). No commit, push or deployment was performed.
+Run instructions and baseline-review policy are in [the browser-test README](../../../frontend/e2e/README.md). No commit, push or deployment was performed.

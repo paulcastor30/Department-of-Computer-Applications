@@ -15,8 +15,11 @@ Apps are under `apps/`:
 - `research`: projects, publications, and conference records.
 - `extension`: extension projects.
 - `quality`: evidence documents.
+- `alumni`: alumni tracing, career updates, private access keys, and staff reports.
 
-Within each app, `models.py` defines the database records, `admin.py` configures their editing screens, `serializers.py` defines the API fields, and `views.py` handles requests. `api_urls.py` maps URLs to views; `tests.py` contains tests.
+Within each app, `models.py` defines the database records, `admin.py` configures their editing screens, `serializers.py` defines the API fields, and `views.py` handles requests. `api_urls.py` maps URLs to views; `tests.py` and `test_*.py` contain tests.
+
+The academics app also has specialized modules: `evaluation_models.py`, `evaluation_views.py`, and `evaluation_admin.py` handle transfer evaluation; `form_filling.py` and related form schemas generate filled documents. Follow the [task map](../docs/README.md#find-the-right-file) for their feature guides.
 
 ## Local admin
 
@@ -28,7 +31,7 @@ python manage.py createsuperuser
 
 Start Django and open `http://127.0.0.1:8000/admin/`. The account you create belongs to your local database.
 
-To create the existing editorial permission groups:
+To create the existing editorial permission groups in your local database (rerunning replaces those groups’ permission sets):
 
 ```bash
 python manage.py setup_roles
@@ -47,16 +50,14 @@ Include the generated migration file in your pull request. Add a new migration f
 
 ## Faculty and department activities
 
-Research projects, publications, conference records, and extension projects are stored as department records. `FacultyContribution` links people to those records. See [the content workflow](../docs/institutional-contributions-and-ci.md) before changing these relationships.
+Research projects, publications, conference records, and extension projects are stored as department records. `FacultyContribution` links people to those records. See [the content workflow](../docs/institutional-contributions.md) before changing these relationships.
 
 ## Checks
 
-Run from this folder with your Python environment active:
+With your Python environment active, run from this folder:
 
 ```bash
-python manage.py check
-python manage.py makemigrations --check --dry-run
-python manage.py test
+python scripts/check.py
 ```
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md) for submitting a change.
+The runner uses a temporary database, prepares static files, and runs the same checks as CI. See [Testing](../docs/testing.md#backend) for individual app tests and migration checks, and [CONTRIBUTING.md](../CONTRIBUTING.md) for submitting a change.
